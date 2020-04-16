@@ -211,14 +211,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="diary_fill" width="128" height="128"/>
-        <image name="fish_fill" width="128" height="128"/>
-        <image name="food-time" width="128" height="128"/>
-        <image name="meat_fill" width="128" height="128"/>
-        <image name="spyci_fill" width="128" height="128"/>
+        <image name="diary_fill" width="284" height="512"/>
+        <image name="fish_fill" width="511" height="511"/>
+        <image name="food-time" width="200" height="200"/>
+        <image name="meat_fill" width="424" height="512"/>
+        <image name="spyci_fill" width="369" height="512"/>
         <image name="tray.2.fill" catalog="system" width="128" height="114"/>
-        <image name="vegan_fill" width="128" height="128"/>
-        <image name="vegetarian_fill" width="128" height="128"/>
-        <image name="wheat_fill" width="128" height="128"/>
+        <image name="vegan_fill" width="470" height="427"/>
+        <image name="vegetarian_fill" width="369" height="400"/>
+        <image name="wheat_fill" width="512" height="512"/>
     </resources>
 </document>
