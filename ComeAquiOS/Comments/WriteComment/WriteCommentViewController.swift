@@ -18,7 +18,8 @@ class WriteCommentViewController: KUIViewController, UITextFieldDelegate {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var bcfkb: NSLayoutConstraint!
     
-    var comment: Comment!
+    var comment: Comment?
+    var foodPost: Comment?
     var originalHeight: CGFloat!
     
     var delegate: AddCommentDelegate?
@@ -32,11 +33,42 @@ class WriteCommentViewController: KUIViewController, UITextFieldDelegate {
     }
     
     @IBAction func submitPress(_ sender: Any) {
-        let newComment = Comment(textView.text!, comment)
-        delegate?.commentAdded(newComment: newComment)
-        self.dismiss(animated: true)
+        postComment()
     }
 }
+extension WriteCommentViewController{
+    func postComment(){
+        var request = getRequestWithAuth("/food_post_comment/\(self.comment!.id!)/")
+        var json = [String:Any]()
+        json["post_id"] = foodPost?.id ?? nil
+        json["comment_id"] = self.comment?.id ?? nil
+        json["message"] = textView.text!
+        do {
+            let data = try JSONSerialization.data(withJSONObject: json, options: [])
+            request.httpMethod = "POST"
+            request.httpBody = data
+            let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
+                // your stuff here
+                guard let data = data else {
+                    return
+                }
+                do {
+                    guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
+                    DispatchQueue.main.async {
+                        let newComment = Comment(json: json, parent: self.comment)
+                        self.delegate?.commentAdded(newComment: newComment)
+                        self.dismiss(animated: true)
+                    }
+                } catch let jsonErr {
+                    print("json could'nt be parsed \(jsonErr)")
+                }
+            })
+            task.resume()
+        }catch{
+        }
+    }
+}
+
 extension WriteCommentViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {

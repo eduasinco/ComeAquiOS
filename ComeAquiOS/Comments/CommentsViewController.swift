@@ -74,27 +74,6 @@ public class Comment {
         self.depth = parent.depth + 1
         self.isMaxDepth = true
     }
-    
-    
-    init(_ comment: String, _ parent: Comment?) {
-        self.id = Comment.incrId()
-        self.comment = comment
-        self.parent = parent
-        
-        if let parent = self.parent {
-            self.depth = parent.depth + 1
-            parent.comments.append(self)
-            if parent.comments.count == MAX_LENGTH {
-                Comment(parent: parent, maxLength: 1 + Int(arc4random_uniform(2)))
-            }
-        } else {
-            self.depth = 0
-        }
-        
-        if self.depth % MAX_DEPTH == 0 && self.depth != 0 {
-            Comment(parent: self)
-        }
-    }
 }
 
 class CommentsViewController: UIViewController {
@@ -142,28 +121,6 @@ class CommentsViewController: UIViewController {
         return randomString
     }
     
-    func createRandomComments(deep: Int = ACTUAL_DEPTH, long: Int = ACTUAL_LENGTH, parent: Comment? = nil) -> [Comment]{
-        var comments: [Comment] = []
-        for n in 0..<long{
-            if let parent = parent {
-                comments.append(Comment("\(parent.depth + 1)-\(n) " + randomString(), parent))
-            } else {
-                comments.append(Comment("0-\(n) " + randomString(), parent))
-            }
-        }
-        var cc = comments
-        while cc[0].depth < deep && (cc[0].depth == 0 || cc[0].depth % MAX_DEPTH != 0) {
-            var new_comments: [Comment] = []
-            for comment in cc {
-                for n in 0..<long{
-                    let c = Comment("\(comment.depth + 1)-\(n) " + randomString(), comment)
-                    new_comments.append(c)
-                }
-            }
-            cc = new_comments
-        }
-        return comments
-    }
     func linearizeAllComments(_ comments: [Comment]){
         var q: [Comment] = []
         for c in comments.reversed(){
@@ -241,7 +198,7 @@ extension CommentsViewController: AddCommentDelegate {
             destVC.delegate = self
         } else if segue.identifier == "SelfSegue"{
             let destVC = segue.destination as! CommentsViewController
-            destVC.comments = [sender as! Comment]
+            destVC.commentId = (sender as! Comment).id!
         }
     }
 }
@@ -251,19 +208,11 @@ extension CommentsViewController: AddOrDeleteDelegate {
         let ip = self.tableView.indexPath(for: cell)
         guard let indexPath = ip else { return }
         let selectedCom: Comment = _currentlyDisplayed[indexPath.row]
-        let selectedIndex = indexPath.row
-        
         getMoreComments(comment: selectedCom, nLasts: selectedCom.isMaxLength, indexPath: indexPath)
     }
     
     func continueConversation(comment: Comment, cell: CommentsTableViewCell) {
-        let ip = self.tableView.indexPath(for: cell)
-        guard let indexPath = ip else { return }
-        let selectedCom: Comment = _currentlyDisplayed[indexPath.row]
-        let selectedIndex = indexPath.row
-        
-        let commentToSend = Comment(comment.parent!.comment, nil)
-        performSegue(withIdentifier: "SelfSegue", sender: commentToSend)
+        performSegue(withIdentifier: "SelfSegue", sender: comment.parent!)
     }
     
     func add(comment: Comment, cell: UITableViewCell) {
