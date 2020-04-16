@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Comments View Controller-->
+        <scene sceneID="TMo-Gf-odq">
+            <objects>
+                <viewController storyboardIdentifier="CommentView" id="B0Z-6c-5YJ" customClass="CommentsViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zS5-wl-yap">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rWr-oK-aM0" customClass="MyOwnTableView" customModule="ComeAquiOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="dj5-ga-0gT"/>
+                                </constraints>
+                                <color key="separatorColor" red="0.0" green="0.5447398671" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="0.01121367516" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rWr-oK-aM0" firstAttribute="leading" secondItem="44F-K3-MiH" secondAttribute="leading" id="7pz-MF-fHF"/>
+                            <constraint firstItem="rWr-oK-aM0" firstAttribute="trailing" secondItem="44F-K3-MiH" secondAttribute="trailing" id="eec-Z0-dZa"/>
+                            <constraint firstItem="rWr-oK-aM0" firstAttribute="top" secondItem="44F-K3-MiH" secondAttribute="top" id="kz3-Gg-7Gl"/>
+                            <constraint firstItem="44F-K3-MiH" firstAttribute="bottom" secondItem="rWr-oK-aM0" secondAttribute="bottom" id="mmV-3F-Q9m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="44F-K3-MiH"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableHeightConstraint" destination="dj5-ga-0gT" id="YuG-FZ-zSJ"/>
+                        <outlet property="tableView" destination="rWr-oK-aM0" id="OzW-Dm-5fK"/>
+                        <segue destination="x64-83-tMb" kind="show" identifier="SelfSegue" id="d0A-6d-V9j"/>
+                        <segue destination="Atz-sr-9Y5" kind="show" identifier="goToWriteComment" id="e9G-f6-W2a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xLH-Cu-bva" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="211.59420289855075" y="129.91071428571428"/>
+        </scene>
+        <!--WriteComment-->
+        <scene sceneID="cRD-ca-cm0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WriteCommentStoryboard" referencedIdentifier="WriteComment" id="Atz-sr-9Y5" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aEW-Zn-ieR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EFW-B7-4qq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="985" y="-5"/>
+        </scene>
+        <!--CommentView-->
+        <scene sceneID="BGa-cB-TfF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CommentsStoryboard" referencedIdentifier="CommentView" id="x64-83-tMb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ykm-Av-rrD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ay-c4-iUY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="983" y="130"/>
+        </scene>
+    </scenes>
+</document>

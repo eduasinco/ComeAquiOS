@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B14F1A31705743CEB43F983 /* libPods-ComeAquiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 768E53CF6B78A130CD0485CE /* libPods-ComeAquiOS.a */; };
 		87FC9E7A2447FF6200810ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E792447FF6200810ECF /* AppDelegate.swift */; };
 		87FC9E7C2447FF6200810ECF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E7B2447FF6200810ECF /* SceneDelegate.swift */; };
 		87FC9E7E2447FF6200810ECF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E7D2447FF6200810ECF /* ViewController.swift */; };
@@ -21,12 +22,35 @@
 		87FC9EA12448018700810ECF /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EA02448018700810ECF /* CustomTableViewCell.swift */; };
 		87FC9EA3244801A100810ECF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EA2244801A100810ECF /* ProfileViewController.swift */; };
 		87FC9EA5244801AE00810ECF /* ProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9EA4244801AE00810ECF /* ProfileStoryboard.storyboard */; };
-		FCEE3B8A812B50B63C46D1FD /* Pods_ComeAquiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646F14290669C4E9742E78A3 /* Pods_ComeAquiOS.framework */; };
+		87FC9EA7244801FD00810ECF /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EA6244801FD00810ECF /* NotificationsViewController.swift */; };
+		87FC9EA92448020D00810ECF /* NotificationsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9EA82448020D00810ECF /* NotificationsStoryboard.storyboard */; };
+		87FC9EAB2448026800810ECF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EAA2448026800810ECF /* TableViewCell.swift */; };
+		87FC9EAD2448028500810ECF /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EAC2448028500810ECF /* OrdersViewController.swift */; };
+		87FC9EAF2448029200810ECF /* OrdersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9EAE2448029200810ECF /* OrdersStoryboard.storyboard */; };
+		87FC9EB42448030E00810ECF /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EB22448030E00810ECF /* LoadingCell.swift */; };
+		87FC9EB52448030E00810ECF /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9EB32448030E00810ECF /* LoadingCell.xib */; };
+		87FC9EB72448033C00810ECF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EB62448033C00810ECF /* MapViewController.swift */; };
+		87FC9EB92448034B00810ECF /* MapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9EB82448034B00810ECF /* MapStoryboard.storyboard */; };
+		87FC9EBB2448038900810ECF /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EBA2448038900810ECF /* TypesViewController.swift */; };
+		87FC9EBD2448039B00810ECF /* RateStarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EBC2448039B00810ECF /* RateStarViewController.swift */; };
+		87FC9EC0244804A100810ECF /* FoodLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EBF244804A100810ECF /* FoodLookViewController.swift */; };
+		87FC9EC2244804C300810ECF /* FoodLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9EC1244804C300810ECF /* FoodLookStoryboard.storyboard */; };
+		87FC9EC4244804DD00810ECF /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EC3244804DD00810ECF /* Strings.swift */; };
+		87FC9EC6244804F500810ECF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EC5244804F500810ECF /* Extensions.swift */; };
+		87FC9EC8244804FF00810ECF /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EC7244804FF00810ECF /* Objects.swift */; };
+		87FC9ECA2448050A00810ECF /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EC92448050A00810ECF /* Classes.swift */; };
+		87FC9ECC2448051900810ECF /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9ECB2448051900810ECF /* DateFormatting.swift */; };
+		87FC9ECE2448055D00810ECF /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9ECD2448055D00810ECF /* CommentsViewController.swift */; };
+		87FC9ED3244805AC00810ECF /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9ED1244805AC00810ECF /* CommentsTableViewCell.swift */; };
+		87FC9ED4244805AC00810ECF /* CommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9ED2244805AC00810ECF /* CommentsTableViewCell.xib */; };
+		87FC9ED6244805D200810ECF /* CommentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9ED5244805D200810ECF /* CommentsStoryboard.storyboard */; };
+		87FC9ED9244805FE00810ECF /* WriteCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9ED8244805FE00810ECF /* WriteCommentViewController.swift */; };
+		87FC9EDB2448060900810ECF /* WriteCommentStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9EDA2448060900810ECF /* WriteCommentStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C7EACD69E5F0043056F81B3 /* Pods-ComeAquiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComeAquiOS.release.xcconfig"; path = "Target Support Files/Pods-ComeAquiOS/Pods-ComeAquiOS.release.xcconfig"; sourceTree = "<group>"; };
-		646F14290669C4E9742E78A3 /* Pods_ComeAquiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComeAquiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		768E53CF6B78A130CD0485CE /* libPods-ComeAquiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ComeAquiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FC9E762447FF6200810ECF /* ComeAquiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComeAquiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FC9E792447FF6200810ECF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87FC9E7B2447FF6200810ECF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +67,30 @@
 		87FC9EA02448018700810ECF /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		87FC9EA2244801A100810ECF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		87FC9EA4244801AE00810ECF /* ProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileStoryboard.storyboard; sourceTree = "<group>"; };
+		87FC9EA6244801FD00810ECF /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		87FC9EA82448020D00810ECF /* NotificationsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationsStoryboard.storyboard; sourceTree = "<group>"; };
+		87FC9EAA2448026800810ECF /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		87FC9EAC2448028500810ECF /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
+		87FC9EAE2448029200810ECF /* OrdersStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrdersStoryboard.storyboard; sourceTree = "<group>"; };
+		87FC9EB22448030E00810ECF /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		87FC9EB32448030E00810ECF /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		87FC9EB62448033C00810ECF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		87FC9EB82448034B00810ECF /* MapStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapStoryboard.storyboard; sourceTree = "<group>"; };
+		87FC9EBA2448038900810ECF /* TypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesViewController.swift; sourceTree = "<group>"; };
+		87FC9EBC2448039B00810ECF /* RateStarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateStarViewController.swift; sourceTree = "<group>"; };
+		87FC9EBF244804A100810ECF /* FoodLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLookViewController.swift; sourceTree = "<group>"; };
+		87FC9EC1244804C300810ECF /* FoodLookStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodLookStoryboard.storyboard; sourceTree = "<group>"; };
+		87FC9EC3244804DD00810ECF /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		87FC9EC5244804F500810ECF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		87FC9EC7244804FF00810ECF /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
+		87FC9EC92448050A00810ECF /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
+		87FC9ECB2448051900810ECF /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
+		87FC9ECD2448055D00810ECF /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		87FC9ED1244805AC00810ECF /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
+		87FC9ED2244805AC00810ECF /* CommentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsTableViewCell.xib; sourceTree = "<group>"; };
+		87FC9ED5244805D200810ECF /* CommentsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentsStoryboard.storyboard; sourceTree = "<group>"; };
+		87FC9ED8244805FE00810ECF /* WriteCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCommentViewController.swift; sourceTree = "<group>"; };
+		87FC9EDA2448060900810ECF /* WriteCommentStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WriteCommentStoryboard.storyboard; sourceTree = "<group>"; };
 		EE35396FEB851C07CF98D0E9 /* Pods-ComeAquiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComeAquiOS.debug.xcconfig"; path = "Target Support Files/Pods-ComeAquiOS/Pods-ComeAquiOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCEE3B8A812B50B63C46D1FD /* Pods_ComeAquiOS.framework in Frameworks */,
+				1B14F1A31705743CEB43F983 /* libPods-ComeAquiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +179,8 @@
 		87FC9E92244800A500810ECF /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				87FC9EA6244801FD00810ECF /* NotificationsViewController.swift */,
+				87FC9EA82448020D00810ECF /* NotificationsStoryboard.storyboard */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -138,6 +188,11 @@
 		87FC9E93244800AD00810ECF /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				87FC9EAA2448026800810ECF /* TableViewCell.swift */,
+				87FC9EAC2448028500810ECF /* OrdersViewController.swift */,
+				87FC9EAE2448029200810ECF /* OrdersStoryboard.storyboard */,
+				87FC9EB22448030E00810ECF /* LoadingCell.swift */,
+				87FC9EB32448030E00810ECF /* LoadingCell.xib */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -145,6 +200,8 @@
 		87FC9E94244800B000810ECF /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				87FC9EB62448033C00810ECF /* MapViewController.swift */,
+				87FC9EB82448034B00810ECF /* MapStoryboard.storyboard */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -152,6 +209,9 @@
 		87FC9E95244800B200810ECF /* General */ = {
 			isa = PBXGroup;
 			children = (
+				87FC9EBE244803B600810ECF /* FoodLook */,
+				87FC9EBA2448038900810ECF /* TypesViewController.swift */,
+				87FC9EBC2448039B00810ECF /* RateStarViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -159,6 +219,11 @@
 		87FC9E96244800B400810ECF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				87FC9EC3244804DD00810ECF /* Strings.swift */,
+				87FC9EC5244804F500810ECF /* Extensions.swift */,
+				87FC9EC7244804FF00810ECF /* Objects.swift */,
+				87FC9EC92448050A00810ECF /* Classes.swift */,
+				87FC9ECB2448051900810ECF /* DateFormatting.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -166,14 +231,37 @@
 		87FC9E97244800B700810ECF /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				87FC9ED7244805E300810ECF /* WriteComment */,
+				87FC9ECD2448055D00810ECF /* CommentsViewController.swift */,
+				87FC9ED1244805AC00810ECF /* CommentsTableViewCell.swift */,
+				87FC9ED2244805AC00810ECF /* CommentsTableViewCell.xib */,
+				87FC9ED5244805D200810ECF /* CommentsStoryboard.storyboard */,
 			);
 			path = Comments;
+			sourceTree = "<group>";
+		};
+		87FC9EBE244803B600810ECF /* FoodLook */ = {
+			isa = PBXGroup;
+			children = (
+				87FC9EBF244804A100810ECF /* FoodLookViewController.swift */,
+				87FC9EC1244804C300810ECF /* FoodLookStoryboard.storyboard */,
+			);
+			path = FoodLook;
+			sourceTree = "<group>";
+		};
+		87FC9ED7244805E300810ECF /* WriteComment */ = {
+			isa = PBXGroup;
+			children = (
+				87FC9ED8244805FE00810ECF /* WriteCommentViewController.swift */,
+				87FC9EDA2448060900810ECF /* WriteCommentStoryboard.storyboard */,
+			);
+			path = WriteComment;
 			sourceTree = "<group>";
 		};
 		A93E424EAEEC1954E6F6AD45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				646F14290669C4E9742E78A3 /* Pods_ComeAquiOS.framework */,
+				768E53CF6B78A130CD0485CE /* libPods-ComeAquiOS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -198,6 +286,7 @@
 				87FC9E722447FF6200810ECF /* Sources */,
 				87FC9E732447FF6200810ECF /* Frameworks */,
 				87FC9E742447FF6200810ECF /* Resources */,
+				78DD2E3BA467D96D220BD4E8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,10 +335,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87FC9ED4244805AC00810ECF /* CommentsTableViewCell.xib in Resources */,
 				87FC9E862447FF6300810ECF /* LaunchScreen.storyboard in Resources */,
 				87FC9E832447FF6300810ECF /* Assets.xcassets in Resources */,
+				87FC9EDB2448060900810ECF /* WriteCommentStoryboard.storyboard in Resources */,
+				87FC9ED6244805D200810ECF /* CommentsStoryboard.storyboard in Resources */,
+				87FC9EA92448020D00810ECF /* NotificationsStoryboard.storyboard in Resources */,
+				87FC9EAF2448029200810ECF /* OrdersStoryboard.storyboard in Resources */,
 				87FC9E812447FF6200810ECF /* Main.storyboard in Resources */,
 				87FC9E9F2448014500810ECF /* LoginOrRegisterStoryboard.storyboard in Resources */,
+				87FC9EC2244804C300810ECF /* FoodLookStoryboard.storyboard in Resources */,
+				87FC9EB92448034B00810ECF /* MapStoryboard.storyboard in Resources */,
+				87FC9EB52448030E00810ECF /* LoadingCell.xib in Resources */,
 				87FC9EA5244801AE00810ECF /* ProfileStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +376,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		78DD2E3BA467D96D220BD4E8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ComeAquiOS/Pods-ComeAquiOS-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ComeAquiOS/Pods-ComeAquiOS-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ComeAquiOS/Pods-ComeAquiOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -288,13 +402,29 @@
 			files = (
 				87FC9E9B2448011900810ECF /* LoginViewController.swift in Sources */,
 				87FC9E7E2447FF6200810ECF /* ViewController.swift in Sources */,
+				87FC9ECC2448051900810ECF /* DateFormatting.swift in Sources */,
+				87FC9EBB2448038900810ECF /* TypesViewController.swift in Sources */,
 				87FC9EA12448018700810ECF /* CustomTableViewCell.swift in Sources */,
 				87FC9E9D2448012800810ECF /* RegisterViewController.swift in Sources */,
 				87FC9E99244800FE00810ECF /* LoginOrRegisterViewController.swift in Sources */,
+				87FC9ED3244805AC00810ECF /* CommentsTableViewCell.swift in Sources */,
+				87FC9EC8244804FF00810ECF /* Objects.swift in Sources */,
+				87FC9EA7244801FD00810ECF /* NotificationsViewController.swift in Sources */,
+				87FC9ECA2448050A00810ECF /* Classes.swift in Sources */,
+				87FC9EC6244804F500810ECF /* Extensions.swift in Sources */,
+				87FC9EAB2448026800810ECF /* TableViewCell.swift in Sources */,
+				87FC9EB42448030E00810ECF /* LoadingCell.swift in Sources */,
+				87FC9EAD2448028500810ECF /* OrdersViewController.swift in Sources */,
+				87FC9ECE2448055D00810ECF /* CommentsViewController.swift in Sources */,
+				87FC9ED9244805FE00810ECF /* WriteCommentViewController.swift in Sources */,
+				87FC9EC4244804DD00810ECF /* Strings.swift in Sources */,
+				87FC9EC0244804A100810ECF /* FoodLookViewController.swift in Sources */,
 				87FC9E7A2447FF6200810ECF /* AppDelegate.swift in Sources */,
 				87FC9EA3244801A100810ECF /* ProfileViewController.swift in Sources */,
+				87FC9EBD2448039B00810ECF /* RateStarViewController.swift in Sources */,
 				87FC9E8F2448007100810ECF /* Server.swift in Sources */,
 				87FC9E7C2447FF6200810ECF /* SceneDelegate.swift in Sources */,
+				87FC9EB72448033C00810ECF /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
