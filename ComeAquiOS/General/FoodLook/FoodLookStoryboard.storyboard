@@ -169,7 +169,7 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="lD3-Bw-muY"/>
                                                 </constraints>
                                                 <connections>
-                                                    <segue destination="pmz-HQ-0PB" kind="embed" id="f0O-YR-LFh"/>
+                                                    <segue destination="pmz-HQ-0PB" kind="embed" identifier="CommentSegue" id="f0O-YR-LFh"/>
                                                 </connections>
                                             </containerView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7V-1Z-0mI">

@@ -14,11 +14,15 @@ let ACTUAL_DEPTH = 3
 let ACTUAL_LENGTH = 3
 
 public class Comment {
-    let id: Int!
+    var id: Int!
     var comment: String!
     var comments: [Comment] = []
     var depth: Int!
     var parent: Comment?
+    
+    var is_user_upvote = false
+    var votes_n: Int!
+    var is_last: Bool!
     
     var isMaxDepth = false
     var isMaxLength = 0
@@ -29,6 +33,54 @@ public class Comment {
         self.count += 1
         return self.count
     }
+    
+    init (json: [String: Any], parent: Comment?){
+        self.id = json["id"] as? Int
+        self.comment = json["message"] as? String
+        self.depth = json["depth"] as? Int
+        self.votes_n = json["votes_n"] as? Int
+        self.is_last = json["is_last"] as? Bool
+
+        self.is_user_upvote = json["is_user_upvote"] as? Bool ?? false
+        self.isMaxDepth = json["is_max_depth"] as? Bool ?? false
+        self.parent = parent
+        
+        for c in json["replies"] as! [Any] {
+            if let n = c as? Int {
+                self.comments.append(Comment(parent: self, maxLength: n))
+            } else {
+                self.comments.append(Comment(json: c as! [String: Any], parent: self))
+            }
+        }
+        
+        if self.isMaxDepth {
+            Comment(parent: self)
+            self.isMaxDepth = false
+        }
+    }
+    
+    init(parent: Comment?, maxLength: Int) {
+        self.comment = ""
+        self.parent = parent
+        self.id = 0
+        if let parent = self.parent{
+            self.id = parent.comments[parent.comments.count - 1].id
+            self.depth = parent.depth + 1
+        } else {
+            self.depth = 0
+        }
+        self.isMaxLength = maxLength
+    }
+    
+    init(parent: Comment) {
+        self.id = Comment.incrId()
+        self.comment = ""
+        self.parent = parent
+        self.depth = parent.depth + 1
+        self.isMaxDepth = true
+        parent.comments.append(self)
+    }
+    
     
     init(_ comment: String, _ parent: Comment?) {
         self.id = Comment.incrId()
@@ -46,26 +98,8 @@ public class Comment {
         }
         
         if self.depth % MAX_DEPTH == 0 && self.depth != 0 {
-            Comment(comment: self)
+            Comment(parent: self)
         }
-    }
-    
-    init(parent: Comment!, maxLength: Int) {
-        self.id = Comment.incrId()
-        self.comment = ""
-        self.parent = parent
-        self.depth = parent.depth + 1
-        self.isMaxLength = maxLength
-        parent.comments.append(self)
-    }
-    
-    init(comment: Comment) {
-        self.id = Comment.incrId()
-        self.comment = ""
-        self.parent = comment
-        self.depth = comment.depth + 1
-        self.isMaxDepth = true
-        comment.comments.append(self)
     }
 }
 
@@ -77,6 +111,9 @@ class CommentsViewController: UIViewController {
     var makeExpandedCellsVisible: Bool = true
     var currentCell: UITableViewCell?
     var comments: [Comment] = []
+    
+    var foodPostId: Int?
+    var commentId: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,10 +123,10 @@ class CommentsViewController: UIViewController {
         tableView.isScrollEnabled = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
-        if comments.count == 0 {
-            self.comments = createRandomComments()
-        }
-        linearizeComments(comments)
+//        if comments.count == 0 {
+//            self.comments = createRandomComments()
+//        }
+        getComments()
     }
     func randomString() -> String {
         let letters : NSString = "abcdefghijklmnopqrstuvwxyz        "
@@ -209,17 +246,8 @@ extension CommentsViewController: AddOrDeleteDelegate {
         self._currentlyDisplayed.remove(at: selectedIndex)
         tableView.deleteRows(at: [IndexPath(row: selectedIndex, section: indexPath.section)], with: .bottom)
         delteComemnt(comment: selectedCom)
-
-        var commentsToAdd: [Comment] = []
-        commentsToAdd = self.createRandomComments(deep: 3, long: comment.isMaxLength, parent: comment.parent)
-        commentsToAdd = self.subCommentsLinearized(commentsToAdd)
-        self._currentlyDisplayed.insert(contentsOf: commentsToAdd, at: selectedIndex)
         
-        var indexPaths: [IndexPath] = []
-        for i in 0..<commentsToAdd.count {
-            indexPaths.append(IndexPath(row: selectedIndex+i, section: indexPath.section))
-        }
-        tableView.insertRows(at: indexPaths, with: .bottom)
+        getMoreComments(comment: selectedCom, nLasts: selectedCom.isMaxLength, indexPath: indexPath)
     }
     
     func continueConversation(comment: Comment, cell: CommentsTableViewCell) {
@@ -325,6 +353,73 @@ extension CommentsViewController: AddOrDeleteDelegate {
     }
 }
 
+extension CommentsViewController {
+    func getComments(){
+        var request: URLRequest
+        if let foodPostId = self.foodPostId {
+            request = getRequestWithAuth("/food_post_comment/post/\(foodPostId)/")
+        } else if let commentId = self.commentId {
+            request = getRequestWithAuth("/food_post_comment/comment/\(commentId)/")
+        } else { return }
+        request.httpMethod = "GET"
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+            guard let data = data else {
+                return
+            }
+            do {
+                let jsonArray = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                
+                DispatchQueue.main.async {
+                    for json in jsonArray as! [[String: Any]]{
+                        self.comments.append(Comment(json: json,parent: nil))
+                    }
+                    self.linearizeComments(self.comments)
+                    self.tableView.reloadData()
+                }
+            } catch {
+            }
+        })
+        task.resume()
+    }
+    
+    func getMoreComments(comment: Comment, nLasts: Int, indexPath: IndexPath){
+        var request: URLRequest
+        request = getRequestWithAuth("/comment_comments/\(comment.id!)/\(nLasts)/")
+        request.httpMethod = "GET"
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+            guard let data = data else {
+                return
+            }
+            do {
+                let jsonArray = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                
+                DispatchQueue.main.async {
+                    var commentsToAdd: [Comment] = []
+                    for json in jsonArray as! [[String: Any]]{
+                        commentsToAdd.append(Comment(json: json,parent: comment))
+                    }
+                    self.linearizeComments(self.comments)
+                    self.tableView.reloadData()
+                    
+                    let selectedIndex = indexPath.row
+                    commentsToAdd = self.subCommentsLinearized(commentsToAdd)
+                    self._currentlyDisplayed.insert(contentsOf: commentsToAdd, at: selectedIndex)
+                    
+                    var indexPaths: [IndexPath] = []
+                    for i in 0..<commentsToAdd.count {
+                        indexPaths.append(IndexPath(row: selectedIndex+i, section: indexPath.section))
+                    }
+                    self.tableView.insertRows(at: indexPaths, with: .bottom)
+                }
+            } catch {
+            }
+        })
+        task.resume()
+    }
+}
+
 extension CommentsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -363,3 +458,59 @@ class MyOwnTableView: UITableView {
         self.invalidateIntrinsicContentSize()
     }
 }
+
+//public class Comment {
+//    let id: Int!
+//    var comment: String!
+//    var comments: [Comment] = []
+//    var depth: Int!
+//    var parent: Comment?
+//
+//    var isMaxDepth = false
+//    var isMaxLength = 0
+//
+//    static var count = 0
+//
+//    static func incrId() -> Int{
+//        self.count += 1
+//        return self.count
+//    }
+//
+//    init(_ comment: String, _ parent: Comment?) {
+//        self.id = Comment.incrId()
+//        self.comment = comment
+//        self.parent = parent
+//
+//        if let parent = self.parent {
+//            self.depth = parent.depth + 1
+//            parent.comments.append(self)
+//            if parent.comments.count == MAX_LENGTH {
+//                Comment(parent: parent, maxLength: 1 + Int(arc4random_uniform(2)))
+//            }
+//        } else {
+//            self.depth = 0
+//        }
+//
+//        if self.depth % MAX_DEPTH == 0 && self.depth != 0 {
+//            Comment(comment: self)
+//        }
+//    }
+//
+//    init(parent: Comment!, maxLength: Int) {
+//        self.id = Comment.incrId()
+//        self.comment = ""
+//        self.parent = parent
+//        self.depth = parent.depth + 1
+//        self.isMaxLength = maxLength
+//        parent.comments.append(self)
+//    }
+//
+//    init(comment: Comment) {
+//        self.id = Comment.incrId()
+//        self.comment = ""
+//        self.parent = comment
+//        self.depth = comment.depth + 1
+//        self.isMaxDepth = true
+//        comment.comments.append(self)
+//    }
+//}

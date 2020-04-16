@@ -127,10 +127,10 @@ class FoodLookViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "CommentSegue" {
-//            commentsContainer = segue.destination as? CommentsViewController
-//            commentsContainer?.foodPostId = foodPostId
-//        }
+        if segue.identifier == "CommentSegue" {
+            commentsContainer = segue.destination as? CommentsViewController
+            commentsContainer?.foodPostId = self.foodPostId
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
