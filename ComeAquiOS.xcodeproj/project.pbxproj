@@ -13,6 +13,11 @@
 		87FC9E812447FF6200810ECF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9E7F2447FF6200810ECF /* Main.storyboard */; };
 		87FC9E832447FF6300810ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9E822447FF6300810ECF /* Assets.xcassets */; };
 		87FC9E862447FF6300810ECF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9E842447FF6300810ECF /* LaunchScreen.storyboard */; };
+		87FC9E8F2448007100810ECF /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E8E2448007100810ECF /* Server.swift */; };
+		87FC9E99244800FE00810ECF /* LoginOrRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E98244800FE00810ECF /* LoginOrRegisterViewController.swift */; };
+		87FC9E9B2448011900810ECF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E9A2448011900810ECF /* LoginViewController.swift */; };
+		87FC9E9D2448012800810ECF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E9C2448012800810ECF /* RegisterViewController.swift */; };
+		87FC9E9F2448014500810ECF /* LoginOrRegisterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9E9E2448014500810ECF /* LoginOrRegisterStoryboard.storyboard */; };
 		FCEE3B8A812B50B63C46D1FD /* Pods_ComeAquiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646F14290669C4E9742E78A3 /* Pods_ComeAquiOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +32,11 @@
 		87FC9E822447FF6300810ECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87FC9E852447FF6300810ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87FC9E872447FF6300810ECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87FC9E8E2448007100810ECF /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		87FC9E98244800FE00810ECF /* LoginOrRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOrRegisterViewController.swift; sourceTree = "<group>"; };
+		87FC9E9A2448011900810ECF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		87FC9E9C2448012800810ECF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		87FC9E9E2448014500810ECF /* LoginOrRegisterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginOrRegisterStoryboard.storyboard; sourceTree = "<group>"; };
 		EE35396FEB851C07CF98D0E9 /* Pods-ComeAquiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComeAquiOS.debug.xcconfig"; path = "Target Support Files/Pods-ComeAquiOS/Pods-ComeAquiOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +73,15 @@
 		87FC9E782447FF6200810ECF /* ComeAquiOS */ = {
 			isa = PBXGroup;
 			children = (
-				87FC9E8D2448004300810ECF /* New Group */,
+				87FC9E97244800B700810ECF /* Comments */,
+				87FC9E96244800B400810ECF /* Utils */,
+				87FC9E95244800B200810ECF /* General */,
+				87FC9E94244800B000810ECF /* Map */,
+				87FC9E93244800AD00810ECF /* Orders */,
+				87FC9E92244800A500810ECF /* Notifications */,
+				87FC9E91244800A100810ECF /* Profile */,
+				87FC9E902448008500810ECF /* Login */,
+				87FC9E8D2448004300810ECF /* Server */,
 				87FC9E792447FF6200810ECF /* AppDelegate.swift */,
 				87FC9E7B2447FF6200810ECF /* SceneDelegate.swift */,
 				87FC9E7D2447FF6200810ECF /* ViewController.swift */,
@@ -75,11 +93,72 @@
 			path = ComeAquiOS;
 			sourceTree = "<group>";
 		};
-		87FC9E8D2448004300810ECF /* New Group */ = {
+		87FC9E8D2448004300810ECF /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				87FC9E8E2448007100810ECF /* Server.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		87FC9E902448008500810ECF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				87FC9E98244800FE00810ECF /* LoginOrRegisterViewController.swift */,
+				87FC9E9A2448011900810ECF /* LoginViewController.swift */,
+				87FC9E9C2448012800810ECF /* RegisterViewController.swift */,
+				87FC9E9E2448014500810ECF /* LoginOrRegisterStoryboard.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		87FC9E91244800A100810ECF /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "New Group";
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		87FC9E92244800A500810ECF /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		87FC9E93244800AD00810ECF /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		87FC9E94244800B000810ECF /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		87FC9E95244800B200810ECF /* General */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		87FC9E96244800B400810ECF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		87FC9E97244800B700810ECF /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Comments;
 			sourceTree = "<group>";
 		};
 		A93E424EAEEC1954E6F6AD45 /* Frameworks */ = {
@@ -161,6 +240,7 @@
 				87FC9E862447FF6300810ECF /* LaunchScreen.storyboard in Resources */,
 				87FC9E832447FF6300810ECF /* Assets.xcassets in Resources */,
 				87FC9E812447FF6200810ECF /* Main.storyboard in Resources */,
+				87FC9E9F2448014500810ECF /* LoginOrRegisterStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,8 +276,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87FC9E9B2448011900810ECF /* LoginViewController.swift in Sources */,
 				87FC9E7E2447FF6200810ECF /* ViewController.swift in Sources */,
+				87FC9E9D2448012800810ECF /* RegisterViewController.swift in Sources */,
+				87FC9E99244800FE00810ECF /* LoginOrRegisterViewController.swift in Sources */,
 				87FC9E7A2447FF6200810ECF /* AppDelegate.swift in Sources */,
+				87FC9E8F2448007100810ECF /* Server.swift in Sources */,
 				87FC9E7C2447FF6200810ECF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
