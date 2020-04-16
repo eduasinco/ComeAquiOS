@@ -272,21 +272,7 @@ extension CommentsViewController: AddOrDeleteDelegate {
         // Do whatever you want from your button here.
         let ip = self.tableView.indexPath(for: cell)
         guard let indexPath = ip else { return }
-        let selectedCom: Comment = _currentlyDisplayed[indexPath.row]
-        let selectedIndex = indexPath.row
-
-        var nCellsToDelete = 0
-        while (_currentlyDisplayed.count > selectedIndex+nCellsToDelete+1 && _currentlyDisplayed[selectedIndex+nCellsToDelete+1].depth > selectedCom.depth){
-            nCellsToDelete += 1
-        }
-        _currentlyDisplayed.removeSubrange(Range(uncheckedBounds: (lower: selectedIndex , upper: selectedIndex+nCellsToDelete+1)))
-        var indexPaths: [IndexPath] = []
-        for i in 0...nCellsToDelete {
-            indexPaths.append(IndexPath(row: selectedIndex+i, section: indexPath.section))
-        }
-        tableView.deleteRows(at: indexPaths, with: .bottom)
-        
-        delteComemnt(comment: comment)
+        deleteComment(comment: comment, indexPath: indexPath)
     }
     
     func delteComemnt(comment: Comment){
@@ -333,6 +319,35 @@ extension CommentsViewController {
                     self.tableView.reloadData()
                 }
             } catch {
+            }
+        })
+        task.resume()
+    }
+    
+    func deleteComment(comment: Comment, indexPath: IndexPath){
+        var request: URLRequest
+        request = getRequestWithAuth("/food_post_comment/\(comment.id!)/")
+        request.httpMethod = "DELETE"
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+            guard let data = data else {
+                return
+            }
+            DispatchQueue.main.async {
+                let selectedIndex = indexPath.row
+
+                var nCellsToDelete = 0
+                while (self._currentlyDisplayed.count > selectedIndex+nCellsToDelete+1 && self._currentlyDisplayed[selectedIndex+nCellsToDelete+1].depth > comment.depth){
+                    nCellsToDelete += 1
+                }
+                self._currentlyDisplayed.removeSubrange(Range(uncheckedBounds: (lower: selectedIndex , upper: selectedIndex+nCellsToDelete+1)))
+                var indexPaths: [IndexPath] = []
+                for i in 0...nCellsToDelete {
+                    indexPaths.append(IndexPath(row: selectedIndex+i, section: indexPath.section))
+                }
+                self.tableView.deleteRows(at: indexPaths, with: .bottom)
+                
+                self.delteComemnt(comment: comment)
             }
         })
         task.resume()
