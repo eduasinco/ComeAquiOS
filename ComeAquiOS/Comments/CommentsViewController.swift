@@ -45,6 +45,11 @@ public class Comment {
         self.isMaxDepth = json["is_max_depth"] as? Bool ?? false
         self.parent = parent
         
+        if self.isMaxDepth {
+            self.isMaxDepth = false
+            self.comments.append(Comment(parent: self))
+        }
+        
         for c in json["replies"] as! [Any] {
             if let n = c as? Int {
                 self.comments.append(Comment(parent: self, maxLength: n))
@@ -52,23 +57,13 @@ public class Comment {
                 self.comments.append(Comment(json: c as! [String: Any], parent: self))
             }
         }
-        
-        if self.isMaxDepth {
-            Comment(parent: self)
-            self.isMaxDepth = false
-        }
     }
     
-    init(parent: Comment?, maxLength: Int) {
+    init(parent: Comment, maxLength: Int) {
         self.comment = ""
         self.parent = parent
-        self.id = 0
-        if let parent = self.parent{
-            self.id = parent.comments[parent.comments.count - 1].id
-            self.depth = parent.depth + 1
-        } else {
-            self.depth = 0
-        }
+        self.id = parent.id
+        self.depth = parent.depth + 1
         self.isMaxLength = maxLength
     }
     
@@ -78,7 +73,6 @@ public class Comment {
         self.parent = parent
         self.depth = parent.depth + 1
         self.isMaxDepth = true
-        parent.comments.append(self)
     }
     
     
@@ -170,7 +164,7 @@ class CommentsViewController: UIViewController {
         }
         return comments
     }
-    func linearizeComments(_ comments: [Comment]){
+    func linearizeAllComments(_ comments: [Comment]){
         var q: [Comment] = []
         for c in comments.reversed(){
             q.append(c)
@@ -182,6 +176,22 @@ class CommentsViewController: UIViewController {
                 q.append(c)
             }
         }
+    }
+    
+    func linearizeComments(_ comments: [Comment]) -> [Comment] {
+        var q: [Comment] = []
+        for c in comments.reversed(){
+            q.append(c)
+        }
+        var linearizedComments: [Comment] = []
+        while q.count > 0 {
+            let c = q.popLast()
+            linearizedComments.append(c!)
+            for c in c!.comments.reversed(){
+                q.append(c)
+            }
+        }
+        return linearizedComments
     }
     
     func subCommentsLinearized(_ comments: [Comment]) -> [Comment]{
@@ -242,10 +252,6 @@ extension CommentsViewController: AddOrDeleteDelegate {
         guard let indexPath = ip else { return }
         let selectedCom: Comment = _currentlyDisplayed[indexPath.row]
         let selectedIndex = indexPath.row
-        
-        self._currentlyDisplayed.remove(at: selectedIndex)
-        tableView.deleteRows(at: [IndexPath(row: selectedIndex, section: indexPath.section)], with: .bottom)
-        delteComemnt(comment: selectedCom)
         
         getMoreComments(comment: selectedCom, nLasts: selectedCom.isMaxLength, indexPath: indexPath)
     }
@@ -374,7 +380,7 @@ extension CommentsViewController {
                     for json in jsonArray as! [[String: Any]]{
                         self.comments.append(Comment(json: json,parent: nil))
                     }
-                    self.linearizeComments(self.comments)
+                    self.linearizeAllComments(self.comments)
                     self.tableView.reloadData()
                 }
             } catch {
@@ -396,15 +402,19 @@ extension CommentsViewController {
                 let jsonArray = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
                 
                 DispatchQueue.main.async {
+                    let selectedIndex = indexPath.row
+
+                    self._currentlyDisplayed.remove(at: selectedIndex)
+                    self.tableView.deleteRows(at: [IndexPath(row: selectedIndex, section: indexPath.section)], with: .bottom)
+                    self.delteComemnt(comment: comment)
+                    
                     var commentsToAdd: [Comment] = []
                     for json in jsonArray as! [[String: Any]]{
-                        commentsToAdd.append(Comment(json: json,parent: comment))
+                        commentsToAdd.append(Comment(json: json, parent: comment.parent))
                     }
-                    self.linearizeComments(self.comments)
-                    self.tableView.reloadData()
-                    
-                    let selectedIndex = indexPath.row
-                    commentsToAdd = self.subCommentsLinearized(commentsToAdd)
+                    comment.parent!.comments.append(contentsOf: commentsToAdd)
+
+                    commentsToAdd = self.linearizeComments(commentsToAdd)
                     self._currentlyDisplayed.insert(contentsOf: commentsToAdd, at: selectedIndex)
                     
                     var indexPaths: [IndexPath] = []
