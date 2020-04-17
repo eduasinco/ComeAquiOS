@@ -14,7 +14,7 @@ class ResponseObject: Decodable{
     var food_post: FoodPostObject?
 }
 
-class FoodLookViewController: UIViewController {
+class FoodLookViewController: KUIViewController {
     @IBOutlet weak var parentScrollView: UIScrollView!
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var image1: URLImageView!
@@ -39,6 +39,7 @@ class FoodLookViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var viewToShowMap: UIView!
         
+    @IBOutlet weak var bcfkb: NSLayoutConstraint!
     var googleMap: GMSMapView!
     var foodPostId: Int!
     var foodPost: FoodPostObject?
@@ -48,6 +49,7 @@ class FoodLookViewController: UIViewController {
         super.viewDidLoad()
         parentScrollView.delegate = self
         imageScrollView.delegate = self
+        self.bottomConstraintForKeyboard = bcfkb
         getFoodPost()
         detailStackViewTopConstraint.constant = headerView.frame.height
     }
@@ -78,7 +80,7 @@ class FoodLookViewController: UIViewController {
         }
         var i = foodPost.images!.count
         while i < imageArray.count {
-            imageArray[i]!.visibility = .visible
+            imageArray[i]!.visibility = .gone
             i += 1
         }
         

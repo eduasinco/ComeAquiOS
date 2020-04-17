@@ -197,7 +197,7 @@ extension CommentsViewController: AddCommentDelegate {
         } else if segue.identifier == "SelfSegue"{
             let destVC = segue.destination as! SegueViewController
             destVC.commentId = (sender as! Comment).id!
-            destVC.max_depth = (sender as! Comment).depth
+            destVC.max_depth = (sender as! Comment).depth + 1
         }
     }
 }
@@ -401,7 +401,7 @@ extension CommentsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("CommentsTableViewCell", owner: self, options: nil)?.first as! CommentsTableViewCell
-        cell.setCell(comment: _currentlyDisplayed[indexPath.row], max_depth: self.max_depth + 1)
+        cell.setCell(comment: _currentlyDisplayed[indexPath.row], max_depth: self.max_depth)
         cell.delegate = self
         return cell
     }

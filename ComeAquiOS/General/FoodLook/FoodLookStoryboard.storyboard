@@ -18,7 +18,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSX-tI-LuR" userLabel="holder">
                                 <rect key="frame" x="0.0" y="44" width="414" height="1922"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVx-Ke-ZLR">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="eVx-Ke-ZLR">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1922"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrn-Nk-pwQ" userLabel="inner scroll view">
@@ -190,28 +190,22 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kN-99-avj">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="720" height="200"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="900" height="200"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="13E-qj-RAy">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="720" height="200"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="900" height="200"/>
                                                                                 <subviews>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FdV-ee-f9U" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="200"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                                                                                         <constraints>
-                                                                                            <constraint firstAttribute="width" constant="240" id="aYh-KJ-2qa"/>
+                                                                                            <constraint firstAttribute="width" constant="300" id="aYh-KJ-2qa"/>
                                                                                         </constraints>
                                                                                     </imageView>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d02-ny-PcY" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                                                        <rect key="frame" x="240" y="0.0" width="240" height="200"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="width" constant="240" id="P95-mH-UAr"/>
-                                                                                        </constraints>
+                                                                                        <rect key="frame" x="300" y="0.0" width="300" height="200"/>
                                                                                     </imageView>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HP2-Xf-FC7" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                                                        <rect key="frame" x="480" y="0.0" width="240" height="200"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="width" constant="240" id="waG-AM-AZb"/>
-                                                                                        </constraints>
+                                                                                        <rect key="frame" x="600" y="0.0" width="300" height="200"/>
                                                                                     </imageView>
                                                                                 </subviews>
                                                                             </stackView>
@@ -361,6 +355,7 @@
                     <size key="freeformSize" width="414" height="2000"/>
                     <connections>
                         <outlet property="addressLabel" destination="1aH-cL-Kan" id="LGT-tL-gYb"/>
+                        <outlet property="bcfkb" destination="6Z0-Ei-VI8" id="NCd-yO-ala"/>
                         <outlet property="date" destination="Nkl-pu-I7g" id="Oih-Lk-3Lv"/>
                         <outlet property="detailStackViewTopConstraint" destination="8l5-Sl-uNe" id="Buf-Za-WQ7"/>
                         <outlet property="headerTopConstraint" destination="3df-BO-koc" id="0AM-KL-aKa"/>
