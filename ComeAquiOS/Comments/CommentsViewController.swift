@@ -401,7 +401,7 @@ extension CommentsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("CommentsTableViewCell", owner: self, options: nil)?.first as! CommentsTableViewCell
-        cell.setCell(comment: _currentlyDisplayed[indexPath.row], max_depth: self.max_depth)
+        cell.setCell(comment: _currentlyDisplayed[indexPath.row], max_depth: self.max_depth + 1)
         cell.delegate = self
         return cell
     }

@@ -21,11 +21,9 @@ class FoodLookViewController: UIViewController {
     @IBOutlet weak var image2: URLImageView!
     @IBOutlet weak var image3: URLImageView!
     @IBOutlet weak var image1Width: NSLayoutConstraint!
-    @IBOutlet weak var image2Width: NSLayoutConstraint!
-    @IBOutlet weak var image3Width: NSLayoutConstraint!
-    @IBOutlet weak var detailViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var detailStackViewTopConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var imageScrollViewHeight: NSLayoutConstraint!
+        
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var shortHeaderView: UIView!
@@ -51,7 +49,7 @@ class FoodLookViewController: UIViewController {
         parentScrollView.delegate = self
         imageScrollView.delegate = self
         getFoodPost()
-        detailViewTopConstraint.constant = headerView.frame.height
+        detailStackViewTopConstraint.constant = headerView.frame.height
     }
     
     
@@ -64,27 +62,23 @@ class FoodLookViewController: UIViewController {
         userImage.circle()
         
         let imageArray = [image1, image2, image3]
-        let imageWidthArray = [image1Width, image2Width, image3Width]
-        imageScrollViewHeight.constant = 200
+        imageScrollView.visibility = .visible
         imageScrollView.isHidden = false
         if foodPost.images!.count == 0 {
-            imageScrollViewHeight.constant = 0
-            imageScrollView.isHidden = true
+            imageScrollView.visibility = .gone
         } else if foodPost.images!.count == 1 {
             self.image1.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo!)
             image1Width.constant = imageScrollView.frame.width
             image1.isHidden = false
         } else {
             for (i, image) in foodPost.images!.enumerated(){
-                imageWidthArray[i]!.constant = 300
-                imageArray[i]!.isHidden = false
+                imageArray[i]!.visibility = .visible
                 imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo!)
             }
         }
         var i = foodPost.images!.count
         while i < imageArray.count {
-            imageWidthArray[i]!.constant = 0
-            imageArray[i]!.isHidden = true
+            imageArray[i]!.visibility = .visible
             i += 1
         }
         
@@ -127,7 +121,7 @@ class FoodLookViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CommentSegue" {
+        if segue.identifier == "CommentsSegue" {
             commentsContainer = segue.destination as? CommentsViewController
             commentsContainer?.foodPostId = self.foodPostId
         }
