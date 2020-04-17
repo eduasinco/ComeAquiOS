@@ -57,12 +57,12 @@ class CommentsTableViewCell: UITableViewCell {
         self.delegate?.moreComments(comment: self.comment!, cell: self)
     }
     
-    func setCell(comment: Comment){
+    func setCell(comment: Comment, max_depth: Int = 0){
         self.comment = comment
         
-        leadingStackView.constant = CGFloat(comment.depth * 32)
-        leadingMoreComments.constant = CGFloat(comment.depth * 32)
-        leadingContinueConversation.constant = CGFloat(comment.depth * 32)
+        leadingStackView.constant = CGFloat((comment.depth - max_depth) * 32)
+        leadingMoreComments.constant = CGFloat((comment.depth - max_depth) * 32)
+        leadingContinueConversation.constant = CGFloat((comment.depth - max_depth) * 32)
         self.label.text = comment.comment
         
         if comment.isMaxLength > 0 {

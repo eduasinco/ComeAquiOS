@@ -87,6 +87,7 @@ class CommentsViewController: UIViewController {
     
     var foodPostId: Int?
     var commentId: Int?
+    var max_depth = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,9 +97,6 @@ class CommentsViewController: UIViewController {
         tableView.isScrollEnabled = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
-//        if comments.count == 0 {
-//            self.comments = createRandomComments()
-//        }
         getComments()
     }
     func randomString() -> String {
@@ -197,8 +195,9 @@ extension CommentsViewController: AddCommentDelegate {
             destVC.comment = sender as? Comment
             destVC.delegate = self
         } else if segue.identifier == "SelfSegue"{
-            let destVC = segue.destination as! CommentsViewController
+            let destVC = segue.destination as! SegueViewController
             destVC.commentId = (sender as! Comment).id!
+            destVC.max_depth = (sender as! Comment).depth
         }
     }
 }
@@ -402,9 +401,8 @@ extension CommentsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("CommentsTableViewCell", owner: self, options: nil)?.first as! CommentsTableViewCell
-        cell.setCell(comment: _currentlyDisplayed[indexPath.row])
+        cell.setCell(comment: _currentlyDisplayed[indexPath.row], max_depth: self.max_depth)
         cell.delegate = self
-        
         return cell
     }
     

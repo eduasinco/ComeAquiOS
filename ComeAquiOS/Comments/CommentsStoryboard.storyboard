@@ -12,11 +12,11 @@
             <objects>
                 <viewController storyboardIdentifier="CommentView" id="B0Z-6c-5YJ" customClass="CommentsViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zS5-wl-yap">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rWr-oK-aM0" customClass="MyOwnTableView" customModule="ComeAquiOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="764"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="dj5-ga-0gT"/>
@@ -34,16 +34,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="44F-K3-MiH"/>
                     </view>
+                    <navigationItem key="navigationItem" id="g6N-jM-OJF"/>
                     <connections>
                         <outlet property="tableHeightConstraint" destination="dj5-ga-0gT" id="YuG-FZ-zSJ"/>
                         <outlet property="tableView" destination="rWr-oK-aM0" id="OzW-Dm-5fK"/>
-                        <segue destination="x64-83-tMb" kind="show" identifier="SelfSegue" id="d0A-6d-V9j"/>
                         <segue destination="Atz-sr-9Y5" kind="show" identifier="goToWriteComment" id="e9G-f6-W2a"/>
+                        <segue destination="xQj-u7-MHw" kind="showDetail" identifier="SelfSegue" id="jap-s7-a1n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLH-Cu-bva" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="211.59420289855075" y="129.91071428571428"/>
+            <point key="canvasLocation" x="464" y="130"/>
         </scene>
         <!--WriteComment-->
         <scene sceneID="cRD-ca-cm0">
@@ -53,17 +54,65 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EFW-B7-4qq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985" y="-5"/>
+            <point key="canvasLocation" x="1170" y="270"/>
         </scene>
-        <!--CommentView-->
-        <scene sceneID="BGa-cB-TfF">
+        <!--Segue View Controller-->
+        <scene sceneID="96t-QZ-NV9">
             <objects>
-                <viewControllerPlaceholder storyboardName="CommentsStoryboard" referencedIdentifier="CommentView" id="x64-83-tMb" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ykm-Av-rrD"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3ay-c4-iUY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="xQj-u7-MHw" customClass="SegueViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Df-QK-G7H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ue-3c-FkW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Uv-M9-1lW">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                        <subviews>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q0z-9l-Dht">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                                <connections>
+                                                    <segue destination="B0Z-6c-5YJ" kind="embed" identifier="SelfSegue" id="9FA-Pm-KUT"/>
+                                                </connections>
+                                            </containerView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="q0z-9l-Dht" secondAttribute="bottom" id="6Bt-Nf-EZG"/>
+                                            <constraint firstItem="q0z-9l-Dht" firstAttribute="top" secondItem="0Uv-M9-1lW" secondAttribute="top" id="IU5-4u-z1R"/>
+                                            <constraint firstAttribute="trailing" secondItem="q0z-9l-Dht" secondAttribute="trailing" id="vCc-xR-UkH"/>
+                                            <constraint firstItem="q0z-9l-Dht" firstAttribute="leading" secondItem="0Uv-M9-1lW" secondAttribute="leading" id="zTm-AP-MMf"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="0Uv-M9-1lW" firstAttribute="height" secondItem="5Ue-3c-FkW" secondAttribute="height" priority="250" id="0pT-7b-gw3"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Uv-M9-1lW" secondAttribute="trailing" id="3Cg-59-ID4"/>
+                                    <constraint firstItem="0Uv-M9-1lW" firstAttribute="leading" secondItem="5Ue-3c-FkW" secondAttribute="leading" id="L7k-QB-Waa"/>
+                                    <constraint firstItem="0Uv-M9-1lW" firstAttribute="top" secondItem="5Ue-3c-FkW" secondAttribute="top" id="Uqx-qk-T8X"/>
+                                    <constraint firstItem="0Uv-M9-1lW" firstAttribute="width" secondItem="5Ue-3c-FkW" secondAttribute="width" id="XX2-QZ-9T3"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Uv-M9-1lW" secondAttribute="bottom" id="e4w-4l-7Mz"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5Ue-3c-FkW" firstAttribute="top" secondItem="4hV-dM-TtB" secondAttribute="top" id="AUO-oB-70a"/>
+                            <constraint firstItem="5Ue-3c-FkW" firstAttribute="trailing" secondItem="4hV-dM-TtB" secondAttribute="trailing" id="ITD-gc-tI7"/>
+                            <constraint firstItem="5Ue-3c-FkW" firstAttribute="leading" secondItem="4hV-dM-TtB" secondAttribute="leading" id="fcJ-gc-vOJ"/>
+                            <constraint firstItem="5Ue-3c-FkW" firstAttribute="bottom" secondItem="4hV-dM-TtB" secondAttribute="bottom" id="yhq-Ax-28t"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4hV-dM-TtB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qaa-gc-qH8"/>
+                    <connections>
+                        <outlet property="scrollView" destination="5Ue-3c-FkW" id="40b-c4-KKv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tny-JR-g1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="130"/>
+            <point key="canvasLocation" x="1784" y="130"/>
         </scene>
     </scenes>
 </document>
