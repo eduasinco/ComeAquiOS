@@ -58,6 +58,7 @@ public class FoodPostObject: Decodable{
     var description: String?
     var status: String?
     var images: [FoodPostImageObject]?
+    var confirmed_orders: [OrderObject]?
     
     var favourite: Bool?
     var rating: Float?
@@ -70,18 +71,18 @@ public class FavouritePost: Decodable{
     var post: FoodPostObject?
 }
 
-public class CommentObject: Decodable{
+public class OrderObject: Decodable{
     var id: Int?
     var owner: User?
-    // var post: FoodPostObject?
-    var comment: CommentObject?
-    var replies: [CommentObject]?
-    var message: String?
-    var votes_n: Int?
-
-    var is_user_up_vote: Bool?
-    var is_max_depth: Bool?
-    var depth: Int?
-    var is_last: Bool?
+    var post: FoodPostObject?
+    var poster: User?
+    var order_status: String?
+    var seen: Bool?
+    var slightly_seen: Bool?
+    var reviewed_post: Bool?
+    var reviewed_guest: Bool?
+    var additional_guests: Int?
+    var order_price: Int?
+    
     var created_at: String?
 }

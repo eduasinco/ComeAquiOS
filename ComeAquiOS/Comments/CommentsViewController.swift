@@ -13,7 +13,7 @@ let MAX_LENGTH = 3
 let ACTUAL_DEPTH = 3
 let ACTUAL_LENGTH = 3
 
-public class Comment {
+class Comment {
     var id: Int!
     var comment: String!
     var comments: [Comment] = []

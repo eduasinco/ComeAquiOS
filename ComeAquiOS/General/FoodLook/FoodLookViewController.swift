@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class ResponseObject: Decodable{
+private class ResponseObject: Decodable{
     var user_status_in_this_post: String?
     var food_post: FoodPostObject?
 }
@@ -38,6 +38,7 @@ class FoodLookViewController: KUIViewController {
     @IBOutlet weak var mealDescription: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var viewToShowMap: UIView!
+    @IBOutlet weak var dinnersStackView: UIStackView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     
@@ -109,26 +110,52 @@ class FoodLookViewController: KUIViewController {
         viewToShowMap.addSubview(googleMap)
         viewToShowMap.clipsToBounds = true
         viewToShowMap.isUserInteractionEnabled = false
+        setDinners()
     }
     
-    func getFoodPost(){
-        guard let foodPostId = self.foodPostId else { return }
-        var request = getRequestWithAuth("/food_with_user_status/\(foodPostId)/")
-        request.httpMethod = "GET"
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            guard let data = data else {
-                return
+    func createDinnerView(order: OrderObject) -> UIView {
+        let dv = UIView()
+        let imageView = URLImageView()
+        dv.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        dv.addSubview(imageView)
+        dv.widthAnchor.constraint(equalToConstant: dinnersStackView.frame.height).isActive = true
+
+        imageView.leadingAnchor.constraint(equalTo: dv.leadingAnchor).isActive = true
+        imageView.topAnchor.constraint(equalTo: dv.topAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: dv.trailingAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: dv.bottomAnchor).isActive = true
+        
+        if order.additional_guests! > 0 {
+            let label = UILabel()
+            dv.addSubview(label)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.topAnchor.constraint(equalTo: dv.topAnchor).isActive = true
+            label.trailingAnchor.constraint(equalTo: dv.trailingAnchor).isActive = true
+            label.text = "\(order.additional_guests!)"
+        }
+        imageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo!)
+        dinnerImages.append(imageView)
+        return dv
+    }
+    var dinnerImages: [URLImageView] = []
+    func setDinners(){
+        guard let confirmed_orders = self.foodPost?.confirmed_orders else { return }
+        if confirmed_orders.count > 0 {
+            dinnerImages = []
+            for order in confirmed_orders {
+                dinnersStackView.addArrangedSubview(createDinnerView(order: order))
             }
-            do {
-                self.foodPost = try JSONDecoder().decode(ResponseObject.self, from: data).food_post
-                DispatchQueue.main.async {
-                    self.setViewDetails()
-                }
-            } catch {
-            }
-        })
-        task.resume()
+        } else {
+            dinnersStackView.visibility = .gone
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        for image in dinnerImages {
+            image.circle()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -186,6 +213,26 @@ extension FoodLookViewController: UITextViewDelegate {
 }
 
 extension FoodLookViewController {
+    func getFoodPost(){
+        guard let foodPostId = self.foodPostId else { return }
+        var request = getRequestWithAuth("/food_with_user_status/\(foodPostId)/")
+        request.httpMethod = "GET"
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+            guard let data = data else {
+                return
+            }
+            do {
+                self.foodPost = try JSONDecoder().decode(ResponseObject.self, from: data).food_post
+                DispatchQueue.main.async {
+                    self.setViewDetails()
+                }
+            } catch {
+            }
+        })
+        task.resume()
+    }
+    
     func postComment(){
         var request = getRequestWithAuth("/food_post_comment/\(self.foodPost!.id!)/")
         var json = [String:Any]()

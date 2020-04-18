@@ -12,7 +12,7 @@ import MapKit
 import GoogleMaps
 import CoreLocation
 
-class FoodPostMarker : GMSMarker {
+private class FoodPostMarker : GMSMarker {
     var id : Int!
 }
 
@@ -46,7 +46,7 @@ class MapViewController: UIViewController {
     var foodPosts: [FoodPostObject]?
     var favouritePosts: [FavouritePost]?
     var foodPostsDict: [Int: FoodPostObject] = [:]
-    var idToMarker: [Int: FoodPostMarker] = [:]
+    private var idToMarker: [Int: FoodPostMarker] = [:]
 
     
     let locationManager = CLLocationManager()

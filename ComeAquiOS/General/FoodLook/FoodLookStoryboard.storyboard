@@ -92,33 +92,13 @@
                                                                 <rect key="frame" x="0.0" y="511.5" width="414" height="70"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIx-mt-rVM">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="720" height="70"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JKk-Y4-Tge">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="720" height="70"/>
-                                                                                <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="nDP-b0-32k" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="70"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="width" constant="240" id="Yjq-ce-whc"/>
-                                                                                        </constraints>
-                                                                                    </imageView>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="VXO-32-h6s" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                                                        <rect key="frame" x="240" y="0.0" width="240" height="70"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="width" constant="240" id="VqF-GW-INs"/>
-                                                                                        </constraints>
-                                                                                    </imageView>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="hCV-hR-yxo" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                                                        <rect key="frame" x="480" y="0.0" width="240" height="70"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="width" constant="240" id="0u9-Th-Fiu"/>
-                                                                                        </constraints>
-                                                                                    </imageView>
-                                                                                </subviews>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                                                             </stackView>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="JKk-Y4-Tge" secondAttribute="bottom" id="Q2F-Mq-fIJ"/>
                                                                             <constraint firstItem="JKk-Y4-Tge" firstAttribute="leading" secondItem="aIx-mt-rVM" secondAttribute="leading" id="UVL-MG-Whj"/>
@@ -362,6 +342,7 @@
                         <outlet property="bcfkb" destination="6Z0-Ei-VI8" id="NCd-yO-ala"/>
                         <outlet property="date" destination="Nkl-pu-I7g" id="Oih-Lk-3Lv"/>
                         <outlet property="detailStackViewTopConstraint" destination="8l5-Sl-uNe" id="Buf-Za-WQ7"/>
+                        <outlet property="dinnersStackView" destination="JKk-Y4-Tge" id="d0A-n9-iRZ"/>
                         <outlet property="headerTopConstraint" destination="3df-BO-koc" id="0AM-KL-aKa"/>
                         <outlet property="headerView" destination="nyC-m9-Ycp" id="cWa-hh-GYI"/>
                         <outlet property="image1" destination="FdV-ee-f9U" id="bkk-nP-5uK"/>
@@ -396,7 +377,4 @@
             <point key="canvasLocation" x="674" y="-48"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="poster" width="480" height="320"/>
-    </resources>
 </document>
