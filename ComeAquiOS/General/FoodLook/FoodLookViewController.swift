@@ -38,7 +38,9 @@ class FoodLookViewController: KUIViewController {
     @IBOutlet weak var mealDescription: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var viewToShowMap: UIView!
-        
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var sendButton: UIButton!
+    
     @IBOutlet weak var bcfkb: NSLayoutConstraint!
     var googleMap: GMSMapView!
     var foodPostId: Int!
@@ -49,11 +51,18 @@ class FoodLookViewController: KUIViewController {
         super.viewDidLoad()
         parentScrollView.delegate = self
         imageScrollView.delegate = self
+        textView.delegate = self
+        textView.isScrollEnabled = false
         self.bottomConstraintForKeyboard = bcfkb
         getFoodPost()
         detailStackViewTopConstraint.constant = headerView.frame.height
+        
+        sendButton.visibility = .gone
     }
     
+    @IBAction func sendPress(_ sender: Any) {
+        postComment()
+    }
     
     func setViewDetails(){
         guard let foodPost = self.foodPost else {return}
@@ -150,6 +159,67 @@ extension FoodLookViewController: UIScrollViewDelegate {
                 headerTopConstraint.constant = 0
                 headerView.dropShadow()
             }
+        }
+    }
+}
+
+extension FoodLookViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        
+        if textView.text.count > 0 {
+            sendButton.visibility = .visible
+        } else {
+            sendButton.visibility = .gone
+        }
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
+        
+        textView.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                constraint.constant = estimatedSize.height
+            }
+        }
+    }
+}
+
+extension FoodLookViewController {
+    func postComment(){
+        var request = getRequestWithAuth("/food_post_comment/\(self.foodPost!.id!)/")
+        var json = [String:Any]()
+        json["post_id"] = foodPost?.id ?? nil
+        json["comment_id"] = nil
+        json["message"] = textView.text!
+        do {
+            let data = try JSONSerialization.data(withJSONObject: json, options: [])
+            request.httpMethod = "POST"
+            request.httpBody = data
+            let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
+                // your stuff here
+                guard let data = data else {
+                    return
+                }
+                do {
+                    guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
+                    DispatchQueue.main.async {
+                        let newComment = Comment(json: json, parent: nil)
+                        self.commentsContainer?.commentAddedToPost(newComment: newComment)
+                        
+                        self.textView.text = ""
+                        self.sendButton.visibility = .gone
+                        UIView.animate(withDuration: 0.5) {
+                            self.view.layoutIfNeeded()
+                        }
+                        self.dismiss(animated: true)
+                    }
+                } catch let jsonErr {
+                    print("json could'nt be parsed \(jsonErr)")
+                }
+            })
+            task.resume()
+        }catch{
         }
     }
 }

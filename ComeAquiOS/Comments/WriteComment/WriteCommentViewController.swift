@@ -56,8 +56,10 @@ extension WriteCommentViewController{
                     guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
                     DispatchQueue.main.async {
                         let newComment = Comment(json: json, parent: self.comment)
+                        self.comment?.comments.append(newComment)
                         self.delegate?.commentAdded(newComment: newComment)
-                        self.dismiss(animated: true)
+                        self.navigationController?.popViewController(animated: true)
+                        self.dismiss(animated: true, completion: nil)
                     }
                 } catch let jsonErr {
                     print("json could'nt be parsed \(jsonErr)")

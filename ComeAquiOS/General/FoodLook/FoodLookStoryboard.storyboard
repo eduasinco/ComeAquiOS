@@ -149,19 +149,23 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72W-CP-CAz">
                                                                 <rect key="frame" x="0.0" y="602" width="414" height="50"/>
                                                                 <subviews>
-                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" text="Write a comment" translatesAutoresizingMaskIntoConstraints="NO" id="OW1-9P-6xu">
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="OW1-9P-6xu">
                                                                         <rect key="frame" x="0.0" y="0.0" width="344" height="50"/>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                     </textView>
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPk-aX-8Mn">
                                                                         <rect key="frame" x="344" y="0.0" width="70" height="50"/>
+                                                                        <color key="backgroundColor" red="0.01121367516" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="oZe-tx-UzR"/>
                                                                         </constraints>
                                                                         <state key="normal" title="Send"/>
+                                                                        <connections>
+                                                                            <action selector="sendPress:" destination="lTy-tE-mA4" eventType="touchUpInside" id="S1x-Hg-aW8"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <constraints>
@@ -369,7 +373,9 @@
                         <outlet property="parentScrollView" destination="eVx-Ke-ZLR" id="XlL-3L-fQD"/>
                         <outlet property="plateName" destination="CUE-Hp-CwP" id="ls8-nz-AKa"/>
                         <outlet property="price" destination="7Jq-7T-7Nz" id="56G-oE-yQs"/>
+                        <outlet property="sendButton" destination="NPk-aX-8Mn" id="28g-xq-Fi3"/>
                         <outlet property="shortHeaderView" destination="o0c-oP-Z5d" id="HKQ-0A-TyV"/>
+                        <outlet property="textView" destination="OW1-9P-6xu" id="6OM-fo-9W8"/>
                         <outlet property="time" destination="shu-rw-Bfk" id="7Tg-1H-GZv"/>
                         <outlet property="userImage" destination="rXp-6P-AZc" id="m1C-Aa-NXK"/>
                         <outlet property="userName" destination="hmD-30-GPF" id="kwN-T8-JN5"/>

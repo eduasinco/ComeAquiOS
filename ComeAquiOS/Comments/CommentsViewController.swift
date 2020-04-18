@@ -166,6 +166,15 @@ class CommentsViewController: UIViewController {
     }
 }
 extension CommentsViewController: AddCommentDelegate {
+    
+    func commentAddedToPost(newComment: Comment) {
+        self.comments.insert(newComment, at: 0)
+        self._currentlyDisplayed.insert(newComment, at: 0)
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .bottom)
+        self.tableView.endUpdates()
+    }
+    
     func commentAdded(newComment: Comment) {
         let ip = self.tableView.indexPath(for: currentCell!)
         guard let indexPath = ip else { return }
