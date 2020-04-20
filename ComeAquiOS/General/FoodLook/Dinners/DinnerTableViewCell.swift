@@ -10,7 +10,7 @@ import UIKit
 
 class DinnerTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: URLImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userNamelabel: UILabel!
     @IBOutlet weak var chatButton: UIImageView!
@@ -31,7 +31,7 @@ class DinnerTableViewCell: UITableViewCell {
     }
     
     func setCell(order: OrderObject){
-        
+        profileImageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo!)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

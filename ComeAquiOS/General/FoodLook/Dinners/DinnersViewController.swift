@@ -18,6 +18,7 @@ class DinnersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
+        tableView.dataSource = self
         getOrders()
     }
     
@@ -62,7 +63,8 @@ extension DinnersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("CommentsTableViewCell", owner: self, options: nil)?.first as! DinnerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DinnerTableViewCell") as! DinnerTableViewCell
+
         cell.setCell(order: orders[indexPath.row])
         return cell
     }

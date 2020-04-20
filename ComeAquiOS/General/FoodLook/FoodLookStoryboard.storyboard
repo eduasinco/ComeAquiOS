@@ -381,14 +381,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="clV-7O-B23" customClass="DinnerTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DinnerTableViewCell" rowHeight="100" id="clV-7O-B23" customClass="DinnerTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="clV-7O-B23" id="xai-hj-2Jy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iNg-os-7m3">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="URLImageView" translatesAutoresizingMaskIntoConstraints="NO" id="iNg-os-7m3" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="11" width="80" height="78"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="XAF-ht-JxW"/>
@@ -471,4 +471,7 @@
             <point key="canvasLocation" x="674" y="-48"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="URLImageView" width="128" height="128"/>
+    </resources>
 </document>
