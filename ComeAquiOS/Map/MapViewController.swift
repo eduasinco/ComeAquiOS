@@ -208,11 +208,17 @@ class MapViewController: UIViewController, CardActionProtocol {
         }
     }
     
+    func goToFoodLook(){
+        performSegue(withIdentifier: "FoodLookSegue", sender: self.currentPost.id)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FoodCardSegue" {
             foodCardVC = segue.destination as? FoodCardViewController
             foodCardVC?.delegate = self
             foodCardVC?.foodPost = sender as? FoodPostObject
+        } else if segue.identifier == "FoodLookSegue" {
+            let foodLookContainer = segue.destination as? FoodLookViewController
+            foodLookContainer?.foodPostId = sender as? Int
         }
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 protocol CardActionProtocol{
     func changeMarker(foodPost: FoodPostObject, image: UIImage)
+    func goToFoodLook()
 }
 
 class FoodCardViewController: UIViewController {
@@ -90,7 +91,7 @@ class FoodCardViewController: UIViewController {
         mealDescription.addGestureRecognizer(singleTap)
     }
     @objc func goToFoodLook(){
-        performSegue(withIdentifier: "FoodLookSegue", sender: self.foodPost.id)
+        delegate?.goToFoodLook()
     }
     
     func setFavouriteClickListener(){
@@ -114,9 +115,6 @@ class FoodCardViewController: UIViewController {
             typesContainer = segue.destination as? TypesViewController
         } else if segue.identifier == "RateSegue" {
             rateContainer = segue.destination as? RateStarViewController
-        } else if segue.identifier == "FoodLookSegue" {
-            let foodLookContainer = segue.destination as? FoodLookViewController
-            foodLookContainer?.foodPostId = sender as? Int
         }
     }
 }
