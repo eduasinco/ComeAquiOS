@@ -20,10 +20,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJZ-NB-sJw">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJZ-NB-sJw">
                                 <rect key="frame" x="8" y="405" width="398" height="400"/>
                                 <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypx-lw-UC2">
+                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ypx-lw-UC2">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="400"/>
                                         <connections>
                                             <segue destination="7eR-9t-Sre" kind="embed" identifier="FoodCardSegue" id="6WX-qC-R1S"/>
@@ -36,7 +36,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Ypx-lw-UC2" secondAttribute="trailing" id="4gF-Oh-P47"/>
                                     <constraint firstAttribute="bottom" secondItem="Ypx-lw-UC2" secondAttribute="bottom" id="5QR-PW-rJO"/>
                                     <constraint firstItem="Ypx-lw-UC2" firstAttribute="top" secondItem="fJZ-NB-sJw" secondAttribute="top" id="bcL-qy-2SF"/>
-                                    <constraint firstAttribute="height" constant="400" id="lQm-2P-0xI"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="lQm-2P-0xI"/>
                                 </constraints>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wjR-Dd-0ho">

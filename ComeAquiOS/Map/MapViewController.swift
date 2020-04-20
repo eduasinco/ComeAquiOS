@@ -34,8 +34,6 @@ class MapViewController: UIViewController, CardActionProtocol {
     @IBOutlet weak var cardBottomConstraint: NSLayoutConstraint!
     var foodCardVC: FoodCardViewController?
     
-    var cardViewOrigin: CGPoint!
-
     var currentPost: FoodPostObject!
     var lastPost: FoodPostObject?
     var seenPost = Set<Int>()
@@ -53,9 +51,8 @@ class MapViewController: UIViewController, CardActionProtocol {
         checkLocationServices()
         getFoodPosts()
         
-        cardViewOrigin = cardView.frame.origin
         cardView.roundCorners(radius: 8)
-        // moveCardToBottom(view: cardView)
+        moveCardToBottom(view: cardView)
         addPanGesture(view: cardView)
         view.bringSubviewToFront(cardView)
     }
@@ -129,14 +126,18 @@ class MapViewController: UIViewController, CardActionProtocol {
         view.addGestureRecognizer(pan)
     }
     
+    var originY: CGFloat!
     @objc func handlePan(sender: UIPanGestureRecognizer) {
         let cardView = sender.view!
         
         switch sender.state {
-        case .began, .changed:
+        case .began:
+            moveViewWithPan(view: cardView, sender: sender)
+            originY = cardView.frame.origin.y
+        case .changed:
             moveViewWithPan(view: cardView, sender: sender)
         case .ended:
-            let move = cardView.frame.origin.y - cardViewOrigin.y
+            let move = cardView.frame.origin.y - originY
             print(move)
             if move >= 100 {
                 moveCardToBottom(view: cardView)
@@ -156,11 +157,11 @@ class MapViewController: UIViewController, CardActionProtocol {
     
     func moveViewWithPan(view: UIView, sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
-        self.cardBottomConstraint.constant = -8 + translation.y
+        self.cardBottomConstraint.constant = 8 - translation.y
     }
     func returnViewToOrigin(view: UIView) {
         UIView.animate(withDuration: 0.3, animations: {
-            self.cardBottomConstraint.constant = -8
+            self.cardBottomConstraint.constant = 8
             self.view.layoutIfNeeded()
         })
     }
