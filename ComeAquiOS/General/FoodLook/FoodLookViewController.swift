@@ -59,6 +59,14 @@ class FoodLookViewController: KUIViewController {
         detailStackViewTopConstraint.constant = headerView.frame.height
         
         sendButton.visibility = .gone
+        
+        dinnersStackView.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction(sender:)))
+        dinnersStackView.addGestureRecognizer(gesture)
+    }
+
+    @objc func checkAction(sender : UITapGestureRecognizer) {
+        performSegue(withIdentifier: "DinnerSegue", sender: nil)
     }
     
     @IBAction func sendPress(_ sender: Any) {
@@ -127,13 +135,13 @@ class FoodLookViewController: KUIViewController {
         imageView.trailingAnchor.constraint(equalTo: dv.trailingAnchor).isActive = true
         imageView.bottomAnchor.constraint(equalTo: dv.bottomAnchor).isActive = true
         
-        if order.additional_guests! > 0 {
+        if order.additional_guests! >= 0 {
             let label = UILabel()
             dv.addSubview(label)
             label.translatesAutoresizingMaskIntoConstraints = false
             label.topAnchor.constraint(equalTo: dv.topAnchor).isActive = true
             label.trailingAnchor.constraint(equalTo: dv.trailingAnchor).isActive = true
-            label.text = "\(order.additional_guests!)"
+            label.text = "\(order.additional_guests!)+"
         }
         imageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo!)
         dinnerImages.append(imageView)
@@ -158,10 +166,15 @@ class FoodLookViewController: KUIViewController {
         }
     }
     
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CommentsSegue" {
             commentsContainer = segue.destination as? CommentsViewController
             commentsContainer?.foodPostId = self.foodPostId
+        } else if segue.identifier == "DinnerSegue" {
+            let dinnerVC = segue.destination as? DinnersViewController
+            dinnerVC?.foodPostId = self.foodPostId
         }
     }
     override func didReceiveMemoryWarning() {
