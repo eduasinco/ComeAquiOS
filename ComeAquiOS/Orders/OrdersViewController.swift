@@ -99,6 +99,7 @@ extension OrdersViewController: UITableViewDataSource, UITableViewDelegate {
 
             cell.shadowLayer.layer.cornerRadius = 8
             cell.shadowLayer.layer.masksToBounds = false
+            
             cell.shadowLayer.layer.shadowOffset = CGSize(width: 0, height: 0)
             cell.shadowLayer.layer.shadowColor = UIColor.black.cgColor
             cell.shadowLayer.layer.shadowOpacity = 0.23

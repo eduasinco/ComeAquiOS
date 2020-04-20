@@ -23,6 +23,7 @@ class MapViewController: UIViewController, CardActionProtocol {
     var googleMap: GMSMapView!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var mapPickerContainerView: UIView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var foodPosts: [FoodPostObject]?

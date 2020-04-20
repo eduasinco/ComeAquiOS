@@ -15,11 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wOO-sf-WI3" userLabel="Map View">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJZ-NB-sJw">
                                 <rect key="frame" x="8" y="605" width="398" height="200"/>
                                 <subviews>
@@ -46,13 +41,28 @@
                                     <constraint firstAttribute="height" constant="30" id="e1e-Jh-olX"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wOO-sf-WI3" userLabel="Map View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-cr-Uml" customClass="PassThroughView" customModule="ComeAquiOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <connections>
+                                    <segue destination="KNn-pE-z4q" kind="embed" id="7sL-RV-zGq"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="WVe-cr-Uml" firstAttribute="trailing" secondItem="HqB-kn-AOB" secondAttribute="trailing" id="FwF-Lu-hUg"/>
+                            <constraint firstItem="WVe-cr-Uml" firstAttribute="leading" secondItem="HqB-kn-AOB" secondAttribute="leading" id="I3S-4J-5BV"/>
+                            <constraint firstItem="WVe-cr-Uml" firstAttribute="top" secondItem="HqB-kn-AOB" secondAttribute="top" id="K2b-Xb-J8W"/>
                             <constraint firstItem="wjR-Dd-0ho" firstAttribute="top" secondItem="HqB-kn-AOB" secondAttribute="top" constant="8" id="Myh-KO-euo"/>
                             <constraint firstItem="HqB-kn-AOB" firstAttribute="bottom" secondItem="fJZ-NB-sJw" secondAttribute="bottom" constant="8" id="Oov-Ek-HR6"/>
                             <constraint firstItem="HqB-kn-AOB" firstAttribute="trailing" secondItem="fJZ-NB-sJw" secondAttribute="trailing" constant="8" id="SIZ-vj-UCF"/>
                             <constraint firstItem="fJZ-NB-sJw" firstAttribute="leading" secondItem="HqB-kn-AOB" secondAttribute="leading" constant="8" id="ZfS-ax-bfz"/>
+                            <constraint firstItem="WVe-cr-Uml" firstAttribute="bottom" secondItem="HqB-kn-AOB" secondAttribute="bottom" id="b15-XZ-vHn"/>
                             <constraint firstItem="wjR-Dd-0ho" firstAttribute="leading" secondItem="HqB-kn-AOB" secondAttribute="leading" constant="8" id="hUz-KO-yiz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HqB-kn-AOB"/>
@@ -63,6 +73,7 @@
                         <outlet property="cardBottomConstraint" destination="Oov-Ek-HR6" id="a3j-jt-19R"/>
                         <outlet property="cardView" destination="fJZ-NB-sJw" id="Skb-Rd-qYL"/>
                         <outlet property="containerView" destination="Ypx-lw-UC2" id="rBI-dc-gEX"/>
+                        <outlet property="mapPickerContainerView" destination="WVe-cr-Uml" id="zRX-Vq-z5S"/>
                         <outlet property="spinner" destination="wjR-Dd-0ho" id="dkW-d7-JHS"/>
                         <outlet property="viewForMap" destination="wOO-sf-WI3" id="pMF-aB-4c9"/>
                         <segue destination="odk-hG-I1t" kind="show" identifier="FoodLookSegue" id="txV-CF-1au"/>
@@ -99,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ka-j2-6sH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1802" y="125"/>
+            <point key="canvasLocation" x="1802" y="149"/>
         </scene>
         <!--Rate Star View Controller-->
         <scene sceneID="o9g-l0-RrZ">
@@ -397,6 +408,7 @@
                             <constraint firstAttribute="trailing" secondItem="l4k-4r-Hb6" secondAttribute="trailing" id="iyy-dr-T85"/>
                             <constraint firstAttribute="trailing" secondItem="chY-vw-aW5" secondAttribute="trailing" constant="16" id="oXq-d9-6ZH"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="wkv-Bc-sv7"/>
                     </view>
                     <connections>
                         <outlet property="favouriteImageView" destination="rYz-32-QAw" id="uIw-6f-ObB"/>
@@ -416,7 +428,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axg-2C-wEk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1139" y="110"/>
+            <point key="canvasLocation" x="1139" y="87"/>
+        </scene>
+        <!--Map Picker View Controller-->
+        <scene sceneID="7yT-eu-Jpt">
+            <objects>
+                <viewController id="KNn-pE-z4q" customClass="MapPickerViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NMq-cm-Q3Y" customClass="PassThroughView" customModule="ComeAquiOS" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3J-RG-trF">
+                                <rect key="frame" x="186" y="374" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T65-mX-3s3">
+                                <rect key="frame" x="8" y="8" width="398" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyf-Y4-mch">
+                                        <rect key="frame" x="176" y="85" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="press:" destination="KNn-pE-z4q" eventType="touchUpInside" id="8du-mC-DSA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="nyf-Y4-mch" firstAttribute="centerY" secondItem="T65-mX-3s3" secondAttribute="centerY" id="2a2-er-Yen"/>
+                                    <constraint firstAttribute="height" constant="200" id="gbs-ax-Nb3"/>
+                                    <constraint firstItem="nyf-Y4-mch" firstAttribute="centerX" secondItem="T65-mX-3s3" secondAttribute="centerX" id="lBw-w1-gLh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="p3J-RG-trF" firstAttribute="centerX" secondItem="NMq-cm-Q3Y" secondAttribute="centerX" id="7Xr-Ty-kTf"/>
+                            <constraint firstItem="T65-mX-3s3" firstAttribute="leading" secondItem="NMq-cm-Q3Y" secondAttribute="leading" constant="8" id="A6a-JJ-Jx4"/>
+                            <constraint firstItem="T65-mX-3s3" firstAttribute="top" secondItem="NMq-cm-Q3Y" secondAttribute="top" constant="8" id="OEM-Ea-xFa"/>
+                            <constraint firstAttribute="trailing" secondItem="T65-mX-3s3" secondAttribute="trailing" constant="8" id="msM-6e-0wr"/>
+                            <constraint firstItem="p3J-RG-trF" firstAttribute="centerY" secondItem="NMq-cm-Q3Y" secondAttribute="centerY" id="wuA-HY-KFj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="p3J-RG-trF" id="iR0-zr-g8v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9d1-va-7b5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1060.8695652173915" y="-466.40625"/>
         </scene>
     </scenes>
     <resources>

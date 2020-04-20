@@ -24,10 +24,10 @@ extension UIView {
     }
     
     @discardableResult
-    public func dropShadow(radius: CGFloat = 3, opacity: Float = 0.5) -> UIView{
+    public func dropShadow(radius: CGFloat = 4, opacity: Float = 0.23) -> UIView{
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = opacity
-        self.layer.shadowOffset = CGSize(width: 0, height: 1)
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
         self.layer.shadowRadius = radius
         return self
     }
