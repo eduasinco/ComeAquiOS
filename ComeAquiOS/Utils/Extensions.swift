@@ -32,6 +32,13 @@ extension UIView {
         return self
     }
     
+    @discardableResult
+    public func border(witdth: CGFloat = 5, color: CGColor = UIColor.black.cgColor) -> UIView{
+        self.layer.borderWidth = witdth
+        self.layer.borderColor = color
+        return self
+    }
+    
     func findConstraint(layoutAttribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
         if let constraints = superview?.constraints {
             for constraint in constraints where itemMatch(constraint: constraint, layoutAttribute: layoutAttribute) {
