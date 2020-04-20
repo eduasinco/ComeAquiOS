@@ -22,6 +22,7 @@ class MapViewController: UIViewController, CardActionProtocol {
     @IBOutlet weak var viewForMap: UIView!
     var googleMap: GMSMapView!
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var foodPosts: [FoodPostObject]?
@@ -51,10 +52,13 @@ class MapViewController: UIViewController, CardActionProtocol {
         checkLocationServices()
         getFoodPosts()
         
-        cardView.roundCorners(radius: 8)
         moveCardToBottom(view: cardView)
         addPanGesture(view: cardView)
         view.bringSubviewToFront(cardView)
+    }
+    override func viewDidLayoutSubviews() {
+        containerView.roundCorners(radius: 8, clip: true)
+        cardView.roundCorners(radius: 8).dropShadow()
     }
     
     func setMarkers(){
@@ -157,7 +161,7 @@ class MapViewController: UIViewController, CardActionProtocol {
     
     func moveViewWithPan(view: UIView, sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
-        self.cardBottomConstraint.constant = 8 - translation.y
+        self.cardBottomConstraint.constant = 8 - max(0, translation.y)
     }
     func returnViewToOrigin(view: UIView) {
         UIView.animate(withDuration: 0.3, animations: {

@@ -9,21 +9,27 @@
 import UIKit
 
 extension UIView {
-    public func roundCorners(radius: CGFloat) {
+    @discardableResult
+    public func roundCorners(radius: CGFloat, clip: Bool = false) -> UIView{
         self.layer.cornerRadius = radius
-        self.clipsToBounds = true
+        self.clipsToBounds = clip
+        return self
     }
     
-    public func circle() {
+    @discardableResult
+    public func circle() -> UIView{
         self.layer.cornerRadius = min(self.frame.height, self.frame.width) / 2
         self.clipsToBounds = true
+        return self
     }
     
-    public func dropShadow(radius: CGFloat = 0, opacity: Float = 0) {
+    @discardableResult
+    public func dropShadow(radius: CGFloat = 3, opacity: Float = 0.5) -> UIView{
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = opacity
-        self.layer.shadowOffset = .zero
+        self.layer.shadowOffset = CGSize(width: 0, height: 1)
         self.layer.shadowRadius = radius
+        return self
     }
     
     func findConstraint(layoutAttribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {

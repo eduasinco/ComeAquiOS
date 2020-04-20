@@ -90,6 +90,7 @@ class ContentWrappingTableView: UITableView {
   }
 }
 
+
 class KUIViewController: UIViewController {
 
     // KBaseVC is the KEYBOARD variant BaseVC. more on this later
@@ -132,5 +133,23 @@ class KUIViewController: UIViewController {
         let t = UITapGestureRecognizer(target: self, action: #selector(clearKeyboard))
         view.addGestureRecognizer(t)
         t.cancelsTouchesInView = false
+    }
+}
+
+class MyOwnTableView: UITableView {
+    override var intrinsicContentSize: CGSize {
+        self.layoutIfNeeded()
+        return self.contentSize
+    }
+
+    override var contentSize: CGSize {
+        didSet{
+            self.invalidateIntrinsicContentSize()
+        }
+    }
+
+    override func reloadData() {
+        super.reloadData()
+        self.invalidateIntrinsicContentSize()
     }
 }

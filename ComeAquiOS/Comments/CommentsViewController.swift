@@ -422,24 +422,6 @@ extension CommentsViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-class MyOwnTableView: UITableView {
-    override var intrinsicContentSize: CGSize {
-        self.layoutIfNeeded()
-        return self.contentSize
-    }
-
-    override var contentSize: CGSize {
-        didSet{
-            self.invalidateIntrinsicContentSize()
-        }
-    }
-
-    override func reloadData() {
-        super.reloadData()
-        self.invalidateIntrinsicContentSize()
-    }
-}
-
 //public class Comment {
 //    let id: Int!
 //    var comment: String!
