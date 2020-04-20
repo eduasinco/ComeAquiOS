@@ -94,6 +94,16 @@ extension OrdersViewController: UITableViewDataSource, UITableViewDelegate {
             cell.priceLabel.text = "$" + String(format:"%.2f", Double(object.price!) / 100)
             cell.setFoodPostType(type: object.food_type ?? "0000000")
             
+            cell.mainBackground.layer.cornerRadius = 8
+            cell.mainBackground.layer.masksToBounds = true
+
+            cell.shadowLayer.layer.cornerRadius = 8
+            cell.shadowLayer.layer.masksToBounds = false
+            cell.shadowLayer.layer.shadowOffset = CGSize(width: 0, height: 0)
+            cell.shadowLayer.layer.shadowColor = UIColor.black.cgColor
+            cell.shadowLayer.layer.shadowOpacity = 0.23
+            cell.shadowLayer.layer.shadowRadius = 4
+
             if object.images!.count > 0{
                 guard let imageString = object.images![0].food_photo else {
                     return cell

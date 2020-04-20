@@ -26,6 +26,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXn-UZ-A9j">
+                                                    <rect key="frame" x="28" y="11" width="358" height="278"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mxh-6C-TYr" userLabel="Card Content" customClass="CardView" customModule="ComeAquiOS" customModuleProvider="target">
                                                     <rect key="frame" x="28" y="11" width="358" height="278"/>
                                                     <subviews>
@@ -152,9 +156,13 @@
                                             <color key="backgroundColor" red="0.93577490480000003" green="0.93577490480000003" blue="0.93577490480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstItem="mxh-6C-TYr" firstAttribute="bottom" secondItem="Hs0-Ck-Gwg" secondAttribute="bottomMargin" id="5gW-Og-tFm"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lXn-UZ-A9j" secondAttribute="trailing" constant="8" id="GIZ-tG-G42"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="mxh-6C-TYr" secondAttribute="trailing" constant="8" id="HsW-P1-XgI"/>
                                                 <constraint firstItem="mxh-6C-TYr" firstAttribute="leading" secondItem="Hs0-Ck-Gwg" secondAttribute="leadingMargin" constant="8" id="Nvp-dA-jI5"/>
                                                 <constraint firstItem="mxh-6C-TYr" firstAttribute="top" secondItem="Hs0-Ck-Gwg" secondAttribute="topMargin" id="cR1-CC-meT"/>
+                                                <constraint firstItem="lXn-UZ-A9j" firstAttribute="top" secondItem="Hs0-Ck-Gwg" secondAttribute="topMargin" id="vzn-75-FAj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="lXn-UZ-A9j" secondAttribute="bottom" id="y7S-m3-Tov"/>
+                                                <constraint firstItem="lXn-UZ-A9j" firstAttribute="leading" secondItem="Hs0-Ck-Gwg" secondAttribute="leadingMargin" constant="8" id="yy6-3x-yo3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -166,11 +174,12 @@
                                             <outlet property="foodImageView" destination="tdx-Gf-hLN" id="Sb1-8b-kyG"/>
                                             <outlet property="foodInfoView" destination="I4L-Gg-sfE" id="bmT-rp-Hys"/>
                                             <outlet property="heightImageConstraint" destination="h93-oi-XoO" id="8CB-fZ-mP9"/>
-                                            <outlet property="insideCardView" destination="mxh-6C-TYr" id="1M2-ly-7mB"/>
+                                            <outlet property="mainBackground" destination="mxh-6C-TYr" id="1M2-ly-7mB"/>
                                             <outlet property="meat" destination="Yyx-gg-Uf7" id="Ier-VY-K7H"/>
                                             <outlet property="meatWidth" destination="dsy-u3-MfD" id="tBB-0T-Xqf"/>
                                             <outlet property="plateNameLabel" destination="bRf-Rn-uga" id="2Ui-Ud-4XA"/>
                                             <outlet property="priceLabel" destination="8cz-ic-07c" id="zws-DN-FfF"/>
+                                            <outlet property="shadowLayer" destination="lXn-UZ-A9j" id="rZm-tS-b6W"/>
                                             <outlet property="spyci" destination="pJM-fX-Gzr" id="va8-jt-bGJ"/>
                                             <outlet property="spyciWidth" destination="1J8-W5-R11" id="ZwP-Wy-fQi"/>
                                             <outlet property="stackView" destination="Nfy-NP-hQF" id="KX4-Sn-bki"/>

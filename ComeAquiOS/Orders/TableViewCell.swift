@@ -39,13 +39,14 @@ class TableViewCell: UITableViewCell {
         
     @IBOutlet weak var foodImageView: CellImageView!
     @IBOutlet weak var heightImageConstraint: NSLayoutConstraint!
-    @IBOutlet weak var insideCardView: UIView!
+    @IBOutlet weak var mainBackground: UIView!
+    @IBOutlet weak var shadowLayer: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        insideCardView.roundCorners(radius: 4)
         // Initialization code
     }
+    
     
     func setFoodPostType(type: String){
         let typeImages = [vegetarian, vegan, wheat, spyci, fish, meat, diary]
