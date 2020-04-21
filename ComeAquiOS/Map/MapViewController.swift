@@ -237,7 +237,13 @@ class MapViewController: UIViewController, CardActionProtocol {
         }
     }
 }
-extension MapViewController: MapPickerProtocol{
+extension MapViewController: MapPickerProtocol {
+    func placeSelected(place: PlaceG) {
+        let camera = GMSCameraPosition.camera(withLatitude: (place.result?.geometry?.location?.lat!)!, longitude: (place.result?.geometry?.location?.lng!)!, zoom: 16)
+        googleMap?.camera = camera
+        googleMap?.animate(to: camera)
+    }
+    
     func goToAddFood(googleLocation: GoogleMapsLocation) {
         performSegue(withIdentifier: "AddFoodSegue", sender: googleLocation)
     }
@@ -247,6 +253,7 @@ extension MapViewController: MapPickerProtocol{
             marker.map = visible ? nil : googleMap
         }
     }
+    
 }
 
 extension MapViewController {

@@ -10,6 +10,7 @@ import UIKit
 protocol MapPickerProtocol {
     func markerVisibility(_ visible: Bool)
     func goToAddFood(googleLocation: GoogleMapsLocation)
+    func placeSelected(place: PlaceG)
 }
 class MapPickerViewController: UIViewController {
 
@@ -50,6 +51,23 @@ class MapPickerViewController: UIViewController {
     func switchFabImage(_ toPLus: Bool){
         pickerButton.setImage(UIImage(named: toPLus ? "fish.png": "meat.png"), for: UIControl.State.normal)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PlaceAutocompleteSegue" {
+            let placeAutocompleteContainer = segue.destination as? PlaceAutocompleteViewController
+            placeAutocompleteContainer?.delegate = self
+        }
+    }
+}
+
+extension MapPickerViewController: AutocompleteProtocol {
+    func close() {
+        
+    }
+    
+    func placeSelected(place: PlaceG) {
+        delegate?.placeSelected(place: place)
+    }
 }
 
 extension MapPickerViewController{
@@ -79,6 +97,7 @@ extension MapPickerViewController{
         })
         task.resume()
     }
+    
 }
 
 class GoogleMapsLocation: Decodable {

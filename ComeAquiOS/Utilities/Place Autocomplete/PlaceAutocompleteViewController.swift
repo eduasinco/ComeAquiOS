@@ -7,11 +7,20 @@
 //
 
 import UIKit
+protocol AutocompleteProtocol {
+    func close()
+    func placeSelected(place: PlaceG)
+}
 
 class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textView: UITextField!
     @IBOutlet weak var tableView: MyOwnTableView!
+    @IBOutlet weak var clearTextButton: UIButton!
+    
     var places: [PredictionG] = []
+    var selectedPlace: PlaceG?
+
+    var delegate: AutocompleteProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,14 +28,32 @@ class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         // tableView.isScrollEnabled = false
-        
         textView.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
+        clearTextButton.visibility = .gone
+    }
+    @IBAction func clearText(_ sender: Any) {
+        textView.text = ""
+        self.clearTextButton.visibility = .gone
+        places = []
+        tableView.reloadData()
+    }
+    @IBAction func close(_ sender: Any) {
+        delegate?.close()
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
+        if textView.text!.count > 0 {
+            UIView.animate(withDuration: 0.5) {
+                self.clearTextButton.visibility = .visible
+            }
+        } else {
+            UIView.animate(withDuration: 0.5) {
+                self.clearTextButton.visibility = .gone
+            }
+        }
         getLocationsFromGoogle()
     }
-    
 }
 
 extension PlaceAutocompleteViewController: UITableViewDataSource, UITableViewDelegate {
@@ -39,6 +66,15 @@ extension PlaceAutocompleteViewController: UITableViewDataSource, UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell") as! LocationTableViewCell
         cell.label.text = places[indexPath.row].description
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let predictionSelected = places[indexPath.row]
+        getPlaceDetailFromGoogle(selectedPrediction: predictionSelected)
+        textView.text = predictionSelected.description
+        self.clearTextButton.visibility = .visible
+        places = []
+        tableView.reloadData()
     }
 }
 
@@ -61,6 +97,30 @@ extension PlaceAutocompleteViewController{
                 self.places = result.predictions!
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                }
+            } catch let jsonErr {
+                print("json could'nt be parsed \(jsonErr)")
+            }
+        })
+        task.resume()
+    }
+    
+    func getPlaceDetailFromGoogle(selectedPrediction: PredictionG){
+        guard var endpointUrl = URL(string: "https://maps.googleapis.com/maps/api/place/details/json?input=bar&placeid=\(selectedPrediction.place_id!)&key=\(GOOGLE_KEY)") else { return }
+        
+        var request = URLRequest(url: endpointUrl)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "GET"
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+                guard let data = data else {
+                return
+            }
+            do {
+                self.selectedPlace = try JSONDecoder().decode(PlaceG.self, from: data)
+                DispatchQueue.main.async {
+                    self.delegate?.placeSelected(place: self.selectedPlace!)
                 }
             } catch let jsonErr {
                 print("json could'nt be parsed \(jsonErr)")
@@ -96,4 +156,27 @@ class TermG: Decodable {
     var value: String?
     var offset: Int?
 }
+
+
+class PlaceG: Decodable {
+    var html_attributions: [String]?
+    var result: ResultG?
+}
+class ResultG: Decodable {
+    var address_components: [AddressComponentG]?
+    var adr_address: String?
+    var formatted_address: String?
+    var geometry: GeometryG?
+    var icon: String?
+    var id: String?
+    var name: String?
+    var photos: [FotoG]
+}
+class FotoG: Decodable{
+    var height: Int?
+    var html_attributions: [String]?
+    var photo_reference: String?
+    var width: Int?
+}
+
 
