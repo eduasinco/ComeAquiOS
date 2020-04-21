@@ -9,7 +9,8 @@
 import UIKit
 protocol MapPickerProtocol {
     func markerVisibility(_ visible: Bool)
-    func goToAddFood(googleLocation: GoogleMapsLocation)
+    func buttonPressed(times: Int)
+    func goToAddFood(googleLocation: GoogleMapsLocation?)
     func placeSelected(place: PlaceG)
 }
 class MapPickerViewController: UIViewController {
@@ -20,6 +21,9 @@ class MapPickerViewController: UIViewController {
     @IBOutlet weak var picker: UIView!
     @IBOutlet weak var middleYPicker: NSLayoutConstraint!
     @IBOutlet weak var pickerButton: UIButton!
+    @IBOutlet weak var searchContainerView: UIView!
+    
+    var searchAbailable = false
     
     var googleMapsLocation: GoogleMapsLocation?
     var fabCount = 0
@@ -32,16 +36,22 @@ class MapPickerViewController: UIViewController {
         pan.roundCorners(radius: pan.frame.height/2).border(witdth: handle.frame.width - 1)
         label.roundCorners(radius: label.frame.height/2)
         handle.circle()
+        searchContainerView.visibility = .gone
+        picker.visibility = .gone
         
         pickerButton.roundCorners(radius: pickerButton.frame.height/2).dropShadow()
     }
     @IBAction func addFoodPressed(_ sender: Any) {
         if (fabCount == 0){
-            delegate?.markerVisibility(false);
+            delegate?.markerVisibility(false)
             fabCount = 1
-            switchFabImage(true);
+            searchAbailable = true
+            switchFabImage(true)
+            picker.visibility = .visible
+            searchContainerView.visibility = .visible
+            delegate?.buttonPressed(times: fabCount)
         } else if (fabCount == 1) {
-            delegate?.goToAddFood(googleLocation: self.googleMapsLocation!)
+            delegate?.goToAddFood(googleLocation: self.googleMapsLocation)
         } else {
             fabCount = 2
             switchFabImage(false);
@@ -49,7 +59,7 @@ class MapPickerViewController: UIViewController {
     }
     
     func switchFabImage(_ toPLus: Bool){
-        pickerButton.setImage(UIImage(named: toPLus ? "fish.png": "meat.png"), for: UIControl.State.normal)
+        pickerButton.setImage(UIImage(systemName: toPLus ? "plus": "plus.magnifyingglass"), for: UIControl.State.normal)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,7 +72,11 @@ class MapPickerViewController: UIViewController {
 
 extension MapPickerViewController: AutocompleteProtocol {
     func close() {
-        
+        searchAbailable = false
+        fabCount = 0
+        switchFabImage(false)
+        searchContainerView.visibility = .gone
+        picker.visibility = .gone
     }
     
     func placeSelected(place: PlaceG) {
@@ -72,30 +86,33 @@ extension MapPickerViewController: AutocompleteProtocol {
 
 extension MapPickerViewController{
     func getLocationFromGoogle(lat: Double, lng: Double){
-        guard var endpointUrl = URL(string: "https://maps.googleapis.com/maps/api/geocode/json?latlng=\(lat),\(lng)&key=\(GOOGLE_KEY)") else { return }
-        
-        var request = URLRequest(url: endpointUrl)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.httpMethod = "GET"
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        self.label.text = "Loading..."
-        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-                guard let data = data else {
-                return
-            }
-            do {
-                self.googleMapsLocation = try JSONDecoder().decode(GoogleMapsLocation.self, from: data)
-                DispatchQueue.main.async {
-                    if (self.googleMapsLocation?.results.count)! > 0 {
-                        self.label.text = self.googleMapsLocation!.results[0].formatted_address
-                    }
+        if searchAbailable {
+            guard var endpointUrl = URL(string: "https://maps.googleapis.com/maps/api/geocode/json?latlng=\(lat),\(lng)&key=\(GOOGLE_KEY)") else { return }
+            
+            var request = URLRequest(url: endpointUrl)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.httpMethod = "GET"
+            let session = URLSession(configuration: URLSessionConfiguration.default)
+            self.label.text = "Loading..."
+            let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+                    guard let data = data else {
+                    return
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
-            }
-        })
-        task.resume()
+                do {
+                    self.googleMapsLocation = try JSONDecoder().decode(GoogleMapsLocation.self, from: data)
+                    print("SE222222222222222222222222222222222222222222222222222222222222222222222222222RCH")
+                    DispatchQueue.main.async {
+                        if (self.googleMapsLocation?.results.count)! > 0 {
+                            self.label.text = self.googleMapsLocation!.results[0].formatted_address
+                        }
+                    }
+                } catch let jsonErr {
+                    print("json could'nt be parsed \(jsonErr)")
+                }
+            })
+            task.resume()
+        }
     }
     
 }

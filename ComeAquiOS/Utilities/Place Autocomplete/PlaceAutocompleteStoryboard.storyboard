@@ -48,12 +48,14 @@
                                             <constraint firstItem="Y2e-Ca-baN" firstAttribute="leading" secondItem="4PX-Aa-4I2" secondAttribute="trailing" id="eHl-gq-hjZ"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucb-nL-zdG">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ucb-nL-zdG">
                                         <rect key="frame" x="348" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="rYp-V9-H2L"/>
                                         </constraints>
-                                        <state key="normal" title="Close" image="clear" catalog="system"/>
+                                        <state key="normal" title="Close" image="xmark.square" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17" scale="large"/>
+                                        </state>
                                         <connections>
                                             <action selector="close:" destination="BUf-1N-aGb" eventType="touchUpInside" id="hew-Db-fBL"/>
                                         </connections>
@@ -122,7 +124,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="clear" catalog="system" width="128" height="114"/>
         <image name="clear.fill" catalog="system" width="128" height="114"/>
+        <image name="xmark.square" catalog="system" width="128" height="114"/>
     </resources>
 </document>

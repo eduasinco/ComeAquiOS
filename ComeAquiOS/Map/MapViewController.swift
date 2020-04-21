@@ -41,6 +41,9 @@ class MapViewController: UIViewController, CardActionProtocol {
     var currentPost: FoodPostObject!
     var lastPost: FoodPostObject?
     var seenPost = Set<Int>()
+    
+    var cameraLat: Double?
+    var cameraLng: Double?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -244,7 +247,12 @@ extension MapViewController: MapPickerProtocol {
         googleMap?.animate(to: camera)
     }
     
-    func goToAddFood(googleLocation: GoogleMapsLocation) {
+    func buttonPressed(times: Int) {
+        guard let cameraLat = self.cameraLat, let cameraLng = self.cameraLng else { return }
+        mapPickerContainer.getLocationFromGoogle(lat: cameraLat, lng: cameraLng)
+    }
+    
+    func goToAddFood(googleLocation: GoogleMapsLocation?) {
         performSegue(withIdentifier: "AddFoodSegue", sender: googleLocation)
     }
     
@@ -326,10 +334,9 @@ extension MapViewController: GMSMapViewDelegate {
         mapPickerContainer.label.text = ""
     }
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition){
-        let latitude = mapView.camera.target.latitude
-        let longitude = mapView.camera.target.longitude
-        mapPickerContainer.getLocationFromGoogle(lat: latitude,  lng: longitude)
-        print("\(latitude), \(longitude)")
+        cameraLat = mapView.camera.target.latitude
+        cameraLng = mapView.camera.target.longitude
+        mapPickerContainer.getLocationFromGoogle(lat: cameraLat!,  lng: cameraLng!)
     }
 }
 
