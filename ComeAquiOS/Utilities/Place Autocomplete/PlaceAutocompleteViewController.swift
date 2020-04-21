@@ -18,7 +18,7 @@ class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
         self.view.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.isScrollEnabled = false
+        // tableView.isScrollEnabled = false
         
         textView.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
@@ -36,7 +36,7 @@ extension PlaceAutocompleteViewController: UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("CommentsTableViewCell", owner: self, options: nil)?.first as! CommentsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationTableViewCell") as! LocationTableViewCell
         cell.label.text = places[indexPath.row].description
         return cell
     }
@@ -44,7 +44,8 @@ extension PlaceAutocompleteViewController: UITableViewDataSource, UITableViewDel
 
 extension PlaceAutocompleteViewController{
     func getLocationsFromGoogle(){
-        guard let endpointUrl = URL(string: "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Palos&types=geocode&language=en&key\(GOOGLE_KEY)") else { return }
+        let url = URL(string: "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\( textView.text!)&types=geocode&language=en&key=\(GOOGLE_KEY)")
+        guard let endpointUrl = url else { return }
         
         var request = URLRequest(url: endpointUrl)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -57,7 +58,7 @@ extension PlaceAutocompleteViewController{
             }
             do {
                 let result = try JSONDecoder().decode(PlacesG.self, from: data)
-                self.places.append(contentsOf: result.predictions!)
+                self.places = result.predictions!
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -78,8 +79,9 @@ class PredictionG: Decodable {
     var matched_substrings: [SubStringsG]?
     var place_id: String?
     var reference: String?
-    var structured_formatting: [FormattingG]?
-    var terms: [TermG]
+    var structured_formatting: FormattingG?
+    var terms: [TermG]?
+    var types: [String]?
 }
 class SubStringsG: Decodable{
     var length: Int?
@@ -91,7 +93,7 @@ class FormattingG: Decodable {
     var secondary_text: String?
 }
 class TermG: Decodable {
-    var value: Int?
+    var value: String?
     var offset: Int?
 }
 

@@ -36,13 +36,13 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="azA-Xd-DXS" customClass="MyOwnTableView" customModule="ComeAquiOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="102" width="414" height="794"/>
+                                <rect key="frame" x="0.0" y="102" width="414" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="lnn-9d-PRR"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="lnn-9d-PRR"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="y1Q-Wm-T27" customClass="LocationTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationTableViewCell" id="y1Q-Wm-T27" customClass="LocationTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y1Q-Wm-T27" id="4y2-z8-G3r">
@@ -76,7 +76,7 @@
                             <constraint firstItem="iQS-mk-Y9x" firstAttribute="leading" secondItem="vKl-uA-64M" secondAttribute="leading" id="HHM-xe-idj"/>
                             <constraint firstItem="vKl-uA-64M" firstAttribute="trailing" secondItem="iQS-mk-Y9x" secondAttribute="trailing" id="LQj-64-VWu"/>
                             <constraint firstItem="azA-Xd-DXS" firstAttribute="trailing" secondItem="vKl-uA-64M" secondAttribute="trailing" id="Nxd-1x-wbe"/>
-                            <constraint firstAttribute="bottom" secondItem="azA-Xd-DXS" secondAttribute="bottom" id="fjd-x8-7Dy"/>
+                            <constraint firstAttribute="bottom" secondItem="azA-Xd-DXS" secondAttribute="bottom" priority="999" id="fjd-x8-7Dy"/>
                             <constraint firstItem="iQS-mk-Y9x" firstAttribute="top" secondItem="vKl-uA-64M" secondAttribute="top" id="phC-Sf-YIB"/>
                             <constraint firstItem="azA-Xd-DXS" firstAttribute="top" secondItem="iQS-mk-Y9x" secondAttribute="bottom" constant="8" id="zbO-ow-mPl"/>
                         </constraints>
