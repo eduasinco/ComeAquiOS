@@ -30,6 +30,7 @@ class MapViewController: UIViewController, CardActionProtocol {
     var favouritePosts: [FavouritePost]?
     var foodPostsDict: [Int: FoodPostObject] = [:]
     private var idToMarker: [Int: FoodPostMarker] = [:]
+    private var markers: [FoodPostMarker] = []
 
     
     let locationManager = CLLocationManager()
@@ -75,6 +76,8 @@ class MapViewController: UIViewController, CardActionProtocol {
             marker.map = self.googleMap
             marker.icon = self.imageWithImage(image: UIImage(named: "marker")!, width: 30)
             idToMarker[marker.id] = marker
+            
+            markers.append(marker)
         }
     }
     
@@ -227,6 +230,21 @@ class MapViewController: UIViewController, CardActionProtocol {
             foodLookContainer?.foodPostId = sender as? Int
         } else if segue.identifier == "MapPickerSegue" {
             mapPickerContainer = segue.destination as? MapPickerViewController
+            mapPickerContainer.delegate = self
+        } else if segue.identifier == "AddFoodSegue" {
+            let addFoodVC = segue.destination as? AddFoodViewController
+            addFoodVC?.googleMapsLocation = sender as? GoogleMapsLocation
+        }
+    }
+}
+extension MapViewController: MapPickerProtocol{
+    func goToAddFood(googleLocation: GoogleMapsLocation) {
+        performSegue(withIdentifier: "AddFoodSegue", sender: googleLocation)
+    }
+    
+    func markerVisibility(_ visible: Bool) {
+        for marker in markers {
+            marker.map = visible ? nil : googleMap
         }
     }
 }
@@ -298,6 +316,7 @@ extension MapViewController: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        mapPickerContainer.label.text = ""
     }
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition){
         let latitude = mapView.camera.target.latitude

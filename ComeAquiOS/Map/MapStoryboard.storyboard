@@ -77,6 +77,7 @@
                         <outlet property="spinner" destination="wjR-Dd-0ho" id="dkW-d7-JHS"/>
                         <outlet property="viewForMap" destination="wOO-sf-WI3" id="pMF-aB-4c9"/>
                         <segue destination="odk-hG-I1t" kind="show" identifier="FoodLookSegue" id="txV-CF-1au"/>
+                        <segue destination="qVc-qT-HYp" kind="show" identifier="AddFoodSegue" id="XLH-HX-g8l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eai-eU-7ua" sceneMemberID="firstResponder"/>
@@ -442,25 +443,25 @@
                                 <rect key="frame" x="190" y="360" width="34" height="49"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ge2-hY-V4P" userLabel="handle">
-                                        <rect key="frame" x="14.5" y="29" width="5" height="20"/>
+                                        <rect key="frame" x="15" y="29" width="4" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="5" id="SxC-9n-b4o"/>
+                                            <constraint firstAttribute="width" constant="4" id="SxC-9n-b4o"/>
                                             <constraint firstAttribute="height" constant="20" id="dnw-bL-SYt"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KFB-LA-RLx" userLabel="pan">
                                         <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ja-2i-VEq">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ja-2i-VEq">
                                                 <rect key="frame" x="7" y="7" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="98D-Y3-HHm"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Mwj-31-RA6"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
+                                                <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -481,11 +482,25 @@
                                     <constraint firstItem="KFB-LA-RLx" firstAttribute="leading" secondItem="bBu-qn-wJY" secondAttribute="leading" id="gcf-QF-b9F"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75d-aQ-U7b">
+                                <rect key="frame" x="324" y="679" width="70" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="D3C-3R-kEG"/>
+                                    <constraint firstAttribute="height" constant="70" id="Zbq-3l-zo4"/>
+                                </constraints>
+                                <state key="normal" image="bell" catalog="system"/>
+                                <connections>
+                                    <action selector="addFoodPressed:" destination="KNn-pE-z4q" eventType="touchUpInside" id="NMA-7E-88e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="bBu-qn-wJY" firstAttribute="centerY" secondItem="NMq-cm-Q3Y" secondAttribute="centerY" id="GRX-RJ-4tc"/>
+                            <constraint firstItem="75d-aQ-U7b" firstAttribute="trailing" secondItem="NMq-cm-Q3Y" secondAttribute="trailingMargin" id="Upo-zt-oof"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bBu-qn-wJY" secondAttribute="trailing" priority="999" constant="50" id="crq-iJ-MVK"/>
                             <constraint firstItem="bBu-qn-wJY" firstAttribute="centerX" secondItem="NMq-cm-Q3Y" secondAttribute="centerX" id="rbF-I5-UMx"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="75d-aQ-U7b" secondAttribute="bottom" constant="20" id="vwj-HE-y79"/>
                             <constraint firstItem="bBu-qn-wJY" firstAttribute="leading" secondItem="NMq-cm-Q3Y" secondAttribute="leadingMargin" priority="999" constant="50" id="z7A-uF-rua"/>
                         </constraints>
                     </view>
@@ -495,14 +510,32 @@
                         <outlet property="middleYPicker" destination="GRX-RJ-4tc" id="WA8-qI-Jy1"/>
                         <outlet property="pan" destination="KFB-LA-RLx" id="TSJ-7D-tZ1"/>
                         <outlet property="picker" destination="bBu-qn-wJY" id="Bli-Lf-7Bq"/>
+                        <outlet property="pickerButton" destination="75d-aQ-U7b" id="88K-5X-gKo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9d1-va-7b5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060.8695652173915" y="-466.40625"/>
+            <point key="canvasLocation" x="1009" y="-557"/>
+        </scene>
+        <!--Add Food View Controller-->
+        <scene sceneID="vyS-Lk-SUY">
+            <objects>
+                <viewController id="qVc-qT-HYp" customClass="AddFoodViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="adc-88-aBi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="vcZ-Ps-5m2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="f4t-uQ-t0o"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fXa-Kx-OSr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2043" y="-407"/>
         </scene>
     </scenes>
     <resources>
+        <image name="bell" catalog="system" width="128" height="124"/>
         <image name="favourite_star" width="205" height="205"/>
         <image name="food-time" width="200" height="200"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
