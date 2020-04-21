@@ -210,9 +210,9 @@
 		87FC9E94244800B000810ECF /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				87FC9EB62448033C00810ECF /* MapViewController.swift */,
-				87FC9EE3244E179F00810ECF /* FoodCardViewController.swift */,
 				87FC9EE5244E57BD00810ECF /* MapPickerViewController.swift */,
+				87FC9EE3244E179F00810ECF /* FoodCardViewController.swift */,
+				87FC9EB62448033C00810ECF /* MapViewController.swift */,
 				87FC9EB82448034B00810ECF /* MapStoryboard.storyboard */,
 			);
 			path = Map;

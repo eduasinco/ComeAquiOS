@@ -35,6 +35,7 @@ class MapViewController: UIViewController, CardActionProtocol {
     let locationManager = CLLocationManager()
     @IBOutlet weak var cardBottomConstraint: NSLayoutConstraint!
     var foodCardVC: FoodCardViewController?
+    var mapPickerContainer: MapPickerViewController!
     
     var currentPost: FoodPostObject!
     var lastPost: FoodPostObject?
@@ -172,7 +173,7 @@ class MapViewController: UIViewController, CardActionProtocol {
     }
     func moveCardToBottom(view: UIView) {
         UIView.animate(withDuration: 0.3, animations: {
-            self.cardBottomConstraint.constant = -(8 + self.cardView.frame.height)
+            self.cardBottomConstraint.constant = -(8 + self.cardView.frame.height + 200)
             self.view.layoutIfNeeded()
         })
     }
@@ -224,6 +225,8 @@ class MapViewController: UIViewController, CardActionProtocol {
         } else if segue.identifier == "FoodLookSegue" {
             let foodLookContainer = segue.destination as? FoodLookViewController
             foodLookContainer?.foodPostId = sender as? Int
+        } else if segue.identifier == "MapPickerSegue" {
+            mapPickerContainer = segue.destination as? MapPickerViewController
         }
     }
 }
@@ -292,6 +295,15 @@ extension MapViewController: GMSMapViewDelegate {
         let marker = marker as! FoodPostMarker
         showCard(foodPostId: marker.id)
         return true
+    }
+    
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+    }
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition){
+        let latitude = mapView.camera.target.latitude
+        let longitude = mapView.camera.target.longitude
+        mapPickerContainer.getLocationFromGoogle(lat: latitude,  lng: longitude)
+        print("\(latitude), \(longitude)")
     }
 }
 

@@ -49,7 +49,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-cr-Uml" customClass="PassThroughView" customModule="ComeAquiOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <connections>
-                                    <segue destination="KNn-pE-z4q" kind="embed" id="7sL-RV-zGq"/>
+                                    <segue destination="KNn-pE-z4q" kind="embed" identifier="MapPickerSegue" id="7sL-RV-zGq"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -438,8 +438,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBu-qn-wJY">
-                                <rect key="frame" x="190" y="370" width="34" height="49"/>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBu-qn-wJY" userLabel="picker">
+                                <rect key="frame" x="190" y="360" width="34" height="49"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ge2-hY-V4P" userLabel="handle">
                                         <rect key="frame" x="14.5" y="29" width="5" height="20"/>
@@ -483,16 +483,18 @@
                             </view>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="bBu-qn-wJY" firstAttribute="centerY" secondItem="NMq-cm-Q3Y" secondAttribute="centerY" id="GRX-RJ-4tc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bBu-qn-wJY" secondAttribute="trailing" priority="999" constant="50" id="crq-iJ-MVK"/>
                             <constraint firstItem="bBu-qn-wJY" firstAttribute="centerX" secondItem="NMq-cm-Q3Y" secondAttribute="centerX" id="rbF-I5-UMx"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="bBu-qn-wJY" secondAttribute="bottom" constant="350" id="wHg-Cf-pHv"/>
                             <constraint firstItem="bBu-qn-wJY" firstAttribute="leading" secondItem="NMq-cm-Q3Y" secondAttribute="leadingMargin" priority="999" constant="50" id="z7A-uF-rua"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="handle" destination="ge2-hY-V4P" id="miA-ih-teS"/>
                         <outlet property="label" destination="8ja-2i-VEq" id="mb1-Pv-6qi"/>
+                        <outlet property="middleYPicker" destination="GRX-RJ-4tc" id="WA8-qI-Jy1"/>
                         <outlet property="pan" destination="KFB-LA-RLx" id="TSJ-7D-tZ1"/>
+                        <outlet property="picker" destination="bBu-qn-wJY" id="Bli-Lf-7Bq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9d1-va-7b5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
