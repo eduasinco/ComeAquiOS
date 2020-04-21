@@ -28,7 +28,7 @@ class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         // tableView.isScrollEnabled = false
-        textView.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        textView.addTarget(self, action: #selector(textField(_:shouldChangeCharactersIn:replacementString:)), for: .editingChanged)
         
         clearTextButton.visibility = .gone
     }
@@ -42,7 +42,22 @@ class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
         delegate?.close()
     }
     
-    @objc func textFieldDidChange(_ textField: UITextField) {
+
+    var timer: Timer?
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        timer?.invalidate()  // Cancel any previous timer
+
+        // If the textField contains at least 1 characters…
+        let currentText = textField.text ?? ""
+        if (currentText as NSString).replacingCharacters(in: range, with: string).count > 0 {
+            timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false){_ in
+                print("SEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARCH")
+                self.getLocationsFromGoogle()
+            }
+        }
+        
         if textView.text!.count > 0 {
             UIView.animate(withDuration: 0.5) {
                 self.clearTextButton.visibility = .visible
@@ -51,8 +66,10 @@ class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
             UIView.animate(withDuration: 0.5) {
                 self.clearTextButton.visibility = .gone
             }
+            self.places = []
+            self.tableView.reloadData()
         }
-        getLocationsFromGoogle()
+        return true
     }
 }
 
