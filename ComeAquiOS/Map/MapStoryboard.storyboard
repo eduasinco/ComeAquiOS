@@ -494,11 +494,23 @@
                                     <action selector="addFoodPressed:" destination="KNn-pE-z4q" eventType="touchUpInside" id="NMA-7E-88e"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="st8-QH-wLf">
+                                <rect key="frame" x="16" y="16" width="382" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="VLO-eF-N1u"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="4bF-CN-WLW" kind="embed" id="SyT-iN-MV8"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="st8-QH-wLf" secondAttribute="trailing" constant="16" id="AjS-be-Oe4"/>
                             <constraint firstItem="bBu-qn-wJY" firstAttribute="centerY" secondItem="NMq-cm-Q3Y" secondAttribute="centerY" id="GRX-RJ-4tc"/>
+                            <constraint firstItem="st8-QH-wLf" firstAttribute="leading" secondItem="NMq-cm-Q3Y" secondAttribute="leading" constant="16" id="LTy-M2-edR"/>
                             <constraint firstItem="75d-aQ-U7b" firstAttribute="trailing" secondItem="NMq-cm-Q3Y" secondAttribute="trailingMargin" id="Upo-zt-oof"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bBu-qn-wJY" secondAttribute="trailing" priority="999" constant="50" id="crq-iJ-MVK"/>
+                            <constraint firstItem="st8-QH-wLf" firstAttribute="top" secondItem="NMq-cm-Q3Y" secondAttribute="top" constant="16" id="jK0-D8-FSF"/>
                             <constraint firstItem="bBu-qn-wJY" firstAttribute="centerX" secondItem="NMq-cm-Q3Y" secondAttribute="centerX" id="rbF-I5-UMx"/>
                             <constraint firstAttribute="bottomMargin" secondItem="75d-aQ-U7b" secondAttribute="bottom" constant="20" id="vwj-HE-y79"/>
                             <constraint firstItem="bBu-qn-wJY" firstAttribute="leading" secondItem="NMq-cm-Q3Y" secondAttribute="leadingMargin" priority="999" constant="50" id="z7A-uF-rua"/>
@@ -516,6 +528,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9d1-va-7b5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1009" y="-557"/>
+        </scene>
+        <!--PlaceAutocomplete-->
+        <scene sceneID="cg0-r6-mvs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PlaceAutocompleteStoryboard" referencedIdentifier="PlaceAutocomplete" id="4bF-CN-WLW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9rn-Wt-nzh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1665" y="-812"/>
         </scene>
         <!--Add Food View Controller-->
         <scene sceneID="vyS-Lk-SUY">
