@@ -55,6 +55,8 @@
 		87FC9EEC244E9FD300810ECF /* PlaceAutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EEB244E9FD300810ECF /* PlaceAutocompleteViewController.swift */; };
 		87FC9EEE244E9FE600810ECF /* PlaceAutocompleteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9EED244E9FE600810ECF /* PlaceAutocompleteStoryboard.storyboard */; };
 		87FC9EF0244EA1A100810ECF /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EEF244EA1A100810ECF /* LocationTableViewCell.swift */; };
+		87FC9EF3244FB0B800810ECF /* AddFoodStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9EF2244FB0B800810ECF /* AddFoodStoryboard.storyboard */; };
+		87FC9EF6244FB19100810ECF /* MapPIckerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9EF5244FB19100810ECF /* MapPIckerStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +111,8 @@
 		87FC9EEB244E9FD300810ECF /* PlaceAutocompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAutocompleteViewController.swift; sourceTree = "<group>"; };
 		87FC9EED244E9FE600810ECF /* PlaceAutocompleteStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlaceAutocompleteStoryboard.storyboard; sourceTree = "<group>"; };
 		87FC9EEF244EA1A100810ECF /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		87FC9EF2244FB0B800810ECF /* AddFoodStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddFoodStoryboard.storyboard; sourceTree = "<group>"; };
+		87FC9EF5244FB19100810ECF /* MapPIckerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapPIckerStoryboard.storyboard; sourceTree = "<group>"; };
 		EE35396FEB851C07CF98D0E9 /* Pods-ComeAquiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComeAquiOS.debug.xcconfig"; path = "Target Support Files/Pods-ComeAquiOS/Pods-ComeAquiOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,8 +223,8 @@
 		87FC9E94244800B000810ECF /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				87FC9EE7244E9CE800810ECF /* AddFoodViewController.swift */,
-				87FC9EE5244E57BD00810ECF /* MapPickerViewController.swift */,
+				87FC9EF4244FB17500810ECF /* Map Picker */,
+				87FC9EF1244FB08D00810ECF /* Add Food */,
 				87FC9EE3244E179F00810ECF /* FoodCardViewController.swift */,
 				87FC9EB62448033C00810ECF /* MapViewController.swift */,
 				87FC9EB82448034B00810ECF /* MapStoryboard.storyboard */,
@@ -309,6 +313,24 @@
 			path = "Place Autocomplete";
 			sourceTree = "<group>";
 		};
+		87FC9EF1244FB08D00810ECF /* Add Food */ = {
+			isa = PBXGroup;
+			children = (
+				87FC9EE7244E9CE800810ECF /* AddFoodViewController.swift */,
+				87FC9EF2244FB0B800810ECF /* AddFoodStoryboard.storyboard */,
+			);
+			path = "Add Food";
+			sourceTree = "<group>";
+		};
+		87FC9EF4244FB17500810ECF /* Map Picker */ = {
+			isa = PBXGroup;
+			children = (
+				87FC9EE5244E57BD00810ECF /* MapPickerViewController.swift */,
+				87FC9EF5244FB19100810ECF /* MapPIckerStoryboard.storyboard */,
+			);
+			path = "Map Picker";
+			sourceTree = "<group>";
+		};
 		A93E424EAEEC1954E6F6AD45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,11 +412,13 @@
 				87FC9E862447FF6300810ECF /* LaunchScreen.storyboard in Resources */,
 				87FC9E832447FF6300810ECF /* Assets.xcassets in Resources */,
 				87FC9EDB2448060900810ECF /* WriteCommentStoryboard.storyboard in Resources */,
+				87FC9EF3244FB0B800810ECF /* AddFoodStoryboard.storyboard in Resources */,
 				87FC9ED6244805D200810ECF /* CommentsStoryboard.storyboard in Resources */,
 				87FC9EA92448020D00810ECF /* NotificationsStoryboard.storyboard in Resources */,
 				87FC9EAF2448029200810ECF /* OrdersStoryboard.storyboard in Resources */,
 				87FC9E812447FF6200810ECF /* Main.storyboard in Resources */,
 				87FC9E9F2448014500810ECF /* LoginOrRegisterStoryboard.storyboard in Resources */,
+				87FC9EF6244FB19100810ECF /* MapPIckerStoryboard.storyboard in Resources */,
 				87FC9EEE244E9FE600810ECF /* PlaceAutocompleteStoryboard.storyboard in Resources */,
 				87FC9EC2244804C300810ECF /* FoodLookStoryboard.storyboard in Resources */,
 				87FC9EB92448034B00810ECF /* MapStoryboard.storyboard in Resources */,

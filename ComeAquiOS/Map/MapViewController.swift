@@ -25,6 +25,7 @@ class MapViewController: UIViewController, CardActionProtocol {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var mapPickerContainerView: UIView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var cardBottomConstraint: NSLayoutConstraint!
     
     var foodPosts: [FoodPostObject]?
     var favouritePosts: [FavouritePost]?
@@ -34,7 +35,6 @@ class MapViewController: UIViewController, CardActionProtocol {
 
     
     let locationManager = CLLocationManager()
-    @IBOutlet weak var cardBottomConstraint: NSLayoutConstraint!
     var foodCardVC: FoodCardViewController?
     var mapPickerContainer: MapPickerViewController!
     
