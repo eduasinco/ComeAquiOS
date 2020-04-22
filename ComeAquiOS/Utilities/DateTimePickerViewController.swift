@@ -8,16 +8,23 @@
 
 import UIKit
 
+protocol DatePickerProtocol{
+    func datesPicked(startDate: Date, endDate: Date)
+}
+
 class DateTimePickerViewController: UIViewController {
     @IBOutlet weak var dateText: UITextField!
     @IBOutlet weak var startTimeText: UITextField!
     @IBOutlet weak var endTimeText: UITextField!
     
-    
     private var datePickerForDateText: UIDatePicker?
     private var timePickerForStartText: UIDatePicker?
     private var timePickerForEndText: UIDatePicker?
 
+    var delegate: DatePickerProtocol?
+    
+    var startDate: Date?
+    var endDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()

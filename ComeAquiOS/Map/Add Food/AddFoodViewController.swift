@@ -30,6 +30,39 @@ class AddFoodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TypesSegue" {
+            let typesVC = segue.destination as? TypesViewController
+            typesVC?.delegate = self
+            typesVC?.toInteract = true
+        } else if segue.identifier == "DatePickerSegue" {
+            let datePickerVC = segue.destination as? DateTimePickerViewController
+            datePickerVC?.delegate = self
+        } else if segue.identifier == "PlaceAutocompleteSegue" {
+            let locationVC = segue.destination as? PlaceAutocompleteViewController
+            locationVC?.delegate = self
+        }
+    }
+}
+
+extension AddFoodViewController: TypesProtocol, AutocompleteProtocol, DatePickerProtocol {
+    func close() {
+        
+    }
+    
+    func placeSelected(place: PlaceG) {
+        self.location = place
+    }
+    
+    func datesPicked(startDate: Date, endDate: Date) {
+        self.startDate = startDate
+        self.endDate = endDate
+    }
+    
+    func typeChanged(types: String) {
+        self.types = types
+    }
 }
 
 

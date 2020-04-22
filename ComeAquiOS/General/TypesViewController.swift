@@ -6,7 +6,9 @@
 //  Copyright © 2020 Eduardo Rodríguez Pérez. All rights reserved.
 //
 import UIKit
-
+protocol TypesProtocol{
+    func typeChanged(types: String)
+}
 class TypesViewController: UIViewController {
     var stackView : UIStackView = {
         let sv = UIStackView()
@@ -19,8 +21,10 @@ class TypesViewController: UIViewController {
     let filledImages = ["vegetarian_fill", "vegan_fill", "wheat_fill", "spyci_fill", "fish_fill", "meat_fill", "diary_fill"]
     let images = ["vegetarian", "vegan", "wheat", "spyci", "fish", "meat", "diary"]
     var buttonsClicked = [false, false, false, false, false, false, false]
-    var toInteract = true
+    var toInteract = false
     var buttons: [UIButton]!
+    
+    var delegate: TypesProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,21 +59,34 @@ class TypesViewController: UIViewController {
     
     @objc func buttonClicked(sender: AnyObject?) {
         if sender === buttons[0] {
-            buttonsClicked[0] = !buttonsClicked[0]
-            buttons[0].setImage(UIImage(named: buttonsClicked[0] ? filledImages[0] : images[0]), for: .normal)
+            changeButtonImage(0)
         } else if sender === buttons[1] {
-            buttonsClicked[1] = !buttonsClicked[1]
+            changeButtonImage(1)
         } else if sender === buttons[2] {
-            buttonsClicked[2] = !buttonsClicked[2]
+            changeButtonImage(2)
         } else if sender === buttons[3] {
-            buttonsClicked[3] = !buttonsClicked[3]
+            changeButtonImage(3)
         } else if sender === buttons[4] {
-            buttonsClicked[4] = !buttonsClicked[4]
+            changeButtonImage(4)
         } else if sender === buttons[5] {
-            buttonsClicked[5] = !buttonsClicked[5]
+            changeButtonImage(5)
         } else if sender === buttons[6] {
-            buttonsClicked[6] = !buttonsClicked[6]
+            changeButtonImage(6)
         }
+    }
+    func changeButtonImage(_ index: Int){
+        buttonsClicked[index] = !buttonsClicked[index]
+        buttons[index].setImage(UIImage(named: buttonsClicked[index] ? filledImages[index] : images[index]), for: .normal)
+        
+        var stringType = ""
+        for b in buttonsClicked{
+            if b {
+                stringType += "1"
+            } else {
+                stringType += "0"
+            }
+        }
+        delegate?.typeChanged(types: stringType)
     }
     
     func setTypes(typeString: String){

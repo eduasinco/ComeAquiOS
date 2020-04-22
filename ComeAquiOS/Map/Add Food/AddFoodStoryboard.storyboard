@@ -41,7 +41,7 @@
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="p9c-zL-Cjf"/>
                                                                 </constraints>
                                                                 <connections>
-                                                                    <segue destination="1rO-Zh-29M" kind="embed" identifier="AutocompleteSegue" id="6bl-gZ-Cel"/>
+                                                                    <segue destination="1rO-Zh-29M" kind="embed" identifier="PlaceAutocompleteSegue" id="6bl-gZ-Cel"/>
                                                                 </connections>
                                                             </containerView>
                                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bfo-kX-fwr">
@@ -99,7 +99,7 @@
                                                                     <constraint firstAttribute="height" constant="20" id="dxq-XI-bsu"/>
                                                                 </constraints>
                                                                 <connections>
-                                                                    <segue destination="Hdy-Ze-V2V" kind="embed" id="qLL-L1-yjy"/>
+                                                                    <segue destination="Hdy-Ze-V2V" kind="embed" identifier="TypesSegue" id="qLL-L1-yjy"/>
                                                                 </connections>
                                                             </containerView>
                                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyw-VC-LIj">
