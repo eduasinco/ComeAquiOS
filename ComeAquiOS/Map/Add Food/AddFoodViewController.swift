@@ -11,21 +11,25 @@ import UIKit
 class AddFoodViewController: UIViewController {
     var googleMapsLocation: GoogleMapsLocation?
     
+    @IBOutlet weak var plateNameText: UITextField!
+    @IBOutlet weak var locationContainer: UIView!
+    @IBOutlet weak var dinnersText: UITextField!
+    @IBOutlet weak var priceText: UITextField!
+    @IBOutlet weak var descriptionText: UITextView!
+    @IBOutlet weak var wordCountText: UILabel!
+    
+    var plateName: String?
+    var location: PlaceG?
+    var dinners: Int?
+    var startDate: Date?
+    var endDate: Date?
+    var price: Int?
+    var types: String?
+    var descriptionString: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+

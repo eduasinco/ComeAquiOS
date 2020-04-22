@@ -91,23 +91,9 @@
                     <view key="view" contentMode="scaleToFill" id="aiN-cG-kEX">
                         <rect key="frame" x="0.0" y="0.0" width="268.5" height="15"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HkP-tU-MgH">
-                                <rect key="frame" x="0.0" y="0.0" width="268.5" height="15"/>
-                            </stackView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="HkP-tU-MgH" firstAttribute="leading" secondItem="aiN-cG-kEX" secondAttribute="leading" id="0yD-86-8J5"/>
-                            <constraint firstItem="U1s-SR-kI4" firstAttribute="bottom" secondItem="HkP-tU-MgH" secondAttribute="bottom" id="MKR-DC-xIV"/>
-                            <constraint firstAttribute="trailing" secondItem="HkP-tU-MgH" secondAttribute="trailing" priority="999" id="WHB-9F-Ht3"/>
-                            <constraint firstItem="HkP-tU-MgH" firstAttribute="top" secondItem="aiN-cG-kEX" secondAttribute="top" id="wc4-pd-HEX"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="U1s-SR-kI4"/>
                     </view>
-                    <connections>
-                        <outlet property="stackView" destination="HkP-tU-MgH" id="aon-qp-MCZ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ka-j2-6sH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
