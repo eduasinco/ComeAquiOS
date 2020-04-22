@@ -12,7 +12,7 @@
             <objects>
                 <viewController storyboardIdentifier="PlaceAutocomplete" id="BUf-1N-aGb" customClass="PlaceAutocompleteViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9gY-Cb-du1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQS-mk-Y9x">
@@ -66,7 +66,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="azA-Xd-DXS" customClass="MyOwnTableView" customModule="ComeAquiOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="110" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="290"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="lnn-9d-PRR"/>
@@ -112,6 +112,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vKl-uA-64M"/>
                     </view>
+                    <size key="freeformSize" width="414" height="400"/>
                     <connections>
                         <outlet property="clearTextButton" destination="Y2e-Ca-baN" id="eAp-RP-Lrz"/>
                         <outlet property="tableView" destination="azA-Xd-DXS" id="FQk-Rq-sEB"/>
