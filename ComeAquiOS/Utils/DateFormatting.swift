@@ -34,9 +34,8 @@ extension Date {
         return formatter.string(from: date)
     }
     
-    static func startOfToday() -> Date{
+    static func startOfToday(date: Date = Date()) -> Date{
         let formatter = DateFormatter()
-        let date = Date()
         formatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
         formatter.dateFormat = "yyyy-MM-dd"
         let todayString: String = formatter.string(from: date)
