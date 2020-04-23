@@ -32,21 +32,21 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
     }
     @IBAction func button1Pressed(_ sender: Any) {
         buttonPressed = imageButton1
-        importImage()
+        performSegue(withIdentifier: "GalleryCameraSegue", sender: nil)
     }
     @IBAction func button2Pressed(_ sender: Any) {
         buttonPressed = imageButton2
-        importImage()
+        performSegue(withIdentifier: "GalleryCameraSegue", sender: nil)
     }
     @IBAction func button3Pressed(_ sender: Any) {
         buttonPressed = imageButton3
-        importImage()
+        performSegue(withIdentifier: "GalleryCameraSegue", sender: nil)
     }
     
-    func importImage(){
+    func importImage(_ gallery: Bool){
         let image = UIImagePickerController()
         image.delegate = self
-        image.sourceType = .camera
+        image.sourceType = gallery ? .photoLibrary : .camera
         image.allowsEditing = false
         self.present(image, animated: true){
             
@@ -60,5 +60,18 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
             // error
         }
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GalleryCameraSegue" {
+            let gcVC = segue.destination as? GaleryCameraPopUpViewController
+            gcVC?.delegate = self
+        }
+    }
+}
+
+extension ImportImagesViewController: GaleryCameraPopUpProtocol{
+    func from(_ gallery: Bool) {
+        importImage(gallery)
     }
 }

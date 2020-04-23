@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Galery Camera Pop Up View Controller-->
+        <scene sceneID="Y2g-sA-MYt">
+            <objects>
+                <viewController storyboardIdentifier="GalleryCameraPopUp" id="KKK-xa-hRa" customClass="GaleryCameraPopUpViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ALZ-NT-D1m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ITe-RL-1Hf">
+                                <rect key="frame" x="0.0" y="680" width="414" height="224"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FCF-PI-gUd">
+                                        <rect key="frame" x="8" y="8" width="398" height="166"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get image from:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qo5-bI-Io9">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="t2o-PE-blJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXT-KH-Wiq">
+                                                <rect key="frame" x="0.0" y="58" width="398" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="639-qu-U4p"/>
+                                                </constraints>
+                                                <state key="normal" title="Gallery"/>
+                                                <connections>
+                                                    <action selector="galleryPress:" destination="KKK-xa-hRa" eventType="touchUpInside" id="oiT-cM-iRF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muT-Rj-SPR">
+                                                <rect key="frame" x="0.0" y="116" width="398" height="50"/>
+                                                <state key="normal" title="Camera"/>
+                                                <connections>
+                                                    <action selector="cameraPress:" destination="KKK-xa-hRa" eventType="touchUpInside" id="QQa-g5-lSU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Qo5-bI-Io9" firstAttribute="top" secondItem="FCF-PI-gUd" secondAttribute="top" id="fHR-d4-emc"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="FCF-PI-gUd" secondAttribute="trailing" constant="8" id="9KI-7u-nDD"/>
+                                    <constraint firstItem="FCF-PI-gUd" firstAttribute="leading" secondItem="ITe-RL-1Hf" secondAttribute="leading" constant="8" id="ivd-fz-bM2"/>
+                                    <constraint firstAttribute="bottom" secondItem="FCF-PI-gUd" secondAttribute="bottom" constant="50" id="jqN-ra-kbh"/>
+                                    <constraint firstItem="FCF-PI-gUd" firstAttribute="top" secondItem="ITe-RL-1Hf" secondAttribute="top" constant="8" id="uVH-0g-hbm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="yvR-jv-gmm" firstAttribute="trailing" secondItem="ITe-RL-1Hf" secondAttribute="trailing" id="nBs-Kc-KCG"/>
+                            <constraint firstItem="ITe-RL-1Hf" firstAttribute="leading" secondItem="yvR-jv-gmm" secondAttribute="leading" id="rYE-CP-fVs"/>
+                            <constraint firstAttribute="bottom" secondItem="ITe-RL-1Hf" secondAttribute="bottom" constant="-8" id="seS-eO-DEk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yvR-jv-gmm"/>
+                    </view>
+                    <connections>
+                        <outlet property="camerButton" destination="muT-Rj-SPR" id="uvC-us-UZk"/>
+                        <outlet property="galleryButton" destination="TXT-KH-Wiq" id="C8U-mj-JFO"/>
+                        <outlet property="popUp" destination="ITe-RL-1Hf" id="Z7z-3f-TGT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rdh-Lj-Qfe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-207.24637681159422" y="-5.3571428571428568"/>
+        </scene>
+    </scenes>
+</document>

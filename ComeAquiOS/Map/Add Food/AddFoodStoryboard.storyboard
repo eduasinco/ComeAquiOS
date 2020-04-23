@@ -387,11 +387,20 @@
                         <outlet property="width1" destination="7FO-rA-KLF" id="tca-qX-1H9"/>
                         <outlet property="width2" destination="JGI-Ms-L81" id="k3K-2Z-A9i"/>
                         <outlet property="width3" destination="AKb-Tq-Uf0" id="cjo-yK-ysx"/>
+                        <segue destination="jIr-6i-kCF" kind="presentation" identifier="GalleryCameraSegue" id="bY5-ms-648"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qAO-fY-k2X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2877" y="-94"/>
+        </scene>
+        <!--GalleryCameraPopUp-->
+        <scene sceneID="0qh-ni-9ga">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GaleryCameraPopUpStoryboard" referencedIdentifier="GalleryCameraPopUp" id="jIr-6i-kCF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="unb-mN-nFT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3570" y="-94"/>
         </scene>
     </scenes>
     <resources>

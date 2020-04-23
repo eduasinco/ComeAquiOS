@@ -59,6 +59,8 @@
 		87FC9EF6244FB19100810ECF /* MapPIckerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9EF5244FB19100810ECF /* MapPIckerStoryboard.storyboard */; };
 		87FC9EFA244FBDDE00810ECF /* DateTimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EF9244FBDDE00810ECF /* DateTimePickerViewController.swift */; };
 		87FC9EFE245115C600810ECF /* ImportImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EFD245115C600810ECF /* ImportImagesViewController.swift */; };
+		87FC9F01245122DC00810ECF /* GaleryCameraPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9F00245122DC00810ECF /* GaleryCameraPopUpViewController.swift */; };
+		87FC9F032451230A00810ECF /* GaleryCameraPopUpStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9F022451230A00810ECF /* GaleryCameraPopUpStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +119,8 @@
 		87FC9EF5244FB19100810ECF /* MapPIckerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapPIckerStoryboard.storyboard; sourceTree = "<group>"; };
 		87FC9EF9244FBDDE00810ECF /* DateTimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePickerViewController.swift; sourceTree = "<group>"; };
 		87FC9EFD245115C600810ECF /* ImportImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportImagesViewController.swift; sourceTree = "<group>"; };
+		87FC9F00245122DC00810ECF /* GaleryCameraPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaleryCameraPopUpViewController.swift; sourceTree = "<group>"; };
+		87FC9F022451230A00810ECF /* GaleryCameraPopUpStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GaleryCameraPopUpStoryboard.storyboard; sourceTree = "<group>"; };
 		EE35396FEB851C07CF98D0E9 /* Pods-ComeAquiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComeAquiOS.debug.xcconfig"; path = "Target Support Files/Pods-ComeAquiOS/Pods-ComeAquiOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -300,6 +304,7 @@
 		87FC9EE9244E9FA600810ECF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				87FC9EFF2451223B00810ECF /* Pop Ups */,
 				87FC9EEA244E9FB600810ECF /* Place Autocomplete */,
 				87FC9EF9244FBDDE00810ECF /* DateTimePickerViewController.swift */,
 				87FC9EBA2448038900810ECF /* TypesViewController.swift */,
@@ -335,6 +340,15 @@
 				87FC9EF5244FB19100810ECF /* MapPIckerStoryboard.storyboard */,
 			);
 			path = "Map Picker";
+			sourceTree = "<group>";
+		};
+		87FC9EFF2451223B00810ECF /* Pop Ups */ = {
+			isa = PBXGroup;
+			children = (
+				87FC9F00245122DC00810ECF /* GaleryCameraPopUpViewController.swift */,
+				87FC9F022451230A00810ECF /* GaleryCameraPopUpStoryboard.storyboard */,
+			);
+			path = "Pop Ups";
 			sourceTree = "<group>";
 		};
 		A93E424EAEEC1954E6F6AD45 /* Frameworks */ = {
@@ -420,6 +434,7 @@
 				87FC9EDB2448060900810ECF /* WriteCommentStoryboard.storyboard in Resources */,
 				87FC9EF3244FB0B800810ECF /* AddFoodStoryboard.storyboard in Resources */,
 				87FC9ED6244805D200810ECF /* CommentsStoryboard.storyboard in Resources */,
+				87FC9F032451230A00810ECF /* GaleryCameraPopUpStoryboard.storyboard in Resources */,
 				87FC9EA92448020D00810ECF /* NotificationsStoryboard.storyboard in Resources */,
 				87FC9EAF2448029200810ECF /* OrdersStoryboard.storyboard in Resources */,
 				87FC9E812447FF6200810ECF /* Main.storyboard in Resources */,
@@ -482,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87FC9F01245122DC00810ECF /* GaleryCameraPopUpViewController.swift in Sources */,
 				87FC9E9B2448011900810ECF /* LoginViewController.swift in Sources */,
 				87FC9E7E2447FF6200810ECF /* ViewController.swift in Sources */,
 				87FC9ECC2448051900810ECF /* DateFormatting.swift in Sources */,
