@@ -9,16 +9,18 @@
 import UIKit
 protocol AutocompleteProtocol {
     func close()
-    func placeSelected(place: PlaceG)
+    func placeSelected(place: PlaceG?)
 }
 
 class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textView: UITextField!
     @IBOutlet weak var tableView: MyOwnTableView!
     @IBOutlet weak var clearTextButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
     
     var places: [PredictionG] = []
     var selectedPlace: PlaceG?
+    var closeVisible: Bool = true
 
     var delegate: AutocompleteProtocol?
     
@@ -31,18 +33,22 @@ class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
         textView.addTarget(self, action: #selector(textField(_:shouldChangeCharactersIn:replacementString:)), for: .editingChanged)
         
         clearTextButton.visibility = .gone
+        closeButton.visibility = closeVisible ? .visible : .gone
+
     }
     @IBAction func clearText(_ sender: Any) {
         textView.text = ""
         self.clearTextButton.visibility = .gone
         places = []
         tableView.reloadData()
+        self.view.endEditing(true)
+        self.delegate?.placeSelected(place: nil)
     }
     @IBAction func close(_ sender: Any) {
+        self.view.endEditing(true)
         delegate?.close()
     }
     
-
     var timer: Timer?
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -54,8 +60,12 @@ class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
         if (currentText as NSString).replacingCharacters(in: range, with: string).count > 0 {
             timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false){_ in
                 print("SEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARCH")
+                self.delegate?.placeSelected(place: nil)
                 self.getLocationsFromGoogle()
             }
+        } else {
+            places = []
+            tableView.reloadData()
         }
         
         if textView.text!.count > 0 {
@@ -89,9 +99,11 @@ extension PlaceAutocompleteViewController: UITableViewDataSource, UITableViewDel
         let predictionSelected = places[indexPath.row]
         getPlaceDetailFromGoogle(selectedPrediction: predictionSelected)
         textView.text = predictionSelected.description
+        
+        self.view.endEditing(true)
         self.clearTextButton.visibility = .visible
         places = []
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
 }
 

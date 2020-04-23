@@ -10,6 +10,7 @@ import UIKit
 
 protocol DatePickerProtocol{
     func datesPicked(startDate: Date, endDate: Date)
+    func invalidStartDate()
 }
 
 class DateTimePickerViewController: UIViewController {
@@ -56,13 +57,14 @@ class DateTimePickerViewController: UIViewController {
     }
     
     func setAutomaticTimes(date: Date = Date()){
-        let calendar = Calendar.current
         let hourFormatter = DateFormatter()
         hourFormatter.dateFormat = "HH:mm aa"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
         planeDate = Date.startOfToday(date: date)
+        
+        let calendar = Calendar.current
         startDate = calendar.date(byAdding: .hour, value: startHours, to: planeDate!)
         startDate = calendar.date(byAdding: .minute, value: startMinutes, to: startDate!)
         endDate = calendar.date(byAdding: .hour, value: endHours, to: planeDate!)
@@ -75,8 +77,18 @@ class DateTimePickerViewController: UIViewController {
         let dateTimeFormatter = DateFormatter()
         dateTimeFormatter.dateFormat = "MM/dd/yyyy HH:mm aa"
         print(dateTimeFormatter.string(from: startDate!), dateTimeFormatter.string(from: endDate!))
-            
-        delegate?.datesPicked(startDate: startDate!, endDate: endDate!)
+        
+        if startingDateIsValid() {
+            delegate?.datesPicked(startDate: startDate!, endDate: endDate!)
+        } else {
+            delegate?.invalidStartDate()
+        }
+    }
+    
+    func startingDateIsValid() -> Bool{
+        let calendar = Calendar.current
+        let in30Minutes = calendar.date(byAdding: .minute, value: 30, to: Date())
+        return startDate! > in30Minutes!
     }
     
     @objc func dateChanged(_ datePicker: UIDatePicker) {

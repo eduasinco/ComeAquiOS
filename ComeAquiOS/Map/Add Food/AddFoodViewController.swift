@@ -8,15 +8,16 @@
 
 import UIKit
 
-class AddFoodViewController: UIViewController {
+class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewDelegate {
     var googleMapsLocation: GoogleMapsLocation?
     
     @IBOutlet weak var plateNameText: UITextField!
     @IBOutlet weak var locationContainer: UIView!
     @IBOutlet weak var dinnersText: UITextField!
-    @IBOutlet weak var priceText: UITextField!
+    @IBOutlet weak var priceText: CurrencyTextField!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var wordCountText: UILabel!
+    @IBOutlet weak var holderBottomConstraint: NSLayoutConstraint!
     
     var plateName: String?
     var location: PlaceG?
@@ -29,8 +30,24 @@ class AddFoodViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.bottomConstraintForKeyboard = holderBottomConstraint
+        priceText.addTarget(self, action: #selector(myTextFieldBegin), for: .editingChanged)
+        descriptionText.textFieldBorderStyle()
+        locationContainer.textFieldBorderStyle()
+        descriptionText.delegate = self
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfChars = newText.count
+        wordCountText.text = "\(numberOfChars)/202"
+        return numberOfChars < 202    // 10 Limit Value
+    }
+    
+    @objc func myTextFieldBegin(_ textField: UITextField) {
+        price = Int(priceText.enteredNumbers) ?? 0
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TypesSegue" {
             let typesVC = segue.destination as? TypesViewController
@@ -42,22 +59,26 @@ class AddFoodViewController: UIViewController {
         } else if segue.identifier == "PlaceAutocompleteSegue" {
             let locationVC = segue.destination as? PlaceAutocompleteViewController
             locationVC?.delegate = self
+            locationVC?.closeVisible = false
         }
     }
 }
 
 extension AddFoodViewController: TypesProtocol, AutocompleteProtocol, DatePickerProtocol {
+    
     func close() {
         
     }
-    
-    func placeSelected(place: PlaceG) {
+    func placeSelected(place: PlaceG?) {
         self.location = place
     }
     
     func datesPicked(startDate: Date, endDate: Date) {
         self.startDate = startDate
         self.endDate = endDate
+    }
+    func invalidStartDate() {
+        
     }
     
     func typeChanged(types: String) {

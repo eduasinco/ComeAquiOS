@@ -11,7 +11,7 @@ protocol MapPickerProtocol {
     func markerVisibility(_ visible: Bool)
     func buttonPressed(times: Int)
     func goToAddFood(googleLocation: GoogleMapsLocation?)
-    func placeSelected(place: PlaceG)
+    func placeSelected(place: PlaceG?)
 }
 class MapPickerViewController: UIViewController {
 
@@ -40,6 +40,7 @@ class MapPickerViewController: UIViewController {
         picker.visibility = .gone
         
         pickerButton.roundCorners(radius: pickerButton.frame.height/2).dropShadow()
+        searchContainerView.textFieldBorderStyle()
     }
     @IBAction func addFoodPressed(_ sender: Any) {
         if (fabCount == 0){
@@ -79,7 +80,7 @@ extension MapPickerViewController: AutocompleteProtocol {
         picker.visibility = .gone
     }
     
-    func placeSelected(place: PlaceG) {
+    func placeSelected(place: PlaceG?) {
         delegate?.placeSelected(place: place)
     }
 }

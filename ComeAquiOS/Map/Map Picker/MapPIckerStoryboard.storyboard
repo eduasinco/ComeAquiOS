@@ -65,7 +65,10 @@
                                     <constraint firstAttribute="width" constant="70" id="LbR-6A-AjR"/>
                                     <constraint firstAttribute="height" constant="70" id="ZoD-tY-ef3"/>
                                 </constraints>
-                                <state key="normal" image="plus.magnifyingglass" catalog="system"/>
+                                <state key="normal" image="plus.magnifyingglass" catalog="system">
+                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
                                 <connections>
                                     <action selector="addFoodPressed:" destination="O6c-7G-erp" eventType="touchUpInside" id="Ebs-al-29A"/>
                                 </connections>

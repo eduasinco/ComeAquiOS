@@ -241,7 +241,8 @@ class MapViewController: UIViewController, CardActionProtocol {
     }
 }
 extension MapViewController: MapPickerProtocol {
-    func placeSelected(place: PlaceG) {
+    func placeSelected(place: PlaceG?) {
+        guard let place = place else { return }
         let camera = GMSCameraPosition.camera(withLatitude: (place.result?.geometry?.location?.lat!)!, longitude: (place.result?.geometry?.location?.lng!)!, zoom: 16)
         googleMap?.camera = camera
         googleMap?.animate(to: camera)
