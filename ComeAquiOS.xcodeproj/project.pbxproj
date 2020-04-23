@@ -61,6 +61,7 @@
 		87FC9EFE245115C600810ECF /* ImportImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EFD245115C600810ECF /* ImportImagesViewController.swift */; };
 		87FC9F01245122DC00810ECF /* GaleryCameraPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9F00245122DC00810ECF /* GaleryCameraPopUpViewController.swift */; };
 		87FC9F032451230A00810ECF /* GaleryCameraPopUpStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9F022451230A00810ECF /* GaleryCameraPopUpStoryboard.storyboard */; };
+		87FC9F062451351000810ECF /* ImageImporterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9F052451351000810ECF /* ImageImporterStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +122,7 @@
 		87FC9EFD245115C600810ECF /* ImportImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportImagesViewController.swift; sourceTree = "<group>"; };
 		87FC9F00245122DC00810ECF /* GaleryCameraPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaleryCameraPopUpViewController.swift; sourceTree = "<group>"; };
 		87FC9F022451230A00810ECF /* GaleryCameraPopUpStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GaleryCameraPopUpStoryboard.storyboard; sourceTree = "<group>"; };
+		87FC9F052451351000810ECF /* ImageImporterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageImporterStoryboard.storyboard; sourceTree = "<group>"; };
 		EE35396FEB851C07CF98D0E9 /* Pods-ComeAquiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComeAquiOS.debug.xcconfig"; path = "Target Support Files/Pods-ComeAquiOS/Pods-ComeAquiOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -304,12 +306,12 @@
 		87FC9EE9244E9FA600810ECF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				87FC9F04245134F400810ECF /* Image Importer */,
 				87FC9EFF2451223B00810ECF /* Pop Ups */,
 				87FC9EEA244E9FB600810ECF /* Place Autocomplete */,
 				87FC9EF9244FBDDE00810ECF /* DateTimePickerViewController.swift */,
 				87FC9EBA2448038900810ECF /* TypesViewController.swift */,
 				87FC9EBC2448039B00810ECF /* RateStarViewController.swift */,
-				87FC9EFD245115C600810ECF /* ImportImagesViewController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -349,6 +351,15 @@
 				87FC9F022451230A00810ECF /* GaleryCameraPopUpStoryboard.storyboard */,
 			);
 			path = "Pop Ups";
+			sourceTree = "<group>";
+		};
+		87FC9F04245134F400810ECF /* Image Importer */ = {
+			isa = PBXGroup;
+			children = (
+				87FC9EFD245115C600810ECF /* ImportImagesViewController.swift */,
+				87FC9F052451351000810ECF /* ImageImporterStoryboard.storyboard */,
+			);
+			path = "Image Importer";
 			sourceTree = "<group>";
 		};
 		A93E424EAEEC1954E6F6AD45 /* Frameworks */ = {
@@ -441,6 +452,7 @@
 				87FC9E9F2448014500810ECF /* LoginOrRegisterStoryboard.storyboard in Resources */,
 				87FC9EF6244FB19100810ECF /* MapPIckerStoryboard.storyboard in Resources */,
 				87FC9EEE244E9FE600810ECF /* PlaceAutocompleteStoryboard.storyboard in Resources */,
+				87FC9F062451351000810ECF /* ImageImporterStoryboard.storyboard in Resources */,
 				87FC9EC2244804C300810ECF /* FoodLookStoryboard.storyboard in Resources */,
 				87FC9EB92448034B00810ECF /* MapStoryboard.storyboard in Resources */,
 				87FC9EB52448030E00810ECF /* LoadingCell.xib in Resources */,

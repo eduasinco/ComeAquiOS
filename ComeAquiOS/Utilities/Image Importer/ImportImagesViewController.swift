@@ -19,27 +19,22 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
     
     var buttonPressed: UIButton?
     
+    var buttons: [UIButton]!
+    var widths: [NSLayoutConstraint]!
+    var images: [UIImage?] = [nil, nil, nil]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        width1.constant = imageButton1.frame.height
-        width2.constant = imageButton2.frame.height
-        width3.constant = imageButton3.frame.height
-        
-        imageButton1.textFieldBorderStyle()
-        imageButton2.textFieldBorderStyle()
-        imageButton3.textFieldBorderStyle()
+        buttons = [imageButton1, imageButton2, imageButton3]
+        widths = [width1, width2, width3]
+        for i in 0..<buttons.count{
+            buttons[i].textFieldBorderStyle()
+            widths[i].constant = buttons[i].frame.height
+            buttons[i].addTarget(self, action:#selector(tappedButton), for: .touchUpInside)
+        }
     }
-    @IBAction func button1Pressed(_ sender: Any) {
-        buttonPressed = imageButton1
-        performSegue(withIdentifier: "GalleryCameraSegue", sender: nil)
-    }
-    @IBAction func button2Pressed(_ sender: Any) {
-        buttonPressed = imageButton2
-        performSegue(withIdentifier: "GalleryCameraSegue", sender: nil)
-    }
-    @IBAction func button3Pressed(_ sender: Any) {
-        buttonPressed = imageButton3
+    @objc func tappedButton(_ sender: UIButton?) {
+        buttonPressed = sender!
         performSegue(withIdentifier: "GalleryCameraSegue", sender: nil)
     }
     
