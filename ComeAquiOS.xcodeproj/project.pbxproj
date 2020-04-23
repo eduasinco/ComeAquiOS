@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1B14F1A31705743CEB43F983 /* libPods-ComeAquiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 768E53CF6B78A130CD0485CE /* libPods-ComeAquiOS.a */; };
+		87E02C8924513864005C272A /* ImageLookerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E02C8824513864005C272A /* ImageLookerViewController.swift */; };
+		87E02C8B24513880005C272A /* ImageLookerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E02C8A24513880005C272A /* ImageLookerStoryboard.storyboard */; };
 		87FC9E7A2447FF6200810ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E792447FF6200810ECF /* AppDelegate.swift */; };
 		87FC9E7C2447FF6200810ECF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E7B2447FF6200810ECF /* SceneDelegate.swift */; };
 		87FC9E7E2447FF6200810ECF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E7D2447FF6200810ECF /* ViewController.swift */; };
@@ -67,6 +69,8 @@
 /* Begin PBXFileReference section */
 		4C7EACD69E5F0043056F81B3 /* Pods-ComeAquiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComeAquiOS.release.xcconfig"; path = "Target Support Files/Pods-ComeAquiOS/Pods-ComeAquiOS.release.xcconfig"; sourceTree = "<group>"; };
 		768E53CF6B78A130CD0485CE /* libPods-ComeAquiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ComeAquiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		87E02C8824513864005C272A /* ImageLookerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLookerViewController.swift; sourceTree = "<group>"; };
+		87E02C8A24513880005C272A /* ImageLookerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageLookerStoryboard.storyboard; sourceTree = "<group>"; };
 		87FC9E762447FF6200810ECF /* ComeAquiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComeAquiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FC9E792447FF6200810ECF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87FC9E7B2447FF6200810ECF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +142,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		87E02C8724513846005C272A /* Image Looker */ = {
+			isa = PBXGroup;
+			children = (
+				87E02C8824513864005C272A /* ImageLookerViewController.swift */,
+				87E02C8A24513880005C272A /* ImageLookerStoryboard.storyboard */,
+			);
+			path = "Image Looker";
+			sourceTree = "<group>";
+		};
 		87FC9E6D2447FF6200810ECF = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +319,7 @@
 		87FC9EE9244E9FA600810ECF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				87E02C8724513846005C272A /* Image Looker */,
 				87FC9F04245134F400810ECF /* Image Importer */,
 				87FC9EFF2451223B00810ECF /* Pop Ups */,
 				87FC9EEA244E9FB600810ECF /* Place Autocomplete */,
@@ -451,6 +465,7 @@
 				87FC9E812447FF6200810ECF /* Main.storyboard in Resources */,
 				87FC9E9F2448014500810ECF /* LoginOrRegisterStoryboard.storyboard in Resources */,
 				87FC9EF6244FB19100810ECF /* MapPIckerStoryboard.storyboard in Resources */,
+				87E02C8B24513880005C272A /* ImageLookerStoryboard.storyboard in Resources */,
 				87FC9EEE244E9FE600810ECF /* PlaceAutocompleteStoryboard.storyboard in Resources */,
 				87FC9F062451351000810ECF /* ImageImporterStoryboard.storyboard in Resources */,
 				87FC9EC2244804C300810ECF /* FoodLookStoryboard.storyboard in Resources */,
@@ -509,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87E02C8924513864005C272A /* ImageLookerViewController.swift in Sources */,
 				87FC9F01245122DC00810ECF /* GaleryCameraPopUpViewController.swift in Sources */,
 				87FC9E9B2448011900810ECF /* LoginViewController.swift in Sources */,
 				87FC9E7E2447FF6200810ECF /* ViewController.swift in Sources */,

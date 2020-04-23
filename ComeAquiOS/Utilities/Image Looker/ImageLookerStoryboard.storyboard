@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ALf-EK-ZwC">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image Looker View Controller-->
+        <scene sceneID="zOe-Ym-MI7">
+            <objects>
+                <viewController storyboardIdentifier="ImageLooker" id="ALf-EK-ZwC" customClass="ImageLookerViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uGF-Zh-9GJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rK4-Lg-fJM" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="768"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghd-SU-h1z">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3N8-Ia-GWG"/>
+                                </constraints>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deletePressed:" destination="ALf-EK-ZwC" eventType="touchUpInside" id="fDm-Xn-XQH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ghd-SU-h1z" firstAttribute="leading" secondItem="Yjy-rm-RD0" secondAttribute="leading" id="781-mF-a5W"/>
+                            <constraint firstItem="rK4-Lg-fJM" firstAttribute="leading" secondItem="Yjy-rm-RD0" secondAttribute="leading" id="O6r-MJ-wHk"/>
+                            <constraint firstItem="Yjy-rm-RD0" firstAttribute="trailing" secondItem="Ghd-SU-h1z" secondAttribute="trailing" id="ZLi-Fs-9I0"/>
+                            <constraint firstItem="Ghd-SU-h1z" firstAttribute="bottom" secondItem="Yjy-rm-RD0" secondAttribute="bottom" id="ai5-Bn-G6v"/>
+                            <constraint firstItem="rK4-Lg-fJM" firstAttribute="trailing" secondItem="Yjy-rm-RD0" secondAttribute="trailing" id="gcM-MJ-9WZ"/>
+                            <constraint firstItem="Ghd-SU-h1z" firstAttribute="top" secondItem="rK4-Lg-fJM" secondAttribute="bottom" id="pwA-mZ-p0I"/>
+                            <constraint firstItem="rK4-Lg-fJM" firstAttribute="top" secondItem="Yjy-rm-RD0" secondAttribute="top" id="qqZ-o2-T4t"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yjy-rm-RD0"/>
+                    </view>
+                    <connections>
+                        <outlet property="deleteButton" destination="Ghd-SU-h1z" id="fxm-MO-9qZ"/>
+                        <outlet property="imageView" destination="rK4-Lg-fJM" id="WDf-XZ-4hC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ieU-eD-xjy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-42.028985507246382" y="65.625"/>
+        </scene>
+    </scenes>
+</document>

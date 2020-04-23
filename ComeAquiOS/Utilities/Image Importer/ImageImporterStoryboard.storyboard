@@ -96,6 +96,7 @@
                         <outlet property="width2" destination="xql-YV-MLD" id="0fW-sc-ggi"/>
                         <outlet property="width3" destination="xBO-15-FXu" id="EQM-j7-MAo"/>
                         <segue destination="M6o-z0-INf" kind="presentation" identifier="GalleryCameraSegue" id="1wZ-fa-5JM"/>
+                        <segue destination="d1V-8i-ky8" kind="presentation" identifier="ImageLookerSegue" id="BeT-LH-IEu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBR-cz-POd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -108,7 +109,15 @@
                 <viewControllerPlaceholder storyboardName="GaleryCameraPopUpStoryboard" referencedIdentifier="GalleryCameraPopUp" id="M6o-z0-INf" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPL-4d-QXb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3570" y="-94"/>
+            <point key="canvasLocation" x="3570" y="-140"/>
+        </scene>
+        <!--ImageLooker-->
+        <scene sceneID="GCp-oh-GbJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ImageLookerStoryboard" referencedIdentifier="ImageLooker" id="d1V-8i-ky8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FLs-A5-LBm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3532" y="-76"/>
         </scene>
     </scenes>
     <resources>
