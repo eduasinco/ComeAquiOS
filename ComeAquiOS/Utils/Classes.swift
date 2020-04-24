@@ -77,19 +77,6 @@ class CellImageView: UIImageView {
     }
 }
 
-class ContentWrappingTableView: UITableView {
-
-  override var intrinsicContentSize: CGSize {
-    return self.contentSize
-  }
-
-  override var contentSize: CGSize {
-    didSet {
-        self.invalidateIntrinsicContentSize()
-    }
-  }
-}
-
 
 class KUIViewController: UIViewController {
 
@@ -165,7 +152,7 @@ class PassThroughView: UIView {
     }
 }
 
-class CurrencyTextField: UITextField {
+class CurrencyTextField: ValidationTextField {
 
     /// The numbers that have been entered in the text field
     var enteredNumbers = ""
@@ -196,7 +183,8 @@ class CurrencyTextField: UITextField {
         super.deleteBackward()
     }
 
-    @objc func editingChanged() {
+    override func editingChanged() {
+        super.editingChanged()
         defer {
             didBackspace = false
             text = enteredNumbers.asCurrency(locale: locale)
@@ -246,7 +234,7 @@ class URLImageButtonView: UIButton {
     }
 }
 
-class ValidationTextField: UIStackView {
+class ValidationTextField2: UIStackView {
     
     var validationLabel: UILabel = {
         let lb = UILabel()
@@ -295,17 +283,21 @@ class ValidationTextField: UIStackView {
 }
 
 
-class ValidationTextField2: UITextField {
+class ValidationTextField: UITextField, UITextViewDelegate, UITextFieldDelegate{
     
     var viewForText: UIView = {
         let v = UIView()
+        v.isUserInteractionEnabled = false
         v.backgroundColor = UIColor.red
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
-    var validationLabel: UILabel = {
-        let lb = UILabel()
+    var validationLabel: UITextView = {
+        let lb = UITextView()
         lb.textColor = UIColor.white
+        lb.backgroundColor = nil
+        lb.textAlignment = .natural
+        lb.isUserInteractionEnabled = false
         lb.font = UIFont.boldSystemFont(ofSize: 14.0)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
@@ -324,77 +316,64 @@ class ValidationTextField2: UITextField {
     }
     
     private func commonInit() {
+        addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+        addTarget(self, action: #selector(editingDidBegin), for: .editingDidBegin)
+
         self.addSubview(viewForText)
+        self.validationLabel.isScrollEnabled = false
+        self.validationLabel.delegate = self
         self.viewForText.addSubview(validationLabel)
         self.viewForText.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
         self.viewForText.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -4).isActive = true
         self.viewForText.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4).isActive = true
-        
+        let bottom = self.viewForText.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -4)
+        bottom.isActive = true
+        bottom.priority = UILayoutPriority(rawValue: 749)
+
         self.validationLabel.topAnchor.constraint(equalTo: viewForText.topAnchor, constant: 0).isActive = true
         self.validationLabel.trailingAnchor.constraint(equalTo: viewForText.trailingAnchor, constant: -4).isActive = true
         self.validationLabel.leadingAnchor.constraint(equalTo: viewForText.leadingAnchor, constant: 4).isActive = true
         self.validationLabel.bottomAnchor.constraint(equalTo: viewForText.bottomAnchor, constant: 0).isActive = true
         self.viewForText.visibility = .gone
-        self.bringSubviewToFront(self.validationLabel)
+        
+        self.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                constraint.isActive = false
+            }
+        }
+        self.heightAnchor.constraint(greaterThanOrEqualToConstant: self.frame.height).isActive = true
     }
     
+    @objc func editingChanged() {
+        if self.viewForText.visibility == .visible{
+            self.text = textBefore
+            self.placeholder = placeHolderBefore
+            self.viewForText.visibility = .gone
+        }
+    }
+    
+    @objc func editingDidBegin() {
+        if self.viewForText.visibility == .visible{
+            self.text = textBefore
+            self.placeholder = placeHolderBefore
+            self.viewForText.visibility = .gone
+        }
+    }
+    
+    var textBefore = ""
+    var placeHolderBefore = ""
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.viewForText.circle()
+        self.superview?.bringSubviewToFront(self.validationLabel)
+        self.viewForText.roundCorners(radius: 3)
     }
     
     func showValidationText(_ show: Bool){
+        self.textBefore = self.text!
+        self.placeHolderBefore = self.placeholder!
+        self.text = ""
+        self.placeholder = ""
         self.viewForText.visibility = show ? .visible : .gone
-        self.layoutIfNeeded()
-    }
-}
-
-class ValidationTextField3: UITextField {
-    
-    var validationLabel: UILabel = {
-        let lb = UILabel()
-        lb.textColor = UIColor.red
-        lb.translatesAutoresizingMaskIntoConstraints = false
-        return lb
-    }()
-    
-    var stackView: UILabel = {
-        let lb = UILabel()
-        lb.textColor = UIColor.red
-        lb.translatesAutoresizingMaskIntoConstraints = false
-        return lb
-    }()
-
-    var validationText: String!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        self.addSubview(validationLabel)
-        self.removeConstraints(self.constraints)
-        self.validationLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: .vertical)
-
-        let top = self.validationLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0)
-        top.isActive = true
-        top.priority = UILayoutPriority(rawValue: 999)
-        let bottom = self.validationLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0)
-        bottom.isActive = true
-        bottom.priority = UILayoutPriority(rawValue: 999)
-        self.validationLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        self.validationLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
-        self.validationLabel.visibility = .gone
-    }
-    
-    func showValidationText(_ show: Bool){
-        self.validationLabel.visibility = show ? .visible : .gone
         self.layoutIfNeeded()
     }
 }

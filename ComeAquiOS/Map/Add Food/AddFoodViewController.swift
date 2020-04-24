@@ -11,8 +11,7 @@ import UIKit
 class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewDelegate {
     var googleMapsLocation: GoogleMapsLocation?
     
-    @IBOutlet weak var valField: ValidationTextField!
-    @IBOutlet weak var plateNameText: ValidationTextField2!
+    @IBOutlet weak var plateNameText: ValidationTextField!
     @IBOutlet weak var locationContainer: UIView!
     @IBOutlet weak var dinnersText: UITextField!
     @IBOutlet weak var priceText: CurrencyTextField!
@@ -117,9 +116,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
       
 
     @IBAction func submit(_ sender: Any) {
-        valField.validationLabel.text = "I dont know I dont know I dont know I dont know I dont know I dont know I dont know"
-        valField.showValidationText(true)
-        plateNameText.validationLabel.text = "I dont "
+        plateNameText.validationLabel.text = "You need to set a name somewhere I dont know I dont know I dont know I dont know I dont know I dont know I dont know"
         plateNameText.showValidationText(true)
         
 //        Server.post("/foods/",
