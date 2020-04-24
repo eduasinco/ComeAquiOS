@@ -13,7 +13,7 @@ protocol AutocompleteProtocol {
 }
 
 class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var textView: UITextField!
+    @IBOutlet weak var textView: ValidationTextField!
     @IBOutlet weak var tableView: MyOwnTableView!
     @IBOutlet weak var clearTextButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!

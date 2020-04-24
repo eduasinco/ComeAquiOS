@@ -14,9 +14,9 @@ protocol DatePickerProtocol{
 }
 
 class DateTimePickerViewController: UIViewController {
-    @IBOutlet weak var dateText: UITextField!
-    @IBOutlet weak var startTimeText: UITextField!
-    @IBOutlet weak var endTimeText: UITextField!
+    @IBOutlet weak var dateText: ValidationTextField!
+    @IBOutlet weak var startTimeText: ValidationTextField!
+    @IBOutlet weak var endTimeText: ValidationTextField!
     
     private var datePickerForDateText: UIDatePicker?
     private var timePickerForStartText: UIDatePicker?

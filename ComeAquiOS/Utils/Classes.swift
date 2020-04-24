@@ -303,7 +303,22 @@ class ValidationTextField: UITextField, UITextViewDelegate, UITextFieldDelegate{
         return lb
     }()
 
-    var validationText: String!
+    var validationText: String {
+        get {
+            return self.validationLabel.text
+        }
+        set (aNewValue) {
+            if self.placeholder! != "" && self.text! != ""{
+                self.textBefore = self.text!
+                self.placeHolderBefore = self.placeholder!
+            }
+            self.text = ""
+            self.placeholder = ""
+            self.viewForText.visibility = .visible
+            self.layoutIfNeeded()
+            self.validationLabel.text = aNewValue
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -319,6 +334,110 @@ class ValidationTextField: UITextField, UITextViewDelegate, UITextFieldDelegate{
         addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         addTarget(self, action: #selector(editingDidBegin), for: .editingDidBegin)
 
+        self.addSubview(viewForText)
+        placeHolderBefore = self.placeholder ?? ""
+        self.validationLabel.isScrollEnabled = false
+        self.validationLabel.delegate = self
+        self.viewForText.addSubview(validationLabel)
+        self.viewForText.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor, constant: 4).isActive = true
+        self.viewForText.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -4).isActive = true
+        self.viewForText.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4).isActive = true
+        self.viewForText.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: -4).isActive = true
+        self.viewForText.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
+
+        self.validationLabel.topAnchor.constraint(equalTo: viewForText.topAnchor, constant: 0).isActive = true
+        self.validationLabel.trailingAnchor.constraint(equalTo: viewForText.trailingAnchor, constant: -4).isActive = true
+        self.validationLabel.leadingAnchor.constraint(equalTo: viewForText.leadingAnchor, constant: 4).isActive = true
+        self.validationLabel.bottomAnchor.constraint(equalTo: viewForText.bottomAnchor, constant: 0).isActive = true
+        self.viewForText.visibility = .gone
+    }
+    
+    @objc func editingChanged() {
+        if self.viewForText.visibility == .visible{
+            self.text = textBefore
+            self.placeholder = placeHolderBefore
+            self.viewForText.visibility = .gone
+            self.layoutIfNeeded()
+
+        }
+    }
+    
+    @objc func editingDidBegin() {
+        if self.viewForText.visibility == .visible{
+            self.text = textBefore
+            self.placeholder = placeHolderBefore
+            self.viewForText.visibility = .gone
+            self.superview?.layoutIfNeeded()
+        }
+    }
+    
+    var textBefore = ""
+    var placeHolderBefore = ""
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.superview?.bringSubviewToFront(self.validationLabel)
+        self.viewForText.roundCorners(radius: 5)
+        self.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                constraint.isActive = false
+            }
+        }
+        let height = self.heightAnchor.constraint(greaterThanOrEqualToConstant: self.frame.height)
+        height.isActive = true
+        height.priority = UILayoutPriority(rawValue: 1000)
+    }
+    
+    func showValidationText(_ show: Bool){
+        self.textBefore = self.text!
+        self.placeHolderBefore = self.placeholder!
+        self.text = ""
+        self.placeholder = ""
+        self.viewForText.visibility = show ? .visible : .gone
+        self.layoutIfNeeded()
+    }
+}
+
+class ValidationTextView: UITextView, UITextViewDelegate{
+    
+    var viewForText: UIView = {
+        let v = UIView()
+        v.isUserInteractionEnabled = false
+        v.backgroundColor = UIColor.red
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
+    }()
+    var validationLabel: UITextView = {
+        let lb = UITextView()
+        lb.textColor = UIColor.white
+        lb.backgroundColor = nil
+        lb.textAlignment = .natural
+        lb.isUserInteractionEnabled = false
+        lb.font = UIFont.boldSystemFont(ofSize: 14.0)
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        return lb
+    }()
+
+    var validationText: String {
+        get {
+            return self.validationLabel.text
+        }
+        set (aNewValue) {
+            self.textBefore = self.text!
+            self.text = ""
+            self.viewForText.visibility = .visible
+            self.validationLabel.text = aNewValue
+            self.layoutIfNeeded()
+        }
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        self.delegate = self
         self.addSubview(viewForText)
         self.validationLabel.isScrollEnabled = false
         self.validationLabel.delegate = self
@@ -341,22 +460,25 @@ class ValidationTextField: UITextField, UITextViewDelegate, UITextFieldDelegate{
                 constraint.isActive = false
             }
         }
-        self.heightAnchor.constraint(greaterThanOrEqualToConstant: self.frame.height).isActive = true
+        let height = self.heightAnchor.constraint(greaterThanOrEqualToConstant: self.frame.height)
+        height.isActive = true
+        height.priority = UILayoutPriority(rawValue: 1000)
     }
     
-    @objc func editingChanged() {
+    
+    func textViewDidChange(_ textView: UITextView) {
         if self.viewForText.visibility == .visible{
             self.text = textBefore
-            self.placeholder = placeHolderBefore
             self.viewForText.visibility = .gone
+            self.layoutIfNeeded()
         }
     }
     
-    @objc func editingDidBegin() {
+    func textViewDidBeginEditing(_ textView: UITextView) {
         if self.viewForText.visibility == .visible{
             self.text = textBefore
-            self.placeholder = placeHolderBefore
             self.viewForText.visibility = .gone
+            self.layoutIfNeeded()
         }
     }
     
@@ -365,14 +487,12 @@ class ValidationTextField: UITextField, UITextViewDelegate, UITextFieldDelegate{
     override func layoutSubviews() {
         super.layoutSubviews()
         self.superview?.bringSubviewToFront(self.validationLabel)
-        self.viewForText.roundCorners(radius: 3)
+        self.viewForText.roundCorners(radius: 5)
     }
     
     func showValidationText(_ show: Bool){
         self.textBefore = self.text!
-        self.placeHolderBefore = self.placeholder!
         self.text = ""
-        self.placeholder = ""
         self.viewForText.visibility = show ? .visible : .gone
         self.layoutIfNeeded()
     }

@@ -13,9 +13,9 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     
     @IBOutlet weak var plateNameText: ValidationTextField!
     @IBOutlet weak var locationContainer: UIView!
-    @IBOutlet weak var dinnersText: UITextField!
+    @IBOutlet weak var dinnersText: ValidationTextField!
     @IBOutlet weak var priceText: CurrencyTextField!
-    @IBOutlet weak var descriptionText: UITextView!
+    @IBOutlet weak var descriptionText: ValidationTextField!
     @IBOutlet weak var wordCountText: UILabel!
     @IBOutlet weak var holderBottomConstraint: NSLayoutConstraint!
     
@@ -49,7 +49,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
 
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
         loadingIndicator.startAnimating();
 
         alert.view.addSubview(loadingIndicator)
@@ -86,39 +86,43 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         }
     }
     
-    func validateData(){
-        if (self.foodPost?.plate_name) != nil {
-            plateNameText.text = plateName
+    func validateData() -> Bool{
+        var valid = true
+        if plateName == nil || plateName!.isEmpty {
+            plateNameText.validationText = "Meal name should not be empty Meal name should not be empty Meal name should not be empty"
+            valid = false
         }
-        if let placeId = self.foodPost?.place_id {
-            placeAutocompleteVC?.getPlaceDetailFromGoogle(placeId: placeId)
+        if location == nil {
+            placeAutocompleteVC?.textView.validationText = "Place should not be empty Meal name should not be empty Meal name should not be empty"
+            valid = false
         }
-        if let dinners = self.foodPost?.max_dinners {
-            dinnersText.text = "\(dinners)"
+        if dinners == nil || dinners == 0{
+            dinnersText.validationText = "Meal name should not be empty Meal name should not be empty Meal name should not be empty Meal name should not be empty"
+            valid = false
         }
-        if let startTime = self.foodPost?.start_time, let endTime =  self.foodPost?.end_time{
-            datePickerVC?.setDateTime(startDateString: startTime, endDateString: endTime)
+        if startDate == nil || endDate == nil{
+            datePickerVC?.dateText.validationText = "Please insert a valid date for the meal Meal name should not be empty Meal name should not be empty"
+            datePickerVC?.view.layoutIfNeeded()
+            valid = false
         }
-        if let types = self.foodPost?.food_type{
-            typesVC?.setTypes(typeString: types)
+        if price == nil {
+            priceText.validationText = "Please insert a valid date for the meal Meal name should not be empty Meal name should not be empty"
+            valid = false
         }
-        if let description = self.foodPost?.description {
-            self.descriptionText.text = description
+        if descriptionString == nil || descriptionString!.isEmpty  {
+            self.descriptionText.validationText = "Description should not be empty Meal name should not be empty Meal name should not be empty"
         }
-        if let images = self.foodPost?.images {
-            importImageVC?.setImages(images: images)
-        }
+        return valid
     }
     
     override func viewDidLayoutSubviews() {
         //plateNameText.validationLabel.circle()
-      }
+    }
       
 
     @IBAction func submit(_ sender: Any) {
-        plateNameText.validationLabel.text = "You need to set a name somewhere I dont know I dont know I dont know I dont know I dont know I dont know I dont know"
-        plateNameText.showValidationText(true)
-        
+        validateData()
+
 //        Server.post("/foods/",
 //                    json:
 //            ["plate_name":  nil,
