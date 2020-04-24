@@ -26,6 +26,17 @@ class TypesViewController: UIViewController {
     
     var delegate: TypesProtocol?
     
+    func setTypes(typeString: String){
+        for (i, c) in typeString.enumerated(){
+            if c == "1" {
+                buttons[i].visibility = .visible
+            } else if c == "0"{
+                buttons[i].visibility = .gone
+            }
+        }
+        view.layoutIfNeeded()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.translatesAutoresizingMaskIntoConstraints = false
@@ -88,16 +99,4 @@ class TypesViewController: UIViewController {
         }
         delegate?.typeChanged(types: stringType)
     }
-    
-    func setTypes(typeString: String){
-        for (i, c) in typeString.enumerated(){
-            if c == "1" {
-                buttons[i].visibility = .visible
-            } else if c == "0"{
-                buttons[i].visibility = .gone
-            }
-        }
-        view.layoutIfNeeded()
-    }
-
 }

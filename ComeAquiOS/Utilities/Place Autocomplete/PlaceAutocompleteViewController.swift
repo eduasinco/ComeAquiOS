@@ -97,9 +97,7 @@ extension PlaceAutocompleteViewController: UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let predictionSelected = places[indexPath.row]
-        getPlaceDetailFromGoogle(selectedPrediction: predictionSelected)
-        textView.text = predictionSelected.description
-        
+        getPlaceDetailFromGoogle(placeId: predictionSelected.place_id!)
         self.view.endEditing(true)
         self.clearTextButton.visibility = .visible
         places = []
@@ -134,13 +132,14 @@ extension PlaceAutocompleteViewController{
         task.resume()
     }
     
-    func getPlaceDetailFromGoogle(selectedPrediction: PredictionG){
-        guard var endpointUrl = URL(string: "https://maps.googleapis.com/maps/api/place/details/json?input=bar&placeid=\(selectedPrediction.place_id!)&key=\(GOOGLE_KEY)") else { return }
+    func getPlaceDetailFromGoogle(placeId: String){
+        guard var endpointUrl = URL(string: "https://maps.googleapis.com/maps/api/place/details/json?input=bar&placeid=\(placeId)&key=\(GOOGLE_KEY)") else { return }
         
         var request = URLRequest(url: endpointUrl)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpMethod = "GET"
+        textView.text = "Loading..."
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
                 guard let data = data else {
@@ -149,6 +148,7 @@ extension PlaceAutocompleteViewController{
             do {
                 self.selectedPlace = try JSONDecoder().decode(PlaceG.self, from: data)
                 DispatchQueue.main.async {
+                    self.textView.text = self.selectedPlace?.result?.formatted_address!
                     self.delegate?.placeSelected(place: self.selectedPlace!)
                 }
             } catch let jsonErr {

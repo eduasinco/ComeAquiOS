@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B14F1A31705743CEB43F983 /* libPods-ComeAquiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 768E53CF6B78A130CD0485CE /* libPods-ComeAquiOS.a */; };
+		8712315F24525370004C0049 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712315E24525370004C0049 /* Server.swift */; };
 		87E02C8924513864005C272A /* ImageLookerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E02C8824513864005C272A /* ImageLookerViewController.swift */; };
 		87E02C8B24513880005C272A /* ImageLookerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E02C8A24513880005C272A /* ImageLookerStoryboard.storyboard */; };
 		87FC9E7A2447FF6200810ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E792447FF6200810ECF /* AppDelegate.swift */; };
@@ -16,7 +17,6 @@
 		87FC9E812447FF6200810ECF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9E7F2447FF6200810ECF /* Main.storyboard */; };
 		87FC9E832447FF6300810ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9E822447FF6300810ECF /* Assets.xcassets */; };
 		87FC9E862447FF6300810ECF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9E842447FF6300810ECF /* LaunchScreen.storyboard */; };
-		87FC9E8F2448007100810ECF /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E8E2448007100810ECF /* Server.swift */; };
 		87FC9E99244800FE00810ECF /* LoginOrRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E98244800FE00810ECF /* LoginOrRegisterViewController.swift */; };
 		87FC9E9B2448011900810ECF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E9A2448011900810ECF /* LoginViewController.swift */; };
 		87FC9E9D2448012800810ECF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E9C2448012800810ECF /* RegisterViewController.swift */; };
@@ -69,6 +69,7 @@
 /* Begin PBXFileReference section */
 		4C7EACD69E5F0043056F81B3 /* Pods-ComeAquiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComeAquiOS.release.xcconfig"; path = "Target Support Files/Pods-ComeAquiOS/Pods-ComeAquiOS.release.xcconfig"; sourceTree = "<group>"; };
 		768E53CF6B78A130CD0485CE /* libPods-ComeAquiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ComeAquiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8712315E24525370004C0049 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		87E02C8824513864005C272A /* ImageLookerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLookerViewController.swift; sourceTree = "<group>"; };
 		87E02C8A24513880005C272A /* ImageLookerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageLookerStoryboard.storyboard; sourceTree = "<group>"; };
 		87FC9E762447FF6200810ECF /* ComeAquiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComeAquiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,7 +80,6 @@
 		87FC9E822447FF6300810ECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87FC9E852447FF6300810ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87FC9E872447FF6300810ECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		87FC9E8E2448007100810ECF /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		87FC9E98244800FE00810ECF /* LoginOrRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOrRegisterViewController.swift; sourceTree = "<group>"; };
 		87FC9E9A2448011900810ECF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		87FC9E9C2448012800810ECF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -181,7 +181,6 @@
 				87FC9E91244800A100810ECF /* Profile */,
 				87FC9E902448008500810ECF /* Login */,
 				87FC9EE9244E9FA600810ECF /* Utilities */,
-				87FC9E8D2448004300810ECF /* Server */,
 				87FC9E792447FF6200810ECF /* AppDelegate.swift */,
 				87FC9E7B2447FF6200810ECF /* SceneDelegate.swift */,
 				87FC9E7D2447FF6200810ECF /* ViewController.swift */,
@@ -191,14 +190,6 @@
 				87FC9E872447FF6300810ECF /* Info.plist */,
 			);
 			path = ComeAquiOS;
-			sourceTree = "<group>";
-		};
-		87FC9E8D2448004300810ECF /* Server */ = {
-			isa = PBXGroup;
-			children = (
-				87FC9E8E2448007100810ECF /* Server.swift */,
-			);
-			path = Server;
 			sourceTree = "<group>";
 		};
 		87FC9E902448008500810ECF /* Login */ = {
@@ -271,6 +262,7 @@
 				87FC9EC7244804FF00810ECF /* Objects.swift */,
 				87FC9EC92448050A00810ECF /* Classes.swift */,
 				87FC9ECB2448051900810ECF /* DateFormatting.swift */,
+				8712315E24525370004C0049 /* Server.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -536,6 +528,7 @@
 				87FC9EE8244E9CE800810ECF /* AddFoodViewController.swift in Sources */,
 				87FC9E99244800FE00810ECF /* LoginOrRegisterViewController.swift in Sources */,
 				87FC9EE2244D7DE100810ECF /* DinnerTableViewCell.swift in Sources */,
+				8712315F24525370004C0049 /* Server.swift in Sources */,
 				87FC9ED3244805AC00810ECF /* CommentsTableViewCell.swift in Sources */,
 				87FC9EC8244804FF00810ECF /* Objects.swift in Sources */,
 				87FC9EA7244801FD00810ECF /* NotificationsViewController.swift in Sources */,
@@ -557,7 +550,6 @@
 				87FC9E7A2447FF6200810ECF /* AppDelegate.swift in Sources */,
 				87FC9EA3244801A100810ECF /* ProfileViewController.swift in Sources */,
 				87FC9EBD2448039B00810ECF /* RateStarViewController.swift in Sources */,
-				87FC9E8F2448007100810ECF /* Server.swift in Sources */,
 				87FC9EF0244EA1A100810ECF /* LocationTableViewCell.swift in Sources */,
 				87FC9E7C2447FF6200810ECF /* SceneDelegate.swift in Sources */,
 				87FC9EB72448033C00810ECF /* MapViewController.swift in Sources */,

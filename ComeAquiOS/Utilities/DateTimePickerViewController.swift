@@ -36,9 +36,20 @@ class DateTimePickerViewController: UIViewController {
     var endHours: Int = 19
     var endMinutes: Int = 30
     
+    let hourFormatter = DateFormatter()
+    let dateFormatter = DateFormatter()
+    
+    func setDateTime(startDateString: String, endDateString: String){
+        startDate = Date.convertToDate(isoDateString: startDateString)
+        endDate = Date.convertToDate(isoDateString: endDateString)
+        setAutomaticTimes(date: startDate!)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        hourFormatter.dateFormat = "HH:mm aa"
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+
         datePickerForDateText = UIDatePicker()
         datePickerForDateText?.datePickerMode = .date
         datePickerForDateText?.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
@@ -57,11 +68,6 @@ class DateTimePickerViewController: UIViewController {
     }
     
     func setAutomaticTimes(date: Date = Date()){
-        let hourFormatter = DateFormatter()
-        hourFormatter.dateFormat = "HH:mm aa"
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        
         planeDate = Date.startOfToday(date: date)
         
         let calendar = Calendar.current

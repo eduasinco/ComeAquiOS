@@ -229,3 +229,172 @@ private extension String {
         }
     }
 }
+
+class URLImageButtonView: UIButton {
+    public func loadImageUsingUrlString(urlString: String) {
+        let url = NSURL(string: SERVER + urlString)
+        URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, respones, error) in
+            if error != nil {
+                print(error ?? "Errooooor")
+                return
+            }
+            DispatchQueue.main.async{
+                let image = UIImage(data: data!)
+                self.setImage(image, for: .normal)
+            }
+        }).resume()
+    }
+}
+
+class ValidationTextField: UIStackView {
+    
+    var validationLabel: UILabel = {
+        let lb = UILabel()
+        lb.textColor = UIColor.red
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        return lb
+    }()
+    
+    var textField: UITextField = {
+        let tf = UITextField()
+        tf.borderStyle = .roundedRect
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        return tf
+    }()
+    
+    var text: String!
+    var validationText: String!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        self.text = textField.text
+        self.validationText = validationLabel.text
+        self.validationLabel.visibility = .gone
+        self.axis = .vertical
+        self.addArrangedSubview(validationLabel)
+        self.addArrangedSubview(textField)
+        self.textField.heightAnchor.constraint(equalToConstant: self.frame.height).isActive = true
+        let heightAnchor = self.heightAnchor.constraint(greaterThanOrEqualToConstant: 0)
+        heightAnchor.isActive = true
+        heightAnchor.priority = UILayoutPriority(rawValue: 1000)
+    }
+    
+    func showValidationText(_ show: Bool){
+        self.validationLabel.visibility = show ? .visible : .gone
+        self.layoutIfNeeded()
+    }
+}
+
+
+class ValidationTextField2: UITextField {
+    
+    var viewForText: UIView = {
+        let v = UIView()
+        v.backgroundColor = UIColor.red
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
+    }()
+    var validationLabel: UILabel = {
+        let lb = UILabel()
+        lb.textColor = UIColor.white
+        lb.font = UIFont.boldSystemFont(ofSize: 14.0)
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        return lb
+    }()
+
+    var validationText: String!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        self.addSubview(viewForText)
+        self.viewForText.addSubview(validationLabel)
+        self.viewForText.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
+        self.viewForText.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -4).isActive = true
+        self.viewForText.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4).isActive = true
+        
+        self.validationLabel.topAnchor.constraint(equalTo: viewForText.topAnchor, constant: 0).isActive = true
+        self.validationLabel.trailingAnchor.constraint(equalTo: viewForText.trailingAnchor, constant: -4).isActive = true
+        self.validationLabel.leadingAnchor.constraint(equalTo: viewForText.leadingAnchor, constant: 4).isActive = true
+        self.validationLabel.bottomAnchor.constraint(equalTo: viewForText.bottomAnchor, constant: 0).isActive = true
+        self.viewForText.visibility = .gone
+        self.bringSubviewToFront(self.validationLabel)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.viewForText.circle()
+    }
+    
+    func showValidationText(_ show: Bool){
+        self.viewForText.visibility = show ? .visible : .gone
+        self.layoutIfNeeded()
+    }
+}
+
+class ValidationTextField3: UITextField {
+    
+    var validationLabel: UILabel = {
+        let lb = UILabel()
+        lb.textColor = UIColor.red
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        return lb
+    }()
+    
+    var stackView: UILabel = {
+        let lb = UILabel()
+        lb.textColor = UIColor.red
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        return lb
+    }()
+
+    var validationText: String!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        self.addSubview(validationLabel)
+        self.removeConstraints(self.constraints)
+        self.validationLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: .vertical)
+
+        let top = self.validationLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0)
+        top.isActive = true
+        top.priority = UILayoutPriority(rawValue: 999)
+        let bottom = self.validationLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 0)
+        bottom.isActive = true
+        bottom.priority = UILayoutPriority(rawValue: 999)
+        self.validationLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        self.validationLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        self.validationLabel.visibility = .gone
+    }
+    
+    func showValidationText(_ show: Bool){
+        self.validationLabel.visibility = show ? .visible : .gone
+        self.layoutIfNeeded()
+    }
+}

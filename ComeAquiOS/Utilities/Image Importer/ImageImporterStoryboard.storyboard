@@ -18,27 +18,39 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Eu-S6-eeE">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQh-9R-CPd">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQh-9R-CPd" customClass="URLImageButtonView" customModule="ComeAquiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <state key="normal" image="camera" catalog="system"/>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="9T9-Oj-UL1">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="9T9-Oj-UL1" firstAttribute="top" secondItem="1Eu-S6-eeE" secondAttribute="top" id="B71-s0-tqC"/>
                                     <constraint firstAttribute="trailing" secondItem="yQh-9R-CPd" secondAttribute="trailing" id="ILd-MC-32f"/>
                                     <constraint firstItem="yQh-9R-CPd" firstAttribute="top" secondItem="1Eu-S6-eeE" secondAttribute="top" id="IjS-0B-1ZJ"/>
                                     <constraint firstAttribute="bottom" secondItem="yQh-9R-CPd" secondAttribute="bottom" id="Jzl-cM-2aj"/>
+                                    <constraint firstItem="9T9-Oj-UL1" firstAttribute="leading" secondItem="1Eu-S6-eeE" secondAttribute="leading" id="Noi-bs-C8e"/>
+                                    <constraint firstAttribute="trailing" secondItem="9T9-Oj-UL1" secondAttribute="trailing" id="OIM-Xf-zOF"/>
                                     <constraint firstItem="yQh-9R-CPd" firstAttribute="leading" secondItem="1Eu-S6-eeE" secondAttribute="leading" id="WDV-o9-jtI"/>
+                                    <constraint firstAttribute="bottom" secondItem="9T9-Oj-UL1" secondAttribute="bottom" id="aoc-VW-tiL"/>
                                     <constraint firstAttribute="width" constant="100" id="h2e-y4-xhs"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WR3-Ve-I2p">
                                 <rect key="frame" x="157" y="0.0" width="100" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Oy-uW-q8j">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Oy-uW-q8j" customClass="URLImageButtonView" customModule="ComeAquiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <state key="normal" image="camera" catalog="system"/>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Vgs-wE-gAP">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -46,8 +58,12 @@
                                     <constraint firstAttribute="trailing" secondItem="4Oy-uW-q8j" secondAttribute="trailing" id="7Rs-he-S3j"/>
                                     <constraint firstItem="4Oy-uW-q8j" firstAttribute="top" secondItem="WR3-Ve-I2p" secondAttribute="top" id="8zg-nY-H1N"/>
                                     <constraint firstItem="4Oy-uW-q8j" firstAttribute="leading" secondItem="WR3-Ve-I2p" secondAttribute="leading" id="C1A-ei-ckV"/>
+                                    <constraint firstItem="Vgs-wE-gAP" firstAttribute="top" secondItem="WR3-Ve-I2p" secondAttribute="top" id="Ggm-Nj-y2h"/>
+                                    <constraint firstItem="Vgs-wE-gAP" firstAttribute="leading" secondItem="WR3-Ve-I2p" secondAttribute="leading" id="GsV-kw-Rdk"/>
                                     <constraint firstAttribute="trailing" secondItem="4Oy-uW-q8j" secondAttribute="trailing" id="Hgd-AM-EIY"/>
                                     <constraint firstItem="4Oy-uW-q8j" firstAttribute="top" secondItem="WR3-Ve-I2p" secondAttribute="top" id="Rdg-1f-g0v"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vgs-wE-gAP" secondAttribute="trailing" id="SLn-YV-ii5"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vgs-wE-gAP" secondAttribute="bottom" id="Z85-Fs-WL3"/>
                                     <constraint firstAttribute="bottom" secondItem="4Oy-uW-q8j" secondAttribute="bottom" id="aNs-8J-Thb"/>
                                     <constraint firstAttribute="bottom" secondItem="4Oy-uW-q8j" secondAttribute="bottom" id="bIC-I9-1Bu"/>
                                     <constraint firstAttribute="width" constant="100" id="xql-YV-MLD"/>
@@ -56,16 +72,24 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSl-mC-b4A">
                                 <rect key="frame" x="314" y="0.0" width="100" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Muq-D8-oA3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Muq-D8-oA3" customClass="URLImageButtonView" customModule="ComeAquiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <state key="normal" image="camera" catalog="system"/>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="qcI-Gx-MwF">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="Muq-D8-oA3" firstAttribute="leading" secondItem="WSl-mC-b4A" secondAttribute="leading" id="1gQ-QB-36n"/>
                                     <constraint firstAttribute="trailing" secondItem="Muq-D8-oA3" secondAttribute="trailing" id="4Mg-nq-ezB"/>
                                     <constraint firstItem="Muq-D8-oA3" firstAttribute="top" secondItem="WSl-mC-b4A" secondAttribute="top" id="C1V-X1-vew"/>
+                                    <constraint firstAttribute="bottom" secondItem="qcI-Gx-MwF" secondAttribute="bottom" id="DJv-bb-thF"/>
+                                    <constraint firstItem="qcI-Gx-MwF" firstAttribute="leading" secondItem="WSl-mC-b4A" secondAttribute="leading" id="FZT-RU-PDh"/>
+                                    <constraint firstItem="qcI-Gx-MwF" firstAttribute="top" secondItem="WSl-mC-b4A" secondAttribute="top" id="GgZ-jO-Hym"/>
+                                    <constraint firstAttribute="trailing" secondItem="qcI-Gx-MwF" secondAttribute="trailing" id="Xcg-8q-ZZO"/>
                                     <constraint firstAttribute="bottom" secondItem="Muq-D8-oA3" secondAttribute="bottom" id="a4h-Pq-2P6"/>
                                     <constraint firstAttribute="width" constant="100" id="xBO-15-FXu"/>
                                 </constraints>
@@ -92,6 +116,9 @@
                         <outlet property="imageButton1" destination="yQh-9R-CPd" id="veU-Ee-lmu"/>
                         <outlet property="imageButton2" destination="4Oy-uW-q8j" id="YSG-c5-Z7g"/>
                         <outlet property="imageButton3" destination="Muq-D8-oA3" id="Yzp-5E-tKP"/>
+                        <outlet property="spinner1" destination="9T9-Oj-UL1" id="8rU-4s-UL0"/>
+                        <outlet property="spinner2" destination="Vgs-wE-gAP" id="GOR-uO-Ddc"/>
+                        <outlet property="spinner3" destination="qcI-Gx-MwF" id="Fjo-OA-7b0"/>
                         <outlet property="width1" destination="h2e-y4-xhs" id="aw1-az-SKN"/>
                         <outlet property="width2" destination="xql-YV-MLD" id="0fW-sc-ggi"/>
                         <outlet property="width3" destination="xBO-15-FXu" id="EQM-j7-MAo"/>

@@ -22,21 +22,27 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZe-N5-1BA" userLabel="inside ">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="892"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1008"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CGm-GC-d7g">
-                                                        <rect key="frame" x="16" y="16" width="382" height="876"/>
+                                                        <rect key="frame" x="16" y="16" width="382" height="942"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What are you making?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AYi-JU-8Hi">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hhs-Oq-BeZ" customClass="ValidationTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="f24-Wc-ZOv"/>
+                                                                    <constraint firstAttribute="height" priority="200" constant="50" id="egL-9K-HWB"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What are you making?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AYi-JU-8Hi" customClass="ValidationTextField2" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="66" width="382" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="f24-Wc-ZOv"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYa-L7-ryl">
-                                                                <rect key="frame" x="0.0" y="66" width="382" height="112"/>
+                                                                <rect key="frame" x="0.0" y="132" width="382" height="112"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="p9c-zL-Cjf"/>
                                                                 </constraints>
@@ -45,7 +51,7 @@
                                                                 </connections>
                                                             </containerView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfo-kX-fwr">
-                                                                <rect key="frame" x="0.0" y="194" width="382" height="50"/>
+                                                                <rect key="frame" x="0.0" y="260" width="382" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dinners" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrj-kn-sc7">
                                                                         <rect key="frame" x="116" y="0.0" width="150" height="50"/>
@@ -65,7 +71,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cn-5t-3w6">
-                                                                <rect key="frame" x="0.0" y="260" width="382" height="116"/>
+                                                                <rect key="frame" x="0.0" y="326" width="382" height="116"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="116" id="PcC-Ej-E7q"/>
                                                                 </constraints>
@@ -74,7 +80,7 @@
                                                                 </connections>
                                                             </containerView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drT-uo-5rn">
-                                                                <rect key="frame" x="0.0" y="392" width="382" height="50"/>
+                                                                <rect key="frame" x="0.0" y="458" width="382" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qkx-0W-HNS" customClass="CurrencyTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="141" y="0.0" width="100" height="50"/>
@@ -94,7 +100,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXB-Mg-uFy">
-                                                                <rect key="frame" x="0.0" y="458" width="382" height="20"/>
+                                                                <rect key="frame" x="0.0" y="524" width="382" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="dxq-XI-bsu"/>
                                                                 </constraints>
@@ -103,7 +109,7 @@
                                                                 </connections>
                                                             </containerView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyw-VC-LIj">
-                                                                <rect key="frame" x="0.0" y="494" width="382" height="200"/>
+                                                                <rect key="frame" x="0.0" y="560" width="382" height="200"/>
                                                                 <subviews>
                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1AS-hQ-chl">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
@@ -131,20 +137,23 @@
                                                                 </constraints>
                                                             </view>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeO-mn-PRw">
-                                                                <rect key="frame" x="0.0" y="710" width="382" height="100"/>
+                                                                <rect key="frame" x="0.0" y="776" width="382" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="aBt-IM-FR6"/>
                                                                 </constraints>
                                                                 <connections>
-                                                                    <segue destination="Vvo-WB-0B8" kind="embed" id="XoQ-Vb-qOO"/>
+                                                                    <segue destination="Vvo-WB-0B8" kind="embed" identifier="ImageImporterSegue" id="XoQ-Vb-qOO"/>
                                                                 </connections>
                                                             </containerView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJk-sv-1bB">
-                                                                <rect key="frame" x="0.0" y="826" width="382" height="50"/>
+                                                                <rect key="frame" x="0.0" y="892" width="382" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="OrS-SK-qLo"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Submit"/>
+                                                                <connections>
+                                                                    <action selector="submit:" destination="8l8-sJ-MKH" eventType="touchUpInside" id="DwJ-yf-Gyx"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -154,7 +163,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="CGm-GC-d7g" secondAttribute="bottom" id="2gT-rI-zUi"/>
+                                                    <constraint firstAttribute="bottom" secondItem="CGm-GC-d7g" secondAttribute="bottom" constant="50" id="2gT-rI-zUi"/>
                                                     <constraint firstItem="CGm-GC-d7g" firstAttribute="top" secondItem="IZe-N5-1BA" secondAttribute="top" constant="16" id="KYm-bW-IgR"/>
                                                     <constraint firstAttribute="trailing" secondItem="CGm-GC-d7g" secondAttribute="trailing" constant="16" id="adW-Dg-ScN"/>
                                                     <constraint firstItem="CGm-GC-d7g" firstAttribute="leading" secondItem="IZe-N5-1BA" secondAttribute="leading" constant="16" id="juj-1m-ZOj"/>
@@ -198,6 +207,7 @@
                         <outlet property="locationContainer" destination="BYa-L7-ryl" id="y2M-oY-ZRy"/>
                         <outlet property="plateNameText" destination="AYi-JU-8Hi" id="yFe-NV-VZa"/>
                         <outlet property="priceText" destination="qkx-0W-HNS" id="cXJ-uf-sfb"/>
+                        <outlet property="valField" destination="hhs-Oq-BeZ" id="HOl-HS-YAd"/>
                         <outlet property="wordCountText" destination="weI-PJ-394" id="3qQ-Dc-qUH"/>
                     </connections>
                 </viewController>
@@ -286,6 +296,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="F6A-iS-5Xn"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eFV-ai-xtK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

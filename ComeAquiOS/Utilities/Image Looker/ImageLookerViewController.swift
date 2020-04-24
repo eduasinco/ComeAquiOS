@@ -16,15 +16,15 @@ class ImageLookerViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     
     var deleteButtonVisible = false
-    var image: UIImage?
+    var image: String?
     
     var delegate: ImageLookerProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         deleteButton.visibility = deleteButtonVisible ? .visible : .gone
-        imageView.image = image
+        imageView.loadImageUsingUrlString(urlString: image!)
     }
     @IBAction func deletePressed(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
