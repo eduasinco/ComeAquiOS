@@ -22,10 +22,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZe-N5-1BA" userLabel="inside ">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1316"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="880"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CGm-GC-d7g">
-                                                        <rect key="frame" x="16" y="16" width="382" height="1250"/>
+                                                        <rect key="frame" x="16" y="16" width="382" height="814"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What are you making?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AYi-JU-8Hi" customClass="ValidationTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
@@ -36,7 +36,7 @@
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYa-L7-ryl">
-                                                                <rect key="frame" x="0.0" y="66" width="382" height="486"/>
+                                                                <rect key="frame" x="0.0" y="66" width="382" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="p9c-zL-Cjf"/>
                                                                 </constraints>
@@ -45,7 +45,7 @@
                                                                 </connections>
                                                             </containerView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfo-kX-fwr">
-                                                                <rect key="frame" x="0.0" y="568" width="382" height="50"/>
+                                                                <rect key="frame" x="0.0" y="132" width="382" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dinners" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrj-kn-sc7" customClass="ValidationTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="116" y="0.0" width="150" height="50"/>
@@ -67,7 +67,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cn-5t-3w6">
-                                                                <rect key="frame" x="0.0" y="634" width="382" height="116"/>
+                                                                <rect key="frame" x="0.0" y="198" width="382" height="116"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" priority="700" id="1LX-60-tYW"/>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="116" id="PcC-Ej-E7q"/>
@@ -77,7 +77,7 @@
                                                                 </connections>
                                                             </containerView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drT-uo-5rn">
-                                                                <rect key="frame" x="0.0" y="766" width="382" height="50"/>
+                                                                <rect key="frame" x="0.0" y="330" width="382" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qkx-0W-HNS" customClass="CurrencyTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="141" y="0.0" width="100" height="50"/>
@@ -99,7 +99,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXB-Mg-uFy">
-                                                                <rect key="frame" x="0.0" y="832" width="382" height="20"/>
+                                                                <rect key="frame" x="0.0" y="396" width="382" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="dxq-XI-bsu"/>
                                                                 </constraints>
@@ -108,7 +108,7 @@
                                                                 </connections>
                                                             </containerView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyw-VC-LIj">
-                                                                <rect key="frame" x="0.0" y="868" width="382" height="200"/>
+                                                                <rect key="frame" x="0.0" y="432" width="382" height="200"/>
                                                                 <subviews>
                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1AS-hQ-chl" customClass="ValidationTextView" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
@@ -136,7 +136,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeO-mn-PRw">
-                                                                <rect key="frame" x="0.0" y="1084" width="382" height="100"/>
+                                                                <rect key="frame" x="0.0" y="648" width="382" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="aBt-IM-FR6"/>
                                                                 </constraints>
@@ -145,7 +145,7 @@
                                                                 </connections>
                                                             </containerView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJk-sv-1bB">
-                                                                <rect key="frame" x="0.0" y="1200" width="382" height="50"/>
+                                                                <rect key="frame" x="0.0" y="764" width="382" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="OrS-SK-qLo"/>
                                                                 </constraints>
