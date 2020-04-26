@@ -593,7 +593,7 @@ class ValidatedTextField: UITextField {
     func setValidationTextStyle(){
         self.validationTextView.textColor = UIColor.red
         self.validationTextView.font = UIFont.boldSystemFont(ofSize: self.validationTextView.font!.pointSize)
-        self.validationTextView.textAlignment = .right
+        self.validationTextView.textAlignment = .left
     }
     @objc func editingChanged() {
         if validationTextView.visibility == .visible{
@@ -611,7 +611,7 @@ class ValidatedTextField: UITextField {
     override func layoutSubviews() {
         super.layoutSubviews()
         var superview = self.superview
-        while superview != nil && (!superview!.isKind(of: UIStackView.self) && !((superview as? UIStackView)?.axis == .horizontal)){
+        while superview != nil && (!superview!.isKind(of: UIStackView.self) || !((superview as? UIStackView)?.axis == .vertical)){
             superview = superview?.superview
             
         }
@@ -661,7 +661,7 @@ class ValidatedTextView: UITextView, UITextViewDelegate {
     func setValidationTextStyle(){
         self.validationTextView.textColor = UIColor.red
         self.validationTextView.font = UIFont.boldSystemFont(ofSize: self.validationTextView.font!.pointSize)
-        self.validationTextView.textAlignment = .right
+        self.validationTextView.textAlignment = .left
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         if self.validationTextView.visibility == .visible{
@@ -680,7 +680,7 @@ class ValidatedTextView: UITextView, UITextViewDelegate {
         super.layoutSubviews()
         self.delegate = self
         var superview = self.superview
-        while superview != nil && (!superview!.isKind(of: UIStackView.self) && !((superview as? UIStackView)?.axis == .horizontal)){
+        while superview != nil && (!superview!.isKind(of: UIStackView.self) && !((superview as? UIStackView)?.axis == .vertical)){
             superview = superview?.superview
             
         }

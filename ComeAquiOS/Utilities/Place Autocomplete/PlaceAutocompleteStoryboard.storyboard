@@ -15,19 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQS-mk-Y9x">
-                                <rect key="frame" x="8" y="8" width="398" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Ac-OB-qke">
+                                <rect key="frame" x="8" y="8" width="406" height="50"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82l-Td-b5v">
-                                        <rect key="frame" x="0.0" y="0.0" width="348" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQS-mk-Y9x">
+                                        <rect key="frame" x="0.0" y="0.0" width="406" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4PX-Aa-4I2" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="298" height="50"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4PX-Aa-4I2" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="306" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2e-Ca-baN">
-                                                <rect key="frame" x="298" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="306" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="ppQ-2P-fn6"/>
                                                 </constraints>
@@ -36,33 +36,24 @@
                                                     <action selector="clearText:" destination="BUf-1N-aGb" eventType="touchUpInside" id="Abv-rb-c8S"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ucb-nL-zdG">
+                                                <rect key="frame" x="356" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="rYp-V9-H2L"/>
+                                                </constraints>
+                                                <state key="normal" image="xmark.square" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17" scale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="close:" destination="BUf-1N-aGb" eventType="touchUpInside" id="hew-Db-fBL"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="4PX-Aa-4I2" secondAttribute="bottom" id="1Mg-Hj-yuC"/>
-                                            <constraint firstItem="4PX-Aa-4I2" firstAttribute="top" secondItem="82l-Td-b5v" secondAttribute="top" id="2Ps-GD-u1k"/>
-                                            <constraint firstItem="4PX-Aa-4I2" firstAttribute="leading" secondItem="82l-Td-b5v" secondAttribute="leading" id="JQU-92-xOr"/>
-                                            <constraint firstItem="Y2e-Ca-baN" firstAttribute="top" secondItem="82l-Td-b5v" secondAttribute="top" id="K2Q-RF-hGR"/>
-                                            <constraint firstAttribute="bottom" secondItem="Y2e-Ca-baN" secondAttribute="bottom" id="QEn-f2-uYX"/>
-                                            <constraint firstAttribute="trailing" secondItem="Y2e-Ca-baN" secondAttribute="trailing" id="Uo8-H0-yRp"/>
-                                            <constraint firstItem="Y2e-Ca-baN" firstAttribute="leading" secondItem="4PX-Aa-4I2" secondAttribute="trailing" id="eHl-gq-hjZ"/>
+                                            <constraint firstAttribute="height" constant="50" id="JE6-UB-3l2"/>
                                         </constraints>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ucb-nL-zdG">
-                                        <rect key="frame" x="348" y="0.0" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="rYp-V9-H2L"/>
-                                        </constraints>
-                                        <state key="normal" image="xmark.square" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17" scale="large"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="close:" destination="BUf-1N-aGb" eventType="touchUpInside" id="hew-Db-fBL"/>
-                                        </connections>
-                                    </button>
+                                    </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="JE6-UB-3l2"/>
-                                </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="azA-Xd-DXS" customClass="MyOwnTableView" customModule="ComeAquiOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="66" width="414" height="334"/>
@@ -103,13 +94,13 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="azA-Xd-DXS" firstAttribute="top" secondItem="2Ac-OB-qke" secondAttribute="bottom" constant="8" id="2uM-1Z-daf"/>
+                            <constraint firstItem="2Ac-OB-qke" firstAttribute="leading" secondItem="vKl-uA-64M" secondAttribute="leading" constant="8" id="3Od-cl-dSq"/>
                             <constraint firstItem="azA-Xd-DXS" firstAttribute="leading" secondItem="vKl-uA-64M" secondAttribute="leading" id="Bt1-pV-w0v"/>
-                            <constraint firstItem="iQS-mk-Y9x" firstAttribute="leading" secondItem="vKl-uA-64M" secondAttribute="leading" constant="8" id="HHM-xe-idj"/>
-                            <constraint firstItem="vKl-uA-64M" firstAttribute="trailing" secondItem="iQS-mk-Y9x" secondAttribute="trailing" constant="8" id="LQj-64-VWu"/>
                             <constraint firstItem="azA-Xd-DXS" firstAttribute="trailing" secondItem="vKl-uA-64M" secondAttribute="trailing" id="Nxd-1x-wbe"/>
+                            <constraint firstAttribute="trailing" secondItem="2Ac-OB-qke" secondAttribute="trailing" id="Xb5-1B-DK0"/>
+                            <constraint firstItem="2Ac-OB-qke" firstAttribute="top" secondItem="9gY-Cb-du1" secondAttribute="top" constant="8" id="fZy-vO-qQU"/>
                             <constraint firstAttribute="bottom" secondItem="azA-Xd-DXS" secondAttribute="bottom" priority="999" id="fjd-x8-7Dy"/>
-                            <constraint firstItem="iQS-mk-Y9x" firstAttribute="top" secondItem="9gY-Cb-du1" secondAttribute="top" constant="8" id="phC-Sf-YIB"/>
-                            <constraint firstItem="azA-Xd-DXS" firstAttribute="top" secondItem="iQS-mk-Y9x" secondAttribute="bottom" constant="8" id="zbO-ow-mPl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vKl-uA-64M"/>
                     </view>
