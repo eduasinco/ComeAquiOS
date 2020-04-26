@@ -21,7 +21,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82l-Td-b5v">
                                         <rect key="frame" x="0.0" y="0.0" width="348" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4PX-Aa-4I2" customClass="ValidationTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4PX-Aa-4I2" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="298" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -118,7 +118,7 @@
                         <outlet property="clearTextButton" destination="Y2e-Ca-baN" id="eAp-RP-Lrz"/>
                         <outlet property="closeButton" destination="Ucb-nL-zdG" id="MMV-xg-qDl"/>
                         <outlet property="tableView" destination="azA-Xd-DXS" id="FQk-Rq-sEB"/>
-                        <outlet property="textView" destination="4PX-Aa-4I2" id="6x5-Xh-TvG"/>
+                        <outlet property="textField" destination="4PX-Aa-4I2" id="6x5-Xh-TvG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XwG-wc-17U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

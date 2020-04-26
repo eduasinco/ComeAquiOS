@@ -14,9 +14,9 @@ protocol DatePickerProtocol{
 }
 
 class DateTimePickerViewController: UIViewController {
-    @IBOutlet weak var dateText: ValidationTextField!
-    @IBOutlet weak var startTimeText: ValidationTextField!
-    @IBOutlet weak var endTimeText: ValidationTextField!
+    @IBOutlet weak var dateText: ValidatedTextField!
+    @IBOutlet weak var startTimeText: ValidatedTextField!
+    @IBOutlet weak var endTimeText: ValidatedTextField!
     
     private var datePickerForDateText: UIDatePicker?
     private var timePickerForStartText: UIDatePicker?
@@ -42,11 +42,13 @@ class DateTimePickerViewController: UIViewController {
     func setDateTime(startDateString: String, endDateString: String){
         startDate = Date.convertToDate(isoDateString: startDateString)
         endDate = Date.convertToDate(isoDateString: endDateString)
+        
         setAutomaticTimes(date: startDate!)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.translatesAutoresizingMaskIntoConstraints = false
         hourFormatter.dateFormat = "HH:mm aa"
         dateFormatter.dateFormat = "MM/dd/yyyy"
 

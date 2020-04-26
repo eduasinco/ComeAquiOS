@@ -11,11 +11,11 @@ import UIKit
 class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewDelegate {
     var googleMapsLocation: GoogleMapsLocation?
     
-    @IBOutlet weak var plateNameText: ValidationTextField!
+    @IBOutlet weak var plateNameText: ValidatedTextField!
     @IBOutlet weak var locationContainer: UIView!
-    @IBOutlet weak var dinnersText: ValidationTextField!
+    @IBOutlet weak var dinnersText: ValidatedTextField!
     @IBOutlet weak var priceText: CurrencyTextField!
-    @IBOutlet weak var descriptionText: ValidationTextField!
+    @IBOutlet weak var descriptionText: ValidatedTextView!
     @IBOutlet weak var wordCountText: UILabel!
     @IBOutlet weak var holderBottomConstraint: NSLayoutConstraint!
     
@@ -89,79 +89,74 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     func validateData() -> Bool{
         var valid = true
         if plateName == nil || plateName!.isEmpty {
-            plateNameText.validationText = "Meal name should not be empty Meal name should not be empty Meal name should not be empty"
+            plateNameText.validationText = "Meal should not be empty"
             valid = false
         }
         if location == nil {
-            placeAutocompleteVC?.textView.validationText = "Place should not be empty Meal name should not be empty Meal name should not be empty"
+            placeAutocompleteVC?.textField.validationText = "You should set a location for your meal"
             valid = false
         }
         if dinners == nil || dinners == 0{
-            dinnersText.validationText = "Meal name should not be empty Meal name should not be empty Meal name should not be empty Meal name should not be empty"
+            dinnersText.validationText = "You should set a dinner quantity"
             valid = false
         }
         if startDate == nil || endDate == nil{
-            datePickerVC?.dateText.validationText = "Please insert a valid date for the meal Meal name should not be empty Meal name should not be empty"
-            datePickerVC?.view.layoutIfNeeded()
+            datePickerVC?.dateText.validationText = "Chose a date for your meal"
             valid = false
         }
         if price == nil {
-            priceText.validationText = "Please insert a valid date for the meal Meal name should not be empty Meal name should not be empty"
+            priceText.validationText = "Pleace insert a price for your meal"
             valid = false
         }
         if descriptionString == nil || descriptionString!.isEmpty  {
-            self.descriptionText.validationText = "Description should not be empty Meal name should not be empty Meal name should not be empty"
+            descriptionText.validationText = "Meal description should not be empty"
+            valid = false
         }
         return valid
-    }
-    
-    override func viewDidLayoutSubviews() {
-        //plateNameText.validationLabel.circle()
     }
       
 
     @IBAction func submit(_ sender: Any) {
-        validateData()
-
-//        Server.post("/foods/",
-//                    json:
-//            ["plate_name":  nil,
-//             "formatted_address":  nil,
-//             "place_id":  nil,
-//             "street_n":  nil,
-//             "route":  nil,
-//             "administrative_area_level_2":  nil,
-//             "administrative_area_level_1":  nil,
-//             "country":  nil,
-//             "postal_code":  nil,
-//             "lat":  nil,
-//             "lng":  nil,
-//             "max_dinners":  nil,
-//             "dinners_left":  nil,
-//             "start_time":  nil,
-//             "end_time":  nil,
-//             "time_zone":  nil,
-//             "price":  nil,
-//             "food_type":  nil,
-//             "description":  nil,
-//             "visible":  nil],
-//                    finish: {(data: Data?) -> Void in
-//                        DispatchQueue.main.async {
-//                            self.alert.dismiss(animated: false, completion: nil)
-//                        }
-//                        guard let data = data else {
-//                            return
-//                        }
-//                        do {
-//                            self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
-//                            DispatchQueue.main.async {
-//                                self.importImageVC?.foodPostId = self.foodPost!.id!
-//                            }
-//                        } catch let jsonErr {
-//                            print("json could'nt be parsed \(jsonErr)")
-//                        }
-//        }
-//        )
+        if validateData() {
+            Server.post("/foods/",
+                        json:
+                ["plate_name":  nil,
+                 "formatted_address":  nil,
+                 "place_id":  nil,
+                 "street_n":  nil,
+                 "route":  nil,
+                 "administrative_area_level_2":  nil,
+                 "administrative_area_level_1":  nil,
+                 "country":  nil,
+                 "postal_code":  nil,
+                 "lat":  nil,
+                 "lng":  nil,
+                 "max_dinners":  nil,
+                 "dinners_left":  nil,
+                 "start_time":  nil,
+                 "end_time":  nil,
+                 "time_zone":  nil,
+                 "price":  nil,
+                 "food_type":  nil,
+                 "description":  nil,
+                 "visible":  nil],
+                        finish: {(data: Data?) -> Void in
+                            DispatchQueue.main.async {
+                                self.alert.dismiss(animated: false, completion: nil)
+                            }
+                            guard let data = data else {
+                                return
+                            }
+                            do {
+                                self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
+                                DispatchQueue.main.async {
+                                    self.importImageVC?.foodPostId = self.foodPost!.id!
+                                }
+                            } catch let jsonErr {
+                                print("json could'nt be parsed \(jsonErr)")
+                            }
+            })
+        }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

@@ -13,7 +13,7 @@ protocol AutocompleteProtocol {
 }
 
 class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var textView: ValidationTextField!
+    @IBOutlet weak var textField: ValidatedTextField!
     @IBOutlet weak var tableView: MyOwnTableView!
     @IBOutlet weak var clearTextButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
@@ -30,14 +30,14 @@ class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         // tableView.isScrollEnabled = false
-        textView.addTarget(self, action: #selector(textField(_:shouldChangeCharactersIn:replacementString:)), for: .editingChanged)
+        textField.addTarget(self, action: #selector(textField(_:shouldChangeCharactersIn:replacementString:)), for: .editingChanged)
         
         clearTextButton.visibility = .gone
         closeButton.visibility = closeVisible ? .visible : .gone
 
     }
     @IBAction func clearText(_ sender: Any) {
-        textView.text = ""
+        textField.text = ""
         self.clearTextButton.visibility = .gone
         places = []
         tableView.reloadData()
@@ -68,7 +68,7 @@ class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
             tableView.reloadData()
         }
         
-        if textView.text!.count > 0 {
+        if textField.text!.count > 0 {
             UIView.animate(withDuration: 0.5) {
                 self.clearTextButton.visibility = .visible
             }
@@ -107,7 +107,7 @@ extension PlaceAutocompleteViewController: UITableViewDataSource, UITableViewDel
 
 extension PlaceAutocompleteViewController{
     func getLocationsFromGoogle(){
-        let url = URL(string: "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\( textView.text!)&types=geocode&language=en&key=\(GOOGLE_KEY)")
+        let url = URL(string: "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\( textField.text!)&types=geocode&language=en&key=\(GOOGLE_KEY)")
         guard let endpointUrl = url else { return }
         
         var request = URLRequest(url: endpointUrl)
@@ -139,7 +139,7 @@ extension PlaceAutocompleteViewController{
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpMethod = "GET"
-        textView.text = "Loading..."
+        textField.text = "Loading..."
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
                 guard let data = data else {
@@ -148,7 +148,7 @@ extension PlaceAutocompleteViewController{
             do {
                 self.selectedPlace = try JSONDecoder().decode(PlaceG.self, from: data)
                 DispatchQueue.main.async {
-                    self.textView.text = self.selectedPlace?.result?.formatted_address!
+                    self.textField.text = self.selectedPlace?.result?.formatted_address!
                     self.delegate?.placeSelected(place: self.selectedPlace!)
                 }
             } catch let jsonErr {

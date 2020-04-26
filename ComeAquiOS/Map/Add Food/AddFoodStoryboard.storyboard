@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,84 +23,98 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZe-N5-1BA" userLabel="inside ">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="880"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="866"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CGm-GC-d7g">
-                                                        <rect key="frame" x="16" y="16" width="382" height="814"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CGm-GC-d7g">
+                                                        <rect key="frame" x="16" y="16" width="382" height="800"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What are you making?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AYi-JU-8Hi" customClass="ValidationTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OTs-na-F7l">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What are you making?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wDB-Sn-PEZ" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="50" id="hsr-gT-oNU"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYa-L7-ryl">
+                                                                <rect key="frame" x="0.0" y="58" width="382" height="100"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="f24-Wc-ZOv"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                            </textField>
-                                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYa-L7-ryl">
-                                                                <rect key="frame" x="0.0" y="66" width="382" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="p9c-zL-Cjf"/>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="z5U-h9-oDh"/>
                                                                 </constraints>
                                                                 <connections>
                                                                     <segue destination="1rO-Zh-29M" kind="embed" identifier="PlaceAutocompleteSegue" id="6bl-gZ-Cel"/>
                                                                 </connections>
                                                             </containerView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfo-kX-fwr">
-                                                                <rect key="frame" x="0.0" y="132" width="382" height="50"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KIP-Sd-i3J">
+                                                                <rect key="frame" x="0.0" y="166" width="382" height="50"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dinners" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrj-kn-sc7" customClass="ValidationTextField" customModule="ComeAquiOS" customModuleProvider="target">
-                                                                        <rect key="frame" x="116" y="0.0" width="150" height="50"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfo-kX-fwr">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                                        <subviews>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dinners" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrj-kn-sc7" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                                <rect key="frame" x="141" y="0.0" width="100" height="50"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="bv0-k1-MA7"/>
+                                                                                    <constraint firstAttribute="height" constant="50" id="z0l-Y0-wQA"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="n5A-3Z-JgY"/>
-                                                                            <constraint firstAttribute="height" constant="50" id="z0l-Y0-wQA"/>
+                                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yrj-kn-sc7" secondAttribute="trailing" id="2RN-Mw-EhA"/>
+                                                                            <constraint firstItem="yrj-kn-sc7" firstAttribute="top" secondItem="Bfo-kX-fwr" secondAttribute="top" id="Iq0-YM-8tC"/>
+                                                                            <constraint firstItem="yrj-kn-sc7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bfo-kX-fwr" secondAttribute="leading" id="QAk-TG-RaB"/>
+                                                                            <constraint firstItem="yrj-kn-sc7" firstAttribute="centerX" secondItem="Bfo-kX-fwr" secondAttribute="centerX" id="i1h-Hf-7eq"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="yrj-kn-sc7" secondAttribute="bottom" id="sev-vf-uEh"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                    </textField>
+                                                                    </view>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            </stackView>
+                                                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1cn-5t-3w6">
+                                                                <rect key="frame" x="0.0" y="224" width="382" height="116"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="yrj-kn-sc7" firstAttribute="top" secondItem="Bfo-kX-fwr" secondAttribute="top" id="Iq0-YM-8tC"/>
-                                                                    <constraint firstItem="yrj-kn-sc7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bfo-kX-fwr" secondAttribute="leading" priority="999" id="fwC-pb-9Ed"/>
-                                                                    <constraint firstItem="yrj-kn-sc7" firstAttribute="centerX" secondItem="Bfo-kX-fwr" secondAttribute="centerX" id="i1h-Hf-7eq"/>
-                                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yrj-kn-sc7" secondAttribute="trailing" priority="999" id="o2g-A3-nWW"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="yrj-kn-sc7" secondAttribute="bottom" id="sev-vf-uEh"/>
-                                                                </constraints>
-                                                            </view>
-                                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cn-5t-3w6">
-                                                                <rect key="frame" x="0.0" y="198" width="382" height="116"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" priority="700" id="1LX-60-tYW"/>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="116" id="PcC-Ej-E7q"/>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="116" id="aFU-mI-jcS"/>
                                                                 </constraints>
                                                                 <connections>
                                                                     <segue destination="MSI-jE-pqk" kind="embed" identifier="DatePickerSegue" id="RdC-n1-lvt"/>
                                                                 </connections>
                                                             </containerView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drT-uo-5rn">
-                                                                <rect key="frame" x="0.0" y="330" width="382" height="50"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qo0-Q8-FaH">
+                                                                <rect key="frame" x="0.0" y="348" width="382" height="50"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qkx-0W-HNS" customClass="CurrencyTextField" customModule="ComeAquiOS" customModuleProvider="target">
-                                                                        <rect key="frame" x="141" y="0.0" width="100" height="50"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drT-uo-5rn">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                                        <subviews>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qkx-0W-HNS" customClass="CurrencyTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                                <rect key="frame" x="141" y="0.0" width="100" height="50"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="50" id="FOE-Nf-3fO"/>
+                                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="miH-W6-22Q"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="50" id="FOE-Nf-3fO"/>
-                                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="k7U-jq-zSY"/>
+                                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qkx-0W-HNS" secondAttribute="trailing" id="68Q-Iq-WOo"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="qkx-0W-HNS" secondAttribute="bottom" id="HgC-VI-oin"/>
+                                                                            <constraint firstItem="qkx-0W-HNS" firstAttribute="top" secondItem="drT-uo-5rn" secondAttribute="top" id="YPJ-KL-klX"/>
+                                                                            <constraint firstItem="qkx-0W-HNS" firstAttribute="centerX" secondItem="drT-uo-5rn" secondAttribute="centerX" id="elk-PE-IPr"/>
+                                                                            <constraint firstItem="qkx-0W-HNS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="drT-uo-5rn" secondAttribute="leading" id="yrR-ST-eay"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                                    </textField>
+                                                                    </view>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="bottom" secondItem="qkx-0W-HNS" secondAttribute="bottom" id="HgC-VI-oin"/>
-                                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qkx-0W-HNS" secondAttribute="trailing" id="O3h-h3-unx"/>
-                                                                    <constraint firstItem="qkx-0W-HNS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="drT-uo-5rn" secondAttribute="leading" id="PPQ-cG-Vcc"/>
-                                                                    <constraint firstItem="qkx-0W-HNS" firstAttribute="top" secondItem="drT-uo-5rn" secondAttribute="top" id="YPJ-KL-klX"/>
-                                                                    <constraint firstItem="qkx-0W-HNS" firstAttribute="centerX" secondItem="drT-uo-5rn" secondAttribute="centerX" id="dbs-WM-E8A"/>
-                                                                </constraints>
-                                                            </view>
+                                                            </stackView>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXB-Mg-uFy">
-                                                                <rect key="frame" x="0.0" y="396" width="382" height="20"/>
+                                                                <rect key="frame" x="0.0" y="406" width="382" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="dxq-XI-bsu"/>
                                                                 </constraints>
@@ -108,13 +123,16 @@
                                                                 </connections>
                                                             </containerView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyw-VC-LIj">
-                                                                <rect key="frame" x="0.0" y="432" width="382" height="200"/>
+                                                                <rect key="frame" x="0.0" y="434" width="382" height="200"/>
                                                                 <subviews>
-                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1AS-hQ-chl" customClass="ValidationTextView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lxC-tA-iTQ" customClass="ValidatedTextView" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="200" id="gLP-Cz-VaY"/>
+                                                                        </constraints>
                                                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                     </textView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/202" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weI-PJ-394">
@@ -126,17 +144,16 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="200" id="4AO-FB-TUE"/>
-                                                                    <constraint firstItem="1AS-hQ-chl" firstAttribute="top" secondItem="gyw-VC-LIj" secondAttribute="top" id="57w-ON-wWh"/>
-                                                                    <constraint firstItem="1AS-hQ-chl" firstAttribute="leading" secondItem="gyw-VC-LIj" secondAttribute="leading" id="F32-Pf-n59"/>
+                                                                    <constraint firstItem="lxC-tA-iTQ" firstAttribute="top" secondItem="gyw-VC-LIj" secondAttribute="top" id="J87-v5-bKD"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="lxC-tA-iTQ" secondAttribute="trailing" id="UgI-mM-N20"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="lxC-tA-iTQ" secondAttribute="bottom" id="WXE-jx-nQY"/>
                                                                     <constraint firstAttribute="trailing" secondItem="weI-PJ-394" secondAttribute="trailing" id="Wkm-qz-dsK"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="1AS-hQ-chl" secondAttribute="trailing" id="duo-Q3-Ked"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="1AS-hQ-chl" secondAttribute="bottom" id="hMf-Ep-pjL"/>
                                                                     <constraint firstAttribute="bottom" secondItem="weI-PJ-394" secondAttribute="bottom" id="qDd-Pn-fWt"/>
+                                                                    <constraint firstItem="lxC-tA-iTQ" firstAttribute="leading" secondItem="gyw-VC-LIj" secondAttribute="leading" id="xFT-Wh-Gnp"/>
                                                                 </constraints>
                                                             </view>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeO-mn-PRw">
-                                                                <rect key="frame" x="0.0" y="648" width="382" height="100"/>
+                                                                <rect key="frame" x="0.0" y="642" width="382" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="aBt-IM-FR6"/>
                                                                 </constraints>
@@ -145,7 +162,7 @@
                                                                 </connections>
                                                             </containerView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJk-sv-1bB">
-                                                                <rect key="frame" x="0.0" y="764" width="382" height="50"/>
+                                                                <rect key="frame" x="0.0" y="750" width="382" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="OrS-SK-qLo"/>
                                                                 </constraints>
@@ -200,11 +217,11 @@
                     <navigationItem key="navigationItem" id="brH-dG-NT7"/>
                     <size key="freeformSize" width="414" height="1200"/>
                     <connections>
-                        <outlet property="descriptionText" destination="1AS-hQ-chl" id="dri-i4-E0f"/>
+                        <outlet property="descriptionText" destination="lxC-tA-iTQ" id="fdb-It-kvN"/>
                         <outlet property="dinnersText" destination="yrj-kn-sc7" id="UvF-lS-9Ho"/>
                         <outlet property="holderBottomConstraint" destination="xpW-c5-Bca" id="ViE-fo-k3i"/>
                         <outlet property="locationContainer" destination="BYa-L7-ryl" id="y2M-oY-ZRy"/>
-                        <outlet property="plateNameText" destination="AYi-JU-8Hi" id="yFe-NV-VZa"/>
+                        <outlet property="plateNameText" destination="wDB-Sn-PEZ" id="vHT-Vm-nqn"/>
                         <outlet property="priceText" destination="qkx-0W-HNS" id="cXJ-uf-sfb"/>
                         <outlet property="wordCountText" destination="weI-PJ-394" id="3qQ-Dc-qUH"/>
                     </connections>
@@ -221,21 +238,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="382" height="116"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4FM-zF-0ti">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4FM-zF-0ti">
                                 <rect key="frame" x="0.0" y="0.0" width="382" height="116"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l2b-MV-vuR" customClass="ValidationTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4L7-PB-B1R">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="LFo-Th-M0x"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BbM-Ou-oQ3" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="RK8-St-2e0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="NqE-b1-xcw">
                                         <rect key="frame" x="0.0" y="66" width="382" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VSa-Hw-TnM" customClass="ValidationTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VSa-Hw-TnM">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="OlX-F6-IXl"/>
@@ -243,7 +265,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pEm-eG-qH1" customClass="ValidationTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pEm-eG-qH1">
                                                 <rect key="frame" x="199" y="0.0" width="183" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Tto-WX-lZ2"/>
@@ -269,14 +291,14 @@
                         <viewLayoutGuide key="safeArea" id="7x9-RC-RG5"/>
                     </view>
                     <connections>
-                        <outlet property="dateText" destination="l2b-MV-vuR" id="f3w-5w-5f8"/>
+                        <outlet property="dateText" destination="BbM-Ou-oQ3" id="Tlh-sc-yPj"/>
                         <outlet property="endTimeText" destination="pEm-eG-qH1" id="nfe-cc-c54"/>
                         <outlet property="startTimeText" destination="VSa-Hw-TnM" id="cds-kY-ljv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNt-3o-4uN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2877" y="-345"/>
+            <point key="canvasLocation" x="2877" y="-368"/>
         </scene>
         <!--PlaceAutocomplete-->
         <scene sceneID="zWs-si-kjH">
