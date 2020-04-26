@@ -625,41 +625,69 @@ class ValidatedTextField: UITextField {
 }
 
 class ValidatedTextView: UITextView, UITextViewDelegate {
+    var validationTextView: UITextView = {
+        let tv = UITextView()
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.textColor = UIColor.red
+        tv.backgroundColor = nil
+        tv.textAlignment = .natural
+        tv.isScrollEnabled = false
+        tv.isUserInteractionEnabled = false
+        tv.font = UIFont.boldSystemFont(ofSize: 14.0)
+        return tv
+    }()
     
-    var validationTextView: UITextView?
     @IBInspectable var validationText : String? {
         set {
-            validationTextView?.text = newValue
-            validationTextView?.visibility = .visible
+            validationTextView.text = newValue
+            validationTextView.visibility = .visible
             self.layoutIfNeeded()
         }
         get {
-            return validationTextView?.text
+            return validationTextView.text
         }
     }
     
-    func addValidationTarget(valText: UITextView){
-        self.delegate = self
-        self.validationTextView = valText
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
         self.setValidationTextStyle()
-        self.validationTextView?.visibility = .gone
+        self.validationTextView.visibility = .gone
     }
     
     func setValidationTextStyle(){
-        self.validationTextView?.textColor = UIColor.red
-        self.validationTextView?.font = UIFont.boldSystemFont(ofSize: self.validationTextView!.font!.pointSize)
+        self.validationTextView.textColor = UIColor.red
+        self.validationTextView.font = UIFont.boldSystemFont(ofSize: self.validationTextView.font!.pointSize)
+        self.validationTextView.textAlignment = .right
     }
-    
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if self.validationTextView?.visibility == .visible{
-            self.validationTextView?.visibility = .gone
+        if self.validationTextView.visibility == .visible{
+            self.validationTextView.visibility = .gone
             self.layoutIfNeeded()
         }
     }
     func textViewDidChange(_ textView: UITextView) {
-        if self.validationTextView?.visibility == .visible{
-            self.validationTextView?.visibility = .gone
+        if self.validationTextView.visibility == .visible{
+            self.validationTextView.visibility = .gone
             self.layoutIfNeeded()
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.delegate = self
+        var superview = self.superview
+        while superview != nil && (!superview!.isKind(of: UIStackView.self) && !((superview as? UIStackView)?.axis == .horizontal)){
+            superview = superview?.superview
+            
+        }
+        guard let sv = superview as? UIStackView else {
+            super.layoutSubviews()
+            return
+        }
+        sv.insertArrangedSubview(self.validationTextView, at: 0)
     }
 }
