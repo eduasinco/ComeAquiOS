@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DatePickerProtocol{
-    func datesPicked(startDate: Date, endDate: Date)
+    func datesPicked(startDate: String, endDate: String)
     func invalidStartDate()
 }
 
@@ -87,7 +87,10 @@ class DateTimePickerViewController: UIViewController {
         print(dateTimeFormatter.string(from: startDate!), dateTimeFormatter.string(from: endDate!))
         
         if startingDateIsValid() {
-            delegate?.datesPicked(startDate: startDate!, endDate: endDate!)
+            let dateTimeFormatter = DateFormatter()
+            dateTimeFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+            print(dateTimeFormatter.string(from: startDate!), dateTimeFormatter.string(from: endDate!))
+            delegate?.datesPicked(startDate: dateTimeFormatter.string(from: startDate!), endDate: dateTimeFormatter.string(from: endDate!))
         } else {
             delegate?.invalidStartDate()
         }

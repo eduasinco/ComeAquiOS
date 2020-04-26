@@ -200,6 +200,7 @@ class ResultG: Decodable {
     var id: String?
     var name: String?
     var photos: [FotoG]
+    var place_id: String?
 }
 class FotoG: Decodable{
     var height: Int?

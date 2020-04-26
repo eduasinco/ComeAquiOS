@@ -24,11 +24,9 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     var typesVC: TypesViewController?
     var importImageVC: ImportImagesViewController?
     
-    var plateName: String?
     var location: PlaceG?
-    var dinners: Int?
-    var startDate: Date?
-    var endDate: Date?
+    var startDate: String?
+    var endDate: String?
     var price: Int?
     var types: String?
     var descriptionString: String?
@@ -64,7 +62,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     }
     func setFoodPost() {
         if (self.foodPost?.plate_name) != nil {
-            plateNameText.text = plateName
+            plateNameText.text = self.foodPost?.plate_name
         }
         if let placeId = self.foodPost?.place_id {
             placeAutocompleteVC?.getPlaceDetailFromGoogle(placeId: placeId)
@@ -88,7 +86,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     
     func validateData() -> Bool{
         var valid = true
-        if plateName == nil || plateName!.isEmpty {
+        if plateNameText.text == nil || plateNameText.text!.isEmpty {
             plateNameText.validationText = "Meal should not be empty"
             valid = false
         }
@@ -96,7 +94,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
             placeAutocompleteVC?.textField.validationText = "You should set a location for your meal"
             valid = false
         }
-        if dinners == nil || dinners == 0{
+        if dinnersText.text == nil || dinnersText.text!.isEmpty{
             dinnersText.validationText = "You should set a dinner quantity"
             valid = false
         }
@@ -108,7 +106,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
             priceText.validationText = "Pleace insert a price for your meal"
             valid = false
         }
-        if descriptionString == nil || descriptionString!.isEmpty  {
+        if descriptionText.text == nil || descriptionText!.text!.isEmpty  {
             descriptionText.validationText = "Meal description should not be empty"
             valid = false
         }
@@ -118,44 +116,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
 
     @IBAction func submit(_ sender: Any) {
         if validateData() {
-            Server.post("/foods/",
-                        json:
-                ["plate_name":  nil,
-                 "formatted_address":  nil,
-                 "place_id":  nil,
-                 "street_n":  nil,
-                 "route":  nil,
-                 "administrative_area_level_2":  nil,
-                 "administrative_area_level_1":  nil,
-                 "country":  nil,
-                 "postal_code":  nil,
-                 "lat":  nil,
-                 "lng":  nil,
-                 "max_dinners":  nil,
-                 "dinners_left":  nil,
-                 "start_time":  nil,
-                 "end_time":  nil,
-                 "time_zone":  nil,
-                 "price":  nil,
-                 "food_type":  nil,
-                 "description":  nil,
-                 "visible":  nil],
-                        finish: {(data: Data?) -> Void in
-                            DispatchQueue.main.async {
-                                self.alert.dismiss(animated: false, completion: nil)
-                            }
-                            guard let data = data else {
-                                return
-                            }
-                            do {
-                                self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
-                                DispatchQueue.main.async {
-                                    self.importImageVC?.foodPostId = self.foodPost!.id!
-                                }
-                            } catch let jsonErr {
-                                print("json could'nt be parsed \(jsonErr)")
-                            }
-            })
+            pathFoodPost(visible: true)
         }
     }
     
@@ -210,6 +171,46 @@ extension AddFoodViewController {
             }
         })
     }
+    func pathFoodPost(visible: Bool){
+        Server.patch("/foods/\(self.foodPost!.id!)/",
+                    json:
+            ["plate_name":  plateNameText.text,
+             "formatted_address":  self.location?.result?.formatted_address,
+             "place_id":  location?.result?.place_id,
+             "street_n":  nil,
+             "route":  nil,
+             "administrative_area_level_2":  nil,
+             "administrative_area_level_1":  nil,
+             "country":  nil,
+             "postal_code":  nil,
+             "lat":  location?.result?.geometry?.location?.lat,
+             "lng":  location?.result?.geometry?.location?.lng,
+             "max_dinners":  dinnersText.text,
+             "start_time": startDate,
+             "end_time":  endDate,
+             "time_zone":  nil,
+             "price":  price,
+             "food_type":  types,
+             "description":  descriptionText.text,
+             "visible": visible],
+                    finish: {(data: Data?) -> Void in
+                        DispatchQueue.main.async {
+                            self.alert.dismiss(animated: false, completion: nil)
+                        }
+                        guard let data = data else {
+                            return
+                        }
+                        do {
+                            self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
+                            DispatchQueue.main.async {
+                                self.navigationController?.popViewController(animated: true)
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        } catch let jsonErr {
+                            print("json could'nt be parsed \(jsonErr)")
+                        }
+        })
+    }
     func postFood(){
         Server.post("/foods/",
                     json:
@@ -232,7 +233,7 @@ extension AddFoodViewController {
              "price":  nil,
              "food_type":  nil,
              "description":  nil,
-             "visible":  nil],
+             "visible":  false],
                     finish: {(data: Data?) -> Void in
                         DispatchQueue.main.async {
                             self.alert.dismiss(animated: false, completion: nil)
@@ -265,7 +266,7 @@ extension AddFoodViewController: TypesProtocol, AutocompleteProtocol, DatePicker
         self.location = place
     }
     
-    func datesPicked(startDate: Date, endDate: Date) {
+    func datesPicked(startDate: String, endDate: String) {
         self.startDate = startDate
         self.endDate = endDate
     }

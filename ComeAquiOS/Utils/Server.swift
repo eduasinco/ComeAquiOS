@@ -49,10 +49,17 @@ class Server {
         task.resume()
     }
     static func post(_ urlString: String, json: [String:Any?], finish: @escaping (Data?) -> Void){
+        update(urlString, json: json, method: "POST", finish: finish)
+    }
+    static func patch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?) -> Void){
+        update(urlString, json: json, method: "PATCH", finish: finish)
+    }
+    
+    static func update(_ urlString: String, json: [String:Any?], method: String, finish: @escaping (Data?) -> Void){
         var request = getRequestWithAuth(urlString)
         do {
             let data = try JSONSerialization.data(withJSONObject: json, options: [])
-            request.httpMethod = "POST"
+            request.httpMethod = method
             request.httpBody = data
             let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
                 finish(data)
