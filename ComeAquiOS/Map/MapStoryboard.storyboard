@@ -15,6 +15,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wjR-Dd-0ho">
+                                <rect key="frame" x="8" y="52" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="TlE-Uo-2eY"/>
+                                    <constraint firstAttribute="height" constant="30" id="e1e-Jh-olX"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wOO-sf-WI3" userLabel="Map View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-cr-Uml" customClass="PassThroughView" customModule="ComeAquiOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <connections>
+                                    <segue destination="2t8-Qs-nmg" kind="embed" identifier="MapPickerSegue" id="Boy-tT-Vmr"/>
+                                </connections>
+                            </containerView>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJZ-NB-sJw">
                                 <rect key="frame" x="8" y="605" width="398" height="200"/>
                                 <subviews>
@@ -34,24 +52,6 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="lQm-2P-0xI"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wjR-Dd-0ho">
-                                <rect key="frame" x="8" y="52" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="TlE-Uo-2eY"/>
-                                    <constraint firstAttribute="height" constant="30" id="e1e-Jh-olX"/>
-                                </constraints>
-                            </activityIndicatorView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wOO-sf-WI3" userLabel="Map View">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-cr-Uml" customClass="PassThroughView" customModule="ComeAquiOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <connections>
-                                    <segue destination="2t8-Qs-nmg" kind="embed" identifier="MapPickerSegue" id="Boy-tT-Vmr"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -201,7 +201,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="chY-vw-aW5">
-                                <rect key="frame" x="16" y="116" width="366" height="68"/>
+                                <rect key="frame" x="16" y="116" width="366" height="90"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcx-D3-1x9" userLabel="User Description">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
@@ -275,7 +275,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9v-2D-Tl6" userLabel="Post Description">
-                                        <rect key="frame" x="0.0" y="40" width="366" height="28"/>
+                                        <rect key="frame" x="0.0" y="40" width="366" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-PH-DEG">
                                                 <rect key="frame" x="0.0" y="23" width="366" height="20.5"/>
@@ -363,7 +363,7 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="ASL-MN-lTS" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
                                                         <rect key="frame" x="264" y="0.0" width="260" height="100"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="260" id="aiV-ef-O7w"/>
+                                                            <constraint firstAttribute="width" constant="260" id="7fz-vQ-kb5"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="Mhp-cd-x2F" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
@@ -410,10 +410,13 @@
                     <connections>
                         <outlet property="favouriteImageView" destination="rYz-32-QAw" id="uIw-6f-ObB"/>
                         <outlet property="image1" destination="vnK-eZ-bgh" id="Ya8-4A-bWz"/>
-                        <outlet property="image1Width" destination="8zJ-ao-QvP" id="FGN-8Q-Yn5"/>
+                        <outlet property="image1Width" destination="8zJ-ao-QvP" id="EpL-0o-8MZ"/>
                         <outlet property="image2" destination="ASL-MN-lTS" id="KGm-Nu-Dnq"/>
                         <outlet property="image3" destination="Mhp-cd-x2F" id="kBo-ka-8Om"/>
                         <outlet property="imageScrollView" destination="l4k-4r-Hb6" id="902-u0-EVg"/>
+                        <outlet property="imageScrollViewHeight" destination="D3z-co-YDj" id="c23-tB-iry"/>
+                        <outlet property="imageWidth2" destination="7fz-vQ-kb5" id="Ho9-ko-MAJ"/>
+                        <outlet property="imageWidth3" destination="Uoo-oY-aa4" id="ma3-a2-0md"/>
                         <outlet property="mealDescription" destination="DCB-PH-DEG" id="lWG-H0-gBt"/>
                         <outlet property="plateName" destination="E67-Ou-kWQ" id="rDs-zv-rgP"/>
                         <outlet property="price" destination="03E-hW-c8f" id="W5h-5K-Fsd"/>

@@ -192,7 +192,7 @@ extension AddFoodViewController {
              "price":  price,
              "food_type":  types,
              "description":  descriptionText.text,
-             "visible": visible],
+             "visible": visible ? "true" : "false"],
                     finish: {(data: Data?) -> Void in
                         DispatchQueue.main.async {
                             self.alert.dismiss(animated: false, completion: nil)
@@ -233,7 +233,7 @@ extension AddFoodViewController {
              "price":  nil,
              "food_type":  nil,
              "description":  nil,
-             "visible":  false],
+             "visible": "false"],
                     finish: {(data: Data?) -> Void in
                         DispatchQueue.main.async {
                             self.alert.dismiss(animated: false, completion: nil)
