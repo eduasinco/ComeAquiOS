@@ -9,7 +9,6 @@
 import UIKit
 
 class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewDelegate {
-    var googleMapsLocation: GoogleMapsLocation?
     
     @IBOutlet weak var plateNameText: ValidatedTextField!
     @IBOutlet weak var locationContainer: UIView!
@@ -64,9 +63,12 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         if (self.foodPost?.plate_name) != nil {
             plateNameText.text = self.foodPost?.plate_name
         }
-        if let placeId = self.foodPost?.place_id {
+        if let placeId = self.foodPost?.place_id{
             placeAutocompleteVC?.getPlaceDetailFromGoogle(placeId: placeId)
+        } else if (location != nil) {
+            placeAutocompleteVC?.getPlaceDetailFromGoogle(placeId: location!.result!.place_id!)
         }
+
         if let dinners = self.foodPost?.max_dinners {
             dinnersText.text = "\(dinners)"
         }
@@ -245,6 +247,7 @@ extension AddFoodViewController {
                             self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
                             DispatchQueue.main.async {
                                 self.importImageVC?.foodPostId = self.foodPost!.id!
+                                self.setFoodPost()
                             }
                         } catch let jsonErr {
                             print("json could'nt be parsed \(jsonErr)")

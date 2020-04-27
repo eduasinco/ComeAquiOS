@@ -58,7 +58,7 @@ class FoodCardViewController: UIViewController {
         let imageArray = [image1, image2, image3]
         imageScrollView.visibility = .visible
         if foodPost.images!.count == 0 {
-            imageScrollView.visibility = .goneY
+            imageScrollView.visibility = .gone
         } else if foodPost.images!.count == 1 {
             image1.visibility = .visible
             self.image1.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo!)
@@ -74,31 +74,6 @@ class FoodCardViewController: UIViewController {
             imageArray[i]!.visibility = .goneX
             i += 1
         }
-        
-//        let imageArray = [image1, image2, image3]
-//        let imageWidthArray = [image1Width, imageWidth2, imageWidth3]
-//        imageScrollViewHeight.constant = 100
-//        imageScrollView.isHidden = false
-//        if foodPost.images!.count == 0 {
-//            imageScrollViewHeight.constant = 0
-//            imageScrollView.isHidden = true
-//        } else if foodPost.images!.count == 1 {
-//            self.image1.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo!)
-//            image1Width.constant = imageScrollView.frame.width
-//            image1.isHidden = false
-//        } else {
-//            for (i, image) in foodPost.images!.enumerated(){
-//                imageWidthArray[i]!.constant = 260
-//                imageArray[i]!.isHidden = false
-//                imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo!)
-//            }
-//        }
-//        var i = foodPost.images!.count
-//        while i < imageArray.count {
-//            imageWidthArray[i]!.constant = 0
-//            imageArray[i]!.isHidden = true
-//            i += 1
-//        }
         
         userImage.loadImageUsingUrlString(urlString: foodPost.owner!.profile_photo!)
         userName.text = foodPost.owner!.full_name!

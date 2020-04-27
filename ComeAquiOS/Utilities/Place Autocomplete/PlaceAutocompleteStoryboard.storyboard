@@ -100,7 +100,7 @@
                             <constraint firstItem="azA-Xd-DXS" firstAttribute="trailing" secondItem="vKl-uA-64M" secondAttribute="trailing" id="Nxd-1x-wbe"/>
                             <constraint firstAttribute="trailing" secondItem="2Ac-OB-qke" secondAttribute="trailing" id="Xb5-1B-DK0"/>
                             <constraint firstItem="2Ac-OB-qke" firstAttribute="top" secondItem="9gY-Cb-du1" secondAttribute="top" constant="8" id="fZy-vO-qQU"/>
-                            <constraint firstAttribute="bottom" secondItem="azA-Xd-DXS" secondAttribute="bottom" priority="999" id="fjd-x8-7Dy"/>
+                            <constraint firstAttribute="bottom" secondItem="azA-Xd-DXS" secondAttribute="bottom" id="fjd-x8-7Dy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vKl-uA-64M"/>
                     </view>

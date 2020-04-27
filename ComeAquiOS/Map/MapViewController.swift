@@ -236,7 +236,7 @@ class MapViewController: UIViewController, CardActionProtocol {
             mapPickerContainer.delegate = self
         } else if segue.identifier == "AddFoodSegue" {
             let addFoodVC = segue.destination as? AddFoodViewController
-            addFoodVC?.googleMapsLocation = sender as? GoogleMapsLocation
+            addFoodVC?.location = sender as? PlaceG
         }
     }
 }
@@ -253,7 +253,7 @@ extension MapViewController: MapPickerProtocol {
         mapPickerContainer.getLocationFromGoogle(lat: cameraLat, lng: cameraLng)
     }
     
-    func goToAddFood(googleLocation: GoogleMapsLocation?) {
+    func goToAddFood(googleLocation: PlaceG?) {
         performSegue(withIdentifier: "AddFoodSegue", sender: googleLocation)
     }
     

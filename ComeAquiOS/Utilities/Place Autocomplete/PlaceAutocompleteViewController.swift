@@ -199,7 +199,7 @@ class ResultG: Decodable {
     var icon: String?
     var id: String?
     var name: String?
-    var photos: [FotoG]
+    var photos: [FotoG]?
     var place_id: String?
 }
 class FotoG: Decodable{

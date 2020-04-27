@@ -10,7 +10,7 @@ import UIKit
 protocol MapPickerProtocol {
     func markerVisibility(_ visible: Bool)
     func buttonPressed(times: Int)
-    func goToAddFood(googleLocation: GoogleMapsLocation?)
+    func goToAddFood(googleLocation: PlaceG?)
     func placeSelected(place: PlaceG?)
 }
 class MapPickerViewController: UIViewController {
@@ -25,7 +25,7 @@ class MapPickerViewController: UIViewController {
     
     var searchAbailable = false
     
-    var googleMapsLocation: GoogleMapsLocation?
+    var placeFromGoogle: PlaceG?
     var fabCount = 0
     var delegate: MapPickerProtocol?
     
@@ -52,7 +52,7 @@ class MapPickerViewController: UIViewController {
             searchContainerView.visibility = .visible
             delegate?.buttonPressed(times: fabCount)
         } else if (fabCount == 1) {
-            delegate?.goToAddFood(googleLocation: self.googleMapsLocation)
+            delegate?.goToAddFood(googleLocation: self.placeFromGoogle)
         } else {
             fabCount = 2
             switchFabImage(false);
@@ -101,11 +101,10 @@ extension MapPickerViewController{
                     return
                 }
                 do {
-                    self.googleMapsLocation = try JSONDecoder().decode(GoogleMapsLocation.self, from: data)
-                    print("SE222222222222222222222222222222222222222222222222222222222222222222222222222RCH")
+                    let googleMapsLocation = try JSONDecoder().decode(GoogleMapsLocation.self, from: data)
                     DispatchQueue.main.async {
-                        if (self.googleMapsLocation?.results.count)! > 0 {
-                            self.label.text = self.googleMapsLocation!.results[0].formatted_address
+                        if (googleMapsLocation.results.count) > 0 {
+                            self.getPlaceDetailFromGoogle(placeId: googleMapsLocation.results[0].place_id!)
                         }
                     }
                 } catch let jsonErr {
@@ -115,7 +114,30 @@ extension MapPickerViewController{
             task.resume()
         }
     }
-    
+    func getPlaceDetailFromGoogle(placeId: String){
+        guard let endpointUrl = URL(string: "https://maps.googleapis.com/maps/api/place/details/json?input=bar&placeid=\(placeId)&key=\(GOOGLE_KEY)") else { return }
+        
+        var request = URLRequest(url: endpointUrl)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "GET"
+        self.label.text = "Loading..."
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+                guard let data = data else {
+                return
+            }
+            do {
+                self.placeFromGoogle = try JSONDecoder().decode(PlaceG.self, from: data)
+                DispatchQueue.main.async {
+                    self.label.text = self.placeFromGoogle?.result?.formatted_address
+                }
+            } catch let jsonErr {
+                print("json could'nt be parsed \(jsonErr)")
+            }
+        })
+        task.resume()
+    }
 }
 
 class GoogleMapsLocation: Decodable {
