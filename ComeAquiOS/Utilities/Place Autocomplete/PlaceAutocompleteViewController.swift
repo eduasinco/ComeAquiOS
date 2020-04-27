@@ -107,7 +107,9 @@ extension PlaceAutocompleteViewController: UITableViewDataSource, UITableViewDel
 
 extension PlaceAutocompleteViewController{
     func getLocationsFromGoogle(){
-        let url = URL(string: "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\( textField.text!)&types=geocode&language=en&key=\(GOOGLE_KEY)")
+        var urlString = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=\( textField.text!)&types=geocode&language=en&key=\(GOOGLE_KEY)"
+        urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = URL(string: urlString)
         guard let endpointUrl = url else { return }
         
         var request = URLRequest(url: endpointUrl)
