@@ -25,7 +25,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1922"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ISD-LY-4vC">
-                                                        <rect key="frame" x="0.0" y="300" width="414" height="652"/>
+                                                        <rect key="frame" x="0.0" y="300" width="414" height="702"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUE-Hp-CwP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -119,14 +119,21 @@
                                                                     <outlet property="delegate" destination="lTy-tE-mA4" id="YoY-IU-ar6"/>
                                                                 </connections>
                                                             </scrollView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVM-vX-Mhb">
+                                                                <rect key="frame" x="0.0" y="581.5" width="414" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="H0D-xN-UgG"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Attend Meal"/>
+                                                            </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0O-Pk-rwl">
-                                                                <rect key="frame" x="0.0" y="581.5" width="414" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="631.5" width="414" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72W-CP-CAz">
-                                                                <rect key="frame" x="0.0" y="602" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="652" width="414" height="50"/>
                                                                 <subviews>
                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="OW1-9P-6xu">
                                                                         <rect key="frame" x="0.0" y="0.0" width="344" height="50"/>
@@ -157,15 +164,6 @@
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </stackView>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUd-Zr-f5O">
-                                                        <rect key="frame" x="0.0" y="960" width="414" height="962"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="MjC-Ds-Udm"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <segue destination="pmz-HQ-0PB" kind="embed" identifier="CommentsSegue" id="xiT-tv-pve"/>
-                                                        </connections>
-                                                    </containerView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyC-m9-Ycp">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="270"/>
                                                         <subviews>
@@ -237,7 +235,7 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUA-e9-ik0">
-                                                                                        <rect key="frame" x="52" y="0.0" width="284" height="20.5"/>
+                                                                                        <rect key="frame" x="52" y="0.0" width="240" height="20.5"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="1000" id="Yn1-mB-1lp"/>
                                                                                         </constraints>
@@ -245,6 +243,16 @@
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKP-wb-a3h">
+                                                                                        <rect key="frame" x="296" y="0.0" width="40" height="22"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="40" id="ffj-z1-1wx"/>
+                                                                                        </constraints>
+                                                                                        <state key="normal" image="ellipsis" catalog="system"/>
+                                                                                        <connections>
+                                                                                            <action selector="optionsPressed:" destination="lTy-tE-mA4" eventType="touchUpInside" id="QjP-JV-iKe"/>
+                                                                                        </connections>
+                                                                                    </button>
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TNf-dQ-7or">
@@ -293,15 +301,12 @@
                                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="nyC-m9-Ycp" firstAttribute="top" secondItem="xrn-Nk-pwQ" secondAttribute="top" id="3df-BO-koc"/>
-                                                    <constraint firstItem="NUd-Zr-f5O" firstAttribute="top" secondItem="ISD-LY-4vC" secondAttribute="bottom" constant="8" id="8U1-8H-sVk"/>
                                                     <constraint firstItem="ISD-LY-4vC" firstAttribute="top" secondItem="xrn-Nk-pwQ" secondAttribute="top" constant="300" id="8l5-Sl-uNe"/>
-                                                    <constraint firstItem="NUd-Zr-f5O" firstAttribute="leading" secondItem="xrn-Nk-pwQ" secondAttribute="leading" id="DsA-RY-RIk"/>
                                                     <constraint firstItem="nyC-m9-Ycp" firstAttribute="leading" secondItem="xrn-Nk-pwQ" secondAttribute="leading" id="OZN-3O-SmP"/>
                                                     <constraint firstAttribute="trailing" secondItem="ISD-LY-4vC" secondAttribute="trailing" id="UST-8y-zIG"/>
                                                     <constraint firstItem="ISD-LY-4vC" firstAttribute="leading" secondItem="xrn-Nk-pwQ" secondAttribute="leading" id="awi-CP-uFl"/>
-                                                    <constraint firstAttribute="bottom" secondItem="NUd-Zr-f5O" secondAttribute="bottom" id="iCY-a7-6vk"/>
+                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ISD-LY-4vC" secondAttribute="bottom" id="hKE-ZT-YmF"/>
                                                     <constraint firstAttribute="trailing" secondItem="nyC-m9-Ycp" secondAttribute="trailing" id="n5G-wP-qhv"/>
-                                                    <constraint firstAttribute="trailing" secondItem="NUd-Zr-f5O" secondAttribute="trailing" id="sgu-YE-n5j"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -340,8 +345,11 @@
                         <outlet property="addressLabel" destination="1aH-cL-Kan" id="LGT-tL-gYb"/>
                         <outlet property="bcfkb" destination="6Z0-Ei-VI8" id="NCd-yO-ala"/>
                         <outlet property="date" destination="Nkl-pu-I7g" id="Oih-Lk-3Lv"/>
+                        <outlet property="detailStackView" destination="ISD-LY-4vC" id="mvd-Gc-rm8"/>
                         <outlet property="detailStackViewTopConstraint" destination="8l5-Sl-uNe" id="Buf-Za-WQ7"/>
+                        <outlet property="dinnerScrollView" destination="FAd-te-S1a" id="P00-Zf-HgW"/>
                         <outlet property="dinnersStackView" destination="JKk-Y4-Tge" id="d0A-n9-iRZ"/>
+                        <outlet property="dinnersText" destination="Iap-JV-upe" id="SMr-R6-BRX"/>
                         <outlet property="headerTopConstraint" destination="3df-BO-koc" id="0AM-KL-aKa"/>
                         <outlet property="headerView" destination="nyC-m9-Ycp" id="cWa-hh-GYI"/>
                         <outlet property="image1" destination="FdV-ee-f9U" id="bkk-nP-5uK"/>
@@ -350,6 +358,8 @@
                         <outlet property="image3" destination="HP2-Xf-FC7" id="N72-Sf-oDb"/>
                         <outlet property="imageScrollView" destination="9nG-Le-DhN" id="QyE-9l-o4e"/>
                         <outlet property="mealDescription" destination="Umi-9l-yGd" id="Lpq-xx-LkD"/>
+                        <outlet property="optionsButton" destination="xKP-wb-a3h" id="Rat-fY-JMV"/>
+                        <outlet property="orderButton" destination="TVM-vX-Mhb" id="xQl-qE-dje"/>
                         <outlet property="parentScrollView" destination="eVx-Ke-ZLR" id="XlL-3L-fQD"/>
                         <outlet property="plateName" destination="CUE-Hp-CwP" id="ls8-nz-AKa"/>
                         <outlet property="price" destination="7Jq-7T-7Nz" id="56G-oE-yQs"/>
@@ -362,11 +372,22 @@
                         <outlet property="userUserName" destination="ZUA-e9-ik0" id="NiL-V4-tvL"/>
                         <outlet property="viewToShowMap" destination="8gd-0i-bpg" id="1J9-8y-T7f"/>
                         <segue destination="bEe-qb-jCF" kind="show" identifier="DinnerSegue" id="Pq8-SU-TZg"/>
+                        <segue destination="eNL-T0-Rcu" kind="presentation" identifier="OptionsSegue" id="Sku-vv-SmJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EkY-Tq-p1q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-19" y="-48"/>
+        </scene>
+        <!--OptionsView-->
+        <scene sceneID="1UP-hG-b4K">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OptionsPopUpStoryboard" referencedIdentifier="OptionsView" id="eNL-T0-Rcu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="e1v-P3-SE8"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DVb-37-0pC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="656" y="-524"/>
         </scene>
         <!--Dinners View Controller-->
         <scene sceneID="iCu-CF-6rk">
@@ -460,18 +481,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLW-ea-iac" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="947.82608695652186" y="-417.1875"/>
-        </scene>
-        <!--CommentView-->
-        <scene sceneID="zHA-Iy-lRs">
-            <objects>
-                <viewControllerPlaceholder storyboardName="CommentsStoryboard" referencedIdentifier="CommentView" id="pmz-HQ-0PB" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l48-Ug-SNd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="674" y="-48"/>
+            <point key="canvasLocation" x="839" y="-48"/>
         </scene>
     </scenes>
     <resources>
         <image name="URLImageView" width="128" height="128"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
     </resources>
 </document>

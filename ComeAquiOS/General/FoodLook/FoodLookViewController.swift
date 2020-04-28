@@ -21,15 +21,16 @@ class FoodLookViewController: KUIViewController {
     @IBOutlet weak var image2: URLImageView!
     @IBOutlet weak var image3: URLImageView!
     @IBOutlet weak var image1Width: NSLayoutConstraint!
+    @IBOutlet weak var detailStackView: UIStackView!
     @IBOutlet weak var detailStackViewTopConstraint: NSLayoutConstraint!
     
-        
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var shortHeaderView: UIView!
     @IBOutlet weak var userImage: URLImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userUserName: UILabel!
+    @IBOutlet weak var optionsButton: UIButton!
     
     @IBOutlet weak var plateName: UILabel!
     @IBOutlet weak var date: UILabel!
@@ -41,12 +42,16 @@ class FoodLookViewController: KUIViewController {
     @IBOutlet weak var dinnersStackView: UIStackView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var dinnersText: UILabel!
+    @IBOutlet weak var dinnerScrollView: UIScrollView!
+    @IBOutlet weak var orderButton: UIButton!
     
     @IBOutlet weak var bcfkb: NSLayoutConstraint!
     var googleMap: GMSMapView!
     var foodPostId: Int!
     var foodPost: FoodPostObject?
-    var commentsContainer: CommentsViewController?
+    var commentsVC: CommentsViewController?
+    private var respondObject: ResponseObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,6 +124,37 @@ class FoodLookViewController: KUIViewController {
         viewToShowMap.clipsToBounds = true
         viewToShowMap.isUserInteractionEnabled = false
         setDinners()
+        
+        if USER.id == foodPost.owner!.id {
+            orderButton.visibility = .gone
+        }
+        
+        if USER.id == foodPost.owner!.id {
+            setComments(foodPostId: foodPost.id!)
+        } else {
+            switch self.respondObject?.user_status_in_this_post {
+            case "CONFIRMED":
+                setStatus(text: "Confirmed", color: UIColor.green)
+                setComments(foodPostId: foodPost.id!)
+            case "PENDING":
+                setStatus(text: "Pending", color: UIColor.orange)
+            case "CANCELED":
+                setStatus(text: "Canceled", color: UIColor.red)
+            case "REJECTED":
+                setStatus(text: "Rejected", color: UIColor.red)
+            case "FINISHED":
+                setStatus(text: "Finished", color: UIColor.orange)
+                setComments(foodPostId: foodPost.id!)
+            default:
+                if (foodPost.status == "OPEN") {
+                    orderButton.addTarget(self, action: #selector(attendMeal(sender:)), for: .touchUpInside)
+                } else if (foodPost.status == "IN_COURSE"){
+                    setStatus(text: "Meal in course", color: UIColor.orange)
+                } else if(foodPost.status == "FINISHED"){
+                    setStatus(text: "Meal finished", color: UIColor.orange)
+                }
+            }
+        }
     }
     
     func createDinnerView(order: OrderObject) -> UIView {
@@ -147,16 +183,47 @@ class FoodLookViewController: KUIViewController {
         dinnerImages.append(imageView)
         return dv
     }
+    
+    func setStatus(text: String, color: UIColor){
+        orderButton.setTitle(text, for: .normal)
+        orderButton.setTitleColor(UIColor.white, for: .normal)
+        orderButton.backgroundColor = color
+    }
+    
+    func setComments(foodPostId: Int) {
+        let storyboard = UIStoryboard(name: "CommentsStoryboard", bundle: nil)
+        commentsVC = storyboard.instantiateViewController(identifier: "CommentView") as? CommentsViewController
+        
+        if let commentsVC = self.commentsVC {
+            commentsVC.foodPostId = foodPostId
+            addChild(commentsVC)
+            detailStackView.addArrangedSubview(commentsVC.view)
+            commentsVC.didMove(toParent: self)
+            let h = commentsVC.view.heightAnchor.constraint(greaterThanOrEqualToConstant: 0)
+            h.priority = UILayoutPriority(rawValue: 1000)
+            h.isActive = true
+        }
+    }
+    
+    @objc func attendMeal(sender: UIButton!) {
+        
+    }
+    @IBAction func optionsPressed(_ sender: Any) {
+        performSegue(withIdentifier: "OptionsSegue", sender: nil)
+    }
+    
     var dinnerImages: [URLImageView] = []
     func setDinners(){
         guard let confirmed_orders = self.foodPost?.confirmed_orders else { return }
         if confirmed_orders.count > 0 {
+            dinnersText.text = "\(confirmed_orders.count)/\(self.foodPost!.max_dinners!) dinners"
             dinnerImages = []
             for order in confirmed_orders {
                 dinnersStackView.addArrangedSubview(createDinnerView(order: order))
             }
         } else {
-            dinnersStackView.visibility = .gone
+            dinnersText.text = "No dinners yet"
+            dinnerScrollView.visibility = .gone
         }
     }
     
@@ -169,17 +236,34 @@ class FoodLookViewController: KUIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CommentsSegue" {
-            commentsContainer = segue.destination as? CommentsViewController
-            commentsContainer?.foodPostId = self.foodPostId
-        } else if segue.identifier == "DinnerSegue" {
+        if segue.identifier == "DinnerSegue" {
             let dinnerVC = segue.destination as? DinnersViewController
             dinnerVC?.foodPostId = self.foodPostId
+        } else if segue.identifier == "OptionsSegue" {
+            let optionsVC = segue.destination as? OptionsPopUpViewController
+            guard let foodPost = self.foodPost else {return}
+            var options: [String] = []
+            if (foodPost.owner!.id! == USER.id){
+                options.append("Edit");
+                if (foodPost.confirmed_orders?.count == 0 || (foodPost.confirmed_orders!.count > 0 && foodPost.confirmed_orders?[0].order_status == "FINISHED")){
+                    options.append("Delete");
+                }
+            } else {
+                options.append("Report");
+            }
+            optionsVC?.options = options
+            optionsVC?.delegate = self
         }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension FoodLookViewController: OptionsPopUpProtocol {
+    func optionPressed(_ title: String) {
+        print("title")
     }
 }
 
@@ -228,36 +312,27 @@ extension FoodLookViewController: UITextViewDelegate {
 extension FoodLookViewController {
     func getFoodPost(){
         guard let foodPostId = self.foodPostId else { return }
-        var request = getRequestWithAuth("/food_with_user_status/\(foodPostId)/")
-        request.httpMethod = "GET"
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            guard let data = data else {
-                return
-            }
+        Server.get("/food_with_user_status/\(foodPostId)/", finish: {(data: Data?) -> Void in
+            guard let data = data else {return}
             do {
-                self.foodPost = try JSONDecoder().decode(ResponseObject.self, from: data).food_post
+                self.respondObject = try JSONDecoder().decode(ResponseObject.self, from: data)
+                self.foodPost = self.respondObject!.food_post
                 DispatchQueue.main.async {
                     self.setViewDetails()
                 }
-            } catch {
-            }
-        })
-        task.resume()
+            } catch {}
+        }, error: {(data: Data?) -> Void in})
     }
     
     func postComment(){
-        var request = getRequestWithAuth("/food_post_comment/\(self.foodPost!.id!)/")
-        var json = [String:Any]()
-        json["post_id"] = foodPost?.id ?? nil
-        json["comment_id"] = nil
-        json["message"] = textView.text!
-        do {
-            let data = try JSONSerialization.data(withJSONObject: json, options: [])
-            request.httpMethod = "POST"
-            request.httpBody = data
-            let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
-                // your stuff here
+        Server.post("/food_post_comment/\(self.foodPost!.id!)/",
+            json:
+            [
+                "post_id": foodPost?.id ?? nil,
+                "comment_id": nil,
+                "message": textView.text!
+            ],
+            finish: {(data: Data?) in
                 guard let data = data else {
                     return
                 }
@@ -265,7 +340,7 @@ extension FoodLookViewController {
                     guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
                     DispatchQueue.main.async {
                         let newComment = Comment(json: json, parent: nil)
-                        self.commentsContainer?.commentAddedToPost(newComment: newComment)
+                        self.commentsVC?.commentAddedToPost(newComment: newComment)
                         
                         self.textView.text = ""
                         self.sendButton.visibility = .gone
@@ -277,9 +352,6 @@ extension FoodLookViewController {
                 } catch let jsonErr {
                     print("json could'nt be parsed \(jsonErr)")
                 }
-            })
-            task.resume()
-        }catch{
-        }
+        }, error: {(data: Data?) in})
     }
 }

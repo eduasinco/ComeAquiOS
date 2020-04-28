@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Options Pop Up View Controller-->
+        <scene sceneID="2Rs-4N-aXR">
+            <objects>
+                <viewController storyboardIdentifier="OptionsView" id="jha-po-mbU" customClass="OptionsPopUpViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Ru-5P-Tky">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9n7-5a-sXl">
+                                <rect key="frame" x="16" y="803" width="382" height="75"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meh-Ac-dlT">
+                                        <rect key="frame" x="0.0" y="25" width="382" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="5j6-a2-cqT"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelPressed:" destination="jha-po-mbU" eventType="touchUpInside" id="UP7-xq-D6k"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a80-eF-6Pe">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="laM-CE-Css"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="meh-Ac-dlT" secondAttribute="trailing" id="H2f-QV-GYO"/>
+                                    <constraint firstItem="meh-Ac-dlT" firstAttribute="leading" secondItem="9n7-5a-sXl" secondAttribute="leading" id="PVE-GQ-3vF"/>
+                                    <constraint firstAttribute="trailing" secondItem="a80-eF-6Pe" secondAttribute="trailing" id="iEl-2H-iaG"/>
+                                    <constraint firstItem="a80-eF-6Pe" firstAttribute="top" secondItem="9n7-5a-sXl" secondAttribute="top" id="jYd-oT-8aA"/>
+                                    <constraint firstAttribute="bottom" secondItem="meh-Ac-dlT" secondAttribute="bottom" constant="16" id="nK7-XP-hMI"/>
+                                    <constraint firstItem="a80-eF-6Pe" firstAttribute="leading" secondItem="9n7-5a-sXl" secondAttribute="leading" id="nU9-QG-ooY"/>
+                                    <constraint firstItem="meh-Ac-dlT" firstAttribute="top" secondItem="a80-eF-6Pe" secondAttribute="bottom" constant="25" id="wms-l0-lhN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9n7-5a-sXl" firstAttribute="leading" secondItem="1ZT-pl-Y34" secondAttribute="leading" constant="16" id="62n-Ue-ESZ"/>
+                            <constraint firstAttribute="bottom" secondItem="9n7-5a-sXl" secondAttribute="bottom" constant="16" id="frD-CW-uas"/>
+                            <constraint firstItem="1ZT-pl-Y34" firstAttribute="trailing" secondItem="9n7-5a-sXl" secondAttribute="trailing" constant="16" id="j0D-XH-uxu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1ZT-pl-Y34"/>
+                    </view>
+                    <connections>
+                        <outlet property="stackView" destination="a80-eF-6Pe" id="fUk-mM-tmp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dPe-2m-SC6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="67.633928571428569"/>
+        </scene>
+    </scenes>
+</document>
