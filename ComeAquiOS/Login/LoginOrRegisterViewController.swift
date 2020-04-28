@@ -12,19 +12,26 @@ class LoginOrRegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        login()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func login(){
+        Server.get("/login/", finish: {
+            (data: Data?) -> Void in
+            guard let data = data else {
+                return
+            }
+            do {
+                USER = try JSONDecoder().decode(User.self, from: data)
+                guard let _ = USER.id else { return }
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "GoToMainSegue", sender: nil)
+                }
+            } catch let jsonErr {
+                print("json could'nt be parsed \(jsonErr)")
+            }
+        }, error: {(data: Data?) -> Void in })
     }
-    */
 
 }

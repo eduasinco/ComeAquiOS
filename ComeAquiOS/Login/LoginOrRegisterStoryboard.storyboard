@@ -55,6 +55,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aGn-tH-4eQ"/>
                     </view>
+                    <connections>
+                        <segue destination="XeA-TC-Ljc" kind="show" identifier="GoToMainSegue" id="vsM-IL-qGh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqJ-2o-mpI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -164,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgv-zY-hMw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="824.63768115942037" y="471.42857142857139"/>
+            <point key="canvasLocation" x="825" y="410"/>
         </scene>
         <!--Main-->
         <scene sceneID="qCc-4q-Crc">
@@ -174,7 +177,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFk-Zx-F7x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1346" y="471"/>
+            <point key="canvasLocation" x="825" y="939"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="bfZ-n9-kyk">
@@ -257,4 +260,7 @@
             <point key="canvasLocation" x="824.63768115942037" y="-250.44642857142856"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vsM-IL-qGh"/>
+    </inferredMetricsTieBreakers>
 </document>
