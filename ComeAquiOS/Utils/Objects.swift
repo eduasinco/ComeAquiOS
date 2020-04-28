@@ -8,7 +8,7 @@
 import UIKit
 
 public class User: Decodable{
-    var id: Int?
+    var id: Int!
     var username: String?
     var email: String?
     var first_name: String?

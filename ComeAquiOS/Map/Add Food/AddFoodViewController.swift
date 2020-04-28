@@ -171,7 +171,7 @@ extension AddFoodViewController {
             } catch let jsonErr {
                 print("json could'nt be parsed \(jsonErr)")
             }
-        })
+        }, error: {(data: Data?) -> Void in })
     }
     func pathFoodPost(visible: Bool){
         Server.patch("/foods/\(self.foodPost!.id!)/",
@@ -211,7 +211,7 @@ extension AddFoodViewController {
                         } catch let jsonErr {
                             print("json could'nt be parsed \(jsonErr)")
                         }
-        })
+        }, error: {(data: Data?) -> Void in })
     }
     func postFood(){
         Server.post("/foods/",
@@ -252,8 +252,7 @@ extension AddFoodViewController {
                         } catch let jsonErr {
                             print("json could'nt be parsed \(jsonErr)")
                         }
-        }
-        )
+        }, error: {(data: Data?) -> Void in })
     }
 }
 

@@ -135,7 +135,7 @@ extension PlaceAutocompleteViewController{
     }
     
     func getPlaceDetailFromGoogle(placeId: String){
-        guard var endpointUrl = URL(string: "https://maps.googleapis.com/maps/api/place/details/json?input=bar&placeid=\(placeId)&key=\(GOOGLE_KEY)") else { return }
+        guard let endpointUrl = URL(string: "https://maps.googleapis.com/maps/api/place/details/json?input=bar&placeid=\(placeId)&key=\(GOOGLE_KEY)") else { return }
         
         var request = URLRequest(url: endpointUrl)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
