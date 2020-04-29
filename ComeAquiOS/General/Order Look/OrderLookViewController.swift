@@ -64,6 +64,38 @@ class OrderLookViewController: UIViewController, GMSMapViewDelegate {
     @IBAction func goToMealPressed(_ sender: Any) {
         performSegue(withIdentifier: "FoodLookSegue", sender: nil)
     }
+    @IBAction func optionsPressed(_ sender: Any) {
+        performSegue(withIdentifier: "OptionsSegue", sender: nil)
+
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "OptionsSegue" {
+            let optionsVC = segue.destination as? OptionsPopUpViewController
+            guard let order = self.order else {return}
+            var options: [String] = []
+            options.append("Help");
+            if (order.order_status == "CONFIRMED" || order.order_status == "PENDING"){
+                options.append("Cancel order");
+            }
+            optionsVC?.options = options
+            optionsVC?.delegate = self
+        }
+    }
+}
+extension OrderLookViewController: OptionsPopUpProtocol{
+    func optionPressed(_ title: String) {
+        switch title {
+        case "Help":
+            break
+        case "Cancel order":
+            cancelOrder()
+        case "Report":
+            break
+            // reportPost()
+        default:
+            break
+        }
+    }
 }
 extension OrderLookViewController {
     func getOrder(){
@@ -77,5 +109,26 @@ extension OrderLookViewController {
                 }
             } catch {}
         }, error: {(data: Data?) -> Void in})
+    }
+    
+    func cancelOrder(){
+        Server.post("/set_order_status/",
+            json:
+            [
+                "order_id": self.order!.id!,
+                "order_status": "CANCELED",
+            ],
+            finish: {(data: Data?) in
+                guard let data = data else {
+                    return
+                }
+                do {
+                    let _ = try JSONDecoder().decode(OrderObject.self, from: data)
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                } catch {}
+        }, error: {(data: Data?) in})
     }
 }

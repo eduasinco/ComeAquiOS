@@ -28,28 +28,38 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="of4-75-6Yc" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="308" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="50" id="Vxm-bZ-geD"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="N6v-2o-dD8">
-                                                                <rect key="frame" x="50" y="0.0" width="364" height="50"/>
+                                                                <rect key="frame" x="308" y="0.0" width="76" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EM9-JN-Zgu">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="364" height="25"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="25"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sec-3g-RIM">
-                                                                        <rect key="frame" x="0.0" y="25" width="364" height="25"/>
+                                                                        <rect key="frame" x="0.0" y="25" width="76" height="25"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5S-qZ-0Iz">
+                                                                <rect key="frame" x="384" y="0.0" width="30" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="30" id="trl-CF-YY9"/>
+                                                                </constraints>
+                                                                <state key="normal" image="ellipsis" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="optionsPressed:" destination="8xT-tr-qDr" eventType="touchUpInside" id="d72-d6-bVB"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="Dzf-md-hyM"/>
@@ -222,6 +232,7 @@
                         <outlet property="total" destination="o2d-xC-XVu" id="Zs7-SK-YMM"/>
                         <outlet property="viewForMap" destination="7wN-S0-NaE" id="cXl-uk-XOW"/>
                         <segue destination="42S-8o-ul1" kind="show" identifier="FoodLookSegue" id="uhU-A2-2Xt"/>
+                        <segue destination="elt-ZB-ooW" kind="presentation" identifier="OptionsSegue" id="Izr-xM-Orb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSk-SU-Tas" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -236,7 +247,20 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4M0-my-bso" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720" y="-293"/>
+            <point key="canvasLocation" x="720" y="-269"/>
+        </scene>
+        <!--OptionsView-->
+        <scene sceneID="Dfu-n4-YhO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OptionsPopUpStoryboard" referencedIdentifier="OptionsView" id="elt-ZB-ooW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="A9v-On-Yhx"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R42-EH-LWq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733" y="-339"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+    </resources>
 </document>
