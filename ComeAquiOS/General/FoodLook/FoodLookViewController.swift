@@ -262,6 +262,9 @@ class FoodLookViewController: KUIViewController {
             attendVC?.dinners_left = self.foodPost?.dinners_left
             attendVC?.price = self.foodPost?.price
             attendVC?.delegate = self
+        } else if segue.identifier == "OrderLookSegue" {
+            let orderVC = segue.destination as? OrderLookViewController
+            orderVC?.order = sender as? OrderObject
         }
     }
     override func didReceiveMemoryWarning() {
@@ -400,7 +403,12 @@ extension FoodLookViewController {
                 guard let data = data else {
                     return
                 }
-                DispatchQueue.main.async {}
+                do {
+                    let order = try JSONDecoder().decode(OrderObject.self, from: data)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "OrderLookSegue", sender: order)
+                    }
+                } catch {}
         }, error: {(data: Data?) in})
     }
 }

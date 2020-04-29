@@ -375,6 +375,7 @@
                         <segue destination="7Eb-jl-LGK" kind="show" identifier="DinnerSegue" id="Smo-yS-MEg"/>
                         <segue destination="8x2-HK-x4o" kind="show" identifier="EditPostSegue" id="ITk-f3-o2K"/>
                         <segue destination="egv-LV-y1g" kind="presentation" identifier="AttendSegue" id="ShQ-ei-lcg"/>
+                        <segue destination="zY6-rG-9O3" kind="show" identifier="OrderLookSegue" id="UN8-Y2-SUO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EkY-Tq-p1q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -420,6 +421,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9C8-gd-8l2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="649" y="98"/>
+        </scene>
+        <!--OrderLookView-->
+        <scene sceneID="4ze-u2-9UA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OrderLookStoryboard" referencedIdentifier="OrderLookView" id="zY6-rG-9O3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="pMB-h0-vDm"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5EL-es-tjS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="666" y="171"/>
         </scene>
     </scenes>
     <resources>
