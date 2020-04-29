@@ -374,7 +374,7 @@
                         <segue destination="eNL-T0-Rcu" kind="presentation" identifier="OptionsSegue" modalTransitionStyle="coverVertical" id="Sku-vv-SmJ"/>
                         <segue destination="7Eb-jl-LGK" kind="show" identifier="DinnerSegue" id="Smo-yS-MEg"/>
                         <segue destination="8x2-HK-x4o" kind="show" identifier="EditPostSegue" id="ITk-f3-o2K"/>
-                        <segue destination="egv-LV-y1g" kind="show" identifier="AttendSegue" id="ShQ-ei-lcg"/>
+                        <segue destination="egv-LV-y1g" kind="presentation" identifier="AttendSegue" id="ShQ-ei-lcg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EkY-Tq-p1q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

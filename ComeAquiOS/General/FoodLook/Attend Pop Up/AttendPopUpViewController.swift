@@ -25,12 +25,16 @@ class AttendPopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        priceText.text = "$" + (price / 100).format()
+        let priceString = Float(Float(price) / 100).format()
+        priceText.text = "$" + priceString
     }
     @IBAction func minusPressed(_ sender: Any) {
         if (additionalGuests > 0){
             additionalGuests -= 1
-            priceText.text = "$" + (price * (1 + additionalGuests) / 100).format()
+            let float1 = Float(1 + additionalGuests) / 100
+            let float = Float(Float(price) * float1)
+            let priceString = float.format()
+            priceText.text = "$" + priceString
             
         }
         additionalGuestsText.text = "\(additionalGuests)"
@@ -38,12 +42,17 @@ class AttendPopUpViewController: UIViewController {
     @IBAction func plusPressed(_ sender: Any) {
         if (additionalGuests < dinners_left - 1){
             additionalGuests += 1
-            priceText.text = "$" + (price * (1 + additionalGuests) / 100).format()
+            let float1 = Float(1 + additionalGuests) / 100
+            let float = Float(Float(price) * float1)
+            let priceString = float.format()
+            priceText.text = "$" + priceString
         }
         additionalGuestsText.text = "\(additionalGuests)"
     }
     @IBAction func confirmPressed(_ sender: Any) {
         delegate?.confirmAttend(additionalGuests: Int(additionalGuestsText.text!)!)
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch: UITouch? = touches.first!
