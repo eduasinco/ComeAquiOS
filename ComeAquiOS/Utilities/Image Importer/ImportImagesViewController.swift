@@ -38,6 +38,7 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
     func setImages(images: [FoodPostImageObject]){
         for (i, image) in images.enumerated() {
             buttons[i].loadImageUsingUrlString(urlString: image.food_photo!)
+            self.images[i] = image
         }
     }
     
