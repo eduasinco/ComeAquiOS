@@ -10,6 +10,7 @@ import UIKit
 
 class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextViewDelegate {
     
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var plateNameText: ValidatedTextField!
     @IBOutlet weak var descriptionText: ValidatedTextView!
     @IBOutlet weak var wordCountText: UILabel!
@@ -49,15 +50,13 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
         if (self.foodPost?.plate_name) != nil {
             plateNameText.text = self.foodPost?.plate_name
         }
-        if let types = self.foodPost?.food_type{
-            typesVC?.setTypes(typeString: types)
-        }
         if let description = self.foodPost?.description {
             self.descriptionText.text = description
         }
         if let images = self.foodPost?.images {
             importImageVC?.setImages(images: images)
         }
+        self.setTypeVC()
     }
     
     func validateData() -> Bool{
@@ -86,13 +85,24 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
         wordCountText.text = "\(numberOfChars)/202"
         return numberOfChars < 202    // 10 Limit Value
     }
+    func setTypeVC() {
+        let storyboard = UIStoryboard(name: "TypesStoryboard", bundle: nil)
+        typesVC = storyboard.instantiateViewController(identifier: "TypesView") as? TypesViewController
+        if let typesVC = self.typesVC {
+            typesVC.initialTypesString = self.foodPost?.food_type
+            typesVC.delegate = self
+            addChild(typesVC)
+            stackView.insertArrangedSubview(typesVC.view, at: 1)
+            typesVC.didMove(toParent: self)
+            let h = typesVC.view.heightAnchor.constraint(equalToConstant: 20)
+            h.priority = UILayoutPriority(rawValue: 1000)
+            h.isActive = true
+
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "TypesSegue" {
-            typesVC = segue.destination as? TypesViewController
-            typesVC?.delegate = self
-            typesVC?.toInteract = true
-        } else if segue.identifier == "ImageImporterSegue" {
+        if segue.identifier == "ImageImporterSegue" {
             importImageVC = segue.destination as? ImportImagesViewController
             importImageVC?.delegate = self
             importImageVC?.foodPostId = self.foodPost?.id
@@ -121,7 +131,7 @@ extension EditPostViewController {
         }, error: {(data: Data?) -> Void in })
     }
     func pathFoodPost(visible: Bool){
-        Server.patch("/foods/\(self.foodPost!.id!)/",
+        Server.patch("/edit_food/\(self.foodPost!.id!)/",
             json:
             [
                 "plate_name":  plateNameText.text,

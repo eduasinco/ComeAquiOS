@@ -23,10 +23,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1156"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0x-aQ-9xU" userLabel="inside ">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="518"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="490"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NzD-EO-xXj">
-                                                        <rect key="frame" x="16" y="16" width="382" height="452"/>
+                                                        <rect key="frame" x="16" y="16" width="382" height="424"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OiV-vR-Ahf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
@@ -41,17 +41,8 @@
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
-                                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kl1-Ni-j65">
-                                                                <rect key="frame" x="0.0" y="58" width="382" height="20"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="fc5-23-pwz"/>
-                                                                </constraints>
-                                                                <connections>
-                                                                    <segue destination="WlR-VQ-dQ7" kind="embed" identifier="TypesSegue" id="7gi-gu-ICp"/>
-                                                                </connections>
-                                                            </containerView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TIk-og-0xM">
-                                                                <rect key="frame" x="0.0" y="86" width="382" height="200"/>
+                                                                <rect key="frame" x="0.0" y="58" width="382" height="200"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HV1-Wl-ZVp">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
@@ -86,7 +77,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfU-hN-a7U">
-                                                                <rect key="frame" x="0.0" y="294" width="382" height="100"/>
+                                                                <rect key="frame" x="0.0" y="266" width="382" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="z9e-i0-UGB"/>
                                                                 </constraints>
@@ -95,7 +86,7 @@
                                                                 </connections>
                                                             </containerView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxA-Ib-i9O">
-                                                                <rect key="frame" x="0.0" y="402" width="382" height="50"/>
+                                                                <rect key="frame" x="0.0" y="374" width="382" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="OXc-nB-XZh"/>
                                                                 </constraints>
@@ -153,6 +144,7 @@
                         <outlet property="descriptionText" destination="j6u-Z0-IS0" id="M0A-FV-gnF"/>
                         <outlet property="holderBottomConstraint" destination="52B-Dp-JDa" id="9XS-6w-tC1"/>
                         <outlet property="plateNameText" destination="l8n-dy-SRf" id="bAf-kc-Tr8"/>
+                        <outlet property="stackView" destination="NzD-EO-xXj" id="xEw-RJ-Sf6"/>
                         <outlet property="wordCountText" destination="P4b-JG-zdp" id="awV-yZ-V2e"/>
                     </connections>
                 </viewController>
@@ -167,14 +159,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DxQ-Wv-P8J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2687" y="-350"/>
-        </scene>
-        <!--TypesView-->
-        <scene sceneID="ouR-fe-KaD">
-            <objects>
-                <viewControllerPlaceholder storyboardName="TypesStoryboard" referencedIdentifier="TypesView" id="WlR-VQ-dQ7" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4ay-mo-yRy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2670" y="-479"/>
         </scene>
     </scenes>
 </document>

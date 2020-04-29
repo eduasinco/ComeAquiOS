@@ -21,10 +21,10 @@ class TypesViewController: UIViewController {
     let filledImages = ["vegetarian_fill", "vegan_fill", "wheat_fill", "spyci_fill", "fish_fill", "meat_fill", "diary_fill"]
     let images = ["vegetarian", "vegan", "wheat", "spyci", "fish", "meat", "diary"]
     var buttonsClicked = [false, false, false, false, false, false, false]
-    var toInteract = false
     var buttons: [UIButton]!
     
     var delegate: TypesProtocol?
+    var initialTypesString: String?
     
     func setTypes(typeString: String){
         for (i, c) in typeString.enumerated(){
@@ -48,17 +48,26 @@ class TypesViewController: UIViewController {
         stackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
         buttons = []
-        
-        for string in toInteract ? images : filledImages {
-            let button = UIButton()
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.setImage(UIImage(named: string), for: .normal)
-            button.imageView?.contentMode = .scaleAspectFit
-            button.clipsToBounds = true
-            if toInteract {
+        if let initalTypesString = self.initialTypesString {
+            for i in 0..<initalTypesString.count {
+                let button = UIButton()
+                button.translatesAutoresizingMaskIntoConstraints = false
+                button.setImage(UIImage(named: initalTypesString.charAt(i) == "1" ? filledImages[i] : images[i]), for: .normal)
+                buttonsClicked[i] = initalTypesString.charAt(i) == "1" ? true : false
+                button.imageView?.contentMode = .scaleAspectFit
+                button.clipsToBounds = true
                 button.addTarget(self, action: #selector(buttonClicked(sender:)), for: .touchUpInside)
+                buttons.append(button)
             }
-            buttons.append(button)
+        } else {
+            for string in filledImages {
+                let button = UIButton()
+                button.translatesAutoresizingMaskIntoConstraints = false
+                button.setImage(UIImage(named: string), for: .normal)
+                button.imageView?.contentMode = .scaleAspectFit
+                button.clipsToBounds = true
+                buttons.append(button)
+            }
         }
         
         for type in buttons {

@@ -268,7 +268,7 @@ extension FoodLookViewController: OptionsPopUpProtocol {
     func optionPressed(_ title: String) {
         switch title {
         case "Edit":
-            performSegue(withIdentifier: "EditPost", sender: nil)
+            performSegue(withIdentifier: "EditPostSegue", sender: nil)
         case "Delete":
             deletePost()
         case "Report":

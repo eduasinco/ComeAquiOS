@@ -137,7 +137,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         if segue.identifier == "TypesSegue" {
             typesVC = segue.destination as? TypesViewController
             typesVC?.delegate = self
-            typesVC?.toInteract = true
+            typesVC?.initialTypesString = "0000000"
         } else if segue.identifier == "DatePickerSegue" {
             datePickerVC = segue.destination as? DateTimePickerViewController
             datePickerVC?.delegate = self
