@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OXB-XP-Eu2">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Date Time Picker View Controller-->
+        <scene sceneID="oiZ-yf-TqK">
+            <objects>
+                <viewController storyboardIdentifier="DateTimeView" id="OXB-XP-Eu2" customClass="DateTimePickerViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yil-GL-3Jz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="D7h-bW-gJu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8At-o0-fUz">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZLE-De-pAn" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="VIh-HJ-S7n"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Upt-DA-y82">
+                                        <rect key="frame" x="0.0" y="66" width="414" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AnH-yv-dY0">
+                                                <rect key="frame" x="0.0" y="0.0" width="199" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="hXY-pa-h8e"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TMX-fh-zOm">
+                                                <rect key="frame" x="215" y="0.0" width="199" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="uVn-SJ-WDq"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="8g4-1v-lB3"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="D7h-bW-gJu" secondAttribute="bottom" id="FuW-q4-ABh"/>
+                            <constraint firstItem="D7h-bW-gJu" firstAttribute="top" secondItem="Yil-GL-3Jz" secondAttribute="top" id="VLj-fQ-iRF"/>
+                            <constraint firstItem="D7h-bW-gJu" firstAttribute="leading" secondItem="Yil-GL-3Jz" secondAttribute="leading" id="faE-ys-cg4"/>
+                            <constraint firstAttribute="trailing" secondItem="D7h-bW-gJu" secondAttribute="trailing" id="nl5-kl-ut8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6QL-WO-ec2"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="116"/>
+                    <connections>
+                        <outlet property="dateText" destination="ZLE-De-pAn" id="cb4-Ee-Ovq"/>
+                        <outlet property="endTimeText" destination="TMX-fh-zOm" id="QXU-6d-eSs"/>
+                        <outlet property="startTimeText" destination="AnH-yv-dY0" id="qir-gM-W75"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cff-tH-20N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2877" y="-380"/>
+        </scene>
+    </scenes>
+</document>

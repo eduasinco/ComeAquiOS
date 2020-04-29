@@ -253,6 +253,9 @@ class FoodLookViewController: KUIViewController {
             }
             optionsVC?.options = options
             optionsVC?.delegate = self
+        } else if segue.identifier == "EditPostSegue" {
+            let editPostVC = segue.destination as? EditPostViewController
+            editPostVC?.foodPostId = self.foodPostId
         }
     }
     override func didReceiveMemoryWarning() {
@@ -263,7 +266,17 @@ class FoodLookViewController: KUIViewController {
 
 extension FoodLookViewController: OptionsPopUpProtocol {
     func optionPressed(_ title: String) {
-        print("title")
+        switch title {
+        case "Edit":
+            performSegue(withIdentifier: "EditPost", sender: nil)
+        case "Delete":
+            deletePost()
+        case "Report":
+            break
+            // reportPost()
+        default:
+            break
+        }
     }
 }
 
@@ -321,6 +334,17 @@ extension FoodLookViewController {
                     self.setViewDetails()
                 }
             } catch {}
+        }, error: {(data: Data?) -> Void in})
+    }
+    
+    func deletePost(){
+        guard let foodPostId = self.foodPostId else { return }
+        Server.delete("/foods/\(foodPostId)/", finish: {(data: Data?) -> Void in
+            guard let _ = data else {return}
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
+            }
         }, error: {(data: Data?) -> Void in})
     }
     

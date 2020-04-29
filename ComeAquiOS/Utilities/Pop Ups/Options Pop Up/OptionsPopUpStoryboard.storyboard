@@ -16,10 +16,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9n7-5a-sXl">
-                                <rect key="frame" x="16" y="803" width="382" height="75"/>
+                                <rect key="frame" x="16" y="580" width="382" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meh-Ac-dlT">
-                                        <rect key="frame" x="0.0" y="25" width="382" height="50"/>
+                                        <rect key="frame" x="0.0" y="234" width="382" height="50"/>
                                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="5j6-a2-cqT"/>
@@ -31,22 +31,33 @@
                                             <action selector="cancelPressed:" destination="jha-po-mbU" eventType="touchUpInside" id="UP7-xq-D6k"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a80-eF-6Pe">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Xc-fX-AHN" userLabel="optionsView">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="209"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3ab-kY-tov">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="209"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="z5V-HW-ClS"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="laM-CE-Css"/>
+                                            <constraint firstAttribute="bottom" secondItem="3ab-kY-tov" secondAttribute="bottom" id="6ua-1l-sh4"/>
+                                            <constraint firstItem="3ab-kY-tov" firstAttribute="top" secondItem="3Xc-fX-AHN" secondAttribute="top" id="CkF-Ac-W9R"/>
+                                            <constraint firstAttribute="trailing" secondItem="3ab-kY-tov" secondAttribute="trailing" id="Hcd-QN-mcS"/>
+                                            <constraint firstItem="3ab-kY-tov" firstAttribute="leading" secondItem="3Xc-fX-AHN" secondAttribute="leading" id="wEa-Z7-zUy"/>
                                         </constraints>
-                                    </stackView>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="meh-Ac-dlT" secondAttribute="trailing" id="H2f-QV-GYO"/>
                                     <constraint firstItem="meh-Ac-dlT" firstAttribute="leading" secondItem="9n7-5a-sXl" secondAttribute="leading" id="PVE-GQ-3vF"/>
-                                    <constraint firstAttribute="trailing" secondItem="a80-eF-6Pe" secondAttribute="trailing" id="iEl-2H-iaG"/>
-                                    <constraint firstItem="a80-eF-6Pe" firstAttribute="top" secondItem="9n7-5a-sXl" secondAttribute="top" id="jYd-oT-8aA"/>
+                                    <constraint firstItem="meh-Ac-dlT" firstAttribute="top" secondItem="3Xc-fX-AHN" secondAttribute="bottom" constant="25" id="bEG-DL-6mF"/>
+                                    <constraint firstItem="3Xc-fX-AHN" firstAttribute="leading" secondItem="9n7-5a-sXl" secondAttribute="leading" id="dJX-2g-IWo"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Xc-fX-AHN" secondAttribute="trailing" id="n2e-gO-Jyu"/>
                                     <constraint firstAttribute="bottom" secondItem="meh-Ac-dlT" secondAttribute="bottom" constant="16" id="nK7-XP-hMI"/>
-                                    <constraint firstItem="a80-eF-6Pe" firstAttribute="leading" secondItem="9n7-5a-sXl" secondAttribute="leading" id="nU9-QG-ooY"/>
-                                    <constraint firstItem="meh-Ac-dlT" firstAttribute="top" secondItem="a80-eF-6Pe" secondAttribute="bottom" constant="25" id="wms-l0-lhN"/>
+                                    <constraint firstItem="3Xc-fX-AHN" firstAttribute="top" secondItem="9n7-5a-sXl" secondAttribute="top" id="s1j-Ch-NPr"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -59,7 +70,7 @@
                         <viewLayoutGuide key="safeArea" id="1ZT-pl-Y34"/>
                     </view>
                     <connections>
-                        <outlet property="stackView" destination="a80-eF-6Pe" id="fUk-mM-tmp"/>
+                        <outlet property="stackView" destination="3ab-kY-tov" id="sjZ-Dg-ub5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPe-2m-SC6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -12,6 +12,11 @@
 		8776FF0D24538220005A4D4C /* TextsClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8776FF0C24538220005A4D4C /* TextsClasses.swift */; };
 		879CBFF42458DBCC00383F68 /* OptionsPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879CBFF32458DBCC00383F68 /* OptionsPopUpViewController.swift */; };
 		879CBFF62458DBD900383F68 /* OptionsPopUpStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CBFF52458DBD900383F68 /* OptionsPopUpStoryboard.storyboard */; };
+		879CBFFA2458EFB800383F68 /* DinnersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CBFF92458EFB800383F68 /* DinnersStoryboard.storyboard */; };
+		879CBFFC2458F04D00383F68 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879CBFFB2458F04D00383F68 /* EditPostViewController.swift */; };
+		879CBFFE2458F05500383F68 /* EditPostStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CBFFD2458F05500383F68 /* EditPostStoryboard.storyboard */; };
+		879CC0002458F2B900383F68 /* TypesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CBFFF2458F2B900383F68 /* TypesStoryboard.storyboard */; };
+		879CC0042458F3D100383F68 /* DateTimeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CC0032458F3D100383F68 /* DateTimeStoryboard.storyboard */; };
 		87E02C8924513864005C272A /* ImageLookerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E02C8824513864005C272A /* ImageLookerViewController.swift */; };
 		87E02C8B24513880005C272A /* ImageLookerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E02C8A24513880005C272A /* ImageLookerStoryboard.storyboard */; };
 		87FC9E7A2447FF6200810ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E792447FF6200810ECF /* AppDelegate.swift */; };
@@ -76,6 +81,11 @@
 		8776FF0C24538220005A4D4C /* TextsClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextsClasses.swift; sourceTree = "<group>"; };
 		879CBFF32458DBCC00383F68 /* OptionsPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPopUpViewController.swift; sourceTree = "<group>"; };
 		879CBFF52458DBD900383F68 /* OptionsPopUpStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OptionsPopUpStoryboard.storyboard; sourceTree = "<group>"; };
+		879CBFF92458EFB800383F68 /* DinnersStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DinnersStoryboard.storyboard; sourceTree = "<group>"; };
+		879CBFFB2458F04D00383F68 /* EditPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
+		879CBFFD2458F05500383F68 /* EditPostStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPostStoryboard.storyboard; sourceTree = "<group>"; };
+		879CBFFF2458F2B900383F68 /* TypesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TypesStoryboard.storyboard; sourceTree = "<group>"; };
+		879CC0032458F3D100383F68 /* DateTimeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DateTimeStoryboard.storyboard; sourceTree = "<group>"; };
 		87E02C8824513864005C272A /* ImageLookerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLookerViewController.swift; sourceTree = "<group>"; };
 		87E02C8A24513880005C272A /* ImageLookerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageLookerStoryboard.storyboard; sourceTree = "<group>"; };
 		87FC9E762447FF6200810ECF /* ComeAquiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComeAquiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +174,33 @@
 				879CBFF52458DBD900383F68 /* OptionsPopUpStoryboard.storyboard */,
 			);
 			path = "Options Pop Up";
+			sourceTree = "<group>";
+		};
+		879CBFF72458EF8500383F68 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				879CBFFB2458F04D00383F68 /* EditPostViewController.swift */,
+				879CBFFD2458F05500383F68 /* EditPostStoryboard.storyboard */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		879CC0012458F2BC00383F68 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				87FC9EBA2448038900810ECF /* TypesViewController.swift */,
+				879CBFFF2458F2B900383F68 /* TypesStoryboard.storyboard */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		879CC0022458F3BA00383F68 /* Date Time Picker */ = {
+			isa = PBXGroup;
+			children = (
+				87FC9EF9244FBDDE00810ECF /* DateTimePickerViewController.swift */,
+				879CC0032458F3D100383F68 /* DateTimeStoryboard.storyboard */,
+			);
+			path = "Date Time Picker";
 			sourceTree = "<group>";
 		};
 		87E02C8724513846005C272A /* Image Looker */ = {
@@ -308,6 +345,7 @@
 		87FC9EBE244803B600810ECF /* FoodLook */ = {
 			isa = PBXGroup;
 			children = (
+				879CBFF72458EF8500383F68 /* Edit */,
 				87FC9EDE244D7DBC00810ECF /* Dinners */,
 				87FC9EBF244804A100810ECF /* FoodLookViewController.swift */,
 				87FC9EC1244804C300810ECF /* FoodLookStoryboard.storyboard */,
@@ -329,6 +367,7 @@
 			children = (
 				87FC9EDF244D7DD000810ECF /* DinnersViewController.swift */,
 				87FC9EE1244D7DE100810ECF /* DinnerTableViewCell.swift */,
+				879CBFF92458EFB800383F68 /* DinnersStoryboard.storyboard */,
 			);
 			path = Dinners;
 			sourceTree = "<group>";
@@ -336,12 +375,12 @@
 		87FC9EE9244E9FA600810ECF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				879CC0022458F3BA00383F68 /* Date Time Picker */,
+				879CC0012458F2BC00383F68 /* Types */,
 				87E02C8724513846005C272A /* Image Looker */,
 				87FC9F04245134F400810ECF /* Image Importer */,
 				87FC9EFF2451223B00810ECF /* Pop Ups */,
 				87FC9EEA244E9FB600810ECF /* Place Autocomplete */,
-				87FC9EF9244FBDDE00810ECF /* DateTimePickerViewController.swift */,
-				87FC9EBA2448038900810ECF /* TypesViewController.swift */,
 				87FC9EBC2448039B00810ECF /* RateStarViewController.swift */,
 			);
 			path = Utilities;
@@ -472,6 +511,7 @@
 			files = (
 				87FC9ED4244805AC00810ECF /* CommentsTableViewCell.xib in Resources */,
 				87FC9E862447FF6300810ECF /* LaunchScreen.storyboard in Resources */,
+				879CC0042458F3D100383F68 /* DateTimeStoryboard.storyboard in Resources */,
 				87FC9E832447FF6300810ECF /* Assets.xcassets in Resources */,
 				87FC9EDB2448060900810ECF /* WriteCommentStoryboard.storyboard in Resources */,
 				87FC9EF3244FB0B800810ECF /* AddFoodStoryboard.storyboard in Resources */,
@@ -482,6 +522,7 @@
 				87FC9E812447FF6200810ECF /* Main.storyboard in Resources */,
 				87FC9E9F2448014500810ECF /* LoginOrRegisterStoryboard.storyboard in Resources */,
 				87FC9EF6244FB19100810ECF /* MapPIckerStoryboard.storyboard in Resources */,
+				879CC0002458F2B900383F68 /* TypesStoryboard.storyboard in Resources */,
 				87E02C8B24513880005C272A /* ImageLookerStoryboard.storyboard in Resources */,
 				87FC9EEE244E9FE600810ECF /* PlaceAutocompleteStoryboard.storyboard in Resources */,
 				87FC9F062451351000810ECF /* ImageImporterStoryboard.storyboard in Resources */,
@@ -490,6 +531,8 @@
 				87FC9EB52448030E00810ECF /* LoadingCell.xib in Resources */,
 				87FC9EA5244801AE00810ECF /* ProfileStoryboard.storyboard in Resources */,
 				879CBFF62458DBD900383F68 /* OptionsPopUpStoryboard.storyboard in Resources */,
+				879CBFFA2458EFB800383F68 /* DinnersStoryboard.storyboard in Resources */,
+				879CBFFE2458F05500383F68 /* EditPostStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +603,7 @@
 				87FC9EC8244804FF00810ECF /* Objects.swift in Sources */,
 				87FC9EA7244801FD00810ECF /* NotificationsViewController.swift in Sources */,
 				87FC9ECA2448050A00810ECF /* Classes.swift in Sources */,
+				879CBFFC2458F04D00383F68 /* EditPostViewController.swift in Sources */,
 				87FC9EC6244804F500810ECF /* Extensions.swift in Sources */,
 				87FC9EE4244E179F00810ECF /* FoodCardViewController.swift in Sources */,
 				87FC9EAB2448026800810ECF /* TableViewCell.swift in Sources */,

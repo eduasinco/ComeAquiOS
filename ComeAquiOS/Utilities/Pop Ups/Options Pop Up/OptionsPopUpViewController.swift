@@ -36,8 +36,10 @@ class OptionsPopUpViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func createButton(_ title: String) -> UIButton{
+    func createButton(_ title: String, _ color: UIColor = UIColor.black) -> UIButton{
         let button = UIButton()
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.setTitleColor(color, for: .normal)
         button.setTitle(title, for: .normal)
         return button
     }

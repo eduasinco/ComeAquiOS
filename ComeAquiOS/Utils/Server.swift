@@ -34,6 +34,9 @@ class Server {
     static func get(_ urlString: String, finish: @escaping (Data?) -> Void, error: @escaping (Data?) -> Void){
         retrieve(urlString, method: "GET", finish: finish, errorFunction: error)
     }
+    static func delete(_ urlString: String, finish: @escaping (Data?) -> Void, error: @escaping (Data?) -> Void){
+        retrieve(urlString, method: "Delete", finish: finish, errorFunction: error)
+    }
     static func retrieve(_ urlString: String, method: String, finish: @escaping (Data?) -> Void, errorFunction: @escaping (Data?) -> Void){
         var request = getRequestWithAuth(urlString)
         request.httpMethod = method

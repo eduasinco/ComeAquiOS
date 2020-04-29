@@ -85,7 +85,7 @@
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="116" id="uQp-uE-DOk"/>
                                                                 </constraints>
                                                                 <connections>
-                                                                    <segue destination="MSI-jE-pqk" kind="embed" identifier="DatePickerSegue" id="RdC-n1-lvt"/>
+                                                                    <segue destination="DeP-1e-TSO" kind="embed" identifier="DatePickerSegue" id="boV-Cs-zM7"/>
                                                                 </connections>
                                                             </containerView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qo0-Q8-FaH">
@@ -121,7 +121,7 @@
                                                                     <constraint firstAttribute="height" constant="20" id="dxq-XI-bsu"/>
                                                                 </constraints>
                                                                 <connections>
-                                                                    <segue destination="Hdy-Ze-V2V" kind="embed" identifier="TypesSegue" id="qLL-L1-yjy"/>
+                                                                    <segue destination="4Ra-In-HGD" kind="embed" identifier="TypesSegue" id="KIj-FZ-gSc"/>
                                                                 </connections>
                                                             </containerView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8s4-U8-acT">
@@ -237,75 +237,13 @@
             </objects>
             <point key="canvasLocation" x="2042.0289855072465" y="-407.14285714285711"/>
         </scene>
-        <!--Date Time Picker View Controller-->
-        <scene sceneID="ecd-zn-Lep">
+        <!--DateTimeView-->
+        <scene sceneID="oAD-jv-BjP">
             <objects>
-                <viewController id="MSI-jE-pqk" customClass="DateTimePickerViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="q4B-ys-xcl">
-                        <rect key="frame" x="0.0" y="0.0" width="382" height="116"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4FM-zF-0ti">
-                                <rect key="frame" x="0.0" y="0.0" width="382" height="116"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4L7-PB-B1R">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BbM-Ou-oQ3" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="RK8-St-2e0"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="NqE-b1-xcw">
-                                        <rect key="frame" x="0.0" y="66" width="382" height="50"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VSa-Hw-TnM">
-                                                <rect key="frame" x="0.0" y="0.0" width="183" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="OlX-F6-IXl"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pEm-eG-qH1">
-                                                <rect key="frame" x="199" y="0.0" width="183" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="Tto-WX-lZ2"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="A3I-0d-pCl"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="4FM-zF-0ti" secondAttribute="trailing" id="Azt-mm-qfV"/>
-                            <constraint firstAttribute="bottom" secondItem="4FM-zF-0ti" secondAttribute="bottom" id="Jsn-A3-RGf"/>
-                            <constraint firstItem="4FM-zF-0ti" firstAttribute="leading" secondItem="q4B-ys-xcl" secondAttribute="leading" id="Zxb-nW-MPF"/>
-                            <constraint firstItem="4FM-zF-0ti" firstAttribute="top" secondItem="q4B-ys-xcl" secondAttribute="top" id="iyL-3l-8a5"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="7x9-RC-RG5"/>
-                    </view>
-                    <connections>
-                        <outlet property="dateText" destination="BbM-Ou-oQ3" id="Tlh-sc-yPj"/>
-                        <outlet property="endTimeText" destination="pEm-eG-qH1" id="nfe-cc-c54"/>
-                        <outlet property="startTimeText" destination="VSa-Hw-TnM" id="cds-kY-ljv"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rNt-3o-4uN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="DateTimeStoryboard" referencedIdentifier="DateTimeView" id="DeP-1e-TSO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tlW-DP-y17" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2877" y="-368"/>
+            <point key="canvasLocation" x="2684" y="-407"/>
         </scene>
         <!--PlaceAutocomplete-->
         <scene sceneID="zWs-si-kjH">
@@ -313,22 +251,7 @@
                 <viewControllerPlaceholder storyboardName="PlaceAutocompleteStoryboard" referencedIdentifier="PlaceAutocomplete" id="1rO-Zh-29M" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLQ-Id-uKs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2709" y="-489"/>
-        </scene>
-        <!--Types View Controller-->
-        <scene sceneID="SIa-wZ-ZeQ">
-            <objects>
-                <viewController id="Hdy-Ze-V2V" customClass="TypesViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bYm-zq-U4w">
-                        <rect key="frame" x="0.0" y="0.0" width="382" height="20"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="F6A-iS-5Xn"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eFV-ai-xtK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2877" y="-212"/>
+            <point key="canvasLocation" x="2709" y="-466"/>
         </scene>
         <!--ImageImporter-->
         <scene sceneID="iA3-uC-Gar">
@@ -336,7 +259,15 @@
                 <viewControllerPlaceholder storyboardName="ImageImporterStoryboard" referencedIdentifier="ImageImporter" id="Vvo-WB-0B8" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7FK-jt-HHU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2709" y="-139"/>
+            <point key="canvasLocation" x="2688" y="-268"/>
+        </scene>
+        <!--TypesView-->
+        <scene sceneID="BTg-u3-vMi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TypesStoryboard" referencedIdentifier="TypesView" id="4Ra-In-HGD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aHO-55-OZ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2674" y="-331"/>
         </scene>
     </scenes>
 </document>
