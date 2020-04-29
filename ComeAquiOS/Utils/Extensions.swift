@@ -206,3 +206,22 @@ extension String {
      return Array(self)[i]
     }
 }
+
+
+extension Int {
+    func format(f: String) -> String {
+        return String(format: "%\(f)d", self)
+    }
+}
+
+extension Double {
+    func format(f: String) -> String {
+        return String(format: "%\(f)f", self)
+    }
+}
+
+extension Float {
+    func format(_ f: Int = 2) -> String {
+        return String(format: "%.\(f)f", self)
+    }
+}
