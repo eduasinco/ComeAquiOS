@@ -390,7 +390,7 @@ extension FoodLookViewController {
     }
     
     func createOrder(additionalGuests: Int){
-        Server.post("/create_order_and_notification/\(self.foodPost!.id!)/",
+        Server.post("/create_order_and_notification/",
             json:
             [
                 "food_post_id": self.foodPost!.id!,
@@ -400,22 +400,7 @@ extension FoodLookViewController {
                 guard let data = data else {
                     return
                 }
-                do {
-                    guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
-                    DispatchQueue.main.async {
-                        let newComment = Comment(json: json, parent: nil)
-                        self.commentsVC?.commentAddedToPost(newComment: newComment)
-                        
-                        self.textView.text = ""
-                        self.sendButton.visibility = .gone
-                        UIView.animate(withDuration: 0.5) {
-                            self.view.layoutIfNeeded()
-                        }
-                        self.dismiss(animated: true)
-                    }
-                } catch let jsonErr {
-                    print("json could'nt be parsed \(jsonErr)")
-                }
+                DispatchQueue.main.async {}
         }, error: {(data: Data?) in})
     }
 }
