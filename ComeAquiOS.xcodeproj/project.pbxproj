@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1B14F1A31705743CEB43F983 /* libPods-ComeAquiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 768E53CF6B78A130CD0485CE /* libPods-ComeAquiOS.a */; };
 		8712315F24525370004C0049 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712315E24525370004C0049 /* Server.swift */; };
+		873B7E4C24590EA300F5FF7E /* AttendPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B7E4B24590EA300F5FF7E /* AttendPopUpViewController.swift */; };
+		873B7E4F24590ECA00F5FF7E /* AttendPopUpStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B7E4E24590ECA00F5FF7E /* AttendPopUpStoryboard.storyboard */; };
 		8776FF0D24538220005A4D4C /* TextsClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8776FF0C24538220005A4D4C /* TextsClasses.swift */; };
 		879CBFF42458DBCC00383F68 /* OptionsPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879CBFF32458DBCC00383F68 /* OptionsPopUpViewController.swift */; };
 		879CBFF62458DBD900383F68 /* OptionsPopUpStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CBFF52458DBD900383F68 /* OptionsPopUpStoryboard.storyboard */; };
@@ -78,6 +80,8 @@
 		4C7EACD69E5F0043056F81B3 /* Pods-ComeAquiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComeAquiOS.release.xcconfig"; path = "Target Support Files/Pods-ComeAquiOS/Pods-ComeAquiOS.release.xcconfig"; sourceTree = "<group>"; };
 		768E53CF6B78A130CD0485CE /* libPods-ComeAquiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ComeAquiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8712315E24525370004C0049 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		873B7E4B24590EA300F5FF7E /* AttendPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendPopUpViewController.swift; sourceTree = "<group>"; };
+		873B7E4E24590ECA00F5FF7E /* AttendPopUpStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AttendPopUpStoryboard.storyboard; sourceTree = "<group>"; };
 		8776FF0C24538220005A4D4C /* TextsClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextsClasses.swift; sourceTree = "<group>"; };
 		879CBFF32458DBCC00383F68 /* OptionsPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPopUpViewController.swift; sourceTree = "<group>"; };
 		879CBFF52458DBD900383F68 /* OptionsPopUpStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OptionsPopUpStoryboard.storyboard; sourceTree = "<group>"; };
@@ -158,6 +162,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		873B7E4A24590E6C00F5FF7E /* Attend Pop Up */ = {
+			isa = PBXGroup;
+			children = (
+				873B7E4B24590EA300F5FF7E /* AttendPopUpViewController.swift */,
+				873B7E4E24590ECA00F5FF7E /* AttendPopUpStoryboard.storyboard */,
+			);
+			path = "Attend Pop Up";
+			sourceTree = "<group>";
+		};
 		879CBFF12458DB9400383F68 /* GalleryCamera */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +358,7 @@
 		87FC9EBE244803B600810ECF /* FoodLook */ = {
 			isa = PBXGroup;
 			children = (
+				873B7E4A24590E6C00F5FF7E /* Attend Pop Up */,
 				879CBFF72458EF8500383F68 /* Edit */,
 				87FC9EDE244D7DBC00810ECF /* Dinners */,
 				87FC9EBF244804A100810ECF /* FoodLookViewController.swift */,
@@ -513,6 +527,7 @@
 				87FC9E862447FF6300810ECF /* LaunchScreen.storyboard in Resources */,
 				879CC0042458F3D100383F68 /* DateTimeStoryboard.storyboard in Resources */,
 				87FC9E832447FF6300810ECF /* Assets.xcassets in Resources */,
+				873B7E4F24590ECA00F5FF7E /* AttendPopUpStoryboard.storyboard in Resources */,
 				87FC9EDB2448060900810ECF /* WriteCommentStoryboard.storyboard in Resources */,
 				87FC9EF3244FB0B800810ECF /* AddFoodStoryboard.storyboard in Resources */,
 				87FC9ED6244805D200810ECF /* CommentsStoryboard.storyboard in Resources */,
@@ -599,6 +614,7 @@
 				87FC9E99244800FE00810ECF /* LoginOrRegisterViewController.swift in Sources */,
 				87FC9EE2244D7DE100810ECF /* DinnerTableViewCell.swift in Sources */,
 				8712315F24525370004C0049 /* Server.swift in Sources */,
+				873B7E4C24590EA300F5FF7E /* AttendPopUpViewController.swift in Sources */,
 				87FC9ED3244805AC00810ECF /* CommentsTableViewCell.swift in Sources */,
 				87FC9EC8244804FF00810ECF /* Objects.swift in Sources */,
 				87FC9EA7244801FD00810ECF /* NotificationsViewController.swift in Sources */,

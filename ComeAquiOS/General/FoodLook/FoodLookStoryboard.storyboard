@@ -374,6 +374,7 @@
                         <segue destination="eNL-T0-Rcu" kind="presentation" identifier="OptionsSegue" modalTransitionStyle="coverVertical" id="Sku-vv-SmJ"/>
                         <segue destination="7Eb-jl-LGK" kind="show" identifier="DinnerSegue" id="Smo-yS-MEg"/>
                         <segue destination="8x2-HK-x4o" kind="show" identifier="EditPostSegue" id="ITk-f3-o2K"/>
+                        <segue destination="egv-LV-y1g" kind="show" identifier="AttendSegue" id="ShQ-ei-lcg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EkY-Tq-p1q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -409,6 +410,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="So6-PT-4t7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="657" y="27"/>
+        </scene>
+        <!--AttendView-->
+        <scene sceneID="YkF-LD-uP3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AttendPopUpStoryboard" referencedIdentifier="AttendView" id="egv-LV-y1g" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Otn-4f-jDd"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9C8-gd-8l2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="649" y="98"/>
         </scene>
     </scenes>
     <resources>

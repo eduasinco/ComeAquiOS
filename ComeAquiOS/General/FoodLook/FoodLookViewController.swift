@@ -206,6 +206,7 @@ class FoodLookViewController: KUIViewController {
     }
     
     @objc func attendMeal(sender: UIButton!) {
+        performSegue(withIdentifier: "AttendSegue", sender: nil)
         
     }
     @IBAction func optionsPressed(_ sender: Any) {
@@ -256,6 +257,10 @@ class FoodLookViewController: KUIViewController {
         } else if segue.identifier == "EditPostSegue" {
             let editPostVC = segue.destination as? EditPostViewController
             editPostVC?.foodPostId = self.foodPostId
+        } else if segue.identifier == "AttendSegue" {
+            let attendVC = segue.destination as? AttendPopUpViewController
+            attendVC?.dinners_left = self.foodPost?.dinners_left
+            attendVC?.delegate = self
         }
     }
     override func didReceiveMemoryWarning() {
@@ -264,7 +269,7 @@ class FoodLookViewController: KUIViewController {
     }
 }
 
-extension FoodLookViewController: OptionsPopUpProtocol {
+extension FoodLookViewController: OptionsPopUpProtocol, AttendMealProtocol {
     func optionPressed(_ title: String) {
         switch title {
         case "Edit":
