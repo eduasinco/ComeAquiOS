@@ -9,9 +9,13 @@
 import UIKit
 import GoogleMaps
 
-private class ResponseObject: Decodable{
+private class ResponseFoodPostObject: Decodable{
     var user_status_in_this_post: String?
     var food_post: FoodPostObject?
+}
+
+private class ResponseOrderObject: Decodable{
+    var order: OrderObject?
 }
 
 class FoodLookViewController: KUIViewController {
@@ -51,7 +55,7 @@ class FoodLookViewController: KUIViewController {
     var foodPostId: Int!
     var foodPost: FoodPostObject?
     var commentsVC: CommentsViewController?
-    private var respondObject: ResponseObject?
+    private var respondObject: ResponseFoodPostObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -264,7 +268,7 @@ class FoodLookViewController: KUIViewController {
             attendVC?.delegate = self
         } else if segue.identifier == "OrderLookSegue" {
             let orderVC = segue.destination as? OrderLookViewController
-            orderVC?.order = sender as? OrderObject
+            orderVC?.orderId = (sender as! OrderObject).id
         }
     }
     override func didReceiveMemoryWarning() {
@@ -341,7 +345,7 @@ extension FoodLookViewController {
         Server.get("/food_with_user_status/\(foodPostId)/", finish: {(data: Data?) -> Void in
             guard let data = data else {return}
             do {
-                self.respondObject = try JSONDecoder().decode(ResponseObject.self, from: data)
+                self.respondObject = try JSONDecoder().decode(ResponseFoodPostObject.self, from: data)
                 self.foodPost = self.respondObject!.food_post
                 DispatchQueue.main.async {
                     self.setViewDetails()
@@ -404,7 +408,7 @@ extension FoodLookViewController {
                     return
                 }
                 do {
-                    let order = try JSONDecoder().decode(OrderObject.self, from: data)
+                    let order = try JSONDecoder().decode(ResponseOrderObject.self, from: data).order
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "OrderLookSegue", sender: order)
                     }
