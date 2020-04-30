@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HostingViewController: UIViewController {
+class HostingViewController: LoadViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var foodPosts: [FoodPostObject] = []
@@ -20,6 +20,11 @@ class HostingViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        page = 1
+        foodPosts = []
         getMyHostings()
     }
     
@@ -68,7 +73,11 @@ extension HostingViewController {
     }
     func getMyHostings(){
         alreadyFetchingData = true
+        present(alert, animated: false, completion: nil)
         Server.get( "/my_hosting/\(page)/", finish: {(data: Data?) -> Void in
+            DispatchQueue.main.async {
+                self.alert.dismiss(animated: false, completion: nil)
+            }
             guard let data = data else {return}
             do {
                 self.foodPosts.append(contentsOf: try JSONDecoder().decode([FoodPostObject].self, from: data))

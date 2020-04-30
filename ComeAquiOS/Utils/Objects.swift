@@ -63,7 +63,30 @@ public class FoodPostObject: Decodable{
     var favourite: Bool?
     var rating: Float?
     var visible: Bool?
+    
+    var replies: [ReviewObject]?
+    var created_at: String?
+    
 }
+
+public class ReviewObject: Decodable {
+    var id: Int?
+    var owner: User?
+    var review: String?
+    var star_reason: String?
+    var rating: Float?
+    var replies: [ReviewReplyObject]?
+    var created_at: String?
+}
+public class ReviewReplyObject: Decodable {
+    var id: Int?
+    var owner: User?
+    var review: String?
+    var reply: String?
+    var created_at: String?
+}
+
+
 
 public class FavouritePost: Decodable{
     var id: Int?
@@ -85,4 +108,16 @@ public class OrderObject: Decodable{
     var order_price: Int?
     
     var created_at: String?
+}
+
+public class NotificationObject: Decodable {
+    var id: Int?
+    var owner: User?
+    var from_user: User?
+    var type: String?
+    var title: String?
+    var body: String?
+    var extra: String?
+    var createdAt: String?
+    var type_id: Int?
 }

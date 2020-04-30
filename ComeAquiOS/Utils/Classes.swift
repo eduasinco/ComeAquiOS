@@ -78,7 +78,7 @@ class CellImageView: UIImageView {
 }
 
 
-class KUIViewController: UIViewController {
+class KUIViewController: LoadViewController {
 
     // KBaseVC is the KEYBOARD variant BaseVC. more on this later
 
@@ -120,6 +120,20 @@ class KUIViewController: UIViewController {
         let t = UITapGestureRecognizer(target: self, action: #selector(clearKeyboard))
         view.addGestureRecognizer(t)
         t.cancelsTouchesInView = false
+    }
+}
+
+class LoadViewController: UIViewController {
+    let alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
     }
 }
 

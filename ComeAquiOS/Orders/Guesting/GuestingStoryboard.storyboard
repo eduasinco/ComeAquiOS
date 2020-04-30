@@ -117,11 +117,22 @@
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="tableView" destination="GgU-aK-DuH" id="6yd-dQ-N5o"/>
+                        <segue destination="hhf-uV-95a" kind="show" identifier="OrderLookSegue" id="aPC-s5-2qa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KYh-a0-QaU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="69.565217391304358" y="95.758928571428569"/>
+        </scene>
+        <!--OrderLookView-->
+        <scene sceneID="BF0-dd-UD0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OrderLookStoryboard" referencedIdentifier="OrderLookView" id="hhf-uV-95a" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2cx-um-bsp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jpF-1L-PDO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="96"/>
         </scene>
     </scenes>
 </document>

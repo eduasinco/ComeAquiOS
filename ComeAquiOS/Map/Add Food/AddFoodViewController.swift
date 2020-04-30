@@ -35,8 +35,6 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     var foodPost: FoodPostObject?
     var foodPostId: Int?
 
-    let alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bottomConstraintForKeyboard = holderBottomConstraint
@@ -45,21 +43,23 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         locationContainer.textFieldBorderStyle()
         descriptionText.delegate = self
         
-
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.medium
-        loadingIndicator.startAnimating();
-
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: false, completion: nil)
-        
         if self.foodPostId != nil {
             self.importImageVC?.foodPostId = self.foodPostId
             getFoodPost()
         } else {
             postFood()
         }
+        
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc func back(sender: UIBarButtonItem) {
+        if self.foodPostId == nil {
+            trueDeletePost()
+        }
+        _ = navigationController?.popViewController(animated: true)
     }
     func setFoodPost() {
         if (self.foodPost?.plate_name) != nil {
@@ -70,7 +70,6 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         } else if (location != nil) {
             placeAutocompleteVC?.getPlaceDetailFromGoogle(placeId: location!.result!.place_id!)
         }
-
         if let dinners = self.foodPost?.max_dinners {
             dinnersText.text = "\(dinners)"
         }
@@ -154,7 +153,8 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         } else if segue.identifier == "OptionsSegue" {
             let optionsVC = segue.destination as? OptionsPopUpViewController
             var options: [String] = []
-            options.append("Save");
+            options.append("Save")
+            options.append("Delete");
             optionsVC?.options = options
             optionsVC?.delegate = self
         }
@@ -164,7 +164,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         let storyboard = UIStoryboard(name: "TypesStoryboard", bundle: nil)
         typesVC = storyboard.instantiateViewController(identifier: "TypesView") as? TypesViewController
         if let typesVC = self.typesVC {
-            typesVC.initialTypesString = self.foodPost?.food_type
+            typesVC.initialTypesString = self.foodPost?.food_type ?? "0000000"
             typesVC.delegate = self
             addChild(typesVC)
             stackView.insertArrangedSubview(typesVC.view, at: 5)
@@ -172,13 +172,13 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
             let h = typesVC.view.heightAnchor.constraint(equalToConstant: 20)
             h.priority = UILayoutPriority(rawValue: 1000)
             h.isActive = true
-
         }
     }
 }
 
 extension AddFoodViewController {
     func getFoodPost(){
+        present(alert, animated: false, completion: nil)
         Server.get("/foods/\(foodPostId!)/", finish: {
             (data: Data?) -> Void in
             DispatchQueue.main.async {
@@ -196,6 +196,16 @@ extension AddFoodViewController {
                 print("json could'nt be parsed \(jsonErr)")
             }
         }, error: {(data: Data?) -> Void in })
+    }
+    func trueDeletePost(){
+        guard let foodPost = self.foodPost else { return }
+        Server.delete("/true_food_delete/\(foodPost.id!)/", finish: {(data: Data?) -> Void in
+            guard let _ = data else {return}
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
+            }
+        }, error: {(data: Data?) -> Void in})
     }
     func pathFoodPost(visible: Bool){
         Server.patch("/edit_food/\(self.foodPost!.id!)/",
@@ -228,6 +238,7 @@ extension AddFoodViewController {
         }, error: {(data: Data?) -> Void in })
     }
     func postFood(){
+        present(alert, animated: false, completion: nil)
         Server.post("/foods/",
                     json:
             ["plate_name":  nil,
@@ -275,6 +286,9 @@ extension AddFoodViewController: TypesProtocol, AutocompleteProtocol, DatePicker
         switch title {
         case "Save":
             pathFoodPost(visible: false)
+            break
+        case "Delete":
+            trueDeletePost()
             break
         default:
             break

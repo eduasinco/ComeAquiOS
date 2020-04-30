@@ -25,8 +25,6 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
     var foodPost: FoodPostObject?
     var foodPostId: Int?
 
-    let alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bottomConstraintForKeyboard = holderBottomConstraint
@@ -34,12 +32,6 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
         descriptionText.delegate = self
         
 
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.medium
-        loadingIndicator.startAnimating();
-
-        alert.view.addSubview(loadingIndicator)
         present(alert, animated: false, completion: nil)
         
         guard let foodPostId = self.foodPostId else { return }
