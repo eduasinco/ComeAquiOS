@@ -21,6 +21,14 @@
 		879CC0042458F3D100383F68 /* DateTimeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CC0032458F3D100383F68 /* DateTimeStoryboard.storyboard */; };
 		87D8A533245920D00056AC9B /* OrderLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A532245920D00056AC9B /* OrderLookViewController.swift */; };
 		87D8A536245920E20056AC9B /* OrderLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */; };
+		87D8A539245A06EF0056AC9B /* OrdersTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */; };
+		87D8A53B245A06FF0056AC9B /* OrdersTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A53A245A06FF0056AC9B /* OrdersTabStoryboard.storyboard */; };
+		87D8A58B245A269F0056AC9B /* HostingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A58A245A269F0056AC9B /* HostingTableViewCell.swift */; };
+		87D8A58D245A26AA0056AC9B /* HostingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A58C245A26AA0056AC9B /* HostingStoryboard.storyboard */; };
+		87D8A58F245A26BA0056AC9B /* GuestingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A58E245A26BA0056AC9B /* GuestingTableViewCell.swift */; };
+		87D8A591245A26C70056AC9B /* GuestingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A590245A26C70056AC9B /* GuestingStoryboard.storyboard */; };
+		87D8A593245A275B0056AC9B /* GuestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A592245A275B0056AC9B /* GuestingViewController.swift */; };
+		87D8A595245A27690056AC9B /* HostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A594245A27690056AC9B /* HostingViewController.swift */; };
 		87E02C8924513864005C272A /* ImageLookerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E02C8824513864005C272A /* ImageLookerViewController.swift */; };
 		87E02C8B24513880005C272A /* ImageLookerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E02C8A24513880005C272A /* ImageLookerStoryboard.storyboard */; };
 		87FC9E7A2447FF6200810ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E792447FF6200810ECF /* AppDelegate.swift */; };
@@ -94,6 +102,14 @@
 		879CC0032458F3D100383F68 /* DateTimeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DateTimeStoryboard.storyboard; sourceTree = "<group>"; };
 		87D8A532245920D00056AC9B /* OrderLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLookViewController.swift; sourceTree = "<group>"; };
 		87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderLookStoryboard.storyboard; sourceTree = "<group>"; };
+		87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTabViewController.swift; sourceTree = "<group>"; };
+		87D8A53A245A06FF0056AC9B /* OrdersTabStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrdersTabStoryboard.storyboard; sourceTree = "<group>"; };
+		87D8A58A245A269F0056AC9B /* HostingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingTableViewCell.swift; sourceTree = "<group>"; };
+		87D8A58C245A26AA0056AC9B /* HostingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HostingStoryboard.storyboard; sourceTree = "<group>"; };
+		87D8A58E245A26BA0056AC9B /* GuestingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestingTableViewCell.swift; sourceTree = "<group>"; };
+		87D8A590245A26C70056AC9B /* GuestingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GuestingStoryboard.storyboard; sourceTree = "<group>"; };
+		87D8A592245A275B0056AC9B /* GuestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestingViewController.swift; sourceTree = "<group>"; };
+		87D8A594245A27690056AC9B /* HostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingViewController.swift; sourceTree = "<group>"; };
 		87E02C8824513864005C272A /* ImageLookerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLookerViewController.swift; sourceTree = "<group>"; };
 		87E02C8A24513880005C272A /* ImageLookerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageLookerStoryboard.storyboard; sourceTree = "<group>"; };
 		87FC9E762447FF6200810ECF /* ComeAquiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComeAquiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +245,35 @@
 			path = "Order Look";
 			sourceTree = "<group>";
 		};
+		87D8A537245A06C60056AC9B /* Orders Tab */ = {
+			isa = PBXGroup;
+			children = (
+				87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */,
+				87D8A53A245A06FF0056AC9B /* OrdersTabStoryboard.storyboard */,
+			);
+			path = "Orders Tab";
+			sourceTree = "<group>";
+		};
+		87D8A588245A26650056AC9B /* Hosting */ = {
+			isa = PBXGroup;
+			children = (
+				87D8A594245A27690056AC9B /* HostingViewController.swift */,
+				87D8A58A245A269F0056AC9B /* HostingTableViewCell.swift */,
+				87D8A58C245A26AA0056AC9B /* HostingStoryboard.storyboard */,
+			);
+			path = Hosting;
+			sourceTree = "<group>";
+		};
+		87D8A589245A26850056AC9B /* Guesting */ = {
+			isa = PBXGroup;
+			children = (
+				87D8A592245A275B0056AC9B /* GuestingViewController.swift */,
+				87D8A58E245A26BA0056AC9B /* GuestingTableViewCell.swift */,
+				87D8A590245A26C70056AC9B /* GuestingStoryboard.storyboard */,
+			);
+			path = Guesting;
+			sourceTree = "<group>";
+		};
 		87E02C8724513846005C272A /* Image Looker */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +357,9 @@
 		87FC9E93244800AD00810ECF /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				87D8A589245A26850056AC9B /* Guesting */,
+				87D8A588245A26650056AC9B /* Hosting */,
+				87D8A537245A06C60056AC9B /* Orders Tab */,
 				87FC9EAA2448026800810ECF /* TableViewCell.swift */,
 				87FC9EAC2448028500810ECF /* OrdersViewController.swift */,
 				87FC9EAE2448029200810ECF /* OrdersStoryboard.storyboard */,
@@ -545,6 +593,8 @@
 				87FC9EDB2448060900810ECF /* WriteCommentStoryboard.storyboard in Resources */,
 				87FC9EF3244FB0B800810ECF /* AddFoodStoryboard.storyboard in Resources */,
 				87FC9ED6244805D200810ECF /* CommentsStoryboard.storyboard in Resources */,
+				87D8A591245A26C70056AC9B /* GuestingStoryboard.storyboard in Resources */,
+				87D8A58D245A26AA0056AC9B /* HostingStoryboard.storyboard in Resources */,
 				87FC9F032451230A00810ECF /* GaleryCameraPopUpStoryboard.storyboard in Resources */,
 				87FC9EA92448020D00810ECF /* NotificationsStoryboard.storyboard in Resources */,
 				87FC9EAF2448029200810ECF /* OrdersStoryboard.storyboard in Resources */,
@@ -553,6 +603,7 @@
 				87FC9EF6244FB19100810ECF /* MapPIckerStoryboard.storyboard in Resources */,
 				879CC0002458F2B900383F68 /* TypesStoryboard.storyboard in Resources */,
 				87E02C8B24513880005C272A /* ImageLookerStoryboard.storyboard in Resources */,
+				87D8A53B245A06FF0056AC9B /* OrdersTabStoryboard.storyboard in Resources */,
 				87FC9EEE244E9FE600810ECF /* PlaceAutocompleteStoryboard.storyboard in Resources */,
 				87FC9F062451351000810ECF /* ImageImporterStoryboard.storyboard in Resources */,
 				87FC9EC2244804C300810ECF /* FoodLookStoryboard.storyboard in Resources */,
@@ -615,6 +666,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87D8A539245A06EF0056AC9B /* OrdersTabViewController.swift in Sources */,
 				87E02C8924513864005C272A /* ImageLookerViewController.swift in Sources */,
 				87FC9F01245122DC00810ECF /* GaleryCameraPopUpViewController.swift in Sources */,
 				87FC9E9B2448011900810ECF /* LoginViewController.swift in Sources */,
@@ -627,6 +679,8 @@
 				87FC9E9D2448012800810ECF /* RegisterViewController.swift in Sources */,
 				87FC9EE8244E9CE800810ECF /* AddFoodViewController.swift in Sources */,
 				87FC9E99244800FE00810ECF /* LoginOrRegisterViewController.swift in Sources */,
+				87D8A58F245A26BA0056AC9B /* GuestingTableViewCell.swift in Sources */,
+				87D8A593245A275B0056AC9B /* GuestingViewController.swift in Sources */,
 				87FC9EE2244D7DE100810ECF /* DinnerTableViewCell.swift in Sources */,
 				8712315F24525370004C0049 /* Server.swift in Sources */,
 				87D8A533245920D00056AC9B /* OrderLookViewController.swift in Sources */,
@@ -648,12 +702,14 @@
 				87FC9EE6244E57BD00810ECF /* MapPickerViewController.swift in Sources */,
 				87FC9EC4244804DD00810ECF /* Strings.swift in Sources */,
 				87FC9EEC244E9FD300810ECF /* PlaceAutocompleteViewController.swift in Sources */,
+				87D8A595245A27690056AC9B /* HostingViewController.swift in Sources */,
 				87FC9EE0244D7DD000810ECF /* DinnersViewController.swift in Sources */,
 				87FC9EDD244939B000810ECF /* SegueViewController.swift in Sources */,
 				87FC9EC0244804A100810ECF /* FoodLookViewController.swift in Sources */,
 				87FC9E7A2447FF6200810ECF /* AppDelegate.swift in Sources */,
 				87FC9EA3244801A100810ECF /* ProfileViewController.swift in Sources */,
 				87FC9EBD2448039B00810ECF /* RateStarViewController.swift in Sources */,
+				87D8A58B245A269F0056AC9B /* HostingTableViewCell.swift in Sources */,
 				87FC9EF0244EA1A100810ECF /* LocationTableViewCell.swift in Sources */,
 				87FC9E7C2447FF6200810ECF /* SceneDelegate.swift in Sources */,
 				87FC9EB72448033C00810ECF /* MapViewController.swift in Sources */,

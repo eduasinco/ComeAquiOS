@@ -37,10 +37,10 @@
             </objects>
             <point key="canvasLocation" x="-467" y="420"/>
         </scene>
-        <!--OrdersStoryboard-->
+        <!--OrderTabView-->
         <scene sceneID="9fB-fN-doa">
             <objects>
-                <viewControllerPlaceholder storyboardName="OrdersStoryboard" id="acW-im-02J" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="OrdersTabStoryboard" referencedIdentifier="OrderTabView" id="acW-im-02J" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="tray.2" catalog="system" id="gEt-nY-dSX"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWc-s2-6zj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
