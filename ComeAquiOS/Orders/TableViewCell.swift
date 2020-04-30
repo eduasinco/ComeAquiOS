@@ -65,7 +65,7 @@ class TableViewCell: UITableViewCell {
     }
     
     func putImage(url: String){
-        foodImageView.loadImageUsingUrlString(urlString: SERVER + url)
+        foodImageView.loadImageUsingUrlString(urlString: url)
         foodImageView.isHidden = false
         heightImageConstraint.constant = 100
         contentView.layoutIfNeeded()

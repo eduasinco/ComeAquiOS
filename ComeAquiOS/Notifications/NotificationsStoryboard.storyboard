@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationCell" rowHeight="100" id="HgV-Aa-0Fj" customClass="NotificationTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationCell" id="HgV-Aa-0Fj" customClass="NotificationTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HgV-Aa-0Fj" id="wIb-f2-mrx">
@@ -45,6 +45,7 @@
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="height" constant="100" id="2Qz-c7-y8e"/>
                                                                 <constraint firstAttribute="width" constant="100" id="B5X-gK-MNh"/>
                                                                 <constraint firstItem="JCc-nA-qZh" firstAttribute="leading" secondItem="AVr-rm-QgR" secondAttribute="leading" id="Cen-TT-2bk"/>
                                                                 <constraint firstItem="JCc-nA-qZh" firstAttribute="top" secondItem="AVr-rm-QgR" secondAttribute="top" id="E9K-OD-POp"/>

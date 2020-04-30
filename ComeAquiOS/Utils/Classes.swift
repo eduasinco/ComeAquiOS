@@ -52,11 +52,12 @@ class CellImageView: UIImageView {
     var imageUrlString: String?
     
     public func loadImageUsingUrlString(urlString: String) {
-        imageUrlString = urlString
-        let url = NSURL(string: urlString)
+        let serverUrlString = SERVER + urlString
+        imageUrlString = serverUrlString
+        let url = NSURL(string: serverUrlString)
         
         image = nil
-        if let imageFromCache = imageCache.object(forKey: NSString(string: urlString)) {
+        if let imageFromCache = imageCache.object(forKey: NSString(string: serverUrlString)) {
             self.image = imageFromCache
             return
         }
@@ -66,12 +67,14 @@ class CellImageView: UIImageView {
                 print(error ?? "Errooooor")
                 return
             }
+            guard let data = data else {return}
+            guard !serverUrlString.contains("no-image") else {return}
             DispatchQueue.main.async{
-                let imageToCache = UIImage(data: data!)
-                if self.imageUrlString == urlString {
+                let imageToCache = UIImage(data: data)
+                if self.imageUrlString == serverUrlString {
                     self.image = imageToCache
                 }
-                imageCache.setObject(imageToCache!, forKey:  NSString(string: urlString))
+                imageCache.setObject(imageToCache!, forKey:  NSString(string: serverUrlString))
             }
         }).resume()
     }

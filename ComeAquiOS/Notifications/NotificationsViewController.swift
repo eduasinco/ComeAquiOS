@@ -102,7 +102,7 @@ extension NotificationsViewController {
     func getMyNotifications(){
         alreadyFetchingData = true
         present(alert, animated: false, completion: nil)
-        Server.get( "/my_notifications/\(page)/", finish: {(data: Data?) -> Void in
+        Server.get("/my_notifications/\(page)/", finish: {(data: Data?) -> Void in
             DispatchQueue.main.async {
                 self.alert.dismiss(animated: false, completion: nil)
             }
