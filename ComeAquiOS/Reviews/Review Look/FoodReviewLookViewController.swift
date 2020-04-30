@@ -78,10 +78,7 @@ class FoodReviewLookViewController: UIViewController {
         guard let foodPost = self.foodPost else {return}
         var options: [String] = []
         if (foodPost.owner!.id! == USER.id){
-            options.append(" Edit ");
-            if (foodPost.confirmed_orders?.count == 0 || (foodPost.confirmed_orders!.count > 0 && foodPost.confirmed_orders?[0].order_status == "FINISHED")){
-                options.append(" Delete ");
-            }
+            options.append(" Delete ")
         } else {
             options.append(" Report ");
         }
@@ -177,8 +174,10 @@ extension FoodReviewLookViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell") as! ReviewTableViewCell
-        cell.setCell(review: self.reviews[indexPath.row])
+        let review = self.reviews[indexPath.row]
+        cell.setCell(review: review)
         cell.delegate = self
+        cell.review = review
         return cell
     }
 }

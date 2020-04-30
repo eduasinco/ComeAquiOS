@@ -33,7 +33,6 @@ class ReviewTableViewCell: UITableViewCell {
     @IBOutlet weak var replyMessage: UITextView!
     
     var delegate: ReviewCellProtocol?
-    
     var review: ReviewObject?
     
     override func awakeFromNib() {
@@ -63,8 +62,9 @@ class ReviewTableViewCell: UITableViewCell {
         
         if review.replies!.count > 0 {
             wholeReplyView.visibility = .visible
+            wholeReplyView.visibility = .gone
             let reply = review.replies![0]
-            //replyerImage.loadImageUsingUrlString(urlString: reply.owner!.profile_photo!)
+            // replyerImage.loadImageUsingUrlString(urlString: reply.owner!.profile_photo!)
             replyerName.text = reply.owner?.full_name
             replyerUsername.text = reply.owner?.username
             replyMessage.text = reply.reply
