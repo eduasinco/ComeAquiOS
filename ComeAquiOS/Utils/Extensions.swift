@@ -210,7 +210,8 @@ extension String {
 
 extension Int {
     func format(_ f: Int = 2) -> String {
-        return String(format: "%\(f)d", self)
+        let f = Float(self / 100)
+        return f.format()
     }
 }
 

@@ -182,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="912" y="-97"/>
         </scene>
-        <!--FoodLook-->
+        <!--FoodLookView-->
         <scene sceneID="8At-4n-kWz">
             <objects>
-                <viewControllerPlaceholder storyboardName="FoodLookStoryboard" referencedIdentifier="FoodLook" id="odk-hG-I1t" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="FoodLookStoryboard" referencedIdentifier="FoodLookView" id="odk-hG-I1t" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="3fG-tG-CgI"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEi-XO-LKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -201,7 +201,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="chY-vw-aW5">
-                                <rect key="frame" x="16" y="116" width="366" height="90"/>
+                                <rect key="frame" x="16" y="116" width="366" height="68"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcx-D3-1x9" userLabel="User Description">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
@@ -275,7 +275,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9v-2D-Tl6" userLabel="Post Description">
-                                        <rect key="frame" x="0.0" y="40" width="366" height="50"/>
+                                        <rect key="frame" x="0.0" y="40" width="366" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-PH-DEG">
                                                 <rect key="frame" x="0.0" y="23" width="366" height="20.5"/>

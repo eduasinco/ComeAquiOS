@@ -23,7 +23,7 @@ class GuestingTableViewCell: UITableViewCell {
     }
     
     func setCell(order: OrderObject){
-        posterImage.loadImageUsingUrlString(urlString: SERVER + order.poster!.profile_photo!)
+        // posterImage.loadImageUsingUrlString(urlString: SERVER + order.poster!.profile_photo!)
         posterName.text = order.poster?.full_name
         orderStatus.text = order.order_status
         plateName.text = order.post?.plate_name

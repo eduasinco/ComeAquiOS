@@ -93,11 +93,33 @@
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="tableView" destination="afh-8K-dpr" id="Vkj-1h-fPZ"/>
+                        <segue destination="rdu-Vx-YuE" kind="show" identifier="FoodLookSegue" id="c4A-ky-SXE"/>
+                        <segue destination="Mgs-Zy-oda" kind="show" identifier="AddFoodSegue" id="sm1-pK-Wq1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xh5-Js-18d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-44.927536231884062" y="-106.47321428571428"/>
+        </scene>
+        <!--FoodLookView-->
+        <scene sceneID="NqG-yn-kgS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FoodLookStoryboard" referencedIdentifier="FoodLookView" id="rdu-Vx-YuE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Lxv-zG-rop"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FNb-ez-RB7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="628" y="-169"/>
+        </scene>
+        <!--AddFood-->
+        <scene sceneID="kpz-gI-tTW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddFoodStoryboard" referencedIdentifier="AddFood" id="Mgs-Zy-oda" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="F3R-jI-xxe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nlH-Ue-5Q3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604" y="-48"/>
         </scene>
     </scenes>
 </document>

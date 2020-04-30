@@ -23,15 +23,15 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZe-N5-1BA" userLabel="inside ">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="866"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CGm-GC-d7g">
-                                                        <rect key="frame" x="16" y="16" width="382" height="800"/>
+                                                        <rect key="frame" x="16" y="16" width="382" height="830"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OTs-na-F7l">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Hello" borderStyle="roundedRect" placeholder="What are you making?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wDB-Sn-PEZ" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What are you making?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wDB-Sn-PEZ" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="hsr-gT-oNU"/>
@@ -57,7 +57,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfo-kX-fwr">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="Dinners" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrj-kn-sc7" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Dinners" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrj-kn-sc7" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                                 <rect key="frame" x="141" y="0.0" width="100" height="50"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="bv0-k1-MA7"/>
@@ -94,7 +94,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drT-uo-5rn">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qkx-0W-HNS" customClass="CurrencyTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qkx-0W-HNS" customClass="CurrencyTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                                 <rect key="frame" x="141" y="0.0" width="100" height="50"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="50" id="FOE-Nf-3fO"/>
@@ -115,17 +115,8 @@
                                                                     </view>
                                                                 </subviews>
                                                             </stackView>
-                                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXB-Mg-uFy">
-                                                                <rect key="frame" x="0.0" y="406" width="382" height="20"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="dxq-XI-bsu"/>
-                                                                </constraints>
-                                                                <connections>
-                                                                    <segue destination="4Ra-In-HGD" kind="embed" identifier="TypesSegue" id="KIj-FZ-gSc"/>
-                                                                </connections>
-                                                            </containerView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8s4-U8-acT">
-                                                                <rect key="frame" x="0.0" y="434" width="382" height="200"/>
+                                                                <rect key="frame" x="0.0" y="406" width="382" height="200"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyw-VC-LIj">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
@@ -160,7 +151,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeO-mn-PRw">
-                                                                <rect key="frame" x="0.0" y="642" width="382" height="100"/>
+                                                                <rect key="frame" x="0.0" y="614" width="382" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="aBt-IM-FR6"/>
                                                                 </constraints>
@@ -169,13 +160,23 @@
                                                                 </connections>
                                                             </containerView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJk-sv-1bB">
-                                                                <rect key="frame" x="0.0" y="750" width="382" height="50"/>
+                                                                <rect key="frame" x="0.0" y="722" width="382" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="OrS-SK-qLo"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Submit"/>
                                                                 <connections>
                                                                     <action selector="submit:" destination="8l8-sJ-MKH" eventType="touchUpInside" id="DwJ-yf-Gyx"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMq-nM-Ene">
+                                                                <rect key="frame" x="0.0" y="780" width="382" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="2wQ-ye-aEc"/>
+                                                                </constraints>
+                                                                <state key="normal" image="ellipsis" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="optionsPressed:" destination="8l8-sJ-MKH" eventType="touchUpInside" id="stp-vd-M40"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -228,9 +229,12 @@
                         <outlet property="dinnersText" destination="yrj-kn-sc7" id="UvF-lS-9Ho"/>
                         <outlet property="holderBottomConstraint" destination="xpW-c5-Bca" id="ViE-fo-k3i"/>
                         <outlet property="locationContainer" destination="BYa-L7-ryl" id="y2M-oY-ZRy"/>
+                        <outlet property="optionsButton" destination="gMq-nM-Ene" id="VfG-aL-SET"/>
                         <outlet property="plateNameText" destination="wDB-Sn-PEZ" id="vHT-Vm-nqn"/>
                         <outlet property="priceText" destination="qkx-0W-HNS" id="cXJ-uf-sfb"/>
+                        <outlet property="stackView" destination="CGm-GC-d7g" id="dnf-vg-Ker"/>
                         <outlet property="wordCountText" destination="weI-PJ-394" id="3qQ-Dc-qUH"/>
+                        <segue destination="cB3-5a-7D1" kind="presentation" identifier="OptionsSegue" id="lJl-Gr-RUs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8i5-CB-TGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -261,13 +265,18 @@
             </objects>
             <point key="canvasLocation" x="2688" y="-268"/>
         </scene>
-        <!--TypesView-->
-        <scene sceneID="BTg-u3-vMi">
+        <!--OptionsView-->
+        <scene sceneID="dMN-oY-hBg">
             <objects>
-                <viewControllerPlaceholder storyboardName="TypesStoryboard" referencedIdentifier="TypesView" id="4Ra-In-HGD" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aHO-55-OZ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="OptionsPopUpStoryboard" referencedIdentifier="OptionsView" id="cB3-5a-7D1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Mfl-84-pQG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mnu-MX-i27" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2674" y="-331"/>
+            <point key="canvasLocation" x="2676" y="-336"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+    </resources>
 </document>

@@ -239,10 +239,10 @@
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="-268.52678571428572"/>
         </scene>
-        <!--FoodLook-->
+        <!--FoodLookView-->
         <scene sceneID="bUN-V5-um3">
             <objects>
-                <viewControllerPlaceholder storyboardName="FoodLookStoryboard" referencedIdentifier="FoodLook" id="42S-8o-ul1" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="FoodLookStoryboard" referencedIdentifier="FoodLookView" id="42S-8o-ul1" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Wpn-sy-a5V"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4M0-my-bso" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -35,6 +35,10 @@ extension GuestingViewController: UITableViewDataSource, UITableViewDelegate {
         cell.setCell(order: orders[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let predictionSelected = orders[indexPath.row]
+    }
 }
 
 extension GuestingViewController {

@@ -25,23 +25,33 @@ class HostingTableViewCell: UITableViewCell {
         } else {
             foodPhoto.image = UIImage(named: "poster")
         }
-        if let plate_name = foodPost.plate_name {
+        if let plate_name = foodPost.plate_name, !plate_name.isEmpty {
             plateName.text = plate_name
         } else {
             plateName.text = "Add a title"
         }
+        if let startTime = foodPost.start_time {
+            time.text = startTime
+            time.visibility = .visible
+        } else {
+            time.visibility = .goneY
+        }
         if
-            foodPost.plate_name != nil &&
-            foodPost.lat != nil &&
-            foodPost.lng != nil &&
-            foodPost.max_dinners != nil &&
-            foodPost.start_time != nil &&
-            foodPost.end_time != nil &&
-            foodPost.price != nil &&
-            foodPost.description != nil{
+            foodPost.plate_name == nil ||
+            foodPost.lat == nil ||
+            foodPost.lng == nil ||
+            foodPost.max_dinners == nil ||
+            foodPost.start_time == nil ||
+            foodPost.end_time == nil ||
+            foodPost.price == nil ||
+            foodPost.description == nil{
             stillNotFinished.visibility = .visible
         } else {
-            stillNotFinished.visibility = .goneY
+            if foodPost.visible! {
+                stillNotFinished.visibility = .goneY
+            } else {
+                stillNotFinished.text = "Not posted yet"
+            }
         }
     }
     

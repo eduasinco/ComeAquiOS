@@ -10,6 +10,7 @@ import UIKit
 
 class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewDelegate {
     
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var plateNameText: ValidatedTextField!
     @IBOutlet weak var locationContainer: UIView!
     @IBOutlet weak var dinnersText: ValidatedTextField!
@@ -17,6 +18,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var descriptionText: ValidatedTextView!
     @IBOutlet weak var wordCountText: UILabel!
     @IBOutlet weak var holderBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var optionsButton: UIButton!
     
     var placeAutocompleteVC: PlaceAutocompleteViewController?
     var datePickerVC: DateTimePickerViewController?
@@ -75,9 +77,10 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         if let startTime = self.foodPost?.start_time, let endTime =  self.foodPost?.end_time{
             datePickerVC?.setDateTime(startDateString: startTime, endDateString: endTime)
         }
-        if let types = self.foodPost?.food_type{
-            typesVC?.setTypes(typeString: types)
+        if let price = self.foodPost?.price {
+            priceText.text = "$ " + price.format()
         }
+        setTypeVC()
         if let description = self.foodPost?.description {
             self.descriptionText.text = description
         }
@@ -121,7 +124,10 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
             pathFoodPost(visible: true)
         }
     }
-    
+    @IBAction func optionsPressed(_ sender: Any) {
+        performSegue(withIdentifier: "OptionsSegue", sender: nil)
+
+    }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = newText.count
@@ -134,11 +140,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "TypesSegue" {
-            typesVC = segue.destination as? TypesViewController
-            typesVC?.delegate = self
-            typesVC?.initialTypesString = "0000000"
-        } else if segue.identifier == "DatePickerSegue" {
+        if segue.identifier == "DatePickerSegue" {
             datePickerVC = segue.destination as? DateTimePickerViewController
             datePickerVC?.delegate = self
         } else if segue.identifier == "PlaceAutocompleteSegue" {
@@ -149,6 +151,28 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
             importImageVC = segue.destination as? ImportImagesViewController
             importImageVC?.delegate = self
             importImageVC?.foodPostId = self.foodPost?.id
+        } else if segue.identifier == "OptionsSegue" {
+            let optionsVC = segue.destination as? OptionsPopUpViewController
+            var options: [String] = []
+            options.append("Save");
+            optionsVC?.options = options
+            optionsVC?.delegate = self
+        }
+    }
+    
+    func setTypeVC() {
+        let storyboard = UIStoryboard(name: "TypesStoryboard", bundle: nil)
+        typesVC = storyboard.instantiateViewController(identifier: "TypesView") as? TypesViewController
+        if let typesVC = self.typesVC {
+            typesVC.initialTypesString = self.foodPost?.food_type
+            typesVC.delegate = self
+            addChild(typesVC)
+            stackView.insertArrangedSubview(typesVC.view, at: 5)
+            typesVC.didMove(toParent: self)
+            let h = typesVC.view.heightAnchor.constraint(equalToConstant: 20)
+            h.priority = UILayoutPriority(rawValue: 1000)
+            h.isActive = true
+
         }
     }
 }
@@ -174,31 +198,21 @@ extension AddFoodViewController {
         }, error: {(data: Data?) -> Void in })
     }
     func pathFoodPost(visible: Bool){
-        Server.patch("/foods/\(self.foodPost!.id!)/",
+        Server.patch("/edit_food/\(self.foodPost!.id!)/",
                     json:
             ["plate_name":  plateNameText.text,
              "formatted_address":  self.location?.result?.formatted_address,
              "place_id":  location?.result?.place_id,
-             "street_n":  nil,
-             "route":  nil,
-             "administrative_area_level_2":  nil,
-             "administrative_area_level_1":  nil,
-             "country":  nil,
-             "postal_code":  nil,
              "lat":  location?.result?.geometry?.location?.lat,
              "lng":  location?.result?.geometry?.location?.lng,
-             "max_dinners":  dinnersText.text,
+             "max_dinners":  dinnersText.text!.isEmpty ? nil : dinnersText.text,
              "start_time": startDate,
              "end_time":  endDate,
-             "time_zone":  nil,
              "price":  price,
              "food_type":  types,
              "description":  descriptionText.text,
              "visible": visible ? "true" : "false"],
                     finish: {(data: Data?) -> Void in
-                        DispatchQueue.main.async {
-                            self.alert.dismiss(animated: false, completion: nil)
-                        }
                         guard let data = data else {
                             return
                         }
@@ -256,7 +270,17 @@ extension AddFoodViewController {
     }
 }
 
-extension AddFoodViewController: TypesProtocol, AutocompleteProtocol, DatePickerProtocol, ImportImagesProtocol {
+extension AddFoodViewController: TypesProtocol, AutocompleteProtocol, DatePickerProtocol, ImportImagesProtocol, OptionsPopUpProtocol {
+    func optionPressed(_ title: String) {
+        switch title {
+        case "Save":
+            pathFoodPost(visible: false)
+            break
+        default:
+            break
+        }
+    }
+    
     func images(images: [UIImage]) {
         
     }
