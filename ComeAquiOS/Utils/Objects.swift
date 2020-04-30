@@ -64,11 +64,10 @@ public class FoodPostObject: Decodable{
     var rating: Float?
     var visible: Bool?
     
-    var replies: [ReviewObject]?
+    var reviews: [ReviewObject]?
     var created_at: String?
     
 }
-
 public class ReviewObject: Decodable {
     var id: Int?
     var owner: User?

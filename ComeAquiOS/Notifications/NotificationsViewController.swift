@@ -41,6 +41,9 @@ class NotificationsViewController: LoadViewController {
         } else if segue.identifier == "OrderLookSegue" {
             let orderVC = segue.destination as? OrderLookViewController
             orderVC?.orderId = (sender as! NotificationObject).type_id
+        } else if segue.identifier == "FoodReviewSegue" {
+            let foodRVC = segue.destination as? FoodReviewLookViewController
+            foodRVC?.foodPostId = (sender as! NotificationObject).type_id
         }
     }
 }
