@@ -68,7 +68,7 @@ extension GuestingViewController {
         getMyGuesting()
     }
     func getMyGuesting(){
-        Server.get( "/my_guesting/\(page)/", finish: {(data: Data?) -> Void in
+        Server.get( "/my_guesting/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             guard let data = data else {return}
             do {
                 self.orders.append(contentsOf: try JSONDecoder().decode([OrderObject].self, from: data))
@@ -76,7 +76,7 @@ extension GuestingViewController {
                     self.tableView.reloadData()
                 }
             } catch {}
-        }, error: {(data: Data?) -> Void in})
+        })
     }
 }
 

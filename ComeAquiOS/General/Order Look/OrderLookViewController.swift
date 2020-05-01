@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class OrderLookViewController: UIViewController, GMSMapViewDelegate {
+class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     @IBOutlet weak var posterImage: URLImageView!
     @IBOutlet weak var posterName: UILabel!
     @IBOutlet weak var posterUsername: UILabel!
@@ -22,6 +22,7 @@ class OrderLookViewController: UIViewController, GMSMapViewDelegate {
     @IBOutlet weak var viewForMap: UIView!
     @IBOutlet weak var subtotal: UILabel!
     @IBOutlet weak var total: UILabel!
+    @IBOutlet weak var confrimCancelView: UIStackView!
     
     var orderId: Int?
     var order: OrderObject?
@@ -59,6 +60,14 @@ class OrderLookViewController: UIViewController, GMSMapViewDelegate {
         viewForMap.addSubview(googleMap)
         viewForMap.clipsToBounds = true
         viewForMap.isUserInteractionEnabled = false
+        setConfirmCancelButton()
+    }
+    func setConfirmCancelButton(){
+        if order?.order_status == "PENDING"{
+            confrimCancelView.visibility = .visible
+        } else {
+            confrimCancelView.visibility = .gone
+        }
     }
     
     @IBAction func goToMealPressed(_ sender: Any) {
@@ -66,8 +75,15 @@ class OrderLookViewController: UIViewController, GMSMapViewDelegate {
     }
     @IBAction func optionsPressed(_ sender: Any) {
         performSegue(withIdentifier: "OptionsSegue", sender: nil)
-
     }
+    
+    @IBAction func confirmPressed(_ sender: Any) {
+        setOrderStatus("CONFIRMED")
+    }
+    @IBAction func cancelPressed(_ sender: Any) {
+        setOrderStatus("CANCELED")
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OptionsSegue" {
             let optionsVC = segue.destination as? OptionsPopUpViewController
@@ -79,6 +95,9 @@ class OrderLookViewController: UIViewController, GMSMapViewDelegate {
             }
             optionsVC?.options = options
             optionsVC?.delegate = self
+        } else if segue.identifier == "FoodLookSegue" {
+            let foodLookContainer = segue.destination as? FoodLookViewController
+            foodLookContainer?.foodPostId = self.order?.post!.id
         }
     }
 }
@@ -88,7 +107,7 @@ extension OrderLookViewController: OptionsPopUpProtocol{
         case "Help":
             break
         case "Cancel order":
-            cancelOrder()
+            setOrderStatus("CANCELED")
         case "Report":
             break
             // reportPost()
@@ -99,36 +118,42 @@ extension OrderLookViewController: OptionsPopUpProtocol{
 }
 extension OrderLookViewController {
     func getOrder(){
+        present(alert, animated: false, completion: nil)
         guard let orderId = self.orderId else { return }
-        Server.get( "/order_detail/\(orderId)/", finish: {(data: Data?) -> Void in
+        Server.get( "/order_detail/\(orderId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+            DispatchQueue.main.async {
+                self.alert.dismiss(animated: false, completion: nil)
+            }
             guard let data = data else {return}
+            if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {}
             do {
                 self.order = try JSONDecoder().decode(OrderObject.self, from: data)
                 DispatchQueue.main.async {
                     self.setView()
                 }
             } catch {}
-        }, error: {(data: Data?) -> Void in})
+        })
     }
     
-    func cancelOrder(){
+    func setOrderStatus(_ status: String){
+        present(alert, animated: false, completion: nil)
         Server.post("/set_order_status/",
             json:
             [
                 "order_id": self.order!.id!,
-                "order_status": "CANCELED",
+                "order_status": status,
             ],
-            finish: {(data: Data?) in
-                guard let data = data else {
-                    return
+            finish: {(data: Data?, response: URLResponse?) in
+                DispatchQueue.main.async {
+                    self.alert.dismiss(animated: false, completion: nil)
                 }
+                guard let data = data else {return}
                 do {
-                    let _ = try JSONDecoder().decode(OrderObject.self, from: data)
+                    self.order = try JSONDecoder().decode(OrderObject.self, from: data)
                     DispatchQueue.main.async {
-                        self.navigationController?.popViewController(animated: true)
-                        self.dismiss(animated: true, completion: nil)
+                        self.setView()
                     }
                 } catch {}
-        }, error: {(data: Data?) in})
+        })
     }
 }

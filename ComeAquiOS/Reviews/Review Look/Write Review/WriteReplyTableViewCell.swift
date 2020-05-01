@@ -44,7 +44,7 @@ extension WriteReplyTableViewCell{
                 "reply": textView.text,
                 "review_id": review?.id,
             ],
-            finish: {(data: Data?) in
+            finish: {(data: Data?, response: URLResponse?) in
                 guard let data = data else {
                     return
                 }
@@ -55,7 +55,7 @@ extension WriteReplyTableViewCell{
                         self.dismiss(animated: true, completion: nil)
                     }
                 } catch {}
-        }, error: {(data: Data?) in})
+        })
     }
 }
 

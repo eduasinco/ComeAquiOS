@@ -180,7 +180,7 @@ extension AddFoodViewController {
     func getFoodPost(){
         present(alert, animated: false, completion: nil)
         Server.get("/foods/\(foodPostId!)/", finish: {
-            (data: Data?) -> Void in
+            (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
                 self.alert.dismiss(animated: false, completion: nil)
             }
@@ -195,17 +195,17 @@ extension AddFoodViewController {
             } catch let jsonErr {
                 print("json could'nt be parsed \(jsonErr)")
             }
-        }, error: {(data: Data?) -> Void in })
+        })
     }
     func trueDeletePost(){
         guard let foodPost = self.foodPost else { return }
-        Server.delete("/true_food_delete/\(foodPost.id!)/", finish: {(data: Data?) -> Void in
+        Server.delete("/true_food_delete/\(foodPost.id!)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
                 self.dismiss(animated: true, completion: nil)
             }
-        }, error: {(data: Data?) -> Void in})
+        })
     }
     func pathFoodPost(visible: Bool){
         Server.patch("/edit_food/\(self.foodPost!.id!)/",
@@ -222,7 +222,7 @@ extension AddFoodViewController {
              "food_type":  types,
              "description":  descriptionText.text,
              "visible": visible ? "true" : "false"],
-                    finish: {(data: Data?) -> Void in
+                    finish: {(data: Data?, response: URLResponse?) -> Void in
                         guard let data = data else {
                             return
                         }
@@ -261,7 +261,7 @@ extension AddFoodViewController {
              "food_type":  nil,
              "description":  nil,
              "visible": "false"],
-                    finish: {(data: Data?) -> Void in
+                    finish: {(data: Data?, response: URLResponse?) -> Void in
                         DispatchQueue.main.async {
                             self.alert.dismiss(animated: false, completion: nil)
                         }
@@ -277,7 +277,7 @@ extension AddFoodViewController {
                         } catch let jsonErr {
                             print("json could'nt be parsed \(jsonErr)")
                         }
-        }, error: {(data: Data?) -> Void in })
+        })
     }
 }
 

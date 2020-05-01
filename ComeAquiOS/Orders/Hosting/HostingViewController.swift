@@ -74,7 +74,7 @@ extension HostingViewController {
     func getMyHostings(){
         alreadyFetchingData = true
         present(alert, animated: false, completion: nil)
-        Server.get( "/my_hosting/\(page)/", finish: {(data: Data?) -> Void in
+        Server.get( "/my_hosting/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
                 self.alert.dismiss(animated: false, completion: nil)
             }
@@ -86,7 +86,7 @@ extension HostingViewController {
                     self.page += 1
                 }
             } catch {}
-        }, error: {(data: Data?) -> Void in})
+        })
     }
 }
 

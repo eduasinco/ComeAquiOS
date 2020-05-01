@@ -187,7 +187,7 @@ extension FoodReviewLookViewController: UITableViewDataSource, UITableViewDelega
 extension FoodReviewLookViewController {
     func getFoodReviews(){
         guard let foodPostId = self.foodPostId else {return}
-        Server.get( "/food_reviews/\(foodPostId)/", finish: {(data: Data?) -> Void in
+        Server.get( "/food_reviews/\(foodPostId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             guard let data = data else {return}
             do {
                 self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
@@ -197,26 +197,26 @@ extension FoodReviewLookViewController {
                     self.setViewDetails()
                 }
             } catch {}
-        }, error: {(data: Data?) -> Void in})
+        })
     }
     func deletePost(){
         guard let foodPostId = self.foodPostId else { return }
-        Server.delete("/foods/\(foodPostId)/", finish: {(data: Data?) -> Void in
+        Server.delete("/foods/\(foodPostId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
                 self.dismiss(animated: true, completion: nil)
             }
-        }, error: {(data: Data?) -> Void in})
+        })
     }
     func deleteReview(_ reviewId: Int){
-        Server.delete( "/delete_review/\(reviewId)/", finish: {(data: Data?) -> Void in
+        Server.delete( "/delete_review/\(reviewId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             guard let _ = data else {return}
-        }, error: {(data: Data?) -> Void in})
+        })
     }
     func deleteReply(_ replyId: Int){
-        Server.delete( "/delete_reply/\(replyId)/", finish: {(data: Data?) -> Void in
+        Server.delete( "/delete_reply/\(replyId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             guard let _ = data else {return}
-        }, error: {(data: Data?) -> Void in})
+        })
     }
 }

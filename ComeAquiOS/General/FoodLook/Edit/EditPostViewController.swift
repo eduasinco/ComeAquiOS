@@ -105,7 +105,7 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
 extension EditPostViewController {
     func getFoodPost(){
         Server.get("/foods/\(foodPostId!)/", finish: {
-            (data: Data?) -> Void in
+            (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
                 self.alert.dismiss(animated: false, completion: nil)
             }
@@ -120,7 +120,7 @@ extension EditPostViewController {
             } catch let jsonErr {
                 print("json could'nt be parsed \(jsonErr)")
             }
-        }, error: {(data: Data?) -> Void in })
+        })
     }
     func pathFoodPost(visible: Bool){
         Server.patch("/edit_food/\(self.foodPost!.id!)/",
@@ -130,7 +130,7 @@ extension EditPostViewController {
                 "food_type":  types,
                 "description":  descriptionText.text,
             ],
-            finish: {(data: Data?) -> Void in
+            finish: {(data: Data?, response: URLResponse?) -> Void in
                 DispatchQueue.main.async {
                     self.alert.dismiss(animated: false, completion: nil)
                 }

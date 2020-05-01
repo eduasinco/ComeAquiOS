@@ -60,15 +60,16 @@ class ReviewTableViewCell: UITableViewCell {
         reviewMessage.text = review.review
         setStars(review.rating!)
         
+        wholeReplyView.visibility = .gone
         if review.replies!.count > 0 {
-            wholeReplyView.visibility = .visible
             let reply = review.replies![0]
-            // replyerImage.loadImageUsingUrlString(urlString: reply.owner!.profile_photo!)
-            replyerName.text = reply.owner?.full_name
-            replyerUsername.text = reply.owner?.username
-            replyMessage.text = reply.reply
-        } else {
-            wholeReplyView.visibility = .gone
+            if !reply.reply!.isEmpty {
+                wholeReplyView.visibility = .visible
+                // replyerImage.loadImageUsingUrlString(urlString: reply.owner!.profile_photo!)
+                replyerName.text = reply.owner?.full_name
+                replyerUsername.text = reply.owner?.username
+                replyMessage.text = reply.reply
+            }
         }
     }
     func setStars(_ rating: Float){

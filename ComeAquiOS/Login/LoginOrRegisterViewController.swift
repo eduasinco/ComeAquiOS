@@ -18,7 +18,7 @@ class LoginOrRegisterViewController: UIViewController {
     
     func login(){
         Server.get("/login/", finish: {
-            (data: Data?) -> Void in
+            (data: Data?, response: URLResponse?) -> Void in
             guard let data = data else {
                 return
             }
@@ -31,7 +31,7 @@ class LoginOrRegisterViewController: UIViewController {
             } catch let jsonErr {
                 print("json could'nt be parsed \(jsonErr)")
             }
-        }, error: {(data: Data?) -> Void in })
+        })
     }
 
 }

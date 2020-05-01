@@ -342,7 +342,7 @@ extension FoodLookViewController: UITextViewDelegate {
 extension FoodLookViewController {
     func getFoodPost(){
         guard let foodPostId = self.foodPostId else { return }
-        Server.get("/food_with_user_status/\(foodPostId)/", finish: {(data: Data?) -> Void in
+        Server.get("/food_with_user_status/\(foodPostId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             guard let data = data else {return}
             do {
                 self.respondObject = try JSONDecoder().decode(ResponseFoodPostObject.self, from: data)
@@ -351,18 +351,18 @@ extension FoodLookViewController {
                     self.setViewDetails()
                 }
             } catch {}
-        }, error: {(data: Data?) -> Void in})
+        })
     }
     
     func deletePost(){
         guard let foodPostId = self.foodPostId else { return }
-        Server.delete("/foods/\(foodPostId)/", finish: {(data: Data?) -> Void in
+        Server.delete("/foods/\(foodPostId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
                 self.dismiss(animated: true, completion: nil)
             }
-        }, error: {(data: Data?) -> Void in})
+        })
     }
     
     func postComment(){
@@ -373,10 +373,8 @@ extension FoodLookViewController {
                 "comment_id": nil,
                 "message": textView.text!
             ],
-            finish: {(data: Data?) in
-                guard let data = data else {
-                    return
-                }
+            finish: {(data: Data?, response: URLResponse?) in
+                guard let data = data else {return}
                 do {
                     guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
                     DispatchQueue.main.async {
@@ -393,7 +391,7 @@ extension FoodLookViewController {
                 } catch let jsonErr {
                     print("json could'nt be parsed \(jsonErr)")
                 }
-        }, error: {(data: Data?) in})
+        })
     }
     
     func createOrder(additionalGuests: Int){
@@ -403,16 +401,15 @@ extension FoodLookViewController {
                 "food_post_id": self.foodPost!.id!,
                 "additional_guests": additionalGuests,
             ],
-            finish: {(data: Data?) in
-                guard let data = data else {
-                    return
-                }
+            finish: {(data: Data?, response: URLResponse?) in
+                guard let data = data else {return}
+                
                 do {
                     let order = try JSONDecoder().decode(ResponseOrderObject.self, from: data).order
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "OrderLookSegue", sender: order)
                     }
                 } catch {}
-        }, error: {(data: Data?) in})
+        })
     }
 }

@@ -31,44 +31,36 @@ public func getRequestWithAuth(_ url: String) -> URLRequest{
 
 class Server {
     
-    static func get(_ urlString: String, finish: @escaping (Data?) -> Void, error: @escaping (Data?) -> Void){
-        retrieve(urlString, method: "GET", finish: finish, errorFunction: error)
+    static func get(_ urlString: String, finish: @escaping (Data?, URLResponse?) -> Void){
+        retrieve(urlString, method: "GET", finish: finish)
     }
-    static func delete(_ urlString: String, finish: @escaping (Data?) -> Void, error: @escaping (Data?) -> Void){
-        retrieve(urlString, method: "DELETE", finish: finish, errorFunction: error)
+    static func delete(_ urlString: String, finish: @escaping (Data?, URLResponse?) -> Void){
+        retrieve(urlString, method: "DELETE", finish: finish)
     }
-    static func retrieve(_ urlString: String, method: String, finish: @escaping (Data?) -> Void, errorFunction: @escaping (Data?) -> Void){
+    static func retrieve(_ urlString: String, method: String, finish: @escaping (Data?, URLResponse?) -> Void){
         var request = getRequestWithAuth(urlString)
         request.httpMethod = method
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {
-                finish(data)
-            } else {
-                errorFunction(data)
-            }
+            finish(data, response)
         })
         task.resume()
     }
-    static func post(_ urlString: String, json: [String:Any?], finish: @escaping (Data?) -> Void, error: @escaping (Data?) -> Void){
-        update(urlString, json: json, method: "POST", finish: finish, errorFunction: error)
+    static func post(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
+        update(urlString, json: json, method: "POST", finish: finish)
     }
-    static func patch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?) -> Void, error: @escaping (Data?) -> Void){
-        update(urlString, json: json, method: "PATCH", finish: finish, errorFunction: error)
+    static func patch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void, error: @escaping (Data?) -> Void){
+        update(urlString, json: json, method: "PATCH", finish: finish)
     }
     
-    static func update(_ urlString: String, json: [String:Any?], method: String, finish: @escaping (Data?) -> Void, errorFunction: @escaping (Data?) -> Void){
+    static func update(_ urlString: String, json: [String:Any?], method: String, finish: @escaping (Data?, URLResponse?) -> Void){
         var request = getRequestWithAuth(urlString)
         do {
             let data = try JSONSerialization.data(withJSONObject: json, options: [])
             request.httpMethod = method
             request.httpBody = data
             let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
-                if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {
-                    finish(data)
-                } else {
-                    errorFunction(data)
-                }
+                finish(data, response)
             })
             task.resume()
         }catch{
