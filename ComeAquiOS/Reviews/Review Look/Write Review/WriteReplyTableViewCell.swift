@@ -22,7 +22,7 @@ class WriteReplyTableViewCell: KUIViewController, UITextFieldDelegate {
     var review: ReviewObject?
     var originalHeight: CGFloat!
     
-    var delegate: AddCommentDelegate?
+    var delegate: WriteReplyProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,12 +45,11 @@ extension WriteReplyTableViewCell{
                 "review_id": review?.id,
             ],
             finish: {(data: Data?, response: URLResponse?) in
-                guard let data = data else {
-                    return
-                }
+                guard let data = data else {return}
                 do {
-                    let _ = try JSONDecoder().decode(OrderObject.self, from: data)
+                    let reply = try JSONDecoder().decode(ReviewReplyObject.self, from: data)
                     DispatchQueue.main.async {
+                        self.delegate?.replyAdded(reply: reply)
                         self.navigationController?.popViewController(animated: true)
                         self.dismiss(animated: true, completion: nil)
                     }

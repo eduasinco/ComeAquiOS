@@ -80,7 +80,7 @@ public class ReviewObject: Decodable {
 public class ReviewReplyObject: Decodable {
     var id: Int?
     var owner: User?
-    var review: String?
+    var review: ReviewObject?
     var reply: String?
     var created_at: String?
 }

@@ -30,6 +30,7 @@ class FoodReviewLookViewController: UIViewController {
     
     var reply: ReviewReplyObject?
     var review: ReviewObject?
+    var currentCell: UITableViewCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,10 @@ class FoodReviewLookViewController: UIViewController {
         tableView.sectionHeaderHeight = headerView.frame.height
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        getFoodReviews()
+    }
+        
     func setViewDetails(){
         guard let foodPost = self.foodPost else {return}
         
@@ -71,9 +76,7 @@ class FoodReviewLookViewController: UIViewController {
             i += 1
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
-        getFoodReviews()
-    }
+    
     @IBAction func optionsButtonPressed(_ sender: Any) {
         guard let foodPost = self.foodPost else {return}
         var options: [String] = []
@@ -107,13 +110,26 @@ class FoodReviewLookViewController: UIViewController {
         } else if segue.identifier == "WriteReplySegue" {
             let optionsVC = segue.destination as? WriteReplyTableViewCell
             optionsVC?.review = self.review
+            optionsVC?.delegate = self
         } else if segue.identifier == "EditPostSegue" {
             let editPostVC = segue.destination as? EditPostViewController
             editPostVC?.foodPostId = self.foodPostId
         }
     }
 }
-extension FoodReviewLookViewController: ReviewCellProtocol, OptionsPopUpProtocol {
+extension FoodReviewLookViewController: ReviewCellProtocol, OptionsPopUpProtocol, WriteReplyProtocol {
+    func replyAdded(reply: ReviewReplyObject) {
+        for (i, child) in self.reviews.enumerated(){
+            if child.id == reply.review!.id {
+                child.replies![0] = reply
+                break
+            }
+        }
+        let ip = self.tableView.indexPath(for: self.currentCell!)
+        guard let indexPath = ip else { return }
+        self.tableView.reloadRows(at: [indexPath], with: .bottom)
+    }
+    
     func optionPressed(_ title: String) {
         switch title {
         case "Reply":
@@ -140,24 +156,33 @@ extension FoodReviewLookViewController: ReviewCellProtocol, OptionsPopUpProtocol
         }
     }
     
-    func reviewOptionsPressed(review: ReviewObject) {
+    func reviewOptionsPressed(review: ReviewObject, cell: UITableViewCell) {
         var options: [String] = []
         if (self.foodPost!.owner!.id == USER.id){
-            if (review.replies!.count == 0){
+            if let replies = review.replies {
+                if replies.count == 0 || replies[0].reply!.isEmpty{
+                    options.append("Reply")
+                }
+            } else {
                 options.append("Reply")
             }
-            options.append("Report");
-        } else if (USER.id == review.owner!.id){
-            options.append("Delete");
+            if (USER.id != review.owner!.id) {
+                options.append("Report")
+            }
+        }
+        
+        if (USER.id == review.owner!.id){
+            options.append("Delete")
         } else {
-            options.append("Report");
+            options.append("Report")
         }
         self.review = review
         self.reply = nil
+        self.currentCell = cell
         performSegue(withIdentifier: "OptionsSegue", sender: options)
     }
     
-    func replyOptionsPressed(reply: ReviewReplyObject) {
+    func replyOptionsPressed(reply: ReviewReplyObject, cell: UITableViewCell) {
         var options: [String] = []
         if (USER.id == reply.owner!.id){
             options.append("Delete")
@@ -166,6 +191,7 @@ extension FoodReviewLookViewController: ReviewCellProtocol, OptionsPopUpProtocol
         }
         self.review = nil
         self.reply = reply
+        self.currentCell = cell
         performSegue(withIdentifier: "OptionsSegue", sender: options)
     }
 }
@@ -182,6 +208,19 @@ extension FoodReviewLookViewController: UITableViewDataSource, UITableViewDelega
         cell.review = review
         return cell
     }
+    
+    func deleteReviewFromTable(review: ReviewObject) {
+        // Do whatever you want from your button here.
+        for (i, child) in self.reviews.enumerated(){
+            if child.id == review.id {
+                self.reviews.remove(at: i)
+                break
+            }
+        }
+        let ip = self.tableView.indexPath(for: self.currentCell!)
+        guard let indexPath = ip else { return }
+        self.tableView.deleteRows(at: [indexPath], with: .bottom)
+    }
 }
 
 extension FoodReviewLookViewController {
@@ -191,8 +230,8 @@ extension FoodReviewLookViewController {
             guard let data = data else {return}
             do {
                 self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
-                self.reviews = self.foodPost!.reviews!
                 DispatchQueue.main.async {
+                    self.reviews = self.foodPost!.reviews!
                     self.tableView.reloadData()
                     self.setViewDetails()
                 }
@@ -212,11 +251,17 @@ extension FoodReviewLookViewController {
     func deleteReview(_ reviewId: Int){
         Server.delete( "/delete_review/\(reviewId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             guard let _ = data else {return}
+            DispatchQueue.main.async {
+                self.deleteReviewFromTable(review: self.review!)
+            }
         })
     }
     func deleteReply(_ replyId: Int){
         Server.delete( "/delete_reply/\(replyId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             guard let _ = data else {return}
+            DispatchQueue.main.async {
+                self.getFoodReviews()
+            }
         })
     }
 }

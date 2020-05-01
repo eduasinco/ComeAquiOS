@@ -9,8 +9,8 @@
 import UIKit
 
 protocol ReviewCellProtocol {
-    func reviewOptionsPressed(review: ReviewObject)
-    func replyOptionsPressed(reply: ReviewReplyObject)
+    func reviewOptionsPressed(review: ReviewObject, cell: UITableViewCell)
+    func replyOptionsPressed(reply: ReviewReplyObject, cell: UITableViewCell)
 }
 
 class ReviewTableViewCell: UITableViewCell {
@@ -46,11 +46,11 @@ class ReviewTableViewCell: UITableViewCell {
     
     @IBAction func reviewOptionsPressed(_ sender: Any) {
         guard let review = self.review else {return}
-        delegate?.reviewOptionsPressed(review: review)
+        delegate?.reviewOptionsPressed(review: review, cell: self)
     }
     @IBAction func replyOptionsPressed(_ sender: Any) {
         guard let review = self.review else {return}
-        delegate?.replyOptionsPressed(reply: review.replies![0])
+        delegate?.replyOptionsPressed(reply: review.replies![0], cell: self)
     }
     
     func setCell(review: ReviewObject){

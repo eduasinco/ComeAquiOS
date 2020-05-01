@@ -204,7 +204,7 @@
                                             <constraint firstAttribute="trailing" secondItem="64C-zO-Xc5" secondAttribute="trailing" id="4Xv-ls-kj0"/>
                                             <constraint firstItem="64C-zO-Xc5" firstAttribute="top" secondItem="RVq-1J-l4F" secondAttribute="top" id="CzB-Kz-pRL"/>
                                             <constraint firstItem="64C-zO-Xc5" firstAttribute="leading" secondItem="RVq-1J-l4F" secondAttribute="leading" id="kR2-mt-JKT"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="64C-zO-Xc5" secondAttribute="bottom" id="qMX-Gf-ZVk"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="64C-zO-Xc5" secondAttribute="bottom" constant="70" id="qMX-Gf-ZVk"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -283,7 +283,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4M0-my-bso" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="741" y="-269"/>
+            <point key="canvasLocation" x="741" y="-194"/>
         </scene>
         <!--ImageScrollView-->
         <scene sceneID="hP6-aU-hzK">
@@ -291,7 +291,7 @@
                 <viewControllerPlaceholder storyboardName="ImageScrollStoryboard" referencedIdentifier="ImageScrollView" id="d2u-f7-t52" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLU-bh-3pX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="751" y="-388"/>
+            <point key="canvasLocation" x="751" y="-344"/>
         </scene>
         <!--OptionsView-->
         <scene sceneID="Dfu-n4-YhO">
@@ -301,7 +301,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R42-EH-LWq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="733" y="-339"/>
+            <point key="canvasLocation" x="733" y="-269"/>
         </scene>
     </scenes>
     <resources>

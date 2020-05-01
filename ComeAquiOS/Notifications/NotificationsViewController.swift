@@ -101,10 +101,15 @@ extension NotificationsViewController {
     }
     func getMyNotifications(){
         alreadyFetchingData = true
+        if !self.alert.isBeingDismissed {
+            self.alert.dismiss(animated: false, completion: nil)
+        }
         present(alert, animated: false, completion: nil)
         Server.get("/my_notifications/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
+                if !self.alert.isBeingDismissed {
+                    self.alert.dismiss(animated: false, completion: nil)
+                }
             }
             guard let data = data else {return}
             do {
@@ -112,6 +117,7 @@ extension NotificationsViewController {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.page += 1
+                    self.alreadyFetchingData = false
                 }
             } catch {}
         })

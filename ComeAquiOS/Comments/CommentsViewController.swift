@@ -277,7 +277,6 @@ extension CommentsViewController: AddOrDeleteDelegate {
     }
 
     func delete(comment: Comment, cell: UITableViewCell) {
-        // Do whatever you want from your button here.
         let ip = self.tableView.indexPath(for: cell)
         guard let indexPath = ip else { return }
         deleteComment(comment: comment, indexPath: indexPath)
@@ -338,9 +337,7 @@ extension CommentsViewController {
         request.httpMethod = "DELETE"
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            guard let data = data else {
-                return
-            }
+            guard let _ = data else {return}
             DispatchQueue.main.async {
                 let selectedIndex = indexPath.row
 

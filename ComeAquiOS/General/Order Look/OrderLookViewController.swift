@@ -67,11 +67,12 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
         setConfirmCancelButton()
     }
     func setConfirmCancelButton(){
-        if order?.order_status == "PENDING"{
+        if order?.poster?.id == USER.id && order?.order_status == "PENDING" {
             confrimCancelView.visibility = .visible
         } else {
             confrimCancelView.visibility = .gone
         }
+        
     }
     
     @IBAction func goToMealPressed(_ sender: Any) {
