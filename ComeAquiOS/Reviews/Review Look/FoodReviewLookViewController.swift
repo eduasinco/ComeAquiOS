@@ -87,12 +87,14 @@ class FoodReviewLookViewController: UIViewController {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == tableView {
-            if scrollView.contentOffset.y > headerView.frame.height - shortHeaderView.frame.height {
-                headerTopConstraint.constant = -headerView.frame.height + shortHeaderView.frame.height + scrollView.contentOffset.y
-                headerView.dropShadow(radius: 5, opacity: 5)
-            } else {
-                headerTopConstraint.constant = 0
+            print(scrollView.contentOffset.y, headerView.frame.height)
+            if scrollView.contentOffset.y < headerView.frame.height - shortHeaderView.frame.height {
+                headerTopConstraint.constant = -scrollView.contentOffset.y
                 headerView.dropShadow()
+            } else {
+                headerTopConstraint.constant = -(headerView.frame.height - shortHeaderView.frame.height)
+                headerView.dropShadow(radius: 5, opacity: 5)
+
             }
         }
     }
@@ -192,6 +194,7 @@ extension FoodReviewLookViewController {
                 self.reviews = self.foodPost!.reviews!
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.setViewDetails()
                 }
             } catch {}
         }, error: {(data: Data?) -> Void in})

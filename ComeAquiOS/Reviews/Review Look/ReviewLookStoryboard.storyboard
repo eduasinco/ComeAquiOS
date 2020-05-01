@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8kp-4U-tXe">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" rowHeight="200" id="Muo-2x-Cal" customClass="ReviewTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
@@ -337,7 +337,7 @@
                             <constraint firstItem="rCY-Uh-lhe" firstAttribute="top" secondItem="VsJ-wA-02C" secondAttribute="top" id="DN3-Tn-z8i"/>
                             <constraint firstItem="rCY-Uh-lhe" firstAttribute="trailing" secondItem="VsJ-wA-02C" secondAttribute="trailing" id="YH1-hT-bRZ"/>
                             <constraint firstItem="8kp-4U-tXe" firstAttribute="leading" secondItem="VsJ-wA-02C" secondAttribute="leading" id="Yd4-QS-IlD"/>
-                            <constraint firstItem="8kp-4U-tXe" firstAttribute="top" secondItem="LhE-cA-s3I" secondAttribute="top" id="g1l-xW-2P3"/>
+                            <constraint firstItem="8kp-4U-tXe" firstAttribute="top" secondItem="VsJ-wA-02C" secondAttribute="top" id="YhM-ZN-XLM"/>
                             <constraint firstItem="rCY-Uh-lhe" firstAttribute="leading" secondItem="VsJ-wA-02C" secondAttribute="leading" id="jmE-ef-VVD"/>
                             <constraint firstAttribute="bottom" secondItem="8kp-4U-tXe" secondAttribute="bottom" id="xtp-02-UHa"/>
                         </constraints>

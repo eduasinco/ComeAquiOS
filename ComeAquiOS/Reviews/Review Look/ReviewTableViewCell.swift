@@ -62,7 +62,6 @@ class ReviewTableViewCell: UITableViewCell {
         
         if review.replies!.count > 0 {
             wholeReplyView.visibility = .visible
-            wholeReplyView.visibility = .gone
             let reply = review.replies![0]
             // replyerImage.loadImageUsingUrlString(urlString: reply.owner!.profile_photo!)
             replyerName.text = reply.owner?.full_name
