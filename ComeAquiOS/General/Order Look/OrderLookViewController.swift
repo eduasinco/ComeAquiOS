@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 
 class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var posterImage: URLImageView!
     @IBOutlet weak var posterName: UILabel!
     @IBOutlet weak var posterUsername: UILabel!
@@ -23,6 +24,8 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     @IBOutlet weak var subtotal: UILabel!
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var confrimCancelView: UIStackView!
+    
+    var imageScrollVC: ImageScrollViewController?
     
     var orderId: Int?
     var order: OrderObject?
@@ -48,6 +51,7 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
         setMapView()
         subtotal.text = priceString
         total.text = priceString
+        imageScrollVC?.foodPostId = self.order?.post!.id
     }
     
     func setMapView() {
@@ -98,6 +102,8 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
         } else if segue.identifier == "FoodLookSegue" {
             let foodLookContainer = segue.destination as? FoodLookViewController
             foodLookContainer?.foodPostId = self.order?.post!.id
+        } else if segue.identifier == "ImageScrollSegue" {
+            imageScrollVC = segue.destination as? ImageScrollViewController
         }
     }
 }

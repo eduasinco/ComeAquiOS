@@ -37,6 +37,8 @@
 		87D8A5A4245ABEE20056AC9B /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A5A3245ABEE20056AC9B /* ReviewTableViewCell.swift */; };
 		87D8A5A8245B80510056AC9B /* WriteReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A5A7245B80510056AC9B /* WriteReplyTableViewCell.swift */; };
 		87D8A5AA245B805F0056AC9B /* WriteReplyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A5A9245B805F0056AC9B /* WriteReplyStoryboard.storyboard */; };
+		87D8A5AF245CA61F0056AC9B /* ImageScrollStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A5AE245CA61F0056AC9B /* ImageScrollStoryboard.storyboard */; };
+		87D8A5B1245CA6A90056AC9B /* ImageScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A5B0245CA6A90056AC9B /* ImageScrollViewController.swift */; };
 		87E02C8924513864005C272A /* ImageLookerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E02C8824513864005C272A /* ImageLookerViewController.swift */; };
 		87E02C8B24513880005C272A /* ImageLookerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E02C8A24513880005C272A /* ImageLookerStoryboard.storyboard */; };
 		87FC9E7A2447FF6200810ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E792447FF6200810ECF /* AppDelegate.swift */; };
@@ -126,6 +128,8 @@
 		87D8A5A3245ABEE20056AC9B /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		87D8A5A7245B80510056AC9B /* WriteReplyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteReplyTableViewCell.swift; sourceTree = "<group>"; };
 		87D8A5A9245B805F0056AC9B /* WriteReplyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WriteReplyStoryboard.storyboard; sourceTree = "<group>"; };
+		87D8A5AE245CA61F0056AC9B /* ImageScrollStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageScrollStoryboard.storyboard; sourceTree = "<group>"; };
+		87D8A5B0245CA6A90056AC9B /* ImageScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollViewController.swift; sourceTree = "<group>"; };
 		87E02C8824513864005C272A /* ImageLookerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLookerViewController.swift; sourceTree = "<group>"; };
 		87E02C8A24513880005C272A /* ImageLookerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageLookerStoryboard.storyboard; sourceTree = "<group>"; };
 		87FC9E762447FF6200810ECF /* ComeAquiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComeAquiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -327,6 +331,15 @@
 			path = "Write Review";
 			sourceTree = "<group>";
 		};
+		87D8A5AD245CA60A0056AC9B /* Image Scroll View */ = {
+			isa = PBXGroup;
+			children = (
+				87D8A5B0245CA6A90056AC9B /* ImageScrollViewController.swift */,
+				87D8A5AE245CA61F0056AC9B /* ImageScrollStoryboard.storyboard */,
+			);
+			path = "Image Scroll View";
+			sourceTree = "<group>";
+		};
 		87E02C8724513846005C272A /* Image Looker */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +520,7 @@
 		87FC9EE9244E9FA600810ECF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				87D8A5AD245CA60A0056AC9B /* Image Scroll View */,
 				879CC0022458F3BA00383F68 /* Date Time Picker */,
 				879CC0012458F2BC00383F68 /* Types */,
 				87E02C8724513846005C272A /* Image Looker */,
@@ -663,6 +677,7 @@
 				87D8A53B245A06FF0056AC9B /* OrdersTabStoryboard.storyboard in Resources */,
 				87D8A59C245AB2DC0056AC9B /* NotificationLookStoryboard.storyboard in Resources */,
 				87FC9EEE244E9FE600810ECF /* PlaceAutocompleteStoryboard.storyboard in Resources */,
+				87D8A5AF245CA61F0056AC9B /* ImageScrollStoryboard.storyboard in Resources */,
 				87D8A5AA245B805F0056AC9B /* WriteReplyStoryboard.storyboard in Resources */,
 				87FC9F062451351000810ECF /* ImageImporterStoryboard.storyboard in Resources */,
 				87FC9EC2244804C300810ECF /* FoodLookStoryboard.storyboard in Resources */,
@@ -764,6 +779,7 @@
 				87FC9ED9244805FE00810ECF /* WriteCommentViewController.swift in Sources */,
 				87FC9EE6244E57BD00810ECF /* MapPickerViewController.swift in Sources */,
 				87FC9EC4244804DD00810ECF /* Strings.swift in Sources */,
+				87D8A5B1245CA6A90056AC9B /* ImageScrollViewController.swift in Sources */,
 				87FC9EEC244E9FD300810ECF /* PlaceAutocompleteViewController.swift in Sources */,
 				87D8A597245A9F430056AC9B /* NotificationTableViewCell.swift in Sources */,
 				87D8A595245A27690056AC9B /* HostingViewController.swift in Sources */,
