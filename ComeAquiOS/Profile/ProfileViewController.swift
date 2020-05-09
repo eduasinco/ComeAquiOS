@@ -13,9 +13,9 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate, UIGestureRe
         @IBOutlet weak var headerView: PassthroughView!
         @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
         @IBOutlet weak var headerHeighConstraint: NSLayoutConstraint!
-        @IBOutlet weak var segmentView: UISegmentedControl!
-        
-        @IBOutlet weak var externalScrollView: UIScrollView!
+    
+    @IBOutlet weak var segmentView: UISegmentedControl!
+    @IBOutlet weak var externalScrollView: UIScrollView!
         @IBOutlet weak var scrollView1: UIScrollView!
         @IBOutlet weak var scrollView1Width: NSLayoutConstraint!
         @IBOutlet weak var container1TopConstraint: NSLayoutConstraint!

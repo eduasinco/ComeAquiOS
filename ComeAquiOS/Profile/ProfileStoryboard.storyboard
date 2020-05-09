@@ -139,10 +139,10 @@
                                     <constraint firstAttribute="trailing" secondItem="Udm-ye-CBc" secondAttribute="trailing" id="rmK-AU-qCl"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfS-YZ-x2y" customClass="PassthroughView" customModule="ProfileView" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfS-YZ-x2y" customClass="PassthroughView" customModule="ComeAquiOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="400"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="slN-iq-Yan" customClass="ReselectableSegmentedControl" customModule="ProfileView" customModuleProvider="target">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="slN-iq-Yan">
                                         <rect key="frame" x="0.0" y="350" width="414" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="VhR-dz-Tn0"/>
@@ -152,6 +152,9 @@
                                             <segment title="Second"/>
                                             <segment title="Third"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="indexChanged:" destination="9c3-aH-ZYm" eventType="valueChanged" id="47X-bp-JTF"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -190,7 +193,7 @@
                         <outlet property="scrollView1Width" destination="05X-Np-CAK" id="A8W-8x-V4b"/>
                         <outlet property="scrollView2" destination="7xP-fC-6Ce" id="lv0-qi-v6S"/>
                         <outlet property="scrollView3" destination="4Aa-oH-cqZ" id="5lg-X8-TPK"/>
-                        <outlet property="segmentView" destination="slN-iq-Yan" id="27A-q9-jIW"/>
+                        <outlet property="segmentView" destination="slN-iq-Yan" id="cyY-ng-MLF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oZ3-ZJ-cwM" sceneMemberID="firstResponder"/>
