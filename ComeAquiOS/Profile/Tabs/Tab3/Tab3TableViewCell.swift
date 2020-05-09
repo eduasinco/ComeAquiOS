@@ -1,17 +1,16 @@
 //
-//  CustomTableViewCell.swift
+//  Tab3TableViewCell.swift
 //  ComeAquiOS
 //
-//  Created by eduardo rodríguez on 15/04/2020.
+//  Created by eduardo rodríguez on 08/05/2020.
 //  Copyright © 2020 Eduardo Rodríguez Pérez. All rights reserved.
 //
 
-
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
-    @IBOutlet weak var titleLabel: UILabel!
+class Tab3TableViewCell: UITableViewCell {
 
+    @IBOutlet weak var label: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,4 +23,3 @@ class CustomTableViewCell: UITableViewCell {
     }
 
 }
-

@@ -63,8 +63,7 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
         }
         return valid
     }
-      
-
+    
     @IBAction func editPost(_ sender: Any) {
         if validateData() {
             pathFoodPost(visible: true)
@@ -81,7 +80,7 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
         let storyboard = UIStoryboard(name: "TypesStoryboard", bundle: nil)
         typesVC = storyboard.instantiateViewController(identifier: "TypesView") as? TypesViewController
         if let typesVC = self.typesVC {
-            typesVC.initialTypesString = self.foodPost?.food_type
+            typesVC.initialTypesString = self.foodPost?.food_type ?? "0000000"
             typesVC.delegate = self
             addChild(typesVC)
             stackView.insertArrangedSubview(typesVC.view, at: 1)
@@ -89,7 +88,6 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
             let h = typesVC.view.heightAnchor.constraint(equalToConstant: 20)
             h.priority = UILayoutPriority(rawValue: 1000)
             h.isActive = true
-
         }
     }
     

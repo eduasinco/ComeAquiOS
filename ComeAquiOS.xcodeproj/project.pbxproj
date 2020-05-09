@@ -19,6 +19,15 @@
 		879CBFFE2458F05500383F68 /* EditPostStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CBFFD2458F05500383F68 /* EditPostStoryboard.storyboard */; };
 		879CC0002458F2B900383F68 /* TypesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CBFFF2458F2B900383F68 /* TypesStoryboard.storyboard */; };
 		879CC0042458F3D100383F68 /* DateTimeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CC0032458F3D100383F68 /* DateTimeStoryboard.storyboard */; };
+		87AAF8A82466291E000CDC1D /* Tab1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8A72466291E000CDC1D /* Tab1ViewController.swift */; };
+		87AAF8AA24662939000CDC1D /* Tab2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8A924662939000CDC1D /* Tab2ViewController.swift */; };
+		87AAF8AC24662944000CDC1D /* Tab3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8AB24662944000CDC1D /* Tab3ViewController.swift */; };
+		87AAF8AE24662960000CDC1D /* Tab1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8AD24662960000CDC1D /* Tab1TableViewCell.swift */; };
+		87AAF8B024662968000CDC1D /* Tab2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8AF24662968000CDC1D /* Tab2TableViewCell.swift */; };
+		87AAF8B224662975000CDC1D /* Tab3TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8B124662975000CDC1D /* Tab3TableViewCell.swift */; };
+		87AAF8B42466298B000CDC1D /* Tab1Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8B32466298B000CDC1D /* Tab1Storyboard.storyboard */; };
+		87AAF8B624662996000CDC1D /* Tab2Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8B524662996000CDC1D /* Tab2Storyboard.storyboard */; };
+		87AAF8B8246629A9000CDC1D /* Tab3Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8B7246629A9000CDC1D /* Tab3Storyboard.storyboard */; };
 		87D8A533245920D00056AC9B /* OrderLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A532245920D00056AC9B /* OrderLookViewController.swift */; };
 		87D8A536245920E20056AC9B /* OrderLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */; };
 		87D8A539245A06EF0056AC9B /* OrdersTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */; };
@@ -51,7 +60,6 @@
 		87FC9E9B2448011900810ECF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E9A2448011900810ECF /* LoginViewController.swift */; };
 		87FC9E9D2448012800810ECF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9E9C2448012800810ECF /* RegisterViewController.swift */; };
 		87FC9E9F2448014500810ECF /* LoginOrRegisterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9E9E2448014500810ECF /* LoginOrRegisterStoryboard.storyboard */; };
-		87FC9EA12448018700810ECF /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EA02448018700810ECF /* CustomTableViewCell.swift */; };
 		87FC9EA3244801A100810ECF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EA2244801A100810ECF /* ProfileViewController.swift */; };
 		87FC9EA5244801AE00810ECF /* ProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC9EA4244801AE00810ECF /* ProfileStoryboard.storyboard */; };
 		87FC9EA7244801FD00810ECF /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC9EA6244801FD00810ECF /* NotificationsViewController.swift */; };
@@ -110,6 +118,15 @@
 		879CBFFD2458F05500383F68 /* EditPostStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPostStoryboard.storyboard; sourceTree = "<group>"; };
 		879CBFFF2458F2B900383F68 /* TypesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TypesStoryboard.storyboard; sourceTree = "<group>"; };
 		879CC0032458F3D100383F68 /* DateTimeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DateTimeStoryboard.storyboard; sourceTree = "<group>"; };
+		87AAF8A72466291E000CDC1D /* Tab1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1ViewController.swift; sourceTree = "<group>"; };
+		87AAF8A924662939000CDC1D /* Tab2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab2ViewController.swift; sourceTree = "<group>"; };
+		87AAF8AB24662944000CDC1D /* Tab3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab3ViewController.swift; sourceTree = "<group>"; };
+		87AAF8AD24662960000CDC1D /* Tab1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1TableViewCell.swift; sourceTree = "<group>"; };
+		87AAF8AF24662968000CDC1D /* Tab2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab2TableViewCell.swift; sourceTree = "<group>"; };
+		87AAF8B124662975000CDC1D /* Tab3TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab3TableViewCell.swift; sourceTree = "<group>"; };
+		87AAF8B32466298B000CDC1D /* Tab1Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab1Storyboard.storyboard; sourceTree = "<group>"; };
+		87AAF8B524662996000CDC1D /* Tab2Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab2Storyboard.storyboard; sourceTree = "<group>"; };
+		87AAF8B7246629A9000CDC1D /* Tab3Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab3Storyboard.storyboard; sourceTree = "<group>"; };
 		87D8A532245920D00056AC9B /* OrderLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLookViewController.swift; sourceTree = "<group>"; };
 		87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderLookStoryboard.storyboard; sourceTree = "<group>"; };
 		87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTabViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +161,6 @@
 		87FC9E9A2448011900810ECF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		87FC9E9C2448012800810ECF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		87FC9E9E2448014500810ECF /* LoginOrRegisterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginOrRegisterStoryboard.storyboard; sourceTree = "<group>"; };
-		87FC9EA02448018700810ECF /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		87FC9EA2244801A100810ECF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		87FC9EA4244801AE00810ECF /* ProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		87FC9EA6244801FD00810ECF /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +270,46 @@
 				879CC0032458F3D100383F68 /* DateTimeStoryboard.storyboard */,
 			);
 			path = "Date Time Picker";
+			sourceTree = "<group>";
+		};
+		87AAF8A3246628B7000CDC1D /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				87AAF8A4246628DE000CDC1D /* Tab1 */,
+				87AAF8A5246628E8000CDC1D /* Tab2 */,
+				87AAF8A6246628ED000CDC1D /* Tab3 */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		87AAF8A4246628DE000CDC1D /* Tab1 */ = {
+			isa = PBXGroup;
+			children = (
+				87AAF8A72466291E000CDC1D /* Tab1ViewController.swift */,
+				87AAF8AD24662960000CDC1D /* Tab1TableViewCell.swift */,
+				87AAF8B32466298B000CDC1D /* Tab1Storyboard.storyboard */,
+			);
+			path = Tab1;
+			sourceTree = "<group>";
+		};
+		87AAF8A5246628E8000CDC1D /* Tab2 */ = {
+			isa = PBXGroup;
+			children = (
+				87AAF8A924662939000CDC1D /* Tab2ViewController.swift */,
+				87AAF8AF24662968000CDC1D /* Tab2TableViewCell.swift */,
+				87AAF8B524662996000CDC1D /* Tab2Storyboard.storyboard */,
+			);
+			path = Tab2;
+			sourceTree = "<group>";
+		};
+		87AAF8A6246628ED000CDC1D /* Tab3 */ = {
+			isa = PBXGroup;
+			children = (
+				87AAF8AB24662944000CDC1D /* Tab3ViewController.swift */,
+				87AAF8B124662975000CDC1D /* Tab3TableViewCell.swift */,
+				87AAF8B7246629A9000CDC1D /* Tab3Storyboard.storyboard */,
+			);
+			path = Tab3;
 			sourceTree = "<group>";
 		};
 		87D8A531245920BC0056AC9B /* Order Look */ = {
@@ -405,7 +461,7 @@
 		87FC9E91244800A100810ECF /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				87FC9EA02448018700810ECF /* CustomTableViewCell.swift */,
+				87AAF8A3246628B7000CDC1D /* Tabs */,
 				87FC9EA2244801A100810ECF /* ProfileViewController.swift */,
 				87FC9EA4244801AE00810ECF /* ProfileStoryboard.storyboard */,
 			);
@@ -662,6 +718,7 @@
 				873B7E4F24590ECA00F5FF7E /* AttendPopUpStoryboard.storyboard in Resources */,
 				87FC9EDB2448060900810ECF /* WriteCommentStoryboard.storyboard in Resources */,
 				87FC9EF3244FB0B800810ECF /* AddFoodStoryboard.storyboard in Resources */,
+				87AAF8B8246629A9000CDC1D /* Tab3Storyboard.storyboard in Resources */,
 				87FC9ED6244805D200810ECF /* CommentsStoryboard.storyboard in Resources */,
 				87D8A591245A26C70056AC9B /* GuestingStoryboard.storyboard in Resources */,
 				87D8A58D245A26AA0056AC9B /* HostingStoryboard.storyboard in Resources */,
@@ -671,6 +728,7 @@
 				87D8A5A2245AB40C0056AC9B /* ReviewLookStoryboard.storyboard in Resources */,
 				87FC9E812447FF6200810ECF /* Main.storyboard in Resources */,
 				87FC9E9F2448014500810ECF /* LoginOrRegisterStoryboard.storyboard in Resources */,
+				87AAF8B624662996000CDC1D /* Tab2Storyboard.storyboard in Resources */,
 				87FC9EF6244FB19100810ECF /* MapPIckerStoryboard.storyboard in Resources */,
 				879CC0002458F2B900383F68 /* TypesStoryboard.storyboard in Resources */,
 				87E02C8B24513880005C272A /* ImageLookerStoryboard.storyboard in Resources */,
@@ -682,6 +740,7 @@
 				87FC9F062451351000810ECF /* ImageImporterStoryboard.storyboard in Resources */,
 				87FC9EC2244804C300810ECF /* FoodLookStoryboard.storyboard in Resources */,
 				87FC9EB92448034B00810ECF /* MapStoryboard.storyboard in Resources */,
+				87AAF8B42466298B000CDC1D /* Tab1Storyboard.storyboard in Resources */,
 				87FC9EB52448030E00810ECF /* LoadingCell.xib in Resources */,
 				87FC9EA5244801AE00810ECF /* ProfileStoryboard.storyboard in Resources */,
 				879CBFF62458DBD900383F68 /* OptionsPopUpStoryboard.storyboard in Resources */,
@@ -742,13 +801,14 @@
 			files = (
 				87D8A539245A06EF0056AC9B /* OrdersTabViewController.swift in Sources */,
 				87E02C8924513864005C272A /* ImageLookerViewController.swift in Sources */,
+				87AAF8B024662968000CDC1D /* Tab2TableViewCell.swift in Sources */,
 				87FC9F01245122DC00810ECF /* GaleryCameraPopUpViewController.swift in Sources */,
 				87FC9E9B2448011900810ECF /* LoginViewController.swift in Sources */,
+				87AAF8AC24662944000CDC1D /* Tab3ViewController.swift in Sources */,
 				8776FF0D24538220005A4D4C /* TextsClasses.swift in Sources */,
 				87FC9E7E2447FF6200810ECF /* ViewController.swift in Sources */,
 				87FC9ECC2448051900810ECF /* DateFormatting.swift in Sources */,
 				87FC9EBB2448038900810ECF /* TypesViewController.swift in Sources */,
-				87FC9EA12448018700810ECF /* CustomTableViewCell.swift in Sources */,
 				87D8A5A0245AB3EA0056AC9B /* FoodReviewLookViewController.swift in Sources */,
 				87FC9EFA244FBDDE00810ECF /* DateTimePickerViewController.swift in Sources */,
 				87FC9E9D2448012800810ECF /* RegisterViewController.swift in Sources */,
@@ -768,12 +828,15 @@
 				879CBFFC2458F04D00383F68 /* EditPostViewController.swift in Sources */,
 				87D8A59A245AB2CE0056AC9B /* NotificationViewController.swift in Sources */,
 				87FC9EC6244804F500810ECF /* Extensions.swift in Sources */,
+				87AAF8AA24662939000CDC1D /* Tab2ViewController.swift in Sources */,
 				87FC9EE4244E179F00810ECF /* FoodCardViewController.swift in Sources */,
 				87FC9EAB2448026800810ECF /* TableViewCell.swift in Sources */,
 				87FC9EB42448030E00810ECF /* LoadingCell.swift in Sources */,
 				87FC9EAD2448028500810ECF /* OrdersViewController.swift in Sources */,
 				87D8A5A4245ABEE20056AC9B /* ReviewTableViewCell.swift in Sources */,
+				87AAF8AE24662960000CDC1D /* Tab1TableViewCell.swift in Sources */,
 				87FC9ECE2448055D00810ECF /* CommentsViewController.swift in Sources */,
+				87AAF8B224662975000CDC1D /* Tab3TableViewCell.swift in Sources */,
 				879CBFF42458DBCC00383F68 /* OptionsPopUpViewController.swift in Sources */,
 				87FC9EFE245115C600810ECF /* ImportImagesViewController.swift in Sources */,
 				87FC9ED9244805FE00810ECF /* WriteCommentViewController.swift in Sources */,
@@ -782,6 +845,7 @@
 				87D8A5B1245CA6A90056AC9B /* ImageScrollViewController.swift in Sources */,
 				87FC9EEC244E9FD300810ECF /* PlaceAutocompleteViewController.swift in Sources */,
 				87D8A597245A9F430056AC9B /* NotificationTableViewCell.swift in Sources */,
+				87AAF8A82466291E000CDC1D /* Tab1ViewController.swift in Sources */,
 				87D8A595245A27690056AC9B /* HostingViewController.swift in Sources */,
 				87FC9EE0244D7DD000810ECF /* DinnersViewController.swift in Sources */,
 				87FC9EDD244939B000810ECF /* SegueViewController.swift in Sources */,

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D1l-Ob-Fwt">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab1 View Controller-->
+        <scene sceneID="Uot-Ps-iN1">
+            <objects>
+                <viewController storyboardIdentifier="Tab1View" id="D1l-Ob-Fwt" customClass="Tab1ViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Dm-LX-fUK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q0R-6F-XIt" customClass="MyOwnTableView" customModule="ComeAquiOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Tab1Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tab1Cell" id="zqJ-wX-0Bk" customClass="Tab1TableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zqJ-wX-0Bk" id="QeT-dc-nUY">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5J-DL-Pj4">
+                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="v5J-DL-Pj4" firstAttribute="leading" secondItem="QeT-dc-nUY" secondAttribute="leadingMargin" id="0GF-lK-lxQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="v5J-DL-Pj4" secondAttribute="bottom" id="3dC-mX-8a8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="v5J-DL-Pj4" secondAttribute="trailing" id="FjF-Ud-zGA"/>
+                                                <constraint firstItem="v5J-DL-Pj4" firstAttribute="top" secondItem="QeT-dc-nUY" secondAttribute="topMargin" id="cxw-br-xh5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="v5J-DL-Pj4" id="R2s-fs-QIk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="q0R-6F-XIt" secondAttribute="bottom" id="BvP-Do-iwU"/>
+                            <constraint firstItem="q0R-6F-XIt" firstAttribute="trailing" secondItem="Y8P-fl-vIM" secondAttribute="trailing" id="Q5R-xm-f9d"/>
+                            <constraint firstItem="q0R-6F-XIt" firstAttribute="top" secondItem="4Dm-LX-fUK" secondAttribute="top" id="rtH-dl-gde"/>
+                            <constraint firstItem="q0R-6F-XIt" firstAttribute="leading" secondItem="Y8P-fl-vIM" secondAttribute="leading" id="sFa-3F-DuL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Y8P-fl-vIM"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="tableView" destination="q0R-6F-XIt" id="Ji8-yd-tdQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QRe-WS-KXl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="66.666666666666671" y="98.4375"/>
+        </scene>
+    </scenes>
+</document>

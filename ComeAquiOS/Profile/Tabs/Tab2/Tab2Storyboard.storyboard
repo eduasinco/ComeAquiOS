@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aPa-tX-rqS">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab2 View Controller-->
+        <scene sceneID="3qy-hK-04s">
+            <objects>
+                <viewController storyboardIdentifier="Tab2View" id="aPa-tX-rqS" customClass="Tab2ViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UDG-vX-HZE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="14W-c3-8Wf" customClass="MyOwnTableView" customModule="ComeAquiOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Tab2Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tab2Cell" id="ZJt-jN-KyN" customClass="Tab2TableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZJt-jN-KyN" id="YH0-aW-vYK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFh-jJ-PDF">
+                                                    <rect key="frame" x="20" y="11" width="374" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="BFh-jJ-PDF" secondAttribute="trailing" id="K4Y-uz-4eV"/>
+                                                <constraint firstItem="BFh-jJ-PDF" firstAttribute="top" secondItem="YH0-aW-vYK" secondAttribute="topMargin" id="XLu-M3-djV"/>
+                                                <constraint firstItem="BFh-jJ-PDF" firstAttribute="top" secondItem="YH0-aW-vYK" secondAttribute="topMargin" id="fbc-4T-A03"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BFh-jJ-PDF" secondAttribute="bottom" id="i6n-Ew-M1O"/>
+                                                <constraint firstItem="BFh-jJ-PDF" firstAttribute="leading" secondItem="YH0-aW-vYK" secondAttribute="leadingMargin" id="nxG-dT-LVj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BFh-jJ-PDF" secondAttribute="bottom" id="odX-th-cvm"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="BFh-jJ-PDF" secondAttribute="trailing" id="r5d-f8-JdJ"/>
+                                                <constraint firstItem="BFh-jJ-PDF" firstAttribute="leading" secondItem="YH0-aW-vYK" secondAttribute="leadingMargin" id="wJy-2b-phS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="BFh-jJ-PDF" id="ybd-WM-YQC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="14W-c3-8Wf" firstAttribute="leading" secondItem="gJZ-Hz-uJT" secondAttribute="leading" id="ZxP-sV-GEh"/>
+                            <constraint firstAttribute="bottom" secondItem="14W-c3-8Wf" secondAttribute="bottom" id="eKb-bJ-9XP"/>
+                            <constraint firstItem="14W-c3-8Wf" firstAttribute="trailing" secondItem="gJZ-Hz-uJT" secondAttribute="trailing" id="hV0-fI-vBJ"/>
+                            <constraint firstItem="14W-c3-8Wf" firstAttribute="top" secondItem="UDG-vX-HZE" secondAttribute="top" id="oQ4-bs-GtO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gJZ-Hz-uJT"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="tableView" destination="14W-c3-8Wf" id="p7N-tl-GdO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LKy-PG-RKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="66.666666666666671" y="98.4375"/>
+        </scene>
+    </scenes>
+</document>
