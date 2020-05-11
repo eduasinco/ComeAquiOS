@@ -8,23 +8,61 @@
 
 import UIKit
 
-class ChangePasswordViewController: UIViewController {
+class ChangePasswordViewController: LoadViewController {
 
+    @IBOutlet weak var setPasswordStack: UIStackView!
+    @IBOutlet weak var oldPasswordText: ValidatedTextField!
+    @IBOutlet weak var newPasswordText: ValidatedTextField!
+    
+    @IBOutlet weak var passwordSettedSuccessfullyStack: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        passwordSettedSuccessfullyStack.visibility = .gone
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func savePassword(_ sender: Any) {
+        if newPasswordText.text!.passwrodValid() {
+            passwordChange()
+        } else {
+            newPasswordText.validationText = "A digit must occur at least once \n" +
+            "A lower case letter must occur at least once \n" +
+            "An upper case letter must occur at least once \n" +
+            "A special character (!?@#$%^&+=) must occur at least once \n" +
+            "No whitespace allowed in the entire string \n" +
+            "It needs to be at least 8 characters long"
+        }
     }
-    */
+}
 
+extension ChangePasswordViewController {
+    func passwordChange(){
+        present(alert, animated: false, completion: nil)
+        Server.patch("/password_change/",
+                     json:
+            [
+                "old_password": oldPasswordText.text,
+                "new_password": newPasswordText.text,
+            ],
+                     finish: {(data: Data?, response: URLResponse?) -> Void in
+                        DispatchQueue.main.async {
+                            self.alert.dismiss(animated: false, completion: nil)
+                        }
+                        guard let data = data else {
+                            return
+                        }
+                        do {
+                            guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
+                            guard let oldPasswordA = json["old_password"] as? [Any] else {
+                                DispatchQueue.main.async {
+                                    self.setPasswordStack.visibility = .gone
+                                    self.passwordSettedSuccessfullyStack.visibility = .visible
+                                }
+                                return
+                            }
+                            DispatchQueue.main.async {
+                                self.oldPasswordText.validationText = oldPasswordA[0] as? String
+                            }
+                        } catch _ {}
+        })
+    }
 }

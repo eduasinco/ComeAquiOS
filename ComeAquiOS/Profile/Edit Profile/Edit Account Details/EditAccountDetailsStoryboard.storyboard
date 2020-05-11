@@ -36,14 +36,19 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u89-em-aDU">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="89L-r8-6Hj">
                                                                 <rect key="frame" x="0.0" y="50" width="414" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="6sL-gZ-vQR"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                            </textField>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u89-em-aDU" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="50" id="6sL-gZ-vQR"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3g-Fg-AUg">
                                                                 <rect key="frame" x="0.0" y="100" width="414" height="50"/>
                                                                 <constraints>
@@ -53,14 +58,19 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1pd-k9-ftq">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wuv-wL-l0B">
                                                                 <rect key="frame" x="0.0" y="150" width="414" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="h4r-JJ-IIc"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                            </textField>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1pd-k9-ftq" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="50" id="h4r-JJ-IIc"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJt-Yl-eXX">
                                                                 <rect key="frame" x="0.0" y="200" width="414" height="50"/>
                                                                 <constraints>
@@ -70,14 +80,19 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzR-nM-Li7">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AFE-Re-uhi">
                                                                 <rect key="frame" x="0.0" y="250" width="414" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="eBQ-qJ-qpo"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                            </textField>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzR-nM-Li7" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="50" id="eBQ-qJ-qpo"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFr-Au-3m3">
                                                                 <rect key="frame" x="0.0" y="300" width="414" height="50"/>
                                                                 <constraints>
@@ -139,6 +154,9 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opr-SR-yDR">
                                                                         <rect key="frame" x="384" y="0.0" width="30" height="50"/>
                                                                         <state key="normal" title="Add"/>
+                                                                        <connections>
+                                                                            <segue destination="3HD-bu-7c1" kind="show" id="Fap-Df-eI4"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <constraints>
@@ -204,11 +222,20 @@
                         <outlet property="password" destination="Qkg-Wf-ZTo" id="eOQ-nv-ZOi"/>
                         <outlet property="phoneNumber" destination="NzR-nM-Li7" id="6YG-3h-GZi"/>
                         <segue destination="uSf-9V-csF" kind="presentation" identifier="EditEmailAddressSegue" id="fDf-aN-RCz"/>
+                        <segue destination="LhI-tI-5ZO" kind="presentation" identifier="ChangePasswordSegue" id="bUL-0r-yr6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ent-ws-Gb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-26.086956521739133" y="12.723214285714285"/>
+        </scene>
+        <!--ChangePasswordView-->
+        <scene sceneID="hEQ-kb-50S">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChangePasswordStoryboard" referencedIdentifier="ChangePasswordView" id="LhI-tI-5ZO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QOD-dS-0az" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="571" y="-59"/>
         </scene>
         <!--EditEmailAddressView-->
         <scene sceneID="WRj-u8-ipd">
@@ -217,6 +244,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBY-VR-gya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="573" y="13"/>
+        </scene>
+        <!--AddPaymentView-->
+        <scene sceneID="G3T-vI-QlW">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Zh-s4-RZd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="AddPaymentMethodStoryboard" referencedIdentifier="AddPaymentView" id="3HD-bu-7c1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aG1-2A-WfL"/>
+                </viewControllerPlaceholder>
+            </objects>
+            <point key="canvasLocation" x="551" y="84"/>
         </scene>
     </scenes>
     <resources>

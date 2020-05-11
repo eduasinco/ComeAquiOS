@@ -38,6 +38,13 @@
 		87AAF8CE24693BC7000CDC1D /* EditEmailAddressStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8CD24693BC7000CDC1D /* EditEmailAddressStoryboard.storyboard */; };
 		87AAF8D124694548000CDC1D /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8D024694548000CDC1D /* ChangePasswordViewController.swift */; };
 		87AAF8D324694556000CDC1D /* ChangePasswordStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8D224694556000CDC1D /* ChangePasswordStoryboard.storyboard */; };
+		87AAF8D724694B3A000CDC1D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8D624694B3A000CDC1D /* ForgotPasswordViewController.swift */; };
+		87AAF8DB24694B65000CDC1D /* ForgotPasswordStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8DA24694B65000CDC1D /* ForgotPasswordStoryboard.storyboard */; };
+		87AAF8DE2469D19B000CDC1D /* AddPaymentMethodStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8DD2469D19B000CDC1D /* AddPaymentMethodStoryboard.storyboard */; };
+		87AAF8E02469D1AB000CDC1D /* AddPaymentMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8DF2469D1AB000CDC1D /* AddPaymentMethodViewController.swift */; };
+		87AAF8E22469D39B000CDC1D /* PaymentMethodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8E12469D39B000CDC1D /* PaymentMethodTableViewCell.swift */; };
+		87AAF8E62469D76A000CDC1D /* CardLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8E52469D76A000CDC1D /* CardLookViewController.swift */; };
+		87AAF8EA2469DDD5000CDC1D /* AddCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8E92469DDD5000CDC1D /* AddCreditCardViewController.swift */; };
 		87D8A533245920D00056AC9B /* OrderLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A532245920D00056AC9B /* OrderLookViewController.swift */; };
 		87D8A536245920E20056AC9B /* OrderLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */; };
 		87D8A539245A06EF0056AC9B /* OrdersTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */; };
@@ -147,6 +154,13 @@
 		87AAF8CD24693BC7000CDC1D /* EditEmailAddressStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditEmailAddressStoryboard.storyboard; sourceTree = "<group>"; };
 		87AAF8D024694548000CDC1D /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		87AAF8D224694556000CDC1D /* ChangePasswordStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePasswordStoryboard.storyboard; sourceTree = "<group>"; };
+		87AAF8D624694B3A000CDC1D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		87AAF8DA24694B65000CDC1D /* ForgotPasswordStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPasswordStoryboard.storyboard; sourceTree = "<group>"; };
+		87AAF8DD2469D19B000CDC1D /* AddPaymentMethodStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPaymentMethodStoryboard.storyboard; sourceTree = "<group>"; };
+		87AAF8DF2469D1AB000CDC1D /* AddPaymentMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodViewController.swift; sourceTree = "<group>"; };
+		87AAF8E12469D39B000CDC1D /* PaymentMethodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodTableViewCell.swift; sourceTree = "<group>"; };
+		87AAF8E52469D76A000CDC1D /* CardLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLookViewController.swift; sourceTree = "<group>"; };
+		87AAF8E92469DDD5000CDC1D /* AddCreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCreditCardViewController.swift; sourceTree = "<group>"; };
 		87D8A532245920D00056AC9B /* OrderLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLookViewController.swift; sourceTree = "<group>"; };
 		87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderLookStoryboard.storyboard; sourceTree = "<group>"; };
 		87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTabViewController.swift; sourceTree = "<group>"; };
@@ -335,8 +349,9 @@
 		87AAF8B92468ECD1000CDC1D /* Edit Profile */ = {
 			isa = PBXGroup;
 			children = (
-				87AAF8C52468FF09000CDC1D /* Edit Account Details */,
+				87AAF8DC2469D17C000CDC1D /* Add Payment Method */,
 				87AAF8C02468F8F8000CDC1D /* Add Bio */,
+				87AAF8C52468FF09000CDC1D /* Edit Account Details */,
 				87AAF8BE2468EE2C000CDC1D /* EditProfileViewController.swift */,
 				87AAF8BC2468EDCD000CDC1D /* EditProfileStoryboard.storyboard */,
 			);
@@ -375,10 +390,32 @@
 		87AAF8CF24694531000CDC1D /* Change Password */ = {
 			isa = PBXGroup;
 			children = (
+				87AAF8D524694B27000CDC1D /* Forgot Password */,
 				87AAF8D024694548000CDC1D /* ChangePasswordViewController.swift */,
 				87AAF8D224694556000CDC1D /* ChangePasswordStoryboard.storyboard */,
 			);
 			path = "Change Password";
+			sourceTree = "<group>";
+		};
+		87AAF8D524694B27000CDC1D /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				87AAF8D624694B3A000CDC1D /* ForgotPasswordViewController.swift */,
+				87AAF8DA24694B65000CDC1D /* ForgotPasswordStoryboard.storyboard */,
+			);
+			path = "Forgot Password";
+			sourceTree = "<group>";
+		};
+		87AAF8DC2469D17C000CDC1D /* Add Payment Method */ = {
+			isa = PBXGroup;
+			children = (
+				87AAF8DF2469D1AB000CDC1D /* AddPaymentMethodViewController.swift */,
+				87AAF8E12469D39B000CDC1D /* PaymentMethodTableViewCell.swift */,
+				87AAF8E52469D76A000CDC1D /* CardLookViewController.swift */,
+				87AAF8E92469DDD5000CDC1D /* AddCreditCardViewController.swift */,
+				87AAF8DD2469D19B000CDC1D /* AddPaymentMethodStoryboard.storyboard */,
+			);
+			path = "Add Payment Method";
 			sourceTree = "<group>";
 		};
 		87D8A531245920BC0056AC9B /* Order Look */ = {
@@ -785,6 +822,7 @@
 				87FC9E862447FF6300810ECF /* LaunchScreen.storyboard in Resources */,
 				879CC0042458F3D100383F68 /* DateTimeStoryboard.storyboard in Resources */,
 				87FC9E832447FF6300810ECF /* Assets.xcassets in Resources */,
+				87AAF8DE2469D19B000CDC1D /* AddPaymentMethodStoryboard.storyboard in Resources */,
 				873B7E4F24590ECA00F5FF7E /* AttendPopUpStoryboard.storyboard in Resources */,
 				87FC9EDB2448060900810ECF /* WriteCommentStoryboard.storyboard in Resources */,
 				87FC9EF3244FB0B800810ECF /* AddFoodStoryboard.storyboard in Resources */,
@@ -808,6 +846,7 @@
 				87FC9EEE244E9FE600810ECF /* PlaceAutocompleteStoryboard.storyboard in Resources */,
 				87AAF8CE24693BC7000CDC1D /* EditEmailAddressStoryboard.storyboard in Resources */,
 				87D8A5AF245CA61F0056AC9B /* ImageScrollStoryboard.storyboard in Resources */,
+				87AAF8DB24694B65000CDC1D /* ForgotPasswordStoryboard.storyboard in Resources */,
 				87AAF8C42468F918000CDC1D /* AddBioStoryboard.storyboard in Resources */,
 				87AAF8D324694556000CDC1D /* ChangePasswordStoryboard.storyboard in Resources */,
 				87D8A5AA245B805F0056AC9B /* WriteReplyStoryboard.storyboard in Resources */,
@@ -874,11 +913,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87AAF8D724694B3A000CDC1D /* ForgotPasswordViewController.swift in Sources */,
 				87D8A539245A06EF0056AC9B /* OrdersTabViewController.swift in Sources */,
 				87E02C8924513864005C272A /* ImageLookerViewController.swift in Sources */,
 				87AAF8B024662968000CDC1D /* Tab2TableViewCell.swift in Sources */,
 				87FC9F01245122DC00810ECF /* GaleryCameraPopUpViewController.swift in Sources */,
 				87FC9E9B2448011900810ECF /* LoginViewController.swift in Sources */,
+				87AAF8E62469D76A000CDC1D /* CardLookViewController.swift in Sources */,
 				87AAF8AC24662944000CDC1D /* Tab3ViewController.swift in Sources */,
 				8776FF0D24538220005A4D4C /* TextsClasses.swift in Sources */,
 				87FC9E7E2447FF6200810ECF /* ViewController.swift in Sources */,
@@ -899,6 +940,7 @@
 				873B7E4C24590EA300F5FF7E /* AttendPopUpViewController.swift in Sources */,
 				87FC9ED3244805AC00810ECF /* CommentsTableViewCell.swift in Sources */,
 				87FC9EC8244804FF00810ECF /* Objects.swift in Sources */,
+				87AAF8EA2469DDD5000CDC1D /* AddCreditCardViewController.swift in Sources */,
 				87D8A5A8245B80510056AC9B /* WriteReplyTableViewCell.swift in Sources */,
 				87FC9EA7244801FD00810ECF /* NotificationsViewController.swift in Sources */,
 				87FC9ECA2448050A00810ECF /* Classes.swift in Sources */,
@@ -908,12 +950,14 @@
 				87AAF8AA24662939000CDC1D /* Tab2ViewController.swift in Sources */,
 				87FC9EE4244E179F00810ECF /* FoodCardViewController.swift in Sources */,
 				87FC9EAB2448026800810ECF /* TableViewCell.swift in Sources */,
+				87AAF8E02469D1AB000CDC1D /* AddPaymentMethodViewController.swift in Sources */,
 				87FC9EB42448030E00810ECF /* LoadingCell.swift in Sources */,
 				87FC9EAD2448028500810ECF /* OrdersViewController.swift in Sources */,
 				87D8A5A4245ABEE20056AC9B /* ReviewTableViewCell.swift in Sources */,
 				87AAF8AE24662960000CDC1D /* Tab1TableViewCell.swift in Sources */,
 				87FC9ECE2448055D00810ECF /* CommentsViewController.swift in Sources */,
 				87AAF8B224662975000CDC1D /* Tab3TableViewCell.swift in Sources */,
+				87AAF8E22469D39B000CDC1D /* PaymentMethodTableViewCell.swift in Sources */,
 				879CBFF42458DBCC00383F68 /* OptionsPopUpViewController.swift in Sources */,
 				87FC9EFE245115C600810ECF /* ImportImagesViewController.swift in Sources */,
 				87FC9ED9244805FE00810ECF /* WriteCommentViewController.swift in Sources */,

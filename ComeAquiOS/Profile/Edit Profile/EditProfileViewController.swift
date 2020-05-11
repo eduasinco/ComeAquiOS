@@ -79,7 +79,6 @@ extension EditProfileViewController: GaleryCameraPopUpProtocol {
             })
             profileImage.image = image
         }
-
     }
 }
 

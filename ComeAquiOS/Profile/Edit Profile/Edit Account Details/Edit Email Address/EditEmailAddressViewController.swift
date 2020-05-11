@@ -62,19 +62,21 @@ extension EditEmailAddressViewController {
                 return
             }
             do {
-                USER = try JSONDecoder().decode(User.self, from: data)
-                DispatchQueue.main.async {
-                    self.saveButton.visibility = .gone
-                    self.verificationCodeStack.visibility = .visible
-                }
-            } catch let _ {
-                do {
-                    guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
+                guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
+                if let message = json["message"] as? String {
                     DispatchQueue.main.async {
-                        self.emailText.validationText = json["message"] as? String
+                        self.emailText.validationText = message
                     }
-                }catch let _ {}
-            }
+                    return
+                } else {
+                    USER = try JSONDecoder().decode(User.self, from: data)
+                    DispatchQueue.main.async {
+                        self.saveButton.visibility = .gone
+                        self.verificationCodeStack.visibility = .visible
+                    }
+                }
+            } catch _ {}
+            
         })
     }
     func sendCode(){

@@ -10,9 +10,9 @@ import UIKit
 
 class EditAccountDetailsViewController: KUIViewController {
     
-    @IBOutlet weak var firstName: UITextField!
-    @IBOutlet weak var lastName: UITextField!
-    @IBOutlet weak var phoneNumber: UITextField!
+    @IBOutlet weak var firstName: ValidatedTextField!
+    @IBOutlet weak var lastName: ValidatedTextField!
+    @IBOutlet weak var phoneNumber: ValidatedTextField!
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var creditCard: UILabel!
@@ -50,8 +50,27 @@ class EditAccountDetailsViewController: KUIViewController {
         performSegue(withIdentifier: "ChangePasswordSegue", sender: nil)
     }
     
+    func isValid() -> Bool{
+        var valid = true
+        if firstName.text!.isEmpty {
+            firstName.validationText = "Insert a valid Name"
+            valid = false
+        }
+        if lastName.text!.isEmpty {
+            lastName.validationText = "Insert a valid Last Name"
+            valid = false
+        }
+        if phoneNumber.text!.isEmpty {
+            phoneNumber.validationText = "Insert a valid Phone "
+            valid = false
+        }
+        return valid
+    }
+    
     @IBAction func editProfile(_ sender: Any) {
-        patchAccount()
+        if isValid(){
+            patchAccount()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,7 +79,7 @@ class EditAccountDetailsViewController: KUIViewController {
         } else if segue.identifier == "EditEmailAddressSegue" {
             let editEAVC = segue.destination as? EditEmailAddressViewController
         } else if segue.identifier == "ChangePasswordSegue" {
-            let editEAVC = segue.destination as? EditEmailAddressViewController
+            let editEAVC = segue.destination as? ChangePasswordViewController
         }
     }
 }

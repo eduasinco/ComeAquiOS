@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tae-0v-8RC">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Payment Method View Controller-->
+        <scene sceneID="43z-s2-uCx">
+            <objects>
+                <viewController storyboardIdentifier="AddPaymentView" id="Tae-0v-8RC" customClass="AddPaymentMethodViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jgM-pu-e0l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvU-ud-XXL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWL-F0-yja">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tbj-u9-CvX">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Methods" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClY-CA-idh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="QJl-pb-fCD"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uSE-cp-yWs" customClass="MyOwnTableView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="50" width="414" height="718"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="Owm-sB-DmC"/>
+                                                        </constraints>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PaymentCell" id="4fI-O1-PeJ" customClass="PaymentMethodTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="28" width="414" height="70.5"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4fI-O1-PeJ" id="Dku-ei-UFd">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70.5"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dy5-eH-rIQ">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70.5"/>
+                                                                            <subviews>
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditcard" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-LP-Ws3">
+                                                                                    <rect key="frame" x="0.0" y="2" width="50" height="66.5"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="50" id="ddE-XV-y0c"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9EJ-5e-Nuf">
+                                                                                    <rect key="frame" x="50" y="0.0" width="314" height="70.5"/>
+                                                                                    <subviews>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yho-9e-IfE">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="314" height="35.5"/>
+                                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                            <nil key="textColor"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mg-Vd-CMq">
+                                                                                            <rect key="frame" x="0.0" y="35.5" width="314" height="35"/>
+                                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                            <nil key="textColor"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                    </subviews>
+                                                                                </stackView>
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IFz-Xr-c0T">
+                                                                                    <rect key="frame" x="364" y="0.5" width="50" height="69.5"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="50" id="NlG-XN-Nu5"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="70" id="7UK-eA-1ed"/>
+                                                                            </constraints>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="Dy5-eH-rIQ" secondAttribute="trailing" id="5Kv-Kt-WwT"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="Dy5-eH-rIQ" secondAttribute="bottom" id="Aaj-q9-h9r"/>
+                                                                        <constraint firstItem="Dy5-eH-rIQ" firstAttribute="top" secondItem="Dku-ei-UFd" secondAttribute="top" id="CJx-sk-X0B"/>
+                                                                        <constraint firstItem="Dy5-eH-rIQ" firstAttribute="leading" secondItem="Dku-ei-UFd" secondAttribute="leading" id="wfg-UY-otT"/>
+                                                                    </constraints>
+                                                                </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="checkImage" destination="IFz-Xr-c0T" id="lk6-3L-8h9"/>
+                                                                    <outlet property="paymentImage" destination="hrI-LP-Ws3" id="WGY-b6-emM"/>
+                                                                    <outlet property="paymentInfo" destination="5Mg-Vd-CMq" id="ezI-2a-h16"/>
+                                                                    <outlet property="paymentType" destination="yho-9e-IfE" id="ZrD-XG-G42"/>
+                                                                </connections>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                    </tableView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbR-wZ-gtf">
+                                                        <rect key="frame" x="0.0" y="768" width="414" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="P6C-gX-ZEy"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Add a payment method"/>
+                                                        <connections>
+                                                            <segue destination="tce-Ef-eJb" kind="show" id="VZ5-h6-XtO"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="tbj-u9-CvX" firstAttribute="top" secondItem="yWL-F0-yja" secondAttribute="top" id="6ZN-ds-jN7"/>
+                                            <constraint firstAttribute="trailing" secondItem="tbj-u9-CvX" secondAttribute="trailing" id="Uqn-OA-Ikk"/>
+                                            <constraint firstAttribute="bottom" secondItem="tbj-u9-CvX" secondAttribute="bottom" priority="999" id="fy2-Z9-Bcc"/>
+                                            <constraint firstItem="tbj-u9-CvX" firstAttribute="leading" secondItem="yWL-F0-yja" secondAttribute="leading" id="rDX-iD-8Qm"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="yWL-F0-yja" firstAttribute="width" secondItem="zvU-ud-XXL" secondAttribute="width" id="6Df-bB-od5"/>
+                                    <constraint firstAttribute="bottom" secondItem="yWL-F0-yja" secondAttribute="bottom" id="8LV-cD-qao"/>
+                                    <constraint firstAttribute="trailing" secondItem="yWL-F0-yja" secondAttribute="trailing" id="C1M-jN-pJB"/>
+                                    <constraint firstItem="yWL-F0-yja" firstAttribute="top" secondItem="zvU-ud-XXL" secondAttribute="top" id="WOK-rO-N8x"/>
+                                    <constraint firstItem="yWL-F0-yja" firstAttribute="height" secondItem="zvU-ud-XXL" secondAttribute="height" priority="250" id="dlF-Zj-WvC"/>
+                                    <constraint firstItem="yWL-F0-yja" firstAttribute="leading" secondItem="zvU-ud-XXL" secondAttribute="leading" id="svI-OV-nMU"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zvU-ud-XXL" firstAttribute="trailing" secondItem="LGY-8S-773" secondAttribute="trailing" id="Dr9-1B-Tw2"/>
+                            <constraint firstItem="zvU-ud-XXL" firstAttribute="top" secondItem="LGY-8S-773" secondAttribute="top" id="VgU-ZU-dph"/>
+                            <constraint firstItem="zvU-ud-XXL" firstAttribute="bottom" secondItem="LGY-8S-773" secondAttribute="bottom" id="hdh-1c-yMS"/>
+                            <constraint firstItem="zvU-ud-XXL" firstAttribute="leading" secondItem="LGY-8S-773" secondAttribute="leading" id="k65-Xd-iOu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LGY-8S-773"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="uSE-cp-yWs" id="u6H-fl-OnQ"/>
+                        <segue destination="YBG-jG-W7G" kind="show" identifier="CardLookSegue" id="SY6-tD-hcb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="408-hX-4KR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-33.333333333333336" y="49.553571428571423"/>
+        </scene>
+        <!--Add Credit Card View Controller-->
+        <scene sceneID="7ip-kl-9Jf">
+            <objects>
+                <viewController id="tce-Ef-eJb" customClass="AddCreditCardViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DbT-RE-FUw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ny2-5l-odD">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="182"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Y85-0E-CHE">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IDf-2q-xgU" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="dWH-Nd-wY0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="cc-number"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bfg-h0-rne">
+                                        <rect key="frame" x="0.0" y="66" width="414" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XY6-dE-eSA">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gQN-Sn-oE3" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="hNV-4y-W6o"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZn-fN-bCQ">
+                                                        <rect key="frame" x="50" y="0.0" width="5.5" height="50"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YYYY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m5D-gK-mdx" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                        <rect key="frame" x="55.5" y="0.0" width="100" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="flB-w9-DIf"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CVC" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lzM-OH-EJe" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                        <rect key="frame" x="344" y="0.0" width="70" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="70" id="EYn-pJ-cCM"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="JZn-fN-bCQ" secondAttribute="bottom" id="61x-d5-4yH"/>
+                                                    <constraint firstItem="gQN-Sn-oE3" firstAttribute="leading" secondItem="XY6-dE-eSA" secondAttribute="leading" id="BAY-eW-AP7"/>
+                                                    <constraint firstAttribute="bottom" secondItem="m5D-gK-mdx" secondAttribute="bottom" id="DFw-Zf-RdE"/>
+                                                    <constraint firstItem="m5D-gK-mdx" firstAttribute="top" secondItem="XY6-dE-eSA" secondAttribute="top" id="FzF-n0-ltX"/>
+                                                    <constraint firstAttribute="bottom" secondItem="lzM-OH-EJe" secondAttribute="bottom" id="R1g-fv-GC3"/>
+                                                    <constraint firstAttribute="trailing" secondItem="lzM-OH-EJe" secondAttribute="trailing" id="abB-ay-2MW"/>
+                                                    <constraint firstItem="JZn-fN-bCQ" firstAttribute="top" secondItem="XY6-dE-eSA" secondAttribute="top" id="cS4-JZ-QqK"/>
+                                                    <constraint firstItem="m5D-gK-mdx" firstAttribute="leading" secondItem="JZn-fN-bCQ" secondAttribute="trailing" id="h0R-jS-QcM"/>
+                                                    <constraint firstItem="gQN-Sn-oE3" firstAttribute="top" secondItem="XY6-dE-eSA" secondAttribute="top" id="jvf-wT-fCV"/>
+                                                    <constraint firstAttribute="height" constant="50" id="keg-cg-7U8"/>
+                                                    <constraint firstItem="lzM-OH-EJe" firstAttribute="top" secondItem="XY6-dE-eSA" secondAttribute="top" id="qXj-lw-Dn3"/>
+                                                    <constraint firstItem="JZn-fN-bCQ" firstAttribute="leading" secondItem="gQN-Sn-oE3" secondAttribute="trailing" id="sKM-qY-s4N"/>
+                                                    <constraint firstAttribute="bottom" secondItem="gQN-Sn-oE3" secondAttribute="bottom" id="z3x-jR-uHO"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YD-7h-mob">
+                                        <rect key="frame" x="0.0" y="132" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="rWJ-QX-UO5"/>
+                                        </constraints>
+                                        <state key="normal" title="Save Card"/>
+                                        <connections>
+                                            <action selector="saveCard:" destination="tce-Ef-eJb" eventType="touchUpInside" id="QHD-mK-cLc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zme-Qu-Okw" firstAttribute="trailing" secondItem="Ny2-5l-odD" secondAttribute="trailing" id="3Ib-py-Qrc"/>
+                            <constraint firstItem="Ny2-5l-odD" firstAttribute="top" secondItem="zme-Qu-Okw" secondAttribute="top" id="h5k-oz-KzR"/>
+                            <constraint firstItem="Ny2-5l-odD" firstAttribute="leading" secondItem="zme-Qu-Okw" secondAttribute="leading" id="x7K-fr-uEL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zme-Qu-Okw"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Oe9-ig-gTP"/>
+                    <connections>
+                        <outlet property="cardNumber" destination="IDf-2q-xgU" id="lWg-7T-Txx"/>
+                        <outlet property="cvc" destination="lzM-OH-EJe" id="TPb-Xi-yiM"/>
+                        <outlet property="month" destination="gQN-Sn-oE3" id="W0a-KF-Gyo"/>
+                        <outlet property="year" destination="m5D-gK-mdx" id="hJa-Kk-TKa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6lA-oC-HrN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="853.62318840579712" y="478.79464285714283"/>
+        </scene>
+        <!--Card Look View Controller-->
+        <scene sceneID="Ftd-Yq-0YB">
+            <objects>
+                <viewController id="YBG-jG-W7G" customClass="CardLookViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gej-RK-HB2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="huq-eM-2fL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddX-55-UUT">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="KdS-xH-shF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="****" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPl-tc-BjU">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="OBB-RY-abu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bs0-4O-DEe">
+                                        <rect key="frame" x="0.0" y="100" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="pej-iA-cG9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-/-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fan-yN-OgC">
+                                        <rect key="frame" x="0.0" y="150" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="TXj-df-zgD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEd-bU-Ojq">
+                                        <rect key="frame" x="0.0" y="200" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="mEk-P7-RAc"/>
+                                        </constraints>
+                                        <state key="normal" title="Options"/>
+                                        <connections>
+                                            <segue destination="z8N-PX-H01" kind="presentation" identifier="OptionsSegue" id="k0k-c5-Tb8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="huq-eM-2fL" firstAttribute="leading" secondItem="fPB-SU-cNQ" secondAttribute="leading" id="9ZT-gT-XcH"/>
+                            <constraint firstItem="fPB-SU-cNQ" firstAttribute="trailing" secondItem="huq-eM-2fL" secondAttribute="trailing" id="Yap-1X-YqU"/>
+                            <constraint firstItem="huq-eM-2fL" firstAttribute="top" secondItem="fPB-SU-cNQ" secondAttribute="top" id="j5I-pT-w6w"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fPB-SU-cNQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YUK-rO-UEq"/>
+                    <connections>
+                        <outlet property="cardExpiryDate" destination="fan-yN-OgC" id="hpt-L6-15l"/>
+                        <outlet property="cardNumber" destination="wPl-tc-BjU" id="cdf-UP-I0r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kyb-xX-CMe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="854" y="-216"/>
+        </scene>
+        <!--OptionsView-->
+        <scene sceneID="D8v-po-JTR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OptionsPopUpStoryboard" referencedIdentifier="OptionsView" id="z8N-PX-H01" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Yg-L0-nUe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1415" y="-224"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="creditcard" catalog="system" width="128" height="91"/>
+    </resources>
+</document>
