@@ -8,10 +8,10 @@
 
 import UIKit
 protocol GaleryCameraPopUpProtocol {
-    func from(_ gallery: Bool)
+    func image(_ image: UIImage)
 }
 
-class GaleryCameraPopUpViewController: UIViewController {
+class GaleryCameraPopUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var galleryButton: UIButton!
     @IBOutlet weak var camerButton: UIButton!
     @IBOutlet weak var popUp: UIView!
@@ -24,13 +24,28 @@ class GaleryCameraPopUpViewController: UIViewController {
     }
     
     @IBAction func galleryPress(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
-        delegate?.from(true)
+        importImage(true)
     }
     @IBAction func cameraPress(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        importImage(false)
+    }
+    
+    func importImage(_ gallery: Bool){
+        let image = UIImagePickerController()
+        image.delegate = self
+        image.sourceType = gallery ? .photoLibrary : .camera
+        image.allowsEditing = false
+        self.present(image, animated: true){}
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            delegate?.image(image)
+            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            // error
+        }
         self.dismiss(animated: true, completion: nil)
-        delegate?.from(false)
     }
 }

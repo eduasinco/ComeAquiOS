@@ -32,8 +32,8 @@ final class CardView: UIView {
 }
 
 class URLImageView: UIImageView {
-    public func loadImageUsingUrlString(urlString: String) {
-        let url = NSURL(string: SERVER + urlString)
+    public func loadImageUsingUrlString(urlString: String, isFullUrl: Bool = false) {
+        let url = NSURL(string: (isFullUrl ? SERVER : "") + urlString)
         URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, respones, error) in
             if error != nil {
                 print(error ?? "Errooooor")

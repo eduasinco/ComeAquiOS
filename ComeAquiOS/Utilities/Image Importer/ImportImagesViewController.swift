@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-
 
 protocol ImportImagesProtocol {
     func images(images: [UIImage])
@@ -65,23 +63,6 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
-    func importImage(_ gallery: Bool){
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = gallery ? .photoLibrary : .camera
-        image.allowsEditing = false
-        self.present(image, animated: true){}
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            postComplexPictures(urlString: SERVER + "/food_images/\(self.foodPostId!)/", pictures: image, finish: whenFinished)
-        } else {
-            // error
-        }
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GalleryCameraSegue" {
             let gcVC = segue.destination as? GaleryCameraPopUpViewController
@@ -101,14 +82,17 @@ extension ImportImagesViewController: GaleryCameraPopUpProtocol, ImageLookerProt
         buttonPressed?.setImage(UIImage(systemName: "camera"), for: .normal)
     }
     
-    func from(_ gallery: Bool) {
-        importImage(gallery)
+    func image(_ image: UIImage) {
+        self.spinners[buttonPressed!.tag].visibility = .visible
+        Server.uploadPictures(method: .post, urlString: SERVER + "/food_images/\(self.foodPostId!)/", withName: "image", pictures: image, finish: whenFinished)
     }
 }
 
 extension ImportImagesViewController {
-    func whenFinished(data: Data) {
+    func whenFinished(data: Data?) {
+        guard let data = data else {return}
         do {
+            self.spinners[self.buttonPressed!.tag].visibility = .gone
             let foodPostImage = try JSONDecoder().decode(FoodPostImageObject.self, from: data)
             images[Int(buttonPressed!.tag)] = foodPostImage
             DispatchQueue.main.async {
@@ -116,35 +100,6 @@ extension ImportImagesViewController {
             }
         } catch let jsonErr {
             print("json could'nt be parsed \(jsonErr)")
-        }
-    }
-    func postComplexPictures(urlString: String, pictures : UIImage, finish: @escaping ((Data)) -> Void) {
-        
-        let urll = URL(string: urlString)
-        guard let url = urll else { return }
-        
-        var result:(message:String, list:[[String: Any]],isSuccess:Bool) = (message: "Fail", list:[], isSuccess : false)
-        let headers: HTTPHeaders
-        headers = ["Content-type": "multipart/form-data",
-                   "Content-Disposition" : "form-data",
-                   "Authorization" : "Basic \(getBase64LoginString())"
-        ]
-        
-        self.spinners[buttonPressed!.tag].visibility = .visible
-        AF.upload(multipartFormData: { (multipartFormData) in
-//            for (key, value) in params {
-//                multipartFormData.append((value as! String).data(using: String.Encoding.utf8)!, withName: key)
-//            }
-            if let imageData = pictures.pngData() {
-                multipartFormData.append(imageData, withName: "image", fileName: "IMAGE.png", mimeType: "image/png")
-            }
-        }, to: url, usingThreshold: UInt64.init(), method: .post, headers: headers).response{ response in
-            if((response.data != nil)){
-                finish(response.data!)
-            } else {
-                print("error")
-            }
-            self.spinners[self.buttonPressed!.tag].visibility = .gone
         }
     }
 }
