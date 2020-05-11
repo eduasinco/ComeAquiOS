@@ -28,21 +28,39 @@ class EditAccountDetailsViewController: KUIViewController {
         self.bottomConstraintForKeyboard = bcfkb
         getUser()
     }
-    
     func setView(){
         guard let user = self.user else {return}
-        firstName.text = user.first_name
-        lastName.text = user.last_name
-        phoneNumber.text = user.phone_number
-        emailAddress.text = user.email
+        firstName.placeholder = user.first_name
+        lastName.placeholder = user.last_name
+        phoneNumber.placeholder = user.phone_number
+        emailAddress.placeholder = user.email
 
         guard let paymentMethod = self.paymentMethod else {return}
         creditCard.text = paymentMethod.last4
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.changeEmail(_:)))
+        emailAddress.addGestureRecognizer(gesture)
+        let pgesture = UITapGestureRecognizer(target: self, action: #selector(self.changePassword(_:)))
+        password.addGestureRecognizer(pgesture)
+    }
+    @objc func changeEmail(_ gestureRecognizer: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "EditEmailAddressSegue", sender: nil)
+    }
+    @objc func changePassword(_ gestureRecognizer: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "ChangePasswordSegue", sender: nil)
+    }
+    
+    @IBAction func editProfile(_ sender: Any) {
+        patchAccount()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GalleryCameraSegue" {
             let gcVC = segue.destination as? GaleryCameraPopUpViewController
+        } else if segue.identifier == "EditEmailAddressSegue" {
+            let editEAVC = segue.destination as? EditEmailAddressViewController
+        } else if segue.identifier == "ChangePasswordSegue" {
+            let editEAVC = segue.destination as? EditEmailAddressViewController
         }
     }
 }
@@ -84,6 +102,33 @@ extension EditAccountDetailsViewController {
             } catch let jsonErr {
                 print("json could'nt be parsed \(jsonErr)")
             }
+        })
+    }
+    
+    func patchAccount(){
+        present(alert, animated: false, completion: nil)
+        Server.patch("/edit_profile/",
+                     json:
+            [
+                "first_name": firstName.text,
+                "last_name": lastName.text,
+                "phone_number": phoneNumber.text
+            ],
+                     finish: {(data: Data?, response: URLResponse?) -> Void in
+                        DispatchQueue.main.async {
+                            self.alert.dismiss(animated: false, completion: nil)
+                        }
+                        guard let data = data else {
+                            return
+                        }
+                        do {
+                            DispatchQueue.main.async {
+                                self.navigationController?.popViewController(animated: true)
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        } catch let jsonErr {
+                            print("json could'nt be parsed \(jsonErr)")
+                        }
         })
     }
 }

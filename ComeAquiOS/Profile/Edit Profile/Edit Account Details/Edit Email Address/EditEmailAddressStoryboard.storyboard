@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B5q-KG-NtN">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Edit Email Address View Controller-->
+        <scene sceneID="Oxl-AW-rpj">
+            <objects>
+                <viewController storyboardIdentifier="EditEmailAddressView" id="B5q-KG-NtN" customClass="EditEmailAddressViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5iQ-74-E5y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TdE-Hh-wNu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="311.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ze1-6a-vnK">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="141"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your new email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnJ-Ub-hc9">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ErC-cT-yGK">
+                                                <rect key="frame" x="0.0" y="20.5" width="414" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SCM-b2-TAV" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="LsY-Xa-6FX"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email saved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFe-Bi-KO2">
+                                                <rect key="frame" x="0.0" y="70.5" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVb-Bg-MxS">
+                                                <rect key="frame" x="0.0" y="91" width="414" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="IaX-Iu-3JP"/>
+                                                </constraints>
+                                                <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="saveEmail:" destination="B5q-KG-NtN" eventType="touchUpInside" id="uQh-y1-CRd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="az1-0R-Vhs">
+                                        <rect key="frame" x="0.0" y="141" width="414" height="170.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter verification code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pz-IT-6Sn">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DJD-vG-fLa">
+                                                <rect key="frame" x="0.0" y="20.5" width="414" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verificatoin Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ixc-8K-NPC" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="oE9-an-d5p"/>
+                                                </constraints>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SL-8s-WfZ">
+                                                <rect key="frame" x="0.0" y="70.5" width="414" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="RbG-aA-Dw1"/>
+                                                </constraints>
+                                                <state key="normal" title="Send"/>
+                                                <connections>
+                                                    <action selector="sendVerificationCode:" destination="B5q-KG-NtN" eventType="touchUpInside" id="Pch-m6-BC3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7q-aO-YLX">
+                                                <rect key="frame" x="0.0" y="120.5" width="414" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="aHH-i8-Onh"/>
+                                                </constraints>
+                                                <state key="normal" title="Code didn't arrive? Send it again"/>
+                                                <connections>
+                                                    <action selector="codeDidntArrive:" destination="B5q-KG-NtN" eventType="touchUpInside" id="6NE-hT-xnV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ze1-6a-vnK" secondAttribute="trailing" id="QVX-0M-KkR"/>
+                                    <constraint firstItem="ze1-6a-vnK" firstAttribute="leading" secondItem="TdE-Hh-wNu" secondAttribute="leading" id="QqO-Mj-MRw"/>
+                                    <constraint firstItem="ze1-6a-vnK" firstAttribute="top" secondItem="TdE-Hh-wNu" secondAttribute="top" id="t1e-nc-jhZ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="TdE-Hh-wNu" firstAttribute="leading" secondItem="i7M-Ig-cmv" secondAttribute="leading" id="401-oc-6rh"/>
+                            <constraint firstItem="i7M-Ig-cmv" firstAttribute="trailing" secondItem="TdE-Hh-wNu" secondAttribute="trailing" id="92g-RS-d6b"/>
+                            <constraint firstItem="TdE-Hh-wNu" firstAttribute="top" secondItem="i7M-Ig-cmv" secondAttribute="top" id="ank-ZG-1yg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="i7M-Ig-cmv"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailSavedText" destination="kFe-Bi-KO2" id="a36-SQ-Gcp"/>
+                        <outlet property="emailText" destination="SCM-b2-TAV" id="kJp-fR-zOE"/>
+                        <outlet property="saveButton" destination="KVb-Bg-MxS" id="2h1-Hu-Mjq"/>
+                        <outlet property="verificationCodeStack" destination="az1-0R-Vhs" id="D5w-9Z-l3q"/>
+                        <outlet property="verificationCodeText" destination="Ixc-8K-NPC" id="eDg-bd-v9h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7k6-39-5jp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-358" y="-672"/>
+        </scene>
+    </scenes>
+</document>

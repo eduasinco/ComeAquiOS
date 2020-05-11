@@ -34,6 +34,10 @@
 		87AAF8C42468F918000CDC1D /* AddBioStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8C32468F918000CDC1D /* AddBioStoryboard.storyboard */; };
 		87AAF8C72468FF21000CDC1D /* EditAccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8C62468FF21000CDC1D /* EditAccountDetailsViewController.swift */; };
 		87AAF8C92468FF2F000CDC1D /* EditAccountDetailsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8C82468FF2F000CDC1D /* EditAccountDetailsStoryboard.storyboard */; };
+		87AAF8CC24693BB6000CDC1D /* EditEmailAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8CB24693BB6000CDC1D /* EditEmailAddressViewController.swift */; };
+		87AAF8CE24693BC7000CDC1D /* EditEmailAddressStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8CD24693BC7000CDC1D /* EditEmailAddressStoryboard.storyboard */; };
+		87AAF8D124694548000CDC1D /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8D024694548000CDC1D /* ChangePasswordViewController.swift */; };
+		87AAF8D324694556000CDC1D /* ChangePasswordStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8D224694556000CDC1D /* ChangePasswordStoryboard.storyboard */; };
 		87D8A533245920D00056AC9B /* OrderLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A532245920D00056AC9B /* OrderLookViewController.swift */; };
 		87D8A536245920E20056AC9B /* OrderLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */; };
 		87D8A539245A06EF0056AC9B /* OrdersTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */; };
@@ -139,6 +143,10 @@
 		87AAF8C32468F918000CDC1D /* AddBioStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddBioStoryboard.storyboard; sourceTree = "<group>"; };
 		87AAF8C62468FF21000CDC1D /* EditAccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountDetailsViewController.swift; sourceTree = "<group>"; };
 		87AAF8C82468FF2F000CDC1D /* EditAccountDetailsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditAccountDetailsStoryboard.storyboard; sourceTree = "<group>"; };
+		87AAF8CB24693BB6000CDC1D /* EditEmailAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEmailAddressViewController.swift; sourceTree = "<group>"; };
+		87AAF8CD24693BC7000CDC1D /* EditEmailAddressStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditEmailAddressStoryboard.storyboard; sourceTree = "<group>"; };
+		87AAF8D024694548000CDC1D /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		87AAF8D224694556000CDC1D /* ChangePasswordStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePasswordStoryboard.storyboard; sourceTree = "<group>"; };
 		87D8A532245920D00056AC9B /* OrderLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLookViewController.swift; sourceTree = "<group>"; };
 		87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderLookStoryboard.storyboard; sourceTree = "<group>"; };
 		87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTabViewController.swift; sourceTree = "<group>"; };
@@ -347,10 +355,30 @@
 		87AAF8C52468FF09000CDC1D /* Edit Account Details */ = {
 			isa = PBXGroup;
 			children = (
+				87AAF8CF24694531000CDC1D /* Change Password */,
+				87AAF8CA24693B9F000CDC1D /* Edit Email Address */,
 				87AAF8C62468FF21000CDC1D /* EditAccountDetailsViewController.swift */,
 				87AAF8C82468FF2F000CDC1D /* EditAccountDetailsStoryboard.storyboard */,
 			);
 			path = "Edit Account Details";
+			sourceTree = "<group>";
+		};
+		87AAF8CA24693B9F000CDC1D /* Edit Email Address */ = {
+			isa = PBXGroup;
+			children = (
+				87AAF8CB24693BB6000CDC1D /* EditEmailAddressViewController.swift */,
+				87AAF8CD24693BC7000CDC1D /* EditEmailAddressStoryboard.storyboard */,
+			);
+			path = "Edit Email Address";
+			sourceTree = "<group>";
+		};
+		87AAF8CF24694531000CDC1D /* Change Password */ = {
+			isa = PBXGroup;
+			children = (
+				87AAF8D024694548000CDC1D /* ChangePasswordViewController.swift */,
+				87AAF8D224694556000CDC1D /* ChangePasswordStoryboard.storyboard */,
+			);
+			path = "Change Password";
 			sourceTree = "<group>";
 		};
 		87D8A531245920BC0056AC9B /* Order Look */ = {
@@ -778,8 +806,10 @@
 				87D8A53B245A06FF0056AC9B /* OrdersTabStoryboard.storyboard in Resources */,
 				87D8A59C245AB2DC0056AC9B /* NotificationLookStoryboard.storyboard in Resources */,
 				87FC9EEE244E9FE600810ECF /* PlaceAutocompleteStoryboard.storyboard in Resources */,
+				87AAF8CE24693BC7000CDC1D /* EditEmailAddressStoryboard.storyboard in Resources */,
 				87D8A5AF245CA61F0056AC9B /* ImageScrollStoryboard.storyboard in Resources */,
 				87AAF8C42468F918000CDC1D /* AddBioStoryboard.storyboard in Resources */,
+				87AAF8D324694556000CDC1D /* ChangePasswordStoryboard.storyboard in Resources */,
 				87D8A5AA245B805F0056AC9B /* WriteReplyStoryboard.storyboard in Resources */,
 				87FC9F062451351000810ECF /* ImageImporterStoryboard.storyboard in Resources */,
 				87FC9EC2244804C300810ECF /* FoodLookStoryboard.storyboard in Resources */,
@@ -864,6 +894,7 @@
 				87D8A593245A275B0056AC9B /* GuestingViewController.swift in Sources */,
 				87FC9EE2244D7DE100810ECF /* DinnerTableViewCell.swift in Sources */,
 				8712315F24525370004C0049 /* Server.swift in Sources */,
+				87AAF8CC24693BB6000CDC1D /* EditEmailAddressViewController.swift in Sources */,
 				87D8A533245920D00056AC9B /* OrderLookViewController.swift in Sources */,
 				873B7E4C24590EA300F5FF7E /* AttendPopUpViewController.swift in Sources */,
 				87FC9ED3244805AC00810ECF /* CommentsTableViewCell.swift in Sources */,
@@ -891,6 +922,7 @@
 				87D8A5B1245CA6A90056AC9B /* ImageScrollViewController.swift in Sources */,
 				87FC9EEC244E9FD300810ECF /* PlaceAutocompleteViewController.swift in Sources */,
 				87D8A597245A9F430056AC9B /* NotificationTableViewCell.swift in Sources */,
+				87AAF8D124694548000CDC1D /* ChangePasswordViewController.swift in Sources */,
 				87AAF8C22468F90E000CDC1D /* AddBioViewController.swift in Sources */,
 				87AAF8C72468FF21000CDC1D /* EditAccountDetailsViewController.swift in Sources */,
 				87AAF8A82466291E000CDC1D /* Tab1ViewController.swift in Sources */,
