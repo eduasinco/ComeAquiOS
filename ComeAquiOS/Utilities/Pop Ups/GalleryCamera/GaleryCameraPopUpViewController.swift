@@ -40,9 +40,9 @@ class GaleryCameraPopUpViewController: UIViewController, UIImagePickerController
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            delegate?.image(image)
             self.navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)
+            delegate?.image(image)
         } else {
             // error
         }

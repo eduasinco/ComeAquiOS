@@ -50,7 +50,7 @@ class Server {
     static func post(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
         update(urlString, json: json, method: "POST", finish: finish)
     }
-    static func patch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void, error: @escaping (Data?) -> Void){
+    static func patch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
         update(urlString, json: json, method: "PATCH", finish: finish)
     }
     

@@ -96,8 +96,12 @@ class ProfileViewController: LoadViewController {
         performSegue(withIdentifier: "GalleryCameraSegue", sender: nil)
     }
     @IBAction func editProfile(_ sender: Any) {
+        performSegue(withIdentifier: "EditProfileSegue", sender: nil)
     }
     @IBAction func openConversationWithUser(_ sender: Any) {
+    }
+    @IBAction func options(_ sender: Any) {
+        performSegue(withIdentifier: "OptionsSegue", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -106,11 +110,31 @@ class ProfileViewController: LoadViewController {
         } else if segue.identifier == "GalleryCameraSegue" {
             let gcVC = segue.destination as? GaleryCameraPopUpViewController
             gcVC?.delegate = self
+        } else if segue.identifier == "OptionsSegue" {
+            let optionsVC = segue.destination as? OptionsPopUpViewController
+            var options: [String] = []
+            options.append("Log Out")
+            optionsVC?.options = options
+            optionsVC?.delegate = self
+        } else if segue.identifier == "EditProfileSegue" {
+            let editProfileVC = segue.destination as? EditProfileViewController
         }
     }
 }
 
-extension ProfileViewController: GaleryCameraPopUpProtocol {
+extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol{
+    func optionPressed(_ title: String) {
+        switch title {
+        case "Log Out":
+            let defaults = UserDefaults.standard
+            defaults.removeObject(forKey: "username")
+            defaults.removeObject(forKey: "password")
+            performSegue(withIdentifier: "GoToLoginOrRegisterView", sender: nil)
+            break
+        default:
+            break
+        }
+    }
     func image(_ image: UIImage) {
         if isBackgroundImageChanging {
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "background_photo", pictures: image, finish: {(data: Data?) -> Void in

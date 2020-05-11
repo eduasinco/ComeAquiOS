@@ -144,7 +144,7 @@ extension EditPostViewController {
                 } catch let jsonErr {
                     print("json could'nt be parsed \(jsonErr)")
                 }
-        }, error: {(data: Data?) -> Void in })
+        })
     }
 }
 

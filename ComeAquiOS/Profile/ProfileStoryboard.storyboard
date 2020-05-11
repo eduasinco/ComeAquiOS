@@ -148,15 +148,15 @@
                                             <constraint firstAttribute="height" constant="50" id="VhR-dz-Tn0"/>
                                         </constraints>
                                         <segments>
-                                            <segment title="First"/>
-                                            <segment title="Second"/>
-                                            <segment title="Third"/>
+                                            <segment title="Posts"/>
+                                            <segment title="Posts &amp; Reviews"/>
+                                            <segment title="Media"/>
                                         </segments>
                                         <connections>
                                             <action selector="indexChanged:" destination="9c3-aH-ZYm" eventType="valueChanged" id="47X-bp-JTF"/>
                                         </connections>
                                     </segmentedControl>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WIb-Bl-XcD" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WIb-Bl-XcD" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="175" id="wpw-pQ-8yQ"/>
@@ -173,7 +173,7 @@
                                             <action selector="changeBackgroundImage:" destination="9c3-aH-ZYm" eventType="touchUpInside" id="ICS-4Q-qFh"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Idx-fN-F4e" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Idx-fN-F4e" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
                                         <rect key="frame" x="132" y="100" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="OyU-EA-Fdz"/>
@@ -215,7 +215,7 @@
                                                     <segue destination="mwa-3H-GHW" kind="embed" identifier="RateSegue" id="hW9-X3-5vj"/>
                                                 </connections>
                                             </containerView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="sdfsdfsdfssdf slkdfjlskfj lskjdflskdjf" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pId-wh-kKH">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Bio" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pId-wh-kKH">
                                                 <rect key="frame" x="0.0" y="71" width="398" height="33"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -249,15 +249,28 @@
                                             <constraint firstAttribute="height" constant="50" id="Nwk-gU-fE6"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4X-PA-jWw">
+                                        <rect key="frame" x="364" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="P7j-hr-gBA"/>
+                                            <constraint firstAttribute="height" constant="50" id="yIA-rW-DF4"/>
+                                        </constraints>
+                                        <state key="normal" image="ellipsis" catalog="system"/>
+                                        <connections>
+                                            <action selector="options:" destination="9c3-aH-ZYm" eventType="touchUpInside" id="VWM-Hi-H8X"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="I4X-PA-jWw" secondAttribute="trailing" id="0Mx-gJ-1uK"/>
                                     <constraint firstItem="WIb-Bl-XcD" firstAttribute="top" secondItem="WfS-YZ-x2y" secondAttribute="top" id="1Ww-gh-ba1"/>
                                     <constraint firstItem="iAB-c3-c4W" firstAttribute="leading" secondItem="WfS-YZ-x2y" secondAttribute="leading" constant="8" id="2VI-hJ-T8o"/>
                                     <constraint firstAttribute="trailing" secondItem="WIb-Bl-XcD" secondAttribute="trailing" id="5Sj-Fe-fwB"/>
                                     <constraint firstItem="slN-iq-Yan" firstAttribute="leading" secondItem="WfS-YZ-x2y" secondAttribute="leading" id="BEt-MF-U1q"/>
                                     <constraint firstItem="Idx-fN-F4e" firstAttribute="centerX" secondItem="WfS-YZ-x2y" secondAttribute="centerX" id="C9Y-QP-jRt"/>
                                     <constraint firstItem="KD8-3B-UMT" firstAttribute="top" secondItem="iAB-c3-c4W" secondAttribute="bottom" constant="8" id="DE4-au-WVb"/>
+                                    <constraint firstItem="I4X-PA-jWw" firstAttribute="top" secondItem="WfS-YZ-x2y" secondAttribute="top" id="DXX-l2-EuP"/>
                                     <constraint firstItem="o6C-xj-tNn" firstAttribute="trailing" secondItem="WIb-Bl-XcD" secondAttribute="trailing" id="LQa-fU-3yE"/>
                                     <constraint firstItem="o6C-xj-tNn" firstAttribute="bottom" secondItem="WIb-Bl-XcD" secondAttribute="bottom" id="LmF-AC-Ls0"/>
                                     <constraint firstAttribute="trailing" secondItem="KD8-3B-UMT" secondAttribute="trailing" constant="8" id="Nc2-EQ-eRS"/>
@@ -313,6 +326,9 @@
                         <outlet property="userName" destination="Wyj-Zd-EiK" id="ohQ-oK-Uo2"/>
                         <outlet property="userUsername" destination="0qh-76-aqR" id="ws9-Xg-Bru"/>
                         <segue destination="50B-ZI-nOb" kind="presentation" identifier="GalleryCameraSegue" id="uIC-Y4-SxK"/>
+                        <segue destination="SqQ-Ut-2bX" kind="presentation" identifier="OptionsSegue" id="CU4-tc-3VN"/>
+                        <segue destination="EuG-Xb-tAq" kind="show" identifier="GoToLoginOrRegisterView" id="QCR-o5-jSS"/>
+                        <segue destination="Tc5-q6-Iqd" kind="show" identifier="EditProfileSegue" id="NSn-We-KC7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oZ3-ZJ-cwM" sceneMemberID="firstResponder"/>
@@ -414,7 +430,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3YK-5o-3Xr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1597" y="741"/>
+            <point key="canvasLocation" x="1674" y="643"/>
         </scene>
         <!--GalleryCameraPopUp-->
         <scene sceneID="ym8-JT-7Lb">
@@ -422,11 +438,42 @@
                 <viewControllerPlaceholder storyboardName="GaleryCameraPopUpStoryboard" referencedIdentifier="GalleryCameraPopUp" id="50B-ZI-nOb" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJf-hb-LL0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1426" y="799"/>
+            <point key="canvasLocation" x="1503" y="757"/>
+        </scene>
+        <!--OptionsView-->
+        <scene sceneID="YcE-WB-CyN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OptionsPopUpStoryboard" referencedIdentifier="OptionsView" id="SqQ-Ut-2bX" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="n4o-hk-aPI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G84-1Q-y0V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464" y="879"/>
+        </scene>
+        <!--LoginOrRegister-->
+        <scene sceneID="Yzt-m8-08t">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginOrRegisterStoryboard" referencedIdentifier="LoginOrRegister" id="EuG-Xb-tAq" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2Fc-GW-62B"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vtv-UT-JXj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1480" y="798"/>
+        </scene>
+        <!--EditProfileView-->
+        <scene sceneID="wNf-gi-CzD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditProfileStoryboard" referencedIdentifier="EditProfileView" id="Tc5-q6-Iqd" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0tu-ft-L3d"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6T9-R7-VKt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1483" y="950"/>
         </scene>
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="128" height="96"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="message.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

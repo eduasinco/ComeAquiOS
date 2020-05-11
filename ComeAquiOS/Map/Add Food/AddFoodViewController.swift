@@ -235,7 +235,7 @@ extension AddFoodViewController {
                         } catch let jsonErr {
                             print("json could'nt be parsed \(jsonErr)")
                         }
-        }, error: {(data: Data?) -> Void in })
+        })
     }
     func postFood(){
         present(alert, animated: false, completion: nil)
