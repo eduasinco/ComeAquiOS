@@ -7,6 +7,10 @@
 //
 
 import UIKit
+private class ResponseObject: Decodable {
+    var error_message: String?
+    var data: [PaymentMethodObject]?
+}
 
 class EditAccountDetailsViewController: KUIViewController {
     
@@ -114,9 +118,12 @@ extension EditAccountDetailsViewController {
                 return
             }
             do {
-                self.paymentMethod = try JSONDecoder().decode(PaymentMethodObject.self, from: data)
-                DispatchQueue.main.async {
-                    self.setView()
+                let responseO = try JSONDecoder().decode(ResponseObject.self, from: data)
+                if responseO.error_message == nil {
+                    self.paymentMethod = responseO.data![0]
+                    DispatchQueue.main.async {
+                        self.setView()
+                    }
                 }
             } catch let jsonErr {
                 print("json could'nt be parsed \(jsonErr)")

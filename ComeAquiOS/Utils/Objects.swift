@@ -129,3 +129,64 @@ public class PaymentMethodObject: Decodable {
     var chosen: Bool?
     var brand: String?
 }
+
+
+public class StripeAccountInfoObject: Decodable {
+    var id: String?
+    var business_profile: BusinessProfile?
+    var individual: Individual?
+    var payouts_enabled: Bool?
+    var requirements: Requirements?
+    var external_accounts: ExternalAccounts?
+    var error_message: String?
+}
+public class Individual: Decodable {
+    var id: String?
+    var id_number: Int?
+    var address: Address?
+    var dob: DOB?
+    var email: String?
+    var first_name: String?
+    var last_name: String?
+    var phone: String?
+    var ssn_last_4_provided: Bool?
+    var verification: Verification?
+}
+public class Address: Decodable {
+    var city: String?
+    var country: String?
+    var line1: String?
+    var line2: String?
+    var postal_code: String?
+    var state: String?
+}
+public class DOB: Decodable {
+    var day: Int?
+    var month: Int?
+    var year: Int?
+}
+public class Requirements: Decodable {
+    var currently_due: [String]?
+}
+public class BusinessProfile: Decodable {
+    var url: String?
+}
+public class ExternalAccounts: Decodable {
+    var url: [Account]?
+}
+public class Account: Decodable {
+    var id: String?
+    var account: String?
+    var bank_name: String?
+    var country: String?
+    var last4: String?
+    var routing_number: String?
+}
+public class Verification: Decodable {
+    var status: String?
+    var document: Document?
+}
+public class Document: Decodable{
+    var back: String?
+    var front: String?
+}
