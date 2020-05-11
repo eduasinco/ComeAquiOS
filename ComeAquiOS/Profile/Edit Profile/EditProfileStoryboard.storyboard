@@ -117,6 +117,7 @@
                                                                         <state key="normal" title="Edit"/>
                                                                         <connections>
                                                                             <action selector="editAccountDetails:" destination="WpN-hH-tGe" eventType="touchUpInside" id="U2K-k5-3pB"/>
+                                                                            <segue destination="avr-pL-lJs" kind="show" id="aqJ-OS-Yrn"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -283,6 +284,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FfY-Y3-Vdm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="577" y="94"/>
+        </scene>
+        <!--EditAccountDetailsView-->
+        <scene sceneID="rAj-z2-KE5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditAccountDetailsStoryboard" referencedIdentifier="EditAccountDetailsView" id="avr-pL-lJs" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="S8b-jd-rVn"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yfg-1R-IhA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="630" y="137"/>
         </scene>
         <!--GalleryCameraPopUp-->
         <scene sceneID="qV1-hm-tQD">

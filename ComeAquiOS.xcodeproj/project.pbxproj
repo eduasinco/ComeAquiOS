@@ -32,6 +32,8 @@
 		87AAF8BF2468EE2C000CDC1D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8BE2468EE2C000CDC1D /* EditProfileViewController.swift */; };
 		87AAF8C22468F90E000CDC1D /* AddBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8C12468F90E000CDC1D /* AddBioViewController.swift */; };
 		87AAF8C42468F918000CDC1D /* AddBioStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8C32468F918000CDC1D /* AddBioStoryboard.storyboard */; };
+		87AAF8C72468FF21000CDC1D /* EditAccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8C62468FF21000CDC1D /* EditAccountDetailsViewController.swift */; };
+		87AAF8C92468FF2F000CDC1D /* EditAccountDetailsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8C82468FF2F000CDC1D /* EditAccountDetailsStoryboard.storyboard */; };
 		87D8A533245920D00056AC9B /* OrderLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A532245920D00056AC9B /* OrderLookViewController.swift */; };
 		87D8A536245920E20056AC9B /* OrderLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */; };
 		87D8A539245A06EF0056AC9B /* OrdersTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */; };
@@ -135,6 +137,8 @@
 		87AAF8BE2468EE2C000CDC1D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		87AAF8C12468F90E000CDC1D /* AddBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBioViewController.swift; sourceTree = "<group>"; };
 		87AAF8C32468F918000CDC1D /* AddBioStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddBioStoryboard.storyboard; sourceTree = "<group>"; };
+		87AAF8C62468FF21000CDC1D /* EditAccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountDetailsViewController.swift; sourceTree = "<group>"; };
+		87AAF8C82468FF2F000CDC1D /* EditAccountDetailsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditAccountDetailsStoryboard.storyboard; sourceTree = "<group>"; };
 		87D8A532245920D00056AC9B /* OrderLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLookViewController.swift; sourceTree = "<group>"; };
 		87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderLookStoryboard.storyboard; sourceTree = "<group>"; };
 		87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTabViewController.swift; sourceTree = "<group>"; };
@@ -323,6 +327,7 @@
 		87AAF8B92468ECD1000CDC1D /* Edit Profile */ = {
 			isa = PBXGroup;
 			children = (
+				87AAF8C52468FF09000CDC1D /* Edit Account Details */,
 				87AAF8C02468F8F8000CDC1D /* Add Bio */,
 				87AAF8BE2468EE2C000CDC1D /* EditProfileViewController.swift */,
 				87AAF8BC2468EDCD000CDC1D /* EditProfileStoryboard.storyboard */,
@@ -337,6 +342,15 @@
 				87AAF8C32468F918000CDC1D /* AddBioStoryboard.storyboard */,
 			);
 			path = "Add Bio";
+			sourceTree = "<group>";
+		};
+		87AAF8C52468FF09000CDC1D /* Edit Account Details */ = {
+			isa = PBXGroup;
+			children = (
+				87AAF8C62468FF21000CDC1D /* EditAccountDetailsViewController.swift */,
+				87AAF8C82468FF2F000CDC1D /* EditAccountDetailsStoryboard.storyboard */,
+			);
+			path = "Edit Account Details";
 			sourceTree = "<group>";
 		};
 		87D8A531245920BC0056AC9B /* Order Look */ = {
@@ -772,6 +786,7 @@
 				87FC9EB92448034B00810ECF /* MapStoryboard.storyboard in Resources */,
 				87AAF8B42466298B000CDC1D /* Tab1Storyboard.storyboard in Resources */,
 				87FC9EB52448030E00810ECF /* LoadingCell.xib in Resources */,
+				87AAF8C92468FF2F000CDC1D /* EditAccountDetailsStoryboard.storyboard in Resources */,
 				87FC9EA5244801AE00810ECF /* ProfileStoryboard.storyboard in Resources */,
 				879CBFF62458DBD900383F68 /* OptionsPopUpStoryboard.storyboard in Resources */,
 				87D8A536245920E20056AC9B /* OrderLookStoryboard.storyboard in Resources */,
@@ -877,6 +892,7 @@
 				87FC9EEC244E9FD300810ECF /* PlaceAutocompleteViewController.swift in Sources */,
 				87D8A597245A9F430056AC9B /* NotificationTableViewCell.swift in Sources */,
 				87AAF8C22468F90E000CDC1D /* AddBioViewController.swift in Sources */,
+				87AAF8C72468FF21000CDC1D /* EditAccountDetailsViewController.swift in Sources */,
 				87AAF8A82466291E000CDC1D /* Tab1ViewController.swift in Sources */,
 				87D8A595245A27690056AC9B /* HostingViewController.swift in Sources */,
 				87FC9EE0244D7DD000810ECF /* DinnersViewController.swift in Sources */,

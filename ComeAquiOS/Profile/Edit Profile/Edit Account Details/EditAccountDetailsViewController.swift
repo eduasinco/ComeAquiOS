@@ -1,5 +1,5 @@
 //
-//  EditProfileViewController.swift
+//  EditAccountDetailsViewController.swift
 //  ComeAquiOS
 //
 //  Created by eduardo rodríguez on 10/05/2020.
@@ -8,82 +8,46 @@
 
 import UIKit
 
-class EditProfileViewController: LoadViewController {
-
-    @IBOutlet weak var profileImage: URLImageView!
-    @IBOutlet weak var backgroundImage: URLImageView!
-    @IBOutlet weak var bioText: UITextView!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var surname: UILabel!
-    @IBOutlet weak var phoneNumber: UILabel!
+class EditAccountDetailsViewController: KUIViewController {
+    
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var phoneNumber: UITextField!
+    @IBOutlet weak var emailAddress: UITextField!
+    @IBOutlet weak var password: UITextField!
     @IBOutlet weak var creditCard: UILabel!
     
+    
+    @IBOutlet weak var bcfkb: NSLayoutConstraint!
     var user: User?
     var paymentMethod: PaymentMethodObject?
     var isBackgroundImageChanging = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.bottomConstraintForKeyboard = bcfkb
         getUser()
     }
     
     func setView(){
         guard let user = self.user else {return}
-        backgroundImage.loadImageUsingUrlString(urlString: user.background_photo!, isFullUrl: true)
-        profileImage.loadImageUsingUrlString(urlString: user.profile_photo!, isFullUrl: true)
-        name.text = user.first_name
-        surname.text = user.last_name
-        bioText.text = user.bio
-        
+        firstName.text = user.first_name
+        lastName.text = user.last_name
+        phoneNumber.text = user.phone_number
+        emailAddress.text = user.email
+
         guard let paymentMethod = self.paymentMethod else {return}
         creditCard.text = paymentMethod.last4
-    }
-    
-    @IBAction func editProfileImage(_ sender: Any) {
-        isBackgroundImageChanging = false
-        performSegue(withIdentifier: "GalleryCameraSegue", sender: nil)
-    }
-    @IBAction func editBackgroundImage(_ sender: Any) {
-        isBackgroundImageChanging = true
-        performSegue(withIdentifier: "GalleryCameraSegue", sender: nil)
-    }
-    @IBAction func addBio(_ sender: Any) {
-    }
-    @IBAction func editAccountDetails(_ sender: Any) {
-    }
-    @IBAction func editBankAccountDetails(_ sender: Any) {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GalleryCameraSegue" {
             let gcVC = segue.destination as? GaleryCameraPopUpViewController
-            gcVC?.delegate = self
         }
     }
 }
 
-extension EditProfileViewController: GaleryCameraPopUpProtocol {
-    func image(_ image: UIImage) {
-        if isBackgroundImageChanging {
-            Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "background_photo", pictures: image, finish: {(data: Data?) -> Void in
-                        guard let data = data else {return}
-                        do {
-                        } catch {}
-                    })
-            backgroundImage.image = image
-        } else {
-            Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "profile_photo", pictures: image, finish: {(data: Data?) -> Void in
-                guard let data = data else {return}
-                do {
-                } catch {}
-            })
-            profileImage.image = image
-        }
-
-    }
-}
-
-extension EditProfileViewController {
+extension EditAccountDetailsViewController {
     func getUser(){
         Server.get("/profile_detail/\(USER.id!)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in

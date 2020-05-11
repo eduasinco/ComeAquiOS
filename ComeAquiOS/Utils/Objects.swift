@@ -120,3 +120,12 @@ public class NotificationObject: Decodable {
     var createdAt: String?
     var type_id: Int?
 }
+
+public class PaymentMethodObject: Decodable {
+    var id: String?
+    var last4: String?
+    var exp_month: Int?
+    var exp_year: Int?
+    var chosen: Bool?
+    var brand: String?
+}
