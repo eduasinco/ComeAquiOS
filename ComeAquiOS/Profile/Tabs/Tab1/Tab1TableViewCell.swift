@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol Tab1Delegate {
-    func touched(foodPost: FoodPostObject)
-}
-
 class Tab1TableViewCell: UITableViewCell {
     
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -33,17 +29,11 @@ class Tab1TableViewCell: UITableViewCell {
     @IBOutlet weak var mainBackground: CardView!
     @IBOutlet weak var shadowLayer: UIView!
     
-    var foodPost: FoodPostObject?
     var delegate: Tab1Delegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tap(_:))))
 
-    }
-    
-    @objc func tap(_ gestureRecognizer: UITapGestureRecognizer) {
-        delegate?.touched(foodPost: self.foodPost!)
     }
     
     func setFoodPostType(type: String){
@@ -72,7 +62,6 @@ class Tab1TableViewCell: UITableViewCell {
     }
     
     func setCell(_ object: FoodPostObject){
-        self.foodPost = object
         self.plateNameLabel.text = object.plate_name
         self.descriptionLabel.text = object.description
         self.timeLabel.text = Date.hhmmHappenedNowTodayYesterdayWeekDay(start: object.start_time!, end: object.end_time!)
@@ -81,6 +70,14 @@ class Tab1TableViewCell: UITableViewCell {
         
         self.mainBackground.layer.cornerRadius = 8
         self.mainBackground.layer.masksToBounds = true
+
+        self.shadowLayer.layer.cornerRadius = 8
+        self.shadowLayer.layer.masksToBounds = false
+        
+        self.shadowLayer.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.shadowLayer.layer.shadowColor = UIColor.black.cgColor
+        self.shadowLayer.layer.shadowOpacity = 0.23
+        self.shadowLayer.layer.shadowRadius = 4
 
         if object.images!.count > 0{
             guard let imageString = object.images![0].food_photo else {return}

@@ -19,22 +19,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Tab1Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tab1Cell" rowHeight="300" id="zqJ-wX-0Bk" customClass="Tab1TableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="300"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Tab1Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tab1Cell" id="zqJ-wX-0Bk" customClass="Tab1TableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="220.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zqJ-wX-0Bk" id="QeT-dc-nUY">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="220.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llN-8e-txK">
-                                                    <rect key="frame" x="28" y="0.0" width="358" height="300"/>
+                                                    <rect key="frame" x="28" y="16" width="358" height="188.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="peF-Vo-I5q" userLabel="Card Content" customClass="CardView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                    <rect key="frame" x="28" y="0.0" width="358" height="300"/>
+                                                    <rect key="frame" x="28" y="16" width="358" height="188.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="kff-Cx-0Jn" userLabel="Food Info View">
-                                                            <rect key="frame" x="16" y="116" width="326" height="168"/>
+                                                            <rect key="frame" x="16" y="116" width="326" height="56.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2E-Yc-zaf">
                                                                     <rect key="frame" x="0.0" y="0.0" width="326" height="16"/>
@@ -101,13 +101,13 @@
                                                                     </constraints>
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ow-TC-drJ" userLabel="Description">
-                                                                    <rect key="frame" x="0.0" y="19" width="326" height="126"/>
+                                                                    <rect key="frame" x="0.0" y="19" width="326" height="14.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HjU-zB-giI">
-                                                                    <rect key="frame" x="0.0" y="148" width="326" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="36.5" width="326" height="20"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food-time" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tH3-9j-DbH">
                                                                             <rect key="frame" x="0.0" y="0.0" width="13" height="20"/>
@@ -154,14 +154,14 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="llN-8e-txK" secondAttribute="trailing" constant="28" id="0iw-jk-gE7"/>
                                                 <constraint firstAttribute="trailing" secondItem="peF-Vo-I5q" secondAttribute="trailing" constant="28" id="2EO-ki-59J"/>
                                                 <constraint firstItem="peF-Vo-I5q" firstAttribute="leading" secondItem="QeT-dc-nUY" secondAttribute="leading" constant="28" id="52I-4D-Lms"/>
-                                                <constraint firstAttribute="bottom" secondItem="llN-8e-txK" secondAttribute="bottom" id="ROX-wA-IXu"/>
-                                                <constraint firstItem="llN-8e-txK" firstAttribute="top" secondItem="QeT-dc-nUY" secondAttribute="top" id="WOl-Z1-aRG"/>
-                                                <constraint firstItem="peF-Vo-I5q" firstAttribute="top" secondItem="QeT-dc-nUY" secondAttribute="top" id="jFd-n2-WvS"/>
-                                                <constraint firstAttribute="bottom" secondItem="peF-Vo-I5q" secondAttribute="bottom" id="tvV-aK-ZGf"/>
-                                                <constraint firstItem="llN-8e-txK" firstAttribute="leading" secondItem="QeT-dc-nUY" secondAttribute="leading" constant="28" id="wVT-Mx-Sf0"/>
+                                                <constraint firstItem="llN-8e-txK" firstAttribute="top" secondItem="peF-Vo-I5q" secondAttribute="top" id="HAR-FR-4Go"/>
+                                                <constraint firstItem="llN-8e-txK" firstAttribute="trailing" secondItem="peF-Vo-I5q" secondAttribute="trailing" id="MWD-sS-eEJ"/>
+                                                <constraint firstItem="llN-8e-txK" firstAttribute="bottom" secondItem="peF-Vo-I5q" secondAttribute="bottom" id="bgC-Oq-m6W"/>
+                                                <constraint firstItem="peF-Vo-I5q" firstAttribute="top" secondItem="QeT-dc-nUY" secondAttribute="top" constant="16" id="jFd-n2-WvS"/>
+                                                <constraint firstAttribute="bottom" secondItem="peF-Vo-I5q" secondAttribute="bottom" constant="16" id="tvV-aK-ZGf"/>
+                                                <constraint firstItem="llN-8e-txK" firstAttribute="leading" secondItem="peF-Vo-I5q" secondAttribute="leading" id="vjv-QV-Y24"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

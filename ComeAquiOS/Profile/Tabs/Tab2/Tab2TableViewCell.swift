@@ -48,20 +48,6 @@ class Tab2TableViewCell: UITableViewCell {
                 typeImages[i]!.visibility = .goneX
             }
         }
-        contentView.layoutIfNeeded()
-    }
-    
-    func putImage(url: String){
-        foodImageView.loadImageUsingUrlString(urlString: url)
-        foodImageView.isHidden = false
-        heightImageConstraint.constant = 100
-        contentView.layoutIfNeeded()
-    }
-    
-    func hideImage(){
-        foodImageView.isHidden = true
-        heightImageConstraint.constant = 0
-        contentView.layoutIfNeeded()
     }
     
     func setCell(_ object: FoodPostObject){
@@ -73,12 +59,21 @@ class Tab2TableViewCell: UITableViewCell {
         
         self.mainBackground.layer.cornerRadius = 8
         self.mainBackground.layer.masksToBounds = true
+
+        self.shadowLayer.layer.cornerRadius = 8
+        self.shadowLayer.layer.masksToBounds = false
+        
+        self.shadowLayer.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.shadowLayer.layer.shadowColor = UIColor.black.cgColor
+        self.shadowLayer.layer.shadowOpacity = 0.23
+        self.shadowLayer.layer.shadowRadius = 4
         
         if object.images!.count > 0{
             guard let imageString = object.images![0].food_photo else {return}
-            self.putImage(url: imageString)
+            foodImageView.loadImageUsingUrlString(urlString: imageString)
+            foodImageView.visibility = .visible
         } else {
-            self.hideImage()
+            foodImageView.visibility = .gone
         }
         
         if object.reviews!.count > 0 && object.reviews![0].id != nil {
@@ -88,7 +83,7 @@ class Tab2TableViewCell: UITableViewCell {
             reviewerName.text = object.reviews![0].owner!.username
             reviewerMessage.text = object.reviews![0].review
         } else {
-            reviewerView.visibility = .goneY
+            reviewerView.visibility = .gone
         }
     }
     
