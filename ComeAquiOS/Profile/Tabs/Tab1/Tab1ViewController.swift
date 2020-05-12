@@ -60,6 +60,12 @@ extension Tab1ViewController {
     }
 }
 
+extension Tab1ViewController: Tab1Delegate {
+    func touched(foodPost: FoodPostObject){
+        performSegue(withIdentifier: "FoodLookSegue", sender: foodPost)
+    }
+}
+
 extension Tab1ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
@@ -70,10 +76,10 @@ extension Tab1ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.setCell(data[indexPath.row])
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "FoodLookSegue", sender: data[indexPath.row])
-    }
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "FoodLookSegue", sender: data[indexPath.row])
+//    }
 }
 
 

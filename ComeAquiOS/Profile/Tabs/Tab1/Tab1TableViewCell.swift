@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol Tab1Delegate {
+    func touched(foodPost: FoodPostObject)
+}
+
 class Tab1TableViewCell: UITableViewCell {
     
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -29,9 +33,17 @@ class Tab1TableViewCell: UITableViewCell {
     @IBOutlet weak var mainBackground: CardView!
     @IBOutlet weak var shadowLayer: UIView!
     
+    var foodPost: FoodPostObject?
+    var delegate: Tab1Delegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tap(_:))))
+
+    }
+    
+    @objc func tap(_ gestureRecognizer: UITapGestureRecognizer) {
+        delegate?.touched(foodPost: self.foodPost!)
     }
     
     func setFoodPostType(type: String){
@@ -60,6 +72,7 @@ class Tab1TableViewCell: UITableViewCell {
     }
     
     func setCell(_ object: FoodPostObject){
+        self.foodPost = object
         self.plateNameLabel.text = object.plate_name
         self.descriptionLabel.text = object.description
         self.timeLabel.text = Date.hhmmHappenedNowTodayYesterdayWeekDay(start: object.start_time!, end: object.end_time!)

@@ -131,12 +131,12 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Udm-ye-CBc" secondAttribute="trailing" id="3rq-QQ-SBz"/>
                                     <constraint firstItem="Udm-ye-CBc" firstAttribute="height" secondItem="sFJ-ic-ZjE" secondAttribute="height" id="CZL-AH-pmT"/>
                                     <constraint firstItem="Udm-ye-CBc" firstAttribute="top" secondItem="sFJ-ic-ZjE" secondAttribute="top" id="CwK-6E-Ol7"/>
                                     <constraint firstAttribute="bottom" secondItem="Udm-ye-CBc" secondAttribute="bottom" id="Dhh-wP-Pdd"/>
                                     <constraint firstItem="Udm-ye-CBc" firstAttribute="leading" secondItem="sFJ-ic-ZjE" secondAttribute="leading" id="JgM-eQ-vuz"/>
-                                    <constraint firstItem="Udm-ye-CBc" firstAttribute="width" secondItem="sFJ-ic-ZjE" secondAttribute="width" priority="250" constant="828" id="ohe-Ew-4zx"/>
-                                    <constraint firstAttribute="trailing" secondItem="Udm-ye-CBc" secondAttribute="trailing" constant="-828" id="rmK-AU-qCl"/>
+                                    <constraint firstItem="Udm-ye-CBc" firstAttribute="width" secondItem="sFJ-ic-ZjE" secondAttribute="width" priority="200" constant="828" id="ohe-Ew-4zx"/>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfS-YZ-x2y" customClass="PassthroughView" customModule="ComeAquiOS" customModuleProvider="target">
