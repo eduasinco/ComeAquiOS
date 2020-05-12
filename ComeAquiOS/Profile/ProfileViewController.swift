@@ -83,7 +83,7 @@ class ProfileViewController: LoadViewController {
             bioTextView.text = user.bio
         }
         tab1VC?.userId = user.id
-        // tab2VC?.userId = user.id
+        tab2VC?.userId = user.id
         // tab3VC?.userId = user.id
     }
     
@@ -238,7 +238,7 @@ extension ProfileViewController: UIScrollViewDelegate, UIGestureRecognizerDelega
             if scrollView == scrollView1 {
                 tab1VC!.fetchMoreData()
             } else if scrollView == scrollView2 {
-                //tab2VC!.fetchMoreData()
+                tab2VC!.fetchMoreData()
             } else if scrollView == scrollView3 {
                 // tab3VC!.fetchMoreData()
             }

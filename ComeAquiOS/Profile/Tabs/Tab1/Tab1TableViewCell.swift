@@ -16,9 +16,6 @@ class Tab1TableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
-    
-    
-    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var vegetarian: UIImageView!
     @IBOutlet weak var vegan: UIImageView!
     @IBOutlet weak var wheat: UIImageView!
@@ -71,14 +68,6 @@ class Tab1TableViewCell: UITableViewCell {
         
         self.mainBackground.layer.cornerRadius = 8
         self.mainBackground.layer.masksToBounds = true
-
-        self.shadowLayer.layer.cornerRadius = 8
-        self.shadowLayer.layer.masksToBounds = false
-        
-        self.shadowLayer.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.shadowLayer.layer.shadowColor = UIColor.black.cgColor
-        self.shadowLayer.layer.shadowOpacity = 0.23
-        self.shadowLayer.layer.shadowRadius = 4
 
         if object.images!.count > 0{
             guard let imageString = object.images![0].food_photo else {return}
