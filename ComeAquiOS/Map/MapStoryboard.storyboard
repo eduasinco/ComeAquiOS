@@ -15,6 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wOO-sf-WI3" userLabel="Map View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wjR-Dd-0ho">
                                 <rect key="frame" x="8" y="52" width="30" height="30"/>
                                 <constraints>
@@ -22,22 +27,20 @@
                                     <constraint firstAttribute="height" constant="30" id="e1e-Jh-olX"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wOO-sf-WI3" userLabel="Map View">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-cr-Uml" customClass="PassThroughView" customModule="ComeAquiOS" customModuleProvider="target">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-cr-Uml" customClass="PassthroughView" customModule="ComeAquiOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <connections>
                                     <segue destination="2t8-Qs-nmg" kind="embed" identifier="MapPickerSegue" id="Boy-tT-Vmr"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJZ-NB-sJw">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJZ-NB-sJw">
                                 <rect key="frame" x="8" y="605" width="398" height="200"/>
                                 <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ypx-lw-UC2">
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypx-lw-UC2">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="999" constant="100" id="jVn-ez-2tn"/>
+                                        </constraints>
                                         <connections>
                                             <segue destination="7eR-9t-Sre" kind="embed" identifier="FoodCardSegue" id="6WX-qC-R1S"/>
                                         </connections>
@@ -201,7 +204,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="chY-vw-aW5">
-                                <rect key="frame" x="16" y="116" width="366" height="68"/>
+                                <rect key="frame" x="16" y="116" width="366" height="90"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcx-D3-1x9" userLabel="User Description">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
@@ -275,7 +278,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9v-2D-Tl6" userLabel="Post Description">
-                                        <rect key="frame" x="0.0" y="40" width="366" height="28"/>
+                                        <rect key="frame" x="0.0" y="40" width="366" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-PH-DEG">
                                                 <rect key="frame" x="0.0" y="23" width="366" height="20.5"/>
@@ -436,7 +439,7 @@
                 <viewControllerPlaceholder storyboardName="MapPIckerStoryboard" referencedIdentifier="MapPicker" id="2t8-Qs-nmg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ot1-pM-6Zw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919" y="-134"/>
+            <point key="canvasLocation" x="919" y="-150"/>
         </scene>
     </scenes>
     <resources>

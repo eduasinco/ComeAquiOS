@@ -65,8 +65,6 @@ class FoodLookViewController: KUIViewController {
         textView.isScrollEnabled = false
         self.bottomConstraintForKeyboard = bcfkb
         getFoodPost()
-        detailStackViewTopConstraint.constant = headerView.frame.height
-        
         sendButton.visibility = .gone
         
         dinnersStackView.isUserInteractionEnabled = true
@@ -110,6 +108,8 @@ class FoodLookViewController: KUIViewController {
             imageArray[i]!.visibility = .gone
             i += 1
         }
+        headerView.layoutIfNeeded()
+        detailStackViewTopConstraint.constant = headerView.frame.height
         
         plateName.text = foodPost.plate_name
         date.text = Date.hhmmHappenedNowTodayYesterdayWeekDay(start: foodPost.start_time!, end: foodPost.end_time!)

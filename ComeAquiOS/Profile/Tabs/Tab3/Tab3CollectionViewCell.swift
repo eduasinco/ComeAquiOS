@@ -9,6 +9,6 @@
 import UIKit
 
 class Tab3CollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var image: CellImageView!
+    @IBOutlet weak var foodImage: CellImageView!
     
 }

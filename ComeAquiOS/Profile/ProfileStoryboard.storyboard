@@ -16,22 +16,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFJ-ic-ZjE">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-ye-CBc">
-                                        <rect key="frame" x="0.0" y="0.0" width="1242" height="852"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1242" height="769"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rkG-XO-ehE">
-                                                <rect key="frame" x="0.0" y="0.0" width="1242" height="852"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1242" height="769"/>
                                                 <subviews>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9f-vt-iwo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5p-ym-Mo7">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                                                 <subviews>
                                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8P4-CL-gYE">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                                                         <connections>
                                                                             <segue destination="vwz-up-uC1" kind="embed" identifier="Tab1Segue" id="4st-k9-32B"/>
                                                                         </connections>
@@ -57,13 +57,13 @@
                                                         </constraints>
                                                     </scrollView>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xP-fC-6Ce">
-                                                        <rect key="frame" x="414" y="0.0" width="414" height="852"/>
+                                                        <rect key="frame" x="414" y="0.0" width="414" height="769"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3QD-ui-byl">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                                                 <subviews>
                                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhs-rI-5js">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                                                         <connections>
                                                                             <segue destination="eds-Af-uFO" kind="embed" identifier="Tab2Segue" id="m31-Zo-UZ1"/>
                                                                         </connections>
@@ -88,13 +88,13 @@
                                                         </constraints>
                                                     </scrollView>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Aa-oH-cqZ">
-                                                        <rect key="frame" x="828" y="0.0" width="414" height="852"/>
+                                                        <rect key="frame" x="828" y="0.0" width="414" height="769"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1y-t7-7rE">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                                                 <subviews>
                                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tl1-qB-9gP">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                                                         <connections>
                                                                             <segue destination="4aC-jY-75R" kind="embed" identifier="Tab3Segue" id="1iO-sQ-wvZ"/>
                                                                         </connections>
@@ -291,9 +291,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="sFJ-ic-ZjE" firstAttribute="trailing" secondItem="fjE-BY-3ca" secondAttribute="trailing" id="3ND-BK-emZ"/>
+                            <constraint firstItem="fjE-BY-3ca" firstAttribute="bottom" secondItem="sFJ-ic-ZjE" secondAttribute="bottom" id="3fK-dq-6eh"/>
                             <constraint firstItem="WfS-YZ-x2y" firstAttribute="trailing" secondItem="fjE-BY-3ca" secondAttribute="trailing" id="RV7-KS-OJ3"/>
                             <constraint firstItem="WfS-YZ-x2y" firstAttribute="top" secondItem="fjE-BY-3ca" secondAttribute="top" id="Rv7-5V-JrZ"/>
-                            <constraint firstAttribute="bottom" secondItem="sFJ-ic-ZjE" secondAttribute="bottom" id="TUO-or-BTs"/>
                             <constraint firstItem="sFJ-ic-ZjE" firstAttribute="leading" secondItem="fjE-BY-3ca" secondAttribute="leading" id="hFp-bT-Z9i"/>
                             <constraint firstItem="sFJ-ic-ZjE" firstAttribute="top" secondItem="fjE-BY-3ca" secondAttribute="top" id="kMt-qb-5vl"/>
                             <constraint firstItem="WfS-YZ-x2y" firstAttribute="leading" secondItem="fjE-BY-3ca" secondAttribute="leading" id="uvm-1R-e7J"/>

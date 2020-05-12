@@ -57,7 +57,8 @@ class ProfileViewController: LoadViewController {
         container3TopConstraint.constant = headerView.frame.height
         segmentView.isExclusiveTouch = true
         headerFrame = headerView.frame
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
         if let profileId = self.profileId {
             getUser(profileId)
         } else {
