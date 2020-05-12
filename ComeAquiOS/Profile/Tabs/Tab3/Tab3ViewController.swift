@@ -10,25 +10,80 @@ import UIKit
 
 class Tab3ViewController: UIViewController {
     
-    @IBOutlet weak var tableView: MyOwnTableView!
     
-    let data = Array(0...100)
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var data: [FoodPostImageObject] = []
+    var userId : Int? {
+        didSet{
+            self.getUserImages()
+        }
+    }
+    var page: Int = 1
+    var alreadyFetchingData = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.translatesAutoresizingMaskIntoConstraints = false
-        tableView.delegate = self
-        tableView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        let itemSize = UIScreen.main.bounds.width/3 - 2
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: itemSize, height: itemSize)
+        
+        layout.minimumInteritemSpacing = 2
+        layout.minimumLineSpacing = 2
+        
+        collectionView.collectionViewLayout = layout
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ImageLookSegue" {
+            let imageLookVC = segue.destination as? ImageLookerViewController
+            imageLookVC?.image = (sender as? FoodPostImageObject)!.food_photo
+        }
     }
 }
 
-extension Tab3ViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension Tab3ViewController {
+    func fetchMoreData(){
+        if !alreadyFetchingData {
+            getUserImages()
+        }
+    }
+    func getUserImages(){
+        guard let userId = self.userId else {return}
+        alreadyFetchingData = true
+        Server.get("/user_images/\(userId)/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+            self.alreadyFetchingData = false
+            guard let data = data else {return}
+            do {
+                self.data.append(contentsOf: try JSONDecoder().decode([FoodPostImageObject].self, from: data))
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                    self.page += 1
+                }
+            } catch {}
+        })
+    }
+}
+
+extension Tab3ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Tab3Cell", for: indexPath) as! Tab3CollectionViewCell
+        // cell.image.loadImageUsingUrlString(urlString: data[indexPath.row].food_photo!)
+        // cell.image.image = UIImage(named: "car")
+        cell.backgroundColor = UIColor.red
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Tab3Cell") as! Tab3TableViewCell
-        cell.label.text = "\(data[indexPath.row])"
-        return cell
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ImageLookSegue", sender: data[indexPath.row])
     }
 }

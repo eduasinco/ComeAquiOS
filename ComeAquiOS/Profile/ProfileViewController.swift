@@ -84,7 +84,7 @@ class ProfileViewController: LoadViewController {
         }
         tab1VC?.userId = user.id
         tab2VC?.userId = user.id
-        // tab3VC?.userId = user.id
+        tab3VC?.userId = user.id
     }
     
     var changingIndex = false
@@ -233,14 +233,13 @@ extension ProfileViewController: UIScrollViewDelegate, UIGestureRecognizerDelega
         
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
-        
         if offsetY > contentHeight - scrollView.frame.height {
             if scrollView == scrollView1 {
                 tab1VC!.fetchMoreData()
             } else if scrollView == scrollView2 {
                 tab2VC!.fetchMoreData()
             } else if scrollView == scrollView3 {
-                // tab3VC!.fetchMoreData()
+                tab3VC!.fetchMoreData()
             }
         }
     }

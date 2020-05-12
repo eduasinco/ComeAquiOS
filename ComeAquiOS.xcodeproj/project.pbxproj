@@ -24,7 +24,6 @@
 		87AAF8AC24662944000CDC1D /* Tab3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8AB24662944000CDC1D /* Tab3ViewController.swift */; };
 		87AAF8AE24662960000CDC1D /* Tab1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8AD24662960000CDC1D /* Tab1TableViewCell.swift */; };
 		87AAF8B024662968000CDC1D /* Tab2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8AF24662968000CDC1D /* Tab2TableViewCell.swift */; };
-		87AAF8B224662975000CDC1D /* Tab3TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8B124662975000CDC1D /* Tab3TableViewCell.swift */; };
 		87AAF8B42466298B000CDC1D /* Tab1Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8B32466298B000CDC1D /* Tab1Storyboard.storyboard */; };
 		87AAF8B624662996000CDC1D /* Tab2Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8B524662996000CDC1D /* Tab2Storyboard.storyboard */; };
 		87AAF8B8246629A9000CDC1D /* Tab3Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8B7246629A9000CDC1D /* Tab3Storyboard.storyboard */; };
@@ -47,6 +46,7 @@
 		87AAF8EA2469DDD5000CDC1D /* AddCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8E92469DDD5000CDC1D /* AddCreditCardViewController.swift */; };
 		87AAF8ED2469F307000CDC1D /* BankAccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8EC2469F307000CDC1D /* BankAccountDetailsViewController.swift */; };
 		87AAF8EF2469F31B000CDC1D /* BankAccountDetailsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8EE2469F31B000CDC1D /* BankAccountDetailsStoryboard.storyboard */; };
+		87AAF8F1246A4024000CDC1D /* Tab3CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8F0246A4024000CDC1D /* Tab3CollectionViewCell.swift */; };
 		87D8A533245920D00056AC9B /* OrderLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A532245920D00056AC9B /* OrderLookViewController.swift */; };
 		87D8A536245920E20056AC9B /* OrderLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */; };
 		87D8A539245A06EF0056AC9B /* OrdersTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */; };
@@ -142,7 +142,6 @@
 		87AAF8AB24662944000CDC1D /* Tab3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab3ViewController.swift; sourceTree = "<group>"; };
 		87AAF8AD24662960000CDC1D /* Tab1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1TableViewCell.swift; sourceTree = "<group>"; };
 		87AAF8AF24662968000CDC1D /* Tab2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab2TableViewCell.swift; sourceTree = "<group>"; };
-		87AAF8B124662975000CDC1D /* Tab3TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab3TableViewCell.swift; sourceTree = "<group>"; };
 		87AAF8B32466298B000CDC1D /* Tab1Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab1Storyboard.storyboard; sourceTree = "<group>"; };
 		87AAF8B524662996000CDC1D /* Tab2Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab2Storyboard.storyboard; sourceTree = "<group>"; };
 		87AAF8B7246629A9000CDC1D /* Tab3Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab3Storyboard.storyboard; sourceTree = "<group>"; };
@@ -165,6 +164,7 @@
 		87AAF8E92469DDD5000CDC1D /* AddCreditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCreditCardViewController.swift; sourceTree = "<group>"; };
 		87AAF8EC2469F307000CDC1D /* BankAccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountDetailsViewController.swift; sourceTree = "<group>"; };
 		87AAF8EE2469F31B000CDC1D /* BankAccountDetailsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BankAccountDetailsStoryboard.storyboard; sourceTree = "<group>"; };
+		87AAF8F0246A4024000CDC1D /* Tab3CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab3CollectionViewCell.swift; sourceTree = "<group>"; };
 		87D8A532245920D00056AC9B /* OrderLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLookViewController.swift; sourceTree = "<group>"; };
 		87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderLookStoryboard.storyboard; sourceTree = "<group>"; };
 		87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTabViewController.swift; sourceTree = "<group>"; };
@@ -344,7 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				87AAF8AB24662944000CDC1D /* Tab3ViewController.swift */,
-				87AAF8B124662975000CDC1D /* Tab3TableViewCell.swift */,
+				87AAF8F0246A4024000CDC1D /* Tab3CollectionViewCell.swift */,
 				87AAF8B7246629A9000CDC1D /* Tab3Storyboard.storyboard */,
 			);
 			path = Tab3;
@@ -946,6 +946,7 @@
 				87FC9E9D2448012800810ECF /* RegisterViewController.swift in Sources */,
 				87FC9EE8244E9CE800810ECF /* AddFoodViewController.swift in Sources */,
 				87FC9E99244800FE00810ECF /* LoginOrRegisterViewController.swift in Sources */,
+				87AAF8F1246A4024000CDC1D /* Tab3CollectionViewCell.swift in Sources */,
 				87D8A58F245A26BA0056AC9B /* GuestingTableViewCell.swift in Sources */,
 				87D8A593245A275B0056AC9B /* GuestingViewController.swift in Sources */,
 				87FC9EE2244D7DE100810ECF /* DinnerTableViewCell.swift in Sources */,
@@ -971,7 +972,6 @@
 				87D8A5A4245ABEE20056AC9B /* ReviewTableViewCell.swift in Sources */,
 				87AAF8AE24662960000CDC1D /* Tab1TableViewCell.swift in Sources */,
 				87FC9ECE2448055D00810ECF /* CommentsViewController.swift in Sources */,
-				87AAF8B224662975000CDC1D /* Tab3TableViewCell.swift in Sources */,
 				87AAF8E22469D39B000CDC1D /* PaymentMethodTableViewCell.swift in Sources */,
 				879CBFF42458DBCC00383F68 /* OptionsPopUpViewController.swift in Sources */,
 				87FC9EFE245115C600810ECF /* ImportImagesViewController.swift in Sources */,
