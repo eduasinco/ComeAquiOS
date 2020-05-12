@@ -35,6 +35,7 @@ class FoodCardViewController: UIViewController {
     var foodPost: FoodPostObject!
     var typesContainer: TypesViewController!
     var rateContainer: RateStarViewController!
+    var settingFavourite = false
     
     var delegate: CardActionProtocol?
 
@@ -126,10 +127,24 @@ class FoodCardViewController: UIViewController {
 
 extension FoodCardViewController {
     func setFavourite(){
+        guard !settingFavourite else {
+            self.view.showToast(message: "You are doing this too much")
+            return
+        }
+        if let favourite = self.foodPost.favourite {
+            self.foodPost.favourite = !favourite
+        } else {
+            self.foodPost.favourite = true
+        }
+        self.delegate?.changeMarker(foodPost: self.foodPost, image: self.imageWithImage(image: UIImage(named: self.foodPost.favourite! ? "marker_favourite" : "marker_seen")!, width: 40))
+        self.favouriteImageView.image = UIImage(named: self.foodPost.favourite! ? "favourite_star_fill" : "favourite_star")
+        
+        settingFavourite = true
         Server.post("/favourites/",
                     json:
             ["food_post_id":  self.foodPost.id],
                     finish: {(data: Data?, response: URLResponse?) -> Void in
+                        self.settingFavourite = false
                         guard let data = data else {
                             return
                         }
@@ -138,11 +153,11 @@ extension FoodCardViewController {
                             print(json)
                             DispatchQueue.main.async {
                                 self.foodPost.favourite = json["favourite"] == 1
-                                self.delegate?.changeMarker(foodPost: self.foodPost, image: self.imageWithImage(image: UIImage(named: self.foodPost.favourite! ? "marker_favourite" : "marker_seen")!, width: 40))
-                                self.favouriteImageView.image = UIImage(named: self.foodPost.favourite! ? "favourite_star_fill" : "favourite_star")
                             }
                         } catch _ {
                             self.view.showToast(message: "Some error ocurred")
+                            self.delegate?.changeMarker(foodPost: self.foodPost, image: self.imageWithImage(image: UIImage(named: self.foodPost.favourite! ? "marker_favourite" : "marker_seen")!, width: 40))
+                            self.favouriteImageView.image = UIImage(named: self.foodPost.favourite! ? "favourite_star_fill" : "favourite_star")
                         }
         })
     }

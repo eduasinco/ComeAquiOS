@@ -24,7 +24,6 @@ class MapPickerViewController: UIViewController {
     @IBOutlet weak var searchContainerView: UIView!
     
     var searchAbailable = false
-    
     var placeFromGoogle: PlaceG?
     var fabCount = 0
     var delegate: MapPickerProtocol?
