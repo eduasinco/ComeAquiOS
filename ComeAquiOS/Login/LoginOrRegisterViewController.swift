@@ -28,8 +28,8 @@ class LoginOrRegisterViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "GoToMainSegue", sender: nil)
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
     }

@@ -127,8 +127,8 @@ extension PlaceAutocompleteViewController{
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
         task.resume()
@@ -153,8 +153,8 @@ extension PlaceAutocompleteViewController{
                     self.textField.text = self.selectedPlace?.result?.formatted_address!
                     self.delegate?.placeSelected(place: self.selectedPlace!)
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
         task.resume()

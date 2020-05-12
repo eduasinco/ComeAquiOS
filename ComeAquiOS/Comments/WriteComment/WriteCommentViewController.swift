@@ -61,8 +61,8 @@ extension WriteCommentViewController{
                         self.navigationController?.popViewController(animated: true)
                         self.dismiss(animated: true, completion: nil)
                     }
-                } catch let jsonErr {
-                    print("json could'nt be parsed \(jsonErr)")
+                } catch _ {
+                    self.view.showToast(message: "Some error ocurred")
                 }
             })
             task.resume()

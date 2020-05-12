@@ -88,7 +88,7 @@ extension MapPickerViewController: AutocompleteProtocol {
 extension MapPickerViewController{
     func getLocationFromGoogle(lat: Double, lng: Double){
         if searchAbailable {
-            guard var endpointUrl = URL(string: "https://maps.googleapis.com/maps/api/geocode/json?latlng=\(lat),\(lng)&key=\(GOOGLE_KEY)") else { return }
+            guard let endpointUrl = URL(string: "https://maps.googleapis.com/maps/api/geocode/json?latlng=\(lat),\(lng)&key=\(GOOGLE_KEY)") else { return }
             
             var request = URLRequest(url: endpointUrl)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -107,8 +107,8 @@ extension MapPickerViewController{
                             self.getPlaceDetailFromGoogle(placeId: googleMapsLocation.results[0].place_id!)
                         }
                     }
-                } catch let jsonErr {
-                    print("json could'nt be parsed \(jsonErr)")
+                } catch _ {
+                    self.view.showToast(message: "Some error ocurred")
                 }
             })
             task.resume()
@@ -132,8 +132,8 @@ extension MapPickerViewController{
                 DispatchQueue.main.async {
                     self.label.text = self.placeFromGoogle?.result?.formatted_address
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
         task.resume()

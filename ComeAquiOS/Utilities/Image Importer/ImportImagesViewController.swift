@@ -98,8 +98,8 @@ extension ImportImagesViewController {
             DispatchQueue.main.async {
                 self.buttonPressed?.loadImageUsingUrlString(urlString: foodPostImage.food_photo!)
             }
-        } catch let jsonErr {
-            print("json could'nt be parsed \(jsonErr)")
+        } catch _ {
+            self.view.showToast(message: "Some error ocurred")
         }
     }
 }

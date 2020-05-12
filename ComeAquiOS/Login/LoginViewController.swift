@@ -33,7 +33,7 @@ class LoginViewController: KUIViewController, UIScrollViewDelegate {
     
         Server.get("/login/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
-            if let response = response {
+            if response != nil {
                 DispatchQueue.main.async {
                     self.emailText.validationText = "Wrong username or password"
                 }
@@ -47,8 +47,8 @@ class LoginViewController: KUIViewController, UIScrollViewDelegate {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "GoToMainSegue", sender: nil)
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
     }

@@ -119,7 +119,7 @@ class FoodReviewLookViewController: UIViewController {
 }
 extension FoodReviewLookViewController: ReviewCellProtocol, OptionsPopUpProtocol, WriteReplyProtocol {
     func replyAdded(reply: ReviewReplyObject) {
-        for (i, child) in self.reviews.enumerated(){
+        for child in self.reviews {
             if child.id == reply.review!.id {
                 child.replies![0] = reply
                 break

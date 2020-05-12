@@ -91,9 +91,7 @@ extension EditEmailAddressViewController {
                         DispatchQueue.main.async {
                             self.alert.dismiss(animated: false, completion: nil)
                         }
-                        guard let data = data else {
-                            return
-                        }
+                        guard let data = data else {return}
                         do {
                             USER = try JSONDecoder().decode(User.self, from: data)
                             DispatchQueue.main.async {
@@ -101,13 +99,13 @@ extension EditEmailAddressViewController {
                                 self.saveButton.visibility = .gone
                                 self.verificationCodeStack.visibility = .gone
                             }
-                        } catch let _ {
+                        } catch _ {
                             do {
                                 guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
                                 DispatchQueue.main.async {
                                     self.verificationCodeText.validationText = json["message"] as? String
                                 }
-                            }catch let _ {}
+                            }catch _ {}
                         }
         })
     }

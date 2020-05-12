@@ -92,10 +92,9 @@ extension AddCreditCardViewController {
                                         }
                                     }
                                 }
-                            } catch let jsonErr {
-                                print("json could'nt be parsed \(jsonErr)")
+                            } catch _ {
+                                self.view.showToast(message: "Some error ocurred")
                             }
-                            
             })
         }
 }

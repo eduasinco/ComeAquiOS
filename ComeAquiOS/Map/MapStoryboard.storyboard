@@ -34,12 +34,12 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJZ-NB-sJw">
-                                <rect key="frame" x="8" y="605" width="398" height="200"/>
+                                <rect key="frame" x="8" y="505" width="398" height="300"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypx-lw-UC2">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="300"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" priority="999" constant="200" id="jVn-ez-2tn"/>
+                                            <constraint firstAttribute="height" priority="999" constant="300" id="jVn-ez-2tn"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="7eR-9t-Sre" kind="embed" identifier="FoodCardSegue" id="6WX-qC-R1S"/>
@@ -200,11 +200,11 @@
             <objects>
                 <viewController id="7eR-9t-Sre" customClass="FoodCardViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HiG-3r-67A">
-                        <rect key="frame" x="0.0" y="0.0" width="398" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="398" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="chY-vw-aW5">
-                                <rect key="frame" x="16" y="116" width="366" height="90"/>
+                                <rect key="frame" x="16" y="116" width="366" height="168"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcx-D3-1x9" userLabel="User Description">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
@@ -278,16 +278,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9v-2D-Tl6" userLabel="Post Description">
-                                        <rect key="frame" x="0.0" y="40" width="366" height="50"/>
+                                        <rect key="frame" x="0.0" y="40" width="366" height="128"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-PH-DEG">
-                                                <rect key="frame" x="0.0" y="23" width="366" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="23" width="366" height="77"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" tag="4" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IcY-jG-dB0">
-                                                <rect key="frame" x="0.0" y="51.5" width="366" height="20"/>
+                                                <rect key="frame" x="0.0" y="108" width="366" height="20"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food-time" translatesAutoresizingMaskIntoConstraints="NO" id="GHg-IQ-Vk6">
                                                         <rect key="frame" x="0.0" y="0.0" width="15" height="20"/>

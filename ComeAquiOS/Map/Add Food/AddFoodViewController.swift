@@ -192,8 +192,8 @@ extension AddFoodViewController {
                 DispatchQueue.main.async {
                     self.setFoodPost()
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
     }
@@ -232,8 +232,8 @@ extension AddFoodViewController {
                                 self.navigationController?.popViewController(animated: true)
                                 self.dismiss(animated: true, completion: nil)
                             }
-                        } catch let jsonErr {
-                            print("json could'nt be parsed \(jsonErr)")
+                        } catch _ {
+                            self.view.showToast(message: "Some error ocurred")
                         }
         })
     }
@@ -274,8 +274,8 @@ extension AddFoodViewController {
                                 self.importImageVC?.foodPostId = self.foodPost!.id!
                                 self.setFoodPost()
                             }
-                        } catch let jsonErr {
-                            print("json could'nt be parsed \(jsonErr)")
+                        } catch _ {
+                            self.view.showToast(message: "Some error ocurred")
                         }
         })
     }

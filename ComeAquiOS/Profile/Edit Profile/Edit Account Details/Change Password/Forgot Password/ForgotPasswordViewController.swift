@@ -52,13 +52,13 @@ extension ForgotPasswordViewController {
                     self.successStack.visibility = .visible
                     self.sendNewPasswordStack.visibility = .gone
                 }
-            } catch let _ {
+            } catch _ {
                 do {
                     guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
                     DispatchQueue.main.async {
                         self.emailAddress.validationText = json["error_message"] as? String
                     }
-                }catch let _ {}
+                }catch _ {}
             }
         })
     }

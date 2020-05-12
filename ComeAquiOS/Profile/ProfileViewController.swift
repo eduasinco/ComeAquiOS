@@ -126,7 +126,7 @@ class ProfileViewController: LoadViewController {
             optionsVC?.options = options
             optionsVC?.delegate = self
         } else if segue.identifier == "EditProfileSegue" {
-            let editProfileVC = segue.destination as? EditProfileViewController
+            _ = segue.destination as? EditProfileViewController
         } else if segue.identifier == "Tab1Segue" {
             tab1VC = segue.destination as? Tab1ViewController
         } else if segue.identifier == "Tab2Segue" {
@@ -153,16 +153,12 @@ extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol
     func image(_ image: UIImage) {
         if isBackgroundImageChanging {
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "background_photo", pictures: image, finish: {(data: Data?) -> Void in
-                        guard let data = data else {return}
-                        do {
-                        } catch {}
+                        
                     })
             backgoundImage.image = image
         } else {
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "profile_photo", pictures: image, finish: {(data: Data?) -> Void in
-                guard let data = data else {return}
-                do {
-                } catch {}
+                
             })
             profileImage.image = image
         }
@@ -185,8 +181,8 @@ extension ProfileViewController {
                 DispatchQueue.main.async {
                     self.setView()
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
     }

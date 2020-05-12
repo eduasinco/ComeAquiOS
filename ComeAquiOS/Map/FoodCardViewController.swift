@@ -41,7 +41,6 @@ class FoodCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.translatesAutoresizingMaskIntoConstraints = false
-        
         userImage.circle()
         setFavouriteClickListener()
         setFoodLookClickListener()
@@ -142,8 +141,8 @@ extension FoodCardViewController {
                                 self.delegate?.changeMarker(foodPost: self.foodPost, image: self.imageWithImage(image: UIImage(named: self.foodPost.favourite! ? "marker_favourite" : "marker_seen")!, width: 40))
                                 self.favouriteImageView.image = UIImage(named: self.foodPost.favourite! ? "favourite_star_fill" : "favourite_star")
                             }
-                        } catch let jsonErr {
-                            print("json could'nt be parsed \(jsonErr)")
+                        } catch _ {
+                            self.view.showToast(message: "Some error ocurred")
                         }
         })
     }

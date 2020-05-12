@@ -79,11 +79,11 @@ class EditAccountDetailsViewController: KUIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GalleryCameraSegue" {
-            let gcVC = segue.destination as? GaleryCameraPopUpViewController
+            _ = segue.destination as? GaleryCameraPopUpViewController
         } else if segue.identifier == "EditEmailAddressSegue" {
-            let editEAVC = segue.destination as? EditEmailAddressViewController
+            _ = segue.destination as? EditEmailAddressViewController
         } else if segue.identifier == "ChangePasswordSegue" {
-            let editEAVC = segue.destination as? ChangePasswordViewController
+            _ = segue.destination as? ChangePasswordViewController
         }
     }
 }
@@ -103,8 +103,8 @@ extension EditAccountDetailsViewController {
                 DispatchQueue.main.async {
                     self.getChosenCard()
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
     }
@@ -125,8 +125,8 @@ extension EditAccountDetailsViewController {
                         self.setView()
                     }
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
     }
@@ -144,16 +144,10 @@ extension EditAccountDetailsViewController {
                         DispatchQueue.main.async {
                             self.alert.dismiss(animated: false, completion: nil)
                         }
-                        guard let data = data else {
-                            return
-                        }
-                        do {
-                            DispatchQueue.main.async {
-                                self.navigationController?.popViewController(animated: true)
-                                self.dismiss(animated: true, completion: nil)
-                            }
-                        } catch let jsonErr {
-                            print("json could'nt be parsed \(jsonErr)")
+                        guard data != nil else {return}
+                        DispatchQueue.main.async {
+                            self.navigationController?.popViewController(animated: true)
+                            self.dismiss(animated: true, completion: nil)
                         }
         })
     }

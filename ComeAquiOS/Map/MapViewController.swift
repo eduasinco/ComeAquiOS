@@ -16,7 +16,7 @@ private class FoodPostMarker : GMSMarker {
     var id : Int!
 }
 
-class MapViewController: UIViewController, CardActionProtocol {
+class MapViewController: LoadViewController, CardActionProtocol {
     
     
     @IBOutlet weak var viewForMap: UIView!
@@ -217,6 +217,8 @@ class MapViewController: UIViewController, CardActionProtocol {
             break
         case .authorizedAlways:
             break
+        default:
+            break
         }
     }
     
@@ -285,8 +287,8 @@ extension MapViewController {
                     self.setMarkers()
                     self.getFavouritesPosts()
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
         task.resume()
@@ -310,8 +312,8 @@ extension MapViewController {
                 DispatchQueue.main.async {
                     self.setFavouriteMarkers()
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
         task.resume()

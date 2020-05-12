@@ -73,10 +73,11 @@
                                     <action selector="addFoodPressed:" destination="O6c-7G-erp" eventType="touchUpInside" id="Ebs-al-29A"/>
                                 </connections>
                             </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hjo-w5-uo7">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjo-w5-uo7">
                                 <rect key="frame" x="16" y="16" width="382" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="UzX-SG-Pdv"/>
+                                    <constraint firstAttribute="height" priority="999" constant="50" id="UzX-SG-Pdv"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="upm-We-oaO"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="3hc-Tg-Hzj" kind="embed" identifier="PlaceAutocompleteSegue" id="cKz-cV-dBA"/>

@@ -70,16 +70,12 @@ extension EditProfileViewController: GaleryCameraPopUpProtocol {
     func image(_ image: UIImage) {
         if isBackgroundImageChanging {
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "background_photo", pictures: image, finish: {(data: Data?) -> Void in
-                        guard let data = data else {return}
-                        do {
-                        } catch {}
-                    })
+                guard data != nil else {return}
+            })
             backgroundImage.image = image
         } else {
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "profile_photo", pictures: image, finish: {(data: Data?) -> Void in
-                guard let data = data else {return}
-                do {
-                } catch {}
+                guard data != nil else {return}
             })
             profileImage.image = image
         }
@@ -101,8 +97,8 @@ extension EditProfileViewController {
                 DispatchQueue.main.async {
                     self.getChosenCard()
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
     }
@@ -123,8 +119,8 @@ extension EditProfileViewController {
                         self.setView()
                     }
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
     }

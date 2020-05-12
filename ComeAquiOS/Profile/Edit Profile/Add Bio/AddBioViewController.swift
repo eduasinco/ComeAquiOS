@@ -65,8 +65,8 @@ extension AddBioViewController{
                 DispatchQueue.main.async {
                     self.setView()
                 }
-            } catch let jsonErr {
-                print("json could'nt be parsed \(jsonErr)")
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         })
     }
@@ -79,16 +79,12 @@ extension AddBioViewController{
                         DispatchQueue.main.async {
                             self.alert.dismiss(animated: false, completion: nil)
                         }
-                        guard let data = data else {
+                        guard data != nil else {
                             return
                         }
-                        do {
-                            DispatchQueue.main.async {
-                                self.navigationController?.popViewController(animated: true)
-                                self.dismiss(animated: true, completion: nil)
-                            }
-                        } catch let jsonErr {
-                            print("json could'nt be parsed \(jsonErr)")
+                        DispatchQueue.main.async {
+                            self.navigationController?.popViewController(animated: true)
+                            self.dismiss(animated: true, completion: nil)
                         }
         })
     }
