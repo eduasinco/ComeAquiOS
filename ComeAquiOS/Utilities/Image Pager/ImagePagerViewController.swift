@@ -11,8 +11,12 @@ import UIKit
 class ImagePagerViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var data: [FoodPostImageObject]!
+    var data: [FoodPostImageObject] = []
+    var userId: Int?
     var indexPath: IndexPath?
+    
+    var page: Int = 1
+    var alreadyFetchingData = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +31,35 @@ class ImagePagerViewController: UIViewController {
         layout.scrollDirection = .horizontal
         
         collectionView.collectionViewLayout = layout
+        getUserImages()
     }
     override func viewDidLayoutSubviews() {
         guard self.indexPath != nil else {return}
         self.collectionView.scrollToItem(at: self.indexPath!, at: .right, animated: false)
+    }
+}
+
+extension ImagePagerViewController {
+    func fetchMoreData(){
+        if !alreadyFetchingData {
+            getUserImages()
+        }
+    }
+    func getUserImages(){
+        guard let userId = self.userId else {return}
+        alreadyFetchingData = true
+        Server.get("/user_images/\(userId)/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+            self.alreadyFetchingData = false
+            guard let data = data else {return}
+            do {
+                self.data.append(contentsOf: try JSONDecoder().decode([FoodPostImageObject].self, from: data))
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                    self.collectionView.scrollToItem(at: self.indexPath!, at: .right, animated: false)
+                    self.page += 1
+                }
+            } catch {}
+        })
     }
 }
 

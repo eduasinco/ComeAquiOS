@@ -40,7 +40,9 @@ class Tab3ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ImageLookSegue" {
             let imageLookVC = segue.destination as? ImagePagerViewController
-            imageLookVC?.data = self.data
+            imageLookVC?.userId = self.userId
+            imageLookVC?.page = page
+            imageLookVC?.data = data
             imageLookVC?.indexPath = sender as? IndexPath
         }
     }
