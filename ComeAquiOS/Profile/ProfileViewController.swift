@@ -36,6 +36,11 @@ class ProfileViewController: LoadViewController {
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var sendMessageButton: UIButton!
     
+    var tab1VC: Tab1ViewController?
+    var tab2VC: Tab2ViewController?
+    var tab3VC: Tab3ViewController?
+
+    
     var profileId: Int?
     var user: User?
     var isBackgroundImageChanging = true
@@ -77,6 +82,9 @@ class ProfileViewController: LoadViewController {
         } else {
             bioTextView.text = user.bio
         }
+        tab1VC?.userId = user.id
+        // tab2VC?.userId = user.id
+        // tab3VC?.userId = user.id
     }
     
     var changingIndex = false
@@ -118,6 +126,12 @@ class ProfileViewController: LoadViewController {
             optionsVC?.delegate = self
         } else if segue.identifier == "EditProfileSegue" {
             let editProfileVC = segue.destination as? EditProfileViewController
+        } else if segue.identifier == "Tab1Segue" {
+            tab1VC = segue.destination as? Tab1ViewController
+        } else if segue.identifier == "Tab2Segue" {
+            tab2VC = segue.destination as? Tab2ViewController
+        } else if segue.identifier == "Tab3Segue" {
+            tab3VC = segue.destination as? Tab3ViewController
         }
     }
 }
@@ -213,6 +227,20 @@ extension ProfileViewController: UIScrollViewDelegate, UIGestureRecognizerDelega
                 } else {
                     headerTopConstraint.constant = -scrollView.contentOffset.y
                 }
+            }
+        }
+        
+        
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if offsetY > contentHeight - scrollView.frame.height {
+            if scrollView == scrollView1 {
+                tab1VC!.fetchMoreData()
+            } else if scrollView == scrollView2 {
+                //tab2VC!.fetchMoreData()
+            } else if scrollView == scrollView3 {
+                // tab3VC!.fetchMoreData()
             }
         }
     }
