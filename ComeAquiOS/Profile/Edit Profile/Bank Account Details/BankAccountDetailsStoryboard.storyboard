@@ -10,7 +10,7 @@
         <!--Bank Account Details View Controller-->
         <scene sceneID="SWq-YB-UDY">
             <objects>
-                <viewController id="kc1-jX-8m1" customClass="BankAccountDetailsViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BackAccountView" id="kc1-jX-8m1" customClass="BankAccountDetailsViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gyg-6F-U74">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -18,23 +18,29 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mq-gz-PRm">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1L-dO-Zjd">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="K1L-dO-Zjd">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="De3-uV-VMy">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="864"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="884.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DsT-AA-TWN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="864"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="884.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First and Last Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOQ-do-jLS">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKf-rh-JaV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First and Last Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOQ-do-jLS">
+                                                                <rect key="frame" x="0.0" y="20.5" width="414" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qez-om-bSP">
-                                                                <rect key="frame" x="0.0" y="20.5" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="41" width="414" height="50"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RI9-BC-VNg">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -60,13 +66,13 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of birth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewm-8M-6V7">
-                                                                <rect key="frame" x="0.0" y="70.5" width="414" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="91" width="414" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mHB-bq-Boi">
-                                                                <rect key="frame" x="0.0" y="91" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="111.5" width="414" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM/DD/YYYY" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dO5-UT-5Ig" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -79,13 +85,13 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibo-tW-kAx">
-                                                                <rect key="frame" x="0.0" y="141" width="414" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="161.5" width="414" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u2g-kB-yLZ">
-                                                                <rect key="frame" x="0.0" y="161.5" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="182" width="414" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="SSN" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q7T-Nc-rD5" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -98,19 +104,19 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Front and Back ID " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9I-cR-Mib">
-                                                                <rect key="frame" x="0.0" y="211.5" width="414" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAI-ZT-6wc">
                                                                 <rect key="frame" x="0.0" y="232" width="414" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAI-ZT-6wc">
+                                                                <rect key="frame" x="0.0" y="252.5" width="414" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b86-0J-iez">
-                                                                <rect key="frame" x="0.0" y="252.5" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="273" width="414" height="50"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZM-7D-rWs">
                                                                         <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
@@ -132,13 +138,13 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAn-p2-Uvq">
-                                                                <rect key="frame" x="0.0" y="302.5" width="414" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="323" width="414" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hQC-0a-EX3">
-                                                                <rect key="frame" x="0.0" y="323" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="343.5" width="414" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="66G-1o-edV" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -151,13 +157,13 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3b-jR-PHQ">
-                                                                <rect key="frame" x="0.0" y="373" width="414" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="393.5" width="414" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gb8-Qa-LKM">
-                                                                <rect key="frame" x="0.0" y="393.5" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="414" width="414" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address line 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Se-Dq-fbn" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -170,7 +176,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vc8-Wq-xUw">
-                                                                <rect key="frame" x="0.0" y="443.5" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="464" width="414" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address line 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o3L-lz-29j" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -183,7 +189,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RcY-di-jXs">
-                                                                <rect key="frame" x="0.0" y="493.5" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="514" width="414" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v5X-eN-dqX" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -196,7 +202,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YA6-wZ-EIj">
-                                                                <rect key="frame" x="0.0" y="543.5" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="564" width="414" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="85q-au-ivz" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -209,7 +215,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yfT-Nb-YyG">
-                                                                <rect key="frame" x="0.0" y="593.5" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="614" width="414" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PuW-4f-rhB" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -222,7 +228,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gax-7a-QHY">
-                                                                <rect key="frame" x="0.0" y="643.5" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="664" width="414" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country (US abailable only)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z9n-yo-qwL" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -235,13 +241,13 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwV-M9-knH">
-                                                                <rect key="frame" x="0.0" y="693.5" width="414" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="714" width="414" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="klE-SU-JCC">
-                                                                <rect key="frame" x="0.0" y="714" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="734.5" width="414" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Routing number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uP4-zR-WmN" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -254,7 +260,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JcC-hx-P59">
-                                                                <rect key="frame" x="0.0" y="764" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="784.5" width="414" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1PX-ZM-QtF" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -267,11 +273,14 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZl-Ic-4HE">
-                                                                <rect key="frame" x="0.0" y="814" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="834.5" width="414" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="bRl-wN-CHq"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Save"/>
+                                                                <connections>
+                                                                    <action selector="saveForm:" destination="kc1-jX-8m1" eventType="touchUpInside" id="1G5-dc-tDe"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -314,13 +323,17 @@
                         <viewLayoutGuide key="safeArea" id="W6E-uH-W4W"/>
                     </view>
                     <connections>
+                        <outlet property="accountMessage" destination="QKf-rh-JaV" id="eso-nf-5kP"/>
                         <outlet property="accountNumber" destination="1PX-ZM-QtF" id="oks-Tr-CWo"/>
                         <outlet property="addressLine1" destination="0Se-Dq-fbn" id="26C-pA-rXp"/>
                         <outlet property="addressLine2" destination="o3L-lz-29j" id="UaQ-52-F8Q"/>
+                        <outlet property="backIdButton" destination="58N-gl-Rdz" id="X0Q-iG-p5h"/>
+                        <outlet property="bcfkb" destination="koA-Fd-kF2" id="Dt3-fO-DT8"/>
                         <outlet property="city" destination="v5X-eN-dqX" id="pRN-b1-TWj"/>
                         <outlet property="country" destination="Z9n-yo-qwL" id="hSy-QJ-XMb"/>
                         <outlet property="dateOfBirth" destination="dO5-UT-5Ig" id="qip-Xz-27Y"/>
                         <outlet property="firstName" destination="1Ef-o0-N6D" id="1HH-pl-fBf"/>
+                        <outlet property="frontIdButton" destination="BZM-7D-rWs" id="0ji-cl-eab"/>
                         <outlet property="idValidationText" destination="MAI-ZT-6wc" id="d1X-3L-ozm"/>
                         <outlet property="lastName" destination="3kU-ZY-4hB" id="yQ5-QK-zUP"/>
                         <outlet property="phoneNumber" destination="66G-1o-edV" id="PYA-PP-Tbq"/>
@@ -328,11 +341,20 @@
                         <outlet property="ssn" destination="q7T-Nc-rD5" id="D1v-jr-dC3"/>
                         <outlet property="state" destination="85q-au-ivz" id="b5U-af-mAG"/>
                         <outlet property="zip" destination="PuW-4f-rhB" id="MOE-re-Spc"/>
+                        <segue destination="Xed-ds-TpY" kind="presentation" identifier="GalleryCameraSegue" id="GPi-J6-fdT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0AW-5m-nUR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-36.231884057971016" y="34.821428571428569"/>
+        </scene>
+        <!--GalleryCameraPopUp-->
+        <scene sceneID="9KZ-Ad-m09">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GaleryCameraPopUpStoryboard" referencedIdentifier="GalleryCameraPopUp" id="Xed-ds-TpY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YFj-CN-WVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="591" y="35"/>
         </scene>
     </scenes>
     <resources>

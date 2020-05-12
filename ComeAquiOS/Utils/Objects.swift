@@ -172,7 +172,7 @@ public class BusinessProfile: Decodable {
     var url: String?
 }
 public class ExternalAccounts: Decodable {
-    var url: [Account]?
+    var data: [Account]?
 }
 public class Account: Decodable {
     var id: String?

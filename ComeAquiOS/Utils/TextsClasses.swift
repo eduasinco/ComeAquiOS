@@ -562,6 +562,16 @@ class ValidatedTextField: UITextField {
         return tv
     }()
     
+    override var placeholder: String? {
+        set {
+            guard let newValue = newValue else {return}
+            super.placeholder = newValue
+        }
+        get {
+            return super.placeholder
+        }
+    }
+    
     @IBInspectable var validationText : String? {
         set {
             validationTextView.text = newValue

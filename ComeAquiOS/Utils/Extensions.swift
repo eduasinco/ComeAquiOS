@@ -168,6 +168,13 @@ extension UIView {
     }
 }
 
+extension UITextField {
+    func placeholderColor(_ color: UIColor){
+        let color = color
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedString.Key.foregroundColor : color])
+    }
+}
+
 
 
 extension String {
