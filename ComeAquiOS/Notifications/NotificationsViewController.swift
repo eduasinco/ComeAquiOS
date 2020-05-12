@@ -23,9 +23,9 @@ class NotificationsViewController: LoadViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        page = 1
-        notifications = []
-        getMyNotifications()
+        if page == 1{
+            getMyNotifications()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,23 +101,16 @@ extension NotificationsViewController {
     }
     func getMyNotifications(){
         alreadyFetchingData = true
-        if !self.alert.isBeingDismissed {
-            self.alert.dismiss(animated: false, completion: nil)
-        }
-        present(alert, animated: false, completion: nil)
+        tableView.showActivityIndicator()
         Server.get("/my_notifications/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                if !self.alert.isBeingDismissed {
-                    self.alert.dismiss(animated: false, completion: nil)
-                }
-            }
+            self.alreadyFetchingData = false
+            self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
                 self.notifications.append(contentsOf: try JSONDecoder().decode([NotificationObject].self, from: data))
+                self.page += 1
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    self.page += 1
-                    self.alreadyFetchingData = false
                 }
             } catch {}
         })

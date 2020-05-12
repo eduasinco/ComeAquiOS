@@ -26,10 +26,9 @@ class Tab1TableViewCell: UITableViewCell {
     
     @IBOutlet weak var foodImageView: CellImageView!
     @IBOutlet weak var heightImageConstraint: NSLayoutConstraint!
-    @IBOutlet weak var mainBackground: CardView!
+    @IBOutlet weak var mainBackground: UIView!
     @IBOutlet weak var shadowLayer: UIView!
     
-    var delegate: Tab1Delegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

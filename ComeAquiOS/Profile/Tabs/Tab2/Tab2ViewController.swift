@@ -27,7 +27,6 @@ class Tab2ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 600
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,8 +45,10 @@ extension Tab2ViewController {
     func getUserFoodPost(){
         guard let userId = self.userId else {return}
         alreadyFetchingData = true
+        self.tableView.showActivityIndicator()
         Server.get("/user_food_posts_reviews/\(userId)/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             self.alreadyFetchingData = false
+            self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
                 self.data.append(contentsOf: try JSONDecoder().decode([FoodPostObject].self, from: data))

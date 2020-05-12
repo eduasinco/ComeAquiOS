@@ -26,7 +26,7 @@ class Tab2TableViewCell: UITableViewCell {
     
     @IBOutlet weak var foodImageView: CellImageView!
     @IBOutlet weak var heightImageConstraint: NSLayoutConstraint!
-    @IBOutlet weak var mainBackground: CardView!
+    @IBOutlet weak var mainBackground: UIView!
     @IBOutlet weak var shadowLayer: UIView!
     
     @IBOutlet weak var reviewerView: UIView!

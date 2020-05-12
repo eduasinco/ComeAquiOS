@@ -23,9 +23,9 @@ class HostingViewController: LoadViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        page = 1
-        foodPosts = []
-        getMyHostings()
+        if page == 1 {
+            getMyHostings()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,17 +73,16 @@ extension HostingViewController {
     }
     func getMyHostings(){
         alreadyFetchingData = true
-        present(alert, animated: false, completion: nil)
+        tableView.showActivityIndicator()
         Server.get( "/my_hosting/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
-            }
+            self.alreadyFetchingData = false
+            self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
                 self.foodPosts.append(contentsOf: try JSONDecoder().decode([FoodPostObject].self, from: data))
+                self.page += 1
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    self.page += 1
                 }
             } catch {}
         })

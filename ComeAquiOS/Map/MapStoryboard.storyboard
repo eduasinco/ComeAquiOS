@@ -39,7 +39,7 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypx-lw-UC2">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="200"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" priority="999" constant="100" id="jVn-ez-2tn"/>
+                                            <constraint firstAttribute="height" priority="999" constant="200" id="jVn-ez-2tn"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="7eR-9t-Sre" kind="embed" identifier="FoodCardSegue" id="6WX-qC-R1S"/>

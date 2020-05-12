@@ -127,32 +127,24 @@ class FoodCardViewController: UIViewController {
 
 extension FoodCardViewController {
     func setFavourite(){
-        var request = getRequestWithAuth("/favourites/")
-        var json = [String:Any]()
-        json["food_post_id"] = self.foodPost.id
-        do {
-            let data = try JSONSerialization.data(withJSONObject: json, options: [])
-            request.httpMethod = "POST"
-            request.httpBody = data
-            let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
-                // your stuff here
-                guard let data = data else {
-                    return
-                }
-                do {
-                    guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Int] else { return }
-                    print(json)
-                    DispatchQueue.main.async {
-                        self.foodPost.favourite = json["favourite"] == 1
-                        self.delegate?.changeMarker(foodPost: self.foodPost, image: self.imageWithImage(image: UIImage(named: self.foodPost.favourite! ? "marker_favourite" : "marker_seen")!, width: 40))
-                        self.favouriteImageView.image = UIImage(named: self.foodPost.favourite! ? "favourite_star_fill" : "favourite_star")
-                    }
-                } catch let jsonErr {
-                    print("json could'nt be parsed \(jsonErr)")
-                }
-            })
-            task.resume()
-        }catch{
-        }
+        Server.post("/favourites/",
+                    json:
+            ["food_post_id":  self.foodPost.id],
+                    finish: {(data: Data?, response: URLResponse?) -> Void in
+                        guard let data = data else {
+                            return
+                        }
+                        do {
+                            guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Int] else { return }
+                            print(json)
+                            DispatchQueue.main.async {
+                                self.foodPost.favourite = json["favourite"] == 1
+                                self.delegate?.changeMarker(foodPost: self.foodPost, image: self.imageWithImage(image: UIImage(named: self.foodPost.favourite! ? "marker_favourite" : "marker_seen")!, width: 40))
+                                self.favouriteImageView.image = UIImage(named: self.foodPost.favourite! ? "favourite_star_fill" : "favourite_star")
+                            }
+                        } catch let jsonErr {
+                            print("json could'nt be parsed \(jsonErr)")
+                        }
+        })
     }
 }

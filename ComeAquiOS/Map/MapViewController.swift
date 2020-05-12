@@ -32,7 +32,7 @@ class MapViewController: UIViewController, CardActionProtocol {
     var foodPostsDict: [Int: FoodPostObject] = [:]
     private var idToMarker: [Int: FoodPostMarker] = [:]
     private var markers: [FoodPostMarker] = []
-
+    
     
     let locationManager = CLLocationManager()
     var foodCardVC: FoodCardViewController?
@@ -44,7 +44,7 @@ class MapViewController: UIViewController, CardActionProtocol {
     
     var cameraLat: Double?
     var cameraLng: Double?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -272,8 +272,10 @@ extension MapViewController {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         spinner.startAnimating()
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            self.spinner.stopAnimating()
-            self.spinner.isHidden = true
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
+            }
             guard let data = data else {
                 return
             }
@@ -296,9 +298,11 @@ extension MapViewController {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         spinner.startAnimating()
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            self.spinner.stopAnimating()
-            self.spinner.isHidden = true
-                guard let data = data else {
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
+            }
+            guard let data = data else {
                 return
             }
             do {

@@ -23,9 +23,9 @@ class GuestingViewController: UIViewController {
         tableView.dataSource = self
     }
     override func viewWillAppear(_ animated: Bool) {
-        page = 1
-        orders = []
-        getMyGuesting()
+        if page == 1 {
+            getMyGuesting()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,20 +58,21 @@ extension GuestingViewController {
         let contentHeight = scrollView.contentSize.height
         
         if offsetY > contentHeight - scrollView.frame.height {
-          if !alreadyFetchingData {
-            beginBatchFetched()
-          }
+            if !alreadyFetchingData {
+                getMyGuesting()
+            }
         }
     }
-    func beginBatchFetched() {
-        alreadyFetchingData = true
-        getMyGuesting()
-    }
     func getMyGuesting(){
+        tableView.showActivityIndicator()
+        alreadyFetchingData = true
         Server.get( "/my_guesting/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+            self.alreadyFetchingData = false
+            self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
                 self.orders.append(contentsOf: try JSONDecoder().decode([OrderObject].self, from: data))
+                self.page += 1
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

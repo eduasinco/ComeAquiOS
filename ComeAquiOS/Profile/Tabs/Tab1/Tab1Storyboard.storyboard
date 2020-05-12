@@ -30,7 +30,7 @@
                                                     <rect key="frame" x="28" y="16" width="358" height="188.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="peF-Vo-I5q" userLabel="Card Content" customClass="CardView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="peF-Vo-I5q" userLabel="Card Content">
                                                     <rect key="frame" x="28" y="16" width="358" height="188.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="kff-Cx-0Jn" userLabel="Food Info View">
