@@ -47,6 +47,9 @@
 		87AAF8ED2469F307000CDC1D /* BankAccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8EC2469F307000CDC1D /* BankAccountDetailsViewController.swift */; };
 		87AAF8EF2469F31B000CDC1D /* BankAccountDetailsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8EE2469F31B000CDC1D /* BankAccountDetailsStoryboard.storyboard */; };
 		87AAF8F1246A4024000CDC1D /* Tab3CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8F0246A4024000CDC1D /* Tab3CollectionViewCell.swift */; };
+		87AAF8F4246A576B000CDC1D /* ImagePagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8F3246A576B000CDC1D /* ImagePagerViewController.swift */; };
+		87AAF8F6246A5796000CDC1D /* ImagePagerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AAF8F5246A5796000CDC1D /* ImagePagerStoryboard.storyboard */; };
+		87AAF8FA246A59C0000CDC1D /* ImagePagerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8F9246A59C0000CDC1D /* ImagePagerCollectionViewCell.swift */; };
 		87D8A533245920D00056AC9B /* OrderLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A532245920D00056AC9B /* OrderLookViewController.swift */; };
 		87D8A536245920E20056AC9B /* OrderLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */; };
 		87D8A539245A06EF0056AC9B /* OrdersTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */; };
@@ -165,6 +168,9 @@
 		87AAF8EC2469F307000CDC1D /* BankAccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountDetailsViewController.swift; sourceTree = "<group>"; };
 		87AAF8EE2469F31B000CDC1D /* BankAccountDetailsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BankAccountDetailsStoryboard.storyboard; sourceTree = "<group>"; };
 		87AAF8F0246A4024000CDC1D /* Tab3CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab3CollectionViewCell.swift; sourceTree = "<group>"; };
+		87AAF8F3246A576B000CDC1D /* ImagePagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePagerViewController.swift; sourceTree = "<group>"; };
+		87AAF8F5246A5796000CDC1D /* ImagePagerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImagePagerStoryboard.storyboard; sourceTree = "<group>"; };
+		87AAF8F9246A59C0000CDC1D /* ImagePagerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePagerCollectionViewCell.swift; sourceTree = "<group>"; };
 		87D8A532245920D00056AC9B /* OrderLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLookViewController.swift; sourceTree = "<group>"; };
 		87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderLookStoryboard.storyboard; sourceTree = "<group>"; };
 		87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTabViewController.swift; sourceTree = "<group>"; };
@@ -432,6 +438,16 @@
 			path = "Bank Account Details";
 			sourceTree = "<group>";
 		};
+		87AAF8F2246A574E000CDC1D /* Image Pager */ = {
+			isa = PBXGroup;
+			children = (
+				87AAF8F3246A576B000CDC1D /* ImagePagerViewController.swift */,
+				87AAF8F9246A59C0000CDC1D /* ImagePagerCollectionViewCell.swift */,
+				87AAF8F5246A5796000CDC1D /* ImagePagerStoryboard.storyboard */,
+			);
+			path = "Image Pager";
+			sourceTree = "<group>";
+		};
 		87D8A531245920BC0056AC9B /* Order Look */ = {
 			isa = PBXGroup;
 			children = (
@@ -697,6 +713,7 @@
 		87FC9EE9244E9FA600810ECF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				87AAF8F2246A574E000CDC1D /* Image Pager */,
 				87D8A5AD245CA60A0056AC9B /* Image Scroll View */,
 				879CC0022458F3BA00383F68 /* Date Time Picker */,
 				879CC0012458F2BC00383F68 /* Types */,
@@ -856,6 +873,7 @@
 				87FC9EF6244FB19100810ECF /* MapPIckerStoryboard.storyboard in Resources */,
 				879CC0002458F2B900383F68 /* TypesStoryboard.storyboard in Resources */,
 				87E02C8B24513880005C272A /* ImageLookerStoryboard.storyboard in Resources */,
+				87AAF8F6246A5796000CDC1D /* ImagePagerStoryboard.storyboard in Resources */,
 				87D8A53B245A06FF0056AC9B /* OrdersTabStoryboard.storyboard in Resources */,
 				87D8A59C245AB2DC0056AC9B /* NotificationLookStoryboard.storyboard in Resources */,
 				87FC9EEE244E9FE600810ECF /* PlaceAutocompleteStoryboard.storyboard in Resources */,
@@ -938,6 +956,7 @@
 				87AAF8AC24662944000CDC1D /* Tab3ViewController.swift in Sources */,
 				8776FF0D24538220005A4D4C /* TextsClasses.swift in Sources */,
 				87FC9E7E2447FF6200810ECF /* ViewController.swift in Sources */,
+				87AAF8F4246A576B000CDC1D /* ImagePagerViewController.swift in Sources */,
 				87FC9ECC2448051900810ECF /* DateFormatting.swift in Sources */,
 				87FC9EBB2448038900810ECF /* TypesViewController.swift in Sources */,
 				87D8A5A0245AB3EA0056AC9B /* FoodReviewLookViewController.swift in Sources */,
@@ -995,6 +1014,7 @@
 				87FC9EBD2448039B00810ECF /* RateStarViewController.swift in Sources */,
 				87D8A58B245A269F0056AC9B /* HostingTableViewCell.swift in Sources */,
 				87FC9EF0244EA1A100810ECF /* LocationTableViewCell.swift in Sources */,
+				87AAF8FA246A59C0000CDC1D /* ImagePagerCollectionViewCell.swift in Sources */,
 				87FC9E7C2447FF6200810ECF /* SceneDelegate.swift in Sources */,
 				87FC9EB72448033C00810ECF /* MapViewController.swift in Sources */,
 			);

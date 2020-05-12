@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="66.666666666666671" y="98.4375"/>
         </scene>
-        <!--ImageLooker-->
+        <!--ImagePagerView-->
         <scene sceneID="2DK-kg-gpm">
             <objects>
-                <viewControllerPlaceholder storyboardName="ImageLookerStoryboard" referencedIdentifier="ImageLooker" id="CiN-nn-icR" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ImagePagerStoryboard" referencedIdentifier="ImagePagerView" id="CiN-nn-icR" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="I10-8K-nB0"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxv-IU-9rS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

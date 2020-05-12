@@ -9,8 +9,6 @@
 import UIKit
 
 class Tab3ViewController: UIViewController {
-    
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var data: [FoodPostImageObject] = []
@@ -41,8 +39,9 @@ class Tab3ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ImageLookSegue" {
-            let imageLookVC = segue.destination as? ImageLookerViewController
-            imageLookVC?.image = (sender as? FoodPostImageObject)!.food_photo
+            let imageLookVC = segue.destination as? ImagePagerViewController
+            imageLookVC?.data = self.data
+            imageLookVC?.indexPath = sender as? IndexPath
         }
     }
 }
@@ -84,6 +83,6 @@ extension Tab3ViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ImageLookSegue", sender: data[indexPath.row])
+        performSegue(withIdentifier: "ImageLookSegue", sender: indexPath)
     }
 }

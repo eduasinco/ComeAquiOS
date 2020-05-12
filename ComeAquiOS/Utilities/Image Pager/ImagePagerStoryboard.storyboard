@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image Pager View Controller-->
+        <scene sceneID="UTP-D8-EH2">
+            <objects>
+                <viewController storyboardIdentifier="ImagePagerView" id="OT8-xM-1pA" customClass="ImagePagerViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="doi-AX-BYa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uGb-Cj-HAp">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jYV-WA-fYf">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImagePagerCell" id="n29-1m-E8s" customClass="ImagePagerCollectionViewCell" customModule="ComeAquiOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="go5-QF-UAg">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bss-wY-NBe" customClass="CellImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Bss-wY-NBe" secondAttribute="trailing" id="0Fu-Ba-zta"/>
+                                                <constraint firstItem="Bss-wY-NBe" firstAttribute="leading" secondItem="go5-QF-UAg" secondAttribute="leading" id="MTv-co-26X"/>
+                                                <constraint firstAttribute="bottom" secondItem="Bss-wY-NBe" secondAttribute="bottom" id="SDZ-bJ-dh2"/>
+                                                <constraint firstItem="Bss-wY-NBe" firstAttribute="top" secondItem="go5-QF-UAg" secondAttribute="top" id="y1o-Id-5L5"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="image" destination="Bss-wY-NBe" id="70d-Ir-hAS"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="uGb-Cj-HAp" firstAttribute="top" secondItem="Jfa-NJ-Li4" secondAttribute="top" id="1PO-6I-nrQ"/>
+                            <constraint firstItem="Jfa-NJ-Li4" firstAttribute="bottom" secondItem="uGb-Cj-HAp" secondAttribute="bottom" id="7I7-xx-6Y5"/>
+                            <constraint firstItem="uGb-Cj-HAp" firstAttribute="leading" secondItem="doi-AX-BYa" secondAttribute="leading" id="ADm-i4-OIc"/>
+                            <constraint firstItem="Jfa-NJ-Li4" firstAttribute="trailing" secondItem="uGb-Cj-HAp" secondAttribute="trailing" id="Pr1-uV-dFu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Jfa-NJ-Li4"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="uGb-Cj-HAp" id="FwU-re-4Zl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jP3-sh-Jk8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="57.971014492753625" y="52.901785714285715"/>
+        </scene>
+    </scenes>
+</document>
