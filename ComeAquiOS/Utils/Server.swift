@@ -70,19 +70,19 @@ class Server {
     }
     
     static func uploadPictures(method: HTTPMethod, urlString: String, withName: String, pictures : UIImage, finish: @escaping ((Data?)) -> Void) {
-            let urll = URL(string: urlString)
-            guard let url = urll else { return }
-                        let headers: HTTPHeaders
-            headers = ["Content-type": "multipart/form-data",
-                       "Content-Disposition" : "form-data",
-                       "Authorization" : "Basic \(getBase64LoginString())"
-            ]
-            AF.upload(multipartFormData: { (multipartFormData) in
-                if let imageData = pictures.pngData() {
-                    multipartFormData.append(imageData, withName: withName, fileName: "IMAGE.png", mimeType: "image/png")
-                }
-            }, to: url, usingThreshold: UInt64.init(), method: method, headers: headers).response{ response in
-                finish(response.data)
+        let urll = URL(string: urlString)
+        guard let url = urll else { return }
+        let headers: HTTPHeaders
+        headers = ["Content-type": "multipart/form-data",
+                   "Content-Disposition" : "form-data",
+                   "Authorization" : "Basic \(getBase64LoginString())"
+        ]
+        AF.upload(multipartFormData: { (multipartFormData) in
+            if let imageData = pictures.jpeg(.lowest) {
+                multipartFormData.append(imageData, withName: withName, fileName: "IMAGE.jpg", mimeType: "image/jpg")
             }
+        }, to: url, usingThreshold: UInt64.init(), method: method, headers: headers).response{ response in
+            finish(response.data)
         }
+    }
 }

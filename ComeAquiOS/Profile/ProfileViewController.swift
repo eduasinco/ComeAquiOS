@@ -153,16 +153,19 @@ extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol
     func image(_ image: UIImage) {
         if isBackgroundImageChanging {
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "background_photo", pictures: image, finish: {(data: Data?) -> Void in
-                        
-                    })
-            backgoundImage.image = image
+                DispatchQueue.main.async {
+                    self.backgoundImage.image = image
+                    
+                }
+            })
         } else {
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "profile_photo", pictures: image, finish: {(data: Data?) -> Void in
-                
+                DispatchQueue.main.async {
+                    self.profileImage.image = image
+                }
             })
-            profileImage.image = image
         }
-
+        
     }
 }
 
