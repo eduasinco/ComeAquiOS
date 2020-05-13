@@ -254,26 +254,56 @@ extension BankAccountDetailsViewController {
     
     func save(){
         present(alert, animated: false, completion: nil)
-        Server.post("/stripe_account/",
+        var json: [String: Any?] = [:]
+        if !firstName.text!.isEmpty {
+            json["first_name"] = firstName.text
+        }
+        if !lastName.text!.isEmpty {
+            json["last_name"] = lastName.text
+        }
+        if !(day == nil) {
+            json["day"] = day
+        }
+        if !(month == nil) {
+            json["month"] = month
+        }
+        if !(year == nil) {
+            json["year"] = year
+        }
+        if !ssn.text!.isEmpty {
+            json["ssn_last_4"] = ssn.text
+        }
+        if !ssn.text!.isEmpty {
+            json["id_number"] = ssn.text
+        }
+        if !phoneNumber.text!.isEmpty {
+            json["phone"] = phoneNumber.text
+        }
+        if !addressLine1.text!.isEmpty {
+            json["line1"] = addressLine1.text
+        }
+        if !addressLine2.text!.isEmpty {
+            json["line2"] = addressLine2.text
+        }
+        if !city.text!.isEmpty {
+            json["city"] = city.text
+        }
+        if !state.text!.isEmpty {
+            json["state"] = state.text
+        }
+        if !zip.text!.isEmpty {
+            json["postal_code"] = zip.text
+        }
+        if !country.text!.isEmpty {
+            json["country"] = country.text
+        }
+        if !routingNumber.text!.isEmpty {
+            json["routing_number"] = routingNumber.text
+        }
+
+        Server.patch("/stripe_account/",
                     json:
-            [
-                "first_name": firstName.text,
-                "last_name": lastName.text,
-                "day": day,
-                "month": month,
-                "year": year,
-                "ssn_last_4": ssn.text,
-                "id_number": ssn.text,
-                "phone": phoneNumber.text,
-                "line1": addressLine1.text,
-                "line2": addressLine2.text,
-                "city": city.text,
-                "state": state.text,
-                "postal_code": zip.text,
-                "country": country.text,
-                "routing_number": routingNumber.text,
-                "account_number": accountNumber.text
-            ],
+            json,
                     finish: {(data: Data?, response: URLResponse?) -> Void in
                         DispatchQueue.main.async {
                             self.alert.dismiss(animated: false, completion: nil)
@@ -290,6 +320,7 @@ extension BankAccountDetailsViewController {
                                 }
                             } else {
                                 guard let e_message = self.stripeAccountInfo?.error_message else {return}
+                                self.view.showToast(message: "Some error ocurred")
                                 DispatchQueue.main.async {
                                     if (e_message.contains("individual[first_name]")) {
                                         self.firstName.validationText = "First name is not valid"

@@ -34,11 +34,10 @@ class AddPaymentMethodViewController: LoadViewController {
 }
 extension AddPaymentMethodViewController{
     func getPaymentMethods(){
+        self.tableView.showActivityIndicator()
         Server.get("/my_payment_methods/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
-            }
+            self.tableView.hideActivityIndicator()
             guard let data = data else {
                 return
             }

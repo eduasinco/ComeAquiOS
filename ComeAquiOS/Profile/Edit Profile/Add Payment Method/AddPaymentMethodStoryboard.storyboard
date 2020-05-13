@@ -37,7 +37,7 @@
                                                         <rect key="frame" x="0.0" y="50" width="414" height="718"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="Owm-sB-DmC"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Owm-sB-DmC"/>
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PaymentCell" id="4fI-O1-PeJ" customClass="PaymentMethodTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">

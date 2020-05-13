@@ -17,8 +17,9 @@ class EditAccountDetailsViewController: KUIViewController {
     @IBOutlet weak var firstName: ValidatedTextField!
     @IBOutlet weak var lastName: ValidatedTextField!
     @IBOutlet weak var phoneNumber: ValidatedTextField!
-    @IBOutlet weak var emailAddress: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var emailAddress: UIStackView!
+    @IBOutlet weak var emailText: UITextField!
+    @IBOutlet weak var password: UIStackView!
     @IBOutlet weak var creditCard: UILabel!
     
     
@@ -37,7 +38,7 @@ class EditAccountDetailsViewController: KUIViewController {
         firstName.placeholder = user.first_name
         lastName.placeholder = user.last_name
         phoneNumber.placeholder = user.phone_number
-        emailAddress.placeholder = user.email
+        emailText.placeholder = user.email
 
         guard let paymentMethod = self.paymentMethod else {return}
         creditCard.text = paymentMethod.last4
@@ -72,7 +73,7 @@ class EditAccountDetailsViewController: KUIViewController {
     }
     
     @IBAction func editProfile(_ sender: Any) {
-        if isValid(){
+        if true || isValid(){
             patchAccount()
         }
     }
@@ -109,6 +110,7 @@ extension EditAccountDetailsViewController {
         })
     }
     func getChosenCard(){
+        present(alert, animated: false, completion: nil)
         Server.get("/my_chosen_card/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
@@ -133,13 +135,19 @@ extension EditAccountDetailsViewController {
     
     func patchAccount(){
         present(alert, animated: false, completion: nil)
+        var json:[String: Any] = [:]
+        if !firstName.text!.isEmpty {
+            json["first_name"] = firstName.text
+        }
+        if !lastName.text!.isEmpty {
+            json["last_name"] = lastName.text
+        }
+        if !phoneNumber.text!.isEmpty {
+            json["phone_number"] = phoneNumber.text
+        }
         Server.patch("/edit_profile/",
                      json:
-            [
-                "first_name": firstName.text,
-                "last_name": lastName.text,
-                "phone_number": phoneNumber.text
-            ],
+            json,
                      finish: {(data: Data?, response: URLResponse?) -> Void in
                         DispatchQueue.main.async {
                             self.alert.dismiss(animated: false, completion: nil)

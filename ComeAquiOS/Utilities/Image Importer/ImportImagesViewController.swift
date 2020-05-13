@@ -32,6 +32,7 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
     
     var foodPostId: Int!
     var delegate: ImportImagesProtocol?
+    var selectedImage: FoodPostImageObject?
     
     func setImages(images: [FoodPostImageObject]){
         for (i, image) in images.enumerated() {
@@ -57,6 +58,7 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
     @objc func tappedButton(_ sender: UIButton?, index: Int) {
         buttonPressed = sender as? URLImageButtonView
         if let image = images[Int(buttonPressed!.tag)] {
+            selectedImage = image
             performSegue(withIdentifier: "ImageLookerSegue", sender: image.food_photo)
         } else {
             performSegue(withIdentifier: "GalleryCameraSegue", sender: nil)
@@ -79,7 +81,14 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
 extension ImportImagesViewController: GaleryCameraPopUpProtocol, ImageLookerProtocol{
     func deleteImage() {
         images[Int(buttonPressed!.tag)] = nil
-        buttonPressed?.setImage(UIImage(systemName: "camera"), for: .normal)
+        Server.delete("/image/\(self.selectedImage!.id!)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+            guard let _ = data else {return}
+            DispatchQueue.main.async {
+                self.buttonPressed?.setImage(UIImage(systemName: "camera"), for: .normal)
+                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
     }
     
     func image(_ image: UIImage) {

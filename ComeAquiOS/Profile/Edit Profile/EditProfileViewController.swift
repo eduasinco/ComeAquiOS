@@ -69,12 +69,20 @@ class EditProfileViewController: LoadViewController {
 extension EditProfileViewController: GaleryCameraPopUpProtocol {
     func image(_ image: UIImage) {
         if isBackgroundImageChanging {
+            present(alert, animated: false, completion: nil)
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "background_photo", pictures: image, finish: {(data: Data?) -> Void in
+                DispatchQueue.main.async {
+                    self.alert.dismiss(animated: false, completion: nil)
+                }
                 guard data != nil else {return}
             })
             backgroundImage.image = image
         } else {
+            present(alert, animated: false, completion: nil)
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "profile_photo", pictures: image, finish: {(data: Data?) -> Void in
+                DispatchQueue.main.async {
+                    self.alert.dismiss(animated: false, completion: nil)
+                }
                 guard data != nil else {return}
             })
             profileImage.image = image
@@ -84,6 +92,7 @@ extension EditProfileViewController: GaleryCameraPopUpProtocol {
 
 extension EditProfileViewController {
     func getUser(){
+        present(alert, animated: false, completion: nil)
         Server.get("/profile_detail/\(USER.id!)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
@@ -103,6 +112,7 @@ extension EditProfileViewController {
         })
     }
     func getChosenCard(){
+        present(alert, animated: false, completion: nil)
         Server.get("/my_chosen_card/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
