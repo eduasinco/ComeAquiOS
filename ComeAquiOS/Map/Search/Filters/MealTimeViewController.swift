@@ -8,25 +8,38 @@
 
 import UIKit
 
-class MealTimeViewController: UIViewController {
+class MealTimeViewController: KUIViewController {
 
+    @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
     var delegate: FilterDelegate?
 
+    var startDate: String?
+    var endDate: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.bottomConstraintForKeyboard = bottomViewConstraint
+    }
+    @IBAction func apply(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+        delegate?.mealTime(startTime: startDate!, endTime: endDate!)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DateTimeSegue" {
+            let vc = segue.destination as? DateTimePickerViewController
+            vc?.delegate = self
+        }
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension MealTimeViewController: DatePickerProtocol {
+    func datesPicked(startDate: String, endDate: String) {
+        self.startDate = startDate
+        self.endDate = endDate
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func invalidStartDate() {
+        
     }
-    */
-
 }

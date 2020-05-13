@@ -14,13 +14,95 @@
                     <view key="view" contentMode="scaleToFill" id="WaC-2B-dOk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ali-K2-LaQ">
+                                <rect key="frame" x="0.0" y="630" width="414" height="266"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1uO-G9-ncE">
+                                        <rect key="frame" x="16" y="16" width="382" height="200"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7S-qK-rea">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="ZPf-yl-KeM"/>
+                                                </constraints>
+                                                <state key="normal" title="For you (Default)" image="person" catalog="system">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="foryou:" destination="shY-6o-NWU" eventType="touchUpInside" id="5Yz-iz-GO7"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5h-Xd-aJd">
+                                                <rect key="frame" x="0.0" y="50" width="382" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Dpb-vm-Waz"/>
+                                                </constraints>
+                                                <state key="normal" title="Popular" image="person.3" catalog="system">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="popular:" destination="shY-6o-NWU" eventType="touchUpInside" id="VC6-Vj-8Nk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csq-Ly-hCF">
+                                                <rect key="frame" x="0.0" y="100" width="382" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="ONS-JI-dmS"/>
+                                                </constraints>
+                                                <state key="normal" title="Rating" image="star" catalog="system">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="rating:" destination="shY-6o-NWU" eventType="touchUpInside" id="SvW-TC-xDe"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-Hm-cZq">
+                                                <rect key="frame" x="0.0" y="150" width="382" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="pO7-FV-uYS"/>
+                                                </constraints>
+                                                <state key="normal" title="Apply">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="apply:" destination="shY-6o-NWU" eventType="touchUpInside" id="1T5-Vp-wMG"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="1uO-G9-ncE" secondAttribute="trailing" constant="16" id="XaO-Kl-H9Z"/>
+                                    <constraint firstItem="1uO-G9-ncE" firstAttribute="leading" secondItem="Ali-K2-LaQ" secondAttribute="leading" constant="16" id="ZCc-oU-qis"/>
+                                    <constraint firstItem="1uO-G9-ncE" firstAttribute="top" secondItem="Ali-K2-LaQ" secondAttribute="top" constant="16" id="fgr-2c-WSP"/>
+                                    <constraint firstAttribute="bottom" secondItem="1uO-G9-ncE" secondAttribute="bottom" constant="50" id="uZU-j3-m9v"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Ali-K2-LaQ" secondAttribute="bottom" id="amY-sT-qIa"/>
+                            <constraint firstItem="Ali-K2-LaQ" firstAttribute="leading" secondItem="gg6-ZG-inL" secondAttribute="leading" id="lLR-EM-m9d"/>
+                            <constraint firstItem="gg6-ZG-inL" firstAttribute="trailing" secondItem="Ali-K2-LaQ" secondAttribute="trailing" id="tCY-uK-Niz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gg6-ZG-inL"/>
                     </view>
+                    <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="forYou" destination="T7S-qK-rea" id="jdT-j4-EBF"/>
+                        <outlet property="popular" destination="X5h-Xd-aJd" id="Eli-px-qB0"/>
+                        <outlet property="rating" destination="csq-Ly-hCF" id="76P-ON-qFZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t3d-a8-mG9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="165" y="-252"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.3" catalog="system" width="128" height="62"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+    </resources>
 </document>

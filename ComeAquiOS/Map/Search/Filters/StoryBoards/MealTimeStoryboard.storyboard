@@ -14,13 +14,67 @@
                     <view key="view" contentMode="scaleToFill" id="QHa-j0-hAt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rb8-vG-Koh">
+                                <rect key="frame" x="0.0" y="680" width="414" height="216"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="z5S-Cz-ie6">
+                                        <rect key="frame" x="16" y="16" width="382" height="150"/>
+                                        <subviews>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3we-9Z-pQ8">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="200" constant="100" id="za3-Cc-PPT"/>
+                                                </constraints>
+                                                <connections>
+                                                    <segue destination="6KZ-Jk-VZ5" kind="embed" identifier="DateTimeSegue" id="sgP-dq-s70"/>
+                                                </connections>
+                                            </containerView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehb-L8-Wgf">
+                                                <rect key="frame" x="0.0" y="100" width="382" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="DAf-nb-baZ"/>
+                                                </constraints>
+                                                <state key="normal" title="Apply"/>
+                                                <connections>
+                                                    <action selector="apply:" destination="uDV-ix-Agy" eventType="touchUpInside" id="BcD-eN-1Qb"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="z5S-Cz-ie6" secondAttribute="trailing" constant="16" id="52Y-WB-Yym"/>
+                                    <constraint firstItem="z5S-Cz-ie6" firstAttribute="leading" secondItem="Rb8-vG-Koh" secondAttribute="leading" constant="16" id="cs8-6y-uGK"/>
+                                    <constraint firstItem="z5S-Cz-ie6" firstAttribute="top" secondItem="Rb8-vG-Koh" secondAttribute="top" constant="16" id="sW8-di-V20"/>
+                                    <constraint firstAttribute="bottom" secondItem="z5S-Cz-ie6" secondAttribute="bottom" constant="50" id="y39-Ec-mjZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Rb8-vG-Koh" secondAttribute="bottom" id="URb-5s-rFL"/>
+                            <constraint firstItem="DFO-Dp-l5v" firstAttribute="trailing" secondItem="Rb8-vG-Koh" secondAttribute="trailing" id="d5Z-rN-aBP"/>
+                            <constraint firstItem="Rb8-vG-Koh" firstAttribute="leading" secondItem="QHa-j0-hAt" secondAttribute="leading" id="o3S-5Y-r8q"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DFO-Dp-l5v"/>
                     </view>
+                    <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="bottomViewConstraint" destination="URb-5s-rFL" id="FBO-NS-YPi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEs-WA-WAz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-45" y="96"/>
+            <point key="canvasLocation" x="-46.376811594202906" y="95.758928571428569"/>
+        </scene>
+        <!--DateTimeView-->
+        <scene sceneID="sjd-hI-iRK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DateTimeStoryboard" referencedIdentifier="DateTimeView" id="6KZ-Jk-VZ5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WCF-1c-wTJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="614" y="96"/>
         </scene>
     </scenes>
 </document>

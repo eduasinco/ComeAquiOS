@@ -11,22 +11,46 @@ import UIKit
 class SortViewController: UIViewController {
 
     var delegate: FilterDelegate?
-
+    @IBOutlet weak var forYou: UIButton!
+    @IBOutlet weak var popular: UIButton!
+    @IBOutlet weak var rating: UIButton!
+    
+    var sortType: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setColors(pressed: [forYou, popular, rating][sortType])
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setColors(pressed: UIButton) {
+        for b in [forYou, popular, rating] {
+            if b == pressed {
+                b!.backgroundColor = UIColor.gray
+                b!.tintColor = UIColor.white
+            } else {
+                b!.backgroundColor = UIColor.white
+                b!.tintColor = UIColor.gray
+            }
+        }
     }
-    */
+    
+    @IBAction func foryou(_ sender: Any) {
+        sortType = 0
+        setColors(pressed: forYou)
+    }
+    @IBAction func popular(_ sender: Any) {
+        sortType = 1
+        setColors(pressed: popular)
 
+    }
+    @IBAction func rating(_ sender: Any) {
+        sortType = 2
+        setColors(pressed: rating)
+    }
+    
+    @IBAction func apply(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+        delegate?.sort(sortType: sortType)
+    }
 }

@@ -138,7 +138,7 @@
         <!--ProfileView-->
         <scene sceneID="Hu3-pd-sS8">
             <objects>
-                <viewControllerPlaceholder storyboardName="PeopleStoryboard" referencedIdentifier="ProfileView" id="Jtk-ZM-GMl" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ProfileStoryboard" referencedIdentifier="ProfileView" id="Jtk-ZM-GMl" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="0db-A2-EFT"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJr-d5-nlm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

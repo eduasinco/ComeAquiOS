@@ -33,7 +33,7 @@ class MapViewController: LoadViewController, CardActionProtocol {
     private var idToMarker: [Int: FoodPostMarker] = [:]
     private var markers: [FoodPostMarker] = []
     
-    
+    var myLocation: CLLocation?
     let locationManager = CLLocationManager()
     var foodCardVC: FoodCardViewController?
     var mapPickerContainer: MapPickerViewController!
@@ -107,7 +107,6 @@ class MapViewController: LoadViewController, CardActionProtocol {
         UIGraphicsEndImageContext()
         return newImage
     }
-    
     
     func showCard(foodPostId: Int){
         self.lastPost = currentPost
@@ -239,6 +238,9 @@ class MapViewController: LoadViewController, CardActionProtocol {
         } else if segue.identifier == "AddFoodSegue" {
             let addFoodVC = segue.destination as? AddFoodViewController
             addFoodVC?.location = sender as? PlaceG
+        } else if segue.identifier == "SearchSegue" {
+            let addFoodVC = segue.destination as? SearchViewController
+            addFoodVC?.initialLocation = self.myLocation
         }
     }
 }
@@ -322,6 +324,7 @@ extension MapViewController {
 
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        myLocation = locations.last
         centerViewOnUserLocation()
         locationManager.stopUpdatingLocation()
     }

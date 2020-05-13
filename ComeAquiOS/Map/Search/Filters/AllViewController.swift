@@ -11,7 +11,7 @@ import UIKit
 protocol FilterDelegate {
     func sort(sortType: Int)
     func price(price: Int)
-    func mealTime(startTime: Date, endTime: Date)
+    func mealTime(startTime: String, endTime: String)
     func distance(distance: Int)
     func dietary(type: String)
 }

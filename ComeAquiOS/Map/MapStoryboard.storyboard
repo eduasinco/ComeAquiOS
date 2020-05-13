@@ -55,10 +55,23 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="lQm-2P-0xI"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7i6-cD-AXe">
+                                <rect key="frame" x="324" y="64" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.97132772840000003" green="0.97132772840000003" blue="0.97132772840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="j2D-rV-E0c"/>
+                                    <constraint firstAttribute="height" constant="70" id="mok-rE-NW6"/>
+                                </constraints>
+                                <state key="normal" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <segue destination="2Oo-pm-7Rk" kind="presentation" identifier="SearchSegue" id="cg7-r8-HPU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="WVe-cr-Uml" firstAttribute="trailing" secondItem="HqB-kn-AOB" secondAttribute="trailing" id="FwF-Lu-hUg"/>
+                            <constraint firstItem="7i6-cD-AXe" firstAttribute="top" secondItem="HqB-kn-AOB" secondAttribute="top" constant="20" id="HRA-bW-bzp"/>
                             <constraint firstItem="WVe-cr-Uml" firstAttribute="leading" secondItem="HqB-kn-AOB" secondAttribute="leading" id="I3S-4J-5BV"/>
                             <constraint firstItem="WVe-cr-Uml" firstAttribute="top" secondItem="HqB-kn-AOB" secondAttribute="top" id="K2b-Xb-J8W"/>
                             <constraint firstItem="wjR-Dd-0ho" firstAttribute="top" secondItem="HqB-kn-AOB" secondAttribute="top" constant="8" id="Myh-KO-euo"/>
@@ -67,6 +80,7 @@
                             <constraint firstItem="WVe-cr-Uml" firstAttribute="bottom" secondItem="HqB-kn-AOB" secondAttribute="bottom" id="b15-XZ-vHn"/>
                             <constraint firstItem="HqB-kn-AOB" firstAttribute="bottom" secondItem="fJZ-NB-sJw" secondAttribute="bottom" constant="8" id="d2U-7y-GHn"/>
                             <constraint firstItem="wjR-Dd-0ho" firstAttribute="leading" secondItem="HqB-kn-AOB" secondAttribute="leading" constant="8" id="hUz-KO-yiz"/>
+                            <constraint firstItem="HqB-kn-AOB" firstAttribute="trailing" secondItem="7i6-cD-AXe" secondAttribute="trailing" constant="20" id="qlD-YI-2hk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HqB-kn-AOB"/>
                     </view>
@@ -193,7 +207,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEi-XO-LKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="915" y="-35"/>
+            <point key="canvasLocation" x="936" y="-35"/>
         </scene>
         <!--Food Card View Controller-->
         <scene sceneID="6qt-h0-OUW">
@@ -440,6 +454,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ot1-pM-6Zw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="919" y="-154"/>
+        </scene>
+        <!--SearchView-->
+        <scene sceneID="Cto-4G-Trr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchStoryboard" referencedIdentifier="SearchView" id="2Oo-pm-7Rk" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="l03-bc-11k"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qcO-Za-7h8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="-204"/>
         </scene>
     </scenes>
     <resources>

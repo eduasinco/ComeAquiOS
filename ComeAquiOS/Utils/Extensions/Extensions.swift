@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 extension UIView {
     @discardableResult
@@ -288,5 +289,26 @@ extension UIImage {
     /// - returns: A data object containing the JPEG data, or nil if there was a problem generating the data. This function may return nil if the image has no data or if the underlying CGImageRef contains data in an unsupported bitmap format.
     func jpeg(_ quality: JPEGQuality) -> Data? {
         return self.jpegData(compressionQuality: quality.rawValue)
+    }
+}
+
+extension CLLocation {
+    func movedBy(latitudinalMeters: CLLocationDistance, longitudinalMeters: CLLocationDistance) -> CLLocation {
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: abs(latitudinalMeters), longitudinalMeters: abs(longitudinalMeters))
+
+        let latitudeDelta = region.span.latitudeDelta
+        let longitudeDelta = region.span.longitudeDelta
+
+        let latitudialSign = CLLocationDistance(latitudinalMeters.sign == .minus ? -1 : 1)
+        let longitudialSign = CLLocationDistance(longitudinalMeters.sign == .minus ? -1 : 1)
+
+        let newLatitude = coordinate.latitude + latitudialSign * latitudeDelta
+        let newLongitude = coordinate.longitude + longitudialSign * longitudeDelta
+
+        let newCoordinate = CLLocationCoordinate2D(latitude: newLatitude, longitude: newLongitude)
+
+        let newLocation = CLLocation(coordinate: newCoordinate, altitude: altitude, horizontalAccuracy: horizontalAccuracy, verticalAccuracy: verticalAccuracy, course: course, speed: speed, timestamp: Date())
+
+        return newLocation
     }
 }

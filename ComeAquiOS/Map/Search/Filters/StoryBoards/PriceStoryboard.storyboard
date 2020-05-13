@@ -14,13 +14,95 @@
                     <view key="view" contentMode="scaleToFill" id="1wW-VE-47X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x15-SU-HB5">
+                                <rect key="frame" x="0.0" y="730" width="414" height="166"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TtT-tF-LaJ">
+                                        <rect key="frame" x="16" y="16" width="382" height="100"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Lx9-q7-5VG">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="681-wu-6kq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="0Mp-tz-L8Q"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Low">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="low:" destination="k0D-Nt-q8G" eventType="touchUpInside" id="qTc-ZQ-O4W"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbo-C7-bWM">
+                                                        <rect key="frame" x="127.5" y="0.0" width="127" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="vfI-tm-B7U"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Medium">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="medium:" destination="k0D-Nt-q8G" eventType="touchUpInside" id="Y7c-kM-OKu"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QwP-8v-7pI">
+                                                        <rect key="frame" x="254.5" y="0.0" width="127.5" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="JhG-Qg-3eZ"/>
+                                                        </constraints>
+                                                        <state key="normal" title="High">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="high:" destination="k0D-Nt-q8G" eventType="touchUpInside" id="KMp-XF-CXn"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0X-cK-wQe">
+                                                <rect key="frame" x="0.0" y="50" width="382" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="70b-6J-iEG"/>
+                                                </constraints>
+                                                <state key="normal" title="Apply">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="apply:" destination="k0D-Nt-q8G" eventType="touchUpInside" id="UGh-5z-nZy"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="TtT-tF-LaJ" secondAttribute="bottom" constant="50" id="2cz-M0-7jS"/>
+                                    <constraint firstItem="TtT-tF-LaJ" firstAttribute="leading" secondItem="x15-SU-HB5" secondAttribute="leading" constant="16" id="F7P-Jp-4Yr"/>
+                                    <constraint firstItem="TtT-tF-LaJ" firstAttribute="top" secondItem="x15-SU-HB5" secondAttribute="top" constant="16" id="Zy1-Va-pUV"/>
+                                    <constraint firstAttribute="trailing" secondItem="TtT-tF-LaJ" secondAttribute="trailing" constant="16" id="c28-ff-yxb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="pgG-YI-aIk" firstAttribute="trailing" secondItem="x15-SU-HB5" secondAttribute="trailing" id="mOn-ZE-JBF"/>
+                            <constraint firstAttribute="bottom" secondItem="x15-SU-HB5" secondAttribute="bottom" id="qfx-6f-FqI"/>
+                            <constraint firstItem="x15-SU-HB5" firstAttribute="leading" secondItem="pgG-YI-aIk" secondAttribute="leading" id="vyf-1l-ube"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pgG-YI-aIk"/>
                     </view>
+                    <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="high" destination="QwP-8v-7pI" id="oFm-Xq-IOD"/>
+                        <outlet property="low" destination="681-wu-6kq" id="ZgY-nx-HeC"/>
+                        <outlet property="medium" destination="Sbo-C7-bWM" id="mzC-i5-rC0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bje-rm-tIf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="26" y="90"/>
+            <point key="canvasLocation" x="24.637681159420293" y="89.732142857142847"/>
         </scene>
     </scenes>
 </document>
