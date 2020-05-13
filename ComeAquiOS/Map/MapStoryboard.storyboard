@@ -439,7 +439,7 @@
                 <viewControllerPlaceholder storyboardName="MapPIckerStoryboard" referencedIdentifier="MapPicker" id="2t8-Qs-nmg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ot1-pM-6Zw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919" y="-150"/>
+            <point key="canvasLocation" x="919" y="-154"/>
         </scene>
     </scenes>
     <resources>
