@@ -1,15 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HYk-I9-3OM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mz9-LP-qsw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="MZM-sB-r4Y">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IgE-5R-dcA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="mz9-LP-qsw" customClass="SplashViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b5z-S0-GNr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="XZD-wS-ceu">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="8Vc-gf-IK0"/>
+                                    <constraint firstAttribute="height" constant="128" id="YdP-JX-Qr1"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="XZD-wS-ceu" firstAttribute="centerX" secondItem="b5z-S0-GNr" secondAttribute="centerX" id="XJQ-mU-7iv"/>
+                            <constraint firstItem="XZD-wS-ceu" firstAttribute="centerY" secondItem="b5z-S0-GNr" secondAttribute="centerY" id="aHw-zc-L9b"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UsH-KE-iyv"/>
+                    </view>
+                    <connections>
+                        <segue destination="HYk-I9-3OM" kind="presentation" identifier="MainSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="Shr-BW-kaY"/>
+                        <segue destination="QK1-1n-6SA" kind="presentation" identifier="LoginOrRegisterSegue" modalPresentationStyle="fullScreen" id="hKn-Wg-PDX"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-1006" y="1"/>
+        </scene>
         <!--Main-->
         <scene sceneID="cCB-EE-UXe">
             <objects>
                 <tabBarController storyboardIdentifier="Main" title="Main" id="HYk-I9-3OM" customClass="ViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Es9-Hb-zxk"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="buO-f1-sYM">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -67,9 +101,18 @@
             </objects>
             <point key="canvasLocation" x="496" y="420"/>
         </scene>
+        <!--LoginOrRegisterStoryboard-->
+        <scene sceneID="Adk-Q0-Hze">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginOrRegisterStoryboard" id="QK1-1n-6SA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WrC-Ge-o04" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1007" y="477"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bell" catalog="system" width="128" height="124"/>
+        <image name="car" width="299" height="168"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="tray.2" catalog="system" width="128" height="114"/>

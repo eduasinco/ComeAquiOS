@@ -61,12 +61,6 @@ class MapViewController: LoadViewController, CardActionProtocol {
         moveCardToBottom(view: cardView)
         addPanGesture(view: cardView)
         view.bringSubviewToFront(cardView)
-        
-        if UserDefaults.standard.isLoggedIn() {
-            getMyUser()
-        } else {
-            self.performSegue(withIdentifier: "LoginSegue", sender: nil)
-        }
     }
     override func viewDidLayoutSubviews() {
         containerView.roundCorners(radius: 8, clip: true)
@@ -276,56 +270,33 @@ extension MapViewController: MapPickerProtocol {
 }
 
 extension MapViewController {
-    func getMyUser(){
-        Server.get("/login/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
-            guard let data = data else {
-                return
-            }
-            do {
-                USER = try JSONDecoder().decode(User.self, from: data)
-                guard let _ = USER.id else { return }
-                DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
-                    self.dismiss(animated: true, completion: nil)
-                }
-            } catch _ {
-                self.view.showToast(message: "Some error ocurred")
-            }
-        })
-    }
     func getFoodPosts(){
-        var request = getRequestWithAuth("/foods/")
-        request.httpMethod = "GET"
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        spinner.startAnimating()
-        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            DispatchQueue.main.async {
-                self.spinner.stopAnimating()
-                self.spinner.isHidden = true
-            }
-            guard let data = data else {
-                return
-            }
-            do {
-                self.foodPosts = try JSONDecoder().decode([FoodPostObject].self, from: data)
+        func getFoodPost(){
+            Server.get("/foods/", finish: {
+                (data: Data?, response: URLResponse?) -> Void in
                 DispatchQueue.main.async {
-                    self.setMarkers()
-                    self.getFavouritesPosts()
+                    self.spinner.stopAnimating()
+                    self.spinner.isHidden = true
                 }
-            } catch _ {
-                self.view.showToast(message: "Some error ocurred")
-            }
-        })
-        task.resume()
+                guard let data = data else {
+                    return
+                }
+                do {
+                    self.foodPosts = try JSONDecoder().decode([FoodPostObject].self, from: data)
+                    DispatchQueue.main.async {
+                        self.setMarkers()
+                        self.getFavouritesPosts()
+                    }
+                } catch _ {
+                    self.view.showToast(message: "Some error ocurred")
+                }
+            })
+        }
     }
     
     func getFavouritesPosts(){
-        var request = getRequestWithAuth("/my_favourites/")
-        request.httpMethod = "GET"
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        spinner.startAnimating()
-        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+        Server.get("/my_favourites/", finish: {
+            (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
                 self.spinner.stopAnimating()
                 self.spinner.isHidden = true
@@ -342,7 +313,6 @@ extension MapViewController {
                 self.view.showToast(message: "Some error ocurred")
             }
         })
-        task.resume()
     }
 }
 

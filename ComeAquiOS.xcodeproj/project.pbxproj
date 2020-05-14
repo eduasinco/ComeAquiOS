@@ -70,6 +70,7 @@
 		87AAF8FF246A9ED3000CDC1D /* View Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8FE246A9ED3000CDC1D /* View Controllers.swift */; };
 		87AAF901246A9EFE000CDC1D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF900246A9EFE000CDC1D /* Images.swift */; };
 		87BC1E62246CE89E0039434E /* UserDefaultsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E61246CE89E0039434E /* UserDefaultsHelpers.swift */; };
+		87BC1E64246D3E570039434E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E63246D3E570039434E /* SplashViewController.swift */; };
 		87D8A533245920D00056AC9B /* OrderLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A532245920D00056AC9B /* OrderLookViewController.swift */; };
 		87D8A536245920E20056AC9B /* OrderLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */; };
 		87D8A539245A06EF0056AC9B /* OrdersTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */; };
@@ -206,6 +207,7 @@
 		87AAF8FE246A9ED3000CDC1D /* View Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View Controllers.swift"; sourceTree = "<group>"; };
 		87AAF900246A9EFE000CDC1D /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		87BC1E61246CE89E0039434E /* UserDefaultsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelpers.swift; sourceTree = "<group>"; };
+		87BC1E63246D3E570039434E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		87D8A532245920D00056AC9B /* OrderLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLookViewController.swift; sourceTree = "<group>"; };
 		87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderLookStoryboard.storyboard; sourceTree = "<group>"; };
 		87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTabViewController.swift; sourceTree = "<group>"; };
@@ -668,6 +670,7 @@
 				87FC9E902448008500810ECF /* Login */,
 				87FC9EE9244E9FA600810ECF /* Utilities */,
 				87FC9E792447FF6200810ECF /* AppDelegate.swift */,
+				87BC1E63246D3E570039434E /* SplashViewController.swift */,
 				87FC9E7B2447FF6200810ECF /* SceneDelegate.swift */,
 				87FC9E7D2447FF6200810ECF /* ViewController.swift */,
 				87FC9E7F2447FF6200810ECF /* Main.storyboard */,
@@ -1102,6 +1105,7 @@
 				87FC9ED9244805FE00810ECF /* WriteCommentViewController.swift in Sources */,
 				87FC9EE6244E57BD00810ECF /* MapPickerViewController.swift in Sources */,
 				87FC9EC4244804DD00810ECF /* Strings.swift in Sources */,
+				87BC1E64246D3E570039434E /* SplashViewController.swift in Sources */,
 				87D8A5B1245CA6A90056AC9B /* ImageScrollViewController.swift in Sources */,
 				87FC9EEC244E9FD300810ECF /* PlaceAutocompleteViewController.swift in Sources */,
 				87D8A597245A9F430056AC9B /* NotificationTableViewCell.swift in Sources */,

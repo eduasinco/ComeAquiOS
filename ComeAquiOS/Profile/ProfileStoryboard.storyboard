@@ -328,7 +328,7 @@
                 <viewControllerPlaceholder storyboardName="Tab1Storyboard" referencedIdentifier="Tab1View" id="vwz-up-uC1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6F-IY-V0x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="330" y="1235"/>
+            <point key="canvasLocation" x="1233" y="1213"/>
         </scene>
         <!--Tab2View-->
         <scene sceneID="Fwb-So-Aoj">
@@ -336,7 +336,7 @@
                 <viewControllerPlaceholder storyboardName="Tab2Storyboard" referencedIdentifier="Tab2View" id="eds-Af-uFO" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k3Y-8M-pV1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="847" y="1235"/>
+            <point key="canvasLocation" x="1756" y="1213"/>
         </scene>
         <!--Tab3View-->
         <scene sceneID="V4X-RB-s8J">
@@ -344,7 +344,7 @@
                 <viewControllerPlaceholder storyboardName="Tab3Storyboard" referencedIdentifier="Tab3View" id="4aC-jY-75R" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeC-Vk-zBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376" y="1235"/>
+            <point key="canvasLocation" x="2278" y="1213"/>
         </scene>
         <!--Rate Star View Controller-->
         <scene sceneID="Pfz-iX-Ug7">
@@ -447,15 +447,15 @@
             </objects>
             <point key="canvasLocation" x="2389.130434782609" y="805.58035714285711"/>
         </scene>
-        <!--EditProfileView-->
+        <!--EditProfileStoryboard-->
         <scene sceneID="wNf-gi-CzD">
             <objects>
-                <viewControllerPlaceholder storyboardName="EditProfileStoryboard" referencedIdentifier="EditProfileView" id="Tc5-q6-Iqd" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="EditProfileStoryboard" id="Tc5-q6-Iqd" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="0tu-ft-L3d"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6T9-R7-VKt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2386" y="949"/>
+            <point key="canvasLocation" x="2414" y="949"/>
         </scene>
         <!--Item-->
         <scene sceneID="NAd-wY-uHl">

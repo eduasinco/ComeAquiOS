@@ -15,6 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tU4-wr-g5Y">
+                                <rect key="frame" x="0.0" y="44" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wOO-sf-WI3" userLabel="Map View">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -98,7 +103,6 @@
                         <outlet property="viewForMap" destination="wOO-sf-WI3" id="pMF-aB-4c9"/>
                         <segue destination="odk-hG-I1t" kind="show" identifier="FoodLookSegue" id="txV-CF-1au"/>
                         <segue destination="cwF-uY-eaJ" kind="show" identifier="AddFoodSegue" id="U68-rn-rbF"/>
-                        <segue destination="Qnr-ds-dn1" kind="presentation" identifier="LoginSegue" modalPresentationStyle="fullScreen" id="tLb-ol-ZGR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eai-eU-7ua" sceneMemberID="firstResponder"/>
@@ -487,14 +491,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHs-5A-xsl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="155.07246376811597" y="-35.491071428571423"/>
-        </scene>
-        <!--LoginOrRegisterStoryboard-->
-        <scene sceneID="AK4-lS-gAT">
-            <objects>
-                <viewControllerPlaceholder storyboardName="LoginOrRegisterStoryboard" id="Qnr-ds-dn1" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xca-fT-avf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1904" y="-152"/>
         </scene>
     </scenes>
     <resources>
