@@ -49,7 +49,6 @@ class SearchViewController: KUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.translatesAutoresizingMaskIntoConstraints = false
         self.bottomConstraintForKeyboard = viewBottomConstraint
         tableView.delegate = self
         tableView.dataSource = self

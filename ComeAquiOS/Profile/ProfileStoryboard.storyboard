@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2CD-s4-qRk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -16,22 +16,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFJ-ic-ZjE">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-ye-CBc">
-                                        <rect key="frame" x="0.0" y="0.0" width="1242" height="725"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1242" height="774"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rkG-XO-ehE">
-                                                <rect key="frame" x="0.0" y="0.0" width="1242" height="725"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1242" height="774"/>
                                                 <subviews>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9f-vt-iwo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5p-ym-Mo7">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                                                 <subviews>
                                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8P4-CL-gYE">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                                                         <connections>
                                                                             <segue destination="vwz-up-uC1" kind="embed" identifier="Tab1Segue" id="4st-k9-32B"/>
                                                                         </connections>
@@ -57,13 +57,13 @@
                                                         </constraints>
                                                     </scrollView>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xP-fC-6Ce">
-                                                        <rect key="frame" x="414" y="0.0" width="414" height="725"/>
+                                                        <rect key="frame" x="414" y="0.0" width="414" height="774"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3QD-ui-byl">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                                                 <subviews>
                                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhs-rI-5js">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                                                         <connections>
                                                                             <segue destination="eds-Af-uFO" kind="embed" identifier="Tab2Segue" id="m31-Zo-UZ1"/>
                                                                         </connections>
@@ -88,13 +88,13 @@
                                                         </constraints>
                                                     </scrollView>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Aa-oH-cqZ">
-                                                        <rect key="frame" x="828" y="0.0" width="414" height="725"/>
+                                                        <rect key="frame" x="828" y="0.0" width="414" height="774"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1y-t7-7rE">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                                                 <subviews>
                                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tl1-qB-9gP">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                                                         <connections>
                                                                             <segue destination="4aC-jY-75R" kind="embed" identifier="Tab3Segue" id="1iO-sQ-wvZ"/>
                                                                         </connections>
@@ -288,8 +288,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="backgoundImage" destination="WIb-Bl-XcD" id="Sia-an-RQn"/>
@@ -355,13 +353,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-.-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaB-2V-SM2">
-                                <rect key="frame" x="0.0" y="0.0" width="15" height="30"/>
+                                <rect key="frame" x="132" y="0.0" width="15" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tHI-QT-9Vv">
-                                <rect key="frame" x="17" y="0.0" width="100" height="30"/>
+                                <rect key="frame" x="149" y="0.0" width="100" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rate_empty_star" translatesAutoresizingMaskIntoConstraints="NO" id="pEh-2B-tdf">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="30"/>
@@ -384,19 +382,20 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="25" verticalHuggingPriority="251" text="(0)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLW-gU-Oic">
-                                <rect key="frame" x="119" y="0.0" width="279" height="30"/>
+                                <rect key="frame" x="251" y="0.0" width="147" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="zLW-gU-Oic" secondAttribute="bottom" id="0bi-Ut-uWY"/>
                             <constraint firstItem="tHI-QT-9Vv" firstAttribute="leading" secondItem="oaB-2V-SM2" secondAttribute="trailing" constant="2" id="2ZC-or-sql"/>
                             <constraint firstItem="zLW-gU-Oic" firstAttribute="leading" secondItem="tHI-QT-9Vv" secondAttribute="trailing" constant="2" id="6ww-my-qAT"/>
+                            <constraint firstItem="tHI-QT-9Vv" firstAttribute="centerX" secondItem="qkO-Md-ZzO" secondAttribute="centerX" id="NP0-XO-drd"/>
                             <constraint firstAttribute="trailing" secondItem="zLW-gU-Oic" secondAttribute="trailing" priority="999" id="UgO-j0-0EG"/>
-                            <constraint firstItem="oaB-2V-SM2" firstAttribute="leading" secondItem="qkO-Md-ZzO" secondAttribute="leading" id="Vb8-2E-TMk"/>
                             <constraint firstAttribute="bottom" secondItem="tHI-QT-9Vv" secondAttribute="bottom" id="dWy-wQ-hbV"/>
                             <constraint firstItem="tHI-QT-9Vv" firstAttribute="top" secondItem="qkO-Md-ZzO" secondAttribute="top" id="mtF-Vb-BHu"/>
                             <constraint firstItem="oaB-2V-SM2" firstAttribute="top" secondItem="qkO-Md-ZzO" secondAttribute="top" id="tCB-nA-Dsu"/>
@@ -455,7 +454,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6T9-R7-VKt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2414" y="949"/>
+            <point key="canvasLocation" x="2412" y="976"/>
         </scene>
         <!--Item-->
         <scene sceneID="NAd-wY-uHl">

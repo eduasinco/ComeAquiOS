@@ -95,9 +95,6 @@ extension EditProfileViewController {
         present(alert, animated: false, completion: nil)
         Server.get("/profile_detail/\(USER.id!)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
-            }
             guard let data = data else {
                 return
             }
@@ -108,11 +105,13 @@ extension EditProfileViewController {
                 }
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
+                DispatchQueue.main.async {
+                    self.alert.dismiss(animated: false, completion: nil)
+                }
             }
         })
     }
     func getChosenCard(){
-        present(alert, animated: false, completion: nil)
         Server.get("/my_chosen_card/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
