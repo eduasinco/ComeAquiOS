@@ -10,15 +10,16 @@ protocol OptionsPopUpProtocol {
     func optionPressed(_ title: String)
 }
 
-class OptionsPopUpViewController: UIViewController {
+class OptionsPopUpViewController: CardBehaviourViewController {
     @IBOutlet weak var stackView: UIStackView!
-    
+    @IBOutlet weak var cardView: UIView!
     var delegate: OptionsPopUpProtocol?
     var options: [String]?
     var images: [UIImage?]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in })
         guard let options = self.options else {return}
         for (i, option) in options.enumerated() {
             let button = createButton(option)
@@ -30,13 +31,11 @@ class OptionsPopUpViewController: UIViewController {
     }
     
     @objc func buttonPressed(sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        moveCardToBottom(view: cardView)
         delegate?.optionPressed(sender.titleLabel!.text!)
     }
     @IBAction func cancelPressed(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        moveCardToBottom(view: cardView)
     }
     
     func createButton(_ title: String, _ color: UIColor = UIColor.black) -> UIButton{

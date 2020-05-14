@@ -113,3 +113,88 @@ extension UIView {
         }
     }
 }
+
+class CardBehaviourViewController: KUIViewController {
+    var viewToMove: UIView!
+    var onHide: (() -> Void)?
+    var backGRound: UIView?
+    var constraint: NSLayoutConstraint!
+    var initialConstraintConstant: CGFloat = 0
+    
+    func addBottomCardBehaviour(view: UIView, backGround: UIView?, onHide: @escaping () -> Void) {
+        self.onHide = onHide
+        self.viewToMove = view
+        self.backGRound = backGround
+        self.backGRound?.backgroundColor = UIColor.black.withAlphaComponent(0.25)
+        
+        self.constraint = getConstraint(view: view, attribute: .bottom)
+        guard constraint == self.constraint else {return}
+        initialConstraintConstant = constraint.constant
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(self.handlePan(sender:)))
+        view.addGestureRecognizer(pan)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(sender:)))
+        backGround?.addGestureRecognizer(tap)
+    }
+    
+    var originY: CGFloat!
+    @objc func handlePan(sender: UIPanGestureRecognizer) {
+        let cardView = sender.view!
+        
+        switch sender.state {
+        case .began:
+            moveViewWithPan(view: cardView, sender: sender)
+            originY = cardView.frame.origin.y
+        case .changed:
+            moveViewWithPan(view: cardView, sender: sender)
+        case .ended:
+            let move = cardView.frame.origin.y - originY
+            print(move)
+            if move >= 100 {
+                moveCardToBottom(view: cardView)
+            } else {
+                returnViewToOrigin(view: cardView)
+            }
+        default:
+            break
+        }
+    }
+    
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        moveCardToBottom(view: viewToMove)
+    }
+    
+    func getConstraint(view: UIView, attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
+        var constraint: NSLayoutConstraint?
+        for c in view.constraints {
+            if (c.firstAttribute == .bottom || c.secondAttribute == .bottom) {
+                constraint = c
+                break
+            }
+        }
+        return constraint
+    }
+    
+    
+    func moveViewWithPan(view: UIView, sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        constraint.constant = initialConstraintConstant - max(0, translation.y)
+    }
+    func returnViewToOrigin(view: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.constraint.constant = self.initialConstraintConstant
+            self.view.layoutIfNeeded()
+        })
+    }
+    func moveCardToBottom(view: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.backGRound?.alpha = 0
+            self.constraint.constant = -(self.initialConstraintConstant + self.viewToMove.frame.height)
+            self.view.layoutIfNeeded()
+        }, completion: {(Bool) -> Void in
+            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
+            self.onHide?()
+        })
+        
+    }
+}

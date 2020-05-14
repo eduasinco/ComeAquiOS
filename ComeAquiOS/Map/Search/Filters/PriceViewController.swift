@@ -8,9 +8,10 @@
 
 import UIKit
 
-class PriceViewController: UIViewController {
+class PriceViewController: CardBehaviourViewController {
     
     var delegate: FilterDelegate?
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var low: UIButton!
     @IBOutlet weak var medium: UIButton!
     @IBOutlet weak var high: UIButton!
@@ -20,6 +21,7 @@ class PriceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setColors(pressed: [low, medium, high][priceType])
+        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in })
     }
     
     func setColors(pressed: UIButton) {
@@ -49,8 +51,7 @@ class PriceViewController: UIViewController {
     }
     
     @IBAction func apply(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        moveCardToBottom(view: cardView)
         delegate?.price(price: priceType)
     }
 }

@@ -22,6 +22,7 @@ class SearchViewController: KUIViewController {
     @IBOutlet weak var deleteAll: UIButton!
     @IBOutlet weak var tableView: MyOwnTableView!
     @IBOutlet weak var tableTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var topHeaderConstraint: NSLayoutConstraint!
@@ -54,6 +55,7 @@ class SearchViewController: KUIViewController {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableTopConstraint.constant = headerView.frame.height
+        tableHeightConstraint.constant = self.scrollView.frame.height - headerView.frame.height
         scrollView.delegate = self
         getFoodPost()
     }

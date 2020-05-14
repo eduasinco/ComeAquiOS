@@ -70,6 +70,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
+                        <outlet property="cardView" destination="bcj-di-PWS" id="XNU-gj-9va"/>
                         <outlet property="distanceText" destination="G6B-c6-VUE" id="U5J-ih-XYI"/>
                         <outlet property="sliderView" destination="yEC-Mz-DZd" id="r9e-nd-0fW"/>
                     </connections>

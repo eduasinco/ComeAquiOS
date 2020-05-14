@@ -8,9 +8,10 @@
 
 import UIKit
 
-class SortViewController: UIViewController {
+class SortViewController: CardBehaviourViewController {
 
     var delegate: FilterDelegate?
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var forYou: UIButton!
     @IBOutlet weak var popular: UIButton!
     @IBOutlet weak var rating: UIButton!
@@ -20,6 +21,7 @@ class SortViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setColors(pressed: [forYou, popular, rating][sortType])
+        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in })
     }
     
     func setColors(pressed: UIButton) {
@@ -49,8 +51,7 @@ class SortViewController: UIViewController {
     }
     
     @IBAction func apply(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        moveCardToBottom(view: cardView)
         delegate?.sort(sortType: sortType)
     }
 }

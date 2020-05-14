@@ -90,6 +90,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
+                        <outlet property="cardView" destination="Ali-K2-LaQ" id="r2K-lr-9xh"/>
                         <outlet property="forYou" destination="T7S-qK-rea" id="jdT-j4-EBF"/>
                         <outlet property="popular" destination="X5h-Xd-aJd" id="Eli-px-qB0"/>
                         <outlet property="rating" destination="csq-Ly-hCF" id="76P-ON-qFZ"/>

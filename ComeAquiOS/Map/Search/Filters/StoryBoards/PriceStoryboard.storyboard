@@ -95,6 +95,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
+                        <outlet property="cardView" destination="x15-SU-HB5" id="wwu-ZJ-EEa"/>
                         <outlet property="high" destination="QwP-8v-7pI" id="oFm-Xq-IOD"/>
                         <outlet property="low" destination="681-wu-6kq" id="ZgY-nx-HeC"/>
                         <outlet property="medium" destination="Sbo-C7-bWM" id="mzC-i5-rC0"/>

@@ -8,8 +8,9 @@
 
 import UIKit
 
-class MealTimeViewController: KUIViewController {
+class MealTimeViewController: CardBehaviourViewController {
 
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
     var delegate: FilterDelegate?
 
@@ -19,10 +20,11 @@ class MealTimeViewController: KUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bottomConstraintForKeyboard = bottomViewConstraint
+        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in })
+
     }
     @IBAction func apply(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        moveCardToBottom(view: cardView)
         delegate?.mealTime(startTime: startDate!, endTime: endDate!)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

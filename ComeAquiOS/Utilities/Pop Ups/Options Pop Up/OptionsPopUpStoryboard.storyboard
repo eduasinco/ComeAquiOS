@@ -71,6 +71,7 @@
                         <viewLayoutGuide key="safeArea" id="1ZT-pl-Y34"/>
                     </view>
                     <connections>
+                        <outlet property="cardView" destination="9n7-5a-sXl" id="hEr-Y1-LYb"/>
                         <outlet property="stackView" destination="3ab-kY-tov" id="sjZ-Dg-ub5"/>
                     </connections>
                 </viewController>

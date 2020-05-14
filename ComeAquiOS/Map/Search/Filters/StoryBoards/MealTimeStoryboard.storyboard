@@ -62,6 +62,7 @@
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="bottomViewConstraint" destination="URb-5s-rFL" id="FBO-NS-YPi"/>
+                        <outlet property="cardView" destination="Rb8-vG-Koh" id="ZLh-71-ToL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEs-WA-WAz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

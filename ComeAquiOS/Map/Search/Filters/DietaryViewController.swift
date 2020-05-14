@@ -8,7 +8,9 @@
 
 import UIKit
 
-class DietaryViewController: UIViewController {
+class DietaryViewController: CardBehaviourViewController {
+    
+    @IBOutlet weak var cardView: UIView!
     
     var delegate: FilterDelegate?
     var type: String?
@@ -17,9 +19,10 @@ class DietaryViewController: UIViewController {
         super.viewDidLoad()
     }
     @IBAction func apply(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        moveCardToBottom(view: cardView)
         delegate?.dietary(type: type!)
+        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in })
+
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TypesSegue" {

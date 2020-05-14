@@ -16,15 +16,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWF-Lt-lV5">
-                                <rect key="frame" x="0.0" y="696" width="414" height="166"/>
+                                <rect key="frame" x="0.0" y="721" width="414" height="175"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2eV-y6-cGa">
-                                        <rect key="frame" x="16" y="16" width="382" height="100"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="2eV-y6-cGa">
+                                        <rect key="frame" x="16" y="25" width="382" height="100"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S7y-AK-JBb">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="25"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="4pk-Y1-QbR"/>
+                                                    <constraint firstAttribute="height" constant="25" id="4pk-Y1-QbR"/>
                                                 </constraints>
                                                 <connections>
                                                     <segue destination="K3W-Ze-dzM" kind="embed" identifier="TypesSegue" id="0vv-u1-lJJ"/>
@@ -48,22 +48,25 @@
                                     <constraint firstItem="2eV-y6-cGa" firstAttribute="leading" secondItem="dWF-Lt-lV5" secondAttribute="leading" constant="16" id="Qb5-Uv-FOD"/>
                                     <constraint firstAttribute="trailing" secondItem="2eV-y6-cGa" secondAttribute="trailing" constant="16" id="gt7-RM-LS0"/>
                                     <constraint firstAttribute="bottom" secondItem="2eV-y6-cGa" secondAttribute="bottom" constant="50" id="vlb-9e-V44"/>
-                                    <constraint firstItem="2eV-y6-cGa" firstAttribute="top" secondItem="dWF-Lt-lV5" secondAttribute="top" constant="16" id="vrN-UN-7kG"/>
+                                    <constraint firstItem="2eV-y6-cGa" firstAttribute="top" secondItem="dWF-Lt-lV5" secondAttribute="top" constant="25" id="vrN-UN-7kG"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="dWF-Lt-lV5" secondAttribute="bottom" id="Kkb-qT-Fgi"/>
                             <constraint firstItem="e6t-yB-B6T" firstAttribute="trailing" secondItem="dWF-Lt-lV5" secondAttribute="trailing" id="lkw-rm-b8B"/>
                             <constraint firstItem="dWF-Lt-lV5" firstAttribute="leading" secondItem="4eC-nZ-C6P" secondAttribute="leading" id="mi2-ZN-hCY"/>
-                            <constraint firstItem="e6t-yB-B6T" firstAttribute="bottom" secondItem="dWF-Lt-lV5" secondAttribute="bottom" id="xlK-Kh-BgX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e6t-yB-B6T"/>
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="cardView" destination="dWF-Lt-lV5" id="tpX-NG-XNU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JUj-sr-kLW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="275" y="-172"/>
+            <point key="canvasLocation" x="273.91304347826087" y="-172.09821428571428"/>
         </scene>
         <!--TypesView-->
         <scene sceneID="DUj-yq-owa">

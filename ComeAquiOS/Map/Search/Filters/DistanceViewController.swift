@@ -8,8 +8,9 @@
 
 import UIKit
 
-class DistanceViewController: UIViewController {
+class DistanceViewController: CardBehaviourViewController {
 
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var sliderView: UISlider!
     
     var delegate: FilterDelegate?
@@ -20,6 +21,8 @@ class DistanceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sliderView.setValue(Float(distance!), animated: false)
+        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in })
+
         guard let dist = distance else {return}
         distanceText.text = "\(dist)m"
     }
@@ -28,8 +31,7 @@ class DistanceViewController: UIViewController {
         distanceText.text = "\(distance!)m"
     }
     @IBAction func apply(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        moveCardToBottom(view: cardView)
         delegate?.distance(distance: distance!)
     }
 }
