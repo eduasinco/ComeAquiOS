@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rT3-gf-o7e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,16 +7,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Notifications-->
         <scene sceneID="aq8-fD-omU">
             <objects>
-                <viewController id="rT3-gf-o7e" customClass="NotificationsViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationView" id="rT3-gf-o7e" customClass="NotificationsViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mpc-qB-OwD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BKK-pX-WyP">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationCell" id="HgV-Aa-0Fj" customClass="NotificationTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
@@ -120,7 +120,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qjl-Ua-Quc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="bell.fill" catalog="system" id="zRs-Pc-NbS"/>
+                    <navigationItem key="navigationItem" title="Notifications" id="kp4-TQ-YbB">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="message" catalog="system" id="WAz-Kt-euR"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="BKK-pX-WyP" id="P6I-aM-7Ed"/>
@@ -132,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0eN-Gm-cLG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-180" y="-286"/>
+            <point key="canvasLocation" x="728.98550724637687" y="-286.60714285714283"/>
         </scene>
         <!--NotificationLookView-->
         <scene sceneID="7z2-Qw-6ot">
@@ -142,7 +144,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7g-Ti-eWr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="501" y="-360"/>
+            <point key="canvasLocation" x="1410.8695652173915" y="-360.26785714285711"/>
         </scene>
         <!--OrderLookView-->
         <scene sceneID="vpt-hd-Bcx">
@@ -152,7 +154,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vI-1u-Zpx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="469" y="-287"/>
+            <point key="canvasLocation" x="1378.985507246377" y="-287.27678571428572"/>
         </scene>
         <!--FoodLookView-->
         <scene sceneID="x91-Vn-e92">
@@ -162,7 +164,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j89-BC-7ln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="472" y="-210"/>
+            <point key="canvasLocation" x="1381.1594202898552" y="-210.26785714285714"/>
         </scene>
         <!--FoodReviewView-->
         <scene sceneID="3ho-7B-u4K">
@@ -172,10 +174,30 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NP5-US-JKK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="489" y="-138"/>
+            <point key="canvasLocation" x="1398.5507246376812" y="-138.61607142857142"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="h9d-jb-t6x">
+            <objects>
+                <navigationController storyboardIdentifier="NotificationNavView" automaticallyAdjustsScrollViewInsets="NO" id="t1B-z1-ouK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="bell.fill" catalog="system" id="zRs-Pc-NbS"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LNh-yP-R5g">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rT3-gf-o7e" kind="relationship" relationship="rootViewController" id="g9d-aE-IRU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UTJ-dt-xzc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-181.15942028985509" y="-286.60714285714283"/>
         </scene>
     </scenes>
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
+        <image name="message" catalog="system" width="128" height="113"/>
     </resources>
 </document>

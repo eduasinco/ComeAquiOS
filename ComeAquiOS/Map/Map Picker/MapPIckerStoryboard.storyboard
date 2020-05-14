@@ -74,7 +74,7 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjo-w5-uo7">
-                                <rect key="frame" x="16" y="16" width="382" height="50"/>
+                                <rect key="frame" x="20" y="20" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="200" constant="50" id="UzX-SG-Pdv"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="upm-We-oaO"/>
@@ -88,10 +88,10 @@
                             <constraint firstItem="05m-fT-uPp" firstAttribute="leading" secondItem="EgB-16-0Qm" secondAttribute="leadingMargin" priority="999" constant="50" id="8vD-z3-rwn"/>
                             <constraint firstItem="eXi-5R-9GK" firstAttribute="trailing" secondItem="EgB-16-0Qm" secondAttribute="trailingMargin" id="AEq-Sr-Tcf"/>
                             <constraint firstAttribute="bottomMargin" secondItem="eXi-5R-9GK" secondAttribute="bottom" constant="20" id="M5l-sc-SN3"/>
-                            <constraint firstItem="hjo-w5-uo7" firstAttribute="leading" secondItem="EgB-16-0Qm" secondAttribute="leading" constant="16" id="VUo-3a-qD7"/>
+                            <constraint firstItem="hjo-w5-uo7" firstAttribute="leading" secondItem="EgB-16-0Qm" secondAttribute="leading" constant="20" id="VUo-3a-qD7"/>
                             <constraint firstItem="05m-fT-uPp" firstAttribute="centerY" secondItem="EgB-16-0Qm" secondAttribute="centerY" id="cVh-gV-EaR"/>
-                            <constraint firstItem="hjo-w5-uo7" firstAttribute="top" secondItem="EgB-16-0Qm" secondAttribute="top" constant="16" id="gh4-cB-fak"/>
-                            <constraint firstAttribute="trailing" secondItem="hjo-w5-uo7" secondAttribute="trailing" constant="16" id="hl7-AH-XQT"/>
+                            <constraint firstItem="hjo-w5-uo7" firstAttribute="top" secondItem="EgB-16-0Qm" secondAttribute="top" constant="20" id="gh4-cB-fak"/>
+                            <constraint firstAttribute="trailing" secondItem="hjo-w5-uo7" secondAttribute="trailing" constant="20" id="hl7-AH-XQT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="05m-fT-uPp" secondAttribute="trailing" priority="999" constant="50" id="j4z-5h-RGe"/>
                             <constraint firstItem="05m-fT-uPp" firstAttribute="centerX" secondItem="EgB-16-0Qm" secondAttribute="centerX" id="x7l-qG-jfD"/>
                         </constraints>

@@ -30,7 +30,6 @@ class ProfileViewController: LoadViewController {
     @IBOutlet weak var profileImage: URLImageView!
     @IBOutlet weak var changeProfileImageButton: UIButton!
     @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var userUsername: UILabel!
     var rateVC: RateStarViewController?
     @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet weak var editProfileButton: UIButton!
@@ -75,7 +74,7 @@ class ProfileViewController: LoadViewController {
         backgoundImage.loadImageUsingUrlString(urlString: user.background_photo!, isFullUrl: true)
         profileImage.loadImageUsingUrlString(urlString: user.profile_photo!, isFullUrl: true)
         userName.text = user.full_name
-        userUsername.text = user.username
+        self.title = user.username
         rateVC?.setRate(rating: user.rating!, rating_n: user.rating_n!)
         
         if user.bio != nil && user.bio!.isEmpty {
@@ -133,6 +132,9 @@ class ProfileViewController: LoadViewController {
             tab2VC = segue.destination as? Tab2ViewController
         } else if segue.identifier == "Tab3Segue" {
             tab3VC = segue.destination as? Tab3ViewController
+        } else if segue.identifier == "LoginOrRegisterSegue" {
+            let loginVC = segue.destination as? LoginOrRegisterViewController
+            loginVC?.modalPresentationStyle = .fullScreen
         }
     }
 }
@@ -144,7 +146,7 @@ extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol
             let defaults = UserDefaults.standard
             defaults.removeObject(forKey: "username")
             defaults.removeObject(forKey: "password")
-            performSegue(withIdentifier: "GoToLoginOrRegisterView", sender: nil)
+            performSegue(withIdentifier: "LoginOrRegisterSegue", sender: nil)
             break
         default:
             break
@@ -189,6 +191,7 @@ extension ProfileViewController {
             }
         })
     }
+    
 }
 
 

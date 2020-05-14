@@ -12,26 +12,5 @@ class LoginOrRegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        login()
-        // Do any additional setup after loading the view.
     }
-    
-    func login(){
-        Server.get("/login/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
-            guard let data = data else {
-                return
-            }
-            do {
-                USER = try JSONDecoder().decode(User.self, from: data)
-                guard let _ = USER.id else { return }
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "GoToMainSegue", sender: nil)
-                }
-            } catch _ {
-                self.view.showToast(message: "Some error ocurred")
-            }
-        })
-    }
-
 }

@@ -47,7 +47,7 @@ class MapViewController: LoadViewController, CardActionProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // self.navigationController?.setNavigationBarHidden(true, animated: false)
         GMSServices.provideAPIKey("AIzaSyDDZzJN-1TJ9i8DzEvL-dJypS8Xsa2UYy0")
         let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 15.0)
         googleMap = GMSMapView.map(withFrame: view.bounds, camera: camera)
@@ -61,6 +61,12 @@ class MapViewController: LoadViewController, CardActionProtocol {
         moveCardToBottom(view: cardView)
         addPanGesture(view: cardView)
         view.bringSubviewToFront(cardView)
+        
+        if UserDefaults.standard.isLoggedIn() {
+            getMyUser()
+        } else {
+            self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+        }
     }
     override func viewDidLayoutSubviews() {
         containerView.roundCorners(radius: 8, clip: true)
@@ -270,6 +276,24 @@ extension MapViewController: MapPickerProtocol {
 }
 
 extension MapViewController {
+    func getMyUser(){
+        Server.get("/login/", finish: {
+            (data: Data?, response: URLResponse?) -> Void in
+            guard let data = data else {
+                return
+            }
+            do {
+                USER = try JSONDecoder().decode(User.self, from: data)
+                guard let _ = USER.id else { return }
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                    self.dismiss(animated: true, completion: nil)
+                }
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
+            }
+        })
+    }
     func getFoodPosts(){
         var request = getRequestWithAuth("/foods/")
         request.httpMethod = "GET"

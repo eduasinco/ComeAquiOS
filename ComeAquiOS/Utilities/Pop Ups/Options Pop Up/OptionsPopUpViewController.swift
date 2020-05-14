@@ -15,14 +15,17 @@ class OptionsPopUpViewController: UIViewController {
     
     var delegate: OptionsPopUpProtocol?
     var options: [String]?
+    var images: [UIImage?]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let options = self.options else {return}
-        for option in options {
+        for (i, option) in options.enumerated() {
             let button = createButton(option)
             stackView.addArrangedSubview(button)
             button.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
+            guard let images = images, let image = images[i] else {return}
+            button.setImage(image, for: .normal)
         }
     }
     

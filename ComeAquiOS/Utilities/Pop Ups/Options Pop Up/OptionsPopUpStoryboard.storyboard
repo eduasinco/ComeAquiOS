@@ -20,12 +20,13 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meh-Ac-dlT">
                                         <rect key="frame" x="0.0" y="234" width="382" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="5j6-a2-cqT"/>
                                         </constraints>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         </state>
                                         <connections>
                                             <action selector="cancelPressed:" destination="jha-po-mbU" eventType="touchUpInside" id="UP7-xq-D6k"/>
@@ -61,7 +62,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9n7-5a-sXl" firstAttribute="leading" secondItem="1ZT-pl-Y34" secondAttribute="leading" constant="16" id="62n-Ue-ESZ"/>
                             <constraint firstAttribute="bottom" secondItem="9n7-5a-sXl" secondAttribute="bottom" constant="16" id="frD-CW-uas"/>

@@ -45,16 +45,11 @@ class LoginViewController: KUIViewController, UIScrollViewDelegate {
                 USER = try JSONDecoder().decode(User.self, from: data)
                 guard let _ = USER.id else { return }
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "GoToMainSegue", sender: nil)
+                     self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
                 }
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
         })
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoToMainSegue"{
-        }
     }
 }

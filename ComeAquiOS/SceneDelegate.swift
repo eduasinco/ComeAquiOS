@@ -19,16 +19,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        self.window = UIWindow(windowScene: windowScene)
-        //self.window =  UIWindow(frame: UIScreen.main.bounds)
-
-        let storyboard = UIStoryboard(name: "LoginOrRegisterStoryboard", bundle: nil)
-        guard let rootVC = storyboard.instantiateViewController(identifier: "LoginOrRegister") as? LoginOrRegisterViewController else {
-            return
-        }
-        let rootNC = UINavigationController(rootViewController: rootVC)
-        self.window?.rootViewController = rootNC
-        self.window?.makeKeyAndVisible()
+//        self.window = UIWindow(windowScene: windowScene)
+//        //self.window =  UIWindow(frame: UIScreen.main.bounds)
+//
+//        let storyboard = UIStoryboard(name: "LoginOrRegisterStoryboard", bundle: nil)
+//        guard let rootVC = storyboard.instantiateViewController(identifier: "LoginOrRegister") as? LoginOrRegisterViewController else {
+//            return
+//        }
+//        let rootNC = UINavigationController(rootViewController: rootVC)
+//        self.window?.rootViewController = rootNC
+//        self.window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

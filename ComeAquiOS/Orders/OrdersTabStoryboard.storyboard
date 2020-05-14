@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Aa-pC-1GO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,52 +7,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Activity-->
         <scene sceneID="3Pp-ac-2ul">
             <objects>
-                <viewController storyboardIdentifier="OrderTabView" id="1Aa-pC-1GO" customClass="OrdersTabViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrdersView" id="1Aa-pC-1GO" customClass="OrdersTabViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="naj-X1-lZf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="R8A-9O-QhR">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34v-4P-gro">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
-                                        <state key="normal" title="Guesting"/>
-                                        <connections>
-                                            <action selector="guestingPressed:" destination="1Aa-pC-1GO" eventType="touchUpInside" id="bgo-ru-al4"/>
-                                        </connections>
-                                    </button>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="9fz-h3-vYz">
-                                        <rect key="frame" x="138" y="0.0" width="138" height="50"/>
-                                        <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="currentPageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </pageControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5G-OG-cin">
-                                        <rect key="frame" x="276" y="0.0" width="138" height="50"/>
-                                        <state key="normal" title="Hosting"/>
-                                        <connections>
-                                            <action selector="hostingPressed:" destination="1Aa-pC-1GO" eventType="touchUpInside" id="gqs-Lt-XFq"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="tyc-uH-ILJ"/>
-                                </constraints>
-                            </stackView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHu-eP-BBs">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2rQ-eR-UhX">
-                                <rect key="frame" x="0.0" y="94" width="414" height="719"/>
+                                <rect key="frame" x="0.0" y="138" width="414" height="675"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QKI-5B-WnF">
-                                        <rect key="frame" x="0.0" y="0.0" width="828" height="719"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="828" height="675"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ybR-Y0-8Bh">
-                                                <rect key="frame" x="0.0" y="0.0" width="828" height="719"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="828" height="675"/>
                                                 <subviews>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ury-KU-ac8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="719"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="675"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="414" id="F5G-Sh-FoO"/>
                                                         </constraints>
@@ -61,7 +39,7 @@
                                                         </connections>
                                                     </containerView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uqn-Qi-t17">
-                                                        <rect key="frame" x="414" y="0.0" width="414" height="719"/>
+                                                        <rect key="frame" x="414" y="0.0" width="414" height="675"/>
                                                         <connections>
                                                             <segue destination="awn-VW-NWo" kind="embed" id="UZt-rb-4Ka"/>
                                                         </connections>
@@ -87,6 +65,33 @@
                                     <constraint firstItem="QKI-5B-WnF" firstAttribute="height" secondItem="2rQ-eR-UhX" secondAttribute="height" id="bO6-yS-bQD"/>
                                 </constraints>
                             </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="R8A-9O-QhR">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34v-4P-gro">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
+                                        <state key="normal" title="Guesting"/>
+                                        <connections>
+                                            <action selector="guestingPressed:" destination="1Aa-pC-1GO" eventType="touchUpInside" id="bgo-ru-al4"/>
+                                        </connections>
+                                    </button>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="9fz-h3-vYz">
+                                        <rect key="frame" x="138" y="0.0" width="138" height="50"/>
+                                        <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="currentPageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </pageControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5G-OG-cin">
+                                        <rect key="frame" x="276" y="0.0" width="138" height="50"/>
+                                        <state key="normal" title="Hosting"/>
+                                        <connections>
+                                            <action selector="hostingPressed:" destination="1Aa-pC-1GO" eventType="touchUpInside" id="gqs-Lt-XFq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tyc-uH-ILJ"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -100,7 +105,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ptH-cu-DYY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="tray.2.fill" catalog="system" id="DA9-xR-lSY"/>
+                    <navigationItem key="navigationItem" title="Activity" id="qgX-iC-CB7">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="message" catalog="system" id="Jhe-xe-Ltj"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="pageControl" destination="9fz-h3-vYz" id="2yS-TC-mH6"/>
@@ -110,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="okC-c3-aqh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118.84057971014494" y="93.75"/>
+            <point key="canvasLocation" x="1028.985507246377" y="93.75"/>
         </scene>
         <!--GuestingView-->
         <scene sceneID="o29-Ce-w1F">
@@ -118,7 +126,7 @@
                 <viewControllerPlaceholder storyboardName="GuestingStoryboard" referencedIdentifier="GuestingView" id="Lki-dM-UXp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2wc-EX-vHS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="-56"/>
+            <point key="canvasLocation" x="1686.9565217391305" y="51.5625"/>
         </scene>
         <!--HostingView-->
         <scene sceneID="2ih-hF-Ezf">
@@ -126,10 +134,30 @@
                 <viewControllerPlaceholder storyboardName="HostingStoryboard" referencedIdentifier="HostingView" id="awn-VW-NWo" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EY9-Fn-o9u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="174"/>
+            <point key="canvasLocation" x="1681.8840579710147" y="140.625"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="2y4-49-lMO">
+            <objects>
+                <navigationController storyboardIdentifier="OrderNavView" automaticallyAdjustsScrollViewInsets="NO" id="QfL-D0-KTG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="tray.2.fill" catalog="system" id="DA9-xR-lSY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OQE-SP-HBt">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1Aa-pC-1GO" kind="relationship" relationship="rootViewController" id="6ih-fK-2Z5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EBc-ep-dLL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118.84057971014494" y="93.75"/>
         </scene>
     </scenes>
     <resources>
+        <image name="message" catalog="system" width="128" height="113"/>
         <image name="tray.2.fill" catalog="system" width="128" height="114"/>
     </resources>
 </document>
