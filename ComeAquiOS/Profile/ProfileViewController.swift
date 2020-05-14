@@ -134,19 +134,18 @@ class ProfileViewController: LoadViewController {
             tab3VC = segue.destination as? Tab3ViewController
         } else if segue.identifier == "LoginOrRegisterSegue" {
             let loginVC = segue.destination as? LoginOrRegisterViewController
-            loginVC?.modalPresentationStyle = .fullScreen
         }
     }
 }
 
-extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol{
+extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol {
     func optionPressed(_ title: String) {
         switch title {
         case "Log Out":
             let defaults = UserDefaults.standard
             defaults.removeObject(forKey: "username")
             defaults.removeObject(forKey: "password")
-            performSegue(withIdentifier: "LoginOrRegisterSegue", sender: nil)
+            self.performSegue(withIdentifier: "LoginOrRegisterSegue", sender: nil)
             break
         default:
             break
@@ -157,7 +156,6 @@ extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "background_photo", pictures: image, finish: {(data: Data?) -> Void in
                 DispatchQueue.main.async {
                     self.backgoundImage.image = image
-                    
                 }
             })
         } else {

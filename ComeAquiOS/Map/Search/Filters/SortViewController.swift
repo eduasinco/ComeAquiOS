@@ -51,7 +51,7 @@ class SortViewController: CardBehaviourViewController {
     }
     
     @IBAction func apply(_ sender: Any) {
-        moveCardToBottom(view: cardView)
+        moveCardToBottom(view: cardView, onFinish: {() -> Void in})
         delegate?.sort(sortType: sortType)
     }
 }

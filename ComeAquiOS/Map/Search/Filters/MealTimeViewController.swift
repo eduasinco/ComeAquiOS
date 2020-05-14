@@ -24,7 +24,7 @@ class MealTimeViewController: CardBehaviourViewController {
 
     }
     @IBAction func apply(_ sender: Any) {
-        moveCardToBottom(view: cardView)
+        moveCardToBottom(view: cardView, onFinish: {() -> Void in})
         delegate?.mealTime(startTime: startDate!, endTime: endDate!)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

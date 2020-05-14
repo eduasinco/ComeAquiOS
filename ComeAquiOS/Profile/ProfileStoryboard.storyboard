@@ -312,8 +312,8 @@
                         <outlet property="userName" destination="Wyj-Zd-EiK" id="ohQ-oK-Uo2"/>
                         <segue destination="50B-ZI-nOb" kind="presentation" identifier="GalleryCameraSegue" id="uIC-Y4-SxK"/>
                         <segue destination="SqQ-Ut-2bX" kind="presentation" identifier="OptionsSegue" modalPresentationStyle="overFullScreen" id="CU4-tc-3VN"/>
-                        <segue destination="EuG-Xb-tAq" kind="presentation" identifier="LoginOrRegisterSegue" modalPresentationStyle="overFullScreen" id="QCR-o5-jSS"/>
                         <segue destination="Tc5-q6-Iqd" kind="show" identifier="EditProfileSegue" id="NSn-We-KC7"/>
+                        <segue destination="EuG-Xb-tAq" kind="presentation" identifier="LoginOrRegisterSegue" modalPresentationStyle="overFullScreen" id="4RD-ZB-Kmo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oZ3-ZJ-cwM" sceneMemberID="firstResponder"/>

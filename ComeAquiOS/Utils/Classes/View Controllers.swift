@@ -150,7 +150,7 @@ class CardBehaviourViewController: KUIViewController {
             let move = cardView.frame.origin.y - originY
             print(move)
             if move >= 100 {
-                moveCardToBottom(view: cardView)
+                moveCardToBottom(view: cardView, onFinish: self.onHide!)
             } else {
                 returnViewToOrigin(view: cardView)
             }
@@ -160,7 +160,7 @@ class CardBehaviourViewController: KUIViewController {
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer) {
-        moveCardToBottom(view: viewToMove)
+        moveCardToBottom(view: viewToMove, onFinish: self.onHide!)
     }
     
     func getConstraint(view: UIView, attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
@@ -185,7 +185,7 @@ class CardBehaviourViewController: KUIViewController {
             self.view.layoutIfNeeded()
         })
     }
-    func moveCardToBottom(view: UIView) {
+    func moveCardToBottom(view: UIView, onFinish: @escaping () -> Void) {
         UIView.animate(withDuration: 0.3, animations: {
             self.backGRound?.alpha = 0
             self.constraint.constant = -(self.initialConstraintConstant + self.viewToMove.frame.height)
@@ -193,7 +193,7 @@ class CardBehaviourViewController: KUIViewController {
         }, completion: {(Bool) -> Void in
             self.navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)
-            self.onHide?()
+            onFinish()
         })
         
     }

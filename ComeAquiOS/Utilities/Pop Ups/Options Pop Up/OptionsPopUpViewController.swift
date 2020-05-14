@@ -31,11 +31,12 @@ class OptionsPopUpViewController: CardBehaviourViewController {
     }
     
     @objc func buttonPressed(sender: UIButton) {
-        moveCardToBottom(view: cardView)
-        delegate?.optionPressed(sender.titleLabel!.text!)
+        moveCardToBottom(view: cardView, onFinish: {() -> Void in
+            self.delegate?.optionPressed(sender.titleLabel!.text!)
+        })
     }
     @IBAction func cancelPressed(_ sender: Any) {
-        moveCardToBottom(view: cardView)
+        moveCardToBottom(view: cardView, onFinish: {() -> Void in})
     }
     
     func createButton(_ title: String, _ color: UIColor = UIColor.black) -> UIButton{

@@ -19,7 +19,7 @@ class DietaryViewController: CardBehaviourViewController {
         super.viewDidLoad()
     }
     @IBAction func apply(_ sender: Any) {
-        moveCardToBottom(view: cardView)
+        moveCardToBottom(view: cardView, onFinish: {() -> Void in})
         delegate?.dietary(type: type!)
         addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in })
 
