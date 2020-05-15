@@ -26,8 +26,11 @@ class MealTimeViewController: CardBehaviourViewController {
         dateTimeVC?.setDateTime(startDateString: startDate, endDateString: endDate)
     }
     @IBAction func apply(_ sender: Any) {
+        guard let startDate = self.startDateString, let endDate = endDateString else {
+            self.view.showToast(message: "Please select a time greater than now")
+            return
+        }
         moveCardToBottom(view: cardView, onFinish: {() -> Void in})
-        guard let startDate = self.startDateString, let endDate = endDateString else {return}
         delegate?.mealTime(startTime: startDate, endTime: endDate)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,6 +48,5 @@ extension MealTimeViewController: DatePickerProtocol {
     }
     
     func invalidStartDate() {
-        
     }
 }

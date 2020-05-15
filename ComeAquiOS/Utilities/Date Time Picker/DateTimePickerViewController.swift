@@ -43,6 +43,11 @@ class DateTimePickerViewController: UIViewController {
         startDate = Date.convertToDate(isoDateString: startDateString)
         endDate = Date.convertToDate(isoDateString: endDateString)
         
+        startHours = Calendar.current.component(.hour, from: startDate!)
+        startMinutes = Calendar.current.component(.minute, from: startDate!)
+        endHours = Calendar.current.component(.hour, from: endDate!)
+        endMinutes = Calendar.current.component(.minute, from: endDate!)
+        
         setAutomaticTimes(date: startDate!)
     }
 
@@ -98,7 +103,7 @@ class DateTimePickerViewController: UIViewController {
     
     func startingDateIsValid() -> Bool{
         let calendar = Calendar.current
-        let in30Minutes = calendar.date(byAdding: .minute, value: 30, to: Date())
+        let in30Minutes = calendar.date(byAdding: .minute, value: 0, to: Date())
         return startDate! > in30Minutes!
     }
     
