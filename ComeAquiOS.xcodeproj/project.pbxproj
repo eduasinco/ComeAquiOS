@@ -71,6 +71,11 @@
 		87AAF901246A9EFE000CDC1D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF900246A9EFE000CDC1D /* Images.swift */; };
 		87BC1E62246CE89E0039434E /* UserDefaultsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E61246CE89E0039434E /* UserDefaultsHelpers.swift */; };
 		87BC1E64246D3E570039434E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E63246D3E570039434E /* SplashViewController.swift */; };
+		87BC1E68246E47650039434E /* ReviewHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E67246E47650039434E /* ReviewHostViewController.swift */; };
+		87BC1E6A246E47710039434E /* ReviewGuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E69246E47710039434E /* ReviewGuestViewController.swift */; };
+		87BC1E6C246E477E0039434E /* ReviewHostStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BC1E6B246E477E0039434E /* ReviewHostStoryboard.storyboard */; };
+		87BC1E6E246E47880039434E /* ReviewGuestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BC1E6D246E47880039434E /* ReviewGuestStoryboard.storyboard */; };
+		87BC1E70246E88650039434E /* StartReasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E6F246E88650039434E /* StartReasonViewController.swift */; };
 		87D8A533245920D00056AC9B /* OrderLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A532245920D00056AC9B /* OrderLookViewController.swift */; };
 		87D8A536245920E20056AC9B /* OrderLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */; };
 		87D8A539245A06EF0056AC9B /* OrdersTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */; };
@@ -208,6 +213,11 @@
 		87AAF900246A9EFE000CDC1D /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		87BC1E61246CE89E0039434E /* UserDefaultsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelpers.swift; sourceTree = "<group>"; };
 		87BC1E63246D3E570039434E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		87BC1E67246E47650039434E /* ReviewHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHostViewController.swift; sourceTree = "<group>"; };
+		87BC1E69246E47710039434E /* ReviewGuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewGuestViewController.swift; sourceTree = "<group>"; };
+		87BC1E6B246E477E0039434E /* ReviewHostStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReviewHostStoryboard.storyboard; sourceTree = "<group>"; };
+		87BC1E6D246E47880039434E /* ReviewGuestStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReviewGuestStoryboard.storyboard; sourceTree = "<group>"; };
+		87BC1E6F246E88650039434E /* StartReasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartReasonViewController.swift; sourceTree = "<group>"; };
 		87D8A532245920D00056AC9B /* OrderLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLookViewController.swift; sourceTree = "<group>"; };
 		87D8A535245920E20056AC9B /* OrderLookStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderLookStoryboard.storyboard; sourceTree = "<group>"; };
 		87D8A538245A06EF0056AC9B /* OrdersTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTabViewController.swift; sourceTree = "<group>"; };
@@ -439,7 +449,6 @@
 		87AAF8B92468ECD1000CDC1D /* Edit Profile */ = {
 			isa = PBXGroup;
 			children = (
-				87AAF8DC2469D17C000CDC1D /* Add Payment Method */,
 				87AAF8C02468F8F8000CDC1D /* Add Bio */,
 				87AAF8C52468FF09000CDC1D /* Edit Account Details */,
 				87AAF8EB2469F2E8000CDC1D /* Bank Account Details */,
@@ -461,6 +470,7 @@
 		87AAF8C52468FF09000CDC1D /* Edit Account Details */ = {
 			isa = PBXGroup;
 			children = (
+				87AAF8DC2469D17C000CDC1D /* Add Payment Method */,
 				87AAF8CF24694531000CDC1D /* Change Password */,
 				87AAF8CA24693B9F000CDC1D /* Edit Email Address */,
 				87AAF8C62468FF21000CDC1D /* EditAccountDetailsViewController.swift */,
@@ -555,6 +565,24 @@
 			path = Objects;
 			sourceTree = "<group>";
 		};
+		87BC1E65246E472A0039434E /* Review Guest */ = {
+			isa = PBXGroup;
+			children = (
+				87BC1E69246E47710039434E /* ReviewGuestViewController.swift */,
+				87BC1E6D246E47880039434E /* ReviewGuestStoryboard.storyboard */,
+			);
+			path = "Review Guest";
+			sourceTree = "<group>";
+		};
+		87BC1E66246E474F0039434E /* Review Host */ = {
+			isa = PBXGroup;
+			children = (
+				87BC1E67246E47650039434E /* ReviewHostViewController.swift */,
+				87BC1E6B246E477E0039434E /* ReviewHostStoryboard.storyboard */,
+			);
+			path = "Review Host";
+			sourceTree = "<group>";
+		};
 		87D8A531245920BC0056AC9B /* Order Look */ = {
 			isa = PBXGroup;
 			children = (
@@ -596,7 +624,10 @@
 		87D8A59D245AB3940056AC9B /* Reviews */ = {
 			isa = PBXGroup;
 			children = (
+				87BC1E66246E474F0039434E /* Review Host */,
+				87BC1E65246E472A0039434E /* Review Guest */,
 				87D8A59E245AB3AA0056AC9B /* Review Look */,
+				87BC1E6F246E88650039434E /* StartReasonViewController.swift */,
 			);
 			path = Reviews;
 			sourceTree = "<group>";
@@ -667,6 +698,7 @@
 				87FC9E93244800AD00810ECF /* Orders */,
 				87FC9E92244800A500810ECF /* Notifications */,
 				87FC9E91244800A100810ECF /* Profile */,
+				87D8A59D245AB3940056AC9B /* Reviews */,
 				87FC9E902448008500810ECF /* Login */,
 				87FC9EE9244E9FA600810ECF /* Utilities */,
 				87FC9E792447FF6200810ECF /* AppDelegate.swift */,
@@ -706,7 +738,6 @@
 		87FC9E92244800A500810ECF /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				87D8A59D245AB3940056AC9B /* Reviews */,
 				87D8A598245AB2B50056AC9B /* Notification Look */,
 				87FC9EA6244801FD00810ECF /* NotificationsViewController.swift */,
 				87D8A596245A9F430056AC9B /* NotificationTableViewCell.swift */,
@@ -952,6 +983,7 @@
 				879CC0042458F3D100383F68 /* DateTimeStoryboard.storyboard in Resources */,
 				87764260246BE41C00BBF7D0 /* PriceStoryboard.storyboard in Resources */,
 				87764258246BE3F300BBF7D0 /* PeopleStoryboard.storyboard in Resources */,
+				87BC1E6C246E477E0039434E /* ReviewHostStoryboard.storyboard in Resources */,
 				87FC9E832447FF6300810ECF /* Assets.xcassets in Resources */,
 				87AAF8DE2469D19B000CDC1D /* AddPaymentMethodStoryboard.storyboard in Resources */,
 				873B7E4F24590ECA00F5FF7E /* AttendPopUpStoryboard.storyboard in Resources */,
@@ -985,6 +1017,7 @@
 				87AAF8C42468F918000CDC1D /* AddBioStoryboard.storyboard in Resources */,
 				87AAF8D324694556000CDC1D /* ChangePasswordStoryboard.storyboard in Resources */,
 				87D8A5AA245B805F0056AC9B /* WriteReplyStoryboard.storyboard in Resources */,
+				87BC1E6E246E47880039434E /* ReviewGuestStoryboard.storyboard in Resources */,
 				87FC9F062451351000810ECF /* ImageImporterStoryboard.storyboard in Resources */,
 				87FC9EC2244804C300810ECF /* FoodLookStoryboard.storyboard in Resources */,
 				87FC9EB92448034B00810ECF /* MapStoryboard.storyboard in Resources */,
@@ -1082,6 +1115,7 @@
 				87FC9EC8244804FF00810ECF /* Objects.swift in Sources */,
 				87AAF8EA2469DDD5000CDC1D /* AddCreditCardViewController.swift in Sources */,
 				87D8A5A8245B80510056AC9B /* WriteReplyTableViewCell.swift in Sources */,
+				87BC1E68246E47650039434E /* ReviewHostViewController.swift in Sources */,
 				8776424F246BD2A700BBF7D0 /* PriceViewController.swift in Sources */,
 				87764253246BD2D600BBF7D0 /* DistanceViewController.swift in Sources */,
 				87FC9EA7244801FD00810ECF /* NotificationsViewController.swift in Sources */,
@@ -1094,6 +1128,7 @@
 				8776424D246BD29F00BBF7D0 /* SortViewController.swift in Sources */,
 				87FC9EE4244E179F00810ECF /* FoodCardViewController.swift in Sources */,
 				87AAF8E02469D1AB000CDC1D /* AddPaymentMethodViewController.swift in Sources */,
+				87BC1E70246E88650039434E /* StartReasonViewController.swift in Sources */,
 				87D8A5A4245ABEE20056AC9B /* ReviewTableViewCell.swift in Sources */,
 				87AAF8AE24662960000CDC1D /* Tab1TableViewCell.swift in Sources */,
 				8776424B246BD29600BBF7D0 /* AllViewController.swift in Sources */,
@@ -1108,6 +1143,7 @@
 				87BC1E64246D3E570039434E /* SplashViewController.swift in Sources */,
 				87D8A5B1245CA6A90056AC9B /* ImageScrollViewController.swift in Sources */,
 				87FC9EEC244E9FD300810ECF /* PlaceAutocompleteViewController.swift in Sources */,
+				87BC1E6A246E47710039434E /* ReviewGuestViewController.swift in Sources */,
 				87D8A597245A9F430056AC9B /* NotificationTableViewCell.swift in Sources */,
 				87764255246BD2DF00BBF7D0 /* DietaryViewController.swift in Sources */,
 				87AAF8D124694548000CDC1D /* ChangePasswordViewController.swift in Sources */,

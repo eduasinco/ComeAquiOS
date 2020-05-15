@@ -136,7 +136,6 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     
     @objc func myTextFieldBegin(_ textField: UITextField) {
         price = Int(priceText.enteredNumbers) ?? 0
-        print(price)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -216,6 +215,7 @@ extension AddFoodViewController {
              "place_id":  location?.result?.place_id,
              "lat":  location?.result?.geometry?.location?.lat,
              "lng":  location?.result?.geometry?.location?.lng,
+             "max_dinners":  dinnersText.text!.isEmpty ? nil : dinnersText.text,
              "max_dinners":  dinnersText.text!.isEmpty ? nil : dinnersText.text,
              "start_time": startDate,
              "end_time":  endDate,

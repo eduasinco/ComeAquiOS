@@ -61,12 +61,13 @@ class SearchViewController: KUIViewController {
     }
     
     func setDistanceQuery(){
-        let top = location?.movedBy(latitudinalMeters: 0, longitudinalMeters: globalDistance).coordinate.longitude
-        let right = location?.movedBy(latitudinalMeters: globalDistance, longitudinalMeters: 0).coordinate.latitude
-        let bottom = location?.movedBy(latitudinalMeters: 0, longitudinalMeters: -globalDistance).coordinate.longitude
-        let left = location?.movedBy(latitudinalMeters: -globalDistance, longitudinalMeters: 0).coordinate.latitude
+        guard let location = location else {return}
+        let top = location.movedBy(latitudinalMeters: 0, longitudinalMeters: globalDistance).coordinate.longitude
+        let right = location.movedBy(latitudinalMeters: globalDistance, longitudinalMeters: 0).coordinate.latitude
+        let bottom = location.movedBy(latitudinalMeters: 0, longitudinalMeters: -globalDistance).coordinate.longitude
+        let left = location.movedBy(latitudinalMeters: -globalDistance, longitudinalMeters: 0).coordinate.latitude
 
-        query = "distance=\(right!),\(top!),\(left!),\(bottom!)"
+        query = "distance=\(right),\(top),\(left),\(bottom)"
     }
     
     @IBAction func deleteAll(_ sender: Any) {
