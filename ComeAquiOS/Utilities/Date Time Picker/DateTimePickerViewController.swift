@@ -87,6 +87,9 @@ class DateTimePickerViewController: UIViewController {
         startTimeText.text = hourFormatter.string(from: startDate!)
         endTimeText.text = hourFormatter.string(from: endDate!)
         
+        startDate = startDate!.convertToTimeZone(initTimeZone: TimeZone.current, timeZone:  TimeZone(identifier: "UTC")!)
+        endDate = endDate!.convertToTimeZone(initTimeZone: TimeZone.current, timeZone:  TimeZone(identifier: "UTC")!)
+
         let dateTimeFormatter = DateFormatter()
         dateTimeFormatter.dateFormat = "MM/dd/yyyy HH:mm aa"
         print(dateTimeFormatter.string(from: startDate!), dateTimeFormatter.string(from: endDate!))

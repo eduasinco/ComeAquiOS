@@ -15,6 +15,13 @@ extension String {
 }
 
 extension Date {
+    func convertToTimeZone(initTimeZone: TimeZone, timeZone: TimeZone) -> Date {
+         let delta = TimeInterval(timeZone.secondsFromGMT(for: self) - initTimeZone.secondsFromGMT(for: self))
+         return addingTimeInterval(delta)
+    }
+}
+
+extension Date {
     static func convertToDate(isoDateString: String) -> Date{
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
@@ -144,3 +151,4 @@ extension Date {
         return calendar.component(component, from: self)
     }
 }
+
