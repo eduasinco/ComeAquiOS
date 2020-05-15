@@ -14,6 +14,7 @@ class ProfileViewController: LoadViewController {
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerHeighConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var optionsButton: UIBarButtonItem!
     @IBOutlet weak var segmentView: UISegmentedControl!
     @IBOutlet weak var externalScrollView: UIScrollView!
     @IBOutlet weak var scrollView1: UIScrollView!
@@ -40,9 +41,10 @@ class ProfileViewController: LoadViewController {
     var tab3VC: Tab3ViewController?
 
     
-    var profileId: Int?
+    var userId: Int?
     var user: User?
     var isBackgroundImageChanging = true
+    var options: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +60,7 @@ class ProfileViewController: LoadViewController {
         headerFrame = headerView.frame
     }
     override func viewWillAppear(_ animated: Bool) {
-        if let profileId = self.profileId {
+        if let profileId = self.userId {
             getUser(profileId)
         } else {
             getUser(USER.id)
@@ -68,8 +70,14 @@ class ProfileViewController: LoadViewController {
         guard let user = self.user else {return}
         if user.id == USER.id{
             sendMessageButton.visibility = .gone
+            changeProfileImageButton.visibility = .visible
+            changeBackgroundImageButton.visibility = .visible
+            options = ["Log out"]
         } else {
+            options = ["Message user", "Report"]
             editProfileButton.visibility = .gone
+            changeProfileImageButton.visibility = .gone
+            changeBackgroundImageButton.visibility = .gone
         }
         backgoundImage.loadImageUsingUrlString(urlString: user.background_photo!, isFullUrl: true)
         profileImage.loadImageUsingUrlString(urlString: user.profile_photo!, isFullUrl: true)
@@ -120,9 +128,7 @@ class ProfileViewController: LoadViewController {
             gcVC?.delegate = self
         } else if segue.identifier == "OptionsSegue" {
             let optionsVC = segue.destination as? OptionsPopUpViewController
-            var options: [String] = []
-            options.append("Log Out")
-            optionsVC?.options = options
+            optionsVC?.options = self.options
             optionsVC?.delegate = self
         } else if segue.identifier == "EditProfileSegue" {
             _ = segue.destination as? EditProfileViewController
@@ -141,11 +147,15 @@ class ProfileViewController: LoadViewController {
 extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol {
     func optionPressed(_ title: String) {
         switch title {
-        case "Log Out":
+        case "Log out":
             let defaults = UserDefaults.standard
             defaults.removeObject(forKey: "username")
             defaults.removeObject(forKey: "password")
             self.performSegue(withIdentifier: "LoginOrRegisterSegue", sender: nil)
+            break
+        case "Message user":
+            break
+        case "Report":
             break
         default:
             break

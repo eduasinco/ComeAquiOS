@@ -135,7 +135,8 @@ class SearchViewController: KUIViewController {
         } else if segue.identifier == "MealTimeFilterSegue" {
             let vc = segue.destination as? MealTimeViewController
             vc?.delegate = self
-            
+            vc?.startDateString = startTimeValue
+            vc?.endDateString = endTimeValue
         } else if segue.identifier == "DistanceFilterSegue" {
             let vc = segue.destination as? DistanceViewController
             vc?.delegate = self
@@ -242,6 +243,13 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             topHeaderConstraint.constant = -scrollView.contentOffset.y
             headerView.dropShadow()
+        }
+        
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if offsetY > contentHeight - scrollView.frame.height {
+            fetchMoreData()
         }
     }
     

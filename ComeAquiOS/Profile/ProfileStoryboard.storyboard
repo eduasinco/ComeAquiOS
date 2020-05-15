@@ -302,6 +302,7 @@
                         <outlet property="headerHeighConstraint" destination="aEn-yt-toK" id="bfW-yZ-rib"/>
                         <outlet property="headerTopConstraint" destination="Rv7-5V-JrZ" id="r8d-8q-h55"/>
                         <outlet property="headerView" destination="WfS-YZ-x2y" id="zpQ-WN-NTC"/>
+                        <outlet property="optionsButton" destination="POz-og-zNS" id="1cY-25-6gC"/>
                         <outlet property="profileImage" destination="Idx-fN-F4e" id="d9m-75-447"/>
                         <outlet property="scrollView1" destination="b9f-vt-iwo" id="l9L-FV-bLM"/>
                         <outlet property="scrollView1Width" destination="05X-Np-CAK" id="A8W-8x-V4b"/>

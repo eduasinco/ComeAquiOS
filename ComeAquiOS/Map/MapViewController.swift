@@ -271,27 +271,25 @@ extension MapViewController: MapPickerProtocol {
 
 extension MapViewController {
     func getFoodPosts(){
-        func getFoodPost(){
-            Server.get("/foods/", finish: {
-                (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/foods/", finish: {
+            (data: Data?, response: URLResponse?) -> Void in
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
+            }
+            guard let data = data else {
+                return
+            }
+            do {
+                self.foodPosts = try JSONDecoder().decode([FoodPostObject].self, from: data)
                 DispatchQueue.main.async {
-                    self.spinner.stopAnimating()
-                    self.spinner.isHidden = true
+                    self.setMarkers()
+                    self.getFavouritesPosts()
                 }
-                guard let data = data else {
-                    return
-                }
-                do {
-                    self.foodPosts = try JSONDecoder().decode([FoodPostObject].self, from: data)
-                    DispatchQueue.main.async {
-                        self.setMarkers()
-                        self.getFavouritesPosts()
-                    }
-                } catch _ {
-                    self.view.showToast(message: "Some error ocurred")
-                }
-            })
-        }
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
+            }
+        })
     }
     
     func getFavouritesPosts(){

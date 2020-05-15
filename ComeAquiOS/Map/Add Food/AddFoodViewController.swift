@@ -136,6 +136,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     
     @objc func myTextFieldBegin(_ textField: UITextField) {
         price = Int(priceText.enteredNumbers) ?? 0
+        print(price)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

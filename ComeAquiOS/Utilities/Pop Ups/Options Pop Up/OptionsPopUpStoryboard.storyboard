@@ -15,11 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9n7-5a-sXl">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9n7-5a-sXl">
                                 <rect key="frame" x="16" y="580" width="382" height="300"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meh-Ac-dlT">
-                                        <rect key="frame" x="0.0" y="234" width="382" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meh-Ac-dlT">
+                                        <rect key="frame" x="0.0" y="225" width="382" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="5j6-a2-cqT"/>
@@ -32,12 +32,13 @@
                                             <action selector="cancelPressed:" destination="jha-po-mbU" eventType="touchUpInside" id="UP7-xq-D6k"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Xc-fX-AHN" userLabel="optionsView">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="209"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xc-fX-AHN" userLabel="optionsView">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3ab-kY-tov">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="209"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3ab-kY-tov">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" priority="200" constant="200" id="X8E-By-uUA"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" id="z5V-HW-ClS"/>
                                                 </constraints>
                                             </stackView>
@@ -52,20 +53,20 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="meh-Ac-dlT" firstAttribute="top" secondItem="3Xc-fX-AHN" secondAttribute="bottom" constant="25" id="FAg-iU-6rn"/>
                                     <constraint firstAttribute="trailing" secondItem="meh-Ac-dlT" secondAttribute="trailing" id="H2f-QV-GYO"/>
                                     <constraint firstItem="meh-Ac-dlT" firstAttribute="leading" secondItem="9n7-5a-sXl" secondAttribute="leading" id="PVE-GQ-3vF"/>
-                                    <constraint firstItem="meh-Ac-dlT" firstAttribute="top" secondItem="3Xc-fX-AHN" secondAttribute="bottom" constant="25" id="bEG-DL-6mF"/>
                                     <constraint firstItem="3Xc-fX-AHN" firstAttribute="leading" secondItem="9n7-5a-sXl" secondAttribute="leading" id="dJX-2g-IWo"/>
                                     <constraint firstAttribute="trailing" secondItem="3Xc-fX-AHN" secondAttribute="trailing" id="n2e-gO-Jyu"/>
-                                    <constraint firstAttribute="bottom" secondItem="meh-Ac-dlT" secondAttribute="bottom" constant="16" id="nK7-XP-hMI"/>
                                     <constraint firstItem="3Xc-fX-AHN" firstAttribute="top" secondItem="9n7-5a-sXl" secondAttribute="top" id="s1j-Ch-NPr"/>
+                                    <constraint firstAttribute="bottom" secondItem="meh-Ac-dlT" secondAttribute="bottom" constant="25" id="xb7-T1-rlr"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="9n7-5a-sXl" secondAttribute="bottom" constant="16" id="0lj-70-ZJL"/>
                             <constraint firstItem="9n7-5a-sXl" firstAttribute="leading" secondItem="1ZT-pl-Y34" secondAttribute="leading" constant="16" id="62n-Ue-ESZ"/>
-                            <constraint firstAttribute="bottom" secondItem="9n7-5a-sXl" secondAttribute="bottom" constant="16" id="frD-CW-uas"/>
                             <constraint firstItem="1ZT-pl-Y34" firstAttribute="trailing" secondItem="9n7-5a-sXl" secondAttribute="trailing" constant="16" id="j0D-XH-uxu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1ZT-pl-Y34"/>

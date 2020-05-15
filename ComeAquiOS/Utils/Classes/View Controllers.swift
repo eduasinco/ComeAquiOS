@@ -149,7 +149,7 @@ class CardBehaviourViewController: KUIViewController {
         case .ended:
             let move = cardView.frame.origin.y - originY
             print(move)
-            if move >= 100 {
+            if move >= cardView.frame.height / 4 {
                 moveCardToBottom(view: cardView, onFinish: self.onHide!)
             } else {
                 returnViewToOrigin(view: cardView)
@@ -166,7 +166,7 @@ class CardBehaviourViewController: KUIViewController {
     func getConstraint(view: UIView, attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
         var constraint: NSLayoutConstraint?
         for c in view.constraints {
-            if (c.firstAttribute == .bottom || c.secondAttribute == .bottom) {
+            if (c.firstAttribute == .bottom) {
                 constraint = c
                 break
             }

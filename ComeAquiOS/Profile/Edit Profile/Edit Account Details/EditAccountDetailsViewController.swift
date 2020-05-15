@@ -135,19 +135,10 @@ extension EditAccountDetailsViewController {
     
     func patchAccount(){
         present(alert, animated: false, completion: nil)
-        var json:[String: Any] = [:]
-        if !firstName.text!.isEmpty {
-            json["first_name"] = firstName.text
-        }
-        if !lastName.text!.isEmpty {
-            json["last_name"] = lastName.text
-        }
-        if !phoneNumber.text!.isEmpty {
-            json["phone_number"] = phoneNumber.text
-        }
         Server.patch("/edit_profile/",
-                     json:
-            json,
+                     json: ["first_name": firstName.text,
+                            "last_name": lastName.text,
+                            "phone_number": phoneNumber.text],
                      finish: {(data: Data?, response: URLResponse?) -> Void in
                         DispatchQueue.main.async {
                             self.alert.dismiss(animated: false, completion: nil)

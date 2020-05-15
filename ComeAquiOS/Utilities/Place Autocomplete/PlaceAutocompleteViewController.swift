@@ -60,7 +60,6 @@ class PlaceAutocompleteViewController: UIViewController, UITextFieldDelegate {
         if (currentText as NSString).replacingCharacters(in: range, with: string).count > 0 {
             timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false){_ in
                 print("SEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARCH")
-                self.delegate?.placeSelected(place: nil)
                 self.getLocationsFromGoogle()
             }
         } else {

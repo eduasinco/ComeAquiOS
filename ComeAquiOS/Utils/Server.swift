@@ -51,7 +51,18 @@ class Server {
         update(urlString, json: json, method: "POST", finish: finish)
     }
     static func patch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
-        update(urlString, json: json, method: "PATCH", finish: finish)
+        var trueJson: [String: Any] = [:]
+        for k in json.keys {
+            guard let element = json[k] else {return}
+            if let element = element as? String {
+                if !element.isEmpty {
+                    trueJson[k] = element
+                }
+            } else {
+                trueJson[k] = element
+            }
+        }
+        update(urlString, json: trueJson, method: "PATCH", finish: finish)
     }
     
     static func update(_ urlString: String, json: [String:Any?], method: String, finish: @escaping (Data?, URLResponse?) -> Void){

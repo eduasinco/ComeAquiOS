@@ -25,8 +25,9 @@ class OptionsPopUpViewController: CardBehaviourViewController {
             let button = createButton(option)
             stackView.addArrangedSubview(button)
             button.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
-            guard let images = images, let image = images[i] else {return}
-            button.setImage(image, for: .normal)
+            if let images = images, let image = images[i] {
+                button.setImage(image, for: .normal)
+            }
         }
     }
     
@@ -46,5 +47,4 @@ class OptionsPopUpViewController: CardBehaviourViewController {
         button.setTitle(title, for: .normal)
         return button
     }
-    
 }
