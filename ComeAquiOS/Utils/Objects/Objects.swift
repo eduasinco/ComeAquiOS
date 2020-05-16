@@ -190,3 +190,38 @@ public class Document: Decodable{
     var back: String?
     var front: String?
 }
+
+public class ChatObject: Decodable {
+    var id: Int?
+    var users: [User]?
+    var last_message : MessageObject?
+    var created_at : String?
+    var user_chat_status: [UserChatStatus]?
+    {
+        didSet {
+            for u in self.user_chat_status! {
+                self.user_chat_s![u.user_id!] = u.unseen_messages_count!
+            }
+        }
+    }
+    
+    var user_chat_s: [Int: Int]?
+}
+
+public class UserChatStatus: Decodable {
+    var user_id: Int?
+    var seen: Bool?
+    var unseen_messages_count: Int?
+}
+
+public class MessageObject: Decodable {
+    var id: Int?
+    var sender: User?
+    var message: String?
+    var created_at: String?
+    
+    var newDay: Bool? = false
+    var topSpace: Bool? = false
+    var lastInGroup: Bool? = false
+    var isOwner: Bool? = false
+}

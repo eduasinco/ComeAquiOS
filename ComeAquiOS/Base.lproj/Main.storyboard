@@ -10,7 +10,6 @@
         <!--Splash View Controller-->
         <scene sceneID="MZM-sB-r4Y">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IgE-5R-dcA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="mz9-LP-qsw" customClass="SplashViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b5z-S0-GNr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -34,8 +33,10 @@
                     <connections>
                         <segue destination="HYk-I9-3OM" kind="presentation" identifier="MainSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="Shr-BW-kaY"/>
                         <segue destination="QK1-1n-6SA" kind="presentation" identifier="LoginOrRegisterSegue" modalPresentationStyle="fullScreen" id="hKn-Wg-PDX"/>
+                        <segue destination="dxg-5z-ner" kind="presentation" identifier="ReviewHostSegue" modalPresentationStyle="fullScreen" id="rQf-Bt-g7G"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IgE-5R-dcA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1006" y="1"/>
         </scene>
@@ -60,6 +61,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGM-3K-bvz" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--ReviewHostStoryboard-->
+        <scene sceneID="TMk-tp-fdv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ReviewHostStoryboard" id="dxg-5z-ner" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ggv-IC-U0Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-743" y="420"/>
         </scene>
         <!--MapNavView-->
         <scene sceneID="Zkj-Pz-xrI">
@@ -107,7 +116,7 @@
                 <viewControllerPlaceholder storyboardName="LoginOrRegisterStoryboard" id="QK1-1n-6SA" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WrC-Ge-o04" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1007" y="477"/>
+            <point key="canvasLocation" x="-1309" y="420"/>
         </scene>
     </scenes>
     <resources>

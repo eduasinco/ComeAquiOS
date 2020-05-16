@@ -36,6 +36,7 @@ class StartReasonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.translatesAutoresizingMaskIntoConstraints = false
         stackView.visibility = .gone
         starArray = [star0, star1, star2, star3, star4]
         reasons = [reason0, reason1, reason2,reason3]
@@ -60,10 +61,9 @@ class StartReasonViewController: UIViewController {
         rating = i + 1
         delegate?.rating(rating!)
         stackView.visibility = .visible
-        let star = starArray[i]
         var j = 0
         while j <= i {
-            star.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            starArray[j].setImage(UIImage(systemName: "star.fill"), for: .normal)
             j += 1
         }
         while j < starArray.count {

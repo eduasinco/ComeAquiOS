@@ -14,9 +14,22 @@ class SplashViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getMyUser()
+        if USER == nil {
+            getMyUser()
+        } else {
+            getMyUnreviewedOrdersAsDinner()
+        }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ReviewHostSegue" {
+            let vc = segue.destination as? ReviewHostViewController
+            vc?.order = sender as? OrderObject
+        }
+    }
+}
+
+extension SplashViewController {
     func getMyUser(){
         Server.get("/login/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
@@ -31,9 +44,7 @@ class SplashViewController: UIViewController {
                     }
                     return
                 }
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "MainSegue", sender: nil)
-                }
+                self.getMyUnreviewedOrdersAsDinner()
             } catch _ {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "LoginOrRegisterSegue", sender: nil)
@@ -41,5 +52,42 @@ class SplashViewController: UIViewController {
             }
         })
     }
-    
+    func getMyUnreviewedOrdersAsDinner(){
+        Server.get("/my_unreviewed_order_post/", finish: {
+            (data: Data?, response: URLResponse?) -> Void in
+            guard let data = data else {
+                return
+            }
+            do {
+                let orders = try JSONDecoder().decode([OrderObject].self, from: data)
+                if orders.count > 0 {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "ReviewHostSegue", sender: orders[0])
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "MainSegue", sender: nil)
+                    }
+                }
+            } catch _ {
+            }
+        })
+    }
+    func getMyUnreviewedOrders(){
+        Server.get("/my_unreviewed_order_post/", finish: {
+            (data: Data?, response: URLResponse?) -> Void in
+            guard let data = data else {
+                return
+            }
+            do {
+                let orders = try JSONDecoder().decode([OrderObject].self, from: data)
+                if orders.count > 0 {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "ReviewHostSegue", sender: orders[0])
+                    }
+                }
+            } catch _ {
+            }
+        })
+    }
 }

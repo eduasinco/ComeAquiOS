@@ -12,8 +12,9 @@ private class ResponseObject: Decodable {
     var error_message: String?
     var data: [PaymentMethodObject]?
 }
-class ReviewHostViewController: LoadViewController, UITextFieldDelegate, UITextViewDelegate {
+class ReviewHostViewController: KUIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var posterName: UILabel!
     @IBOutlet weak var posterRating: UILabel!
     @IBOutlet weak var totalAmount: UILabel!
@@ -26,6 +27,9 @@ class ReviewHostViewController: LoadViewController, UITextFieldDelegate, UITextV
     @IBOutlet weak var amountField: CurrencyTextField!
     @IBOutlet weak var starReasonView: UIStackView!
     @IBOutlet weak var reviewText: UITextView!
+    @IBOutlet weak var wordCountText: UILabel!
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
     
     var order: OrderObject?
     var paymentMethod: PaymentMethodObject?
@@ -36,21 +40,26 @@ class ReviewHostViewController: LoadViewController, UITextFieldDelegate, UITextV
     override func viewDidLoad() {
         super.viewDidLoad()
         getChosenCard()
+        self.bottomConstraintForKeyboard = bottomViewConstraint
         amountField.addTarget(self, action: #selector(myTextFieldBegin), for: .editingChanged)
+        reviewText.delegate = self
+        submitButton.isEnabled = false
     }
     func setView() {
         guard let order = self.order else {return}
         posterName.text = order.poster?.full_name
         posterRating.text = "\(order.poster!.rating!)"
-        totalAmount.text = "\(order.order_price!)"
-        starReasonView.visibility = .gone
+        totalAmount.text = "\(order.order_price!.format())"
+        starReasonView.visibility = .goneY
         amountField.isEnabled = false
+        
         
         guard let payment = self.paymentMethod else {return}
         paymentMethodText.text = payment.last4
     }
     @objc func myTextFieldBegin(_ textField: UITextField) {
         price = Int(amountField.enteredNumbers) ?? 0
+        starReasonView.visibility = .visible
     }
     
     @IBAction func noTip(_ sender: Any) {
@@ -58,23 +67,26 @@ class ReviewHostViewController: LoadViewController, UITextFieldDelegate, UITextV
         tipClicked(button: noTipButton)
     }
     @IBAction func tip15(_ sender: Any) {
-        price = order!.order_price! * (15 / 100)
+        price = Int(Float(order!.order_price!) * Float(15) / Float(100))
         tipClicked(button: tip15Button)
     }
     @IBAction func tip20(_ sender: Any) {
-        price = order!.order_price! * (20 / 100)
+        price = Int(Float(order!.order_price!) * Float(20) / Float(100))
         tipClicked(button: tip20Button)
     }
     @IBAction func tip25(_ sender: Any) {
-        price = order!.order_price! * (25 / 100)
+        price = Int(Float(order!.order_price!) * Float(25) / Float(100))
         tipClicked(button: tip25Button)
+    }
+    @IBAction func submit(_ sender: Any) {
+        postReview()
     }
     
     var customTip = false
     @IBAction func customTip(_ sender: Any) {
         customTip = !customTip
         tipButtonStack.visibility = customTip ? .gone : .visible
-        amountField.isEnabled = customTip ? false : true
+        amountField.isEnabled = customTip ? true : false
         if customTip {
             amountField.becomeFirstResponder()
         }
@@ -94,6 +106,7 @@ class ReviewHostViewController: LoadViewController, UITextFieldDelegate, UITextV
                 b?.setTitleColor(UIColor.black, for: .normal)
             }
         }
+        starReasonView.visibility = .visible
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -109,6 +122,7 @@ class ReviewHostViewController: LoadViewController, UITextFieldDelegate, UITextV
 extension ReviewHostViewController: StarReasonDelegate {
     func rating(_ rate: Int) {
         self.rating = rate
+        submitButton.isEnabled = true
     }
     
     func reasons(reasons: [Bool]?) {
@@ -163,11 +177,21 @@ extension ReviewHostViewController {
                             let review = try JSONDecoder().decode(ReviewObject.self, from: data)
                             guard review.id != nil else {return}
                             DispatchQueue.main.async {
+                                self.navigationController?.popViewController(animated: true)
                                 self.dismiss(animated: true, completion: nil)
                             }
                         } catch _ {
                             self.view.showToast(message: "Some error ocurred")
                         }
         })
+    }
+}
+
+extension ReviewHostViewController: UITextViewDelegate, UITextFieldDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfChars = newText.count
+        wordCountText.text = "\(numberOfChars)/202"
+        return numberOfChars < 202    // 10 Limit Value
     }
 }

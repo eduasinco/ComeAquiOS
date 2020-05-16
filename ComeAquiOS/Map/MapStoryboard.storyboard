@@ -90,7 +90,11 @@
                         <viewLayoutGuide key="safeArea" id="HqB-kn-AOB"/>
                     </view>
                     <navigationItem key="navigationItem" title="ComeAquí" id="H9c-bM-AUl">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="message" catalog="system" id="Q03-dI-bEg"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="message" catalog="system" id="Q03-dI-bEg">
+                            <connections>
+                                <segue destination="1IP-Jk-hH0" kind="show" identifier="ChatSegue" id="Ex4-EW-Igp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -226,7 +230,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="chY-vw-aW5">
-                                <rect key="frame" x="16" y="116" width="366" height="68"/>
+                                <rect key="frame" x="16" y="116" width="366" height="90"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcx-D3-1x9" userLabel="User Description">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
@@ -300,7 +304,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9v-2D-Tl6" userLabel="Post Description">
-                                        <rect key="frame" x="0.0" y="40" width="366" height="28"/>
+                                        <rect key="frame" x="0.0" y="40" width="366" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-PH-DEG">
                                                 <rect key="frame" x="0.0" y="23" width="366" height="20.5"/>
@@ -491,6 +495,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHs-5A-xsl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="155.07246376811597" y="-35.491071428571423"/>
+        </scene>
+        <!--ChatStoryboard-->
+        <scene sceneID="z8S-EZ-bl7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChatStoryboard" id="1IP-Jk-hH0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="VDX-ru-hVu"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s8J-q2-Q2T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1846" y="-269"/>
         </scene>
     </scenes>
     <resources>

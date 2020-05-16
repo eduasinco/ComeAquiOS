@@ -216,7 +216,7 @@ extension AddFoodViewController {
              "lat":  location?.result?.geometry?.location?.lat,
              "lng":  location?.result?.geometry?.location?.lng,
              "max_dinners":  dinnersText.text!.isEmpty ? nil : dinnersText.text,
-             "max_dinners":  dinnersText.text!.isEmpty ? nil : dinnersText.text,
+             "dinners_left":  dinnersText.text!.isEmpty ? nil : dinnersText.text,
              "start_time": startDate,
              "end_time":  endDate,
              "price":  price,
