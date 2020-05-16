@@ -10,7 +10,6 @@ import UIKit
 
 class ConversationViewController: KUIViewController {
     
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
@@ -25,7 +24,6 @@ class ConversationViewController: KUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bottomConstraintForKeyboard = bottomViewConstraint
-        scrollView.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         textView.delegate = self
@@ -33,7 +31,9 @@ class ConversationViewController: KUIViewController {
         sendButton.visibility = .goneX
         getChatDetail()
         getChatMessages()
+        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi));
     }
+    
     @IBAction func send(_ sender: Any) {
     }
 }
@@ -143,10 +143,18 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
             return CGSize(width: originalContentSize.width + 20, height: height)
         }
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if let firstMessageInSection = chatMessages[section].first {
-            return firstMessageInSection.created_at
+            let label = DateHeaderLabel()
+            label.text = firstMessageInSection.created_at
+            let containerView = UIView()
+
+            containerView.addSubview(label)
+            label.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+            label.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+
+            return containerView
+
         }
         return nil
     }
@@ -164,6 +172,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageTableViewCell
         let chatMessage = chatMessages[indexPath.section][indexPath.row]
         cell.setCell(message: chatMessage)
+        cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
         return cell
     }
 }
@@ -190,27 +199,5 @@ extension ConversationViewController: UITextViewDelegate, UITextFieldDelegate {
             sendButton.visibility = .goneX
         }
         return numberOfChars < 200
-    }
-}
-
-
-class YourViewController: KUIViewController {
-
-    @IBOutlet weak var textView: UITextView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        textView.delegate = self
-    }
-}
-extension YourViewController: UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        let size = CGSize(width: view.frame.width, height: .infinity)
-        let estimatedSize = textView.sizeThatFits(size)
-        textView.constraints.forEach { (constraint) in
-            if constraint.firstAttribute == .height {
-                constraint.constant = estimatedSize.height
-            }
-        }
     }
 }
