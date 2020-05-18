@@ -197,15 +197,13 @@ public class ChatObject: Decodable {
     var last_message : MessageObject?
     var created_at : String?
     var user_chat_status: [UserChatStatus]?
-    {
-        didSet {
-            for u in self.user_chat_status! {
-                self.user_chat_s![u.user_id!] = u.unseen_messages_count!
-            }
-        }
-    }
-    
-    var user_chat_s: [Int: Int]?
+}
+
+public class PlaneChatObject: Decodable {
+    var id: Int?
+    var users: [User]?
+    var created_at : String?
+    var user_chat_status: [UserChatStatus]?
 }
 
 public class UserChatStatus: Decodable {

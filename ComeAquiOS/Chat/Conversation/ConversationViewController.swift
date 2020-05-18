@@ -7,9 +7,24 @@
 //
 
 import UIKit
+import Starscream
+
+private class ResponseChatObject: Decodable {
+    var chat: PlaneChatObject?
+    var blocked: Bool?
+}
+private class SocketObject: Decodable {
+    var message: MessageResponseObject?
+}
+private class MessageResponseObject: Decodable {
+    var error_message: String?
+    var message: MessageObject?
+}
 
 class ConversationViewController: KUIViewController {
     
+    @IBOutlet weak var userImage: URLImageView!
+    @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
@@ -17,9 +32,13 @@ class ConversationViewController: KUIViewController {
 
     var messagesFromServer: [MessageObject] = []
     var chatId: Int?
+    var chat: PlaneChatObject?
+    var chattingWith: User!
     var chatMessages = [[MessageObject]]()
     var page: Int = 1
     var alreadyFetchingData = false
+    
+    var ws: WebSocket?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,18 +50,87 @@ class ConversationViewController: KUIViewController {
         sendButton.visibility = .goneX
         getChatDetail()
         getChatMessages()
+        webSocketConnetion()
         tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi));
     }
     
-    @IBAction func send(_ sender: Any) {
-    }
-}
-extension ConversationViewController {
-    private class ResponseFoodPostObject: Decodable{
-        var chat: ChatObject?
-        var blocked: Bool?
+    func setView() {
+        guard let chat = self.chat else {return}
+        self.chattingWith = (USER.id == chat.users![0].id) ? chat.users![1] : chat.users![0]
+        userImage.loadImageUsingUrlString(urlString: self.chattingWith.profile_photo!)
+        userName.text = self.chattingWith.full_name
     }
     
+    @IBAction func send(_ sender: Any) {
+        let message = "{\"message\": \"" + textView.text + "\"," +
+                "\"command\": \"new_message\"," +
+                "\"from\": \(USER.id!)," +
+                "\"to\": \(self.chattingWith.id!)," +
+        "\"chatId\": \(self.chat!.id!)}"
+        ws!.write(string: message)
+        textView.text = ""
+        textViewDidChange(textView)
+    }
+}
+extension ConversationViewController: WebSocketDelegate{
+    func webSocketConnetion(){
+        guard let chatId = self.chatId else {return}
+        var request = URLRequest(url: URL(string: SERVER + "/ws/chat/\(chatId)/")!)
+        request.timeoutInterval = 5
+        ws = WebSocket(request: request)
+        ws?.delegate = self
+        ws?.connect()
+    }
+    func didReceive(event: WebSocketEvent, client: WebSocket) {
+        switch event {
+        case .connected(let headers):
+            // isConnected = true
+            print("websocket is connected: \(headers)")
+        case .disconnected(let reason, let code):
+            // isConnected = false
+            print("websocket is disconnected: \(reason) with code: \(code)")
+        case .text(let string):
+            print("Received text: \(string)")
+            let data = string.data(using: .utf8)!
+            do {
+                let so = try JSONDecoder().decode(SocketObject.self, from: data)
+                guard let mro = so.message else {return}
+                if mro.error_message == nil {
+                    if self.chatMessages.count > 0 {
+                        self.chatMessages[0].insert(mro.message!, at: 0)
+                    } else {
+                        self.chatMessages = [[mro.message!]]
+                    }
+                    DispatchQueue.main.async {
+                        self.tableView.beginUpdates()
+                        self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                        self.tableView.endUpdates()
+                    }
+                } else {
+                    
+                }
+            } catch let error as NSError {
+                print(error)
+            }
+        case .binary(let data):
+            print("Received data: \(data.count)")
+        case .ping(_):
+            break
+        case .pong(_):
+            break
+        case .viabilityChanged(_):
+            break
+        case .reconnectSuggested(_):
+            break
+        case .cancelled:
+            // isConnected = false
+            break
+        case .error(let error):
+//            isConnected = false
+//            handleError(error)
+            break
+        }
+    }
     func getChatDetail(){
         self.tableView.showActivityIndicator()
         guard let chatId = self.chatId else {return}
@@ -51,10 +139,14 @@ extension ConversationViewController {
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
-                _ = try JSONDecoder().decode(ResponseFoodPostObject.self, from: data)
+                let responseO = try JSONDecoder().decode(ResponseChatObject.self, from: data)
+                self.chat = responseO.chat
                 DispatchQueue.main.async {
+                    self.setView()
                 }
-            } catch {}
+            } catch {
+                
+            }
         })
     }
     func fetchMoreData(){
@@ -71,7 +163,7 @@ extension ConversationViewController {
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
-                self.messagesFromServer.append(contentsOf: try JSONDecoder().decode([MessageObject].self, from: data))
+                self.messagesFromServer = try JSONDecoder().decode([MessageObject].self, from: data)
                 DispatchQueue.main.async {
                     self.attemptToAssembleGroupedMessages()
                     self.tableView.reloadData()
@@ -87,7 +179,7 @@ extension ConversationViewController {
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
-                _ = try JSONDecoder().decode(ResponseFoodPostObject.self, from: data)
+                _ = try JSONDecoder().decode(ResponseChatObject.self, from: data)
                 DispatchQueue.main.async {
                 }
             } catch {}
@@ -153,6 +245,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
             label.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
             label.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
 
+            containerView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
             return containerView
 
         }
