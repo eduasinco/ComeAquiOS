@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import Starscream
 
 class NotificationsViewController: LoadViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var notifications: [NotificationObject] = []
+    var notificationToIndexPath: [Int: IndexPath] = [:]
     
     var page = 1
     var alreadyFetchingData = false
+    var ws: WebSocket?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        webSocketConnetion()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +59,9 @@ extension NotificationsViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell") as! NotificationTableViewCell
-        cell.setCell(notification: notifications[indexPath.row])
+        let notification = notifications[indexPath.row]
+        cell.setCell(notification: notification)
+        notificationToIndexPath[notification.id!] = indexPath
         return cell
     }
     
@@ -107,13 +113,83 @@ extension NotificationsViewController {
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
-                self.notifications.append(contentsOf: try JSONDecoder().decode([NotificationObject].self, from: data))
+                let newNotifications = try JSONDecoder().decode([NotificationObject].self, from: data)
+                self.notifications.append(contentsOf: newNotifications)
                 self.page += 1
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             } catch {}
         })
+    }
+}
+
+extension NotificationsViewController: WebSocketDelegate{
+    private class SocketObject: Decodable {
+        var message: MessageResponseObject?
+    }
+    private class MessageResponseObject: Decodable {
+        var notification_added: NotificationObject?
+    }
+    func webSocketConnetion(){
+        var request = URLRequest(url: URL(string: SERVER + "/ws/notifications/\(USER.id!)/")!)
+        request.timeoutInterval = 5
+        ws = WebSocket(request: request)
+        ws?.delegate = self
+        ws?.connect()
+    }
+    func didReceive(event: WebSocketEvent, client: WebSocket) {
+        switch event {
+        case .connected(let headers):
+            // isConnected = true
+            print("CONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED")
+            print("websocket is connected: \(headers)")
+        case .disconnected(let reason, let code):
+            // isConnected = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.ws?.connect()
+                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
+            })
+            print("DISCONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED \(reason) with code: \(code)")
+        case .text(let string):
+            print("Received text: \(string)")
+            let data = string.data(using: .utf8)!
+            do {
+                let so = try JSONDecoder().decode(SocketObject.self, from: data)
+                guard let mro = so.message else {return}
+                notifications.insert(mro.notification_added!, at: 0)
+                DispatchQueue.main.async {
+                    self.tableView.beginUpdates()
+                    self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                    self.tableView.endUpdates()
+                }
+            } catch let error as NSError {
+                print(error)
+            }
+        case .binary(let data):
+            print("Received data: \(data.count)")
+        case .ping(_):
+            break
+        case .pong(_):
+            break
+        case .viabilityChanged(_):
+            break
+        case .reconnectSuggested(_):
+            break
+        case .cancelled:
+            // isConnected = false
+            break
+        case .error(let error):
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.ws?.connect()
+                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
+            })
+            break
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        ws?.disconnect()
     }
 }
 

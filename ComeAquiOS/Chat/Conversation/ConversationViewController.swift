@@ -13,13 +13,6 @@ private class ResponseChatObject: Decodable {
     var chat: PlaneChatObject?
     var blocked: Bool?
 }
-private class SocketObject: Decodable {
-    var message: MessageResponseObject?
-}
-private class MessageResponseObject: Decodable {
-    var error_message: String?
-    var message: MessageObject?
-}
 
 class ConversationViewController: KUIViewController {
     
@@ -29,7 +22,7 @@ class ConversationViewController: KUIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
-
+    
     var messagesFromServer: [MessageObject] = []
     var chatId: Int?
     var chat: PlaneChatObject?
@@ -63,16 +56,24 @@ class ConversationViewController: KUIViewController {
     
     @IBAction func send(_ sender: Any) {
         let message = "{\"message\": \"" + textView.text + "\"," +
-                "\"command\": \"new_message\"," +
-                "\"from\": \(USER.id!)," +
-                "\"to\": \(self.chattingWith.id!)," +
+            "\"command\": \"new_message\"," +
+            "\"from\": \(USER.id!)," +
+            "\"to\": \(self.chattingWith.id!)," +
         "\"chatId\": \(self.chat!.id!)}"
         ws!.write(string: message)
         textView.text = ""
         textViewDidChange(textView)
     }
 }
+
 extension ConversationViewController: WebSocketDelegate{
+    private class SocketObject: Decodable {
+        var message: MessageResponseObject?
+    }
+    private class MessageResponseObject: Decodable {
+        var error_message: String?
+        var message: MessageObject?
+    }
     func webSocketConnetion(){
         guard let chatId = self.chatId else {return}
         var request = URLRequest(url: URL(string: SERVER + "/ws/chat/\(chatId)/")!)
@@ -85,10 +86,15 @@ extension ConversationViewController: WebSocketDelegate{
         switch event {
         case .connected(let headers):
             // isConnected = true
+            print("CONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED")
             print("websocket is connected: \(headers)")
         case .disconnected(let reason, let code):
             // isConnected = false
-            print("websocket is disconnected: \(reason) with code: \(code)")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.ws?.connect()
+                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
+            })
+            print("DISCONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED \(reason) with code: \(code)")
         case .text(let string):
             print("Received text: \(string)")
             let data = string.data(using: .utf8)!
@@ -126,11 +132,22 @@ extension ConversationViewController: WebSocketDelegate{
             // isConnected = false
             break
         case .error(let error):
-//            isConnected = false
-//            handleError(error)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.ws?.connect()
+                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
+            })
+            //            isConnected = false
+            //            handleError(error)
             break
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        ws?.disconnect()
+    }
+}
+
+extension ConversationViewController {
     func getChatDetail(){
         self.tableView.showActivityIndicator()
         guard let chatId = self.chatId else {return}

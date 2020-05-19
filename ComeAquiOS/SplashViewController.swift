@@ -44,6 +44,7 @@ extension SplashViewController {
                     }
                     return
                 }
+                self.registerFCMDevice()
                 self.getMyUnreviewedOrdersAsDinner()
             } catch _ {
                 DispatchQueue.main.async {
@@ -51,6 +52,14 @@ extension SplashViewController {
                 }
             }
         })
+    }
+    func registerFCMDevice(){
+        Server.post("/fcm/v1/devices/",
+                    json:
+            ["dev_id":  UIDevice.current.identifierForVendor!.uuidString,
+             "reg_id":  UserDefaults.standard.string(forKey: "fcm_token"),
+             "name":  USER.id],
+                    finish: {(data: Data?, response: URLResponse?) -> Void in})
     }
     func getMyUnreviewedOrdersAsDinner(){
         Server.get("/my_unreviewed_order_post/", finish: {

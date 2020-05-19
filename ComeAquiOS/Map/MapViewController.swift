@@ -11,6 +11,8 @@ import UIKit
 import MapKit
 import GoogleMaps
 import CoreLocation
+import Starscream
+
 
 private class FoodPostMarker : GMSMarker {
     var id : Int!
@@ -45,6 +47,9 @@ class MapViewController: LoadViewController, CardActionProtocol {
     var cameraLat: Double?
     var cameraLng: Double?
     
+    var ws: WebSocket?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -61,6 +66,14 @@ class MapViewController: LoadViewController, CardActionProtocol {
         moveCardToBottom(view: cardView)
         addPanGesture(view: cardView)
         view.bringSubviewToFront(cardView)
+        
+        webSocketConnetion()
+        
+//        if let tabItems = tabBarController?.tabBar.items {
+//            // In this case we want to modify the badge number of the third tab:
+//            let tabItem = tabItems[0]
+//            tabItem.badgeValue = nil
+//        }
     }
     override func viewDidLayoutSubviews() {
         containerView.roundCorners(radius: 8, clip: true)
@@ -345,6 +358,89 @@ extension MapViewController: GMSMapViewDelegate {
 extension MapViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
+    }
+}
+
+extension MapViewController: WebSocketDelegate{
+    private class SocketObject: Decodable {
+        var message: MessageResponseObject?
+    }
+    private class MessageResponseObject: Decodable {
+        var post: FoodPostObject?
+        var delete: Bool?
+
+    }
+    func webSocketConnetion(){
+        var request = URLRequest(url: URL(string: SERVER + "/ws/orders/\(USER.id!)/")!)
+        request.timeoutInterval = 5
+        ws = WebSocket(request: request)
+        ws?.delegate = self
+        ws?.connect()
+    }
+    func didReceive(event: WebSocketEvent, client: WebSocket) {
+        switch event {
+        case .connected(let headers):
+            // isConnected = true
+            print("CONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED")
+            print("websocket is connected: \(headers)")
+        case .disconnected(let reason, let code):
+            // isConnected = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.ws?.connect()
+                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
+            })
+            print("DISCONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED \(reason) with code: \(code)")
+        case .text(let string):
+            print("Received text: \(string)")
+            let data = string.data(using: .utf8)!
+            do {
+                let so = try JSONDecoder().decode(SocketObject.self, from: data)
+                guard let mro = so.message else {return}
+                if let delete = mro.delete, delete {
+                    if let marker = idToMarker[mro.post!.id!] {
+                        marker.map = nil
+                    }
+                } else {
+                    if foodPostsDict[mro.post!.id!] == nil {
+                        foodPostsDict[mro.post!.id!] = mro.post!
+                        let marker = FoodPostMarker()
+                        marker.id = mro.post!.id!
+                        marker.position = CLLocationCoordinate2D(latitude: mro.post!.lat!, longitude: mro.post!.lng!)
+                        marker.title = mro.post!.plate_name!
+                        marker.map = self.googleMap
+                        marker.icon = self.imageWithImage(image: mro.post!.favourite! ? UIImage(named: "marker_favourite")! : UIImage(named: "marker")!, width: 30)
+                        idToMarker[marker.id] = marker
+                    }
+                }
+                DispatchQueue.main.async {
+                }
+            } catch let error as NSError {
+                print(error)
+            }
+        case .binary(let data):
+            print("Received data: \(data.count)")
+        case .ping(_):
+            break
+        case .pong(_):
+            break
+        case .viabilityChanged(_):
+            break
+        case .reconnectSuggested(_):
+            break
+        case .cancelled:
+            // isConnected = false
+            break
+        case .error(let error):
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.ws?.connect()
+                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
+            })
+            break
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        ws?.disconnect()
     }
 }
 

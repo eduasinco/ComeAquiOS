@@ -69,6 +69,8 @@
 		87AAF8FA246A59C0000CDC1D /* ImagePagerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8F9246A59C0000CDC1D /* ImagePagerCollectionViewCell.swift */; };
 		87AAF8FF246A9ED3000CDC1D /* View Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8FE246A9ED3000CDC1D /* View Controllers.swift */; };
 		87AAF901246A9EFE000CDC1D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF900246A9EFE000CDC1D /* Images.swift */; };
+		87B1698224728C70007685FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87B1698124728C70007685FE /* GoogleService-Info.plist */; };
+		87B169842473DCBA007685FE /* Capabilities .swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B169832473DCBA007685FE /* Capabilities .swift */; };
 		87BC1E62246CE89E0039434E /* UserDefaultsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E61246CE89E0039434E /* UserDefaultsHelpers.swift */; };
 		87BC1E64246D3E570039434E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E63246D3E570039434E /* SplashViewController.swift */; };
 		87BC1E68246E47650039434E /* ReviewHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E67246E47650039434E /* ReviewHostViewController.swift */; };
@@ -217,6 +219,9 @@
 		87AAF8F9246A59C0000CDC1D /* ImagePagerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePagerCollectionViewCell.swift; sourceTree = "<group>"; };
 		87AAF8FE246A9ED3000CDC1D /* View Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View Controllers.swift"; sourceTree = "<group>"; };
 		87AAF900246A9EFE000CDC1D /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		87B1698024728611007685FE /* ComeAquiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ComeAquiOS.entitlements; sourceTree = "<group>"; };
+		87B1698124728C70007685FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		87B169832473DCBA007685FE /* Capabilities .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capabilities .swift"; sourceTree = "<group>"; };
 		87BC1E61246CE89E0039434E /* UserDefaultsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelpers.swift; sourceTree = "<group>"; };
 		87BC1E63246D3E570039434E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		87BC1E67246E47650039434E /* ReviewHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHostViewController.swift; sourceTree = "<group>"; };
@@ -565,6 +570,7 @@
 			children = (
 				87FC9EC5244804F500810ECF /* Extensions.swift */,
 				87BC1E61246CE89E0039434E /* UserDefaultsHelpers.swift */,
+				87B169832473DCBA007685FE /* Capabilities .swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -742,6 +748,8 @@
 				87FC9E822447FF6300810ECF /* Assets.xcassets */,
 				87FC9E842447FF6300810ECF /* LaunchScreen.storyboard */,
 				87FC9E872447FF6300810ECF /* Info.plist */,
+				87B1698124728C70007685FE /* GoogleService-Info.plist */,
+				87B1698024728611007685FE /* ComeAquiOS.entitlements */,
 			);
 			path = ComeAquiOS;
 			sourceTree = "<group>";
@@ -1051,6 +1059,7 @@
 				87D8A5AF245CA61F0056AC9B /* ImageScrollStoryboard.storyboard in Resources */,
 				87AAF8DB24694B65000CDC1D /* ForgotPasswordStoryboard.storyboard in Resources */,
 				87AAF8C42468F918000CDC1D /* AddBioStoryboard.storyboard in Resources */,
+				87B1698224728C70007685FE /* GoogleService-Info.plist in Resources */,
 				87AAF8D324694556000CDC1D /* ChangePasswordStoryboard.storyboard in Resources */,
 				87D8A5AA245B805F0056AC9B /* WriteReplyStoryboard.storyboard in Resources */,
 				87BC1E6E246E47880039434E /* ReviewGuestStoryboard.storyboard in Resources */,
@@ -1159,6 +1168,7 @@
 				87FC9ECA2448050A00810ECF /* Classes.swift in Sources */,
 				879CBFFC2458F04D00383F68 /* EditPostViewController.swift in Sources */,
 				87D8A59A245AB2CE0056AC9B /* NotificationViewController.swift in Sources */,
+				87B169842473DCBA007685FE /* Capabilities .swift in Sources */,
 				87E3FFAA246F604D008D084B /* ConversationViewController.swift in Sources */,
 				87AAF8FF246A9ED3000CDC1D /* View Controllers.swift in Sources */,
 				87FC9EC6244804F500810ECF /* Extensions.swift in Sources */,
@@ -1349,6 +1359,7 @@
 			baseConfigurationReference = EE35396FEB851C07CF98D0E9 /* Pods-ComeAquiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ComeAquiOS/ComeAquiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RQT83D9L27;
 				INFOPLIST_FILE = ComeAquiOS/Info.plist;
@@ -1369,6 +1380,7 @@
 			baseConfigurationReference = 4C7EACD69E5F0043056F81B3 /* Pods-ComeAquiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ComeAquiOS/ComeAquiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RQT83D9L27;
 				INFOPLIST_FILE = ComeAquiOS/Info.plist;

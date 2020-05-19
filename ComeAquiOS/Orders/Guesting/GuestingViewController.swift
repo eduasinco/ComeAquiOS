@@ -7,20 +7,24 @@
 //
 
 import UIKit
+import Starscream
 
 class GuestingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     var orders: [OrderObject] = []
+    var ordersToIndexPath: [Int: IndexPath] = [:]
     
     var page = 1
     var alreadyFetchingData = false
+    var ws: WebSocket?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        webSocketConnetion()
     }
     override func viewWillAppear(_ animated: Bool) {
         if page == 1 {
@@ -43,7 +47,9 @@ extension GuestingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GuestingCell") as! GuestingTableViewCell
-        cell.setCell(order: orders[indexPath.row])
+        let order = orders[indexPath.row]
+        cell.setCell(order: order)
+        ordersToIndexPath[order.id!] = indexPath
         return cell
     }
     
@@ -78,6 +84,76 @@ extension GuestingViewController {
                 }
             } catch {}
         })
+    }
+}
+
+extension GuestingViewController: WebSocketDelegate{
+    private class SocketObject: Decodable {
+        var message: MessageResponseObject?
+    }
+    private class MessageResponseObject: Decodable {
+        var order_changed: OrderObject?
+    }
+    func webSocketConnetion(){
+        var request = URLRequest(url: URL(string: SERVER + "/ws/orders/\(USER.id!)/")!)
+        request.timeoutInterval = 5
+        ws = WebSocket(request: request)
+        ws?.delegate = self
+        ws?.connect()
+    }
+    func didReceive(event: WebSocketEvent, client: WebSocket) {
+        switch event {
+        case .connected(let headers):
+            // isConnected = true
+            print("CONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED")
+            print("websocket is connected: \(headers)")
+        case .disconnected(let reason, let code):
+            // isConnected = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.ws?.connect()
+                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
+            })
+            print("DISCONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED \(reason) with code: \(code)")
+        case .text(let string):
+            print("Received text: \(string)")
+            let data = string.data(using: .utf8)!
+            do {
+                let so = try JSONDecoder().decode(SocketObject.self, from: data)
+                guard let mro = so.message else {return}
+                let ip = ordersToIndexPath[mro.order_changed!.id!]
+                orders[ip!.row] = mro.order_changed!
+                DispatchQueue.main.async {
+                    self.tableView.beginUpdates()
+                    self.tableView.insertRows(at: [ip!], with: .automatic)
+                    self.tableView.endUpdates()
+                }
+            } catch let error as NSError {
+                print(error)
+            }
+        case .binary(let data):
+            print("Received data: \(data.count)")
+        case .ping(_):
+            break
+        case .pong(_):
+            break
+        case .viabilityChanged(_):
+            break
+        case .reconnectSuggested(_):
+            break
+        case .cancelled:
+            // isConnected = false
+            break
+        case .error(let error):
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.ws?.connect()
+                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
+            })
+            break
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        ws?.disconnect()
     }
 }
 
