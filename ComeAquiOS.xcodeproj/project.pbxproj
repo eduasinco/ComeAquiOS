@@ -71,6 +71,8 @@
 		87AAF901246A9EFE000CDC1D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF900246A9EFE000CDC1D /* Images.swift */; };
 		87B1698224728C70007685FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87B1698124728C70007685FE /* GoogleService-Info.plist */; };
 		87B169842473DCBA007685FE /* Capabilities .swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B169832473DCBA007685FE /* Capabilities .swift */; };
+		87B1698724746F9D007685FE /* OrderNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B1698624746F9D007685FE /* OrderNotificationViewController.swift */; };
+		87B1698924746FAE007685FE /* OrderNotificationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B1698824746FAE007685FE /* OrderNotificationStoryboard.storyboard */; };
 		87BC1E62246CE89E0039434E /* UserDefaultsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E61246CE89E0039434E /* UserDefaultsHelpers.swift */; };
 		87BC1E64246D3E570039434E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E63246D3E570039434E /* SplashViewController.swift */; };
 		87BC1E68246E47650039434E /* ReviewHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E67246E47650039434E /* ReviewHostViewController.swift */; };
@@ -222,6 +224,8 @@
 		87B1698024728611007685FE /* ComeAquiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ComeAquiOS.entitlements; sourceTree = "<group>"; };
 		87B1698124728C70007685FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87B169832473DCBA007685FE /* Capabilities .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capabilities .swift"; sourceTree = "<group>"; };
+		87B1698624746F9D007685FE /* OrderNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNotificationViewController.swift; sourceTree = "<group>"; };
+		87B1698824746FAE007685FE /* OrderNotificationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderNotificationStoryboard.storyboard; sourceTree = "<group>"; };
 		87BC1E61246CE89E0039434E /* UserDefaultsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelpers.swift; sourceTree = "<group>"; };
 		87BC1E63246D3E570039434E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		87BC1E67246E47650039434E /* ReviewHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHostViewController.swift; sourceTree = "<group>"; };
@@ -583,6 +587,15 @@
 			path = Objects;
 			sourceTree = "<group>";
 		};
+		87B1698524746F79007685FE /* Order Notification */ = {
+			isa = PBXGroup;
+			children = (
+				87B1698624746F9D007685FE /* OrderNotificationViewController.swift */,
+				87B1698824746FAE007685FE /* OrderNotificationStoryboard.storyboard */,
+			);
+			path = "Order Notification";
+			sourceTree = "<group>";
+		};
 		87BC1E65246E472A0039434E /* Review Guest */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,6 +814,7 @@
 		87FC9E94244800B000810ECF /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				87B1698524746F79007685FE /* Order Notification */,
 				87764230246BAC7F00BBF7D0 /* Search */,
 				87FC9EF4244FB17500810ECF /* Map Picker */,
 				87FC9EF1244FB08D00810ECF /* Add Food */,
@@ -1068,6 +1082,7 @@
 				87FC9EB92448034B00810ECF /* MapStoryboard.storyboard in Resources */,
 				87AAF8B42466298B000CDC1D /* Tab1Storyboard.storyboard in Resources */,
 				87764264246BE43000BBF7D0 /* DistanceStoryboard.storyboard in Resources */,
+				87B1698924746FAE007685FE /* OrderNotificationStoryboard.storyboard in Resources */,
 				87AAF8C92468FF2F000CDC1D /* EditAccountDetailsStoryboard.storyboard in Resources */,
 				87FC9EA5244801AE00810ECF /* ProfileStoryboard.storyboard in Resources */,
 				879CBFF62458DBD900383F68 /* OptionsPopUpStoryboard.storyboard in Resources */,
@@ -1182,6 +1197,7 @@
 				8776424B246BD29600BBF7D0 /* AllViewController.swift in Sources */,
 				87FC9ECE2448055D00810ECF /* CommentsViewController.swift in Sources */,
 				87AAF8E22469D39B000CDC1D /* PaymentMethodTableViewCell.swift in Sources */,
+				87B1698724746F9D007685FE /* OrderNotificationViewController.swift in Sources */,
 				879CBFF42458DBCC00383F68 /* OptionsPopUpViewController.swift in Sources */,
 				87FC9EFE245115C600810ECF /* ImportImagesViewController.swift in Sources */,
 				87764249246BD28E00BBF7D0 /* PeopleViewController.swift in Sources */,

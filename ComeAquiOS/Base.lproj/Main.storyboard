@@ -52,6 +52,8 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
+                        <outlet property="myTabbar" destination="buO-f1-sYM" id="bka-Dw-kIx"/>
+                        <outlet property="tabBar" destination="buO-f1-sYM" id="kYe-Zr-Xy3"/>
                         <segue destination="KlV-l6-b6e" kind="relationship" relationship="viewControllers" id="y6U-eT-2DA"/>
                         <segue destination="acW-im-02J" kind="relationship" relationship="viewControllers" id="S7y-4E-bXA"/>
                         <segue destination="O1f-Em-9KB" kind="relationship" relationship="viewControllers" id="SHC-lU-rT9"/>

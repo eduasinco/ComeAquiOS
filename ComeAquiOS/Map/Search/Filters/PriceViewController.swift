@@ -51,7 +51,7 @@ class PriceViewController: CardBehaviourViewController {
     }
     
     @IBAction func apply(_ sender: Any) {
-        moveCardToBottom(view: cardView, onFinish: {() -> Void in})
+        moveCardOut(view: cardView, onFinish: {() -> Void in})
         delegate?.price(price: priceType)
     }
 }

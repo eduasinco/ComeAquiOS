@@ -31,7 +31,7 @@ class DistanceViewController: CardBehaviourViewController {
         distanceText.text = "\(distance!)m"
     }
     @IBAction func apply(_ sender: Any) {
-        moveCardToBottom(view: cardView, onFinish: {() -> Void in })
+        moveCardOut(view: cardView, onFinish: {() -> Void in })
         delegate?.distance(distance: distance!)
     }
 }

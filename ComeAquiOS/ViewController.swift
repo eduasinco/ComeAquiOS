@@ -12,6 +12,7 @@ import Starscream
 class ViewController: UITabBarController {
     
     var ws: WebSocket?
+    @IBOutlet weak var myTabbar: UITabBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,7 @@ class ViewController: UITabBarController {
     }
 }
 
-extension ViewController: WebSocketDelegate{
+extension ViewController: WebSocketDelegate {
     private class SocketObject: Decodable {
         var message: MessageResponseObject?
     }
@@ -29,7 +30,7 @@ extension ViewController: WebSocketDelegate{
         var orders_not_seen: Int?
     }
     func webSocketConnetion(){
-        var request = URLRequest(url: URL(string: SERVER + "/ws/orders/\(USER.id!)/")!)
+        var request = URLRequest(url: URL(string: SERVER + "/ws/popups/\(USER.id!)/")!)
         request.timeoutInterval = 5
         ws = WebSocket(request: request)
         ws?.delegate = self
@@ -56,12 +57,12 @@ extension ViewController: WebSocketDelegate{
                 guard let mro = so.message else {return}
                 if let notiNotSeen = mro.notifications_not_seen {
                     if notiNotSeen > 0 {
-                        if let tabItems = tabBarController?.tabBar.items {
+                        if let tabItems = myTabbar.items {
                             let tabItem = tabItems[2]
                             tabItem.badgeValue = "\(notiNotSeen)"
                         }
                     } else {
-                        if let tabItems = tabBarController?.tabBar.items {
+                        if let tabItems = myTabbar.items {
                             let tabItem = tabItems[2]
                             tabItem.badgeValue = nil
                         }
@@ -76,12 +77,12 @@ extension ViewController: WebSocketDelegate{
                 }
                 if let ordersNotSeen = mro.orders_not_seen {
                     if ordersNotSeen > 0 {
-                        if let tabItems = tabBarController?.tabBar.items {
+                        if let tabItems = myTabbar.items {
                             let tabItem = tabItems[1]
                             tabItem.badgeValue = "\(ordersNotSeen)"
                         }
                     } else {
-                        if let tabItems = tabBarController?.tabBar.items {
+                        if let tabItems = myTabbar.items {
                             let tabItem = tabItems[1]
                             tabItem.badgeValue = nil
                         }

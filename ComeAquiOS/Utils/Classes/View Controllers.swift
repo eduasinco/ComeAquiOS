@@ -136,6 +136,17 @@ class CardBehaviourViewController: KUIViewController {
         backGround?.addGestureRecognizer(tap)
     }
     
+    func addTopCardBehaviour(view: UIView, onHide: @escaping () -> Void) {
+        self.onHide = onHide
+        self.viewToMove = view
+        
+        self.constraint = getConstraint(view: view, attribute: .top)
+        guard constraint == self.constraint else {return}
+        initialConstraintConstant = constraint.constant
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(self.handlePan(sender:)))
+        view.addGestureRecognizer(pan)
+    }
+    
     var originY: CGFloat!
     @objc func handlePan(sender: UIPanGestureRecognizer) {
         let cardView = sender.view!
@@ -150,7 +161,28 @@ class CardBehaviourViewController: KUIViewController {
             let move = cardView.frame.origin.y - originY
             print(move)
             if move >= cardView.frame.height / 4 {
-                moveCardToBottom(view: cardView, onFinish: self.onHide!)
+                moveCardOut(view: cardView, onFinish: self.onHide!)
+            } else {
+                returnViewToOrigin(view: cardView)
+            }
+        default:
+            break
+        }
+    }
+    var originYTop: CGFloat!
+    @objc func handleTopPan(sender: UIPanGestureRecognizer) {
+        let cardView = sender.view!
+        
+        switch sender.state {
+        case .began:
+            moveViewWithPan(view: cardView, sender: sender)
+            originYTop = cardView.frame.origin.y
+        case .changed:
+            moveViewWithPan(view: cardView, sender: sender)
+        case .ended:
+            let move = originYTop - cardView.frame.origin.y
+            if move >= cardView.frame.height / 4 {
+                moveCardOut(view: cardView, onFinish: self.onHide!)
             } else {
                 returnViewToOrigin(view: cardView)
             }
@@ -160,7 +192,7 @@ class CardBehaviourViewController: KUIViewController {
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer) {
-        moveCardToBottom(view: viewToMove, onFinish: self.onHide!)
+        moveCardOut(view: viewToMove, onFinish: self.onHide!)
     }
     
     func getConstraint(view: UIView, attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
@@ -185,7 +217,7 @@ class CardBehaviourViewController: KUIViewController {
             self.view.layoutIfNeeded()
         })
     }
-    func moveCardToBottom(view: UIView, onFinish: @escaping () -> Void) {
+    func moveCardOut(view: UIView, onFinish: @escaping () -> Void) {
         UIView.animate(withDuration: 0.3, animations: {
             self.backGRound?.alpha = 0
             self.constraint.constant = -(self.initialConstraintConstant + self.viewToMove.frame.height)
@@ -195,6 +227,5 @@ class CardBehaviourViewController: KUIViewController {
             self.dismiss(animated: true, completion: nil)
             onFinish()
         })
-        
     }
 }
