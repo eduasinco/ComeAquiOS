@@ -9,11 +9,6 @@
 import UIKit
 import Starscream
 
-private class ResponseChatObject: Decodable {
-    var chat: PlaneChatObject?
-    var blocked: Bool?
-}
-
 class ConversationViewController: KUIViewController {
     
     @IBOutlet weak var userImage: URLImageView!
@@ -22,10 +17,12 @@ class ConversationViewController: KUIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var blockView: UIView!
     
     var messagesFromServer: [MessageObject] = []
     var chatId: Int?
     var chat: PlaneChatObject?
+    var isUserBlocked: Bool = false
     var chattingWith: User!
     var chatMessages = [[MessageObject]]()
     var page: Int = 1
@@ -45,6 +42,7 @@ class ConversationViewController: KUIViewController {
         getChatMessages()
         webSocketConnetion()
         tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi));
+        blockView.visibility = .gone
     }
     
     func setView() {
@@ -63,6 +61,36 @@ class ConversationViewController: KUIViewController {
         ws!.write(string: message)
         textView.text = ""
         textViewDidChange(textView)
+    }
+    @IBAction func unblockUser(_ sender: Any) {
+        unBlockUser(userId: chattingWith.id!)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "OptionsSegue" {
+            let vc = segue.destination as? OptionsPopUpViewController
+            if isUserBlocked {
+                vc?.options = ["Unblock user", "Report"]
+            } else {
+                vc?.options = ["Block user", "Report"]
+            }
+            vc?.delegate = self
+        }
+    }
+}
+
+extension ConversationViewController: OptionsPopUpProtocol {
+    func optionPressed(_ title: String) {
+        switch title {
+        case "Unblock user":
+            unBlockUser(userId: chattingWith.id!)
+        case "Block user":
+            blockUser(userId: chattingWith.id!)
+        case "Report":
+            break
+        default:
+            break
+        }
     }
 }
 
@@ -144,8 +172,6 @@ extension ConversationViewController: WebSocketDelegate{
                 self.ws?.connect()
                 print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
             })
-            //            isConnected = false
-            //            handleError(error)
             break
         }
     }
@@ -156,6 +182,10 @@ extension ConversationViewController: WebSocketDelegate{
 }
 
 extension ConversationViewController {
+    private class ResponseChatObject: Decodable {
+        var chat: PlaneChatObject?
+        var blocked: Bool?
+    }
     func getChatDetail(){
         self.tableView.showActivityIndicator()
         guard let chatId = self.chatId else {return}
@@ -166,8 +196,12 @@ extension ConversationViewController {
             do {
                 let responseO = try JSONDecoder().decode(ResponseChatObject.self, from: data)
                 self.chat = responseO.chat
+                self.isUserBlocked = responseO.blocked!
                 DispatchQueue.main.async {
                     self.setView()
+                    if self.isUserBlocked {
+                        self.blockView.visibility = .visible
+                    }
                 }
             } catch {
                 
@@ -200,15 +234,35 @@ extension ConversationViewController {
             } catch {}
         })
     }
-    func blockOrUnblockUser(userId: Int){
+    func blockUser(userId: Int){
         self.tableView.showActivityIndicator()
+        guard !self.alreadyFetchingData else { return }
+        self.alreadyFetchingData = true
         Server.get("/block_user/\(userId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             self.alreadyFetchingData = false
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
-                _ = try JSONDecoder().decode(ResponseChatObject.self, from: data)
+                _ = try JSONDecoder().decode(User.self, from: data)
+                self.isUserBlocked = true
                 DispatchQueue.main.async {
+                    self.blockView.visibility = .visible
+                }
+            } catch {}
+        })
+    }
+    func unBlockUser(userId: Int){
+        self.tableView.showActivityIndicator()
+        guard !self.alreadyFetchingData else { return }
+        self.alreadyFetchingData = true
+        Server.delete("/block_user/\(userId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+            self.alreadyFetchingData = false
+            self.tableView.hideActivityIndicator()
+            guard let data = data else {return}
+            do {
+                self.isUserBlocked = false
+                DispatchQueue.main.async {
+                    self.blockView.visibility = .gone
                 }
             } catch {}
         })
