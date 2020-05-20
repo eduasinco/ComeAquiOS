@@ -115,6 +115,7 @@ class ProfileViewController: LoadViewController {
         performSegue(withIdentifier: "EditProfileSegue", sender: nil)
     }
     @IBAction func openConversationWithUser(_ sender: Any) {
+        getConversation()
     }
     @IBAction func options(_ sender: Any) {
         performSegue(withIdentifier: "OptionsSegue", sender: nil)
@@ -140,6 +141,9 @@ class ProfileViewController: LoadViewController {
             tab3VC = segue.destination as? Tab3ViewController
         } else if segue.identifier == "LoginOrRegisterSegue" {
             let loginVC = segue.destination as? LoginOrRegisterViewController
+        } else if segue.identifier == "ConversationSegue" {
+            let vc = segue.destination as? ConversationViewController
+            vc?.chatId = sender as? Int
         }
     }
 }
@@ -199,7 +203,26 @@ extension ProfileViewController {
             }
         })
     }
-    
+    func getConversation(){
+        guard let user = self.user else { return }
+        Server.get("/get_or_create_chat/\(user.id!)/", finish: {
+            (data: Data?, response: URLResponse?) -> Void in
+            DispatchQueue.main.async {
+                self.alert.dismiss(animated: false, completion: nil)
+            }
+            guard let data = data else {
+                return
+            }
+            do {
+                let chat = try JSONDecoder().decode(User.self, from: data)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "ConversationSegue", sender: chat.id)
+                }
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
+            }
+        })
+    }
 }
 
 

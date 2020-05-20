@@ -50,6 +50,9 @@ class Server {
     static func post(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
         update(urlString, json: json, method: "POST", finish: finish)
     }
+    static func put(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
+        update(urlString, json: json, method: "PUT", finish: finish)
+    }
     static func patch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
         var trueJson: [String: Any] = [:]
         for k in json.keys {

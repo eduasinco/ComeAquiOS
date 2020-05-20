@@ -315,6 +315,7 @@
                         <segue destination="SqQ-Ut-2bX" kind="presentation" identifier="OptionsSegue" modalPresentationStyle="overFullScreen" id="CU4-tc-3VN"/>
                         <segue destination="Tc5-q6-Iqd" kind="show" identifier="EditProfileSegue" id="NSn-We-KC7"/>
                         <segue destination="EuG-Xb-tAq" kind="presentation" identifier="LoginOrRegisterSegue" modalPresentationStyle="overFullScreen" id="4RD-ZB-Kmo"/>
+                        <segue destination="1rU-IR-b8p" kind="show" identifier="ConversationSegue" id="Aua-Bu-dPR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oZ3-ZJ-cwM" sceneMemberID="firstResponder"/>
@@ -344,6 +345,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeC-Vk-zBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2278" y="1213"/>
+        </scene>
+        <!--ConversationStoryboard-->
+        <scene sceneID="dEc-LD-dRs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ConversationStoryboard" id="1rU-IR-b8p" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="07g-OT-JDh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="taO-wt-e3w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2427" y="698"/>
         </scene>
         <!--Rate Star View Controller-->
         <scene sceneID="Pfz-iX-Ug7">

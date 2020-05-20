@@ -19,7 +19,10 @@ class OptionsPopUpViewController: CardBehaviourViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in })
+        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in
+            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
+        })
         guard let options = self.options else {return}
         for (i, option) in options.enumerated() {
             let button = createButton(option)

@@ -102,15 +102,23 @@ extension ConversationViewController: WebSocketDelegate{
                 let so = try JSONDecoder().decode(SocketObject.self, from: data)
                 guard let mro = so.message else {return}
                 if mro.error_message == nil {
+                    guard let message = mro.message else {return}
                     if self.chatMessages.count > 0 {
-                        self.chatMessages[0].insert(mro.message!, at: 0)
+                        self.chatMessages[0].insert(message, at: 0)
+                        DispatchQueue.main.async {
+                            self.tableView.beginUpdates()
+                            self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                            self.tableView.endUpdates()
+                        }
                     } else {
-                        self.chatMessages = [[mro.message!]]
+                        self.messagesFromServer = [message]
+                        self.attemptToAssembleGroupedMessages()
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
                     }
-                    DispatchQueue.main.async {
-                        self.tableView.beginUpdates()
-                        self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-                        self.tableView.endUpdates()
+                    if message.sender!.id! != USER.id {
+                        setMessageAsSeen(messageId: message.id!)
                     }
                 } else {
                     
@@ -165,6 +173,9 @@ extension ConversationViewController {
                 
             }
         })
+    }
+    func setMessageAsSeen(messageId: Int){
+        Server.put("/mark_message_as_seen/\(messageId)/", json: ["":""], finish: {(data: Data?, response: URLResponse?) -> Void in })
     }
     func fetchMoreData(){
         if !alreadyFetchingData {
