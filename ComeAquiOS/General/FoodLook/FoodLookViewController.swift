@@ -9,15 +9,6 @@
 import UIKit
 import GoogleMaps
 
-private class ResponseFoodPostObject: Decodable{
-    var user_status_in_this_post: String?
-    var food_post: FoodPostObject?
-}
-
-private class ResponseOrderObject: Decodable{
-    var order: OrderObject?
-}
-
 class FoodLookViewController: KUIViewController {
     @IBOutlet weak var parentScrollView: UIScrollView!
     @IBOutlet weak var imageScrollView: UIScrollView!
@@ -48,12 +39,16 @@ class FoodLookViewController: KUIViewController {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var dinnersText: UILabel!
     @IBOutlet weak var dinnerScrollView: UIScrollView!
-    @IBOutlet weak var orderButton: UIButton!
-    
+    @IBOutlet weak var addPaymentMethodButton: UIButton!
+    @IBOutlet weak var attendMealButton: UIButton!
+    @IBOutlet weak var creditCardInfoView: UIView!
+    @IBOutlet weak var creditCardImage: UIImageView!
+    @IBOutlet weak var creditCardNumber: UILabel!
     @IBOutlet weak var bcfkb: NSLayoutConstraint!
     var googleMap: GMSMapView!
     var foodPostId: Int!
     var foodPost: FoodPostObject?
+    var paymentMethod: PaymentMethodObject?
     var commentsVC: CommentsViewController?
     private var respondObject: ResponseFoodPostObject?
     
@@ -66,6 +61,7 @@ class FoodLookViewController: KUIViewController {
         self.bottomConstraintForKeyboard = bcfkb
         getFoodPost()
         sendButton.visibility = .gone
+        attendMealButton.visibility = .gone
         
         dinnersStackView.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction(sender:)))
@@ -78,6 +74,12 @@ class FoodLookViewController: KUIViewController {
     
     @IBAction func sendPress(_ sender: Any) {
         postComment()
+    }
+    @IBAction func addPaymentMethod(_ sender: Any) {
+        performSegue(withIdentifier: "AddPaymentSegue", sender: nil)
+    }
+    @IBAction func changePaymentMethod(_ sender: Any) {
+        performSegue(withIdentifier: "AddPaymentSegue", sender: nil)
     }
     
     func setViewDetails(){
@@ -130,7 +132,7 @@ class FoodLookViewController: KUIViewController {
         setDinners()
         
         if USER.id == foodPost.owner!.id {
-            orderButton.visibility = .gone
+            attendMealButton.visibility = .gone
         }
         
         if USER.id == foodPost.owner!.id {
@@ -151,13 +153,23 @@ class FoodLookViewController: KUIViewController {
                 setComments(foodPostId: foodPost.id!)
             default:
                 if (foodPost.status == "OPEN") {
-                    orderButton.addTarget(self, action: #selector(attendMeal(sender:)), for: .touchUpInside)
+                    attendMealButton.addTarget(self, action: #selector(attendMeal(sender:)), for: .touchUpInside)
                 } else if (foodPost.status == "IN_COURSE"){
                     setStatus(text: "Meal in course", color: UIColor.orange)
                 } else if(foodPost.status == "FINISHED"){
                     setStatus(text: "Meal finished", color: UIColor.orange)
                 }
             }
+        }
+        if let paymentMethod = self.paymentMethod, USER.id != foodPost.owner!.id! {
+            addPaymentMethodButton.visibility = .gone
+            attendMealButton.visibility = .visible
+            creditCardInfoView.visibility = .visible
+            creditCardNumber.text = paymentMethod.last4
+        } else {
+            addPaymentMethodButton.visibility = .gone
+            attendMealButton.visibility = USER.id == foodPost.owner!.id! ? .gone: .visible
+            creditCardInfoView.visibility = .gone
         }
     }
     
@@ -189,9 +201,9 @@ class FoodLookViewController: KUIViewController {
     }
     
     func setStatus(text: String, color: UIColor){
-        orderButton.setTitle(text, for: .normal)
-        orderButton.setTitleColor(UIColor.white, for: .normal)
-        orderButton.backgroundColor = color
+        attendMealButton.setTitle(text, for: .normal)
+        attendMealButton.setTitleColor(UIColor.white, for: .normal)
+        attendMealButton.backgroundColor = color
     }
     
     func setComments(foodPostId: Int) {
@@ -269,6 +281,8 @@ class FoodLookViewController: KUIViewController {
         } else if segue.identifier == "OrderLookSegue" {
             let orderVC = segue.destination as? OrderLookViewController
             orderVC?.orderId = (sender as! OrderObject).id
+        } else if segue.identifier == "AddPaymentSegue" {
+            _ = segue.destination as? AddPaymentMethodViewController
         }
     }
     override func didReceiveMemoryWarning() {
@@ -340,6 +354,10 @@ extension FoodLookViewController: UITextViewDelegate {
 }
 
 extension FoodLookViewController {
+    private struct ResponseFoodPostObject: Decodable{
+        var user_status_in_this_post: String?
+        var food_post: FoodPostObject?
+    }
     func getFoodPost(){
         guard let foodPostId = self.foodPostId else { return }
         Server.get("/food_with_user_status/\(foodPostId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
@@ -348,9 +366,37 @@ extension FoodLookViewController {
                 self.respondObject = try JSONDecoder().decode(ResponseFoodPostObject.self, from: data)
                 self.foodPost = self.respondObject!.food_post
                 DispatchQueue.main.async {
-                    self.setViewDetails()
+                    self.getChosenCard()
                 }
             } catch {}
+        })
+    }
+    private struct ResponseObject: Decodable{
+        var error_message: String?
+        var data: [PaymentMethodObject]?
+    }
+    func getChosenCard(){
+        present(alert, animated: false, completion: nil)
+        Server.get("/my_chosen_card/", finish: {
+            (data: Data?, response: URLResponse?) -> Void in
+            DispatchQueue.main.async {
+                self.alert.dismiss(animated: false, completion: nil)
+            }
+            
+            guard let data = data else { return }
+            do {
+                let responseO = try JSONDecoder().decode(ResponseObject.self, from: data)
+                if responseO.error_message == nil {
+                    if let data = responseO.data, data.count > 0 {
+                        self.paymentMethod = data[0]
+                    }
+                }
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
+            }
+            DispatchQueue.main.async {
+                self.setViewDetails()
+            }
         })
     }
     
@@ -393,7 +439,10 @@ extension FoodLookViewController {
                 }
         })
     }
-    
+    private struct ResponseOrderObject: Decodable{
+        var order: OrderObject?
+        var error_message: String?
+    }
     func createOrder(additionalGuests: Int){
         Server.post("/create_order_and_notification/",
             json:
@@ -405,9 +454,14 @@ extension FoodLookViewController {
                 guard let data = data else {return}
                 
                 do {
-                    let order = try JSONDecoder().decode(ResponseOrderObject.self, from: data).order
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "OrderLookSegue", sender: order)
+                    let res = try JSONDecoder().decode(ResponseOrderObject.self, from: data)
+                    if let error = res.error_message{
+                        self.parentScrollView.showToast(message: error)
+                    } else {
+                        let order = res.order
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "OrderLookSegue", sender: order)
+                        }
                     }
                 } catch {}
         })

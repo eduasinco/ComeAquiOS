@@ -73,6 +73,7 @@
 		87B169842473DCBA007685FE /* Capabilities .swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B169832473DCBA007685FE /* Capabilities .swift */; };
 		87B1698724746F9D007685FE /* OrderNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B1698624746F9D007685FE /* OrderNotificationViewController.swift */; };
 		87B1698924746FAE007685FE /* OrderNotificationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B1698824746FAE007685FE /* OrderNotificationStoryboard.storyboard */; };
+		87B74E0A24752CD60048F6EF /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B74E0924752CD60048F6EF /* PresentationViewController.swift */; };
 		87BC1E62246CE89E0039434E /* UserDefaultsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E61246CE89E0039434E /* UserDefaultsHelpers.swift */; };
 		87BC1E64246D3E570039434E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E63246D3E570039434E /* SplashViewController.swift */; };
 		87BC1E68246E47650039434E /* ReviewHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BC1E67246E47650039434E /* ReviewHostViewController.swift */; };
@@ -226,6 +227,7 @@
 		87B169832473DCBA007685FE /* Capabilities .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capabilities .swift"; sourceTree = "<group>"; };
 		87B1698624746F9D007685FE /* OrderNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNotificationViewController.swift; sourceTree = "<group>"; };
 		87B1698824746FAE007685FE /* OrderNotificationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderNotificationStoryboard.storyboard; sourceTree = "<group>"; };
+		87B74E0924752CD60048F6EF /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		87BC1E61246CE89E0039434E /* UserDefaultsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelpers.swift; sourceTree = "<group>"; };
 		87BC1E63246D3E570039434E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		87BC1E67246E47650039434E /* ReviewHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHostViewController.swift; sourceTree = "<group>"; };
@@ -773,6 +775,7 @@
 				87FC9E98244800FE00810ECF /* LoginOrRegisterViewController.swift */,
 				87FC9E9A2448011900810ECF /* LoginViewController.swift */,
 				87FC9E9C2448012800810ECF /* RegisterViewController.swift */,
+				87B74E0924752CD60048F6EF /* PresentationViewController.swift */,
 				87FC9E9E2448014500810ECF /* LoginOrRegisterStoryboard.storyboard */,
 			);
 			path = Login;
@@ -1160,6 +1163,7 @@
 				87FC9E9D2448012800810ECF /* RegisterViewController.swift in Sources */,
 				87FC9EE8244E9CE800810ECF /* AddFoodViewController.swift in Sources */,
 				87FC9E99244800FE00810ECF /* LoginOrRegisterViewController.swift in Sources */,
+				87B74E0A24752CD60048F6EF /* PresentationViewController.swift in Sources */,
 				87AAF8F1246A4024000CDC1D /* Tab3CollectionViewCell.swift in Sources */,
 				87764269246BE7CD00BBF7D0 /* PeopleTableViewCell.swift in Sources */,
 				87D8A58F245A26BA0056AC9B /* GuestingTableViewCell.swift in Sources */,

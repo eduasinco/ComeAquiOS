@@ -21,7 +21,7 @@ class ChangePasswordViewController: LoadViewController {
     }
     
     @IBAction func savePassword(_ sender: Any) {
-        if newPasswordText.text!.passwrodValid() {
+        if newPasswordText.text!.isValidPassword() {
             passwordChange()
         } else {
             newPasswordText.validationText = "A digit must occur at least once \n" +

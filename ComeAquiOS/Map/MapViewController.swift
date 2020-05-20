@@ -68,12 +68,6 @@ class MapViewController: LoadViewController, CardActionProtocol {
         view.bringSubviewToFront(cardView)
         
         webSocketConnetion()
-        
-//        if let tabItems = tabBarController?.tabBar.items {
-//            // In this case we want to modify the badge number of the third tab:
-//            let tabItem = tabItems[0]
-//            tabItem.badgeValue = nil
-//        }
     }
     override func viewDidLayoutSubviews() {
         containerView.roundCorners(radius: 8, clip: true)

@@ -146,7 +146,9 @@ extension ReviewHostViewController {
             do {
                 let responseO = try JSONDecoder().decode(ResponseObject.self, from: data)
                 if responseO.error_message == nil {
-                    self.paymentMethod = responseO.data![0]
+                    if let data = responseO.data, data.count > 0 {
+                        self.paymentMethod = data[0]
+                    }
                     DispatchQueue.main.async {
                         self.setView()
                     }

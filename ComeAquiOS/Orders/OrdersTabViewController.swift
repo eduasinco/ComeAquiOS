@@ -19,7 +19,6 @@ class OrdersTabViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         width.constant = self.view.frame.width
         scrollView.delegate = self
-        // scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     @IBAction func guestingPressed(_ sender: Any) {

@@ -27,8 +27,8 @@ class BankAccountDetailsViewController: KUIViewController {
     @IBOutlet weak var country: ValidatedTextField!
     @IBOutlet weak var routingNumber: ValidatedTextField!
     @IBOutlet weak var accountNumber: ValidatedTextField!
-    
     @IBOutlet weak var bcfkb: NSLayoutConstraint!
+    
     var stripeAccountInfo: StripeAccountInfoObject?
     var birthDate: Date?
     var day: Int?
@@ -55,8 +55,8 @@ class BankAccountDetailsViewController: KUIViewController {
     @objc func dateChanged(_ datePicker: UIDatePicker) {
         birthDate = datePicker.date
         day = birthDate!.get(.day)
-        month = birthDate!.get(.day)
-        year = birthDate!.get(.day)
+        month = birthDate!.get(.month)
+        year = birthDate!.get(.year)
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -269,7 +269,8 @@ extension BankAccountDetailsViewController {
                            "state": state.text,
                            "postal_code": zip.text,
                            "country": country.text,
-                           "routing_number": routingNumber.text],
+                           "routing_number": routingNumber.text,
+                           "account_number": accountNumber.text],
                      finish: {(data: Data?, response: URLResponse?) -> Void in
                         DispatchQueue.main.async {
                             self.alert.dismiss(animated: false, completion: nil)

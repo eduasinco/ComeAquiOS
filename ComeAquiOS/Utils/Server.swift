@@ -56,13 +56,10 @@ class Server {
     static func patch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
         var trueJson: [String: Any] = [:]
         for k in json.keys {
-            guard let element = json[k] else {return}
-            if let element = element as? String {
-                if !element.isEmpty {
-                    trueJson[k] = element
-                }
+            if let element = json[k] as? String, element.isEmpty {
+                trueJson[k] = NSNull()
             } else {
-                trueJson[k] = element
+                trueJson[k] = json[k] as Any?
             }
         }
         update(urlString, json: trueJson, method: "PATCH", finish: finish)
