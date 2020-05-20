@@ -51,7 +51,10 @@ class SortViewController: CardBehaviourViewController {
     }
     
     @IBAction func apply(_ sender: Any) {
-        moveCardOut(view: cardView, onFinish: {() -> Void in})
+        moveCardOut(view: cardView, onFinish: {() -> Void in
+            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
+        })
         delegate?.sort(sortType: sortType)
     }
 }

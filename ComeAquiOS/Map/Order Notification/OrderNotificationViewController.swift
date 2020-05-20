@@ -11,6 +11,7 @@ import UIKit
 class OrderNotificationViewController: CardBehaviourViewController {
 
     @IBOutlet weak var wholeView: UIView!
+    @IBOutlet weak var wholeViewTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var hostingView: UIView!
     @IBOutlet weak var timeHosting: UILabel!
@@ -28,12 +29,16 @@ class OrderNotificationViewController: CardBehaviourViewController {
         super.viewDidLoad()
         self.hostingView.visibility = .gone
         self.guestingView.visibility = .gone
-        addTopCardBehaviour(view: view, onHide: {() -> Void in })
+        addTopCardBehaviour(view: wholeView, constraint: wholeViewTopConstraint, onHide: {() -> Void in })
+        getConfirmOrders()
+        getConfirmPosts()
     }
     func setOrder(){
         guard let order = self.order else {return}
         self.hostingView.visibility = .visible
         self.timeHosting.text = order.post?.start_time
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleHostTap(sender:)))
+        self.hostingView?.addGestureRecognizer(tap)
     }
     func setFoodPost(){
         guard let post = self.foodPost else {return}
@@ -42,6 +47,24 @@ class OrderNotificationViewController: CardBehaviourViewController {
         userUsername.text = post.owner?.username
         plateName.text = post.plate_name
         timeGuesting.text = post.start_time
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleGuesTap(sender:)))
+        self.guestingView?.addGestureRecognizer(tap)
+    }
+    @objc func handleHostTap(sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "FoodLookSegue", sender: nil)
+    }
+    @objc func handleGuesTap(sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "OrderLookSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FoodLookSegue" {
+            let vc = segue.destination as? FoodLookViewController
+            vc?.foodPostId = self.foodPost?.id
+        } else if segue.identifier == "OrderLookSegue" {
+            let vc = segue.destination as? OrderLookViewController
+            vc?.orderId = self.order?.id
+        }
     }
 }
 

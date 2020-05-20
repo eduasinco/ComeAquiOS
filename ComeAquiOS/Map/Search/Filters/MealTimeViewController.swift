@@ -30,7 +30,10 @@ class MealTimeViewController: CardBehaviourViewController {
             self.view.showToast(message: "Please select a time greater than now")
             return
         }
-        moveCardOut(view: cardView, onFinish: {() -> Void in})
+        moveCardOut(view: cardView, onFinish: {() -> Void in
+            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
+        })
         delegate?.mealTime(startTime: startDate, endTime: endDate)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

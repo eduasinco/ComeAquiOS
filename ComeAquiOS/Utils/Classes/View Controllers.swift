@@ -17,7 +17,7 @@ class KUIViewController: LoadViewController {
     @objc func keyboardWillShow(sender: NSNotification) {
         let i = sender.userInfo!
         let k = (i[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
-        bottomConstraintForKeyboard.constant = k - bottomLayoutGuide.length
+        bottomConstraintForKeyboard?.constant = k - bottomLayoutGuide.length
         let s: TimeInterval = (i[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         UIView.animate(withDuration: s) { self.view.layoutIfNeeded() }
     }
@@ -25,7 +25,7 @@ class KUIViewController: LoadViewController {
     @objc func keyboardWillHide(sender: NSNotification) {
         let info = sender.userInfo!
         let s: TimeInterval = (info[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
-        bottomConstraintForKeyboard.constant = 0
+        bottomConstraintForKeyboard?.constant = 0
         UIView.animate(withDuration: s) { self.view.layoutIfNeeded() }
     }
 
@@ -136,14 +136,14 @@ class CardBehaviourViewController: KUIViewController {
         backGround?.addGestureRecognizer(tap)
     }
     
-    func addTopCardBehaviour(view: UIView, onHide: @escaping () -> Void) {
+    func addTopCardBehaviour(view: UIView, constraint: NSLayoutConstraint, onHide: @escaping () -> Void) {
         self.onHide = onHide
         self.viewToMove = view
         
-        self.constraint = getConstraint(view: view, attribute: .top)
+        self.constraint = constraint
         guard constraint == self.constraint else {return}
         initialConstraintConstant = constraint.constant
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(self.handlePan(sender:)))
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(self.handleTopPan(sender:)))
         view.addGestureRecognizer(pan)
     }
     
@@ -153,8 +153,8 @@ class CardBehaviourViewController: KUIViewController {
         
         switch sender.state {
         case .began:
-            moveViewWithPan(view: cardView, sender: sender)
             originY = cardView.frame.origin.y
+            moveViewWithPan(view: cardView, sender: sender)
         case .changed:
             moveViewWithPan(view: cardView, sender: sender)
         case .ended:
@@ -175,10 +175,10 @@ class CardBehaviourViewController: KUIViewController {
         
         switch sender.state {
         case .began:
-            moveViewWithPan(view: cardView, sender: sender)
+            moveViewWithPanTop(view: cardView, sender: sender)
             originYTop = cardView.frame.origin.y
         case .changed:
-            moveViewWithPan(view: cardView, sender: sender)
+            moveViewWithPanTop(view: cardView, sender: sender)
         case .ended:
             let move = originYTop - cardView.frame.origin.y
             if move >= cardView.frame.height / 4 {
@@ -209,7 +209,13 @@ class CardBehaviourViewController: KUIViewController {
     
     func moveViewWithPan(view: UIView, sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
+        print(translation.y)
         constraint.constant = initialConstraintConstant - max(0, translation.y)
+    }
+    func moveViewWithPanTop(view: UIView, sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        print(min(0, translation.y))
+        constraint.constant = initialConstraintConstant + min(0, translation.y)
     }
     func returnViewToOrigin(view: UIView) {
         UIView.animate(withDuration: 0.3, animations: {
@@ -223,8 +229,6 @@ class CardBehaviourViewController: KUIViewController {
             self.constraint.constant = -(self.initialConstraintConstant + self.viewToMove.frame.height)
             self.view.layoutIfNeeded()
         }, completion: {(Bool) -> Void in
-            self.navigationController?.popViewController(animated: true)
-            self.dismiss(animated: true, completion: nil)
             onFinish()
         })
     }

@@ -33,11 +33,16 @@ class OptionsPopUpViewController: CardBehaviourViewController {
     
     @objc func buttonPressed(sender: UIButton) {
         moveCardOut(view: cardView, onFinish: {() -> Void in
+            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
             self.delegate?.optionPressed(sender.titleLabel!.text!)
         })
     }
     @IBAction func cancelPressed(_ sender: Any) {
-        moveCardOut(view: cardView, onFinish: {() -> Void in})
+        moveCardOut(view: cardView, onFinish: {() -> Void in
+            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     func createButton(_ title: String, _ color: UIColor = UIColor.black) -> UIButton{

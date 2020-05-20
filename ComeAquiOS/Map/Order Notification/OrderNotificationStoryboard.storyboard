@@ -11,7 +11,7 @@
         <scene sceneID="jNa-dA-EMJ">
             <objects>
                 <viewController id="SdM-IV-49D" customClass="OrderNotificationViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="K6c-zA-ZtV">
+                    <view key="view" contentMode="scaleToFill" id="K6c-zA-ZtV" customClass="PassthroughView" customModule="ComeAquiOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -145,11 +145,34 @@
                         <outlet property="timeHosting" destination="1tZ-Hv-Ocn" id="skV-PU-P0E"/>
                         <outlet property="userUsername" destination="z7M-ca-UND" id="8UJ-up-eph"/>
                         <outlet property="wholeView" destination="5kD-Kp-jOL" id="ebr-Q4-9Mu"/>
+                        <outlet property="wholeViewTopConstraint" destination="MQR-tA-82T" id="f1d-er-ggM"/>
+                        <segue destination="LYD-zs-TRt" kind="show" identifier="FoodLookSegue" id="0Hs-BD-Osp"/>
+                        <segue destination="uAx-rR-AX9" kind="show" identifier="OrderLookSegue" id="ASS-id-Tsc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="27b-0k-US7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-28.985507246376812" y="43.526785714285715"/>
+        </scene>
+        <!--FoodLookStoryboard-->
+        <scene sceneID="0gP-uY-z91">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FoodLookStoryboard" id="LYD-zs-TRt" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="c0g-vg-ARS"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bb0-5m-E4q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="647" y="-6"/>
+        </scene>
+        <!--OrderLookStoryboard-->
+        <scene sceneID="4L2-tv-mzS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OrderLookStoryboard" id="uAx-rR-AX9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="IUy-Ro-p9s"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iE9-Wm-ECv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="651" y="81"/>
         </scene>
     </scenes>
     <resources>
