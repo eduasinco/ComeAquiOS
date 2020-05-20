@@ -314,7 +314,7 @@
                         <segue destination="50B-ZI-nOb" kind="presentation" identifier="GalleryCameraSegue" id="uIC-Y4-SxK"/>
                         <segue destination="SqQ-Ut-2bX" kind="presentation" identifier="OptionsSegue" modalPresentationStyle="overFullScreen" id="CU4-tc-3VN"/>
                         <segue destination="Tc5-q6-Iqd" kind="show" identifier="EditProfileSegue" id="NSn-We-KC7"/>
-                        <segue destination="EuG-Xb-tAq" kind="presentation" identifier="LoginOrRegisterSegue" modalPresentationStyle="overFullScreen" id="4RD-ZB-Kmo"/>
+                        <segue destination="EuG-Xb-tAq" kind="presentation" identifier="LoginOrRegisterSegue" modalPresentationStyle="fullScreen" id="4RD-ZB-Kmo"/>
                         <segue destination="1rU-IR-b8p" kind="show" identifier="ConversationSegue" id="Aua-Bu-dPR"/>
                     </connections>
                 </viewController>
@@ -446,17 +446,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G84-1Q-y0V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2373.1884057971015" y="878.57142857142856"/>
+            <point key="canvasLocation" x="2375" y="877"/>
         </scene>
-        <!--LoginOrRegister-->
+        <!--LoginOrRegisterStoryboard-->
         <scene sceneID="Yzt-m8-08t">
             <objects>
-                <viewControllerPlaceholder storyboardName="LoginOrRegisterStoryboard" referencedIdentifier="LoginOrRegister" id="EuG-Xb-tAq" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="LoginOrRegisterStoryboard" id="EuG-Xb-tAq" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="2Fc-GW-62B"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vtv-UT-JXj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2389.130434782609" y="805.58035714285711"/>
+            <point key="canvasLocation" x="2440" y="818"/>
         </scene>
         <!--EditProfileStoryboard-->
         <scene sceneID="wNf-gi-CzD">
@@ -466,7 +466,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6T9-R7-VKt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2412" y="976"/>
+            <point key="canvasLocation" x="2414" y="948"/>
         </scene>
         <!--Item-->
         <scene sceneID="NAd-wY-uHl">
