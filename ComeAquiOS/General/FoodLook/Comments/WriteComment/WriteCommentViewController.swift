@@ -59,7 +59,6 @@ extension WriteCommentViewController{
                         self.comment?.comments.append(newComment)
                         self.delegate?.commentAdded(newComment: newComment)
                         self.navigationController?.popViewController(animated: true)
-                        self.dismiss(animated: true, completion: nil)
                     }
                 } catch _ {
                     self.view.showToast(message: "Some error ocurred")

@@ -21,7 +21,9 @@ class DistanceViewController: CardBehaviourViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sliderView.setValue(Float(distance!), animated: false)
-        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in })
+        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in
+            self.dismiss(animated: true, completion: nil)
+        })
 
         guard let dist = distance else {return}
         distanceText.text = "\(dist)m"
@@ -32,7 +34,6 @@ class DistanceViewController: CardBehaviourViewController {
     }
     @IBAction func apply(_ sender: Any) {
         moveCardOut(view: cardView, onFinish: {() -> Void in
-            self.navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)
         })
         delegate?.distance(distance: distance!)

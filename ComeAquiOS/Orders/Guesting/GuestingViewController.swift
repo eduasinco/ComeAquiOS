@@ -19,6 +19,7 @@ class GuestingViewController: UIViewController {
     var page = 1
     var alreadyFetchingData = false
     var ws: WebSocket?
+    var tasks: [URLSessionDataTask] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +28,9 @@ class GuestingViewController: UIViewController {
         webSocketConnetion()
     }
     override func viewWillAppear(_ animated: Bool) {
-        if page == 1 {
-            getMyGuesting()
-        }
+        orders = []
+        page = 1
+        getMyGuesting()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,9 +48,12 @@ extension GuestingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GuestingCell") as! GuestingTableViewCell
-        let order = orders[indexPath.row]
-        cell.setCell(order: order)
-        ordersToIndexPath[order.id!] = indexPath
+        if orders.count > 0 {
+            let order = orders[indexPath.row]
+            cell.setCell(order: order)
+            ordersToIndexPath[order.id!] = indexPath
+            return cell
+        }
         return cell
     }
     
@@ -70,9 +74,11 @@ extension GuestingViewController {
         }
     }
     func getMyGuesting(){
-        tableView.showActivityIndicator()
+        for task in tasks{ task.cancel() }
+        tasks = []
         alreadyFetchingData = true
-        Server.get( "/my_guesting/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        tableView.showActivityIndicator()
+        tasks.append(Server.get( "/my_guesting/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             self.alreadyFetchingData = false
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
@@ -83,7 +89,7 @@ extension GuestingViewController {
                     self.tableView.reloadData()
                 }
             } catch {}
-        })
+        }))
     }
 }
 
@@ -120,13 +126,21 @@ extension GuestingViewController: WebSocketDelegate{
             do {
                 let so = try JSONDecoder().decode(SocketObject.self, from: data)
                 guard let mro = so.message else {return}
-                let ip = ordersToIndexPath[mro.order_changed!.id!]
-                orders[ip!.row] = mro.order_changed!
-                DispatchQueue.main.async {
-                    self.tableView.beginUpdates()
-                    self.tableView.insertRows(at: [ip!], with: .automatic)
-                    self.tableView.endUpdates()
-                }
+                if let ip = ordersToIndexPath[mro.order_changed!.id!] {
+                    orders[ip.row] = mro.order_changed!
+                    DispatchQueue.main.async {
+                        self.tableView.beginUpdates()
+                        self.tableView.reloadRows(at: [ip], with: .automatic)
+                        self.tableView.endUpdates()
+                    }
+                } // else {
+//                    orders.insert(mro.order_changed!, at: 0)
+//                    DispatchQueue.main.async {
+//                        self.tableView.beginUpdates()
+//                        self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .bottom)
+//                        self.tableView.endUpdates()
+//                    }
+//                }
             } catch let error as NSError {
                 print(error)
             }
@@ -150,10 +164,6 @@ extension GuestingViewController: WebSocketDelegate{
             })
             break
         }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        ws?.disconnect()
     }
 }
 

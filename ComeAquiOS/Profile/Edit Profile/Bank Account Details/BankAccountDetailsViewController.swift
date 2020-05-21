@@ -254,7 +254,7 @@ extension BankAccountDetailsViewController {
     
     func save(){
         present(alert, animated: false, completion: nil)
-        Server.patch("/stripe_account/",
+        Server.nilPatch("/stripe_account/",
                      json:["first_name": firstName.text,
                            "last_name": lastName.text,
                            "day": day,
@@ -283,7 +283,6 @@ extension BankAccountDetailsViewController {
                             if self.stripeAccountInfo?.error_message == nil {
                                 DispatchQueue.main.async {
                                     self.navigationController?.popViewController(animated: true)
-                                    self.dismiss(animated: true, completion: nil)
                                 }
                             } else {
                                 guard let e_message = self.stripeAccountInfo?.error_message else {return}

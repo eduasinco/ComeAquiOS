@@ -17,15 +17,15 @@ class DietaryViewController: CardBehaviourViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     @IBAction func apply(_ sender: Any) {
         moveCardOut(view: cardView, onFinish: {() -> Void in
-            self.navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)
         })
         delegate?.dietary(type: type!)
-        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in })
-
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TypesSegue" {

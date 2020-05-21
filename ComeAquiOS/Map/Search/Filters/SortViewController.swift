@@ -21,7 +21,9 @@ class SortViewController: CardBehaviourViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setColors(pressed: [forYou, popular, rating][sortType])
-        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in })
+        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     func setColors(pressed: UIButton) {
@@ -52,7 +54,6 @@ class SortViewController: CardBehaviourViewController {
     
     @IBAction func apply(_ sender: Any) {
         moveCardOut(view: cardView, onFinish: {() -> Void in
-            self.navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)
         })
         delegate?.sort(sortType: sortType)

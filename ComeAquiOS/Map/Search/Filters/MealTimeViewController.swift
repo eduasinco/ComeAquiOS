@@ -21,7 +21,9 @@ class MealTimeViewController: CardBehaviourViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bottomConstraintForKeyboard = bottomViewConstraint
-        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in })
+        addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in
+            self.dismiss(animated: true, completion: nil)
+        })
         guard let startDate = self.startDateString, let endDate = endDateString else {return}
         dateTimeVC?.setDateTime(startDateString: startDate, endDateString: endDate)
     }
@@ -31,7 +33,6 @@ class MealTimeViewController: CardBehaviourViewController {
             return
         }
         moveCardOut(view: cardView, onFinish: {() -> Void in
-            self.navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)
         })
         delegate?.mealTime(startTime: startDate, endTime: endDate)

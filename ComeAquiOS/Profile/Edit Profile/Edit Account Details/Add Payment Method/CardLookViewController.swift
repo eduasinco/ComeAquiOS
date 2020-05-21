@@ -63,7 +63,6 @@ extension CardLookViewController {
                         }
                         DispatchQueue.main.async {
                             self.navigationController?.popViewController(animated: true)
-                            self.dismiss(animated: true, completion: nil)
                         }
         })
     }
@@ -83,7 +82,6 @@ extension CardLookViewController {
                 if responseO.error_message == nil {
                     DispatchQueue.main.async {
                         self.navigationController?.popViewController(animated: true)
-                        self.dismiss(animated: true, completion: nil)
                     }
                 } else {
                     

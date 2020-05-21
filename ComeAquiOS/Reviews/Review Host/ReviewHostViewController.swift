@@ -179,7 +179,6 @@ extension ReviewHostViewController {
                             let review = try JSONDecoder().decode(ReviewObject.self, from: data)
                             guard review.id != nil else {return}
                             DispatchQueue.main.async {
-                                self.navigationController?.popViewController(animated: true)
                                 self.dismiss(animated: true, completion: nil)
                             }
                         } catch _ {

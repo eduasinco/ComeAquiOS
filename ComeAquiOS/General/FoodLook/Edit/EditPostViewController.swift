@@ -139,7 +139,6 @@ extension EditPostViewController {
                     self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
                     DispatchQueue.main.async {
                         self.navigationController?.popViewController(animated: true)
-                        self.dismiss(animated: true, completion: nil)
                     }
                 } catch _ {
                     self.view.showToast(message: "Some error ocurred")

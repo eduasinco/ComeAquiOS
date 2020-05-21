@@ -157,8 +157,7 @@ class SearchViewController: KUIViewController {
 
 extension SearchViewController: FilterDelegate, AutocompleteProtocol {
     func close() {
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     func placeSelected(place: PlaceG?) {

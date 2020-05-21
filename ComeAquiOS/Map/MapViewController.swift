@@ -365,7 +365,7 @@ extension MapViewController: WebSocketDelegate{
 
     }
     func webSocketConnetion(){
-        var request = URLRequest(url: URL(string: SERVER + "/ws/orders/\(USER.id!)/")!)
+        var request = URLRequest(url: URL(string: SERVER + "/ws/posts/")!)
         request.timeoutInterval = 5
         ws = WebSocket(request: request)
         ws?.delegate = self
@@ -402,7 +402,7 @@ extension MapViewController: WebSocketDelegate{
                         marker.position = CLLocationCoordinate2D(latitude: mro.post!.lat!, longitude: mro.post!.lng!)
                         marker.title = mro.post!.plate_name!
                         marker.map = self.googleMap
-                        marker.icon = self.imageWithImage(image: mro.post!.favourite! ? UIImage(named: "marker_favourite")! : UIImage(named: "marker")!, width: 30)
+                        marker.icon = self.imageWithImage(image: mro.post!.favourite == nil || !mro.post!.favourite! ? UIImage(named: "marker")! : UIImage(named: "marker_favourite")!, width: 30)
                         idToMarker[marker.id] = marker
                     }
                 }
@@ -431,10 +431,6 @@ extension MapViewController: WebSocketDelegate{
             })
             break
         }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        ws?.disconnect()
     }
 }
 

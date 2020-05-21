@@ -244,7 +244,6 @@ extension FoodReviewLookViewController {
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
-                self.dismiss(animated: true, completion: nil)
             }
         })
     }

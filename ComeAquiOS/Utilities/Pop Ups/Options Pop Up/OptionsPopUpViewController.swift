@@ -21,7 +21,6 @@ class OptionsPopUpViewController: CardBehaviourViewController {
         super.viewDidLoad()
         addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in
             self.navigationController?.popViewController(animated: true)
-            self.dismiss(animated: true, completion: nil)
         })
         guard let options = self.options else {return}
         for (i, option) in options.enumerated() {
@@ -36,14 +35,12 @@ class OptionsPopUpViewController: CardBehaviourViewController {
     
     @objc func buttonPressed(sender: UIButton) {
         moveCardOut(view: cardView, onFinish: {() -> Void in
-            self.navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)
             self.delegate?.optionPressed(sender.titleLabel!.text!)
         })
     }
     @IBAction func cancelPressed(_ sender: Any) {
         moveCardOut(view: cardView, onFinish: {() -> Void in
-            self.navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)
         })
     }

@@ -134,7 +134,9 @@ class FoodLookViewController: KUIViewController {
         if USER.id == foodPost.owner!.id {
             attendMealButton.visibility = .gone
         }
-        
+        addPaymentMethodButton.visibility = .gone
+        attendMealButton.visibility = .gone
+        creditCardInfoView.visibility = .gone
         if USER.id == foodPost.owner!.id {
             setComments(foodPostId: foodPost.id!)
         } else {
@@ -152,24 +154,25 @@ class FoodLookViewController: KUIViewController {
                 setStatus(text: "Finished", color: UIColor.orange)
                 setComments(foodPostId: foodPost.id!)
             default:
-                if (foodPost.status == "OPEN") {
+                switch foodPost.status {
+                case "OPEN":
                     attendMealButton.addTarget(self, action: #selector(attendMeal(sender:)), for: .touchUpInside)
-                } else if (foodPost.status == "IN_COURSE"){
+                case "IN_COURSE":
                     setStatus(text: "Meal in course", color: UIColor.orange)
-                } else if(foodPost.status == "FINISHED"){
+                case "FINISHED":
                     setStatus(text: "Meal finished", color: UIColor.orange)
+                default:
+                    break
                 }
             }
-        }
-        if let paymentMethod = self.paymentMethod, USER.id != foodPost.owner!.id! {
-            addPaymentMethodButton.visibility = .gone
-            attendMealButton.visibility = .visible
-            creditCardInfoView.visibility = .visible
-            creditCardNumber.text = paymentMethod.last4
-        } else {
-            addPaymentMethodButton.visibility = .gone
-            attendMealButton.visibility = USER.id == foodPost.owner!.id! ? .gone: .visible
-            creditCardInfoView.visibility = .gone
+            if let paymentMethod = self.paymentMethod {
+                addPaymentMethodButton.visibility = .gone
+                attendMealButton.visibility = .visible
+                creditCardInfoView.visibility = .visible
+                creditCardNumber.text = paymentMethod.last4
+            } else {
+                addPaymentMethodButton.visibility = .visible
+            }
         }
     }
     
@@ -406,7 +409,6 @@ extension FoodLookViewController {
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
-                self.dismiss(animated: true, completion: nil)
             }
         })
     }
@@ -432,7 +434,7 @@ extension FoodLookViewController {
                         UIView.animate(withDuration: 0.5) {
                             self.view.layoutIfNeeded()
                         }
-                        self.dismiss(animated: true)
+                        self.navigationController?.popViewController(animated: true)
                     }
                 } catch _ {
                     self.view.showToast(message: "Some error ocurred")

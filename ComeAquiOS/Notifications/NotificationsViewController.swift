@@ -187,9 +187,5 @@ extension NotificationsViewController: WebSocketDelegate{
             break
         }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        ws?.disconnect()
-    }
 }
 

@@ -28,7 +28,6 @@ class ImageLookerViewController: UIViewController {
     }
     @IBAction func deletePressed(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
         delegate?.deleteImage()
     }
 }

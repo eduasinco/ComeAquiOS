@@ -59,7 +59,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         if self.foodPostId == nil {
             trueDeletePost()
         }
-        _ = navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     func setFoodPost() {
         if (self.foodPost?.plate_name) != nil {
@@ -203,12 +203,11 @@ extension AddFoodViewController {
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
-                self.dismiss(animated: true, completion: nil)
             }
         })
     }
     func pathFoodPost(visible: Bool){
-        Server.patch("/edit_food/\(self.foodPost!.id!)/",
+        Server.patch("/foods/\(self.foodPost!.id!)/",
                     json:
             ["plate_name":  plateNameText.text,
              "formatted_address":  self.location?.result?.formatted_address,
@@ -231,7 +230,6 @@ extension AddFoodViewController {
                             self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
                             DispatchQueue.main.async {
                                 self.navigationController?.popViewController(animated: true)
-                                self.dismiss(animated: true, completion: nil)
                             }
                         } catch _ {
                             self.view.showToast(message: "Some error ocurred")

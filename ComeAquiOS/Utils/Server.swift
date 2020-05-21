@@ -32,13 +32,13 @@ public func getRequestWithAuth(_ url: String) -> URLRequest{
 
 class Server {
     
-    static func get(_ urlString: String, finish: @escaping (Data?, URLResponse?) -> Void){
-        retrieve(urlString, method: "GET", finish: finish)
+    static func get(_ urlString: String, finish: @escaping (Data?, URLResponse?) -> Void) -> URLSessionDataTask {
+        return retrieve(urlString, method: "GET", finish: finish)
     }
-    static func delete(_ urlString: String, finish: @escaping (Data?, URLResponse?) -> Void){
-        retrieve(urlString, method: "DELETE", finish: finish)
+    static func delete(_ urlString: String, finish: @escaping (Data?, URLResponse?) -> Void) -> URLSessionDataTask {
+        return retrieve(urlString, method: "DELETE", finish: finish)
     }
-    static func retrieve(_ urlString: String, method: String, finish: @escaping (Data?, URLResponse?) -> Void){
+    static func retrieve(_ urlString: String, method: String, finish: @escaping (Data?, URLResponse?) -> Void) -> URLSessionDataTask {
         var request = getRequestWithAuth(urlString)
         request.httpMethod = method
         let session = URLSession(configuration: URLSessionConfiguration.default)
@@ -46,6 +46,7 @@ class Server {
             finish(data, response)
         })
         task.resume()
+        return task
     }
     static func post(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
         update(urlString, json: json, method: "POST", finish: finish)
@@ -54,6 +55,17 @@ class Server {
         update(urlString, json: json, method: "PUT", finish: finish)
     }
     static func patch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
+        var trueJson: [String: Any] = [:]
+        for k in json.keys {
+            if let element = json[k] as? String, element.isEmpty {
+                trueJson[k] = nil
+            } else {
+                trueJson[k] = json[k] as Any?
+            }
+        }
+        update(urlString, json: trueJson, method: "PATCH", finish: finish)
+    }
+    static func nilPatch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
         var trueJson: [String: Any] = [:]
         for k in json.keys {
             if let element = json[k] as? String, element.isEmpty {

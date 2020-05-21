@@ -51,7 +51,6 @@ extension WriteReplyTableViewCell{
                     DispatchQueue.main.async {
                         self.delegate?.replyAdded(reply: reply)
                         self.navigationController?.popViewController(animated: true)
-                        self.dismiss(animated: true, completion: nil)
                     }
                 } catch {}
         })

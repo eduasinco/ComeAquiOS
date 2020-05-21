@@ -51,7 +51,6 @@ class AttendPopUpViewController: UIViewController {
     }
     @IBAction func confirmPressed(_ sender: Any) {
         delegate?.confirmAttend(additionalGuests: Int(additionalGuestsText.text!)!)
-        self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -59,7 +58,6 @@ class AttendPopUpViewController: UIViewController {
         //location is relative to the current view
         // do something with the touched point
         if touch?.view != self.view {
-            self.navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)
         }
     }}
