@@ -13,10 +13,12 @@ class ViewController: UITabBarController {
     
     var ws: WebSocket?
     @IBOutlet weak var myTabbar: UITabBar!
-    
+    var mapViewController: MapViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
         webSocketConnetion()
+        mapViewController = self.viewControllers![0].childForScreenEdgesDeferringSystemGestures as? MapViewController
+
     }
 }
 
@@ -70,9 +72,9 @@ extension ViewController: WebSocketDelegate {
                 }
                 if let unseenMessages = mro.messages_not_seen {
                     if unseenMessages > 0 {
-                        self.navigationItem.rightBarButtonItem?.addBadge(number: unseenMessages)
+                        mapViewController?.navigationItem.rightBarButtonItem?.addBadge(number: unseenMessages)
                     } else {
-                        self.navigationItem.rightBarButtonItem?.removeBadge()
+                        mapViewController?.navigationItem.rightBarButtonItem?.removeBadge()
                     }
                 }
                 if let ordersNotSeen = mro.orders_not_seen {
@@ -111,10 +113,6 @@ extension ViewController: WebSocketDelegate {
             })
             break
         }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        ws?.disconnect()
     }
 }
 

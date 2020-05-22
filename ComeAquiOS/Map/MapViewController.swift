@@ -21,6 +21,7 @@ private class FoodPostMarker : GMSMarker {
 class MapViewController: LoadViewController, CardActionProtocol {
     
     
+    @IBOutlet weak var chatButton: UIBarButtonItem!
     @IBOutlet weak var viewForMap: UIView!
     var googleMap: GMSMapView!
     @IBOutlet weak var cardView: UIView!

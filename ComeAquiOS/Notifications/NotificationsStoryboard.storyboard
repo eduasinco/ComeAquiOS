@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -120,9 +120,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qjl-Ua-Quc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Notifications" id="kp4-TQ-YbB">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="message" catalog="system" id="WAz-Kt-euR"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Notifications" id="kp4-TQ-YbB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="BKK-pX-WyP" id="P6I-aM-7Ed"/>
@@ -198,6 +196,5 @@
     </scenes>
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
-        <image name="message" catalog="system" width="128" height="113"/>
     </resources>
 </document>

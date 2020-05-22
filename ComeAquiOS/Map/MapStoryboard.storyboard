@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -108,6 +108,7 @@
                     <connections>
                         <outlet property="cardBottomConstraint" destination="d2U-7y-GHn" id="fkQ-YI-v8g"/>
                         <outlet property="cardView" destination="fJZ-NB-sJw" id="Skb-Rd-qYL"/>
+                        <outlet property="chatButton" destination="Q03-dI-bEg" id="GPt-b5-52h"/>
                         <outlet property="containerView" destination="Ypx-lw-UC2" id="rBI-dc-gEX"/>
                         <outlet property="mapPickerContainerView" destination="WVe-cr-Uml" id="zRX-Vq-z5S"/>
                         <outlet property="spinner" destination="wjR-Dd-0ho" id="dkW-d7-JHS"/>
@@ -237,7 +238,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="chY-vw-aW5">
-                                <rect key="frame" x="16" y="116" width="366" height="90"/>
+                                <rect key="frame" x="16" y="116" width="366" height="68"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcx-D3-1x9" userLabel="User Description">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
@@ -311,7 +312,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9v-2D-Tl6" userLabel="Post Description">
-                                        <rect key="frame" x="0.0" y="40" width="366" height="50"/>
+                                        <rect key="frame" x="0.0" y="40" width="366" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-PH-DEG">
                                                 <rect key="frame" x="0.0" y="23" width="366" height="20.5"/>

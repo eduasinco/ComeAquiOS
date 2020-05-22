@@ -19,7 +19,6 @@ class GuestingViewController: UIViewController {
     var page = 1
     var alreadyFetchingData = false
     var ws: WebSocket?
-    var tasks: [URLSessionDataTask] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,22 +62,10 @@ extension GuestingViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension GuestingViewController {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        
-        if offsetY > contentHeight - scrollView.frame.height {
-            if !alreadyFetchingData {
-                getMyGuesting()
-            }
-        }
-    }
     func getMyGuesting(){
-        for task in tasks{ task.cancel() }
-        tasks = []
         alreadyFetchingData = true
         tableView.showActivityIndicator()
-        tasks.append(Server.get( "/my_guesting/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get( "/my_guesting/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             self.alreadyFetchingData = false
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
@@ -89,7 +76,17 @@ extension GuestingViewController {
                     self.tableView.reloadData()
                 }
             } catch {}
-        }))
+        })
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if offsetY > contentHeight - scrollView.frame.height {
+            if !alreadyFetchingData {
+                getMyGuesting()
+            }
+        }
     }
 }
 

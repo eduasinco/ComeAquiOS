@@ -27,9 +27,9 @@ class NotificationsViewController: LoadViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if page == 1{
-            getMyNotifications()
-        }
+        notifications = []
+        page = 1
+        getMyNotifications()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,9 +59,11 @@ extension NotificationsViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell") as! NotificationTableViewCell
-        let notification = notifications[indexPath.row]
-        cell.setCell(notification: notification)
-        notificationToIndexPath[notification.id!] = indexPath
+        if notifications.count > 0 {
+            let notification = notifications[indexPath.row]
+            cell.setCell(notification: notification)
+            notificationToIndexPath[notification.id!] = indexPath
+        }
         return cell
     }
     
@@ -95,16 +97,6 @@ extension NotificationsViewController: UITableViewDataSource, UITableViewDelegat
 }
 
 extension NotificationsViewController {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        
-        if offsetY > contentHeight - scrollView.frame.height {
-            if !alreadyFetchingData {
-                getMyNotifications()
-            }
-        }
-    }
     func getMyNotifications(){
         alreadyFetchingData = true
         tableView.showActivityIndicator()
@@ -121,6 +113,16 @@ extension NotificationsViewController {
                 }
             } catch {}
         })
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if offsetY > contentHeight - scrollView.frame.height {
+            if !alreadyFetchingData {
+                getMyNotifications()
+            }
+        }
     }
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mz9-LP-qsw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mz9-LP-qsw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -54,7 +54,7 @@
                     <connections>
                         <outlet property="myTabbar" destination="buO-f1-sYM" id="bka-Dw-kIx"/>
                         <outlet property="tabBar" destination="buO-f1-sYM" id="kYe-Zr-Xy3"/>
-                        <segue destination="KlV-l6-b6e" kind="relationship" relationship="viewControllers" id="y6U-eT-2DA"/>
+                        <segue destination="KlV-l6-b6e" kind="relationship" relationship="viewControllers" destinationCreationSelector="MapSegue" id="y6U-eT-2DA"/>
                         <segue destination="acW-im-02J" kind="relationship" relationship="viewControllers" id="S7y-4E-bXA"/>
                         <segue destination="O1f-Em-9KB" kind="relationship" relationship="viewControllers" id="SHC-lU-rT9"/>
                         <segue destination="xVa-rP-YGG" kind="relationship" relationship="viewControllers" id="JVx-xZ-UVe"/>

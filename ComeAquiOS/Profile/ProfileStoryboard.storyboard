@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2CD-s4-qRk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2CD-s4-qRk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -282,7 +282,7 @@
                         <viewLayoutGuide key="safeArea" id="fjE-BY-3ca"/>
                     </view>
                     <navigationItem key="navigationItem" id="VZM-p7-kOx">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="POz-og-zNS">
+                        <barButtonItem key="rightBarButtonItem" image="line.horizontal.3" catalog="system" id="POz-og-zNS">
                             <connections>
                                 <action selector="options:" destination="9c3-aH-ZYm" id="1L2-Mg-Oe5"/>
                             </connections>
@@ -490,7 +490,7 @@
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="128" height="96"/>
-        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="message.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

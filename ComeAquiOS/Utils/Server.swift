@@ -31,14 +31,17 @@ public func getRequestWithAuth(_ url: String) -> URLRequest{
 
 
 class Server {
-    
-    static func get(_ urlString: String, finish: @escaping (Data?, URLResponse?) -> Void) -> URLSessionDataTask {
-        return retrieve(urlString, method: "GET", finish: finish)
+    static var urlToTask: [String: URLSessionDataTask] = [:]
+    static var urlToUploadTask: [String: UploadRequest] = [:]
+
+    static func get(_ urlString: String, finish: @escaping (Data?, URLResponse?) -> Void) {
+        retrieve(urlString, method: "GET", finish: finish)
     }
-    static func delete(_ urlString: String, finish: @escaping (Data?, URLResponse?) -> Void) -> URLSessionDataTask {
-        return retrieve(urlString, method: "DELETE", finish: finish)
+    static func delete(_ urlString: String, finish: @escaping (Data?, URLResponse?) -> Void) {
+        retrieve(urlString, method: "DELETE", finish: finish)
     }
-    static func retrieve(_ urlString: String, method: String, finish: @escaping (Data?, URLResponse?) -> Void) -> URLSessionDataTask {
+    static func retrieve(_ urlString: String, method: String, finish: @escaping (Data?, URLResponse?) -> Void) {
+        if let task = urlToTask[urlString] { task.cancel() }
         var request = getRequestWithAuth(urlString)
         request.httpMethod = method
         let session = URLSession(configuration: URLSessionConfiguration.default)
@@ -46,7 +49,7 @@ class Server {
             finish(data, response)
         })
         task.resume()
-        return task
+        urlToTask[urlString] = task
     }
     static func post(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
         update(urlString, json: json, method: "POST", finish: finish)
@@ -78,6 +81,7 @@ class Server {
     }
     
     static func update(_ urlString: String, json: [String:Any?], method: String, finish: @escaping (Data?, URLResponse?) -> Void){
+        if let task = urlToTask[urlString] { task.cancel() }
         var request = getRequestWithAuth(urlString)
         do {
             let data = try JSONSerialization.data(withJSONObject: json, options: [])
@@ -87,12 +91,14 @@ class Server {
                 finish(data, response)
             })
             task.resume()
+            urlToTask[urlString] = task
         }catch{
             //
         }
     }
     
     static func uploadPictures(method: HTTPMethod, urlString: String, withName: String, pictures : UIImage, finish: @escaping ((Data?)) -> Void) {
+        if let task = urlToUploadTask[urlString] { task.cancel() }
         let urll = URL(string: urlString)
         guard let url = urll else { return }
         let headers: HTTPHeaders
@@ -100,12 +106,13 @@ class Server {
                    "Content-Disposition" : "form-data",
                    "Authorization" : "Basic \(getBase64LoginString())"
         ]
-        AF.upload(multipartFormData: { (multipartFormData) in
+        let task = AF.upload(multipartFormData: { (multipartFormData) in
             if let imageData = pictures.jpeg(.lowest) {
                 multipartFormData.append(imageData, withName: withName, fileName: "IMAGE.jpg", mimeType: "image/jpg")
             }
         }, to: url, usingThreshold: UInt64.init(), method: method, headers: headers).response{ response in
             finish(response.data)
         }
+        urlToUploadTask[urlString] = task
     }
 }
