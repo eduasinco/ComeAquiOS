@@ -74,7 +74,7 @@ extension Tab3ViewController {
 extension Tab3ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Tab3CollectionCell", for: indexPath) as! Tab3CollectionViewCell
-        cell.foodImage.loadImageUsingUrlString(urlString: data[indexPath.row].food_photo!)
+        cell.foodImage.loadImageUsingUrlString(urlString: data[indexPath.row].food_photo)
         cell.backgroundColor = UIColor.red
         return cell
     }

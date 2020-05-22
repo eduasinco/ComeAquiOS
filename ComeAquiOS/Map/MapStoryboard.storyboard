@@ -44,6 +44,20 @@
                                     <segue destination="2Oo-pm-7Rk" kind="show" identifier="SearchSegue" id="cg7-r8-HPU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khb-xY-c4J">
+                                <rect key="frame" x="20" y="723" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.97132772840000003" green="0.97132772840000003" blue="0.97132772840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="wuD-30-9UP"/>
+                                    <constraint firstAttribute="width" constant="70" id="xN2-Ie-s3b"/>
+                                </constraints>
+                                <state key="normal" image="mappin.and.ellipse" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="centerInMap:" destination="kGK-Fs-ocf" eventType="touchUpInside" id="nKw-aM-TRo"/>
+                                </connections>
+                            </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-cr-Uml" customClass="PassthroughView" customModule="ComeAquiOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <connections>
@@ -89,10 +103,12 @@
                             <constraint firstItem="wjR-Dd-0ho" firstAttribute="top" secondItem="HqB-kn-AOB" secondAttribute="top" constant="8" id="Myh-KO-euo"/>
                             <constraint firstItem="HqB-kn-AOB" firstAttribute="trailing" secondItem="fJZ-NB-sJw" secondAttribute="trailing" constant="8" id="SIZ-vj-UCF"/>
                             <constraint firstItem="fJZ-NB-sJw" firstAttribute="leading" secondItem="HqB-kn-AOB" secondAttribute="leading" constant="8" id="ZfS-ax-bfz"/>
+                            <constraint firstItem="HqB-kn-AOB" firstAttribute="bottom" secondItem="Khb-xY-c4J" secondAttribute="bottom" constant="20" id="aUJ-Yz-G1u"/>
                             <constraint firstItem="WVe-cr-Uml" firstAttribute="bottom" secondItem="HqB-kn-AOB" secondAttribute="bottom" id="b15-XZ-vHn"/>
                             <constraint firstItem="HqB-kn-AOB" firstAttribute="bottom" secondItem="fJZ-NB-sJw" secondAttribute="bottom" constant="8" id="d2U-7y-GHn"/>
                             <constraint firstItem="wjR-Dd-0ho" firstAttribute="leading" secondItem="HqB-kn-AOB" secondAttribute="leading" constant="8" id="hUz-KO-yiz"/>
                             <constraint firstItem="HqB-kn-AOB" firstAttribute="trailing" secondItem="7i6-cD-AXe" secondAttribute="trailing" constant="20" id="qlD-YI-2hk"/>
+                            <constraint firstItem="Khb-xY-c4J" firstAttribute="leading" secondItem="HqB-kn-AOB" secondAttribute="leading" constant="20" id="rVz-ut-EUc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HqB-kn-AOB"/>
                     </view>
@@ -527,6 +543,7 @@
         <image name="favourite_star" width="205" height="205"/>
         <image name="food-time" width="200" height="200"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="rate_empty_star" width="175" height="175"/>
     </resources>

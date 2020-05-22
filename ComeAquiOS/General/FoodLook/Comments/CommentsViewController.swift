@@ -15,6 +15,7 @@ let ACTUAL_LENGTH = 3
 
 class Comment {
     var id: Int!
+    var owner: User?
     var comment: String!
     var comments: [Comment] = []
     var depth: Int!

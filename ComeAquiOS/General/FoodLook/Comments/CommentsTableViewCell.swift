@@ -23,6 +23,7 @@ class CommentsTableViewCell: UITableViewCell {
     var comment: Comment?
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var stackView: UIView!
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var leadingStackView: NSLayoutConstraint!
     
     @IBOutlet weak var moreCommentsButton: UIButton!
@@ -64,6 +65,12 @@ class CommentsTableViewCell: UITableViewCell {
         leadingMoreComments.constant = CGFloat((comment.depth - max_depth) * 32)
         leadingContinueConversation.constant = CGFloat((comment.depth - max_depth) * 32)
         self.label.text = comment.comment
+        
+        if comment.owner?.id == USER.id {
+            deleteButton.visibility = .visible
+        } else {
+            deleteButton.visibility = .gone
+        }
         
         if comment.isMaxLength > 0 {
             stackView.visibility = .gone

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WpN-hH-tGe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WpN-hH-tGe">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -46,8 +46,8 @@
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zaW-F1-6hF" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="30" width="382" height="200"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.rectangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zaW-F1-6hF" customClass="ImageToOpen" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="31" width="382" height="197.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="200" id="xyd-pq-mMO"/>
                                                                 </constraints>
@@ -70,8 +70,8 @@
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pcj-Fg-4iW" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="260" width="382" height="200"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pcj-Fg-4iW" customClass="ImageToOpen" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="261" width="382" height="197.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="200" id="cC7-3H-wbm"/>
                                                                 </constraints>
@@ -317,6 +317,8 @@
     </scenes>
     <resources>
         <image name="creditcard" catalog="system" width="128" height="91"/>
+        <image name="person.crop.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="phone" catalog="system" width="128" height="115"/>
+        <image name="photo.fill" catalog="system" width="128" height="93"/>
     </resources>
 </document>

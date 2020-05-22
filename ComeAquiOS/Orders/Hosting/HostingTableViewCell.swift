@@ -21,7 +21,7 @@ class HostingTableViewCell: UITableViewCell {
     
     func setCell(foodPost: FoodPostObject){
         if foodPost.images!.count > 0 {
-            foodPhoto.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo!)
+            foodPhoto.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo)
         } else {
             foodPhoto.image = UIImage(named: "poster")
         }

@@ -37,7 +37,7 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     
     func setView(){
         guard let order = self.order else { return }
-        posterImage.loadImageUsingUrlString(urlString: order.poster!.profile_photo!)
+        posterImage.loadImageUsingUrlString(urlString: order.poster!.profile_photo)
         posterName.text = order.poster?.full_name
         posterUsername.text = order.poster?.username
         plateName.text = order.post?.plate_name

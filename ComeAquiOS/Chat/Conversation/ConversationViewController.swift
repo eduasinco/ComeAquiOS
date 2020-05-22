@@ -48,7 +48,7 @@ class ConversationViewController: KUIViewController {
     func setView() {
         guard let chat = self.chat else {return}
         self.chattingWith = (USER.id == chat.users![0].id) ? chat.users![1] : chat.users![0]
-        userImage.loadImageUsingUrlString(urlString: self.chattingWith.profile_photo!)
+        userImage.loadImageUsingUrlString(urlString: self.chattingWith.profile_photo)
         userName.text = self.chattingWith.full_name
     }
     

@@ -37,7 +37,7 @@ class ChatTableViewCell: UITableViewCell {
 //            unreadMessagesCount.visibility = .invisible
 //        }
 
-        userImage.loadImageUsingUrlString(urlString: chattingWith.profile_photo!)
+        userImage.loadImageUsingUrlString(urlString: chattingWith.profile_photo)
 
         if chat.last_message != nil {
             date.text = chat.last_message?.created_at

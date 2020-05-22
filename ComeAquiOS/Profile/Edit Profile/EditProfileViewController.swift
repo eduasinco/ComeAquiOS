@@ -33,8 +33,8 @@ class EditProfileViewController: LoadViewController {
     
     func setView(){
         guard let user = self.user else {return}
-        backgroundImage.loadImageUsingUrlString(urlString: user.background_photo!, isFullUrl: true)
-        profileImage.loadImageUsingUrlString(urlString: user.profile_photo!, isFullUrl: true)
+        backgroundImage.loadImageUsingUrlString(urlString: user.background_photo, isFullUrl: true)
+        profileImage.loadImageUsingUrlString(urlString: user.profile_photo, isFullUrl: true)
         name.text = user.first_name
         surname.text = user.last_name
         bioText.text = user.bio

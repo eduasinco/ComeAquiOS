@@ -52,7 +52,7 @@ class FoodReviewLookViewController: UIViewController {
         
         userName.text = foodPost.owner?.full_name!
         userUsername.text = foodPost.owner?.username!
-        posterImage.loadImageUsingUrlString(urlString: foodPost.owner!.profile_photo!)
+        posterImage.loadImageUsingUrlString(urlString: foodPost.owner!.profile_photo)
         posterImage.circle()
         
         let imageArray = [image1, image2, image3]
@@ -61,13 +61,13 @@ class FoodReviewLookViewController: UIViewController {
         if foodPost.images!.count == 0 {
             imageScrollView.visibility = .gone
         } else if foodPost.images!.count == 1 {
-            self.image1.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo!)
+            self.image1.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo)
             image1Width.constant = imageScrollView.frame.width
             image1.isHidden = false
         } else {
             for (i, image) in foodPost.images!.enumerated(){
                 imageArray[i]!.visibility = .visible
-                imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo!)
+                imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo)
             }
         }
         var i = foodPost.images!.count

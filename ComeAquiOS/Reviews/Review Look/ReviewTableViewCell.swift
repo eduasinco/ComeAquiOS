@@ -54,7 +54,7 @@ class ReviewTableViewCell: UITableViewCell {
     }
     
     func setCell(review: ReviewObject){
-        reviewerImage.loadImageUsingUrlString(urlString: review.owner!.profile_photo!)
+        reviewerImage.loadImageUsingUrlString(urlString: review.owner!.profile_photo)
         reviewerName.text = review.owner?.full_name
         reviewerUsername.text = review.owner?.username
         reviewMessage.text = review.review
@@ -65,7 +65,7 @@ class ReviewTableViewCell: UITableViewCell {
             let reply = review.replies![0]
             if !reply.reply!.isEmpty {
                 wholeReplyView.visibility = .visible
-                // replyerImage.loadImageUsingUrlString(urlString: reply.owner!.profile_photo!)
+                // replyerImage.loadImageUsingUrlString(urlString: reply.owner!.profile_photo)
                 replyerName.text = reply.owner?.full_name
                 replyerUsername.text = reply.owner?.username
                 replyMessage.text = reply.reply

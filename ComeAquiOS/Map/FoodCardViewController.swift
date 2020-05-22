@@ -61,12 +61,12 @@ class FoodCardViewController: UIViewController {
             imageScrollView.visibility = .gone
         } else if foodPost.images!.count == 1 {
             image1.visibility = .visible
-            self.image1.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo!)
+            self.image1.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo)
             image1Width.constant = imageScrollView.frame.width
         } else {
             for (i, image) in foodPost.images!.enumerated(){
                 imageArray[i]!.visibility = .visible
-                imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo!)
+                imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo)
             }
         }
         var i = foodPost.images!.count
@@ -75,7 +75,7 @@ class FoodCardViewController: UIViewController {
             i += 1
         }
         
-        userImage.loadImageUsingUrlString(urlString: foodPost.owner!.profile_photo!)
+        userImage.loadImageUsingUrlString(urlString: foodPost.owner!.profile_photo)
         userName.text = foodPost.owner!.full_name!
         userUsername.text = foodPost.owner!.username!
         mealDescription.text = foodPost.description!

@@ -10,7 +10,19 @@ import UIKit
 
 
 class URLImageView: UIImageView {
-    public func loadImageUsingUrlString(urlString: String, isFullUrl: Bool = false) {
+    var urlString: String?
+    var defaultImage: UIImage?
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.defaultImage = self.image
+    }
+    public func loadImageUsingUrlString(urlString: String?, isFullUrl: Bool = false) {
+        guard let urlString = urlString else {
+            self.image = defaultImage
+            return
+        }
+        self.urlString = urlString
         let url = NSURL(string: (isFullUrl ? "" : SERVER) + urlString)
         URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, respones, error) in
             if error != nil {
@@ -28,8 +40,18 @@ class URLImageView: UIImageView {
 private let imageCache = NSCache<NSString, UIImage>()
 class CellImageView: UIImageView {
     var imageUrlString: String?
+    var defaultImage: UIImage?
     
-    public func loadImageUsingUrlString(urlString: String) {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.defaultImage = self.image
+    }
+    
+    public func loadImageUsingUrlString(urlString: String?) {
+        guard let urlString = urlString else {
+            self.image = defaultImage
+            return
+        }
         let serverUrlString = SERVER + urlString
         imageUrlString = serverUrlString
         let url = NSURL(string: serverUrlString)
@@ -59,7 +81,19 @@ class CellImageView: UIImageView {
 }
 
 class URLImageButtonView: UIButton {
-    public func loadImageUsingUrlString(urlString: String) {
+    var urlString: String?
+    var defaultImage: UIImage?
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.defaultImage = self.imageView?.image
+    }
+    public func loadImageUsingUrlString(urlString: String?) {
+        guard let urlString = urlString else {
+            self.setImage(defaultImage, for: .normal)
+            return
+        }
+        self.urlString = urlString
         let url = NSURL(string: SERVER + urlString)
         URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, respones, error) in
             if error != nil {
@@ -86,27 +120,18 @@ extension UIView {
         return nil
     }
 }
-class ImageToOpen: UIImageView {
-    var urlString: String?
+class ImageToOpen: URLImageView {
     var presentFunction: (() -> Void)?
-    var defaultImage: UIImage?
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.defaultImage = self.image
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tap(_:))))
         self.isUserInteractionEnabled = true
     }
-    
     @objc func tap(_ gestureRecognizer: UITapGestureRecognizer) {
         presentFunction?()
     }
-    
-    public func loadImageUsingUrlString(urlString: String?, isFullUrl: Bool = false) {
-        guard let urlString = urlString else {
-            self.image = defaultImage
-            return
-        }
-        self.urlString = urlString
+    override func loadImageUsingUrlString(urlString: String?, isFullUrl: Bool = false) {
+        super.loadImageUsingUrlString(urlString: urlString, isFullUrl: isFullUrl)
         self.presentFunction = {
             let storyBoard: UIStoryboard = UIStoryboard(name: "ImageLookerStoryboard", bundle: nil)
             let imageVC = storyBoard.instantiateViewController(withIdentifier: "ImageLooker") as! ImageLookerViewController
@@ -117,16 +142,5 @@ class ImageToOpen: UIImageView {
             }
             self.parentViewController?.present(imageVC, animated: true, completion: nil)
         }
-        let url = NSURL(string: (isFullUrl ? "" : SERVER) + urlString)
-        URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, respones, error) in
-            if error != nil {
-                print(error ?? "Errooooor")
-                return
-            }
-            DispatchQueue.main.async{
-                let image = UIImage(data: data!)
-                self.image = image
-            }
-        }).resume()
     }
 }

@@ -31,7 +31,7 @@ class DinnerTableViewCell: UITableViewCell {
     }
     
     func setCell(order: OrderObject){
-        profileImageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo!)
+        profileImageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

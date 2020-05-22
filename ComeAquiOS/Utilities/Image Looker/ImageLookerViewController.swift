@@ -24,7 +24,7 @@ class ImageLookerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         deleteButton.visibility = delegate == nil ? .gone : .visible
-        imageView.loadImageUsingUrlString(urlString: image!, isFullUrl: isFullUrl)
+        imageView.loadImageUsingUrlString(urlString: image, isFullUrl: isFullUrl)
     }
     @IBAction func deletePressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

@@ -36,7 +36,7 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
     
     func setImages(images: [FoodPostImageObject]){
         for (i, image) in images.enumerated() {
-            buttons[i].loadImageUsingUrlString(urlString: image.food_photo!)
+            buttons[i].loadImageUsingUrlString(urlString: image.food_photo)
             self.images[i] = image
         }
     }
@@ -104,7 +104,7 @@ extension ImportImagesViewController {
             let foodPostImage = try JSONDecoder().decode(FoodPostImageObject.self, from: data)
             images[Int(buttonPressed!.tag)] = foodPostImage
             DispatchQueue.main.async {
-                self.buttonPressed?.loadImageUsingUrlString(urlString: foodPostImage.food_photo!)
+                self.buttonPressed?.loadImageUsingUrlString(urlString: foodPostImage.food_photo)
             }
         } catch _ {
             self.view.showToast(message: "Some error ocurred")

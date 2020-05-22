@@ -35,20 +35,21 @@ class OrderNotificationViewController: CardBehaviourViewController {
     }
     func setOrder(){
         guard let order = self.order else {return}
-        self.hostingView.visibility = .visible
-        self.timeHosting.text = order.post?.start_time
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleHostTap(sender:)))
-        self.hostingView?.addGestureRecognizer(tap)
+        self.guestingView.visibility = .visible
+        mealWithUser.text = order.poster?.full_name
+        userUsername.text = order.poster?.username
+        plateName.text = order.post?.plate_name
+        timeGuesting.text = order.post?.start_time
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleGuesTap(sender:)))
+        self.guestingView?.addGestureRecognizer(tap)
+        
     }
     func setFoodPost(){
         guard let post = self.foodPost else {return}
-        self.guestingView.visibility = .visible
-        mealWithUser.text = post.owner?.full_name
-        userUsername.text = post.owner?.username
-        plateName.text = post.plate_name
-        timeGuesting.text = post.start_time
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleGuesTap(sender:)))
-        self.guestingView?.addGestureRecognizer(tap)
+        self.hostingView.visibility = .visible
+        self.timeHosting.text = post.start_time
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleHostTap(sender:)))
+        self.hostingView?.addGestureRecognizer(tap)
     }
     @objc func handleHostTap(sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "FoodLookSegue", sender: nil)

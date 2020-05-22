@@ -115,6 +115,11 @@ class MapViewController: LoadViewController, CardActionProtocol {
         UIGraphicsEndImageContext()
         return newImage
     }
+    @IBAction func centerInMap(_ sender: Any) {
+        guard let lat = myLocation?.coordinate.latitude, let lng = myLocation?.coordinate.longitude else {return}
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 16)
+        googleMap?.animate(to: camera)
+    }
     
     func showCard(foodPostId: Int){
         self.lastPost = currentPost

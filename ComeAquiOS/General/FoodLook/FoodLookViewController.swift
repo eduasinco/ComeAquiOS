@@ -87,7 +87,7 @@ class FoodLookViewController: KUIViewController {
         
         userName.text = foodPost.owner?.full_name!
         userUserName.text = foodPost.owner?.username!
-        userImage.loadImageUsingUrlString(urlString: foodPost.owner!.profile_photo!)
+        userImage.loadImageUsingUrlString(urlString: foodPost.owner!.profile_photo)
         userImage.circle()
         
         let imageArray = [image1, image2, image3]
@@ -96,13 +96,13 @@ class FoodLookViewController: KUIViewController {
         if foodPost.images!.count == 0 {
             imageScrollView.visibility = .gone
         } else if foodPost.images!.count == 1 {
-            self.image1.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo!)
+            self.image1.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo)
             image1Width.constant = imageScrollView.frame.width
             image1.isHidden = false
         } else {
             for (i, image) in foodPost.images!.enumerated(){
                 imageArray[i]!.visibility = .visible
-                imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo!)
+                imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo)
             }
         }
         var i = foodPost.images!.count
@@ -198,7 +198,7 @@ class FoodLookViewController: KUIViewController {
             label.trailingAnchor.constraint(equalTo: dv.trailingAnchor).isActive = true
             label.text = "\(order.additional_guests!)+"
         }
-        imageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo!)
+        imageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo)
         dinnerImages.append(imageView)
         return dv
     }
@@ -432,9 +432,8 @@ extension FoodLookViewController {
                         self.textView.text = ""
                         self.sendButton.visibility = .gone
                         UIView.animate(withDuration: 0.5) {
-                            self.view.layoutIfNeeded()
                         }
-                        self.navigationController?.popViewController(animated: true)
+                        self.view.endEditing(true)
                     }
                 } catch _ {
                     self.view.showToast(message: "Some error ocurred")

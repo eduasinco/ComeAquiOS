@@ -40,13 +40,13 @@ class ImageScrollViewController: UIViewController, UIScrollViewDelegate {
         if images.count == 0 {
             imageScrollView.visibility = .gone
         } else if images.count == 1 {
-            self.image1.loadImageUsingUrlString(urlString: images[0].food_photo!)
+            self.image1.loadImageUsingUrlString(urlString: images[0].food_photo)
             image1Width.constant = imageScrollView.frame.width
             image1.isHidden = false
         } else {
             for (i, image) in images.enumerated(){
                 imageArray[i]!.visibility = .visible
-                imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo!)
+                imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo)
             }
         }
         var i = images.count

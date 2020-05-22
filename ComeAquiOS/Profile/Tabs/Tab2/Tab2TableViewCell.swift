@@ -78,7 +78,7 @@ class Tab2TableViewCell: UITableViewCell {
         
         if object.reviews!.count > 0 && object.reviews![0].id != nil {
             reviewerView.visibility = .visible
-            reviewerImage.loadImageUsingUrlString(urlString: object.reviews![0].owner!.profile_photo!)
+            reviewerImage.loadImageUsingUrlString(urlString: object.reviews![0].owner!.profile_photo)
 
             reviewerName.text = object.reviews![0].owner!.username
             reviewerMessage.text = object.reviews![0].review
