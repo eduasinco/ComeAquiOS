@@ -8,7 +8,7 @@
 
 import UIKit
 protocol  ImageLookerProtocol{
-    func deleteImage()
+    func deleteImage(_ urlImage: String?)
 }
 class ImageLookerViewController: UIViewController {
 
@@ -17,17 +17,17 @@ class ImageLookerViewController: UIViewController {
     
     var deleteButtonVisible = false
     var image: String?
+    var isFullUrl: Bool = false
     
     var delegate: ImageLookerProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         deleteButton.visibility = delegate == nil ? .gone : .visible
-        deleteButton.visibility = deleteButtonVisible ? .visible : .gone
-        imageView.loadImageUsingUrlString(urlString: image!)
+        imageView.loadImageUsingUrlString(urlString: image!, isFullUrl: isFullUrl)
     }
     @IBAction func deletePressed(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.deleteImage()
+        self.dismiss(animated: true, completion: nil)
+        delegate?.deleteImage(image)
     }
 }

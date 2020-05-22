@@ -26,9 +26,9 @@ class ProfileViewController: LoadViewController {
     @IBOutlet weak var container3TopConstraint: NSLayoutConstraint!
     var headerFrame: CGRect!
     
-    @IBOutlet weak var backgoundImage: URLImageView!
+    @IBOutlet weak var backgoundImage: ImageToOpen!
     @IBOutlet weak var changeBackgroundImageButton: UIButton!
-    @IBOutlet weak var profileImage: URLImageView!
+    @IBOutlet weak var profileImage: ImageToOpen!
     @IBOutlet weak var changeProfileImageButton: UIButton!
     @IBOutlet weak var userName: UILabel!
     var rateVC: RateStarViewController?
@@ -79,8 +79,8 @@ class ProfileViewController: LoadViewController {
             changeProfileImageButton.visibility = .gone
             changeBackgroundImageButton.visibility = .gone
         }
-        backgoundImage.loadImageUsingUrlString(urlString: user.background_photo!, isFullUrl: true)
-        profileImage.loadImageUsingUrlString(urlString: user.profile_photo!, isFullUrl: true)
+        backgoundImage.loadImageUsingUrlString(urlString: user.background_photo, isFullUrl: true)
+        profileImage.loadImageUsingUrlString(urlString: user.profile_photo, isFullUrl: true)
         userName.text = user.full_name
         self.title = user.username
         rateVC?.setRate(rating: user.rating!, rating_n: user.rating_n!)
@@ -148,7 +148,16 @@ class ProfileViewController: LoadViewController {
     }
 }
 
-extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol {
+extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol, ImageLookerProtocol {
+    func deleteImage(_ urlImage: String?) {
+        if profileImage.urlString == urlImage{
+            deleteUserImages(profile: true)
+        }
+        if backgoundImage.urlString == urlImage{
+            deleteUserImages(profile: false)
+        }
+    }
+    
     func optionPressed(_ title: String) {
         switch title {
         case "Log out":
@@ -169,13 +178,13 @@ extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol
         if isBackgroundImageChanging {
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "background_photo", pictures: image, finish: {(data: Data?) -> Void in
                 DispatchQueue.main.async {
-                    self.backgoundImage.image = image
+                    self.getUser(USER.id)
                 }
             })
         } else {
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "profile_photo", pictures: image, finish: {(data: Data?) -> Void in
                 DispatchQueue.main.async {
-                    self.profileImage.image = image
+                    self.getUser(USER.id)
                 }
             })
         }
@@ -221,6 +230,20 @@ extension ProfileViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
+        })
+    }
+    func deleteUserImages(profile: Bool){
+        Server.delete("/delete_user_images/\(profile ? 1 : 0)/",
+            finish: {(data: Data?, response: URLResponse?) -> Void in
+                guard let data = data else {return}
+                do {
+                    self.user = try JSONDecoder().decode(User.self, from: data)
+                    DispatchQueue.main.async {
+                        self.setView()
+                    }
+                } catch _ {
+                    self.view.showToast(message: "Some error ocurred")
+                }
         })
     }
 }

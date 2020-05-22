@@ -156,7 +156,7 @@
                                             <action selector="indexChanged:" destination="9c3-aH-ZYm" eventType="valueChanged" id="47X-bp-JTF"/>
                                         </connections>
                                     </segmentedControl>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WIb-Bl-XcD" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WIb-Bl-XcD" customClass="ImageToOpen" customModule="ComeAquiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="175" id="wpw-pQ-8yQ"/>
@@ -173,8 +173,8 @@
                                             <action selector="changeBackgroundImage:" destination="9c3-aH-ZYm" eventType="touchUpInside" id="ICS-4Q-qFh"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Idx-fN-F4e" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                        <rect key="frame" x="132" y="100" width="150" height="150"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Idx-fN-F4e" customClass="ImageToOpen" customModule="ComeAquiOS" customModuleProvider="target">
+                                        <rect key="frame" x="132" y="101.5" width="150" height="147.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="OyU-EA-Fdz"/>
                                             <constraint firstAttribute="height" constant="150" id="yQs-qD-7tw"/>
@@ -428,7 +428,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3YK-5o-3Xr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2584.057971014493" y="642.85714285714278"/>
+            <point key="canvasLocation" x="2584" y="644"/>
         </scene>
         <!--GalleryCameraPopUp-->
         <scene sceneID="ym8-JT-7Lb">
@@ -493,6 +493,7 @@
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="message.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rate_empty_star" width="175" height="175"/>
     </resources>
