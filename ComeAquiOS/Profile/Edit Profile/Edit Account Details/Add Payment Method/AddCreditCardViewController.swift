@@ -53,7 +53,7 @@ class AddCreditCardViewController: LoadViewController {
 
 extension AddCreditCardViewController {
     func saveCard(){
-            present(alert, animated: false, completion: nil)
+            
             Server.post("/card/",
                         json:
                 [
@@ -64,7 +64,7 @@ extension AddCreditCardViewController {
                 ],
                         finish: {(data: Data?, response: URLResponse?) -> Void in
                             DispatchQueue.main.async {
-                                self.alert.dismiss(animated: false, completion: nil)
+                                
                             }
                             guard let data = data else {
                                 return

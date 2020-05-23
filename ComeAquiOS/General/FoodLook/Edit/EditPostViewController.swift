@@ -32,7 +32,7 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
         descriptionText.delegate = self
         
 
-        present(alert, animated: false, completion: nil)
+        
         
         guard let foodPostId = self.foodPostId else { return }
         self.importImageVC?.foodPostId = foodPostId
@@ -105,7 +105,7 @@ extension EditPostViewController {
         Server.get("/foods/\(foodPostId!)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
+                
             }
             guard let data = data else {
                 return
@@ -130,7 +130,7 @@ extension EditPostViewController {
             ],
             finish: {(data: Data?, response: URLResponse?) -> Void in
                 DispatchQueue.main.async {
-                    self.alert.dismiss(animated: false, completion: nil)
+                    
                 }
                 guard let data = data else {
                     return

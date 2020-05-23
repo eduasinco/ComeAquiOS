@@ -178,11 +178,11 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
 
 extension AddFoodViewController {
     func getFoodPost(){
-        present(alert, animated: false, completion: nil)
+        
         Server.get("/foods/\(foodPostId!)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
+                
             }
             guard let data = data else {
                 return
@@ -237,7 +237,7 @@ extension AddFoodViewController {
         })
     }
     func postFood(){
-        present(alert, animated: false, completion: nil)
+        
         Server.post("/foods/",
                     json:
             ["plate_name":  nil,
@@ -262,7 +262,7 @@ extension AddFoodViewController {
              "visible": "false"],
                     finish: {(data: Data?, response: URLResponse?) -> Void in
                         DispatchQueue.main.async {
-                            self.alert.dismiss(animated: false, completion: nil)
+                            
                         }
                         guard let data = data else {
                             return

@@ -66,7 +66,7 @@ extension RegisterViewController {
         var email: [String]?
     }
     func register(){
-        present(alert, animated: false, completion: nil)
+        
         let endpointUrl = URL(string: SERVER + "/register/")! // whatever is your url
         var request = URLRequest(url: endpointUrl)
         
@@ -83,7 +83,7 @@ extension RegisterViewController {
             request.httpBody = data
             let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
                 DispatchQueue.main.async {
-                    self.alert.dismiss(animated: false, completion: nil)
+                    
                 }
                 guard let data = data else {return}
                 do {

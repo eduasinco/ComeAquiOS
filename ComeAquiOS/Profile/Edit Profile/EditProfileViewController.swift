@@ -69,19 +69,19 @@ class EditProfileViewController: LoadViewController {
 extension EditProfileViewController: GaleryCameraPopUpProtocol {
     func image(_ image: UIImage) {
         if isBackgroundImageChanging {
-            present(alert, animated: false, completion: nil)
+            
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "background_photo", pictures: image, finish: {(data: Data?) -> Void in
                 DispatchQueue.main.async {
-                    self.alert.dismiss(animated: false, completion: nil)
+                    
                 }
                 guard data != nil else {return}
             })
             backgroundImage.image = image
         } else {
-            present(alert, animated: false, completion: nil)
+            
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "profile_photo", pictures: image, finish: {(data: Data?) -> Void in
                 DispatchQueue.main.async {
-                    self.alert.dismiss(animated: false, completion: nil)
+                    
                 }
                 guard data != nil else {return}
             })
@@ -92,12 +92,11 @@ extension EditProfileViewController: GaleryCameraPopUpProtocol {
 
 extension EditProfileViewController {
     func getUser(){
-        present(alert, animated: false, completion: nil)
+        presentLoader()
         Server.get("/profile_detail/\(USER.id!)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
-            guard let data = data else {
-                return
-            }
+            self.closeLoader()
+            guard let data = data else {return}
             do {
                 self.user = try JSONDecoder().decode(User.self, from: data)
                 DispatchQueue.main.async {
@@ -106,17 +105,16 @@ extension EditProfileViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
                 DispatchQueue.main.async {
-                    self.alert.dismiss(animated: false, completion: nil)
+                    
                 }
             }
         })
     }
     func getChosenCard(){
+        presentLoader()
         Server.get("/my_chosen_card/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
-            }
+            self.closeLoader()
             guard let data = data else {
                 return
             }

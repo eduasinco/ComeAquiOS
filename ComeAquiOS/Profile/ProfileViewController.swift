@@ -197,7 +197,7 @@ extension ProfileViewController {
         Server.get("/profile_detail/\(userId)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
+                
             }
             guard let data = data else {
                 return
@@ -217,7 +217,7 @@ extension ProfileViewController {
         Server.get("/get_or_create_chat/\(user.id!)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
+                
             }
             guard let data = data else {
                 return

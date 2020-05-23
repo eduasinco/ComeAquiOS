@@ -33,7 +33,7 @@ public func getRequestWithAuth(_ url: String) -> URLRequest{
 class Server {
     static var urlToTask: [String: URLSessionDataTask] = [:]
     static var urlToUploadTask: [String: UploadRequest] = [:]
-
+    
     static func get(_ urlString: String, finish: @escaping (Data?, URLResponse?) -> Void) {
         retrieve(urlString, method: "GET", finish: finish)
     }
@@ -44,10 +44,14 @@ class Server {
         if let task = urlToTask[urlString] { task.cancel() }
         var request = getRequestWithAuth(urlString)
         request.httpMethod = method
-        let session = URLSession(configuration: URLSessionConfiguration.default)
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 5
+        configuration.timeoutIntervalForResource = 5
+        let session = URLSession(configuration: configuration)
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
             finish(data, response)
         })
+
         task.resume()
         urlToTask[urlString] = task
     }
@@ -87,7 +91,12 @@ class Server {
             let data = try JSONSerialization.data(withJSONObject: json, options: [])
             request.httpMethod = method
             request.httpBody = data
-            let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
+            
+            let configuration = URLSessionConfiguration.default
+            configuration.timeoutIntervalForRequest = 5
+            configuration.timeoutIntervalForResource = 5
+            let session = URLSession(configuration: configuration)
+            let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
                 finish(data, response)
             })
             task.resume()

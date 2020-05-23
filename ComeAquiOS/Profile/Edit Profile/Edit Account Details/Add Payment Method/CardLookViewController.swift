@@ -51,12 +51,12 @@ extension CardLookViewController: OptionsPopUpProtocol {
 extension CardLookViewController {
     func selectAsPaymentMethod(){
         guard let paymentMethod = self.paymentMethod else {return}
-        present(alert, animated: false, completion: nil)
+        
         Server.patch("/select_as_payment_method/" + paymentMethod.id! + "/",
             json: ["": ""],
                      finish: {(data: Data?, response: URLResponse?) -> Void in
                         DispatchQueue.main.async {
-                            self.alert.dismiss(animated: false, completion: nil)
+                            
                         }
                         guard data != nil else {
                             return
@@ -72,7 +72,7 @@ extension CardLookViewController {
         Server.delete("/card_detail/" + paymentMethod.id! + "/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
+                
             }
             guard let data = data else {
                 return

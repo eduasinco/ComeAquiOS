@@ -54,12 +54,13 @@ class FoodLookViewController: KUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getFoodPost()
+        
         parentScrollView.delegate = self
         imageScrollView.delegate = self
         textView.delegate = self
         textView.isScrollEnabled = false
         self.bottomConstraintForKeyboard = bcfkb
-        getFoodPost()
         sendButton.visibility = .gone
         attendMealButton.visibility = .gone
         
@@ -362,8 +363,10 @@ extension FoodLookViewController {
         var food_post: FoodPostObject?
     }
     func getFoodPost(){
+        presentLoader()
         guard let foodPostId = self.foodPostId else { return }
         Server.get("/food_with_user_status/\(foodPostId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+            self.closeLoader()
             guard let data = data else {return}
             do {
                 self.respondObject = try JSONDecoder().decode(ResponseFoodPostObject.self, from: data)
@@ -379,13 +382,10 @@ extension FoodLookViewController {
         var data: [PaymentMethodObject]?
     }
     func getChosenCard(){
-        present(alert, animated: false, completion: nil)
+        presentLoader()
         Server.get("/my_chosen_card/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
-            }
-            
+            self.closeLoader()
             guard let data = data else { return }
             do {
                 let responseO = try JSONDecoder().decode(ResponseObject.self, from: data)

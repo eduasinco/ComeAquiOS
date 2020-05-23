@@ -41,7 +41,7 @@ extension ForgotPasswordViewController {
         Server.get("/send_new_password/\(emailAddress.text!)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
+                
             }
             guard let data = data else {
                 return

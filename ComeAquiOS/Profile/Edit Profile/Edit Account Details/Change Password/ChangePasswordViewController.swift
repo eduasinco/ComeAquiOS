@@ -36,7 +36,7 @@ class ChangePasswordViewController: LoadViewController {
 
 extension ChangePasswordViewController {
     func passwordChange(){
-        present(alert, animated: false, completion: nil)
+        
         Server.patch("/password_change/",
                      json:
             [
@@ -45,7 +45,7 @@ extension ChangePasswordViewController {
             ],
                      finish: {(data: Data?, response: URLResponse?) -> Void in
                         DispatchQueue.main.async {
-                            self.alert.dismiss(animated: false, completion: nil)
+                            
                         }
                         guard let data = data else {
                             return

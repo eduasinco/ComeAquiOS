@@ -193,10 +193,10 @@ class BankAccountDetailsViewController: KUIViewController {
 extension BankAccountDetailsViewController: GaleryCameraPopUpProtocol {
     func image(_ image: UIImage) {
         if isFrontId {
-            present(alert, animated: false, completion: nil)
+            
             Server.uploadPictures(method: .patch, urlString: SERVER + "/upload_stripe_document/", withName: "front", pictures: image, finish: {(data: Data?) -> Void in
                 DispatchQueue.main.async {
-                    self.alert.dismiss(animated: false, completion: nil)
+                    
                 }
                 guard let data = data else {return}
                 do {
@@ -211,10 +211,10 @@ extension BankAccountDetailsViewController: GaleryCameraPopUpProtocol {
                 } catch {}
             })
         } else {
-            present(alert, animated: false, completion: nil)
+            
             Server.uploadPictures(method: .patch, urlString: SERVER + "/upload_stripe_document/", withName: "back", pictures: image, finish: {(data: Data?) -> Void in
                 DispatchQueue.main.async {
-                    self.alert.dismiss(animated: false, completion: nil)
+                    
                 }
                 guard let data = data else {return}
                 do {
@@ -233,10 +233,10 @@ extension BankAccountDetailsViewController: GaleryCameraPopUpProtocol {
 }
 extension BankAccountDetailsViewController {
     func getBankAccountInfo(){
-        present(alert, animated: false, completion: nil)
+        
         Server.get("/stripe_account/", finish: {(data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
+                
             }
             guard let data = data else {return}
             do {
@@ -253,7 +253,7 @@ extension BankAccountDetailsViewController {
     }
     
     func save(){
-        present(alert, animated: false, completion: nil)
+        
         Server.nilPatch("/stripe_account/",
                      json:["first_name": firstName.text,
                            "last_name": lastName.text,
@@ -273,7 +273,7 @@ extension BankAccountDetailsViewController {
                            "account_number": accountNumber.text],
                      finish: {(data: Data?, response: URLResponse?) -> Void in
                         DispatchQueue.main.async {
-                            self.alert.dismiss(animated: false, completion: nil)
+                            
                         }
                         guard let data = data else {
                             return

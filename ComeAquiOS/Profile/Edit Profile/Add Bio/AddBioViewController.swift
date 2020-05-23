@@ -55,7 +55,7 @@ extension AddBioViewController{
         Server.get("/profile_detail/\(USER.id!)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
+                
             }
             guard let data = data else {
                 return
@@ -71,13 +71,13 @@ extension AddBioViewController{
         })
     }
     func addBio(){
-        present(alert, animated: false, completion: nil)
+        
         Server.patch("/edit_profile/",
                     json:
             ["bio": textView.text],
                     finish: {(data: Data?, response: URLResponse?) -> Void in
                         DispatchQueue.main.async {
-                            self.alert.dismiss(animated: false, completion: nil)
+                            
                         }
                         guard data != nil else {
                             return

@@ -55,12 +55,12 @@ extension AddPaymentMethodViewController{
         })
     }
     func selectAsDefaultPayment(_ paymentMethodId: String){
-        present(alert, animated: false, completion: nil)
+        
         Server.patch("/select_as_payment_method/" + paymentMethodId + "/",
             json: ["": ""],
                      finish: {(data: Data?, response: URLResponse?) -> Void in
                         DispatchQueue.main.async {
-                            self.alert.dismiss(animated: false, completion: nil)
+                            
                         }
                         guard data != nil else {return}
                         DispatchQueue.main.async {

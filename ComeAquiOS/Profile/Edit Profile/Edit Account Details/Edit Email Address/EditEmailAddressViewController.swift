@@ -56,7 +56,7 @@ extension EditEmailAddressViewController {
         Server.get("/send_code_to_email/\(emailText.text!)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
+                
             }
             guard let data = data else {
                 return
@@ -80,7 +80,7 @@ extension EditEmailAddressViewController {
         })
     }
     func sendCode(){
-        present(alert, animated: false, completion: nil)
+        
         Server.post("/is_code_valid/",
                      json:
             [
@@ -89,7 +89,7 @@ extension EditEmailAddressViewController {
             ],
                      finish: {(data: Data?, response: URLResponse?) -> Void in
                         DispatchQueue.main.async {
-                            self.alert.dismiss(animated: false, completion: nil)
+                            
                         }
                         guard let data = data else {return}
                         do {

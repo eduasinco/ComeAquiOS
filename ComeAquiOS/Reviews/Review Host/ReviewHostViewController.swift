@@ -134,11 +134,11 @@ extension ReviewHostViewController: StarReasonDelegate {
 
 extension ReviewHostViewController {
     func getChosenCard(){
-        present(alert, animated: false, completion: nil)
+        
         Server.get("/my_chosen_card/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
             DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
+                
             }
             guard let data = data else {
                 return
@@ -160,7 +160,7 @@ extension ReviewHostViewController {
     }
     
     func postReview(){
-        present(alert, animated: false, completion: nil)
+        
         Server.post("/create_review/",
                     json:
             ["order_id":  order?.id,
@@ -170,7 +170,7 @@ extension ReviewHostViewController {
              "tip":  price,],
                     finish: {(data: Data?, response: URLResponse?) -> Void in
                         DispatchQueue.main.async {
-                            self.alert.dismiss(animated: false, completion: nil)
+                            
                         }
                         guard let data = data else {
                             return

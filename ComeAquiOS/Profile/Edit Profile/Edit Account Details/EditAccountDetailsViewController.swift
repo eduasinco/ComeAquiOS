@@ -91,11 +91,10 @@ class EditAccountDetailsViewController: KUIViewController {
 
 extension EditAccountDetailsViewController {
     func getUser(){
+        presentLoader()
         Server.get("/profile_detail/\(USER.id!)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
-            }
+            self.closeLoader()
             guard let data = data else {
                 return
             }
@@ -110,12 +109,10 @@ extension EditAccountDetailsViewController {
         })
     }
     func getChosenCard(){
-        present(alert, animated: false, completion: nil)
+        presentLoader()
         Server.get("/my_chosen_card/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
-            }
+            self.closeLoader()
             guard let data = data else {
                 return
             }
@@ -136,15 +133,13 @@ extension EditAccountDetailsViewController {
     }
     
     func patchAccount(){
-        present(alert, animated: false, completion: nil)
+        presentTransparentLoader()
         Server.patch("/edit_profile/",
                      json: ["first_name": firstName.text,
                             "last_name": lastName.text,
                             "phone_number": phoneNumber.text],
                      finish: {(data: Data?, response: URLResponse?) -> Void in
-                        DispatchQueue.main.async {
-                            self.alert.dismiss(animated: false, completion: nil)
-                        }
+                        self.closeTransparentLoader()
                         guard data != nil else {return}
                         DispatchQueue.main.async {
                             self.navigationController?.popViewController(animated: true)

@@ -53,20 +53,6 @@ class KUIViewController: LoadViewController {
     }
 }
 
-class LoadViewController: UIViewController {
-    let alert = UIAlertController(title: nil, message: "Loading...", preferredStyle: .alert)
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.medium
-        loadingIndicator.startAnimating()
-        
-        alert.view.addSubview(loadingIndicator)
-    }
-}
-
 extension UIView {
     func showToast(message: String, delay: TimeInterval = 3) {
         DispatchQueue.main.async {

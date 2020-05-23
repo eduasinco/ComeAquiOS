@@ -125,12 +125,10 @@ extension OrderLookViewController: OptionsPopUpProtocol{
 }
 extension OrderLookViewController {
     func getOrder(){
-        present(alert, animated: false, completion: nil)
+        presentLoader()
         guard let orderId = self.orderId else { return }
         Server.get( "/order_detail/\(orderId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                self.alert.dismiss(animated: false, completion: nil)
-            }
+            self.closeLoader()
             guard let data = data else {return}
             if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {}
             do {
@@ -143,7 +141,6 @@ extension OrderLookViewController {
     }
     
     func setOrderStatus(_ status: String){
-        present(alert, animated: false, completion: nil)
         Server.post("/set_order_status/",
             json:
             [
@@ -151,9 +148,6 @@ extension OrderLookViewController {
                 "order_status": status,
             ],
             finish: {(data: Data?, response: URLResponse?) in
-                DispatchQueue.main.async {
-                    self.alert.dismiss(animated: false, completion: nil)
-                }
                 guard let data = data else {return}
                 do {
                     self.order = try JSONDecoder().decode(OrderObject.self, from: data)
