@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="XZD-wS-ceu">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XZD-wS-ceu">
                                 <rect key="frame" x="87" y="384" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="8Vc-gf-IK0"/>
@@ -76,7 +76,7 @@
         <scene sceneID="Zkj-Pz-xrI">
             <objects>
                 <viewControllerPlaceholder storyboardName="MapStoryboard" referencedIdentifier="MapNavView" id="KlV-l6-b6e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="magnifyingglass" catalog="system" id="KKZ-yL-lZY"/>
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="KKZ-yL-lZY"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="by3-ML-wg6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -86,7 +86,7 @@
         <scene sceneID="9fB-fN-doa">
             <objects>
                 <viewControllerPlaceholder storyboardName="OrdersTabStoryboard" referencedIdentifier="OrderNavView" id="acW-im-02J" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="tray.2" catalog="system" id="gEt-nY-dSX"/>
+                    <tabBarItem key="tabBarItem" title="" image="tray.2" catalog="system" selectedImage="tray.2.fill" id="gEt-nY-dSX"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWc-s2-6zj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,7 +96,7 @@
         <scene sceneID="Xlt-gM-KrI">
             <objects>
                 <viewControllerPlaceholder storyboardName="NotificationsStoryboard" referencedIdentifier="NotificationNavView" id="O1f-Em-9KB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="bell" catalog="system" id="xC1-zc-5Wh"/>
+                    <tabBarItem key="tabBarItem" title="" image="bell" catalog="system" selectedImage="bell.fill" id="xC1-zc-5Wh"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sju-XQ-odD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -106,7 +106,7 @@
         <scene sceneID="pdv-YY-0F8">
             <objects>
                 <viewControllerPlaceholder storyboardName="ProfileStoryboard" referencedIdentifier="ProfileNavView" id="xVa-rP-YGG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="person" catalog="system" id="egZ-KN-aLn"/>
+                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" selectedImage="person.fill" id="egZ-KN-aLn"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NtQ-zU-7YG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,9 +123,11 @@
     </scenes>
     <resources>
         <image name="bell" catalog="system" width="128" height="124"/>
-        <image name="car" width="299" height="168"/>
+        <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="tray.2" catalog="system" width="128" height="114"/>
+        <image name="tray.2.fill" catalog="system" width="128" height="114"/>
     </resources>
 </document>

@@ -174,12 +174,13 @@
             </objects>
             <point key="canvasLocation" x="1398.5507246376812" y="-138.61607142857142"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="h9d-jb-t6x">
             <objects>
                 <navigationController storyboardIdentifier="NotificationNavView" automaticallyAdjustsScrollViewInsets="NO" id="t1B-z1-ouK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="bell.fill" catalog="system" id="zRs-Pc-NbS"/>
+                    <tabBarItem key="tabBarItem" title="" image="bell" catalog="system" selectedImage="bell.fill" id="TzJ-6d-yXg"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LNh-yP-R5g">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -195,6 +196,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bell" catalog="system" width="128" height="124"/>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
     </resources>
 </document>

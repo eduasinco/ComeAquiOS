@@ -18,7 +18,10 @@ class ViewController: UITabBarController {
         super.viewDidLoad()
         webSocketConnetion()
         mapViewController = self.viewControllers![0].childForScreenEdgesDeferringSystemGestures as? MapViewController
-
+        myTabbar.items?[0].title = ""
+        myTabbar.items?[1].title = ""
+        myTabbar.items?[2].title = ""
+        myTabbar.items?[3].title = ""
     }
 }
 

@@ -28,7 +28,7 @@
 		87764264246BE43000BBF7D0 /* DistanceStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87764263246BE43000BBF7D0 /* DistanceStoryboard.storyboard */; };
 		87764266246BE43900BBF7D0 /* DietaryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87764265246BE43900BBF7D0 /* DietaryStoryboard.storyboard */; };
 		87764269246BE7CD00BBF7D0 /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87764268246BE7CD00BBF7D0 /* PeopleTableViewCell.swift */; };
-		8776FF0D24538220005A4D4C /* TextsClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8776FF0C24538220005A4D4C /* TextsClasses.swift */; };
+		8776FF0D24538220005A4D4C /* TextClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8776FF0C24538220005A4D4C /* TextClasses.swift */; };
 		879CBFF42458DBCC00383F68 /* OptionsPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879CBFF32458DBCC00383F68 /* OptionsPopUpViewController.swift */; };
 		879CBFF62458DBD900383F68 /* OptionsPopUpStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CBFF52458DBD900383F68 /* OptionsPopUpStoryboard.storyboard */; };
 		879CBFFA2458EFB800383F68 /* DinnersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CBFF92458EFB800383F68 /* DinnersStoryboard.storyboard */; };
@@ -186,7 +186,7 @@
 		87764263246BE43000BBF7D0 /* DistanceStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DistanceStoryboard.storyboard; sourceTree = "<group>"; };
 		87764265246BE43900BBF7D0 /* DietaryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DietaryStoryboard.storyboard; sourceTree = "<group>"; };
 		87764268246BE7CD00BBF7D0 /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
-		8776FF0C24538220005A4D4C /* TextsClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextsClasses.swift; sourceTree = "<group>"; };
+		8776FF0C24538220005A4D4C /* TextClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextClasses.swift; sourceTree = "<group>"; };
 		879CBFF32458DBCC00383F68 /* OptionsPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPopUpViewController.swift; sourceTree = "<group>"; };
 		879CBFF52458DBD900383F68 /* OptionsPopUpStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OptionsPopUpStoryboard.storyboard; sourceTree = "<group>"; };
 		879CBFF92458EFB800383F68 /* DinnersStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DinnersStoryboard.storyboard; sourceTree = "<group>"; };
@@ -577,6 +577,7 @@
 				87AAF8FE246A9ED3000CDC1D /* ViewControllers.swift */,
 				87AAF900246A9EFE000CDC1D /* Images.swift */,
 				87FC9EC92448050A00810ECF /* Classes.swift */,
+				8776FF0C24538220005A4D4C /* TextClasses.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -884,7 +885,6 @@
 				87FC9EC3244804DD00810ECF /* Strings.swift */,
 				87FC9ECB2448051900810ECF /* DateFormatting.swift */,
 				8712315E24525370004C0049 /* Server.swift */,
-				8776FF0C24538220005A4D4C /* TextsClasses.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1193,7 +1193,7 @@
 				87FC9E9B2448011900810ECF /* LoginViewController.swift in Sources */,
 				87AAF8E62469D76A000CDC1D /* CardLookViewController.swift in Sources */,
 				87AAF8AC24662944000CDC1D /* Tab3ViewController.swift in Sources */,
-				8776FF0D24538220005A4D4C /* TextsClasses.swift in Sources */,
+				8776FF0D24538220005A4D4C /* TextClasses.swift in Sources */,
 				87FC9E7E2447FF6200810ECF /* ViewController.swift in Sources */,
 				87AAF8F4246A576B000CDC1D /* ImagePagerViewController.swift in Sources */,
 				87FC9ECC2448051900810ECF /* DateFormatting.swift in Sources */,

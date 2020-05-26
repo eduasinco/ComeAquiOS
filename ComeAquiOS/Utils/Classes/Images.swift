@@ -8,16 +8,78 @@
 
 import UIKit
 
+class ReloadingImage: UIImageView {
+    
+    let reloadButton: UIButton = {
+        let v = UIButton()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
+    }()
+    
+    let spinner: UIActivityIndicatorView = {
+        let v = UIActivityIndicatorView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
+    }()
+    
+    var reloadAction: (() -> Void)?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    override init(image: UIImage?) {
+        super.init(image: image)
+        commonInit()
+    }
+    
+    override init(image: UIImage?, highlightedImage: UIImage?) {
+        super.init(image: image, highlightedImage: highlightedImage)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        self.addSubview(reloadButton)
+        reloadButton.isHidden = true
+        reloadButton.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        reloadButton.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        reloadButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        reloadButton.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        reloadButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        reloadButton.setImage(UIImage(systemName: "arrow.counterclockwise.circle.fill"), for: .normal)
+        
+        self.addSubview(spinner)
+        spinner.isHidden = true
+        spinner.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        spinner.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        spinner.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        spinner.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+    }
+    @objc func buttonAction(sender: UIButton!) {
+        reloadAction?()
+    }
+}
 
-class URLImageView: UIImageView {
+class URLImageView: ReloadingImage {
     var urlString: String?
     var defaultImage: UIImage?
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         self.defaultImage = self.image
     }
     public func loadImageUsingUrlString(urlString: String?, isFullUrl: Bool = false) {
+        reloadAction = {
+            self.loadImageUsingUrlString(urlString: urlString, isFullUrl: isFullUrl)
+        }
+        spinner.isHidden = false
+        spinner.startAnimating()
         guard let urlString = urlString else {
             self.image = defaultImage
             return
@@ -25,7 +87,14 @@ class URLImageView: UIImageView {
         self.urlString = urlString
         let url = NSURL(string: (isFullUrl ? "" : SERVER) + urlString)
         URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, respones, error) in
+            DispatchQueue.main.async{
+                self.spinner.isHidden = true
+                self.spinner.stopAnimating()
+            }
             if error != nil {
+                DispatchQueue.main.async{
+                    self.reloadButton.isHidden = false
+                }
                 print(error ?? "Errooooor")
                 return
             }
@@ -74,6 +143,7 @@ class CellImageView: UIImageView {
                 if self.imageUrlString == serverUrlString {
                     self.image = imageToCache
                 }
+                guard imageToCache != nil else {return}
                 imageCache.setObject(imageToCache!, forKey:  NSString(string: serverUrlString))
             }
         }).resume()

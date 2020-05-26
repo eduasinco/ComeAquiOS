@@ -83,6 +83,7 @@ class ProfileViewController: LoadViewController {
         profileImage.loadImageUsingUrlString(urlString: user.profile_photo, isFullUrl: true)
         userName.text = user.full_name
         self.title = user.username
+        self.toolbarItems?[3].title = nil
         rateVC?.setRate(rating: user.rating!, rating_n: user.rating_n!)
         
         if user.bio != nil && user.bio!.isEmpty {

@@ -134,12 +134,13 @@
             </objects>
             <point key="canvasLocation" x="1681.8840579710147" y="140.625"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="2y4-49-lMO">
             <objects>
                 <navigationController storyboardIdentifier="OrderNavView" automaticallyAdjustsScrollViewInsets="NO" id="QfL-D0-KTG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="tray.2.fill" catalog="system" id="DA9-xR-lSY"/>
+                    <tabBarItem key="tabBarItem" title="" image="tray" catalog="system" selectedImage="tray.fill" id="kfb-E1-NUG"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OQE-SP-HBt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -155,6 +156,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tray.2.fill" catalog="system" width="128" height="114"/>
+        <image name="tray" catalog="system" width="128" height="88"/>
+        <image name="tray.fill" catalog="system" width="128" height="88"/>
     </resources>
 </document>
