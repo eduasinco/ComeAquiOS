@@ -112,19 +112,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HqB-kn-AOB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ComeAquí" id="H9c-bM-AUl">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="message" catalog="system" id="Q03-dI-bEg">
-                            <connections>
-                                <segue destination="1IP-Jk-hH0" kind="show" identifier="ChatSegue" id="Ex4-EW-Igp"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="ComeAquí" id="H9c-bM-AUl"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cardBottomConstraint" destination="d2U-7y-GHn" id="fkQ-YI-v8g"/>
                         <outlet property="cardView" destination="fJZ-NB-sJw" id="Skb-Rd-qYL"/>
-                        <outlet property="chatButton" destination="Q03-dI-bEg" id="GPt-b5-52h"/>
                         <outlet property="containerView" destination="Ypx-lw-UC2" id="rBI-dc-gEX"/>
                         <outlet property="mapPickerContainerView" destination="WVe-cr-Uml" id="zRX-Vq-z5S"/>
                         <outlet property="spinner" destination="wjR-Dd-0ho" id="dkW-d7-JHS"/>
@@ -529,16 +522,6 @@
             </objects>
             <point key="canvasLocation" x="1909" y="32"/>
         </scene>
-        <!--ChatStoryboard-->
-        <scene sceneID="z8S-EZ-bl7">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ChatStoryboard" id="1IP-Jk-hH0" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="VDX-ru-hVu"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="s8J-q2-Q2T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1846" y="-269"/>
-        </scene>
     </scenes>
     <resources>
         <image name="favourite_star" width="205" height="205"/>
@@ -547,7 +530,6 @@
         <image name="magnifyingglass.circle" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
-        <image name="message" catalog="system" width="128" height="113"/>
         <image name="rate_empty_star" width="175" height="175"/>
     </resources>
 </document>

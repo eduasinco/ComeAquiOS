@@ -49,18 +49,15 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         } else {
             postFood()
         }
-        
-        self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back(sender:)))
-        self.navigationItem.leftBarButtonItem = newBackButton
     }
     
-    @objc func back(sender: UIBarButtonItem) {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         if self.foodPostId == nil {
             trueDeletePost()
         }
-        navigationController?.popViewController(animated: true)
     }
+    
     func setFoodPost() {
         if (self.foodPost?.plate_name) != nil {
             plateNameText.text = self.foodPost?.plate_name

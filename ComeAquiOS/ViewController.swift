@@ -60,26 +60,6 @@ extension ViewController: WebSocketDelegate {
             do {
                 let so = try JSONDecoder().decode(SocketObject.self, from: data)
                 guard let mro = so.message else {return}
-                if let notiNotSeen = mro.notifications_not_seen {
-                    if notiNotSeen > 0 {
-                        if let tabItems = myTabbar.items {
-                            let tabItem = tabItems[2]
-                            tabItem.badgeValue = "\(notiNotSeen)"
-                        }
-                    } else {
-                        if let tabItems = myTabbar.items {
-                            let tabItem = tabItems[2]
-                            tabItem.badgeValue = nil
-                        }
-                    }
-                }
-                if let unseenMessages = mro.messages_not_seen {
-                    if unseenMessages > 0 {
-                        mapViewController?.navigationItem.rightBarButtonItem?.addBadge(number: unseenMessages)
-                    } else {
-                        mapViewController?.navigationItem.rightBarButtonItem?.removeBadge()
-                    }
-                }
                 if let ordersNotSeen = mro.orders_not_seen {
                     if ordersNotSeen > 0 {
                         if let tabItems = myTabbar.items {
@@ -89,6 +69,37 @@ extension ViewController: WebSocketDelegate {
                     } else {
                         if let tabItems = myTabbar.items {
                             let tabItem = tabItems[1]
+                            tabItem.badgeValue = nil
+                        }
+                    }
+                }
+                if let unseenMessages = mro.messages_not_seen {
+                    if unseenMessages > 0 {
+                        if let tabItems = myTabbar.items {
+                            let tabItem = tabItems[2]
+                            tabItem.badgeValue = "\(unseenMessages)"
+                        }
+                    } else {
+                        if let tabItems = myTabbar.items {
+                            let tabItem = tabItems[2]
+                            tabItem.badgeValue = nil
+                        }
+                    }
+//                    if unseenMessages > 0 {
+//                        mapViewController?.navigationItem.rightBarButtonItem?.addBadge(number: unseenMessages)
+//                    } else {
+//                        mapViewController?.navigationItem.rightBarButtonItem?.removeBadge()
+//                    }
+                }
+                if let notiNotSeen = mro.notifications_not_seen {
+                    if notiNotSeen > 0 {
+                        if let tabItems = myTabbar.items {
+                            let tabItem = tabItems[3]
+                            tabItem.badgeValue = "\(notiNotSeen)"
+                        }
+                    } else {
+                        if let tabItems = myTabbar.items {
+                            let tabItem = tabItems[3]
                             tabItem.badgeValue = nil
                         }
                     }
