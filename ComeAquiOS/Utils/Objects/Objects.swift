@@ -68,6 +68,10 @@ public class FoodPostObject: Decodable{
         guard let start_time = self.start_time, let end_time = self.end_time else { return nil}
         return Date.hhmmHappenedNowTodayYesterdayWeekDay(start: start_time, end: end_time)
     }()
+    lazy var created_at_to_show: String? = {
+        guard let created_at = self.created_at else { return nil}
+        return Date.hYesterdayWeekDay(isoDateString: created_at)
+    }()
 }
 public class ReviewObject: Decodable {
     var id: Int?
@@ -77,6 +81,11 @@ public class ReviewObject: Decodable {
     var rating: Float?
     var replies: [ReviewReplyObject]?
     var created_at: String?
+    
+    lazy var created_at_to_show: String? = {
+        guard let created_at = self.created_at else { return nil}
+        return Date.hYesterdayWeekDay(isoDateString: created_at)
+    }()
 }
 public class ReviewReplyObject: Decodable {
     var id: Int?
@@ -84,6 +93,11 @@ public class ReviewReplyObject: Decodable {
     var review: ReviewObject?
     var reply: String?
     var created_at: String?
+    
+    lazy var created_at_to_show: String? = {
+        guard let created_at = self.created_at else { return nil}
+        return Date.hYesterdayWeekDay(isoDateString: created_at)
+    }()
 }
 
 
@@ -108,6 +122,11 @@ public class OrderObject: Decodable{
     var order_price: Int?
     
     var created_at: String?
+    
+    lazy var created_at_to_show: String? = {
+        guard let created_at = self.created_at else { return nil}
+        return Date.hYesterdayWeekDay(isoDateString: created_at)
+    }()
 }
 
 public class NotificationObject: Decodable {
@@ -198,6 +217,11 @@ public class ChatObject: Decodable {
     var last_message : MessageObject?
     var created_at : String?
     var user_chat_status: [UserChatStatus]?
+    
+    lazy var created_at_to_show: String? = {
+        guard let created_at = self.created_at else { return nil}
+        return Date.hYesterdayWeekDay(isoDateString: created_at)
+    }()
 }
 
 public class PlaneChatObject: Decodable {
@@ -205,6 +229,11 @@ public class PlaneChatObject: Decodable {
     var users: [User]?
     var created_at : String?
     var user_chat_status: [UserChatStatus]?
+    
+    lazy var created_at_to_show: String? = {
+        guard let created_at = self.created_at else { return nil}
+        return Date.hYesterdayWeekDay(isoDateString: created_at)
+    }()
 }
 
 public class UserChatStatus: Decodable {
@@ -223,4 +252,9 @@ public class MessageObject: Decodable {
     var topSpace: Bool? = false
     var lastInGroup: Bool? = false
     var isOwner: Bool? = false
+    
+    lazy var created_at_to_show: String? = {
+        guard let created_at = self.created_at else { return nil}
+        return Date.h(isoDateString: created_at)
+    }()
 }

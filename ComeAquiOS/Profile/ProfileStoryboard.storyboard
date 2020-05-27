@@ -184,10 +184,14 @@
                                             <constraint firstAttribute="width" constant="170" id="OyU-EA-Fdz"/>
                                             <constraint firstAttribute="height" constant="170" id="yQs-qD-7tw"/>
                                         </constraints>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="strike">
-                                                <integer key="value" value="4"/>
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="strikeColor">
+                                                <color key="value" red="0.97132772840000003" green="0.97132772840000003" blue="0.97132772840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>

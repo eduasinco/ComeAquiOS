@@ -40,9 +40,9 @@ class ChatTableViewCell: UITableViewCell {
         userImage.loadImageUsingUrlString(urlString: chattingWith.profile_photo)
 
         if chat.last_message != nil {
-            date.text = chat.last_message?.created_at
+            date.text = chat.last_message?.created_at_to_show
         } else {
-            date.text = chat.created_at
+            date.text = chat.created_at_to_show
         }
     }
 

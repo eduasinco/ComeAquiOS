@@ -284,7 +284,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
         print("Attempt to group our messages together based on Date property")
         
         let groupedMessages = Dictionary(grouping: messagesFromServer) { (element) -> String in
-            return element.created_at![0..<10]
+            return element.created_at_to_show![0..<10]
         }
         let sortedKeys = groupedMessages.keys.sorted()
         sortedKeys.forEach { (key) in
@@ -320,7 +320,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if let firstMessageInSection = chatMessages[section].first {
             let label = DateHeaderLabel()
-            label.text = firstMessageInSection.created_at
+            label.text = firstMessageInSection.created_at_to_show
             let containerView = UIView()
 
             containerView.addSubview(label)

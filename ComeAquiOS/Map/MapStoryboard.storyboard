@@ -40,6 +40,9 @@
                                     <constraint firstAttribute="height" constant="70" id="mok-rE-NW6"/>
                                 </constraints>
                                 <state key="normal" image="magnifyingglass" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="2Oo-pm-7Rk" kind="show" identifier="SearchSegue" id="cg7-r8-HPU"/>
                                 </connections>
@@ -54,6 +57,9 @@
                                 <state key="normal" image="mappin.and.ellipse" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="centerInMap:" destination="kGK-Fs-ocf" eventType="touchUpInside" id="nKw-aM-TRo"/>
                                 </connections>

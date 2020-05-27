@@ -62,6 +62,38 @@ extension UIView {
         return firstItemMatch || secondItemMatch
     }
 }
+extension UIView {
+    @IBInspectable var isRounded: Bool {
+        set {
+            if newValue {
+                self.layer.masksToBounds = false
+                self.layer.cornerRadius = self.frame.height / 2
+                self.clipsToBounds = true
+            }
+        }
+        get {
+            return false
+        }
+    }
+    
+    @IBInspectable var strikeColor: UIColor  {
+        set {
+            self.layer.borderColor = newValue.cgColor
+        }
+        get{
+            return UIColor.clear
+        }
+    }
+    @IBInspectable var strike: Int {
+        set {
+            self.layer.borderWidth = CGFloat(newValue)
+            self.layer.borderColor = UIColor.black.cgColor
+        }
+        get {
+            return 0
+        }
+    }
+}
 
 extension UIScrollView {
 
@@ -276,40 +308,6 @@ extension UITableView {
         DispatchQueue.main.async {
             self.backgroundView = nil
         }
-    }
-}
-extension UITableView{
-
-    func indicatorView() -> UIActivityIndicatorView{
-        var activityIndicatorView = UIActivityIndicatorView()
-        if self.tableFooterView == nil{
-            let indicatorFrame = CGRect(x: 0, y: 0, width: self.bounds.width, height: 40)
-            activityIndicatorView = UIActivityIndicatorView(frame: indicatorFrame)
-            activityIndicatorView.isHidden = false
-            activityIndicatorView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
-            activityIndicatorView.isHidden = true
-            self.tableFooterView = activityIndicatorView
-            return activityIndicatorView
-        }else{
-            return activityIndicatorView
-        }
-    }
-
-    func addLoading(_ indexPath:IndexPath, closure: @escaping (() -> Void)){
-        indicatorView().startAnimating()
-        if let lastVisibleIndexPath = self.indexPathsForVisibleRows?.last {
-            if indexPath == lastVisibleIndexPath && indexPath.row == self.numberOfRows(inSection: 0) - 1 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    closure()
-                }
-            }
-        }
-        indicatorView().isHidden = false
-    }
-
-    func stopLoading(){
-        indicatorView().stopAnimating()
-        indicatorView().isHidden = true
     }
 }
 

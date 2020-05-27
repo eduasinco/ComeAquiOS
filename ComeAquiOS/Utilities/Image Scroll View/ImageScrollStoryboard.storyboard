@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -75,11 +75,22 @@
                         <outlet property="image2" destination="GTn-S0-Dyv" id="fC8-7G-Wsr"/>
                         <outlet property="image3" destination="Z2r-ao-t74" id="Rln-fH-6uW"/>
                         <outlet property="imageScrollView" destination="SX6-Ep-oXz" id="dAA-FO-DuN"/>
+                        <segue destination="wz3-o7-DAf" kind="show" identifier="ImagePagerSegue" id="Thg-eL-WyR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEF-8M-Ib2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-13" y="54"/>
+        </scene>
+        <!--ImagePagerStoryboard-->
+        <scene sceneID="FXH-Qy-i8j">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ImagePagerStoryboard" id="wz3-o7-DAf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="f3b-wa-tdQ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cOi-7h-cnM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="693" y="54"/>
         </scene>
     </scenes>
 </document>

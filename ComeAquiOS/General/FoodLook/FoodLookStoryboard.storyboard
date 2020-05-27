@@ -25,7 +25,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1422"/>
                                                 <subviews>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-Xd-oXZ">
-                                                        <rect key="frame" x="20" y="1134.5" width="374" height="287.5"/>
+                                                        <rect key="frame" x="20" y="1135" width="374" height="287"/>
                                                         <connections>
                                                             <segue destination="dm9-vc-qri" kind="embed" identifier="CommentsSegue" id="LGX-fT-DIC"/>
                                                         </connections>
@@ -432,6 +432,7 @@
                         <segue destination="egv-LV-y1g" kind="presentation" identifier="AttendSegue" id="ShQ-ei-lcg"/>
                         <segue destination="zY6-rG-9O3" kind="show" identifier="OrderLookSegue" id="UN8-Y2-SUO"/>
                         <segue destination="soe-ni-swC" kind="show" identifier="AddPaymentSegue" id="Wai-sL-Rab"/>
+                        <segue destination="eju-yR-whh" kind="show" identifier="ImagePagerSegue" id="9Gi-g0-Y85"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EkY-Tq-p1q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -444,7 +445,7 @@
                 <viewControllerPlaceholder storyboardName="TypesStoryboard" id="e6e-h0-btS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40M-fr-lvi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="673" y="-179"/>
+            <point key="canvasLocation" x="673" y="-248"/>
         </scene>
         <!--OptionsView-->
         <scene sceneID="1UP-hG-b4K">
@@ -513,6 +514,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9f-VX-eP6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="696" y="314"/>
+        </scene>
+        <!--ImagePagerStoryboard-->
+        <scene sceneID="BI9-Ps-ceq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ImagePagerStoryboard" id="eju-yR-whh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Ob4-Bo-s2h"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dtb-0U-U6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="693" y="-184"/>
         </scene>
     </scenes>
     <resources>

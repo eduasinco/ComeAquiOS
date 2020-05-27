@@ -7,31 +7,41 @@
 //
 
 import UIKit
+protocol DinnderCellDelegate {
+    func chatButtonPressed(order: OrderObject)
+}
 
 class DinnerTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var profileImageView: URLImageView!
+    @IBOutlet weak var profileImageView: CellImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userNamelabel: UILabel!
-    @IBOutlet weak var chatButton: UIImageView!
+    @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var additionalGuestsLabel: UILabel!
     
-
+    var order: OrderObject?
+    var delegate: DinnderCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        chatButton.isUserInteractionEnabled = true
-        let tapRec = UITapGestureRecognizer()
-        tapRec.addTarget(self, action: Selector(("tappedView")))
-        chatButton.addGestureRecognizer(tapRec)
-
     }
-
-    func tappedView(){
-        print("go to chat with user")
+    
+    @IBAction func chatTapped(_ sender: Any) {
+        guard let order = self.order else {return}
+        delegate?.chatButtonPressed(order: order)
     }
     
     func setCell(order: OrderObject){
+        self.order = order
         profileImageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo)
+        nameLabel.text = order.owner?.full_name
+        userNamelabel.text = order.owner?.username
+        if order.additional_guests ?? 0 > 0{
+            additionalGuestsLabel.text = "\(String(describing: order.additional_guests))"
+
+        } else {
+            additionalGuestsLabel.text = ""
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

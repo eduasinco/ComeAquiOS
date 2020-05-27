@@ -26,6 +26,15 @@ class ImageScrollViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         self.view.translatesAutoresizingMaskIntoConstraints = false
         imageScrollView.delegate = self
+        
+        for (i, imageView) in [image1, image2, image3].enumerated(){
+            imageView?.tag = i + 1
+            imageView?.isUserInteractionEnabled = true
+            imageView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
+        }
+    }
+    @objc private func imageTapped(_ recognizer: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "ImagePagerSegue", sender: recognizer.view?.tag)
     }
     
     func setView(){
@@ -53,6 +62,14 @@ class ImageScrollViewController: UIViewController, UIScrollViewDelegate {
         while i < imageArray.count {
             imageArray[i]!.visibility = .gone
             i += 1
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ImagePagerSegue" {
+            let vc = segue.destination as? ImagePagerViewController
+            vc?.data = images ?? []
+            vc?.indexPath = IndexPath(row: sender as? Int ?? 1, section: 0)
         }
     }
 }

@@ -31,7 +31,9 @@ class ImagePagerViewController: UIViewController {
         layout.scrollDirection = .horizontal
         
         collectionView.collectionViewLayout = layout
-        getUserImages()
+        if userId != nil {
+            getUserImages()
+        }
     }
     override func viewDidLayoutSubviews() {
         guard self.indexPath != nil else {return}
@@ -39,10 +41,24 @@ class ImagePagerViewController: UIViewController {
     }
 }
 
+extension ImagePagerViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImagePagerCell", for: indexPath) as! ImagePagerCollectionViewCell
+        cell.image.loadImageUsingUrlString(urlString: data[indexPath.row].food_photo)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count
+    }
+}
+
 extension ImagePagerViewController {
     func fetchMoreData(){
         if !alreadyFetchingData {
-            getUserImages()
+            if userId != nil {
+                getUserImages()
+            }
         }
     }
     func getUserImages(){
@@ -60,18 +76,5 @@ extension ImagePagerViewController {
                 }
             } catch {}
         })
-    }
-}
-
-extension ImagePagerViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImagePagerCell", for: indexPath) as! ImagePagerCollectionViewCell
-        cell.image.loadImageUsingUrlString(urlString: data[indexPath.row].food_photo)
-        cell.backgroundColor = UIColor.red
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
     }
 }

@@ -113,6 +113,8 @@ class FoodLookViewController: KUIViewController {
             imageArray[i]!.visibility = .gone
             i += 1
         }
+        setOnImageClicked()
+        
         headerView.layoutIfNeeded()
         detailStackViewTopConstraint.constant = headerView.frame.height
         
@@ -180,6 +182,17 @@ class FoodLookViewController: KUIViewController {
         }
     }
     
+    func setOnImageClicked(){
+        for (i, imageView) in [image1, image2, image3].enumerated(){
+            imageView?.tag = i + 1
+            imageView?.isUserInteractionEnabled = true
+            imageView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
+        }
+    }
+    @objc private func imageTapped(_ recognizer: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "ImagePagerSegue", sender: recognizer.view?.tag)
+    }
+    
     func createDinnerView(order: OrderObject) -> UIView {
         let dv = UIView()
         let imageView = URLImageView()
@@ -203,6 +216,7 @@ class FoodLookViewController: KUIViewController {
             label.text = "\(order.additional_guests!)+"
         }
         imageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo)
+        imageView.contentMode = .scaleAspectFill
         dinnerImages.append(imageView)
         return dv
     }
@@ -273,12 +287,16 @@ class FoodLookViewController: KUIViewController {
             orderVC?.orderId = (sender as! OrderObject).id
         } else if segue.identifier == "AddPaymentSegue" {
             _ = segue.destination as? AddPaymentMethodViewController
-        }  else if segue.identifier == "CommentsSegue" {
+        } else if segue.identifier == "CommentsSegue" {
             let commentsVC = segue.destination as? CommentsViewController
             commentsVC?.foodPostId = foodPostId
-        }  else if segue.identifier == "TypeSegue" {
+        } else if segue.identifier == "TypeSegue" {
             let commentsVC = segue.destination as? TypesViewController
             commentsVC?.initialTypesString = self.foodPost?.food_type
+        } else if segue.identifier == "ImagePagerSegue" {
+            let vc = segue.destination as? ImagePagerViewController
+            vc?.data = foodPost?.images ?? []
+            vc?.indexPath = IndexPath(row: sender as? Int ?? 1, section: 0)
         }
     }
     override func didReceiveMemoryWarning() {

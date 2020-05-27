@@ -21,7 +21,6 @@ private class FoodPostMarker : GMSMarker {
 class MapViewController: LoadViewController, CardActionProtocol {
     
     
-    @IBOutlet weak var chatButton: UIBarButtonItem!
     @IBOutlet weak var viewForMap: UIView!
     var googleMap: GMSMapView!
     @IBOutlet weak var cardView: UIView!
@@ -69,10 +68,6 @@ class MapViewController: LoadViewController, CardActionProtocol {
         view.bringSubviewToFront(cardView)
         
         webSocketConnetion()
-    }
-    override func viewDidLayoutSubviews() {
-        containerView.roundCorners(radius: 8, clip: true)
-        cardView.roundCorners(radius: 8).dropShadow()
     }
     
     func setMarkers(){
