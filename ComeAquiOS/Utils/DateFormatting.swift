@@ -22,7 +22,7 @@ extension Date {
 }
 
 extension Date {
-    static func convertToDate(isoDateString: String) -> Date{
+    static func convertToDate(isoDateString: String) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
         if isoDateString.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{6}Z") {

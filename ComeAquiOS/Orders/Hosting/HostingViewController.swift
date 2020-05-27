@@ -23,9 +23,9 @@ class HostingViewController: LoadViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if page == 1 {
-            getMyHostings()
-        }
+        foodPosts = []
+        page = 1
+        getMyHostings()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,7 +46,9 @@ extension HostingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HostingCell") as! HostingTableViewCell
-        cell.setCell(foodPost: foodPosts[indexPath.row])
+        if foodPosts.count > 0 {
+            cell.setCell(foodPost: foodPosts[indexPath.row])
+        }
         return cell
     }
     

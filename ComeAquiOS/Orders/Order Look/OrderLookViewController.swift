@@ -43,7 +43,7 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
         plateName.text = order.post?.plate_name
         status.text = order.order_status
         descriptionText.text = order.post?.description
-        time.text = order.post?.start_time
+        time.text = order.post?.time_to_show
         let priceF = Float(order.post!.price!) / 100
         let priceString =  "$" + priceF.format()
         price.text = priceString

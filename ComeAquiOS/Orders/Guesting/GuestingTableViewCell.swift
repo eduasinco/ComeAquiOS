@@ -28,7 +28,7 @@ class GuestingTableViewCell: UITableViewCell {
         orderStatus.text = order.order_status
         plateName.text = order.post?.plate_name
         location.text = order.post?.formatted_address
-        dateAndTime.text = order.post!.start_time! + " $-" + order.post!.price!.format()
+        dateAndTime.text = order.post!.time_to_show! + " $-" + order.post!.price!.format()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

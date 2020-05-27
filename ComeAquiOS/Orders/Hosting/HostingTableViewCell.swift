@@ -30,7 +30,7 @@ class HostingTableViewCell: UITableViewCell {
         } else {
             plateName.text = "Add a title"
         }
-        if let startTime = foodPost.start_time {
+        if let startTime = foodPost.time_to_show {
             time.text = startTime
             time.visibility = .visible
         } else {
@@ -41,7 +41,7 @@ class HostingTableViewCell: UITableViewCell {
             foodPost.lat == nil ||
             foodPost.lng == nil ||
             foodPost.max_dinners == nil ||
-            foodPost.start_time == nil ||
+            foodPost.time_to_show == nil ||
             foodPost.end_time == nil ||
             foodPost.price == nil ||
             foodPost.description == nil{

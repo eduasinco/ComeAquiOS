@@ -70,7 +70,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         if let dinners = self.foodPost?.max_dinners {
             dinnersText.text = "\(dinners)"
         }
-        if let startTime = self.foodPost?.start_time, let endTime =  self.foodPost?.end_time{
+        if let startTime = self.foodPost?.time_to_show, let endTime =  self.foodPost?.end_time{
             datePickerVC?.setDateTime(startDateString: startTime, endDateString: endTime)
         }
         if let price = self.foodPost?.price {

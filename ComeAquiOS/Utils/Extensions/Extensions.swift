@@ -244,7 +244,6 @@ extension String {
     }
 }
 
-
 extension Int {
     func format(_ f: Int = 2) -> String {
         let f = Float(self) / 100

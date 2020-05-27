@@ -80,7 +80,7 @@ class FoodCardViewController: UIViewController {
         userUsername.text = foodPost.owner!.username!
         mealDescription.text = foodPost.description!
         plateName.text = foodPost.plate_name!
-        time.text = Date.hhmmHappenedNowTodayYesterdayWeekDay(start: foodPost.start_time!, end: foodPost.end_time!)
+        time.text = foodPost.time_to_show!
         price.text = "$" + String(format:"%.2f", Double(foodPost.price!) / 100)
         typesContainer.setTypes(typeString: foodPost.food_type ?? "0000000")
         rateContainer.setRate(rating: foodPost.owner!.rating!, rating_n: foodPost.owner!.rating_n!)

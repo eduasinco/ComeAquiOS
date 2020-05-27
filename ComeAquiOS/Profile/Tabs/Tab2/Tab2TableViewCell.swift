@@ -53,7 +53,7 @@ class Tab2TableViewCell: UITableViewCell {
     func setCell(_ object: FoodPostObject){
         self.plateNameLabel.text = object.plate_name
         self.descriptionLabel.text = object.description
-        self.timeLabel.text = Date.hhmmHappenedNowTodayYesterdayWeekDay(start: object.start_time!, end: object.end_time!)
+        self.timeLabel.text = object.time_to_show!
         self.priceLabel.text = "$" + String(format:"%.2f", Double(object.price!) / 100)
         self.setFoodPostType(type: object.food_type ?? "0000000")
         

@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ka-j2-6sH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2710.8695652173915" y="148.99553571428569"/>
+            <point key="canvasLocation" x="2709" y="211"/>
         </scene>
         <!--Rate Star View Controller-->
         <scene sceneID="o9g-l0-RrZ">
@@ -216,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zd7-4b-MCH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2747.826086956522" y="70.647321428571431"/>
+            <point key="canvasLocation" x="2746" y="87"/>
         </scene>
         <!--AddFood-->
         <scene sceneID="5Hm-uL-lFA">

@@ -44,7 +44,9 @@ class FoodLookViewController: KUIViewController {
     @IBOutlet weak var creditCardInfoView: UIView!
     @IBOutlet weak var creditCardImage: UIImageView!
     @IBOutlet weak var creditCardNumber: UILabel!
+    @IBOutlet weak var commentsView: UIView!
     @IBOutlet weak var bcfkb: NSLayoutConstraint!
+    
     var googleMap: GMSMapView!
     var foodPostId: Int!
     var foodPost: FoodPostObject?
@@ -115,8 +117,8 @@ class FoodLookViewController: KUIViewController {
         detailStackViewTopConstraint.constant = headerView.frame.height
         
         plateName.text = foodPost.plate_name
-        date.text = Date.hhmmHappenedNowTodayYesterdayWeekDay(start: foodPost.start_time!, end: foodPost.end_time!)
-        time.text = Date.timeRange(start: foodPost.start_time!, end: foodPost.end_time!)
+        date.text = foodPost.time_to_show!
+        time.text = Date.timeRange(start: foodPost.time_to_show!, end: foodPost.end_time!)
         price.text = "$" + String(format:"%.2f", Double(foodPost.price!) / 100)
         mealDescription.text = foodPost.description
         addressLabel.text = foodPost.formatted_address
@@ -138,13 +140,14 @@ class FoodLookViewController: KUIViewController {
         addPaymentMethodButton.visibility = .gone
         attendMealButton.visibility = .gone
         creditCardInfoView.visibility = .gone
+        commentsView.visibility = .goneY
         if USER.id == foodPost.owner!.id {
-            setComments(foodPostId: foodPost.id!)
+            commentsView.visibility = .visible
         } else {
             switch self.respondObject?.user_status_in_this_post {
             case "CONFIRMED":
                 setStatus(text: "Confirmed", color: UIColor.green)
-                setComments(foodPostId: foodPost.id!)
+                commentsView.visibility = .visible
             case "PENDING":
                 setStatus(text: "Pending", color: UIColor.orange)
             case "CANCELED":
@@ -153,7 +156,7 @@ class FoodLookViewController: KUIViewController {
                 setStatus(text: "Rejected", color: UIColor.red)
             case "FINISHED":
                 setStatus(text: "Finished", color: UIColor.orange)
-                setComments(foodPostId: foodPost.id!)
+                commentsView.visibility = .visible
             default:
                 switch foodPost.status {
                 case "OPEN":
@@ -210,21 +213,6 @@ class FoodLookViewController: KUIViewController {
         attendMealButton.backgroundColor = color
     }
     
-    func setComments(foodPostId: Int) {
-        let storyboard = UIStoryboard(name: "CommentsStoryboard", bundle: nil)
-        commentsVC = storyboard.instantiateViewController(identifier: "CommentView") as? CommentsViewController
-        
-        if let commentsVC = self.commentsVC {
-            commentsVC.foodPostId = foodPostId
-            addChild(commentsVC)
-            detailStackView.addArrangedSubview(commentsVC.view)
-            commentsVC.didMove(toParent: self)
-            let h = commentsVC.view.heightAnchor.constraint(greaterThanOrEqualToConstant: 0)
-            h.priority = UILayoutPriority(rawValue: 1000)
-            h.isActive = true
-        }
-    }
-    
     @objc func attendMeal(sender: UIButton!) {
         performSegue(withIdentifier: "AttendSegue", sender: nil)
         
@@ -253,8 +241,6 @@ class FoodLookViewController: KUIViewController {
             image.circle()
         }
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DinnerSegue" {
@@ -287,6 +273,12 @@ class FoodLookViewController: KUIViewController {
             orderVC?.orderId = (sender as! OrderObject).id
         } else if segue.identifier == "AddPaymentSegue" {
             _ = segue.destination as? AddPaymentMethodViewController
+        }  else if segue.identifier == "CommentsSegue" {
+            let commentsVC = segue.destination as? CommentsViewController
+            commentsVC?.foodPostId = foodPostId
+        }  else if segue.identifier == "TypeSegue" {
+            let commentsVC = segue.destination as? TypesViewController
+            commentsVC?.initialTypesString = self.foodPost?.food_type
         }
     }
     override func didReceiveMemoryWarning() {

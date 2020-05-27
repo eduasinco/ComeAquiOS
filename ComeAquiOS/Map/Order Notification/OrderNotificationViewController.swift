@@ -16,6 +16,7 @@ class OrderNotificationViewController: CardBehaviourViewController {
     @IBOutlet weak var hostingView: UIView!
     @IBOutlet weak var timeHosting: UILabel!
     
+    @IBOutlet weak var guestingImage: URLImageView!
     @IBOutlet weak var guestingView: UIView!
     @IBOutlet weak var mealWithUser: UILabel!
     @IBOutlet weak var userUsername: UILabel!
@@ -36,10 +37,11 @@ class OrderNotificationViewController: CardBehaviourViewController {
     func setOrder(){
         guard let order = self.order else {return}
         self.guestingView.visibility = .visible
+        guestingImage.loadImageUsingUrlString(urlString: order.poster?.profile_photo)
         mealWithUser.text = order.poster?.full_name
         userUsername.text = order.poster?.username
         plateName.text = order.post?.plate_name
-        timeGuesting.text = order.post?.start_time
+        timeGuesting.text = order.post?.time_to_show
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleGuesTap(sender:)))
         self.guestingView?.addGestureRecognizer(tap)
         
@@ -47,7 +49,7 @@ class OrderNotificationViewController: CardBehaviourViewController {
     func setFoodPost(){
         guard let post = self.foodPost else {return}
         self.hostingView.visibility = .visible
-        self.timeHosting.text = post.start_time
+        self.timeHosting.text = post.time_to_show
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleHostTap(sender:)))
         self.hostingView?.addGestureRecognizer(tap)
     }

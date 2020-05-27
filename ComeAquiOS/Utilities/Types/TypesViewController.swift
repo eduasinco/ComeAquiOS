@@ -24,7 +24,11 @@ class TypesViewController: UIViewController {
     var buttons: [UIButton]!
     
     var delegate: TypesProtocol?
-    var initialTypesString: String?
+    var initialTypesString: String? {
+        didSet {
+            
+        }
+    }
     
     func setTypes(typeString: String){
         for (i, c) in typeString.enumerated(){

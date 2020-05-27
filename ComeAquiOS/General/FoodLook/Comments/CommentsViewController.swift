@@ -86,7 +86,11 @@ class CommentsViewController: UIViewController {
     var currentCell: UITableViewCell?
     var comments: [Comment] = []
     
-    var foodPostId: Int?
+    var foodPostId: Int? {
+        didSet {
+            getComments()
+        }
+    }
     var commentId: Int?
     var max_depth = 0
 
@@ -98,7 +102,6 @@ class CommentsViewController: UIViewController {
         tableView.isScrollEnabled = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
-        getComments()
     }
     func randomString() -> String {
         let letters : NSString = "abcdefghijklmnopqrstuvwxyz        "

@@ -35,7 +35,6 @@ public class FoodPostObject: Decodable{
     var id: Int?
     var owner: User?
     var plate_name: String?
-    
     var formatted_address: String?
     var place_id: String?
     var lat: Double?
@@ -48,12 +47,10 @@ public class FoodPostObject: Decodable{
     var postal_code: String?
     var max_dinners: Int?
     var dinners_left: Int?
-    var time_to_show: String?
     var time_range: String?
     var start_time: String?
     var end_time: String?
     var price: Int?
-    var price_to_show: String?
     var food_type: String?
     var description: String?
     var status: String?
@@ -67,6 +64,9 @@ public class FoodPostObject: Decodable{
     var reviews: [ReviewObject]?
     var created_at: String?
     
+    lazy var time_to_show: String? = {
+        return Date.hhmmHappenedNowTodayYesterdayWeekDay(start: start_time!, end: end_time!)
+    }()
 }
 public class ReviewObject: Decodable {
     var id: Int?
