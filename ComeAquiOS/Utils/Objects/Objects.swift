@@ -65,7 +65,8 @@ public class FoodPostObject: Decodable{
     var created_at: String?
     
     lazy var time_to_show: String? = {
-        return Date.hhmmHappenedNowTodayYesterdayWeekDay(start: start_time!, end: end_time!)
+        guard let start_time = self.start_time, let end_time = self.end_time else { return nil}
+        return Date.hhmmHappenedNowTodayYesterdayWeekDay(start: start_time, end: end_time)
     }()
 }
 public class ReviewObject: Decodable {

@@ -32,6 +32,9 @@
                                                         <constraint firstAttribute="width" constant="80" id="CG9-Ce-Tyw"/>
                                                         <constraint firstAttribute="height" constant="80" id="Fir-wN-VEn"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="x5B-4X-7pu">
                                                     <rect key="frame" x="96" y="8" width="310" height="80"/>

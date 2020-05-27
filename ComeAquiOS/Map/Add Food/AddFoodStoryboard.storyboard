@@ -36,7 +36,7 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="hsr-gT-oNU"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                 </subviews>
@@ -128,7 +128,7 @@
                                                                                     <constraint firstAttribute="height" constant="200" id="gLP-Cz-VaY"/>
                                                                                 </constraints>
                                                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                             </textView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/202" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weI-PJ-394">
@@ -161,10 +161,13 @@
                                                             </containerView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJk-sv-1bB">
                                                                 <rect key="frame" x="0.0" y="750" width="382" height="50"/>
+                                                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="OrS-SK-qLo"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Submit"/>
+                                                                <state key="normal" title="Submit">
+                                                                    <color key="titleColor" red="0.97132772840000003" green="0.97132772840000003" blue="0.97132772840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="submit:" destination="8l8-sJ-MKH" eventType="touchUpInside" id="DwJ-yf-Gyx"/>
                                                                 </connections>

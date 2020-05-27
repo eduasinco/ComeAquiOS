@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Chat View Controller-->
+        <!--Chat-->
         <scene sceneID="QH6-FO-Hw6">
             <objects>
                 <viewController id="a3C-jU-eJL" customClass="ChatViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,6 +41,9 @@
                                                                                 <constraint firstAttribute="height" constant="84" id="dgo-bd-o0h"/>
                                                                                 <constraint firstAttribute="width" constant="84" id="wdV-M9-OS8"/>
                                                                             </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                                            </userDefinedRuntimeAttributes>
                                                                         </imageView>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvq-S0-jFw">
                                                                             <rect key="frame" x="112" y="8" width="282" height="84"/>
@@ -150,7 +153,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pAa-LI-Eaa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TAe-zU-ViB"/>
+                    <navigationItem key="navigationItem" title="Chat" id="TAe-zU-ViB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="scrollView" destination="dNa-SL-e0h" id="tsI-iR-MEQ"/>

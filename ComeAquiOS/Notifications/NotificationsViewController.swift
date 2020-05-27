@@ -99,12 +99,9 @@ extension NotificationsViewController: UITableViewDataSource, UITableViewDelegat
 extension NotificationsViewController {
     func getMyNotifications(){
         alreadyFetchingData = true
-        // tableView.showActivityIndicator()
-        presentLoader()
         Server.get("/my_notifications/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             self.alreadyFetchingData = false
-            // self.tableView.hideActivityIndicator()
-            self.closeLoader()
+            self.tableView.stopLoading()
             guard let data = data else {return}
             do {
                 let newNotifications = try JSONDecoder().decode([NotificationObject].self, from: data)
@@ -119,8 +116,8 @@ extension NotificationsViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
-        
-        if offsetY > contentHeight - scrollView.frame.height {
+        print(offsetY, contentHeight - scrollView.frame.height)
+        if offsetY > scrollView.frame.height - contentHeight {
             if !alreadyFetchingData {
                 getMyNotifications()
             }

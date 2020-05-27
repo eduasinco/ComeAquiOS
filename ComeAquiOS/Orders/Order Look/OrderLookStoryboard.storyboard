@@ -33,6 +33,9 @@
                                                                     <constraint firstAttribute="width" constant="70" id="Cda-yW-qMO"/>
                                                                 </constraints>
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk5-yu-gPd">
                                                                 <rect key="frame" x="78" y="8" width="45" height="20.5"/>

@@ -214,3 +214,27 @@ class ImageToOpen: URLImageView {
         }
     }
 }
+
+extension UIImageView {
+    @IBInspectable var isRounded: Bool {
+        set {
+            if newValue {
+                self.layer.masksToBounds = false
+                self.layer.cornerRadius = self.frame.height / 2
+                self.clipsToBounds = true
+            }
+        }
+        get {
+            return false
+        }
+    }
+    @IBInspectable var strike: Int {
+        set {
+            self.layer.borderWidth = CGFloat(newValue)
+            self.layer.borderColor = UIColor.black.cgColor
+        }
+        get {
+            return 0
+        }
+    }
+}

@@ -498,7 +498,7 @@
         <scene sceneID="asj-zB-yHR">
             <objects>
                 <navigationController storyboardIdentifier="MapNavView" automaticallyAdjustsScrollViewInsets="NO" id="EKi-RY-1o0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass.circle" catalog="system" selectedImage="magnifyingglass.circle.fill" id="d6b-To-jW6"/>
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="d6b-To-jW6"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KfR-0Y-Zl7">
@@ -527,8 +527,6 @@
         <image name="favourite_star" width="205" height="205"/>
         <image name="food-time" width="200" height="200"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="magnifyingglass.circle" catalog="system" width="128" height="121"/>
-        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="rate_empty_star" width="175" height="175"/>
     </resources>

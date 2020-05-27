@@ -225,6 +225,7 @@ extension AddFoodViewController {
                         }
                         do {
                             self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
+                            self.foodPostId = self.foodPost?.id
                             DispatchQueue.main.async {
                                 self.navigationController?.popViewController(animated: true)
                             }
