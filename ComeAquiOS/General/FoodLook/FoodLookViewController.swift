@@ -118,7 +118,7 @@ class FoodLookViewController: KUIViewController {
         
         plateName.text = foodPost.plate_name
         date.text = foodPost.time_to_show!
-        time.text = Date.timeRange(start: foodPost.time_to_show!, end: foodPost.end_time!)
+        time.text = Date.timeRange(start: foodPost.start_time!, end: foodPost.end_time!)
         price.text = "$" + String(format:"%.2f", Double(foodPost.price!) / 100)
         mealDescription.text = foodPost.description
         addressLabel.text = foodPost.formatted_address
