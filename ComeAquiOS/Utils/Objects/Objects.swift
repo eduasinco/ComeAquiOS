@@ -222,6 +222,15 @@ public class ChatObject: Decodable {
         guard let created_at = self.created_at else { return nil}
         return Date.hYesterdayWeekDay(isoDateString: created_at)
     }()
+    
+    lazy var user_chat_status_dict: [Int: Int]? = {
+        guard let user_chat_status = self.user_chat_status else { return nil }
+        var dict: [Int: Int] = [:]
+        for status in user_chat_status {
+            dict[status.user_id!] = status.unseen_messages_count!
+        }
+        return dict
+    }()
 }
 
 public class PlaneChatObject: Decodable {

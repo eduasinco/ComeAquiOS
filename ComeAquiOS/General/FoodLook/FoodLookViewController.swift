@@ -91,7 +91,6 @@ class FoodLookViewController: KUIViewController {
         userName.text = foodPost.owner?.full_name!
         userUserName.text = foodPost.owner?.username!
         userImage.loadImageUsingUrlString(urlString: foodPost.owner!.profile_photo)
-        userImage.circle()
         
         let imageArray = [image1, image2, image3]
         imageScrollView.visibility = .visible
@@ -211,9 +210,16 @@ class FoodLookViewController: KUIViewController {
             let label = UILabel()
             dv.addSubview(label)
             label.translatesAutoresizingMaskIntoConstraints = false
+            label.textColor = UIColor.white
+            label.backgroundColor = UIColor.orange
             label.topAnchor.constraint(equalTo: dv.topAnchor).isActive = true
             label.trailingAnchor.constraint(equalTo: dv.trailingAnchor).isActive = true
-            label.text = "\(order.additional_guests!)+"
+            if order.additional_guests ?? 0 > 0 {
+                label.text = " \(order.additional_guests!)+ "
+            } else {
+                label.text = ""
+            }
+            dinnerLabels.append(label)
         }
         imageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo)
         imageView.contentMode = .scaleAspectFill
@@ -236,6 +242,7 @@ class FoodLookViewController: KUIViewController {
     }
     
     var dinnerImages: [URLImageView] = []
+    var dinnerLabels: [UILabel] = []
     func setDinners(){
         guard let confirmed_orders = self.foodPost?.confirmed_orders else { return }
         if confirmed_orders.count > 0 {
@@ -252,7 +259,10 @@ class FoodLookViewController: KUIViewController {
     
     override func viewDidLayoutSubviews() {
         for image in dinnerImages {
-            image.circle()
+            image.isRounded = true
+        }
+        for label in dinnerLabels {
+            label.isRounded = true
         }
     }
     

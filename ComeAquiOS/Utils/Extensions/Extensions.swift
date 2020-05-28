@@ -93,6 +93,14 @@ extension UIView {
             return 0
         }
     }
+    @IBInspectable var roudCorners: Int {
+        set {
+            self.roundCorners(radius: CGFloat(newValue), clip: false)
+        }
+        get {
+            return 0
+        }
+    }
 }
 
 extension UIScrollView {

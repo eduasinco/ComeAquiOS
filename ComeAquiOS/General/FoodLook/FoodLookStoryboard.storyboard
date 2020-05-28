@@ -25,7 +25,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1422"/>
                                                 <subviews>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-Xd-oXZ">
-                                                        <rect key="frame" x="20" y="1135" width="374" height="287"/>
+                                                        <rect key="frame" x="20" y="1134.5" width="374" height="287.5"/>
                                                         <connections>
                                                             <segue destination="dm9-vc-qri" kind="embed" identifier="CommentsSegue" id="LGX-fT-DIC"/>
                                                         </connections>
@@ -289,10 +289,13 @@
                                                                             <constraint firstAttribute="height" constant="70" id="2Ai-NL-Cn2"/>
                                                                             <constraint firstAttribute="width" constant="70" id="WQX-qI-urd"/>
                                                                         </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="999" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-30-GPF">
                                                                         <rect key="frame" x="86" y="8" width="272" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>

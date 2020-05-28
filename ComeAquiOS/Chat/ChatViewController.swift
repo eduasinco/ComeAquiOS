@@ -9,14 +9,15 @@
 import UIKit
 import Starscream
 
-class ChatViewController: UIViewController, UISearchBarDelegate {
+class ChatViewController: KUIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var serachBar: UISearchBar!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: MyOwnTableView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     var data: [ChatObject] = []
-    var dataToIndexPath: [Int: IndexPath] = [:]
+    var chatSet: Set<Int> = []
     
     var page: Int = 1
     var alreadyFetchingData = false
@@ -29,8 +30,14 @@ class ChatViewController: UIViewController, UISearchBarDelegate {
         tableView.dataSource = self
         scrollView.delegate = self
         serachBar.delegate = self
-        userChats()
+        self.bottomConstraintForKeyboard = bottomConstraint
         webSocketConnetion()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        data = []
+        page = 1
+        userChats()
     }
     
     var timer: Timer?
@@ -78,8 +85,12 @@ extension ChatViewController {
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
-                self.data.append(contentsOf: try JSONDecoder().decode([ChatObject].self, from: data))
+                let chatLoad = try JSONDecoder().decode([ChatObject].self, from: data)
+                self.data.append(contentsOf: chatLoad)
                 DispatchQueue.main.async {
+                    for chat in chatLoad {
+                        self.chatSet.insert(chat.id!)
+                    }
                     self.tableView.reloadData()
                     self.page += 1
                 }
@@ -104,7 +115,9 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell") as! ChatTableViewCell
-        cell.setCell(chat: data[indexPath.row])
+        if data.count > 0 {
+            cell.setCell(chat: data[indexPath.row])
+        }
         return cell
     }
     
@@ -146,17 +159,11 @@ extension ChatViewController: WebSocketDelegate{
             do {
                 let so = try JSONDecoder().decode(SocketObject.self, from: data)
                 guard let mro = so.message else {return}
-                if let ip = dataToIndexPath[mro.chat!.id!] {
-                    self.data.remove(at: ip.row)
-                    self.data.insert(mro.chat!, at: 0)
-                    DispatchQueue.main.async {
-                        self.tableView.beginUpdates()
-                        self.tableView.insertRows(at: [IndexPath(row:0, section: 0)], with: .automatic)
-                        self.tableView.deleteRows(at: [ip], with: .automatic)
-                        self.tableView.endUpdates()
-                    }
+                if chatSet.contains(mro.chat!.id!) {
+                    moveChatToFirstPosition(mro.chat!)
                 } else {
                     self.data.insert(mro.chat!, at: 0)
+                    chatSet.insert(mro.chat!.id!)
                     DispatchQueue.main.async {
                         self.tableView.beginUpdates()
                         self.tableView.insertRows(at: [IndexPath(row:0, section: 0)], with: .automatic)
@@ -189,7 +196,24 @@ extension ChatViewController: WebSocketDelegate{
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        ws?.disconnect()
+    func findChatIndex(_ chatId: Int) -> Int? {
+        var  i = 0
+        while i < data.count && data[i].id != chatId {
+            i += 1
+        }
+        guard i < data.count else {return nil}
+        return i
+    }
+    
+    func moveChatToFirstPosition(_ chat: ChatObject) {
+        guard let i = findChatIndex(chat.id!) else {return}
+        self.data.remove(at: i)
+        self.data.insert(chat, at: 0)
+        DispatchQueue.main.async {
+            self.tableView.beginUpdates()
+            self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
+            self.tableView.deleteRows(at: [IndexPath(row: i, section: 0)], with: .fade)
+            self.tableView.endUpdates()
+        }
     }
 }

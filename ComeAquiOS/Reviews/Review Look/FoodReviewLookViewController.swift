@@ -53,7 +53,6 @@ class FoodReviewLookViewController: UIViewController {
         userName.text = foodPost.owner?.full_name!
         userUsername.text = foodPost.owner?.username!
         posterImage.loadImageUsingUrlString(urlString: foodPost.owner!.profile_photo)
-        posterImage.circle()
         
         let imageArray = [image1, image2, image3]
         imageScrollView.visibility = .visible
