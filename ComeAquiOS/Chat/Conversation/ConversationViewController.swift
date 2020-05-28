@@ -346,7 +346,22 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageTableViewCell
         let chatMessage = chatMessages[indexPath.section][indexPath.row]
-        cell.setCell(message: chatMessage)
+        var messageBefore: MessageObject? = nil
+//        if indexPath.row <= 1 {
+//            if indexPath.section > 0 {
+//                if chatMessages[indexPath.section - 1].count > 0 {
+//                    messageBefore =  chatMessages[indexPath.section - 1].last
+//                }
+//            }
+//        } else {
+//            messageBefore = chatMessages[indexPath.section][indexPath.row - 1]
+//        }
+        
+        if indexPath.row < chatMessages[indexPath.section].count - 1 {
+            messageBefore = chatMessages[indexPath.section][indexPath.row + 1]
+        }
+        
+        cell.setCell(message: chatMessage, messageBefore: messageBefore)
         cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
         return cell
     }
