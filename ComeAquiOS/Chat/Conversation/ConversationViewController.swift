@@ -284,7 +284,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
         print("Attempt to group our messages together based on Date property")
         
         let groupedMessages = Dictionary(grouping: messagesFromServer) { (element) -> String in
-            return element.created_at_to_show![0..<10]
+            return Date.todayYesterdayWeekDay(isoDateString: element.created_at!)
         }
         let sortedKeys = groupedMessages.keys.sorted()
         sortedKeys.forEach { (key) in

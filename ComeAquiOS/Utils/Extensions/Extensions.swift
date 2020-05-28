@@ -101,6 +101,31 @@ extension UIView {
             return 0
         }
     }
+    
+    func changeColor(newValue: Int) {
+        switch newValue {
+        case 1:
+            self.backgroundColor = UIColor.orange
+        case 2:
+            self.backgroundColor = UIColor.lightGray
+        case 3:
+            self.backgroundColor = UIColor.orange
+        case 4:
+            self.backgroundColor = UIColor.lightGray
+        default:
+            break
+        }
+    }
+    
+    @IBInspectable var appBackgroundColor: Int {
+        set {
+            changeColor(newValue: newValue)
+        }
+        get {
+            return 0
+        }
+    }
+    
 }
 
 extension UIScrollView {
@@ -354,5 +379,16 @@ extension CLLocation {
         let newLocation = CLLocation(coordinate: newCoordinate, altitude: altitude, horizontalAccuracy: horizontalAccuracy, verticalAccuracy: verticalAccuracy, course: course, speed: speed, timestamp: Date())
 
         return newLocation
+    }
+}
+
+extension UIColor {
+    static func colorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 }

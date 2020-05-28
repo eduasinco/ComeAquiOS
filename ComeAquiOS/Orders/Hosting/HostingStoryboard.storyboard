@@ -26,52 +26,48 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8PR-Pi-2ib">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PWs-pY-xlz" customClass="CellImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="100" id="cv3-M5-CKC"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="M7t-Si-TAP">
-                                                            <rect key="frame" x="100" y="0.0" width="314" height="100"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="plate name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGx-Ke-ls7">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="314" height="33.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="meal time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHf-8e-vZY">
-                                                                    <rect key="frame" x="0.0" y="33.5" width="314" height="33"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You still have some steps to finish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrO-fA-0iO">
-                                                                    <rect key="frame" x="0.0" y="66.5" width="314" height="33.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PWs-pY-xlz" customClass="CellImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="8" width="84" height="84"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="ZEB-jk-u8R"/>
+                                                        <constraint firstAttribute="height" constant="84" id="K6p-7v-h2K"/>
+                                                        <constraint firstAttribute="width" constant="84" id="cv3-M5-CKC"/>
                                                     </constraints>
-                                                </stackView>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="plate name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGx-Ke-ls7">
+                                                    <rect key="frame" x="100" y="8" width="306" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You still have some steps to finish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrO-fA-0iO">
+                                                    <rect key="frame" x="100" y="74" width="306" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="meal time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHf-8e-vZY">
+                                                    <rect key="frame" x="100" y="37" width="302" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="8PR-Pi-2ib" firstAttribute="top" secondItem="TAB-Zw-Sbb" secondAttribute="top" id="CtN-Je-Nmy"/>
-                                                <constraint firstItem="8PR-Pi-2ib" firstAttribute="leading" secondItem="TAB-Zw-Sbb" secondAttribute="leading" id="gok-YJ-QkS"/>
-                                                <constraint firstAttribute="trailing" secondItem="8PR-Pi-2ib" secondAttribute="trailing" id="rV5-l7-whE"/>
-                                                <constraint firstAttribute="bottom" secondItem="8PR-Pi-2ib" secondAttribute="bottom" id="yj9-Mj-tNe"/>
+                                                <constraint firstItem="CHf-8e-vZY" firstAttribute="top" secondItem="KGx-Ke-ls7" secondAttribute="bottom" constant="8" id="Kbj-7y-7RR"/>
+                                                <constraint firstItem="CHf-8e-vZY" firstAttribute="trailing" secondItem="TAB-Zw-Sbb" secondAttribute="trailingMargin" constant="8" id="Niq-kA-hyt"/>
+                                                <constraint firstAttribute="bottom" secondItem="PWs-pY-xlz" secondAttribute="bottom" constant="8" id="Wek-82-ftk"/>
+                                                <constraint firstAttribute="bottom" secondItem="lrO-fA-0iO" secondAttribute="bottom" constant="8" id="Wpi-yk-tUJ"/>
+                                                <constraint firstItem="PWs-pY-xlz" firstAttribute="top" secondItem="TAB-Zw-Sbb" secondAttribute="top" constant="8" id="Wvi-7s-uRZ"/>
+                                                <constraint firstItem="PWs-pY-xlz" firstAttribute="leading" secondItem="TAB-Zw-Sbb" secondAttribute="leading" constant="8" id="a35-Kb-oo1"/>
+                                                <constraint firstItem="CHf-8e-vZY" firstAttribute="leading" secondItem="PWs-pY-xlz" secondAttribute="trailing" constant="8" id="gYD-ZZ-3tv"/>
+                                                <constraint firstItem="KGx-Ke-ls7" firstAttribute="top" secondItem="TAB-Zw-Sbb" secondAttribute="top" constant="8" id="hqw-mM-Wx1"/>
+                                                <constraint firstAttribute="trailing" secondItem="KGx-Ke-ls7" secondAttribute="trailing" constant="8" id="k2Z-g7-Qxf"/>
+                                                <constraint firstAttribute="trailing" secondItem="lrO-fA-0iO" secondAttribute="trailing" constant="8" id="lCv-Jr-AGH"/>
+                                                <constraint firstItem="KGx-Ke-ls7" firstAttribute="leading" secondItem="PWs-pY-xlz" secondAttribute="trailing" constant="8" id="zr1-6E-KMh"/>
+                                                <constraint firstItem="lrO-fA-0iO" firstAttribute="leading" secondItem="PWs-pY-xlz" secondAttribute="trailing" constant="8" id="zzc-Km-71V"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

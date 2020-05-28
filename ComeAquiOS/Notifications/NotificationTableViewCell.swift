@@ -12,6 +12,7 @@ class NotificationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var dinnerImage: CellImageView!
     @IBOutlet weak var notificationTypeImage: UIImageView!
+    @IBOutlet weak var fullNameText: UILabel!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var notificationText: UILabel!
     @IBOutlet weak var body: UILabel!
@@ -23,6 +24,7 @@ class NotificationTableViewCell: UITableViewCell {
     }
     
     func setCell(notification: NotificationObject){
+        fullNameText.text = notification.from_user?.full_name
         username.text = notification.from_user?.username
         notificationText.text = notification.title
         body.text = notification.body

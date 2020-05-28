@@ -24,9 +24,12 @@ class MessageTableViewCell: UITableViewCell {
         if message.sender!.id == USER.id {
             leftMessageConstraint?.isActive = false
             rightMessageConstraint?.isActive = true
+            messageView.backgroundColor = UIColor.lightGray
+            messageView.backgroundColor = UIColor(named: "SecondaryLighter")
         } else {
             leftMessageConstraint?.isActive = true
             rightMessageConstraint?.isActive = false
+            messageView.backgroundColor = UIColor(named: "PrimaryLighter")
         }
     }
 
