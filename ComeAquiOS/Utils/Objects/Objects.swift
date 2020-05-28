@@ -262,8 +262,13 @@ public class MessageObject: Decodable {
     var lastInGroup: Bool? = false
     var isOwner: Bool? = false
     
-    lazy var created_at_to_show: String? = {
+    lazy var h: String? = {
         guard let created_at = self.created_at else { return nil}
         return Date.h(isoDateString: created_at)
+    }()
+    
+    lazy var created_at_to_show: String? = {
+        guard let created_at = self.created_at else { return nil}
+        return Date.hYesterdayWeekDay(isoDateString: created_at)
     }()
 }

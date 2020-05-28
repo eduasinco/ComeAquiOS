@@ -11,6 +11,7 @@ import Starscream
 
 class ConversationViewController: KUIViewController {
     
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var userImage: URLImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -41,8 +42,9 @@ class ConversationViewController: KUIViewController {
         getChatDetail()
         getChatMessages()
         webSocketConnetion()
-        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi));
+        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
         blockView.visibility = .gone
+        headerView.dropShadow(radius: 1, opacity: 0.3, height: 1)
     }
     
     func setView() {
@@ -311,7 +313,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
         }
         override var intrinsicContentSize: CGSize {
             let originalContentSize = super.intrinsicContentSize
-            let height = originalContentSize.height + 12
+            let height = originalContentSize.height + 2
             layer.cornerRadius = height / 2
             layer.masksToBounds = true
             return CGSize(width: originalContentSize.width + 20, height: height)
@@ -320,7 +322,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if let firstMessageInSection = chatMessages[section].first {
             let label = DateHeaderLabel()
-            label.text = firstMessageInSection.created_at_to_show
+            label.text = Date.todayYesterdayWeekDay(isoDateString: firstMessageInSection.created_at!)
             let containerView = UIView()
 
             containerView.addSubview(label)
@@ -384,9 +386,13 @@ extension ConversationViewController: UITextViewDelegate, UITextFieldDelegate {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = newText.count
         if numberOfChars > 0 {
-            sendButton.visibility = .visible
+            UIView.animate(withDuration: 0.5) {
+                self.sendButton.visibility = .visible
+            }
         } else {
-            sendButton.visibility = .goneX
+            UIView.animate(withDuration: 0.5) {
+                self.sendButton.visibility = .goneX
+            }
         }
         return numberOfChars < 200
     }
