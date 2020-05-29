@@ -19,6 +19,13 @@
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05m-fT-uPp" userLabel="picker">
                                 <rect key="frame" x="190" y="375.5" width="34" height="49"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picker_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="no3-5M-IZY">
+                                        <rect key="frame" x="15" y="9" width="26" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="26" id="3G1-rY-3UA"/>
+                                            <constraint firstAttribute="height" constant="40" id="mmH-fu-ozX"/>
+                                        </constraints>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1G-sd-t6m" userLabel="handle">
                                         <rect key="frame" x="15" y="29" width="4" height="20"/>
                                         <color key="backgroundColor" name="Secondary"/>
@@ -53,8 +60,10 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="kgx-nO-nGP" secondAttribute="trailing" id="8Uz-An-UP9"/>
                                     <constraint firstItem="m1G-sd-t6m" firstAttribute="centerX" secondItem="05m-fT-uPp" secondAttribute="centerX" id="9Us-jk-2Xk"/>
+                                    <constraint firstAttribute="bottom" secondItem="no3-5M-IZY" secondAttribute="bottom" id="Cwu-eo-Lq5"/>
                                     <constraint firstItem="kgx-nO-nGP" firstAttribute="top" secondItem="05m-fT-uPp" secondAttribute="top" id="DkB-AI-bcQ"/>
                                     <constraint firstItem="m1G-sd-t6m" firstAttribute="top" secondItem="kgx-nO-nGP" secondAttribute="bottom" constant="-5" id="Jxp-Zx-oRT"/>
+                                    <constraint firstItem="no3-5M-IZY" firstAttribute="leading" secondItem="m1G-sd-t6m" secondAttribute="leading" id="SpW-nH-uBz"/>
                                     <constraint firstItem="kgx-nO-nGP" firstAttribute="leading" secondItem="05m-fT-uPp" secondAttribute="leading" id="gai-kb-PqB"/>
                                     <constraint firstAttribute="bottom" secondItem="m1G-sd-t6m" secondAttribute="bottom" id="q2n-mj-Gyg"/>
                                 </constraints>
@@ -106,12 +115,14 @@
                         <outlet property="pan" destination="kgx-nO-nGP" id="QDF-Gj-c8p"/>
                         <outlet property="picker" destination="05m-fT-uPp" id="y6i-NB-vpj"/>
                         <outlet property="pickerButton" destination="eXi-5R-9GK" id="yFs-tX-5xj"/>
+                        <outlet property="pickerShadow" destination="no3-5M-IZY" id="9GH-ET-7v4"/>
+                        <outlet property="pickerShadowLeading" destination="SpW-nH-uBz" id="lp4-Ug-53Z"/>
                         <outlet property="searchContainerView" destination="hjo-w5-uo7" id="Ucm-8y-TS0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSe-0G-F91" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1009" y="-557"/>
+            <point key="canvasLocation" x="1008.6956521739131" y="-557.14285714285711"/>
         </scene>
         <!--PlaceAutocomplete-->
         <scene sceneID="R8l-oF-6Q0">
@@ -123,6 +134,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="picker_shadow" width="116" height="139"/>
         <image name="plus.magnifyingglass" catalog="system" width="128" height="115"/>
         <namedColor name="Secondary">
             <color red="0.44699999690055847" green="0.44499999284744263" blue="0.44900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

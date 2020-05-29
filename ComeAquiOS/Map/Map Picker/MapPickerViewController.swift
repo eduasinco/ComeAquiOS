@@ -20,6 +20,8 @@ class MapPickerViewController: UIViewController {
     @IBOutlet weak var handle: UIView!
     @IBOutlet weak var picker: UIView!
     @IBOutlet weak var bottomPickerConstraint: NSLayoutConstraint!
+    @IBOutlet weak var pickerShadow: UIImageView!
+    @IBOutlet weak var pickerShadowLeading: NSLayoutConstraint!
     @IBOutlet weak var pickerButton: UIButton!
     @IBOutlet weak var searchContainerView: UIView!
     
@@ -66,6 +68,7 @@ class MapPickerViewController: UIViewController {
     func animate(up: Bool = true) {
         UIView.animate(withDuration: 0.2){
             self.bottomPickerConstraint.constant = up ?  self.view.frame.height / 2 + 20 : self.view.frame.height / 2
+            self.pickerShadowLeading.constant = up ?  10 : 0
             self.view.layoutIfNeeded()
         }
     }
