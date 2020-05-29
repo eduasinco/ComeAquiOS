@@ -74,7 +74,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vz-ju-Xpw">
                                                 <rect key="frame" x="0.0" y="106.5" width="300" height="50"/>
-                                                <color key="backgroundColor" name="Primary"/>
+                                                <color key="backgroundColor" name="PrimaryLight"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="STH-Sb-802"/>
                                                 </constraints>
@@ -121,8 +121,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="Primary">
-            <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="PrimaryLight">
+            <color red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

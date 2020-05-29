@@ -23,67 +23,87 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MC4-Qp-z6E">
                                 <rect key="frame" x="0.0" y="0.0" width="364" height="25"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <color key="textColor" name="Primary"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="q25-Gs-3iN">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydS-G7-lQs">
                                 <rect key="frame" x="0.0" y="25" width="364" height="25"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQh-a3-C8Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="91" height="25"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" name="SecondaryDark"/>
-                                        <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="addPress:" destination="uCw-fv-RSc" eventType="touchUpInside" id="EUf-AG-yTC"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oyf-vn-fAq">
-                                        <rect key="frame" x="91" y="0.0" width="91" height="25"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" name="SecondaryDark"/>
-                                        <state key="normal" image="arrow.up.to.line" catalog="system"/>
-                                        <connections>
-                                            <action selector="collapsePress:" destination="uCw-fv-RSc" eventType="touchUpInside" id="HZB-S5-UDP"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1B-R2-4tT">
-                                        <rect key="frame" x="182" y="0.0" width="91" height="25"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" name="SecondaryDark"/>
-                                        <state key="normal" image="trash.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="deletePress:" destination="uCw-fv-RSc" eventType="touchUpInside" id="Tah-vK-b9U"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJk-dn-MJR">
-                                        <rect key="frame" x="273" y="0.0" width="91" height="25"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" name="SecondaryDark"/>
-                                        <state key="normal" image="arrow.down.to.line.alt" catalog="system"/>
-                                        <connections>
-                                            <action selector="expandPress:" destination="uCw-fv-RSc" eventType="touchUpInside" id="7JB-p8-oka"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="q25-Gs-3iN">
+                                        <rect key="frame" x="264" y="0.0" width="100" height="25"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQh-a3-C8Q">
+                                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="PrimaryLight"/>
+                                                <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addPress:" destination="uCw-fv-RSc" eventType="touchUpInside" id="EUf-AG-yTC"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oyf-vn-fAq">
+                                                <rect key="frame" x="25" y="0.0" width="25" height="25"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="PrimaryLight"/>
+                                                <state key="normal" image="arrow.up.to.line" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="collapsePress:" destination="uCw-fv-RSc" eventType="touchUpInside" id="HZB-S5-UDP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1B-R2-4tT">
+                                                <rect key="frame" x="50" y="0.0" width="25" height="25"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="PrimaryLight"/>
+                                                <state key="normal" image="trash.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="deletePress:" destination="uCw-fv-RSc" eventType="touchUpInside" id="Tah-vK-b9U"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJk-dn-MJR">
+                                                <rect key="frame" x="75" y="0.0" width="25" height="25"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="PrimaryLight"/>
+                                                <state key="normal" image="arrow.down.to.line.alt" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="expandPress:" destination="uCw-fv-RSc" eventType="touchUpInside" id="7JB-p8-oka"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="i1B-R2-4tT" firstAttribute="top" secondItem="q25-Gs-3iN" secondAttribute="top" id="55C-ev-VZn"/>
+                                            <constraint firstItem="Oyf-vn-fAq" firstAttribute="top" secondItem="q25-Gs-3iN" secondAttribute="top" id="5S5-Tj-slE"/>
+                                            <constraint firstAttribute="bottom" secondItem="Oyf-vn-fAq" secondAttribute="bottom" id="7Kf-DB-keE"/>
+                                            <constraint firstItem="Oyf-vn-fAq" firstAttribute="leading" secondItem="bQh-a3-C8Q" secondAttribute="trailing" id="Adm-KU-mCm"/>
+                                            <constraint firstItem="bQh-a3-C8Q" firstAttribute="top" secondItem="q25-Gs-3iN" secondAttribute="top" id="BUS-CZ-Y3k"/>
+                                            <constraint firstAttribute="height" constant="25" id="CAr-Uh-qIg"/>
+                                            <constraint firstAttribute="bottom" secondItem="i1B-R2-4tT" secondAttribute="bottom" id="ESw-2y-TjQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="CJk-dn-MJR" secondAttribute="trailing" id="Gq1-Hp-hg9"/>
+                                            <constraint firstAttribute="width" constant="100" id="JOa-CW-plY"/>
+                                            <constraint firstItem="CJk-dn-MJR" firstAttribute="leading" secondItem="i1B-R2-4tT" secondAttribute="trailing" id="QSF-Tk-4Pj"/>
+                                            <constraint firstAttribute="bottom" secondItem="CJk-dn-MJR" secondAttribute="bottom" id="Qsk-t5-fUj"/>
+                                            <constraint firstAttribute="bottom" secondItem="bQh-a3-C8Q" secondAttribute="bottom" id="Sn0-91-jid"/>
+                                            <constraint firstItem="i1B-R2-4tT" firstAttribute="leading" secondItem="Oyf-vn-fAq" secondAttribute="trailing" id="nw9-ot-2eE"/>
+                                            <constraint firstItem="bQh-a3-C8Q" firstAttribute="leading" secondItem="q25-Gs-3iN" secondAttribute="leading" id="nwn-Tl-f8m"/>
+                                            <constraint firstItem="CJk-dn-MJR" firstAttribute="top" secondItem="q25-Gs-3iN" secondAttribute="top" id="r1G-4i-1QI"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="i1B-R2-4tT" firstAttribute="top" secondItem="q25-Gs-3iN" secondAttribute="top" id="55C-ev-VZn"/>
-                                    <constraint firstItem="Oyf-vn-fAq" firstAttribute="top" secondItem="q25-Gs-3iN" secondAttribute="top" id="5S5-Tj-slE"/>
-                                    <constraint firstAttribute="bottom" secondItem="Oyf-vn-fAq" secondAttribute="bottom" id="7Kf-DB-keE"/>
-                                    <constraint firstItem="Oyf-vn-fAq" firstAttribute="leading" secondItem="bQh-a3-C8Q" secondAttribute="trailing" id="Adm-KU-mCm"/>
-                                    <constraint firstItem="bQh-a3-C8Q" firstAttribute="top" secondItem="q25-Gs-3iN" secondAttribute="top" id="BUS-CZ-Y3k"/>
-                                    <constraint firstAttribute="height" constant="25" id="CAr-Uh-qIg"/>
-                                    <constraint firstAttribute="bottom" secondItem="i1B-R2-4tT" secondAttribute="bottom" id="ESw-2y-TjQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="CJk-dn-MJR" secondAttribute="trailing" id="Gq1-Hp-hg9"/>
-                                    <constraint firstItem="CJk-dn-MJR" firstAttribute="leading" secondItem="i1B-R2-4tT" secondAttribute="trailing" id="QSF-Tk-4Pj"/>
-                                    <constraint firstAttribute="bottom" secondItem="CJk-dn-MJR" secondAttribute="bottom" id="Qsk-t5-fUj"/>
-                                    <constraint firstAttribute="bottom" secondItem="bQh-a3-C8Q" secondAttribute="bottom" id="Sn0-91-jid"/>
-                                    <constraint firstItem="i1B-R2-4tT" firstAttribute="leading" secondItem="Oyf-vn-fAq" secondAttribute="trailing" id="nw9-ot-2eE"/>
-                                    <constraint firstItem="bQh-a3-C8Q" firstAttribute="leading" secondItem="q25-Gs-3iN" secondAttribute="leading" id="nwn-Tl-f8m"/>
-                                    <constraint firstItem="CJk-dn-MJR" firstAttribute="top" secondItem="q25-Gs-3iN" secondAttribute="top" id="r1G-4i-1QI"/>
+                                    <constraint firstAttribute="trailing" secondItem="q25-Gs-3iN" secondAttribute="trailing" id="Wo6-xa-cAc"/>
+                                    <constraint firstAttribute="bottom" secondItem="q25-Gs-3iN" secondAttribute="bottom" id="Wza-og-5Dj"/>
+                                    <constraint firstItem="q25-Gs-3iN" firstAttribute="top" secondItem="ydS-G7-lQs" secondAttribute="top" id="iiv-vx-qHg"/>
                                 </constraints>
-                            </stackView>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="k8G-Fe-PPj"/>
@@ -152,8 +172,8 @@
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="SecondaryDark">
-            <color red="0.59999999999999998" green="0.17254901960784313" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="PrimaryLight">
+            <color red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

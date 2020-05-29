@@ -31,19 +31,25 @@ class OrdersTabViewController: UIViewController, UIScrollViewDelegate {
 
     }
     func changePage(_ index: Int){
-        if index == 0 {
-            guestingButton.setTitleColor(UIColor(named: "SecondaryDark"), for: .normal)
-            hostingButton.setTitleColor(UIColor(named: "PrimaryLight"), for: .normal)
-        } else if index == 1{
-            guestingButton.setTitleColor(UIColor(named: "PrimaryLight"), for: .normal)
-            hostingButton.setTitleColor(UIColor(named: "SecondaryDark"), for: .normal)
-        }
+        changeButtons(index)
         let x = index * Int(scrollView.frame.width)
         scrollView.setContentOffset(CGPoint(x:x, y:0), animated: true)
         pageControl.currentPage = index
     }
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        page = Int(round(scrollView.contentOffset.x / scrollView.frame.size.width))
+    
+    func changeButtons(_ index: Int){
+        if index == 0 {
+            guestingButton.setTitleColor(UIColor(named: "SecondaryDark"), for: .normal)
+            hostingButton.setTitleColor(UIColor(named: "PrimaryLight"), for: .normal)
+        } else if index == 1 {
+            guestingButton.setTitleColor(UIColor(named: "PrimaryLight"), for: .normal)
+            hostingButton.setTitleColor(UIColor(named: "SecondaryDark"), for: .normal)
+        }
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let page = Int(round(scrollView.contentOffset.x / scrollView.frame.size.width))
         pageControl.currentPage = page
+        changeButtons(page)
     }
 }

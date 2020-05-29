@@ -348,6 +348,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="VZM-p7-kOx">
                         <barButtonItem key="rightBarButtonItem" image="line.horizontal.3" catalog="system" id="POz-og-zNS">
+                            <color key="tintColor" name="Primary"/>
                             <connections>
                                 <action selector="options:" destination="9c3-aH-ZYm" id="1L2-Mg-Oe5"/>
                             </connections>
@@ -545,6 +546,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xHC-Az-kPe">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="Primary"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -565,6 +567,9 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rate_empty_star" width="175" height="175"/>
+        <namedColor name="Primary">
+            <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="PrimaryLight">
             <color red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

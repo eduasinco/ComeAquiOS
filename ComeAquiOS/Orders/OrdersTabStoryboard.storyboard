@@ -79,7 +79,7 @@
                                             <action selector="guestingPressed:" destination="1Aa-pC-1GO" eventType="touchUpInside" id="bgo-ru-al4"/>
                                         </connections>
                                     </button>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="9fz-h3-vYz">
+                                    <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="9fz-h3-vYz">
                                         <rect key="frame" x="138" y="0.0" width="138" height="50"/>
                                         <color key="pageIndicatorTintColor" name="PrimaryLight"/>
                                         <color key="currentPageIndicatorTintColor" name="SecondaryDark"/>
@@ -153,6 +153,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OQE-SP-HBt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="Primary"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -167,6 +168,9 @@
     <resources>
         <image name="tray" catalog="system" width="128" height="88"/>
         <image name="tray.fill" catalog="system" width="128" height="88"/>
+        <namedColor name="Primary">
+            <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="PrimaryLight">
             <color red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

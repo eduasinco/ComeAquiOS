@@ -49,9 +49,13 @@ class FoodCardViewController: UIViewController {
     func setView(foodPost: FoodPostObject) {
         self.foodPost = foodPost
         if let favourite = self.foodPost.favourite  {
-            favouriteImageView.image = UIImage(named: favourite ? "favourite_star_fill" : "favourite_star")
+            let star = UIImage(systemName: favourite ? "star.fill" : "star")
+            star?.withTintColor((favourite ? UIColor(named: "Favourite") : UIColor(named: "Primary"))!)
+            favouriteImageView.image = star
         } else {
-            favouriteImageView.image = UIImage(named: "favourite_star")
+            let star = UIImage(systemName: "star")
+            star?.withTintColor(UIColor(named: "Primary")!)
+            favouriteImageView.image = star
         }
         
         let imageArray = [image1, image2, image3]
@@ -136,7 +140,10 @@ extension FoodCardViewController {
             self.foodPost.favourite = true
         }
         self.delegate?.changeMarker(foodPost: self.foodPost, image: self.imageWithImage(image: UIImage(named: self.foodPost.favourite! ? "marker_favourite" : "marker_seen")!, width: 40))
-        self.favouriteImageView.image = UIImage(named: self.foodPost.favourite! ? "favourite_star_fill" : "favourite_star")
+        
+        let star = UIImage(systemName: self.foodPost.favourite! ? "star.fill" : "star")
+        star?.withTintColor((self.foodPost.favourite! ? UIColor(named: "Favourite") : UIColor(named: "Primary"))!)
+        self.favouriteImageView.image = star
         
         settingFavourite = true
         Server.post("/favourites/",
@@ -156,7 +163,9 @@ extension FoodCardViewController {
                         } catch _ {
                             self.view.showToast(message: "Some error ocurred")
                             self.delegate?.changeMarker(foodPost: self.foodPost, image: self.imageWithImage(image: UIImage(named: self.foodPost.favourite! ? "marker_favourite" : "marker_seen")!, width: 40))
-                            self.favouriteImageView.image = UIImage(named: self.foodPost.favourite! ? "favourite_star_fill" : "favourite_star")
+                            let star = UIImage(systemName: self.foodPost.favourite! ? "star.fill" : "star")
+                            star?.withTintColor((self.foodPost.favourite! ? UIColor(named: "Favourite") : UIColor(named: "Primary"))!)
+                            self.favouriteImageView.image = star
                         }
         })
     }

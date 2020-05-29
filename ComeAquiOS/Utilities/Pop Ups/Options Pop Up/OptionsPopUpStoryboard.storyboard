@@ -33,7 +33,6 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="cancelPressed:" destination="jha-po-mbU" eventType="touchUpInside" id="UP7-xq-D6k"/>
@@ -61,7 +60,6 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
