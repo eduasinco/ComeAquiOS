@@ -13,6 +13,8 @@ class OrdersTabViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var width: NSLayoutConstraint!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var guestingButton: UIButton!
+    @IBOutlet weak var hostingButton: UIButton!
     
     var page: Int = 0
     override func viewDidLoad() {
@@ -29,6 +31,13 @@ class OrdersTabViewController: UIViewController, UIScrollViewDelegate {
 
     }
     func changePage(_ index: Int){
+        if index == 0 {
+            guestingButton.setTitleColor(UIColor(named: "SecondaryDark"), for: .normal)
+            hostingButton.setTitleColor(UIColor(named: "PrimaryLight"), for: .normal)
+        } else if index == 1{
+            guestingButton.setTitleColor(UIColor(named: "PrimaryLight"), for: .normal)
+            hostingButton.setTitleColor(UIColor(named: "SecondaryDark"), for: .normal)
+        }
         let x = index * Int(scrollView.frame.width)
         scrollView.setContentOffset(CGPoint(x:x, y:0), animated: true)
         pageControl.currentPage = index

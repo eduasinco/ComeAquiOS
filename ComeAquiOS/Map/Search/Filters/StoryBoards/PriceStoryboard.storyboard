@@ -31,7 +31,7 @@
                                                             <constraint firstAttribute="height" constant="50" id="0Mp-tz-L8Q"/>
                                                         </constraints>
                                                         <state key="normal" title="Low">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="titleColor" name="Primary"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="low:" destination="k0D-Nt-q8G" eventType="touchUpInside" id="qTc-ZQ-O4W"/>
@@ -43,7 +43,7 @@
                                                             <constraint firstAttribute="height" constant="50" id="vfI-tm-B7U"/>
                                                         </constraints>
                                                         <state key="normal" title="Medium">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="titleColor" name="Primary"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="medium:" destination="k0D-Nt-q8G" eventType="touchUpInside" id="Y7c-kM-OKu"/>
@@ -55,7 +55,7 @@
                                                             <constraint firstAttribute="height" constant="50" id="JhG-Qg-3eZ"/>
                                                         </constraints>
                                                         <state key="normal" title="High">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="titleColor" name="Primary"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="high:" destination="k0D-Nt-q8G" eventType="touchUpInside" id="KMp-XF-CXn"/>
@@ -65,7 +65,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0X-cK-wQe">
                                                 <rect key="frame" x="0.0" y="50" width="382" height="50"/>
-                                                <color key="backgroundColor" name="Primary"/>
+                                                <color key="backgroundColor" name="PrimaryLight"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="70b-6J-iEG"/>
                                                 </constraints>
@@ -116,6 +116,9 @@
     <resources>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryLight">
+            <color red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

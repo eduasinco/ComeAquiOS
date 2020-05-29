@@ -28,7 +28,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="Pzk-Eb-RKC"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="Primary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="yEC-Mz-DZd">
@@ -43,7 +43,7 @@
                                             </slider>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hII-5B-Plp">
                                                 <rect key="frame" x="0.0" y="100" width="382" height="50"/>
-                                                <color key="backgroundColor" name="Primary"/>
+                                                <color key="backgroundColor" name="PrimaryLight"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="KON-Ok-T8e"/>
                                                 </constraints>
@@ -93,6 +93,9 @@
     <resources>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryLight">
+            <color red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Secondary">
             <color red="0.7803921568627451" green="0.2196078431372549" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

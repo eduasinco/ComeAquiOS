@@ -75,6 +75,7 @@
                                     <constraint firstAttribute="width" constant="70" id="LbR-6A-AjR"/>
                                     <constraint firstAttribute="height" constant="70" id="ZoD-tY-ef3"/>
                                 </constraints>
+                                <color key="tintColor" name="SecondaryDark"/>
                                 <state key="normal" image="plus.magnifyingglass" catalog="system">
                                     <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
@@ -138,6 +139,9 @@
         <image name="plus.magnifyingglass" catalog="system" width="128" height="115"/>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryDark">
+            <color red="0.59999999999999998" green="0.17254901960784313" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

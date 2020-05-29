@@ -56,7 +56,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" name="PrimaryLighter"/>
+                                                            <color key="backgroundColor" name="SecondaryLighter"/>
                                                             <constraints>
                                                                 <constraint firstItem="7n2-Nz-ryy" firstAttribute="top" secondItem="2L7-9P-YF1" secondAttribute="bottom" id="C6Y-Nd-UiV"/>
                                                                 <constraint firstAttribute="trailing" secondItem="7n2-Nz-ryy" secondAttribute="trailing" constant="8" id="GzH-CO-6SA"/>
@@ -139,7 +139,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="999" constant="50" id="zkY-Jb-8Zy"/>
                                                 </constraints>
-                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" name="Primary"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <userDefinedRuntimeAttributes>
@@ -148,7 +148,7 @@
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43r-Ak-V7a">
                                                 <rect key="frame" x="344" y="0.0" width="70" height="50"/>
-                                                <color key="backgroundColor" name="Primary"/>
+                                                <color key="backgroundColor" name="SecondaryLight"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="T4o-o6-v4Y"/>
                                                 </constraints>
@@ -170,7 +170,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This user is blocked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCN-SD-U8s">
                                                         <rect key="frame" x="8" y="0.0" width="298" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" name="Primary"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3K1-4r-Fas">
@@ -178,7 +178,9 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="TLU-hp-X2V"/>
                                                         </constraints>
-                                                        <state key="normal" title="Unblock"/>
+                                                        <state key="normal" title="Unblock">
+                                                            <color key="titleColor" name="SecondaryDark"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="unblockUser:" destination="50r-ts-SD8" eventType="touchUpInside" id="pUD-j0-aL2"/>
                                                         </connections>
@@ -267,8 +269,14 @@
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="PrimaryLighter">
-            <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="SecondaryDark">
+            <color red="0.59999999999999998" green="0.17254901960784313" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryLight">
+            <color red="1" green="0.54219913868343661" blue="0.35197635805252003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryLighter">
+            <color red="1" green="0.75709017586471117" blue="0.62239893280465086" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

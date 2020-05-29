@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,46 +18,50 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Oqb-bs-YY4">
-                        <rect key="frame" x="0.0" y="0.0" width="364" height="70.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="364" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MC4-Qp-z6E">
-                                <rect key="frame" x="0.0" y="0.0" width="364" height="20.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="364" height="25"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" name="Primary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="q25-Gs-3iN">
-                                <rect key="frame" x="0.0" y="20.5" width="364" height="50"/>
+                                <rect key="frame" x="0.0" y="25" width="364" height="25"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQh-a3-C8Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="91" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQh-a3-C8Q">
+                                        <rect key="frame" x="0.0" y="0.0" width="91" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Add"/>
+                                        <color key="tintColor" name="SecondaryDark"/>
+                                        <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system"/>
                                         <connections>
                                             <action selector="addPress:" destination="uCw-fv-RSc" eventType="touchUpInside" id="EUf-AG-yTC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oyf-vn-fAq">
-                                        <rect key="frame" x="91" y="0.0" width="91" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oyf-vn-fAq">
+                                        <rect key="frame" x="91" y="0.0" width="91" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Collapse"/>
+                                        <color key="tintColor" name="SecondaryDark"/>
+                                        <state key="normal" image="arrow.up.to.line" catalog="system"/>
                                         <connections>
                                             <action selector="collapsePress:" destination="uCw-fv-RSc" eventType="touchUpInside" id="HZB-S5-UDP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1B-R2-4tT">
-                                        <rect key="frame" x="182" y="0.0" width="91" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1B-R2-4tT">
+                                        <rect key="frame" x="182" y="0.0" width="91" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Delete"/>
+                                        <color key="tintColor" name="SecondaryDark"/>
+                                        <state key="normal" image="trash.fill" catalog="system"/>
                                         <connections>
                                             <action selector="deletePress:" destination="uCw-fv-RSc" eventType="touchUpInside" id="Tah-vK-b9U"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJk-dn-MJR">
-                                        <rect key="frame" x="273" y="0.0" width="91" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJk-dn-MJR">
+                                        <rect key="frame" x="273" y="0.0" width="91" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Expand"/>
+                                        <color key="tintColor" name="SecondaryDark"/>
+                                        <state key="normal" image="arrow.down.to.line.alt" catalog="system"/>
                                         <connections>
                                             <action selector="expandPress:" destination="uCw-fv-RSc" eventType="touchUpInside" id="7JB-p8-oka"/>
                                         </connections>
@@ -68,7 +73,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Oyf-vn-fAq" secondAttribute="bottom" id="7Kf-DB-keE"/>
                                     <constraint firstItem="Oyf-vn-fAq" firstAttribute="leading" secondItem="bQh-a3-C8Q" secondAttribute="trailing" id="Adm-KU-mCm"/>
                                     <constraint firstItem="bQh-a3-C8Q" firstAttribute="top" secondItem="q25-Gs-3iN" secondAttribute="top" id="BUS-CZ-Y3k"/>
-                                    <constraint firstAttribute="height" constant="50" id="CAr-Uh-qIg"/>
+                                    <constraint firstAttribute="height" constant="25" id="CAr-Uh-qIg"/>
                                     <constraint firstAttribute="bottom" secondItem="i1B-R2-4tT" secondAttribute="bottom" id="ESw-2y-TjQ"/>
                                     <constraint firstAttribute="trailing" secondItem="CJk-dn-MJR" secondAttribute="trailing" id="Gq1-Hp-hg9"/>
                                     <constraint firstItem="CJk-dn-MJR" firstAttribute="leading" secondItem="i1B-R2-4tT" secondAttribute="trailing" id="QSF-Tk-4Pj"/>
@@ -85,7 +90,7 @@
                         </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KM-yd-JwG">
-                        <rect key="frame" x="0.0" y="70.5" width="364" height="30"/>
+                        <rect key="frame" x="0.0" y="50" width="364" height="30"/>
                         <color key="backgroundColor" red="0.93577490480000003" green="0.93577490480000003" blue="0.93577490480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="2LX-Av-Gms"/>
@@ -97,7 +102,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcH-hs-EgW">
-                        <rect key="frame" x="0.0" y="100.5" width="364" height="30"/>
+                        <rect key="frame" x="0.0" y="80" width="364" height="30"/>
                         <color key="backgroundColor" red="0.93577490480000003" green="0.93577490480000003" blue="0.93577490480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="E6O-cZ-HoF"/>
@@ -139,4 +144,16 @@
             <point key="canvasLocation" x="45" y="118"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="arrow.down.to.line.alt" catalog="system" width="111" height="128"/>
+        <image name="arrow.up.to.line" catalog="system" width="128" height="128"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
+        <namedColor name="Primary">
+            <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryDark">
+            <color red="0.59999999999999998" green="0.17254901960784313" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

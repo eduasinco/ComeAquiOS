@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kzh-aD-bG3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,15 +24,15 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="856"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0x-aQ-9xU" userLabel="inside ">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="490"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="432"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NzD-EO-xXj">
-                                                        <rect key="frame" x="16" y="16" width="382" height="424"/>
+                                                        <rect key="frame" x="16" y="16" width="382" height="366"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OiV-vR-Ahf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Hello" borderStyle="roundedRect" placeholder="What are you making?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l8n-dy-SRf" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What are you making?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l8n-dy-SRf" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="L0j-me-beB"/>
@@ -47,9 +48,9 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HV1-Wl-ZVp">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
                                                                         <subviews>
-                                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello my name is what?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j6u-Z0-IS0" customClass="ValidatedTextView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j6u-Z0-IS0" customClass="ValidatedTextView" customModule="ComeAquiOS" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
-                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                                <color key="backgroundColor" name="GreyLight"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="200" id="zzT-r7-n6w"/>
                                                                                 </constraints>
@@ -85,16 +86,6 @@
                                                                     <segue destination="UVP-Dy-gaz" kind="embed" identifier="ImageImporterSegue" id="PCw-pp-xrW"/>
                                                                 </connections>
                                                             </containerView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxA-Ib-i9O">
-                                                                <rect key="frame" x="0.0" y="374" width="382" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="OXc-nB-XZh"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Edit"/>
-                                                                <connections>
-                                                                    <action selector="editPost:" destination="Kzh-aD-bG3" eventType="touchUpInside" id="RhM-4x-vta"/>
-                                                                </connections>
-                                                            </button>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" id="STt-A3-uVd"/>
@@ -158,7 +149,12 @@
                 <viewControllerPlaceholder storyboardName="ImageImporterStoryboard" referencedIdentifier="ImageImporter" id="UVP-Dy-gaz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DxQ-Wv-P8J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2687" y="-350"/>
+            <point key="canvasLocation" x="2687" y="-407"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="GreyLight">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

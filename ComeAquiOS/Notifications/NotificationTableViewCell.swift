@@ -11,7 +11,7 @@ import UIKit
 class NotificationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var dinnerImage: CellImageView!
-    @IBOutlet weak var notificationTypeImage: UIImageView!
+    @IBOutlet weak var notificationTypeImage: UIButton!
     @IBOutlet weak var fullNameText: UILabel!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var notificationText: UILabel!
@@ -38,16 +38,40 @@ class NotificationTableViewCell: UITableViewCell {
 
         switch notification.type {
         case "PENDING":
+            let image = UIImage(systemName: "tray.fill")
+            image?.withTintColor(UIColor.white)
+            notificationTypeImage.setImage(image, for: .normal)
+            notificationTypeImage.backgroundColor = UIColor(named: "Primary")
             break
         case "CONFIRMED":
+            let image = UIImage(systemName: "tray.fill")
+            image?.withTintColor(UIColor.white)
+            notificationTypeImage.setImage(image, for: .normal)
+            notificationTypeImage.backgroundColor = UIColor(named: "Success")
             break
         case "REJECTED":
+            let image = UIImage(systemName: "tray.fill")
+            image?.withTintColor(UIColor.white)
+            notificationTypeImage.setImage(image, for: .normal)
+            notificationTypeImage.backgroundColor = UIColor(named: "Canceled")
             break
         case "CANCELED":
+            let image = UIImage(systemName: "tray.fill")
+            image?.withTintColor(UIColor.white)
+            notificationTypeImage.setImage(image, for: .normal)
+            notificationTypeImage.backgroundColor = UIColor(named: "Cenceled")
             break
         case "REVIEW":
+            let image = UIImage(systemName: "star.fill")
+            image?.withTintColor(UIColor.white)
+            notificationTypeImage.setImage(image, for: .normal)
+            notificationTypeImage.backgroundColor = UIColor(named: "Favourite")
             break
         case "COMMENT":
+            let image = UIImage(systemName: "message.fill")
+            image?.withTintColor(UIColor.white)
+            notificationTypeImage.setImage(image, for: .normal)
+            notificationTypeImage.backgroundColor = UIColor.blue
             break
         case "INFO":
             break

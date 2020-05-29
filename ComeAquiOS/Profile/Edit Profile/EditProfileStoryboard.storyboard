@@ -34,12 +34,14 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Profile Picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6om-kZ-CSj">
                                                                         <rect key="frame" x="0.0" y="0.0" width="352" height="30"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <color key="textColor" name="Primary"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wb-2u-8X8">
                                                                         <rect key="frame" x="352" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" title="Edit"/>
+                                                                        <state key="normal" title="Edit">
+                                                                            <color key="titleColor" name="SecondaryDark"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="editBackgroundImage:" destination="WpN-hH-tGe" eventType="touchUpInside" id="PrL-Th-uMb"/>
                                                                             <action selector="editProfileImage:" destination="WpN-hH-tGe" eventType="touchUpInside" id="nnb-CQ-7lO"/>
@@ -60,12 +62,14 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Cover Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwg-eg-WUf">
                                                                         <rect key="frame" x="0.0" y="0.0" width="352" height="30"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <color key="textColor" name="Primary"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfW-1T-RdD">
                                                                         <rect key="frame" x="352" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" title="Edit"/>
+                                                                        <state key="normal" title="Edit">
+                                                                            <color key="titleColor" name="SecondaryDark"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="editBackgroundImage:" destination="WpN-hH-tGe" eventType="touchUpInside" id="WDp-Ao-Zif"/>
                                                                         </connections>
@@ -85,12 +89,14 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwg-mV-BrI">
                                                                         <rect key="frame" x="0.0" y="0.0" width="352" height="30"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <color key="textColor" name="Primary"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEh-aa-p54">
                                                                         <rect key="frame" x="352" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" title="Add"/>
+                                                                        <state key="normal" title="Add">
+                                                                            <color key="titleColor" name="SecondaryDark"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="addBio:" destination="WpN-hH-tGe" eventType="touchUpInside" id="ELh-az-YDh"/>
                                                                             <segue destination="Xhb-eE-MwG" kind="show" id="TrG-qU-iv8"/>
@@ -112,12 +118,14 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Account Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpS-3B-0g9">
                                                                         <rect key="frame" x="0.0" y="0.0" width="352" height="30"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <color key="textColor" name="Primary"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD6-V5-cW1">
                                                                         <rect key="frame" x="352" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" title="Edit"/>
+                                                                        <state key="normal" title="Edit">
+                                                                            <color key="titleColor" name="SecondaryDark"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="editAccountDetails:" destination="WpN-hH-tGe" eventType="touchUpInside" id="U2K-k5-3pB"/>
                                                                             <segue destination="avr-pL-lJs" kind="show" id="aqJ-OS-Yrn"/>
@@ -129,15 +137,15 @@
                                                                 <rect key="frame" x="0.0" y="553" width="382" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBg-hQ-D8G">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="44.5" height="50"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <color key="textColor" name="Primary"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9V-gS-Zb5">
-                                                                        <rect key="frame" x="58" y="0.0" width="324" height="50"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <rect key="frame" x="52.5" y="0.0" width="329.5" height="50"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <color key="textColor" name="Primary"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -149,15 +157,15 @@
                                                                 <rect key="frame" x="0.0" y="603" width="382" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Surname:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8r-UG-NB2">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="50"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="65.5" height="50"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <color key="textColor" name="Primary"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kQ-iR-yrT">
-                                                                        <rect key="frame" x="81.5" y="0.0" width="300.5" height="50"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <rect key="frame" x="73.5" y="0.0" width="308.5" height="50"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <color key="textColor" name="Primary"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -170,14 +178,15 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OXe-o7-n5C">
                                                                         <rect key="frame" x="0.0" y="0.5" width="50" height="48.5"/>
+                                                                        <color key="tintColor" name="SecondaryDark"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="50" id="I2f-G1-7UA"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="000000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVJ-eo-kC1">
                                                                         <rect key="frame" x="58" y="0.0" width="324" height="50"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <color key="textColor" name="Primary"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -190,14 +199,15 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditcard" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9bR-pw-B6A">
                                                                         <rect key="frame" x="0.0" y="2" width="50" height="46"/>
+                                                                        <color key="tintColor" name="SecondaryDark"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="50" id="iCY-Ue-zgd"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0000-0000-0000-0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qa6-Rl-mFN">
                                                                         <rect key="frame" x="58" y="0.0" width="324" height="50"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <color key="textColor" name="Primary"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -211,12 +221,14 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Bank Account Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHn-pk-COo">
                                                                         <rect key="frame" x="0.0" y="0.0" width="352" height="30"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
+                                                                        <color key="textColor" name="Primary"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YV8-90-aey">
                                                                         <rect key="frame" x="352" y="0.0" width="30" height="30"/>
-                                                                        <state key="normal" title="Edit"/>
+                                                                        <state key="normal" title="Edit">
+                                                                            <color key="titleColor" name="SecondaryDark"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="editBankAccountDetails:" destination="WpN-hH-tGe" eventType="touchUpInside" id="xYq-pt-63x"/>
                                                                             <segue destination="ssJ-ih-0g1" kind="show" id="7nc-0O-SiI"/>
@@ -325,6 +337,12 @@
         <image name="photo.fill" catalog="system" width="128" height="93"/>
         <namedColor name="GreyLight">
             <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryDark">
+            <color red="0.59999999999999998" green="0.17254901960784313" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

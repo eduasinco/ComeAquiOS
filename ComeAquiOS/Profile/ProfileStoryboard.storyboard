@@ -184,7 +184,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Idx-fN-F4e" customClass="ImageToOpen" customModule="ComeAquiOS" customModuleProvider="target">
                                         <rect key="frame" x="122" y="101.5" width="170" height="167.5"/>
                                         <color key="backgroundColor" red="0.97132772840000003" green="0.97132772840000003" blue="0.97132772840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="tintColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" name="PrimaryLighter"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="170" id="OyU-EA-Fdz"/>
                                             <constraint firstAttribute="height" constant="170" id="yQs-qD-7tw"/>
@@ -566,7 +566,10 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rate_empty_star" width="175" height="175"/>
         <namedColor name="PrimaryLight">
-            <color red="0.43529411764705883" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryLighter">
+            <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

@@ -63,11 +63,15 @@ class StartReasonViewController: UIViewController {
         stackView.visibility = .visible
         var j = 0
         while j <= i {
+            let star = UIImage(systemName: "star.fill")
+            star?.withTintColor(UIColor(named: "Primary")!)
             starArray[j].setImage(UIImage(systemName: "star.fill"), for: .normal)
             j += 1
         }
         while j < starArray.count {
-            starArray[j].setImage(UIImage(systemName: "star"), for: .normal)
+            let star = UIImage(systemName: "star")
+            star?.withTintColor(UIColor(named: "Favourite")!)
+            starArray[j].setImage(star, for: .normal)
             j += 1
         }
         if (i == 4){
@@ -114,11 +118,11 @@ class StartReasonViewController: UIViewController {
         reasonsB[i] = !reasonsB[i]
         delegate?.reasons(reasons: reasonsB)
         if (reasonsB[i]){
-            reason.backgroundColor = UIColor.black
+            reason.backgroundColor = UIColor(named: "Primary")
             reason.setTitleColor(UIColor.white, for: .normal)
         } else {
             reason.backgroundColor = UIColor.white
-            reason.setTitleColor(UIColor.black, for: .normal)
+            reason.setTitleColor(UIColor(named: "Secondary"), for: .normal)
         }
     }
 }

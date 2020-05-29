@@ -37,6 +37,7 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="hsr-gT-oNU"/>
                                                                         </constraints>
+                                                                        <color key="textColor" name="Primary"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
@@ -64,6 +65,7 @@
                                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="bv0-k1-MA7"/>
                                                                                     <constraint firstAttribute="height" constant="50" id="z0l-Y0-wQA"/>
                                                                                 </constraints>
+                                                                                <color key="textColor" name="Primary"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                             </textField>
@@ -101,6 +103,7 @@
                                                                                     <constraint firstAttribute="height" constant="50" id="FOE-Nf-3fO"/>
                                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="miH-W6-22Q"/>
                                                                                 </constraints>
+                                                                                <color key="textColor" name="Primary"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                             </textField>
@@ -128,13 +131,13 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="200" id="gLP-Cz-VaY"/>
                                                                                 </constraints>
-                                                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                                <color key="textColor" name="Primary"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                             </textView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/202" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weI-PJ-394">
-                                                                                <rect key="frame" x="345.5" y="184" width="36.5" height="16"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                                <rect key="frame" x="346" y="184" width="36" height="16"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -162,7 +165,7 @@
                                                             </containerView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJk-sv-1bB">
                                                                 <rect key="frame" x="0.0" y="750" width="382" height="50"/>
-                                                                <color key="backgroundColor" name="Primary"/>
+                                                                <color key="backgroundColor" name="PrimaryLight"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="OrS-SK-qLo"/>
                                                                 </constraints>
@@ -280,6 +283,9 @@
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryLight">
+            <color red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

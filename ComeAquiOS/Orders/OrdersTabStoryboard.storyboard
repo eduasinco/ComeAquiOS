@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -70,19 +71,25 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34v-4P-gro">
                                         <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
-                                        <state key="normal" title="Guesting"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="Guesting">
+                                            <color key="titleColor" name="SecondaryDark"/>
+                                        </state>
                                         <connections>
                                             <action selector="guestingPressed:" destination="1Aa-pC-1GO" eventType="touchUpInside" id="bgo-ru-al4"/>
                                         </connections>
                                     </button>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="9fz-h3-vYz">
                                         <rect key="frame" x="138" y="0.0" width="138" height="50"/>
-                                        <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="currentPageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="pageIndicatorTintColor" name="PrimaryLight"/>
+                                        <color key="currentPageIndicatorTintColor" name="SecondaryDark"/>
                                     </pageControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5G-OG-cin">
                                         <rect key="frame" x="276" y="0.0" width="138" height="50"/>
-                                        <state key="normal" title="Hosting"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="Hosting">
+                                            <color key="titleColor" name="PrimaryLight"/>
+                                        </state>
                                         <connections>
                                             <action selector="hostingPressed:" destination="1Aa-pC-1GO" eventType="touchUpInside" id="gqs-Lt-XFq"/>
                                         </connections>
@@ -109,6 +116,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="guestingButton" destination="34v-4P-gro" id="YMw-it-Gfm"/>
+                        <outlet property="hostingButton" destination="d5G-OG-cin" id="YD9-io-FWH"/>
                         <outlet property="pageControl" destination="9fz-h3-vYz" id="2yS-TC-mH6"/>
                         <outlet property="scrollView" destination="2rQ-eR-UhX" id="jr1-Vq-kx7"/>
                         <outlet property="width" destination="F5G-Sh-FoO" id="Ayq-rV-8UT"/>
@@ -158,5 +167,11 @@
     <resources>
         <image name="tray" catalog="system" width="128" height="88"/>
         <image name="tray.fill" catalog="system" width="128" height="88"/>
+        <namedColor name="PrimaryLight">
+            <color red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryDark">
+            <color red="0.59999999999999998" green="0.17254901960784313" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

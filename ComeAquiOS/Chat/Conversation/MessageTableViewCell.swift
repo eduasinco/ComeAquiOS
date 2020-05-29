@@ -49,7 +49,7 @@ class MessageTableViewCell: UITableViewCell {
         } else {
             leftMessageConstraint?.isActive = true
             rightMessageConstraint?.isActive = false
-            messageContainer.backgroundColor = UIColor(named: "SecondaryLight")
+            messageContainer.backgroundColor = UIColor(named: "SecondaryLighter")
             
             if messageBefore != nil && messageBefore?.sender!.id == message.sender!.id {
                 messageContainer.layer.cornerRadius = 8

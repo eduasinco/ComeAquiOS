@@ -29,7 +29,7 @@
                                                 </constraints>
                                                 <color key="tintColor" name="Secondary"/>
                                                 <state key="normal" title="For you (Default)" image="person" catalog="system">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleColor" name="Primary"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="foryou:" destination="shY-6o-NWU" eventType="touchUpInside" id="5Yz-iz-GO7"/>
@@ -42,7 +42,7 @@
                                                 </constraints>
                                                 <color key="tintColor" name="Secondary"/>
                                                 <state key="normal" title="Popular" image="person.3" catalog="system">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleColor" name="Primary"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="popular:" destination="shY-6o-NWU" eventType="touchUpInside" id="VC6-Vj-8Nk"/>
@@ -55,7 +55,7 @@
                                                 </constraints>
                                                 <color key="tintColor" name="Secondary"/>
                                                 <state key="normal" title="Rating" image="star" catalog="system">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleColor" name="Primary"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="rating:" destination="shY-6o-NWU" eventType="touchUpInside" id="SvW-TC-xDe"/>
@@ -63,7 +63,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-Hm-cZq">
                                                 <rect key="frame" x="0.0" y="150" width="382" height="50"/>
-                                                <color key="backgroundColor" name="Primary"/>
+                                                <color key="backgroundColor" name="PrimaryLight"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="pO7-FV-uYS"/>
                                                 </constraints>
@@ -117,6 +117,9 @@
         <image name="star" catalog="system" width="128" height="116"/>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryLight">
+            <color red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Secondary">
             <color red="0.7803921568627451" green="0.2196078431372549" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

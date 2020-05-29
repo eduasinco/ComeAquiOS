@@ -99,11 +99,11 @@ class ReviewHostViewController: KUIViewController {
         amountField.text = "$ " + price!.format()
         for b in [noTipButton, tip15Button, tip20Button, tip25Button] {
             if b == button {
-                b?.backgroundColor = UIColor.black
+                b?.backgroundColor = UIColor(named: "PrimaryLight")
                 b?.setTitleColor(UIColor.white, for: .normal)
             } else {
                 b?.backgroundColor = UIColor.white
-                b?.setTitleColor(UIColor.black, for: .normal)
+                b?.setTitleColor(UIColor(named: "PrimaryLight"), for: .normal)
             }
         }
         starReasonView.visibility = .visible
