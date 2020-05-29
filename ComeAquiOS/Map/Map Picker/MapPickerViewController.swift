@@ -19,7 +19,7 @@ class MapPickerViewController: UIViewController {
     @IBOutlet weak var pan: UIView!
     @IBOutlet weak var handle: UIView!
     @IBOutlet weak var picker: UIView!
-    @IBOutlet weak var middleYPicker: NSLayoutConstraint!
+    @IBOutlet weak var bottomPickerConstraint: NSLayoutConstraint!
     @IBOutlet weak var pickerButton: UIButton!
     @IBOutlet weak var searchContainerView: UIView!
     
@@ -31,8 +31,8 @@ class MapPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        middleYPicker.constant = -picker.frame.height / 2
-        pan.roundCorners(radius: pan.frame.height/2).border(witdth: handle.frame.width - 1)
+        bottomPickerConstraint.constant = view.frame.height / 2
+        pan.roundCorners(radius: pan.frame.height/2).border(witdth: handle.frame.width - 1, color: UIColor(named: "Secondary")!.cgColor)
         label.roundCorners(radius: label.frame.height/2)
         handle.circle()
         searchContainerView.visibility = .gone
@@ -40,6 +40,7 @@ class MapPickerViewController: UIViewController {
         
         pickerButton.roundCorners(radius: pickerButton.frame.height/2).dropShadow()
         searchContainerView.textFieldBorderStyle()
+        
     }
     @IBAction func addFoodPressed(_ sender: Any) {
         if (fabCount == 0){
@@ -60,6 +61,13 @@ class MapPickerViewController: UIViewController {
     
     func switchFabImage(_ toPLus: Bool){
         pickerButton.setImage(UIImage(systemName: toPLus ? "plus": "plus.magnifyingglass"), for: UIControl.State.normal)
+    }
+    
+    func animate(up: Bool = true) {
+        UIView.animate(withDuration: 0.2){
+            self.bottomPickerConstraint.constant = up ?  self.view.frame.height / 2 + 20 : self.view.frame.height / 2
+            self.view.layoutIfNeeded()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

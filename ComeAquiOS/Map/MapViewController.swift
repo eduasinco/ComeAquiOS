@@ -69,6 +69,11 @@ class MapViewController: LoadViewController, CardActionProtocol {
         
         webSocketConnetion()
     }
+
+    override func viewDidLayoutSubviews() {
+        containerView.roundCorners(radius: 8, clip: true)
+        cardView.roundCorners(radius: 8).dropShadow()
+    }
     
     func setMarkers(){
         guard let foodPosts = foodPosts else {return}
@@ -342,10 +347,12 @@ extension MapViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         mapPickerContainer.label.text = ""
+        mapPickerContainer.animate()
     }
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition){
         cameraLat = mapView.camera.target.latitude
         cameraLng = mapView.camera.target.longitude
+        mapPickerContainer.animate(up: false)
         mapPickerContainer.getLocationFromGoogle(lat: cameraLat!,  lng: cameraLng!)
     }
 }

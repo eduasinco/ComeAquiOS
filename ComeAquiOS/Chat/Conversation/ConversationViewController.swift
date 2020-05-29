@@ -388,10 +388,12 @@ extension ConversationViewController: UITextViewDelegate, UITextFieldDelegate {
         if numberOfChars > 0 {
             UIView.animate(withDuration: 0.5) {
                 self.sendButton.visibility = .visible
+                self.view.layoutIfNeeded()
             }
         } else {
             UIView.animate(withDuration: 0.5) {
                 self.sendButton.visibility = .goneX
+                self.view.layoutIfNeeded()
             }
         }
         return numberOfChars < 200

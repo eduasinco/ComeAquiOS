@@ -122,6 +122,7 @@ class SearchViewController: KUIViewController {
         if segue.identifier == "PlaceAutocompleteSegue" {
             autocompleteVC = segue.destination as? PlaceAutocompleteViewController
             autocompleteVC?.delegate = self
+            autocompleteVC?.closeVisible = false
         } else if segue.identifier == "AllFilterSegue" {
             let vc = segue.destination as? AllViewController
             vc?.delegate = self

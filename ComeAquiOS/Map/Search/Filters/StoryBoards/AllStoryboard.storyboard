@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -216,10 +217,13 @@
                                                                             </containerView>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbW-rN-t6b">
                                                                                 <rect key="frame" x="0.0" y="50" width="382" height="50"/>
+                                                                                <color key="backgroundColor" name="Primary"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="50" id="EQY-DR-xxz"/>
                                                                                 </constraints>
-                                                                                <state key="normal" title="Apply"/>
+                                                                                <state key="normal" title="Apply">
+                                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                </state>
                                                                                 <connections>
                                                                                     <action selector="apply:" destination="8ww-X9-XP5" eventType="touchUpInside" id="YUF-mm-P7o"/>
                                                                                 </connections>
@@ -312,5 +316,8 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <namedColor name="Primary">
+            <color red="0.94300001859664917" green="0.55699998140335083" blue="0.0020000000949949026" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

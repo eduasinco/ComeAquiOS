@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -83,7 +84,7 @@
                                         </connections>
                                     </containerView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="PrimaryLight"/>
                                 <constraints>
                                     <constraint firstItem="Ypx-lw-UC2" firstAttribute="leading" secondItem="fJZ-NB-sJw" secondAttribute="leading" id="428-OD-zis"/>
                                     <constraint firstAttribute="trailing" secondItem="Ypx-lw-UC2" secondAttribute="trailing" id="4gF-Oh-P47"/>
@@ -263,6 +264,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="sVf-sV-QfO"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gH3-Rd-W9x">
                                                 <rect key="frame" x="48" y="0.0" width="318" height="40"/>
@@ -338,8 +342,8 @@
                                             <stackView opaque="NO" tag="4" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IcY-jG-dB0">
                                                 <rect key="frame" x="0.0" y="51.5" width="366" height="20"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food-time" translatesAutoresizingMaskIntoConstraints="NO" id="GHg-IQ-Vk6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="15" height="20"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GHg-IQ-Vk6">
+                                                        <rect key="frame" x="0.0" y="0.5" width="15" height="19"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="15" id="bvW-b6-CNP"/>
                                                         </constraints>
@@ -530,10 +534,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clock" catalog="system" width="128" height="121"/>
         <image name="favourite_star" width="205" height="205"/>
-        <image name="food-time" width="200" height="200"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="rate_empty_star" width="175" height="175"/>
+        <namedColor name="PrimaryLight">
+            <color red="1" green="0.76200002431869507" blue="0.38499999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>
