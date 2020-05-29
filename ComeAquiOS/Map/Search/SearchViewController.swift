@@ -88,33 +88,33 @@ class SearchViewController: KUIViewController {
         setDistanceQuery()
         if let sortValue = sortValue {
             query += "&sort=\(sortValue)"
-            sort.backgroundColor = UIColor.black
+            sort.backgroundColor = UIColor(named: "Primary")
         } else {
-            sort.backgroundColor = UIColor.white
+            sort.backgroundColor = UIColor(named: "SecondaryLight")
         }
         if let priceValue = priceValue {
             query += "&price=\(priceValue)"
-            price.backgroundColor = UIColor.black
+            price.backgroundColor = UIColor(named: "Primary")
         } else {
-            price.backgroundColor = UIColor.white
+            price.backgroundColor = UIColor(named: "SecondaryLight")
         }
         if let startTimeValue = startTimeValue, let endTimeValue = endTimeValue {
             query += "&start_date=\(startTimeValue)"
             query += "&end_date=\(endTimeValue)"
-            mealTime.backgroundColor = UIColor.black
+            mealTime.backgroundColor = UIColor(named: "Primary")
         } else {
-            mealTime.backgroundColor = UIColor.white
+            mealTime.backgroundColor = UIColor(named: "SecondaryLight")
         }
         if globalDistance == DISTANCE {
-            distance.backgroundColor = UIColor.white
+            distance.backgroundColor = UIColor(named: "Primary")
         } else {
-            distance.backgroundColor = UIColor.black
+            distance.backgroundColor = UIColor(named: "SecondaryLight")
         }
         if let dietaryValue = dietaryValue {
             query += "&dietary=\(dietaryValue)"
-            dietary.backgroundColor = UIColor.black
+            dietary.backgroundColor = UIColor(named: "Primary")
         } else {
-            dietary.backgroundColor = UIColor.white
+            dietary.backgroundColor = UIColor(named: "SecondaryLight")
         }
     }
     

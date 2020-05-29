@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xUf-cd-JYH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xUf-cd-JYH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -217,69 +218,116 @@
                                         </constraints>
                                     </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDa-nt-yg3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLJ-Y9-1Rw">
-                                                <rect key="frame" x="0.0" y="70" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="70" width="414" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl3-jU-4gs">
-                                                        <rect key="frame" x="0.0" y="0.0" width="557" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="556" height="40"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6e6-J4-kTJ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="557" height="50"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6e6-J4-kTJ">
+                                                                <rect key="frame" x="0.0" y="4" width="556" height="32"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATL-8X-7H3">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="47" height="50"/>
-                                                                        <state key="normal" title="People"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="32"/>
+                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <state key="normal" title="  People  ">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <segue destination="92b-9T-Zlu" kind="show" identifier="PeopleSegue" id="AK0-0l-zhL"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKd-jL-UD0">
-                                                                        <rect key="frame" x="67" y="0.0" width="30" height="50"/>
-                                                                        <state key="normal" title=" All "/>
+                                                                        <rect key="frame" x="71" y="0.0" width="33" height="32"/>
+                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <state key="normal" title="  All  ">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <segue destination="7xM-pf-g77" kind="presentation" identifier="AllFilterSegue" id="Mhk-4d-S5l"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSl-bF-B6U">
-                                                                        <rect key="frame" x="117" y="0.0" width="30" height="50"/>
-                                                                        <state key="normal" title="Sort"/>
+                                                                        <rect key="frame" x="112" y="0.0" width="46" height="32"/>
+                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <state key="normal" title="  Sort  ">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <segue destination="auy-08-zu1" kind="presentation" identifier="SortFilterSegue" modalPresentationStyle="overFullScreen" id="3vO-Fq-Wmb"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5L-28-xVR">
-                                                                        <rect key="frame" x="167" y="0.0" width="35" height="50"/>
-                                                                        <state key="normal" title="Price"/>
+                                                                        <rect key="frame" x="166" y="0.0" width="51" height="32"/>
+                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <state key="normal" title="  Price  ">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <segue destination="4tx-lq-1q7" kind="presentation" identifier="PriceFilterSegue" modalPresentationStyle="overFullScreen" id="LWo-jc-aUx"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="if9-fb-f56">
-                                                                        <rect key="frame" x="222" y="0.0" width="75" height="50"/>
-                                                                        <state key="normal" title=" Meal time "/>
+                                                                        <rect key="frame" x="225" y="0.0" width="83" height="32"/>
+                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <state key="normal" title="  Meal time  ">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <segue destination="t3z-sm-QvI" kind="presentation" identifier="MealTimeFilterSegue" modalPresentationStyle="overFullScreen" id="8Kj-fB-4gJ"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-pZ-Suz">
-                                                                        <rect key="frame" x="317" y="0.0" width="68" height="50"/>
-                                                                        <state key="normal" title=" Distance "/>
+                                                                        <rect key="frame" x="316" y="0.0" width="76" height="32"/>
+                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <state key="normal" title="  Distance  ">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <segue destination="lOk-rZ-mJg" kind="presentation" identifier="DistanceFilterSegue" modalPresentationStyle="overFullScreen" id="CcW-cV-cGX"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLY-Kx-C8U">
-                                                                        <rect key="frame" x="405" y="0.0" width="58" height="50"/>
-                                                                        <state key="normal" title=" Dietary "/>
+                                                                        <rect key="frame" x="400" y="0.0" width="66" height="32"/>
+                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <state key="normal" title="  Dietary  ">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <segue destination="bHd-gV-zOX" kind="presentation" identifier="DietaryFilterSegue" modalPresentationStyle="overFullScreen" id="seV-gm-5ep"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfR-4X-xKO">
-                                                                        <rect key="frame" x="483" y="0.0" width="74" height="50"/>
-                                                                        <state key="normal" title=" Delete All "/>
+                                                                        <rect key="frame" x="474" y="0.0" width="82" height="32"/>
+                                                                        <state key="normal" title="  Delete All  ">
+                                                                            <color key="titleColor" name="Secondary"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="deleteAll:" destination="xUf-cd-JYH" eventType="touchUpInside" id="eeK-65-Hqt"/>
                                                                         </connections>
@@ -289,8 +337,8 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="6e6-J4-kTJ" secondAttribute="bottom" id="DrJ-77-5hk"/>
-                                                            <constraint firstItem="6e6-J4-kTJ" firstAttribute="top" secondItem="gl3-jU-4gs" secondAttribute="top" id="Rta-4c-hMl"/>
+                                                            <constraint firstAttribute="bottom" secondItem="6e6-J4-kTJ" secondAttribute="bottom" constant="4" id="DrJ-77-5hk"/>
+                                                            <constraint firstItem="6e6-J4-kTJ" firstAttribute="top" secondItem="gl3-jU-4gs" secondAttribute="top" constant="4" id="Rta-4c-hMl"/>
                                                             <constraint firstItem="6e6-J4-kTJ" firstAttribute="leading" secondItem="gl3-jU-4gs" secondAttribute="leading" id="vpb-Vn-TeC"/>
                                                             <constraint firstAttribute="trailing" secondItem="6e6-J4-kTJ" secondAttribute="trailing" id="xF4-pl-34Q"/>
                                                         </constraints>
@@ -302,7 +350,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="gl3-jU-4gs" secondAttribute="bottom" id="Orf-EZ-0Xw"/>
                                                     <constraint firstItem="gl3-jU-4gs" firstAttribute="top" secondItem="aLJ-Y9-1Rw" secondAttribute="top" id="VuZ-YR-bcz"/>
                                                     <constraint firstItem="gl3-jU-4gs" firstAttribute="leading" secondItem="aLJ-Y9-1Rw" secondAttribute="leading" id="as9-rp-tMs"/>
-                                                    <constraint firstAttribute="height" constant="50" id="mG5-9q-WrU"/>
+                                                    <constraint firstAttribute="height" constant="40" id="mG5-9q-WrU"/>
                                                     <constraint firstAttribute="trailing" secondItem="gl3-jU-4gs" secondAttribute="trailing" id="uvq-0c-w7B"/>
                                                 </constraints>
                                             </scrollView>
@@ -473,5 +521,11 @@
         <image name="vegan_fill" width="470" height="427"/>
         <image name="vegetarian_fill" width="369" height="400"/>
         <image name="wheat_fill" width="512" height="512"/>
+        <namedColor name="Secondary">
+            <color red="0.44699999690055847" green="0.44499999284744263" blue="0.44900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryLight">
+            <color red="0.72100001573562622" green="0.71799999475479126" blue="0.72500002384185791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>
