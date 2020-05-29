@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7ch-uc-Nvk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7ch-uc-Nvk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -184,7 +185,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="410"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="UQX-mO-RJO">
-                                                        <rect key="frame" x="20" y="20" width="374" height="390"/>
+                                                        <rect key="frame" x="20" y="20" width="374" height="340"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HPA-LI-xbg">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
@@ -249,11 +250,14 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Icb-ZL-7ce">
-                                                                <rect key="frame" x="0.0" y="290" width="374" height="100"/>
+                                                                <rect key="frame" x="0.0" y="290" width="374" height="50"/>
+                                                                <color key="backgroundColor" name="Secondary"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="100" id="giI-ov-gEu"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="giI-ov-gEu"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Register"/>
+                                                                <state key="normal" title="Register">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="registerPress:" destination="RXn-g6-sTg" eventType="touchUpInside" id="u6Y-2M-YS2"/>
                                                                 </connections>
@@ -266,7 +270,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="UQX-mO-RJO" secondAttribute="bottom" id="JkK-lw-Ud7"/>
+                                                    <constraint firstAttribute="bottom" secondItem="UQX-mO-RJO" secondAttribute="bottom" constant="50" id="JkK-lw-Ud7"/>
                                                     <constraint firstAttribute="trailing" secondItem="UQX-mO-RJO" secondAttribute="trailing" constant="20" id="fdl-tG-EWr"/>
                                                     <constraint firstItem="UQX-mO-RJO" firstAttribute="top" secondItem="dcQ-zi-zOH" secondAttribute="top" constant="20" id="lYO-wt-Ahb"/>
                                                     <constraint firstItem="UQX-mO-RJO" firstAttribute="leading" secondItem="dcQ-zi-zOH" secondAttribute="leading" constant="20" id="qyV-Av-Va2"/>
@@ -319,7 +323,6 @@
         <!--Presentation View Controller-->
         <scene sceneID="tTn-tT-NcS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0EK-WB-DNW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="zcA-hZ-rMo" customClass="PresentationViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XEN-k1-qPF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -368,6 +371,7 @@
                         <outlet property="message" destination="F5g-Pr-6c6" id="HBn-Dy-rGd"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0EK-WB-DNW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3646" y="-250"/>
         </scene>
@@ -393,4 +397,9 @@
     <inferredMetricsTieBreakers>
         <segue reference="bed-fp-gGf"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <namedColor name="Secondary">
+            <color red="0.7803921568627451" green="0.2196078431372549" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

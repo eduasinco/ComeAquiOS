@@ -90,31 +90,31 @@ class SearchViewController: KUIViewController {
             query += "&sort=\(sortValue)"
             sort.backgroundColor = UIColor(named: "Primary")
         } else {
-            sort.backgroundColor = UIColor(named: "SecondaryLight")
+            sort.backgroundColor = UIColor(named: "PrimaryLight")
         }
         if let priceValue = priceValue {
             query += "&price=\(priceValue)"
             price.backgroundColor = UIColor(named: "Primary")
         } else {
-            price.backgroundColor = UIColor(named: "SecondaryLight")
+            price.backgroundColor = UIColor(named: "PrimaryLight")
         }
         if let startTimeValue = startTimeValue, let endTimeValue = endTimeValue {
             query += "&start_date=\(startTimeValue)"
             query += "&end_date=\(endTimeValue)"
             mealTime.backgroundColor = UIColor(named: "Primary")
         } else {
-            mealTime.backgroundColor = UIColor(named: "SecondaryLight")
+            mealTime.backgroundColor = UIColor(named: "PrimaryLight")
         }
         if globalDistance == DISTANCE {
             distance.backgroundColor = UIColor(named: "Primary")
         } else {
-            distance.backgroundColor = UIColor(named: "SecondaryLight")
+            distance.backgroundColor = UIColor(named: "PrimaryLight")
         }
         if let dietaryValue = dietaryValue {
             query += "&dietary=\(dietaryValue)"
             dietary.backgroundColor = UIColor(named: "Primary")
         } else {
-            dietary.backgroundColor = UIColor(named: "SecondaryLight")
+            dietary.backgroundColor = UIColor(named: "PrimaryLight")
         }
     }
     

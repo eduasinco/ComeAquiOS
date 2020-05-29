@@ -34,7 +34,7 @@ class MapPickerViewController: UIViewController {
         super.viewDidLoad()
         
         bottomPickerConstraint.constant = view.frame.height / 2
-        pan.roundCorners(radius: pan.frame.height/2).border(witdth: handle.frame.width - 1, color: UIColor(named: "Secondary")!.cgColor)
+        pan.roundCorners(radius: pan.frame.height/2).border(witdth: handle.frame.width - 1, color: UIColor(named: "Primary")!.cgColor)
         label.roundCorners(radius: label.frame.height/2)
         handle.circle()
         searchContainerView.visibility = .gone

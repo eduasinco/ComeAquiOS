@@ -133,23 +133,12 @@
                         <outlet property="tableView" destination="BKK-pX-WyP" id="P6I-aM-7Ed"/>
                         <segue destination="P2p-VK-2GI" kind="show" identifier="OrderLookSegue" id="ipG-ga-FMR"/>
                         <segue destination="dNr-wp-ohN" kind="show" identifier="FoodLookSegue" id="MEm-MP-hU3"/>
-                        <segue destination="KOg-qO-2sf" kind="show" identifier="NotificationLookSegue" id="9i1-JW-iMN"/>
                         <segue destination="y4e-nB-XsM" kind="show" identifier="FoodReviewSegue" id="Q5X-eh-Lcw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0eN-Gm-cLG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="728.98550724637687" y="-286.60714285714283"/>
-        </scene>
-        <!--NotificationLookView-->
-        <scene sceneID="7z2-Qw-6ot">
-            <objects>
-                <viewControllerPlaceholder storyboardName="NotificationLookStoryboard" referencedIdentifier="NotificationLookView" id="KOg-qO-2sf" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="pT4-PJ-uvx"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W7g-Ti-eWr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1410.8695652173915" y="-360.26785714285711"/>
         </scene>
         <!--OrderLookView-->
         <scene sceneID="vpt-hd-Bcx">

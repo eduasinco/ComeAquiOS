@@ -126,6 +126,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="Jos-ro-v07"/>
             <connections>
+                <outlet property="addButton" destination="bQh-a3-C8Q" id="5Lo-7x-8uS"/>
                 <outlet property="continueConversationButton" destination="4KM-yd-JwG" id="yv7-su-F85"/>
                 <outlet property="deleteButton" destination="i1B-R2-4tT" id="JZy-2y-Vrz"/>
                 <outlet property="label" destination="MC4-Qp-z6E" id="cBe-fT-Edh"/>

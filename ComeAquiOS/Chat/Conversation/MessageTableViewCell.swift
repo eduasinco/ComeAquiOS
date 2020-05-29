@@ -37,7 +37,7 @@ class MessageTableViewCell: UITableViewCell {
             leftMessageConstraint?.isActive = false
             rightMessageConstraint?.isActive = true
             messageContainer.backgroundColor = UIColor.lightGray
-            messageContainer.backgroundColor = UIColor(named: "SecondaryLighter")
+            messageContainer.backgroundColor = UIColor(named: "PrimaryLighter")
             
             if messageBefore != nil && messageBefore?.sender!.id == message.sender!.id {
                 messageContainer.layer.cornerRadius = 8
@@ -49,7 +49,7 @@ class MessageTableViewCell: UITableViewCell {
         } else {
             leftMessageConstraint?.isActive = true
             rightMessageConstraint?.isActive = false
-            messageContainer.backgroundColor = UIColor(named: "PrimaryLighter")
+            messageContainer.backgroundColor = UIColor(named: "SecondaryLight")
             
             if messageBefore != nil && messageBefore?.sender!.id == message.sender!.id {
                 messageContainer.layer.cornerRadius = 8

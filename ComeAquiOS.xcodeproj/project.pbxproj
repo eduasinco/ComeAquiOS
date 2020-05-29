@@ -97,8 +97,6 @@
 		87D8A593245A275B0056AC9B /* GuestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A592245A275B0056AC9B /* GuestingViewController.swift */; };
 		87D8A595245A27690056AC9B /* HostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A594245A27690056AC9B /* HostingViewController.swift */; };
 		87D8A597245A9F430056AC9B /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A596245A9F430056AC9B /* NotificationTableViewCell.swift */; };
-		87D8A59A245AB2CE0056AC9B /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A599245AB2CE0056AC9B /* NotificationViewController.swift */; };
-		87D8A59C245AB2DC0056AC9B /* NotificationLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A59B245AB2DC0056AC9B /* NotificationLookStoryboard.storyboard */; };
 		87D8A5A0245AB3EA0056AC9B /* FoodReviewLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A59F245AB3EA0056AC9B /* FoodReviewLookViewController.swift */; };
 		87D8A5A2245AB40C0056AC9B /* ReviewLookStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D8A5A1245AB40C0056AC9B /* ReviewLookStoryboard.storyboard */; };
 		87D8A5A4245ABEE20056AC9B /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D8A5A3245ABEE20056AC9B /* ReviewTableViewCell.swift */; };
@@ -256,8 +254,6 @@
 		87D8A592245A275B0056AC9B /* GuestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestingViewController.swift; sourceTree = "<group>"; };
 		87D8A594245A27690056AC9B /* HostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingViewController.swift; sourceTree = "<group>"; };
 		87D8A596245A9F430056AC9B /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
-		87D8A599245AB2CE0056AC9B /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		87D8A59B245AB2DC0056AC9B /* NotificationLookStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationLookStoryboard.storyboard; sourceTree = "<group>"; };
 		87D8A59F245AB3EA0056AC9B /* FoodReviewLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodReviewLookViewController.swift; sourceTree = "<group>"; };
 		87D8A5A1245AB40C0056AC9B /* ReviewLookStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReviewLookStoryboard.storyboard; sourceTree = "<group>"; };
 		87D8A5A3245ABEE20056AC9B /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -684,15 +680,6 @@
 			path = Guesting;
 			sourceTree = "<group>";
 		};
-		87D8A598245AB2B50056AC9B /* Notification Look */ = {
-			isa = PBXGroup;
-			children = (
-				87D8A599245AB2CE0056AC9B /* NotificationViewController.swift */,
-				87D8A59B245AB2DC0056AC9B /* NotificationLookStoryboard.storyboard */,
-			);
-			path = "Notification Look";
-			sourceTree = "<group>";
-		};
 		87D8A59D245AB3940056AC9B /* Reviews */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,7 +821,6 @@
 		87FC9E92244800A500810ECF /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				87D8A598245AB2B50056AC9B /* Notification Look */,
 				87FC9EA6244801FD00810ECF /* NotificationsViewController.swift */,
 				87D8A596245A9F430056AC9B /* NotificationTableViewCell.swift */,
 				87FC9EA82448020D00810ECF /* NotificationsStoryboard.storyboard */,
@@ -1110,7 +1096,6 @@
 				87E02C8B24513880005C272A /* ImageLookerStoryboard.storyboard in Resources */,
 				87AAF8F6246A5796000CDC1D /* ImagePagerStoryboard.storyboard in Resources */,
 				87D8A53B245A06FF0056AC9B /* OrdersTabStoryboard.storyboard in Resources */,
-				87D8A59C245AB2DC0056AC9B /* NotificationLookStoryboard.storyboard in Resources */,
 				87FC9EEE244E9FE600810ECF /* PlaceAutocompleteStoryboard.storyboard in Resources */,
 				87AAF8CE24693BC7000CDC1D /* EditEmailAddressStoryboard.storyboard in Resources */,
 				87D8A5AF245CA61F0056AC9B /* ImageScrollStoryboard.storyboard in Resources */,
@@ -1227,7 +1212,6 @@
 				87FC9EA7244801FD00810ECF /* NotificationsViewController.swift in Sources */,
 				87FC9ECA2448050A00810ECF /* Classes.swift in Sources */,
 				879CBFFC2458F04D00383F68 /* EditPostViewController.swift in Sources */,
-				87D8A59A245AB2CE0056AC9B /* NotificationViewController.swift in Sources */,
 				87B169842473DCBA007685FE /* Capabilities .swift in Sources */,
 				87E3FFAA246F604D008D084B /* ConversationViewController.swift in Sources */,
 				87AAF8FF246A9ED3000CDC1D /* ViewControllers.swift in Sources */,

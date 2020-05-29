@@ -28,7 +28,7 @@
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1G-sd-t6m" userLabel="handle">
                                         <rect key="frame" x="15" y="29" width="4" height="20"/>
-                                        <color key="backgroundColor" name="Secondary"/>
+                                        <color key="backgroundColor" name="Primary"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="CuJ-hh-wDM"/>
                                             <constraint firstAttribute="width" constant="4" id="m3C-4n-ZPD"/>
@@ -84,10 +84,10 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjo-w5-uo7">
-                                <rect key="frame" x="20" y="20" width="374" height="50"/>
+                                <rect key="frame" x="20" y="20" width="374" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="200" constant="50" id="UzX-SG-Pdv"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="upm-We-oaO"/>
+                                    <constraint firstAttribute="height" priority="200" constant="40" id="UzX-SG-Pdv"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="upm-We-oaO"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="3hc-Tg-Hzj" kind="embed" identifier="PlaceAutocompleteSegue" id="cKz-cV-dBA"/>
@@ -136,8 +136,8 @@
     <resources>
         <image name="picker_shadow" width="116" height="139"/>
         <image name="plus.magnifyingglass" catalog="system" width="128" height="115"/>
-        <namedColor name="Secondary">
-            <color red="0.44699999690055847" green="0.44499999284744263" blue="0.44900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="Primary">
+            <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

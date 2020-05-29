@@ -39,6 +39,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="50" id="CA6-Pd-fN2"/>
                                                                                 </constraints>
+                                                                                <color key="tintColor" name="Secondary"/>
                                                                                 <state key="normal" title="For you (Default)" image="person" catalog="system">
                                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 </state>
@@ -51,6 +52,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="50" id="68k-ym-oLx"/>
                                                                                 </constraints>
+                                                                                <color key="tintColor" name="Secondary"/>
                                                                                 <state key="normal" title="Popular" image="person.3" catalog="system">
                                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 </state>
@@ -63,6 +65,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="50" id="Xjz-Fh-wy7"/>
                                                                                 </constraints>
+                                                                                <color key="tintColor" name="Secondary"/>
                                                                                 <state key="normal" title="Rating" image="star" catalog="system">
                                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                 </state>
@@ -182,6 +185,7 @@
                                                                             </label>
                                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="2N7-Z0-X40">
                                                                                 <rect key="frame" x="-2" y="50" width="386" height="51"/>
+                                                                                <color key="tintColor" name="Secondary"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="50" id="LbK-XC-6Hb"/>
                                                                                 </constraints>
@@ -317,7 +321,10 @@
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <namedColor name="Primary">
-            <color red="0.94300001859664917" green="0.55699998140335083" blue="0.0020000000949949026" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Secondary">
+            <color red="0.7803921568627451" green="0.2196078431372549" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

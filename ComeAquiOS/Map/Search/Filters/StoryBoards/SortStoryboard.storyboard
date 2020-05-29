@@ -27,6 +27,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="ZPf-yl-KeM"/>
                                                 </constraints>
+                                                <color key="tintColor" name="Secondary"/>
                                                 <state key="normal" title="For you (Default)" image="person" catalog="system">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
@@ -39,6 +40,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Dpb-vm-Waz"/>
                                                 </constraints>
+                                                <color key="tintColor" name="Secondary"/>
                                                 <state key="normal" title="Popular" image="person.3" catalog="system">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
@@ -51,6 +53,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="ONS-JI-dmS"/>
                                                 </constraints>
+                                                <color key="tintColor" name="Secondary"/>
                                                 <state key="normal" title="Rating" image="star" catalog="system">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
@@ -113,7 +116,10 @@
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <namedColor name="Primary">
-            <color red="0.94300001859664917" green="0.55699998140335083" blue="0.0020000000949949026" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Secondary">
+            <color red="0.7803921568627451" green="0.2196078431372549" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

@@ -25,7 +25,6 @@
                                 <color key="sectionIndexBackgroundColor" red="0.01121367516" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rWr-oK-aM0" firstAttribute="leading" secondItem="44F-K3-MiH" secondAttribute="leading" id="7pz-MF-fHF"/>
                             <constraint firstItem="rWr-oK-aM0" firstAttribute="trailing" secondItem="44F-K3-MiH" secondAttribute="trailing" id="eec-Z0-dZa"/>

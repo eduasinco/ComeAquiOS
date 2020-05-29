@@ -231,7 +231,7 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATL-8X-7H3">
                                                                         <rect key="frame" x="0.0" y="0.0" width="63" height="32"/>
-                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <color key="backgroundColor" name="PrimaryLight"/>
                                                                         <state key="normal" title="  People  ">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -242,9 +242,9 @@
                                                                             <segue destination="92b-9T-Zlu" kind="show" identifier="PeopleSegue" id="AK0-0l-zhL"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKd-jL-UD0">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKd-jL-UD0">
                                                                         <rect key="frame" x="71" y="0.0" width="33" height="32"/>
-                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <color key="backgroundColor" name="PrimaryLight"/>
                                                                         <state key="normal" title="  All  ">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -257,7 +257,7 @@
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSl-bF-B6U">
                                                                         <rect key="frame" x="112" y="0.0" width="46" height="32"/>
-                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <color key="backgroundColor" name="PrimaryLight"/>
                                                                         <state key="normal" title="  Sort  ">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -270,7 +270,7 @@
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5L-28-xVR">
                                                                         <rect key="frame" x="166" y="0.0" width="51" height="32"/>
-                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <color key="backgroundColor" name="PrimaryLight"/>
                                                                         <state key="normal" title="  Price  ">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -283,7 +283,7 @@
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="if9-fb-f56">
                                                                         <rect key="frame" x="225" y="0.0" width="83" height="32"/>
-                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <color key="backgroundColor" name="PrimaryLight"/>
                                                                         <state key="normal" title="  Meal time  ">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -296,7 +296,7 @@
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-pZ-Suz">
                                                                         <rect key="frame" x="316" y="0.0" width="76" height="32"/>
-                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <color key="backgroundColor" name="PrimaryLight"/>
                                                                         <state key="normal" title="  Distance  ">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -309,7 +309,7 @@
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLY-Kx-C8U">
                                                                         <rect key="frame" x="400" y="0.0" width="66" height="32"/>
-                                                                        <color key="backgroundColor" name="SecondaryLight"/>
+                                                                        <color key="backgroundColor" name="PrimaryLight"/>
                                                                         <state key="normal" title="  Dietary  ">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -323,7 +323,7 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfR-4X-xKO">
                                                                         <rect key="frame" x="474" y="0.0" width="82" height="32"/>
                                                                         <state key="normal" title="  Delete All  ">
-                                                                            <color key="titleColor" name="Secondary"/>
+                                                                            <color key="titleColor" name="Canceled"/>
                                                                         </state>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
@@ -521,11 +521,11 @@
         <image name="vegan_fill" width="470" height="427"/>
         <image name="vegetarian_fill" width="369" height="400"/>
         <image name="wheat_fill" width="512" height="512"/>
-        <namedColor name="Secondary">
-            <color red="0.44699999690055847" green="0.44499999284744263" blue="0.44900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="Canceled">
+            <color red="0.74509803921568629" green="0.050980392156862744" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="SecondaryLight">
-            <color red="0.72100001573562622" green="0.71799999475479126" blue="0.72500002384185791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="PrimaryLight">
+            <color red="0.43529411764705883" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

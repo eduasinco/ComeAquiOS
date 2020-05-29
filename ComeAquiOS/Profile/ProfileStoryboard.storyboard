@@ -566,7 +566,7 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rate_empty_star" width="175" height="175"/>
         <namedColor name="PrimaryLight">
-            <color red="1" green="0.76200002431869507" blue="0.38499999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.43529411764705883" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

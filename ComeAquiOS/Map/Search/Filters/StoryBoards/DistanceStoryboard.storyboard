@@ -33,6 +33,7 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="yEC-Mz-DZd">
                                                 <rect key="frame" x="-2" y="50" width="386" height="51"/>
+                                                <color key="tintColor" name="Secondary"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="ebD-f9-ZU7"/>
                                                 </constraints>
@@ -91,7 +92,10 @@
     </scenes>
     <resources>
         <namedColor name="Primary">
-            <color red="0.94300001859664917" green="0.55699998140335083" blue="0.0020000000949949026" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Secondary">
+            <color red="0.7803921568627451" green="0.2196078431372549" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

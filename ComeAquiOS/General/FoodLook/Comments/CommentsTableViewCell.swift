@@ -24,6 +24,7 @@ class CommentsTableViewCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var stackView: UIView!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var leadingStackView: NSLayoutConstraint!
     
     @IBOutlet weak var moreCommentsButton: UIButton!
@@ -68,8 +69,10 @@ class CommentsTableViewCell: UITableViewCell {
         
         if comment.owner?.id == USER.id {
             deleteButton.visibility = .visible
+            addButton.visibility = .gone
         } else {
             deleteButton.visibility = .gone
+            addButton.visibility = .visible
         }
         
         if comment.isMaxLength > 0 {
