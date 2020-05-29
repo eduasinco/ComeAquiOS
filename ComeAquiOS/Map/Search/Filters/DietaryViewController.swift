@@ -41,3 +41,4 @@ extension DietaryViewController: TypesProtocol {
         self.type = types
     }
 }
+

@@ -125,6 +125,12 @@ class SearchViewController: KUIViewController {
         } else if segue.identifier == "AllFilterSegue" {
             let vc = segue.destination as? AllViewController
             vc?.delegate = self
+            vc?.sortType = sortValue ?? 0
+            vc?.priceType = priceValue ?? 2
+            vc?.startDateString = startTimeValue
+            vc?.endDateString = endTimeValue
+            vc?.distance = Int(globalDistance)
+            vc?.type = dietaryValue ?? "0000000"
         } else if segue.identifier == "SortFilterSegue" {
             let vc = segue.destination as? SortViewController
             vc?.delegate = self

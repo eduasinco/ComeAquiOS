@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -140,10 +141,10 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfS-YZ-x2y" customClass="PassthroughView" customModule="ComeAquiOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="477.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="462.5"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="slN-iq-Yan">
-                                        <rect key="frame" x="0.0" y="427.5" width="414" height="51"/>
+                                        <rect key="frame" x="0.0" y="412.5" width="414" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="VhR-dz-Tn0"/>
                                         </constraints>
@@ -156,22 +157,26 @@
                                             <action selector="indexChanged:" destination="9c3-aH-ZYm" eventType="valueChanged" id="47X-bp-JTF"/>
                                         </connections>
                                     </segmentedControl>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WIb-Bl-XcD" customClass="ImageToOpen" customModule="ComeAquiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BackgroundProfile" translatesAutoresizingMaskIntoConstraints="NO" id="WIb-Bl-XcD" customClass="ImageToOpen" customModule="ComeAquiOS" customModuleProvider="target">
+                                        <rect key="frame" x="1" y="0.0" width="414" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="175" id="wpw-pQ-8yQ"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6C-xj-tNn">
-                                        <rect key="frame" x="364" y="125" width="50" height="50"/>
+                                        <rect key="frame" x="371" y="132" width="35" height="35"/>
+                                        <color key="backgroundColor" name="PrimaryLight"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="es4-hP-ZS4"/>
-                                            <constraint firstAttribute="width" constant="50" id="j0O-rr-L8d"/>
+                                            <constraint firstAttribute="height" constant="35" id="es4-hP-ZS4"/>
+                                            <constraint firstAttribute="width" constant="35" id="j0O-rr-L8d"/>
                                         </constraints>
-                                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="camera.circle.fill" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="camera.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="changeBackgroundImage:" destination="9c3-aH-ZYm" eventType="touchUpInside" id="ICS-4Q-qFh"/>
                                         </connections>
@@ -196,15 +201,19 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hx-ZS-5dx">
-                                        <rect key="frame" x="242" y="220" width="50" height="50"/>
+                                        <rect key="frame" x="249" y="227" width="35" height="35"/>
+                                        <color key="backgroundColor" name="PrimaryLight"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="dFm-Wc-KIH"/>
-                                            <constraint firstAttribute="width" constant="50" id="zx4-5E-0kg"/>
+                                            <constraint firstAttribute="height" constant="35" id="dFm-Wc-KIH"/>
+                                            <constraint firstAttribute="width" constant="35" id="zx4-5E-0kg"/>
                                         </constraints>
-                                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="camera.circle.fill" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="camera.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="changeProfileImage:" destination="9c3-aH-ZYm" eventType="touchUpInside" id="1NB-yv-Psa"/>
                                         </connections>
@@ -235,32 +244,68 @@
                                             </textView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KD8-3B-UMT">
-                                        <rect key="frame" x="8" y="369.5" width="398" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KD8-3B-UMT" customClass="PassthroughStackView" customModule="ComeAquiOS" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="369.5" width="398" height="35"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLS-Bu-UAd">
-                                                <rect key="frame" x="0.0" y="0.0" width="199" height="50"/>
-                                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="pencil.circle.fill" catalog="system">
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="editProfile:" destination="9c3-aH-ZYm" eventType="touchUpInside" id="p9Q-uk-50t"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0S-NH-SSE">
-                                                <rect key="frame" x="199" y="0.0" width="199" height="50"/>
-                                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="message.circle.fill" catalog="system">
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="openConversationWithUser:" destination="9c3-aH-ZYm" eventType="touchUpInside" id="At5-S9-dei"/>
-                                                </connections>
-                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQJ-Wm-BQc" customClass="PassthroughView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="199" height="35"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLS-Bu-UAd">
+                                                        <rect key="frame" x="82" y="0.0" width="35" height="35"/>
+                                                        <color key="backgroundColor" name="PrimaryLight"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="35" id="hjf-r2-8AK"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="pencil" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="editProfile:" destination="9c3-aH-ZYm" eventType="touchUpInside" id="p9Q-uk-50t"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="jLS-Bu-UAd" firstAttribute="centerX" secondItem="hQJ-Wm-BQc" secondAttribute="centerX" id="C8o-ZU-KdR"/>
+                                                    <constraint firstAttribute="bottom" secondItem="jLS-Bu-UAd" secondAttribute="bottom" id="UU9-Vz-EXB"/>
+                                                    <constraint firstItem="jLS-Bu-UAd" firstAttribute="top" secondItem="hQJ-Wm-BQc" secondAttribute="top" id="aVR-ex-MCj"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7f-0k-37t" customClass="PassthroughView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                <rect key="frame" x="199" y="0.0" width="199" height="35"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0S-NH-SSE">
+                                                        <rect key="frame" x="82" y="0.0" width="35" height="35"/>
+                                                        <color key="backgroundColor" name="PrimaryLight"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="35" id="0Fj-hK-Ict"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="message.fill" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="openConversationWithUser:" destination="9c3-aH-ZYm" eventType="touchUpInside" id="At5-S9-dei"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="a0S-NH-SSE" firstAttribute="top" secondItem="C7f-0k-37t" secondAttribute="top" id="Gcy-l5-02q"/>
+                                                    <constraint firstItem="a0S-NH-SSE" firstAttribute="centerX" secondItem="C7f-0k-37t" secondAttribute="centerX" id="JmN-bt-GQr"/>
+                                                    <constraint firstAttribute="bottom" secondItem="a0S-NH-SSE" secondAttribute="bottom" id="kGB-Kq-zV5"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Nwk-gU-fE6"/>
+                                            <constraint firstAttribute="height" constant="35" id="Nwk-gU-fE6"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -272,14 +317,14 @@
                                     <constraint firstItem="slN-iq-Yan" firstAttribute="leading" secondItem="WfS-YZ-x2y" secondAttribute="leading" id="BEt-MF-U1q"/>
                                     <constraint firstItem="Idx-fN-F4e" firstAttribute="centerX" secondItem="WfS-YZ-x2y" secondAttribute="centerX" id="C9Y-QP-jRt"/>
                                     <constraint firstItem="KD8-3B-UMT" firstAttribute="top" secondItem="iAB-c3-c4W" secondAttribute="bottom" constant="8" id="DE4-au-WVb"/>
-                                    <constraint firstItem="o6C-xj-tNn" firstAttribute="trailing" secondItem="WIb-Bl-XcD" secondAttribute="trailing" id="LQa-fU-3yE"/>
-                                    <constraint firstItem="o6C-xj-tNn" firstAttribute="bottom" secondItem="WIb-Bl-XcD" secondAttribute="bottom" id="LmF-AC-Ls0"/>
+                                    <constraint firstItem="o6C-xj-tNn" firstAttribute="trailing" secondItem="WIb-Bl-XcD" secondAttribute="trailing" constant="-8" id="LQa-fU-3yE"/>
+                                    <constraint firstItem="o6C-xj-tNn" firstAttribute="bottom" secondItem="WIb-Bl-XcD" secondAttribute="bottom" constant="-8" id="LmF-AC-Ls0"/>
                                     <constraint firstAttribute="trailing" secondItem="KD8-3B-UMT" secondAttribute="trailing" constant="8" id="Nc2-EQ-eRS"/>
                                     <constraint firstItem="slN-iq-Yan" firstAttribute="top" secondItem="KD8-3B-UMT" secondAttribute="bottom" constant="8" id="S9F-uH-IKB"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="aEn-yt-toK"/>
-                                    <constraint firstItem="7hx-ZS-5dx" firstAttribute="trailing" secondItem="Idx-fN-F4e" secondAttribute="trailing" id="bHn-IH-dbs"/>
+                                    <constraint firstItem="7hx-ZS-5dx" firstAttribute="trailing" secondItem="Idx-fN-F4e" secondAttribute="trailing" constant="-8" id="bHn-IH-dbs"/>
                                     <constraint firstItem="WIb-Bl-XcD" firstAttribute="leading" secondItem="WfS-YZ-x2y" secondAttribute="leading" id="cqq-2y-Sns"/>
-                                    <constraint firstItem="7hx-ZS-5dx" firstAttribute="bottom" secondItem="Idx-fN-F4e" secondAttribute="bottom" id="hPN-fv-WKD"/>
+                                    <constraint firstItem="7hx-ZS-5dx" firstAttribute="bottom" secondItem="Idx-fN-F4e" secondAttribute="bottom" constant="-8" id="hPN-fv-WKD"/>
                                     <constraint firstAttribute="bottom" secondItem="slN-iq-Yan" secondAttribute="bottom" id="isV-9f-hvM"/>
                                     <constraint firstAttribute="trailing" secondItem="iAB-c3-c4W" secondAttribute="trailing" constant="8" id="kTR-ZP-WhQ"/>
                                     <constraint firstItem="KD8-3B-UMT" firstAttribute="leading" secondItem="WfS-YZ-x2y" secondAttribute="leading" constant="8" id="kv0-cM-Xkj"/>
@@ -318,10 +363,12 @@
                         <outlet property="container2TopConstraint" destination="hy6-IW-tZ7" id="JTx-Zh-8YB"/>
                         <outlet property="container3TopConstraint" destination="DDy-go-IIM" id="xoG-NJ-irO"/>
                         <outlet property="editProfileButton" destination="jLS-Bu-UAd" id="fmZ-Hp-K1k"/>
+                        <outlet property="editProfileButtonContainer" destination="hQJ-Wm-BQc" id="Xuj-wY-0tA"/>
                         <outlet property="externalScrollView" destination="sFJ-ic-ZjE" id="0oe-A0-Xle"/>
                         <outlet property="headerHeighConstraint" destination="aEn-yt-toK" id="bfW-yZ-rib"/>
                         <outlet property="headerTopConstraint" destination="Rv7-5V-JrZ" id="r8d-8q-h55"/>
                         <outlet property="headerView" destination="WfS-YZ-x2y" id="zpQ-WN-NTC"/>
+                        <outlet property="messageButtonContainer" destination="C7f-0k-37t" id="9bM-cB-TIY"/>
                         <outlet property="optionsButton" destination="POz-og-zNS" id="1cY-25-6gC"/>
                         <outlet property="profileImage" destination="Idx-fN-F4e" id="d9m-75-447"/>
                         <outlet property="scrollView1" destination="b9f-vt-iwo" id="l9L-FV-bLM"/>
@@ -510,12 +557,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="BackgroundProfile" width="375" height="201"/>
+        <image name="camera.fill" catalog="system" width="128" height="96"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
-        <image name="message.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rate_empty_star" width="175" height="175"/>
+        <namedColor name="PrimaryLight">
+            <color red="1" green="0.76200002431869507" blue="0.38499999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

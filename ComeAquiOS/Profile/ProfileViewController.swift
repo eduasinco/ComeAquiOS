@@ -33,7 +33,9 @@ class ProfileViewController: LoadViewController {
     @IBOutlet weak var userName: UILabel!
     var rateVC: RateStarViewController?
     @IBOutlet weak var bioTextView: UITextView!
+    @IBOutlet weak var editProfileButtonContainer: UIView!
     @IBOutlet weak var editProfileButton: UIButton!
+    @IBOutlet weak var messageButtonContainer: UIView!
     @IBOutlet weak var sendMessageButton: UIButton!
     
     var tab1VC: Tab1ViewController?
@@ -69,13 +71,13 @@ class ProfileViewController: LoadViewController {
     func setView(){
         guard let user = self.user else {return}
         if user.id == USER.id{
-            sendMessageButton.visibility = .gone
+            messageButtonContainer.visibility = .gone
             changeProfileImageButton.visibility = .visible
             changeBackgroundImageButton.visibility = .visible
             options = ["Log out"]
         } else {
             options = ["Message user", "Report"]
-            editProfileButton.visibility = .gone
+            editProfileButtonContainer.visibility = .gone
             changeProfileImageButton.visibility = .gone
             changeBackgroundImageButton.visibility = .gone
         }

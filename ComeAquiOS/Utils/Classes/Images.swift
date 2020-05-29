@@ -81,6 +81,8 @@ class URLImageView: ReloadingImage {
         spinner.isHidden = false
         spinner.startAnimating()
         guard let urlString = urlString else {
+            spinner.isHidden = true
+            spinner.stopAnimating()
             self.image = defaultImage
             return
         }
@@ -100,7 +102,9 @@ class URLImageView: ReloadingImage {
             }
             DispatchQueue.main.async{
                 let image = UIImage(data: data!)
-                self.image = image
+                if image != nil {
+                    self.image = image
+                }
             }
         }).resume()
     }
