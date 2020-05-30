@@ -25,7 +25,7 @@ class ConversationViewController: KUIViewController {
     var chat: PlaneChatObject?
     var isUserBlocked: Bool = false
     var chattingWith: User!
-    var chatMessages = [[MessageObject]]()
+    var chatMessages: [[MessageObject]] = []
     var page: Int = 1
     var alreadyFetchingData = false
 
@@ -149,11 +149,22 @@ extension ConversationViewController: WebSocketDelegate{
                 if mro.error_message == nil {
                     guard let message = mro.message else {return}
                     if self.chatMessages.count > 0 {
-                        self.chatMessages[0].insert(message, at: 0)
-                        DispatchQueue.main.async {
-                            self.tableView.beginUpdates()
-                            self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-                            self.tableView.endUpdates()
+                        
+                        let first = self.chatMessages.first?.first
+                        if let first = first, Date.todayYesterdayWeekDay(isoDateString: message.created_at!) == Date.todayYesterdayWeekDay(isoDateString: first.created_at!) {
+                            self.chatMessages[0].insert(message, at: 0)
+                            DispatchQueue.main.async {
+                                self.tableView.beginUpdates()
+                                self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                                self.tableView.endUpdates()
+                            }
+                        } else {
+                            self.chatMessages.insert([message], at: 0)
+                            DispatchQueue.main.async {
+                                self.tableView.beginUpdates()
+                                self.tableView.insertSections(IndexSet(integer: 0), with: .bottom)
+                                self.tableView.endUpdates()
+                            }
                         }
                     } else {
                         self.messagesFromServer = [message]
@@ -233,6 +244,21 @@ extension ConversationViewController {
             getChatMessages()
         }
     }
+    
+    func groupBadge(badge: [MessageObject]) -> [[MessageObject]] {
+        var badgeGrouped: [[MessageObject]] = []
+        let groupedMessages = Dictionary(grouping: badge) { (element) -> String in
+            return Date.todayYesterdayWeekDay(isoDateString: element.created_at!)
+        }
+        let sortedKeys = groupedMessages.keys.sorted()
+        sortedKeys.forEach { (key) in
+            let values = groupedMessages[key]
+            badgeGrouped.append(values ?? [])
+        }
+        return badgeGrouped
+    }
+    
+    
     func getChatMessages(){
         alreadyFetchingData = true
         self.tableView.showActivityIndicator()
@@ -242,9 +268,19 @@ extension ConversationViewController {
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
-                self.messagesFromServer = try JSONDecoder().decode([MessageObject].self, from: data)
+                let chatBadgeGrouped = self.groupBadge(badge: try JSONDecoder().decode([MessageObject].self, from: data))
+                let last = self.chatMessages.last?.last
+                let first = chatBadgeGrouped.first?.first
+                
+                if let last = last, let first = first, Date.todayYesterdayWeekDay(isoDateString: last.created_at!) == Date.todayYesterdayWeekDay(isoDateString: first.created_at!) {
+                    self.chatMessages[self.chatMessages.count - 1].append(contentsOf: chatBadgeGrouped.first!)
+                    self.chatMessages.append(contentsOf: chatBadgeGrouped[1...])
+                } else {
+                    if chatBadgeGrouped.count > 0, chatBadgeGrouped.first!.count > 0 {
+                        self.chatMessages.append(contentsOf: chatBadgeGrouped)
+                    }
+                }
                 DispatchQueue.main.async {
-                    self.attemptToAssembleGroupedMessages()
                     self.tableView.reloadData()
                     self.page += 1
                 }
@@ -298,8 +334,6 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     fileprivate func attemptToAssembleGroupedMessages() {
-        print("Attempt to group our messages together based on Date property")
-        
         let groupedMessages = Dictionary(grouping: messagesFromServer) { (element) -> String in
             return Date.todayYesterdayWeekDay(isoDateString: element.created_at!)
         }
@@ -365,15 +399,6 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageTableViewCell
         let chatMessage = chatMessages[indexPath.section][indexPath.row]
         var messageBefore: MessageObject? = nil
-//        if indexPath.row <= 1 {
-//            if indexPath.section > 0 {
-//                if chatMessages[indexPath.section - 1].count > 0 {
-//                    messageBefore =  chatMessages[indexPath.section - 1].last
-//                }
-//            }
-//        } else {
-//            messageBefore = chatMessages[indexPath.section][indexPath.row - 1]
-//        }
         
         if indexPath.row < chatMessages[indexPath.section].count - 1 {
             messageBefore = chatMessages[indexPath.section][indexPath.row + 1]
