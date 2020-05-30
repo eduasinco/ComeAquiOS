@@ -28,6 +28,8 @@ class EditProfileViewController: LoadViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }    
+    override func viewWillAppear(_ animated: Bool) {
         getUser()
     }
     
@@ -38,6 +40,7 @@ class EditProfileViewController: LoadViewController {
         name.text = user.first_name
         surname.text = user.last_name
         bioText.text = user.bio
+        phoneNumber.text = user.phone_number
         
         guard let paymentMethod = self.paymentMethod else {return}
         creditCard.text = paymentMethod.last4

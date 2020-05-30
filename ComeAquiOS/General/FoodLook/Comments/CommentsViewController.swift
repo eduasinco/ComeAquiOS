@@ -15,7 +15,7 @@ let ACTUAL_LENGTH = 3
 
 class Comment {
     var id: Int!
-    var owner: User?
+    var ownerId: Int?
     var comment: String!
     var comments: [Comment] = []
     var depth: Int!
@@ -37,6 +37,7 @@ class Comment {
     
     init (json: [String: Any], parent: Comment?){
         self.id = json["id"] as? Int
+        self.ownerId = (json["owner"] as? [String: Any])?["id"] as? Int
         self.comment = json["message"] as? String
         self.depth = json["depth"] as? Int
         self.votes_n = json["votes_n"] as? Int
@@ -324,7 +325,7 @@ extension CommentsViewController {
                 
                 DispatchQueue.main.async {
                     for json in jsonArray as! [[String: Any]]{
-                        self.comments.append(Comment(json: json,parent: nil))
+                        self.comments.append(Comment(json: json, parent: nil))
                     }
                     self.linearizeAllComments(self.comments)
                     self.tableView.reloadData()

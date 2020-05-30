@@ -31,6 +31,8 @@ class EditAccountDetailsViewController: KUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bottomConstraintForKeyboard = bcfkb
+    }
+    override func viewWillAppear(_ animated: Bool) {
         getUser()
     }
     func setView(){

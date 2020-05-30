@@ -67,7 +67,7 @@ class CommentsTableViewCell: UITableViewCell {
         leadingContinueConversation.constant = CGFloat((comment.depth - max_depth) * 32)
         self.label.text = comment.comment
         
-        if comment.owner?.id == USER.id {
+        if comment.ownerId == USER.id {
             deleteButton.visibility = .visible
             addButton.visibility = .gone
         } else {

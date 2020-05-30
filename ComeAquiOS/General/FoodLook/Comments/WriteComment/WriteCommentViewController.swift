@@ -30,6 +30,8 @@ class WriteCommentViewController: KUIViewController, UITextFieldDelegate {
         textView.isScrollEnabled = false
         originalHeight = self.view.frame.height
         self.bottomConstraintForKeyboard = bcfkb
+        
+        commentLabel.text = comment?.comment
     }
     
     @IBAction func submitPress(_ sender: Any) {

@@ -106,7 +106,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3HF-gr-Hbi">
                                                                 <rect key="frame" x="0.0" y="350" width="382" height="50"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5NT-Du-Emk">
+                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5NT-Du-Emk">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="z64-T2-3a6"/>
@@ -128,7 +128,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AEg-lp-RI5">
                                                                 <rect key="frame" x="0.0" y="450" width="382" height="50"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Some password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkg-Wf-ZTo">
+                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Some password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkg-Wf-ZTo">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="aTq-jt-ks5"/>

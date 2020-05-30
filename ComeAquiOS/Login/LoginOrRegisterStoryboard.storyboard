@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ej6-Iu-eoT">
-                                <rect key="frame" x="20" y="652" width="374" height="210"/>
+                                <rect key="frame" x="20" y="712" width="374" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZl-XG-8gh">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                         <color key="backgroundColor" name="Secondary"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="hxq-vv-SxG"/>
+                                            <constraint firstAttribute="height" constant="70" id="hxq-vv-SxG"/>
                                         </constraints>
                                         <state key="normal" title="Register">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,7 +39,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5Q-wl-g1r">
-                                        <rect key="frame" x="0.0" y="110" width="374" height="100"/>
+                                        <rect key="frame" x="0.0" y="80" width="374" height="70"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" name="Primary"/>
@@ -142,6 +142,9 @@
                                                                 <state key="normal" title="You don't remember your password?">
                                                                     <color key="titleColor" name="Primary"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <segue destination="Yw4-QR-onX" kind="show" id="PAt-xt-sBM"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -430,6 +433,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p4d-NI-t9O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="721.73913043478262" y="95.089285714285708"/>
+        </scene>
+        <!--ForgotPasswordView-->
+        <scene sceneID="Wcq-dI-9qm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ForgotPasswordStoryboard" referencedIdentifier="ForgotPasswordView" id="Yw4-QR-onX" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jMR-No-OVF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qCZ-v3-zsX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3303" y="477"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

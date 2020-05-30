@@ -28,7 +28,7 @@ class ImageScrollViewController: UIViewController, UIScrollViewDelegate {
         imageScrollView.delegate = self
         
         for (i, imageView) in [image1, image2, image3].enumerated(){
-            imageView?.tag = i + 1
+            imageView?.tag = i
             imageView?.isUserInteractionEnabled = true
             imageView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
         }

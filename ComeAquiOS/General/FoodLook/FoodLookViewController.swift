@@ -57,7 +57,6 @@ class FoodLookViewController: KUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getFoodPost()
         
         parentScrollView.delegate = self
         imageScrollView.delegate = self
@@ -70,6 +69,10 @@ class FoodLookViewController: KUIViewController {
         dinnersStackView.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction(sender:)))
         dinnersStackView.addGestureRecognizer(gesture)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getFoodPost()
     }
 
     @objc func checkAction(sender : UITapGestureRecognizer) {
@@ -185,7 +188,7 @@ class FoodLookViewController: KUIViewController {
     
     func setOnImageClicked(){
         for (i, imageView) in [image1, image2, image3].enumerated(){
-            imageView?.tag = i + 1
+            imageView?.tag = i
             imageView?.isUserInteractionEnabled = true
             imageView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
         }
@@ -250,6 +253,9 @@ class FoodLookViewController: KUIViewController {
         if confirmed_orders.count > 0 {
             dinnersText.text = "\(confirmed_orders.count)/\(self.foodPost!.max_dinners!) dinners"
             dinnerImages = []
+            for view in self.dinnersStackView.subviews {
+                view.removeFromSuperview()
+            }
             for order in confirmed_orders {
                 dinnersStackView.addArrangedSubview(createDinnerView(order: order))
             }
@@ -300,7 +306,7 @@ class FoodLookViewController: KUIViewController {
         } else if segue.identifier == "AddPaymentSegue" {
             _ = segue.destination as? AddPaymentMethodViewController
         } else if segue.identifier == "CommentsSegue" {
-            let commentsVC = segue.destination as? CommentsViewController
+            commentsVC = segue.destination as? CommentsViewController
             commentsVC?.foodPostId = foodPostId
         } else if segue.identifier == "TypeSegue" {
             typesVC = segue.destination as? TypesViewController
@@ -448,11 +454,11 @@ extension FoodLookViewController {
                     guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
                     DispatchQueue.main.async {
                         let newComment = Comment(json: json, parent: nil)
-                        self.commentsVC?.commentAddedToPost(newComment: newComment)
                         
                         self.textView.text = ""
                         self.sendButton.visibility = .gone
-                        UIView.animate(withDuration: 0.5) {
+                        DispatchQueue.main.async {
+                            self.commentsVC?.commentAddedToPost(newComment: newComment)
                         }
                         self.view.endEditing(true)
                     }

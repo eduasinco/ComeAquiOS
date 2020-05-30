@@ -22,6 +22,9 @@ class AddPaymentMethodViewController: LoadViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         getPaymentMethods()
     }
     

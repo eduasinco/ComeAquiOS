@@ -23,7 +23,7 @@ class HostingTableViewCell: UITableViewCell {
         if foodPost.images!.count > 0 {
             foodPhoto.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo)
         } else {
-            foodPhoto.image = UIImage(named: "poster")
+            foodPhoto.image = UIImage(named: "empty_plate")
         }
         if let plate_name = foodPost.plate_name, !plate_name.isEmpty {
             plateName.text = plate_name

@@ -11,7 +11,7 @@
         <!--Edit Profile View Controller-->
         <scene sceneID="aPP-2f-a2t">
             <objects>
-                <viewController storyboardIdentifier="EditProfileView" id="WpN-hH-tGe" customClass="EditProfileViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditProfileView" id="WpN-hH-tGe" customClass="EditProfileViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BvV-u7-8iv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,7 +49,7 @@
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.rectangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zaW-F1-6hF" customClass="ImageToOpen" customModule="ComeAquiOS" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.rectangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zaW-F1-6hF" customClass="ImageToOpen" customModule="ComeAquí" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="31" width="382" height="197.5"/>
                                                                 <color key="tintColor" name="GreyLight"/>
                                                                 <constraints>
@@ -76,7 +76,7 @@
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pcj-Fg-4iW" customClass="ImageToOpen" customModule="ComeAquiOS" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pcj-Fg-4iW" customClass="ImageToOpen" customModule="ComeAquí" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="261" width="382" height="197.5"/>
                                                                 <color key="tintColor" name="GreyLight"/>
                                                                 <constraints>
