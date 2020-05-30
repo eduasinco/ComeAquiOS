@@ -246,7 +246,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         let d = headerView.frame.height - shortHeaderView.frame.height
         if scrollView.contentOffset.y >= d {
             topHeaderConstraint.constant = -d
-            headerView.dropShadow(radius: 1, opacity: 1)
+            headerView.dropShadow(radius: 3, opacity: 1)
         } else {
             topHeaderConstraint.constant = -scrollView.contentOffset.y
             headerView.dropShadow()

@@ -52,7 +52,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" name="Primary"/>
-                        <color key="selectedImageTintColor" name="Secondary"/>
+                        <color key="selectedImageTintColor" name="SecondaryDark"/>
                     </tabBar>
                     <connections>
                         <outlet property="myTabbar" destination="buO-f1-sYM" id="bka-Dw-kIx"/>
@@ -148,8 +148,8 @@
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="Secondary">
-            <color red="0.7803921568627451" green="0.2196078431372549" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="SecondaryDark">
+            <color red="0.59999999999999998" green="0.17254901960784313" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

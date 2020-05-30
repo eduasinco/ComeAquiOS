@@ -11,7 +11,7 @@
         <!--Conversation View Controller-->
         <scene sceneID="Bu6-2c-mkN">
             <objects>
-                <viewController id="50r-ts-SD8" customClass="ConversationViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="50r-ts-SD8" customClass="ConversationViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pJN-Sy-rU5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,10 +20,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uwF-cj-QHc">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="718"/>
+                                        <rect key="frame" x="0.0" y="66" width="414" height="702"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="ssn-mg-gWd" customClass="MessageTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="ssn-mg-gWd" customClass="MessageTableViewCell" customModule="ComeAquí" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="156"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ssn-mg-gWd" id="nz0-yz-FX8">
@@ -87,26 +87,27 @@
                                         </prototypes>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2h-QT-w5D">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ibT-8u-VGQ" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ibT-8u-VGQ" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="8" width="50" height="50"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="KlL-Gv-poI"/>
+                                                    <constraint firstAttribute="height" constant="50" id="YMd-KX-LiL"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPl-54-e83">
-                                                <rect key="frame" x="58" y="8" width="278" height="21"/>
+                                                <rect key="frame" x="66" y="8" width="270" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lJ-mM-XrB">
-                                                <rect key="frame" x="344" y="0.0" width="70" height="50"/>
+                                                <rect key="frame" x="344" y="0.0" width="70" height="66"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="GIw-JG-Fwn"/>
                                                 </constraints>
@@ -118,16 +119,15 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="ibT-8u-VGQ" secondAttribute="bottom" id="2QS-lc-56i"/>
+                                            <constraint firstAttribute="bottom" secondItem="ibT-8u-VGQ" secondAttribute="bottom" constant="8" id="2QS-lc-56i"/>
                                             <constraint firstItem="1lJ-mM-XrB" firstAttribute="leading" secondItem="IPl-54-e83" secondAttribute="trailing" constant="8" id="2zs-WD-os2"/>
-                                            <constraint firstAttribute="height" constant="50" id="Gkm-Mf-yft"/>
                                             <constraint firstItem="1lJ-mM-XrB" firstAttribute="top" secondItem="k2h-QT-w5D" secondAttribute="top" id="MKQ-2q-aSz"/>
                                             <constraint firstItem="IPl-54-e83" firstAttribute="top" secondItem="k2h-QT-w5D" secondAttribute="top" constant="8" id="dmK-uz-5Cz"/>
                                             <constraint firstAttribute="trailing" secondItem="1lJ-mM-XrB" secondAttribute="trailing" id="eD1-zc-c4Y"/>
                                             <constraint firstAttribute="bottom" secondItem="1lJ-mM-XrB" secondAttribute="bottom" id="fjB-lQ-JJ3"/>
                                             <constraint firstItem="IPl-54-e83" firstAttribute="leading" secondItem="ibT-8u-VGQ" secondAttribute="trailing" constant="8" id="gA0-FR-yMB"/>
-                                            <constraint firstItem="ibT-8u-VGQ" firstAttribute="top" secondItem="k2h-QT-w5D" secondAttribute="top" id="kN1-9j-E7U"/>
-                                            <constraint firstItem="ibT-8u-VGQ" firstAttribute="leading" secondItem="k2h-QT-w5D" secondAttribute="leading" id="wNs-RD-n8c"/>
+                                            <constraint firstItem="ibT-8u-VGQ" firstAttribute="top" secondItem="k2h-QT-w5D" secondAttribute="top" constant="8" id="kN1-9j-E7U"/>
+                                            <constraint firstItem="ibT-8u-VGQ" firstAttribute="leading" secondItem="k2h-QT-w5D" secondAttribute="leading" constant="8" id="wNs-RD-n8c"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dpj-JE-4Km">
@@ -248,6 +248,7 @@
                         <outlet property="textView" destination="uUw-S5-oOy" id="XWl-pr-arq"/>
                         <outlet property="userImage" destination="ibT-8u-VGQ" id="Ku8-2T-E8f"/>
                         <outlet property="userName" destination="IPl-54-e83" id="dC3-Rw-n3b"/>
+                        <segue destination="9gb-y9-FzE" kind="show" identifier="ProfileSegue" id="YW6-iA-ZEz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wF-Na-Bve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -260,7 +261,17 @@
                 <viewControllerPlaceholder storyboardName="OptionsPopUpStoryboard" id="WHX-yA-KYV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F9s-kf-wbe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="890" y="-431"/>
+            <point key="canvasLocation" x="890" y="-447"/>
+        </scene>
+        <!--ProfileView-->
+        <scene sceneID="Fkb-1y-HtS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProfileStoryboard" referencedIdentifier="ProfileView" id="9gb-y9-FzE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bRX-Wm-a80"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g0g-JU-SdC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="827" y="-414"/>
         </scene>
     </scenes>
     <resources>
@@ -273,10 +284,10 @@
             <color red="0.59999999999999998" green="0.17254901960784313" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryLight">
-            <color red="1" green="0.54219913868343661" blue="0.35197635805252003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="0.53333333333333333" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryLighter">
-            <color red="1" green="0.75709017586471117" blue="0.62239893280465086" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="0.85500001907348633" blue="0.76700001955032349" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

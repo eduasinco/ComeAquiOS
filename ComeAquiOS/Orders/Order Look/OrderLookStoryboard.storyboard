@@ -11,7 +11,7 @@
         <!--Order Look View Controller-->
         <scene sceneID="XNy-uR-cZQ">
             <objects>
-                <viewController storyboardIdentifier="OrderLookView" id="8xT-tr-qDr" customClass="OrderLookViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderLookView" id="8xT-tr-qDr" customClass="OrderLookViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ysH-Ic-aJe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,13 +28,14 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oED-Lw-Z7O">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XEB-Si-qhm" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="2.5" width="70" height="65.5"/>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XEB-Si-qhm" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.5" width="70" height="69"/>
                                                                 <color key="tintColor" name="PrimaryLighter"/>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="height" constant="70" id="4Wy-y9-QG9"/>
                                                                     <constraint firstAttribute="width" constant="70" id="Cda-yW-qMO"/>
                                                                 </constraints>
-                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -93,6 +94,7 @@
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BD0-XB-UzJ">
                                                                 <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
+                                                                <color key="tintColor" name="SecondaryDark"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="20" id="izq-Qo-cFq"/>
                                                                 </constraints>
@@ -119,6 +121,7 @@
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KbK-Bb-go8">
                                                                 <rect key="frame" x="0.0" y="-0.5" width="20" height="20"/>
+                                                                <color key="tintColor" name="SecondaryDark"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="20" id="UXL-Ul-fNW"/>
                                                                 </constraints>
@@ -306,7 +309,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4M0-my-bso" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="741" y="-283"/>
+            <point key="canvasLocation" x="761" y="-242"/>
         </scene>
         <!--ImageScrollView-->
         <scene sceneID="hP6-aU-hzK">
@@ -314,7 +317,7 @@
                 <viewControllerPlaceholder storyboardName="ImageScrollStoryboard" referencedIdentifier="ImageScrollView" id="d2u-f7-t52" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLU-bh-3pX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="751" y="-208"/>
+            <point key="canvasLocation" x="770" y="-361"/>
         </scene>
         <!--OptionsView-->
         <scene sceneID="Dfu-n4-YhO">
@@ -324,7 +327,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R42-EH-LWq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="733" y="-351"/>
+            <point key="canvasLocation" x="751" y="-299"/>
         </scene>
     </scenes>
     <resources>
@@ -345,6 +348,9 @@
         </namedColor>
         <namedColor name="PrimaryLighter">
             <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryDark">
+            <color red="0.59999999999999998" green="0.17254901960784313" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

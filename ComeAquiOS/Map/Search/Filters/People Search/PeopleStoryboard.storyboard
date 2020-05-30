@@ -11,7 +11,7 @@
         <!--People View Controller-->
         <scene sceneID="vDk-IX-XeA">
             <objects>
-                <viewController storyboardIdentifier="PeopleView" id="fcH-GT-tl7" customClass="PeopleViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PeopleView" id="fcH-GT-tl7" customClass="PeopleViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ISk-TP-hwq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,35 +22,35 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1NA-q0-krY">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="766.5"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d3S-qK-5DV" customClass="MyOwnTableView" customModule="ComeAquiOS" customModuleProvider="target">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d3S-qK-5DV" customClass="MyOwnTableView" customModule="ComeAquí" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="56" width="414" height="710.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" id="yt1-r3-dbf" customClass="PeopleTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" id="yt1-r3-dbf" customClass="PeopleTableViewCell" customModule="ComeAquí" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="414" height="86"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yt1-r3-dbf" id="isb-dz-raJ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cmp-Fm-xfN" customClass="CellImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                                    <rect key="frame" x="8" y="8" width="84" height="84"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cmp-Fm-xfN" customClass="CellImageView" customModule="ComeAquí" customModuleProvider="target">
+                                                                    <rect key="frame" x="8" y="8" width="70" height="70"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="84" id="4yY-Bd-b42"/>
-                                                                        <constraint firstAttribute="width" constant="84" id="IQN-ov-7DQ"/>
+                                                                        <constraint firstAttribute="height" constant="70" id="4yY-Bd-b42"/>
+                                                                        <constraint firstAttribute="width" constant="70" id="IQN-ov-7DQ"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLn-k2-EfX">
-                                                                    <rect key="frame" x="100" y="8" width="306" height="20.5"/>
+                                                                    <rect key="frame" x="86" y="8" width="320" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                     <color key="textColor" name="Primary"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x99-TN-7Sp">
-                                                                    <rect key="frame" x="100" y="72.5" width="306" height="19.5"/>
+                                                                    <rect key="frame" x="86" y="58.5" width="320" height="19.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <color key="textColor" name="Primary"/>
                                                                     <nil key="highlightedColor"/>

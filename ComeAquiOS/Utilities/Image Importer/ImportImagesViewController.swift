@@ -106,8 +106,8 @@ extension ImportImagesViewController {
             DispatchQueue.main.async {
                 self.buttonPressed?.loadImageUsingUrlString(urlString: foodPostImage.food_photo)
             }
-        } catch _ {
-            self.view.showToast(message: "Some error ocurred")
+        } catch let error {
+            self.view.showToast(message: "Some error ocurred: ")
         }
     }
 }

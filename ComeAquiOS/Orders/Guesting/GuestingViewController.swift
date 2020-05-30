@@ -12,6 +12,7 @@ import Starscream
 class GuestingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noGuestingView: UIView!
     
     var orders: [OrderObject] = []
     var ordersToIndexPath: [Int: IndexPath] = [:]
@@ -98,7 +99,7 @@ extension GuestingViewController: WebSocketDelegate{
         var order_changed: OrderObject?
     }
     func webSocketConnetion(){
-        var request = URLRequest(url: URL(string: SERVER + "/ws/orders/\(USER.id!)/")!)
+        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/ws/orders/\(USER.id!)/")!)
         request.timeoutInterval = 5
         ws = WebSocket(request: request)
         ws?.delegate = self

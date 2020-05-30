@@ -31,7 +31,7 @@ class ChatTableViewCell: UITableViewCell {
             lastMessageText.text = nil
         }
         if let userCount = chat.user_chat_status_dict![USER.id], userCount > 0 {
-            unreadMessagesCount.text = " \(userCount) "
+            unreadMessagesCount.text = "\(userCount) "
         } else {
             unreadMessagesCount.text = ""
         }

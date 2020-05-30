@@ -269,7 +269,7 @@
 		87E3FFA7246F603A008D084B /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		87E3FFA9246F604D008D084B /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		87E3FFAB246F6059008D084B /* ConversationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConversationStoryboard.storyboard; sourceTree = "<group>"; };
-		87FC9E762447FF6200810ECF /* ComeAquiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComeAquiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87FC9E762447FF6200810ECF /* ComeAquí.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ComeAquí.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FC9E792447FF6200810ECF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87FC9E7B2447FF6200810ECF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		87FC9E7D2447FF6200810ECF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -763,7 +763,7 @@
 		87FC9E772447FF6200810ECF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				87FC9E762447FF6200810ECF /* ComeAquiOS.app */,
+				87FC9E762447FF6200810ECF /* ComeAquí.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1019,7 +1019,7 @@
 			);
 			name = ComeAquiOS;
 			productName = ComeAquiOS;
-			productReference = 87FC9E762447FF6200810ECF /* ComeAquiOS.app */;
+			productReference = 87FC9E762447FF6200810ECF /* ComeAquí.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1417,7 +1417,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.EduardoRdoriguezPerez.ComeAquiOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "ComeAquí";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1438,7 +1438,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.EduardoRdoriguezPerez.ComeAquiOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "ComeAquí";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -115,7 +115,6 @@ extension NotificationsViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
-        print(offsetY, contentHeight - scrollView.frame.height)
         if offsetY > scrollView.frame.height - contentHeight {
             if !alreadyFetchingData {
                 getMyNotifications()
@@ -132,7 +131,7 @@ extension NotificationsViewController: WebSocketDelegate{
         var notification_added: NotificationObject?
     }
     func webSocketConnetion(){
-        var request = URLRequest(url: URL(string: SERVER + "/ws/notifications/\(USER.id!)/")!)
+        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/ws/notifications/\(USER.id!)/")!)
         request.timeoutInterval = 5
         ws = WebSocket(request: request)
         ws?.delegate = self

@@ -11,7 +11,7 @@
         <!--Search View Controller-->
         <scene sceneID="OIX-O0-qdQ">
             <objects>
-                <viewController storyboardIdentifier="SearchView" id="xUf-cd-JYH" customClass="SearchViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchView" id="xUf-cd-JYH" customClass="SearchViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nc6-bh-Bec">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,14 +25,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GIU-12-Aca">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                                                 <subviews>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xDc-fS-pHc" customClass="MyOwnTableView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xDc-fS-pHc" customClass="MyOwnTableView" customModule="ComeAquí" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="800" id="rM4-Bz-lRS"/>
                                                         </constraints>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodCell" rowHeight="300" id="sY9-c6-HxG" customClass="Tab1TableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodCell" rowHeight="300" id="sY9-c6-HxG" customClass="Tab1TableViewCell" customModule="ComeAquí" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="414" height="300"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sY9-c6-HxG" id="H0x-Bk-kHM">
@@ -148,7 +148,7 @@
                                                                                         </stackView>
                                                                                     </subviews>
                                                                                 </stackView>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ep-mM-MEn" customClass="CellImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ep-mM-MEn" customClass="CellImageView" customModule="ComeAquí" customModuleProvider="target">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="358" height="100"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="100" id="rvQ-hA-933"/>

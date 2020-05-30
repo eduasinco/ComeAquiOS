@@ -28,6 +28,7 @@ class ConversationViewController: KUIViewController {
     var chatMessages = [[MessageObject]]()
     var page: Int = 1
     var alreadyFetchingData = false
+
     
     var ws: WebSocket?
     
@@ -44,7 +45,6 @@ class ConversationViewController: KUIViewController {
         webSocketConnetion()
         tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
         blockView.visibility = .gone
-        headerView.dropShadow(radius: 1, opacity: 0.3, height: 1)
     }
     
     func setView() {
@@ -52,6 +52,16 @@ class ConversationViewController: KUIViewController {
         self.chattingWith = (USER.id == chat.users![0].id) ? chat.users![1] : chat.users![0]
         userImage.loadImageUsingUrlString(urlString: self.chattingWith.profile_photo)
         userName.text = self.chattingWith.full_name
+        
+        userImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageSelector)))
+
+    }
+    @objc private func handleImageSelector() {
+        performSegue(withIdentifier: "ProfileSegue", sender: nil)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        headerView.dropShadow(radius: 1, opacity: 0.3, height: 1)
     }
     
     @IBAction func send(_ sender: Any) {
@@ -72,11 +82,14 @@ class ConversationViewController: KUIViewController {
         if segue.identifier == "OptionsSegue" {
             let vc = segue.destination as? OptionsPopUpViewController
             if isUserBlocked {
-                vc?.options = ["Unblock user", "Report"]
+                vc?.options = ["Go to profile", "Unblock user", "Report"]
             } else {
-                vc?.options = ["Block user", "Report"]
+                vc?.options = ["Go to profile", "Block user", "Report"]
             }
             vc?.delegate = self
+        } else if segue.identifier == "ProfileSegue" {
+            let profileVC = segue.destination as? ProfileViewController
+            profileVC?.userId = chattingWith?.id
         }
     }
 }
@@ -88,6 +101,8 @@ extension ConversationViewController: OptionsPopUpProtocol {
             unBlockUser(userId: chattingWith.id!)
         case "Block user":
             blockUser(userId: chattingWith.id!)
+        case "Go to profile":
+            performSegue(withIdentifier: "ProfileSegue", sender: nil)
         case "Report":
             break
         default:
@@ -106,7 +121,7 @@ extension ConversationViewController: WebSocketDelegate{
     }
     func webSocketConnetion(){
         guard let chatId = self.chatId else {return}
-        var request = URLRequest(url: URL(string: SERVER + "/ws/chat/\(chatId)/")!)
+        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/ws/chat/\(chatId)/")!)
         request.timeoutInterval = 5
         ws = WebSocket(request: request)
         ws?.delegate = self
@@ -302,7 +317,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
     class DateHeaderLabel: UILabel {
         override init(frame: CGRect) {
             super.init(frame: frame)
-            backgroundColor = .black
+            backgroundColor = UIColor(named: "PrimaryLight")
             textColor = .white
             textAlignment = .center
             translatesAutoresizingMaskIntoConstraints = false // enables auto layout
@@ -323,6 +338,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
         if let firstMessageInSection = chatMessages[section].first {
             let label = DateHeaderLabel()
             label.text = Date.todayYesterdayWeekDay(isoDateString: firstMessageInSection.created_at!)
+            label.dropShadow(radius: 1, opacity: 0.3, height: 1)
             let containerView = UIView()
 
             containerView.addSubview(label)

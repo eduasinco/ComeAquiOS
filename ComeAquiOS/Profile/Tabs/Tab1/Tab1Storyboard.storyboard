@@ -11,19 +11,19 @@
         <!--Tab1 View Controller-->
         <scene sceneID="Uot-Ps-iN1">
             <objects>
-                <viewController storyboardIdentifier="Tab1View" id="D1l-Ob-Fwt" customClass="Tab1ViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tab1View" id="D1l-Ob-Fwt" customClass="Tab1ViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Dm-LX-fUK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q0R-6F-XIt" customClass="MyOwnTableView" customModule="ComeAquiOS" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q0R-6F-XIt" customClass="MyOwnTableView" customModule="ComeAquí" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="896" id="fFi-Ib-64x"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Tab1Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tab1Cell" id="zqJ-wX-0Bk" customClass="Tab1TableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Tab1Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tab1Cell" id="zqJ-wX-0Bk" customClass="Tab1TableViewCell" customModule="ComeAquí" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="220.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zqJ-wX-0Bk" id="QeT-dc-nUY">
@@ -139,7 +139,7 @@
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h6y-Gq-5LP" customClass="CellImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h6y-Gq-5LP" customClass="CellImageView" customModule="ComeAquí" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="358" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="fC5-rF-PCe"/>
@@ -190,18 +190,48 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VeP-Wd-akr">
+                                <rect key="frame" x="178.5" y="389.5" width="57" height="117"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_posts" translatesAutoresizingMaskIntoConstraints="NO" id="fvp-Zd-UYa">
+                                        <rect key="frame" x="-21.5" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="A2N-9f-9zk"/>
+                                            <constraint firstAttribute="width" constant="100" id="Os7-8o-O22"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="No posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmn-Ko-ACO">
+                                        <rect key="frame" x="0.0" y="100" width="57" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vmn-Ko-ACO" firstAttribute="top" secondItem="fvp-Zd-UYa" secondAttribute="bottom" id="8Zr-q2-voW"/>
+                                    <constraint firstItem="fvp-Zd-UYa" firstAttribute="centerX" secondItem="VeP-Wd-akr" secondAttribute="centerX" id="RdK-ne-VA5"/>
+                                    <constraint firstItem="vmn-Ko-ACO" firstAttribute="leading" secondItem="VeP-Wd-akr" secondAttribute="leading" id="Usc-9m-Stq"/>
+                                    <constraint firstItem="vmn-Ko-ACO" firstAttribute="centerX" secondItem="VeP-Wd-akr" secondAttribute="centerX" id="cB4-0J-WCU"/>
+                                    <constraint firstItem="fvp-Zd-UYa" firstAttribute="top" secondItem="VeP-Wd-akr" secondAttribute="top" id="f3R-YD-Upt"/>
+                                    <constraint firstAttribute="bottom" secondItem="vmn-Ko-ACO" secondAttribute="bottom" id="mVS-Ou-FwL"/>
+                                    <constraint firstAttribute="trailing" secondItem="vmn-Ko-ACO" secondAttribute="trailing" id="ziW-wM-vGK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="q0R-6F-XIt" secondAttribute="bottom" id="BvP-Do-iwU"/>
                             <constraint firstItem="q0R-6F-XIt" firstAttribute="trailing" secondItem="Y8P-fl-vIM" secondAttribute="trailing" id="Q5R-xm-f9d"/>
+                            <constraint firstItem="VeP-Wd-akr" firstAttribute="centerY" secondItem="4Dm-LX-fUK" secondAttribute="centerY" id="p5C-wJ-pJP"/>
                             <constraint firstItem="q0R-6F-XIt" firstAttribute="top" secondItem="4Dm-LX-fUK" secondAttribute="top" id="rtH-dl-gde"/>
                             <constraint firstItem="q0R-6F-XIt" firstAttribute="leading" secondItem="Y8P-fl-vIM" secondAttribute="leading" id="sFa-3F-DuL"/>
+                            <constraint firstItem="VeP-Wd-akr" firstAttribute="centerX" secondItem="4Dm-LX-fUK" secondAttribute="centerX" id="xif-p2-KZ2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Y8P-fl-vIM"/>
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
+                        <outlet property="noPostsView" destination="VeP-Wd-akr" id="qiz-46-vrk"/>
                         <outlet property="tableView" destination="q0R-6F-XIt" id="Ji8-yd-tdQ"/>
                         <segue destination="QgP-y2-Sfe" kind="show" identifier="FoodLookSegue" id="Q4Y-vW-V1j"/>
                     </connections>
@@ -226,6 +256,7 @@
         <image name="diary_fill" width="284" height="512"/>
         <image name="fish_fill" width="511" height="511"/>
         <image name="meat_fill" width="424" height="512"/>
+        <image name="no_posts" width="204" height="315"/>
         <image name="spyci_fill" width="369" height="512"/>
         <image name="vegan_fill" width="470" height="427"/>
         <image name="vegetarian_fill" width="369" height="400"/>

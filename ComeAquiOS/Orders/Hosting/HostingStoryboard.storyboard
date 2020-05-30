@@ -11,46 +11,46 @@
         <!--Hosting View Controller-->
         <scene sceneID="dfT-qn-Pus">
             <objects>
-                <viewController storyboardIdentifier="HostingView" id="ROH-GU-gUS" customClass="HostingViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HostingView" id="ROH-GU-gUS" customClass="HostingViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g20-I4-jGH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="afh-8K-dpr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="afh-8K-dpr" userLabel="No Guesting View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HostingCell" id="S8I-Mz-UAT" customClass="HostingTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HostingCell" id="S8I-Mz-UAT" customClass="HostingTableViewCell" customModule="ComeAquí" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S8I-Mz-UAT" id="TAB-Zw-Sbb">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PWs-pY-xlz" customClass="CellImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="8" width="84" height="84"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_plate" translatesAutoresizingMaskIntoConstraints="NO" id="PWs-pY-xlz" customClass="CellImageView" customModule="ComeAquí" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="8" width="70" height="70"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="84" id="K6p-7v-h2K"/>
-                                                        <constraint firstAttribute="width" constant="84" id="cv3-M5-CKC"/>
+                                                        <constraint firstAttribute="height" constant="70" id="K6p-7v-h2K"/>
+                                                        <constraint firstAttribute="width" constant="70" id="cv3-M5-CKC"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="plate name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGx-Ke-ls7">
-                                                    <rect key="frame" x="100" y="8" width="306" height="21"/>
+                                                    <rect key="frame" x="86" y="8" width="320" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" name="Primary"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You still have some steps to finish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrO-fA-0iO">
-                                                    <rect key="frame" x="100" y="74" width="306" height="18"/>
+                                                    <rect key="frame" x="86" y="60" width="320" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" name="Canceled"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="meal time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHf-8e-vZY">
-                                                    <rect key="frame" x="100" y="37" width="302" height="20.5"/>
+                                                    <rect key="frame" x="86" y="36.5" width="316" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <color key="textColor" name="Primary"/>
                                                     <nil key="highlightedColor"/>
@@ -80,11 +80,40 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ZH-v1-JSL">
+                                <rect key="frame" x="149.5" y="389.5" width="115" height="117"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_orders" translatesAutoresizingMaskIntoConstraints="NO" id="LkP-RS-UBa">
+                                        <rect key="frame" x="7.5" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="BRn-s8-fo4"/>
+                                            <constraint firstAttribute="height" constant="100" id="opC-Gk-Ood"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="No hosting events" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftK-ye-5uI">
+                                        <rect key="frame" x="0.0" y="100" width="115" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ftK-ye-5uI" firstAttribute="leading" secondItem="9ZH-v1-JSL" secondAttribute="leading" id="4jb-sm-efC"/>
+                                    <constraint firstItem="LkP-RS-UBa" firstAttribute="centerX" secondItem="9ZH-v1-JSL" secondAttribute="centerX" id="IG6-KD-fhf"/>
+                                    <constraint firstItem="LkP-RS-UBa" firstAttribute="top" secondItem="9ZH-v1-JSL" secondAttribute="top" id="L13-mS-6jD"/>
+                                    <constraint firstAttribute="trailing" secondItem="ftK-ye-5uI" secondAttribute="trailing" id="NCl-w7-3n6"/>
+                                    <constraint firstItem="ftK-ye-5uI" firstAttribute="top" secondItem="LkP-RS-UBa" secondAttribute="bottom" id="YPe-8Y-M6H"/>
+                                    <constraint firstAttribute="bottom" secondItem="ftK-ye-5uI" secondAttribute="bottom" id="g25-1T-etf"/>
+                                    <constraint firstItem="ftK-ye-5uI" firstAttribute="centerX" secondItem="9ZH-v1-JSL" secondAttribute="centerX" id="srZ-b9-z9b"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="9ZH-v1-JSL" firstAttribute="centerY" secondItem="g20-I4-jGH" secondAttribute="centerY" id="Bz4-7p-e6k"/>
                             <constraint firstItem="afh-8K-dpr" firstAttribute="leading" secondItem="G5Q-SN-glo" secondAttribute="leading" id="Q3b-GI-pHf"/>
                             <constraint firstItem="afh-8K-dpr" firstAttribute="top" secondItem="g20-I4-jGH" secondAttribute="top" id="SOE-fn-fch"/>
+                            <constraint firstItem="9ZH-v1-JSL" firstAttribute="centerX" secondItem="g20-I4-jGH" secondAttribute="centerX" id="d5c-R7-8Eg"/>
                             <constraint firstItem="afh-8K-dpr" firstAttribute="trailing" secondItem="G5Q-SN-glo" secondAttribute="trailing" id="kfn-ff-Wwi"/>
                             <constraint firstAttribute="bottom" secondItem="afh-8K-dpr" secondAttribute="bottom" id="zxF-QJ-rVg"/>
                         </constraints>
@@ -92,6 +121,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
+                        <outlet property="notHostingView" destination="9ZH-v1-JSL" id="O98-Di-ihP"/>
                         <outlet property="tableView" destination="afh-8K-dpr" id="Vkj-1h-fPZ"/>
                         <segue destination="rdu-Vx-YuE" kind="show" identifier="FoodLookSegue" id="c4A-ky-SXE"/>
                         <segue destination="Mgs-Zy-oda" kind="show" identifier="AddFoodSegue" id="sm1-pK-Wq1"/>
@@ -123,6 +153,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="empty_plate" width="321" height="321"/>
+        <image name="no_orders" width="235" height="219"/>
         <namedColor name="Canceled">
             <color red="0.74509803921568629" green="0.050980392156862744" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

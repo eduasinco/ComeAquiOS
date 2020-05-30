@@ -35,7 +35,7 @@ extension ViewController: WebSocketDelegate {
         var orders_not_seen: Int?
     }
     func webSocketConnetion(){
-        var request = URLRequest(url: URL(string: SERVER + "/ws/popups/\(USER.id!)/")!)
+        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/ws/popups/\(USER.id!)/")!)
         request.timeoutInterval = 5
         ws = WebSocket(request: request)
         ws?.delegate = self

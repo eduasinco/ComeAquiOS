@@ -11,19 +11,19 @@
         <!--Tab2 View Controller-->
         <scene sceneID="3qy-hK-04s">
             <objects>
-                <viewController storyboardIdentifier="Tab2View" id="aPa-tX-rqS" customClass="Tab2ViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tab2View" id="aPa-tX-rqS" customClass="Tab2ViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UDG-vX-HZE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="14W-c3-8Wf" customClass="MyOwnTableView" customModule="ComeAquiOS" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="14W-c3-8Wf" customClass="MyOwnTableView" customModule="ComeAquí" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="896" id="QjF-9I-zMT"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Tab2Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tab2Cell" id="ZJt-jN-KyN" customClass="Tab2TableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Tab2Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tab2Cell" id="ZJt-jN-KyN" customClass="Tab2TableViewCell" customModule="ComeAquí" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="281.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZJt-jN-KyN" id="YH0-aW-vYK">
@@ -139,7 +139,7 @@
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rUk-7S-reM" customClass="CellImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rUk-7S-reM" customClass="CellImageView" customModule="ComeAquí" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="358" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="p8x-FK-jkr"/>
@@ -160,7 +160,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0l9-q0-zDS">
                                                     <rect key="frame" x="28" y="220.5" width="358" height="66"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5FF-x0-EzT" customClass="CellImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5FF-x0-EzT" customClass="CellImageView" customModule="ComeAquí" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="8" width="50" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="cK0-c3-ppr"/>
@@ -239,18 +239,48 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="by8-Nz-yWf">
+                                <rect key="frame" x="178.5" y="389.5" width="57" height="117"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_posts" translatesAutoresizingMaskIntoConstraints="NO" id="5ka-G4-fTf">
+                                        <rect key="frame" x="-21.5" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="4rT-mp-C72"/>
+                                            <constraint firstAttribute="height" constant="100" id="ekd-SV-hE5"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="No posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJf-G8-Inm">
+                                        <rect key="frame" x="0.0" y="100" width="57" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="AJf-G8-Inm" secondAttribute="bottom" id="9R8-29-kDE"/>
+                                    <constraint firstItem="AJf-G8-Inm" firstAttribute="top" secondItem="5ka-G4-fTf" secondAttribute="bottom" id="FtZ-gS-eqR"/>
+                                    <constraint firstItem="5ka-G4-fTf" firstAttribute="top" secondItem="by8-Nz-yWf" secondAttribute="top" id="Gi5-cR-Vsb"/>
+                                    <constraint firstItem="5ka-G4-fTf" firstAttribute="centerX" secondItem="by8-Nz-yWf" secondAttribute="centerX" id="L5F-bm-pRF"/>
+                                    <constraint firstAttribute="trailing" secondItem="AJf-G8-Inm" secondAttribute="trailing" id="Oea-2y-yTA"/>
+                                    <constraint firstItem="AJf-G8-Inm" firstAttribute="centerX" secondItem="by8-Nz-yWf" secondAttribute="centerX" id="Vza-QW-3ay"/>
+                                    <constraint firstItem="AJf-G8-Inm" firstAttribute="leading" secondItem="by8-Nz-yWf" secondAttribute="leading" id="o1n-Vq-NTb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="by8-Nz-yWf" firstAttribute="centerY" secondItem="UDG-vX-HZE" secondAttribute="centerY" id="9QA-le-9yL"/>
                             <constraint firstItem="14W-c3-8Wf" firstAttribute="leading" secondItem="gJZ-Hz-uJT" secondAttribute="leading" id="ZxP-sV-GEh"/>
                             <constraint firstAttribute="bottom" secondItem="14W-c3-8Wf" secondAttribute="bottom" id="eKb-bJ-9XP"/>
                             <constraint firstItem="14W-c3-8Wf" firstAttribute="trailing" secondItem="gJZ-Hz-uJT" secondAttribute="trailing" id="hV0-fI-vBJ"/>
                             <constraint firstItem="14W-c3-8Wf" firstAttribute="top" secondItem="UDG-vX-HZE" secondAttribute="top" id="oQ4-bs-GtO"/>
+                            <constraint firstItem="by8-Nz-yWf" firstAttribute="centerX" secondItem="UDG-vX-HZE" secondAttribute="centerX" id="pJG-UQ-Xf0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gJZ-Hz-uJT"/>
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
+                        <outlet property="noPostsView" destination="by8-Nz-yWf" id="3kX-zd-g18"/>
                         <outlet property="tableView" destination="14W-c3-8Wf" id="p7N-tl-GdO"/>
                         <segue destination="LsR-Fd-vr3" kind="show" identifier="FoodCommentsSegue" id="SVW-h3-DNU"/>
                     </connections>
@@ -275,6 +305,7 @@
         <image name="diary_fill" width="284" height="512"/>
         <image name="fish_fill" width="511" height="511"/>
         <image name="meat_fill" width="424" height="512"/>
+        <image name="no_posts" width="204" height="315"/>
         <image name="spyci_fill" width="369" height="512"/>
         <image name="vegan_fill" width="470" height="427"/>
         <image name="vegetarian_fill" width="369" height="400"/>

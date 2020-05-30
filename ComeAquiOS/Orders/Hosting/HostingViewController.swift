@@ -11,6 +11,7 @@ import UIKit
 class HostingViewController: LoadViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var notHostingView: UIView!
     var foodPosts: [FoodPostObject] = []
     
     var page = 1
