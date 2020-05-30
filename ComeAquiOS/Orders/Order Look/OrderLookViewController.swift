@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import MapKit
 
 class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     @IBOutlet weak var stackView: UIStackView!
@@ -53,18 +54,17 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
         total.text = priceString
         imageScrollVC?.foodPostId = self.order?.post!.id
     }
-    
     func setMapView() {
         GMSServices.provideAPIKey("AIzaSyDDZzJN-1TJ9i8DzEvL-dJypS8Xsa2UYy0")
         let camera = GMSCameraPosition.camera(withLatitude: order!.post!.lat!, longitude: order!.post!.lng!, zoom: 15.0)
         let googleMap = GMSMapView.map(withFrame: view.bounds, camera: camera)
         googleMap.isMyLocationEnabled = true
-        googleMap.isMyLocationEnabled = true
         googleMap.delegate = self
+        googleMap.isUserInteractionEnabled = false
         viewForMap.addSubview(googleMap)
         viewForMap.clipsToBounds = true
-        viewForMap.isUserInteractionEnabled = false
         setConfirmCancelButton()
+        viewForMap.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapMap(_:))))
     }
     func setConfirmCancelButton(){
         if order?.poster?.id == USER.id && order?.order_status == "PENDING" {
@@ -72,7 +72,45 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
         } else {
             confrimCancelView.visibility = .gone
         }
-        
+    }
+    @objc func tapMap(_ gestureRecognizer: UITapGestureRecognizer) {
+        openMap()
+    }
+    func goToGoogleMaps() {
+         UIApplication.shared.canOpenURL(URL(string: "http://maps.apple.com/?ll=\(order!.post!.lat!),\(order!.post!.lng!)")!)
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+            UIApplication.shared.open(URL(string:"comgooglemaps://?center=\(order!.post!.lat!),\(order!.post!.lng!)&zoom=14&views=traffic")!, options: [:], completionHandler: nil)
+        } else {
+
+        }
+    }
+    func openMap() {
+        let appleURL = "http://maps.apple.com/?daddr=\(order!.post!.lat!),\(order!.post!.lng!)"
+        let googleURL = "comgooglemaps://?daddr=\(order!.post!.lat!),\(order!.post!.lng!)&directionsmode=driving"
+        let wazeURL = "waze://?ll=\(order!.post!.lat!),\(order!.post!.lng!)&navigate=false"
+
+        let googleItem = ("Google Map", URL(string:googleURL)!)
+        let wazeItem = ("Waze", URL(string:wazeURL)!)
+        var installedNavigationApps = [("Apple Maps", URL(string:appleURL)!)]
+
+        if UIApplication.shared.canOpenURL(googleItem.1) {
+            installedNavigationApps.append(googleItem)
+        }
+
+        if UIApplication.shared.canOpenURL(wazeItem.1) {
+            installedNavigationApps.append(wazeItem)
+        }
+
+        let alert = UIAlertController(title: "Selection", message: "Select Navigation App", preferredStyle: .actionSheet)
+        for app in installedNavigationApps {
+            let button = UIAlertAction(title: app.0, style: .default, handler: { _ in
+                UIApplication.shared.open(app.1, options: [:], completionHandler: nil)
+            })
+            alert.addAction(button)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        present(alert, animated: true)
     }
     
     @IBAction func goToMealPressed(_ sender: Any) {
