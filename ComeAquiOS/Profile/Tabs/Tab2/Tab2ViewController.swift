@@ -11,6 +11,7 @@ import UIKit
 class Tab2ViewController: UIViewController {
     
     @IBOutlet weak var tableView: MyOwnTableView!
+    @IBOutlet weak var noPostsView: UIView!
     
     var data: [FoodPostObject] = []
     var userId : Int? {
@@ -55,6 +56,11 @@ extension Tab2ViewController {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.page += 1
+                    if self.data.count == 0 {
+                        self.noPostsView.visibility = .visible
+                    } else {
+                        self.noPostsView.visibility = .invisible
+                    }
                 }
             } catch {}
         })

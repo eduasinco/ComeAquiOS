@@ -190,7 +190,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VeP-Wd-akr">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VeP-Wd-akr">
                                 <rect key="frame" x="178.5" y="389.5" width="57" height="117"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_posts" translatesAutoresizingMaskIntoConstraints="NO" id="fvp-Zd-UYa">

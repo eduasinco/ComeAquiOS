@@ -14,6 +14,7 @@ class NotificationsViewController: LoadViewController {
     @IBOutlet weak var tableView: UITableView!
     var notifications: [NotificationObject] = []
     var notificationToIndexPath: [Int: IndexPath] = [:]
+    @IBOutlet weak var noNotificationsView: UIView!
     
     var page = 1
     var alreadyFetchingData = false
@@ -108,6 +109,11 @@ extension NotificationsViewController {
                 self.page += 1
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    if self.notifications.count == 0 {
+                        self.noNotificationsView.visibility = .visible
+                    } else {
+                        self.noNotificationsView.visibility = .invisible
+                    }
                 }
             } catch {}
         })
@@ -161,6 +167,8 @@ extension NotificationsViewController: WebSocketDelegate{
                     self.tableView.beginUpdates()
                     self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
                     self.tableView.endUpdates()
+                    self.noNotificationsView.visibility = .invisible
+
                 }
             } catch let error as NSError {
                 print(error)

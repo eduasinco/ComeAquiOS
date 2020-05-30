@@ -218,6 +218,33 @@
                                             <constraint firstAttribute="trailing" secondItem="GIU-12-Aca" secondAttribute="trailing" id="z5k-0k-r7j"/>
                                         </constraints>
                                     </scrollView>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjR-kV-Xdb">
+                                        <rect key="frame" x="158.5" y="367.5" width="97.5" height="117"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="not_found" translatesAutoresizingMaskIntoConstraints="NO" id="UnY-0y-C4e">
+                                                <rect key="frame" x="-1.5" y="0.0" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="dah-7I-Ns0"/>
+                                                    <constraint firstAttribute="width" constant="100" id="gqB-9Y-F97"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="No posts found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kn-uh-jrf">
+                                                <rect key="frame" x="0.0" y="100" width="97.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="UnY-0y-C4e" firstAttribute="centerX" secondItem="bjR-kV-Xdb" secondAttribute="centerX" id="2c8-xT-T1d"/>
+                                            <constraint firstItem="3Kn-uh-jrf" firstAttribute="top" secondItem="UnY-0y-C4e" secondAttribute="bottom" id="KsY-Tk-7Xh"/>
+                                            <constraint firstAttribute="trailing" secondItem="3Kn-uh-jrf" secondAttribute="trailing" id="Sw8-Fp-B27"/>
+                                            <constraint firstItem="UnY-0y-C4e" firstAttribute="top" secondItem="bjR-kV-Xdb" secondAttribute="top" id="WA9-4m-LV1"/>
+                                            <constraint firstItem="3Kn-uh-jrf" firstAttribute="centerX" secondItem="bjR-kV-Xdb" secondAttribute="centerX" id="bfc-Df-JZI"/>
+                                            <constraint firstAttribute="bottom" secondItem="3Kn-uh-jrf" secondAttribute="bottom" id="oZ3-A6-VT0"/>
+                                            <constraint firstItem="3Kn-uh-jrf" firstAttribute="leading" secondItem="bjR-kV-Xdb" secondAttribute="leading" id="tMc-qx-t1g"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDa-nt-yg3">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                         <subviews>
@@ -381,8 +408,10 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="gUA-EN-nMu" firstAttribute="top" secondItem="Sjz-q1-fi7" secondAttribute="top" id="Ckg-9k-8iY"/>
+                                    <constraint firstItem="bjR-kV-Xdb" firstAttribute="centerY" secondItem="Sjz-q1-fi7" secondAttribute="centerY" id="DtE-hs-9wB"/>
                                     <constraint firstItem="gUA-EN-nMu" firstAttribute="leading" secondItem="Sjz-q1-fi7" secondAttribute="leading" id="Op2-R7-KGo"/>
                                     <constraint firstItem="aDa-nt-yg3" firstAttribute="top" secondItem="Sjz-q1-fi7" secondAttribute="top" id="a5V-YM-5v7"/>
+                                    <constraint firstItem="bjR-kV-Xdb" firstAttribute="centerX" secondItem="Sjz-q1-fi7" secondAttribute="centerX" id="e47-gL-ZIH"/>
                                     <constraint firstItem="aDa-nt-yg3" firstAttribute="leading" secondItem="Sjz-q1-fi7" secondAttribute="leading" id="g6q-em-BBq"/>
                                     <constraint firstAttribute="trailing" secondItem="aDa-nt-yg3" secondAttribute="trailing" id="hLj-lW-bdi"/>
                                     <constraint firstAttribute="bottom" secondItem="gUA-EN-nMu" secondAttribute="bottom" id="tHG-g3-B2a"/>
@@ -407,6 +436,7 @@
                         <outlet property="distance" destination="JUH-pZ-Suz" id="va2-Ut-yNe"/>
                         <outlet property="headerView" destination="aDa-nt-yg3" id="3bn-qG-Tnj"/>
                         <outlet property="mealTime" destination="if9-fb-f56" id="Ul8-0l-kgd"/>
+                        <outlet property="notFoundView" destination="bjR-kV-Xdb" id="5Qv-AQ-HIc"/>
                         <outlet property="people" destination="zKd-jL-UD0" id="dUc-mA-2DY"/>
                         <outlet property="price" destination="K5L-28-xVR" id="VwQ-hO-LRf"/>
                         <outlet property="scrollView" destination="gUA-EN-nMu" id="Nyb-D5-rFt"/>
@@ -518,6 +548,7 @@
         <image name="diary_fill" width="284" height="512"/>
         <image name="fish_fill" width="511" height="511"/>
         <image name="meat_fill" width="424" height="512"/>
+        <image name="not_found" width="227" height="239"/>
         <image name="spyci_fill" width="369" height="512"/>
         <image name="vegan_fill" width="470" height="427"/>
         <image name="vegetarian_fill" width="369" height="400"/>

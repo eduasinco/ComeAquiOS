@@ -11,7 +11,7 @@
         <!--Food Review Look View Controller-->
         <scene sceneID="Rai-AL-yQy">
             <objects>
-                <viewController storyboardIdentifier="FoodReviewView" id="cqf-Qm-seU" customClass="FoodReviewLookViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoodReviewView" id="cqf-Qm-seU" customClass="FoodReviewLookViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LhE-cA-s3I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" rowHeight="200" id="Muo-2x-Cal" customClass="ReviewTableViewCell" customModule="ComeAquiOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" rowHeight="200" id="Muo-2x-Cal" customClass="ReviewTableViewCell" customModule="ComeAquí" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Muo-2x-Cal" id="FEz-gB-bb3">
@@ -36,7 +36,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdi-2K-z8s">
                                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bcI-Lo-cuC" customClass="CellImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bcI-Lo-cuC" customClass="CellImageView" customModule="ComeAquí" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="70" id="c3R-w5-0Jz"/>
@@ -129,7 +129,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVm-7z-TLH">
                                                                             <rect key="frame" x="0.0" y="0.0" width="398" height="70"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Avk-mi-Gy0" customClass="CellImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Avk-mi-Gy0" customClass="CellImageView" customModule="ComeAquí" customModuleProvider="target">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="70" id="IDp-li-cy9"/>
@@ -218,6 +218,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEB-th-dVW">
+                                <rect key="frame" x="162.5" y="389.5" width="89" height="117"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_comments" translatesAutoresizingMaskIntoConstraints="NO" id="130-DI-cv1">
+                                        <rect key="frame" x="19.5" y="0.0" width="50" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="AsT-Ih-DaS"/>
+                                            <constraint firstAttribute="height" constant="100" id="pS2-tJ-ifN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="No comments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXn-Ux-xzi">
+                                        <rect key="frame" x="0.0" y="100" width="89" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LXn-Ux-xzi" firstAttribute="centerX" secondItem="YEB-th-dVW" secondAttribute="centerX" id="ARB-jk-vuR"/>
+                                    <constraint firstAttribute="bottom" secondItem="LXn-Ux-xzi" secondAttribute="bottom" id="CGA-N4-lJa"/>
+                                    <constraint firstAttribute="trailing" secondItem="LXn-Ux-xzi" secondAttribute="trailing" id="YED-dT-IqP"/>
+                                    <constraint firstItem="LXn-Ux-xzi" firstAttribute="leading" secondItem="YEB-th-dVW" secondAttribute="leading" id="c8U-cs-djs"/>
+                                    <constraint firstItem="130-DI-cv1" firstAttribute="centerX" secondItem="YEB-th-dVW" secondAttribute="centerX" id="cTT-PO-muw"/>
+                                    <constraint firstItem="130-DI-cv1" firstAttribute="top" secondItem="YEB-th-dVW" secondAttribute="top" id="k6s-Nb-dFs"/>
+                                    <constraint firstItem="LXn-Ux-xzi" firstAttribute="top" secondItem="130-DI-cv1" secondAttribute="bottom" id="v1B-Li-4r1"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCY-Uh-lhe">
                                 <rect key="frame" x="0.0" y="44" width="414" height="286"/>
                                 <subviews>
@@ -230,16 +257,16 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GEs-6l-Xq3">
                                                         <rect key="frame" x="0.0" y="0.0" width="900" height="200"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mmy-pB-x8N" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mmy-pB-x8N" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="300" id="xCO-vA-ZUt"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DSx-0C-y3u" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DSx-0C-y3u" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
                                                                 <rect key="frame" x="300" y="0.0" width="300" height="200"/>
                                                             </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vha-sZ-v07" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vha-sZ-v07" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
                                                                 <rect key="frame" x="600" y="0.0" width="300" height="200"/>
                                                             </imageView>
                                                         </subviews>
@@ -267,7 +294,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTY-g9-X4X" userLabel="User Description">
                                         <rect key="frame" x="0.0" y="200" width="414" height="86"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IZc-O6-GUK" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IZc-O6-GUK" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="8" width="70" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="YSQ-Ts-AsH"/>
@@ -333,7 +360,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="8kp-4U-tXe" firstAttribute="trailing" secondItem="VsJ-wA-02C" secondAttribute="trailing" id="9Va-Me-QBf"/>
+                            <constraint firstItem="YEB-th-dVW" firstAttribute="centerY" secondItem="LhE-cA-s3I" secondAttribute="centerY" id="BCh-Sa-W6u"/>
                             <constraint firstItem="rCY-Uh-lhe" firstAttribute="top" secondItem="VsJ-wA-02C" secondAttribute="top" id="DN3-Tn-z8i"/>
+                            <constraint firstItem="YEB-th-dVW" firstAttribute="centerX" secondItem="LhE-cA-s3I" secondAttribute="centerX" id="U2g-pz-UZL"/>
                             <constraint firstItem="rCY-Uh-lhe" firstAttribute="trailing" secondItem="VsJ-wA-02C" secondAttribute="trailing" id="YH1-hT-bRZ"/>
                             <constraint firstItem="8kp-4U-tXe" firstAttribute="leading" secondItem="VsJ-wA-02C" secondAttribute="leading" id="Yd4-QS-IlD"/>
                             <constraint firstItem="8kp-4U-tXe" firstAttribute="top" secondItem="VsJ-wA-02C" secondAttribute="top" id="YhM-ZN-XLM"/>
@@ -351,6 +380,7 @@
                         <outlet property="image2" destination="DSx-0C-y3u" id="U25-Ye-LGI"/>
                         <outlet property="image3" destination="Vha-sZ-v07" id="tO8-lc-jMd"/>
                         <outlet property="imageScrollView" destination="OlI-2S-OfQ" id="qvI-1o-Fi6"/>
+                        <outlet property="noCommentsView" destination="YEB-th-dVW" id="Rfr-hs-oZG"/>
                         <outlet property="posterImage" destination="IZc-O6-GUK" id="vGN-V8-P2I"/>
                         <outlet property="shortHeaderView" destination="XTY-g9-X4X" id="l77-mG-coW"/>
                         <outlet property="tableView" destination="8kp-4U-tXe" id="Elp-oQ-pkL"/>
@@ -398,6 +428,7 @@
     </scenes>
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="no_comments" width="190" height="167"/>
         <image name="rate_empty_star" width="175" height="175"/>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

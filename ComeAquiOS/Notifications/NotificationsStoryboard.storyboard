@@ -129,7 +129,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzD-ym-xV6">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzD-ym-xV6">
                                 <rect key="frame" x="157" y="389.5" width="100" height="117"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_notifications" translatesAutoresizingMaskIntoConstraints="NO" id="Id2-SO-LWT">
@@ -171,6 +171,7 @@
                     <navigationItem key="navigationItem" title="Notifications" id="kp4-TQ-YbB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="noNotificationsView" destination="dzD-ym-xV6" id="xyf-JR-R8L"/>
                         <outlet property="tableView" destination="BKK-pX-WyP" id="P6I-aM-7Ed"/>
                         <segue destination="P2p-VK-2GI" kind="show" identifier="OrderLookSegue" id="ipG-ga-FMR"/>
                         <segue destination="dNr-wp-ohN" kind="show" identifier="FoodLookSegue" id="MEm-MP-hU3"/>

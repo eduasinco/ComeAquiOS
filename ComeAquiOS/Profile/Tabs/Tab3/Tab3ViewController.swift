@@ -10,6 +10,7 @@ import UIKit
 
 class Tab3ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var noMediaView: UIView!
     
     var data: [FoodPostImageObject] = []
     var userId : Int? {
@@ -65,6 +66,11 @@ extension Tab3ViewController {
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                     self.page += 1
+                    if self.data.count == 0 {
+                        self.noMediaView.visibility = .visible
+                    } else {
+                        self.noMediaView.visibility = .invisible
+                    }
                 }
             } catch {}
         })

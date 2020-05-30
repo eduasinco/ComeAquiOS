@@ -75,6 +75,11 @@ extension GuestingViewController {
                 self.page += 1
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    if self.orders.count == 0 {
+                        self.noGuestingView.visibility = .visible
+                    } else {
+                        self.noGuestingView.visibility = .invisible
+                    }
                 }
             } catch {}
         })
@@ -130,6 +135,7 @@ extension GuestingViewController: WebSocketDelegate{
                         self.tableView.beginUpdates()
                         self.tableView.reloadRows(at: [ip], with: .automatic)
                         self.tableView.endUpdates()
+                        self.noGuestingView.visibility = .invisible
                     }
                 } // else {
 //                    orders.insert(mro.order_changed!, at: 0)

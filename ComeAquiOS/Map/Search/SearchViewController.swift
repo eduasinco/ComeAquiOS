@@ -27,6 +27,7 @@ class SearchViewController: KUIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var topHeaderConstraint: NSLayoutConstraint!
     @IBOutlet weak var shortHeaderView: UIScrollView!
+    @IBOutlet weak var notFoundView: UIView!
     
     var data: [FoodPostObject] = []
     var page: Int = 1
@@ -234,6 +235,11 @@ extension SearchViewController {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.page += 1
+                    if self.data.count == 0 {
+                        self.notFoundView.visibility = .visible
+                    } else {
+                        self.notFoundView.visibility = .invisible
+                    }
                 }
             } catch {}
         })

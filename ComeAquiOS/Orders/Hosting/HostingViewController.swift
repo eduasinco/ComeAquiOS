@@ -86,6 +86,11 @@ extension HostingViewController {
                 self.page += 1
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    if self.foodPosts.count == 0 {
+                        self.notHostingView.visibility = .visible
+                    } else {
+                        self.notHostingView.visibility = .invisible
+                    }
                 }
             } catch {}
         })

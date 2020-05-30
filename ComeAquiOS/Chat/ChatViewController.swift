@@ -15,6 +15,7 @@ class ChatViewController: KUIViewController, UISearchBarDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: MyOwnTableView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var noMessagesView: UIView!
     
     var data: [ChatObject] = []
     var chatSet: Set<Int> = []
@@ -93,6 +94,11 @@ extension ChatViewController {
                     }
                     self.tableView.reloadData()
                     self.page += 1
+                    if self.data.count == 0 {
+                        self.noMessagesView.visibility = .visible
+                    } else {
+                        self.noMessagesView.visibility = .invisible
+                    }
                 }
             } catch {}
         })
@@ -168,6 +174,7 @@ extension ChatViewController: WebSocketDelegate{
                         self.tableView.beginUpdates()
                         self.tableView.insertRows(at: [IndexPath(row:0, section: 0)], with: .automatic)
                         self.tableView.endUpdates()
+                        self.noMessagesView.visibility = .invisible
                     }
                 }
                 

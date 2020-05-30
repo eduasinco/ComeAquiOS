@@ -23,6 +23,7 @@ class FoodReviewLookViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var shortHeaderView: UIView!
+    @IBOutlet weak var noCommentsView: UIView!
     
     var foodPostId: Int?
     var foodPost: FoodPostObject?
