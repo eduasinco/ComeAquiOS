@@ -190,6 +190,7 @@
                         <viewLayoutGuide key="safeArea" id="pAa-LI-Eaa"/>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="TAe-zU-ViB"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bottomConstraint" destination="Yle-6Y-sw2" id="1cC-hz-D1S"/>

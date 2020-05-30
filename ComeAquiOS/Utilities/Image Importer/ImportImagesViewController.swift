@@ -85,7 +85,6 @@ extension ImportImagesViewController: GaleryCameraPopUpProtocol, ImageLookerProt
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.buttonPressed?.setImage(UIImage(systemName: "camera"), for: .normal)
-                self.navigationController?.popViewController(animated: true)
             }
         })
     }

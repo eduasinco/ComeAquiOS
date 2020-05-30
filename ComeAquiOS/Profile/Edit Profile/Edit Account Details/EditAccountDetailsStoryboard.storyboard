@@ -11,22 +11,22 @@
         <!--Edit Account Details View Controller-->
         <scene sceneID="VVo-tL-fcf">
             <objects>
-                <viewController storyboardIdentifier="EditAccountDetailsView" id="ESy-Cm-ugk" customClass="EditAccountDetailsViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditAccountDetailsView" id="ESy-Cm-ugk" customClass="EditAccountDetailsViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sia-jb-nni">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BD5-pM-3LU">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="zRh-5U-1kj">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGX-dq-bLr">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IzT-4u-XNO">
-                                                        <rect key="frame" x="16" y="16" width="382" height="650"/>
+                                                        <rect key="frame" x="16" y="16" width="382" height="600"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqp-fS-Wlm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
@@ -40,7 +40,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="89L-r8-6Hj">
                                                                 <rect key="frame" x="0.0" y="50" width="382" height="50"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u89-em-aDU" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u89-em-aDU" customClass="ValidatedTextField" customModule="ComeAquí" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="6sL-gZ-vQR"/>
@@ -62,7 +62,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wuv-wL-l0B">
                                                                 <rect key="frame" x="0.0" y="150" width="382" height="50"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1pd-k9-ftq" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1pd-k9-ftq" customClass="ValidatedTextField" customModule="ComeAquí" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="h4r-JJ-IIc"/>
@@ -84,7 +84,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AFE-Re-uhi">
                                                                 <rect key="frame" x="0.0" y="250" width="382" height="50"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzR-nM-Li7" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzR-nM-Li7" customClass="ValidatedTextField" customModule="ComeAquí" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="eBQ-qJ-qpo"/>
@@ -178,16 +178,6 @@
                                                                     <constraint firstAttribute="height" constant="50" id="u6H-F6-QLe"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ab-a5-4Ld">
-                                                                <rect key="frame" x="0.0" y="600" width="382" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="2LD-2I-wxs"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Edit"/>
-                                                                <connections>
-                                                                    <action selector="editProfile:" destination="ESy-Cm-ugk" eventType="touchUpInside" id="hue-cE-BRC"/>
-                                                                </connections>
-                                                            </button>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
@@ -228,6 +218,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sAy-2k-TMe"/>
                     </view>
+                    <navigationItem key="navigationItem" id="eqf-Uy-XVD">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="eGg-nt-7d9">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tg9-7X-Ymm">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="editProfile:" destination="ESy-Cm-ugk" eventType="touchUpInside" id="9OZ-hc-Z2r"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="bcfkb" destination="zuc-ES-108" id="h33-DP-VYo"/>
                         <outlet property="creditCard" destination="pSV-uT-hSh" id="9qB-fi-obA"/>

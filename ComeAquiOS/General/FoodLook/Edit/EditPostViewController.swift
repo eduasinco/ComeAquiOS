@@ -31,9 +31,6 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
         descriptionText.textFieldBorderStyle()
         descriptionText.delegate = self
         
-
-        
-        
         guard let foodPostId = self.foodPostId else { return }
         self.importImageVC?.foodPostId = foodPostId
         getFoodPost()

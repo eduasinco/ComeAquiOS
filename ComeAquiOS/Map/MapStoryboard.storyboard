@@ -11,7 +11,7 @@
         <!--ComeAquí-->
         <scene sceneID="N44-BM-D9f">
             <objects>
-                <viewController storyboardIdentifier="MapView" id="kGK-Fs-ocf" customClass="MapViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapView" id="kGK-Fs-ocf" customClass="MapViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wv6-ol-iJ4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
                                     <action selector="centerInMap:" destination="kGK-Fs-ocf" eventType="touchUpInside" id="nKw-aM-TRo"/>
                                 </connections>
                             </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-cr-Uml" customClass="PassthroughView" customModule="ComeAquiOS" customModuleProvider="target">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-cr-Uml" customClass="PassthroughView" customModule="ComeAquí" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <connections>
                                     <segue destination="2t8-Qs-nmg" kind="embed" identifier="MapPickerSegue" id="Boy-tT-Vmr"/>
@@ -92,7 +92,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="lQm-2P-0xI"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y0U-jh-CrF" customClass="PassthroughView" customModule="ComeAquiOS" customModuleProvider="target">
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y0U-jh-CrF" customClass="PassthroughView" customModule="ComeAquí" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
@@ -139,7 +139,7 @@
         <!--Types View Controller-->
         <scene sceneID="uMr-5Z-RbQ">
             <objects>
-                <viewController id="7mV-3e-DYE" customClass="TypesViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7mV-3e-DYE" customClass="TypesViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aiN-cG-kEX">
                         <rect key="frame" x="0.0" y="0.0" width="272" height="15"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,7 +154,7 @@
         <!--Rate Star View Controller-->
         <scene sceneID="o9g-l0-RrZ">
             <objects>
-                <viewController id="B6k-hm-ys1" customClass="RateStarViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="B6k-hm-ys1" customClass="RateStarViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="djO-TQ-Hhf">
                         <rect key="frame" x="0.0" y="0.0" width="318" height="15"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,18 +247,18 @@
         <!--Food Card View Controller-->
         <scene sceneID="6qt-h0-OUW">
             <objects>
-                <viewController id="7eR-9t-Sre" customClass="FoodCardViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HiG-3r-67A">
+                <viewController id="7eR-9t-Sre" customClass="FoodCardViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="HiG-3r-67A">
                         <rect key="frame" x="0.0" y="0.0" width="398" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="chY-vw-aW5">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="chY-vw-aW5">
                                 <rect key="frame" x="16" y="116" width="366" height="68"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcx-D3-1x9" userLabel="User Description">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fz5-Uc-57E" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fz5-Uc-57E" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="sVf-sV-QfO"/>
@@ -288,7 +288,7 @@
                                                                 <color key="textColor" name="Primary"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rYz-32-QAw">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favourite_star" translatesAutoresizingMaskIntoConstraints="NO" id="rYz-32-QAw">
                                                                 <rect key="frame" x="296" y="0.0" width="22" height="22"/>
                                                                 <color key="tintColor" name="Primary"/>
                                                                 <constraints>
@@ -330,7 +330,7 @@
                                             <constraint firstItem="Fz5-Uc-57E" firstAttribute="leading" secondItem="qcx-D3-1x9" secondAttribute="leading" id="zMh-UC-mRo"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9v-2D-Tl6" userLabel="Post Description">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H9v-2D-Tl6" userLabel="Post Description">
                                         <rect key="frame" x="0.0" y="40" width="366" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-PH-DEG">
@@ -411,19 +411,19 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="JHM-ld-4TR">
                                                 <rect key="frame" x="0.0" y="0.0" width="788" height="100"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vnK-eZ-bgh" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vnK-eZ-bgh" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="260" id="8zJ-ao-QvP"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ASL-MN-lTS" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ASL-MN-lTS" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
                                                         <rect key="frame" x="264" y="0.0" width="260" height="100"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="260" id="7fz-vQ-kb5"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mhp-cd-x2F" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mhp-cd-x2F" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
                                                         <rect key="frame" x="528" y="0.0" width="260" height="100"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="260" id="Uoo-oY-aa4"/>
@@ -537,10 +537,10 @@
     </scenes>
     <resources>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <image name="favourite_star" width="205" height="205"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="rate_empty_star" width="175" height="175"/>
-        <image name="star" catalog="system" width="128" height="116"/>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

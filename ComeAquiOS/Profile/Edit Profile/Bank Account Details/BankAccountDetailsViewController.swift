@@ -98,10 +98,13 @@ class BankAccountDetailsViewController: KUIViewController {
         
         if (stripeAccountInfo.payouts_enabled!){
             accountMessage.text = "Account verified"
+            accountMessage.backgroundColor = UIColor(named: "Success")
         } else if (stripeAccountInfo.requirements!.currently_due!.count == 0){
             accountMessage.text = "Pending review"
+            accountMessage.backgroundColor = UIColor(named: "Primary")
         } else {
             accountMessage.text = "Account incomplete"
+            accountMessage.backgroundColor = UIColor(named: "Canceledd")
         }
         accountMessage.visibility = .visible
         

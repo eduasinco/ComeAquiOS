@@ -26,7 +26,6 @@ class TypesViewController: UIViewController {
     var delegate: TypesProtocol?
     var initialTypesString: String? {
         didSet {
-            
         }
     }
     
@@ -50,7 +49,10 @@ class TypesViewController: UIViewController {
         stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        
+        setView()
+    }
+    
+    func setView(){
         buttons = []
         if let initalTypesString = self.initialTypesString {
             for i in 0..<initalTypesString.count {

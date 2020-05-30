@@ -25,7 +25,6 @@ class FoodLookViewController: KUIViewController {
     @IBOutlet weak var userImage: URLImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userUserName: UILabel!
-    @IBOutlet weak var optionsButton: UIButton!
     
     @IBOutlet weak var plateName: UILabel!
     @IBOutlet weak var date: UILabel!
@@ -46,6 +45,8 @@ class FoodLookViewController: KUIViewController {
     @IBOutlet weak var creditCardNumber: UILabel!
     @IBOutlet weak var commentsView: UIView!
     @IBOutlet weak var bcfkb: NSLayoutConstraint!
+    
+    var typesVC: TypesViewController?
     
     var googleMap: GMSMapView!
     var foodPostId: Int!
@@ -91,6 +92,7 @@ class FoodLookViewController: KUIViewController {
         userName.text = foodPost.owner?.full_name!
         userUserName.text = foodPost.owner?.username!
         userImage.loadImageUsingUrlString(urlString: foodPost.owner!.profile_photo)
+        typesVC?.setTypes(typeString: foodPost.food_type ?? "0000000")
         
         let imageArray = [image1, image2, image3]
         imageScrollView.visibility = .visible
@@ -301,8 +303,7 @@ class FoodLookViewController: KUIViewController {
             let commentsVC = segue.destination as? CommentsViewController
             commentsVC?.foodPostId = foodPostId
         } else if segue.identifier == "TypeSegue" {
-            let commentsVC = segue.destination as? TypesViewController
-            commentsVC?.initialTypesString = self.foodPost?.food_type
+            typesVC = segue.destination as? TypesViewController
         } else if segue.identifier == "ImagePagerSegue" {
             let vc = segue.destination as? ImagePagerViewController
             vc?.data = foodPost?.images ?? []

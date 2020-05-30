@@ -53,13 +53,13 @@ class NotificationTableViewCell: UITableViewCell {
             let image = UIImage(systemName: "tray.fill")
             image?.withTintColor(UIColor.white)
             notificationTypeImage.setImage(image, for: .normal)
-            notificationTypeImage.backgroundColor = UIColor(named: "Canceled")
+            notificationTypeImage.backgroundColor = UIColor(named: "Canceledd")
             break
         case "CANCELED":
             let image = UIImage(systemName: "tray.fill")
             image?.withTintColor(UIColor.white)
             notificationTypeImage.setImage(image, for: .normal)
-            notificationTypeImage.backgroundColor = UIColor(named: "Cenceled")
+            notificationTypeImage.backgroundColor = UIColor(named: "Canceledd")
             break
         case "REVIEW":
             let image = UIImage(systemName: "star.fill")
@@ -72,8 +72,6 @@ class NotificationTableViewCell: UITableViewCell {
             image?.withTintColor(UIColor.white)
             notificationTypeImage.setImage(image, for: .normal)
             notificationTypeImage.backgroundColor = UIColor.blue
-            break
-        case "INFO":
             break
         default:
             break

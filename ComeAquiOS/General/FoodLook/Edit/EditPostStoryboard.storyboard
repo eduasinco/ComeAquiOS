@@ -12,16 +12,16 @@
         <!--Edit Post View Controller-->
         <scene sceneID="yvw-jV-zD9">
             <objects>
-                <viewController storyboardIdentifier="EditPostView" id="Kzh-aD-bG3" customClass="EditPostViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditPostView" id="Kzh-aD-bG3" customClass="EditPostViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XCG-t5-f12">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4S-cK-svA" userLabel="holder">
-                                <rect key="frame" x="0.0" y="44" width="414" height="856"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="812"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="TEp-kV-Jvq">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="856"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0x-aQ-9xU" userLabel="inside ">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="432"/>
@@ -32,7 +32,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OiV-vR-Ahf">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What are you making?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l8n-dy-SRf" customClass="ValidatedTextField" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What are you making?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l8n-dy-SRf" customClass="ValidatedTextField" customModule="ComeAquí" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="L0j-me-beB"/>
@@ -48,7 +48,7 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HV1-Wl-ZVp">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
                                                                         <subviews>
-                                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j6u-Z0-IS0" customClass="ValidatedTextView" customModule="ComeAquiOS" customModuleProvider="target">
+                                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j6u-Z0-IS0" customClass="ValidatedTextView" customModule="ComeAquí" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
                                                                                 <color key="backgroundColor" name="GreyLight"/>
                                                                                 <constraints>
@@ -129,7 +129,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m73-VV-JLe"/>
                     </view>
-                    <navigationItem key="navigationItem" id="toi-Tb-lLZ"/>
+                    <navigationItem key="navigationItem" id="L1y-00-pHY">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="VnJ-Eo-GIn">
+                            <connections>
+                                <action selector="editPost:" destination="Kzh-aD-bG3" id="v6o-jL-XiP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="414" height="900"/>
                     <connections>
                         <outlet property="descriptionText" destination="j6u-Z0-IS0" id="M0A-FV-gnF"/>
