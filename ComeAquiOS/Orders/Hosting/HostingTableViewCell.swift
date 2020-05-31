@@ -50,6 +50,7 @@ class HostingTableViewCell: UITableViewCell {
             if foodPost.visible! {
                 stillNotFinished.visibility = .goneY
             } else {
+                stillNotFinished.visibility = .visible
                 stillNotFinished.text = "Not posted yet"
             }
         }

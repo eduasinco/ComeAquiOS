@@ -55,8 +55,7 @@ class MapViewController: LoadViewController, CardActionProtocol {
         // self.navigationController?.setNavigationBarHidden(true, animated: false)
         GMSServices.provideAPIKey("AIzaSyDDZzJN-1TJ9i8DzEvL-dJypS8Xsa2UYy0")
         let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 15.0)
-        googleMap = GMSMapView.map(withFrame: view.bounds, camera: camera)
-        googleMap.isMyLocationEnabled = true
+        googleMap = GMSMapView.map(withFrame: self.viewForMap.bounds, camera: camera)
         googleMap.isMyLocationEnabled = true
         googleMap.delegate = self
         self.viewForMap.addSubview(googleMap)
@@ -116,9 +115,7 @@ class MapViewController: LoadViewController, CardActionProtocol {
         return newImage
     }
     @IBAction func centerInMap(_ sender: Any) {
-        guard let lat = myLocation?.coordinate.latitude, let lng = myLocation?.coordinate.longitude else {return}
-        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 16)
-        googleMap?.animate(to: camera)
+        centerViewOnUserLocation()
     }
     
     func showCard(foodPostId: Int){
@@ -202,7 +199,8 @@ class MapViewController: LoadViewController, CardActionProtocol {
     }
     func centerViewOnUserLocation() {
         if let location = locationManager.location?.coordinate {
-            googleMap.camera = GMSCameraPosition.camera(withTarget: location, zoom: 15)
+            let camera = GMSCameraPosition.camera(withTarget: location, zoom: 15)
+            googleMap?.animate(to: camera)
         }
     }
     func checkLocationServices() {
@@ -216,7 +214,6 @@ class MapViewController: LoadViewController, CardActionProtocol {
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
-            centerViewOnUserLocation()
             locationManager.startUpdatingLocation()
             break
         case .denied:

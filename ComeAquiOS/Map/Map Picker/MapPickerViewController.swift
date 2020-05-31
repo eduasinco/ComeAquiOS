@@ -24,6 +24,8 @@ class MapPickerViewController: UIViewController {
     @IBOutlet weak var pickerShadowLeading: NSLayoutConstraint!
     @IBOutlet weak var pickerButton: UIButton!
     @IBOutlet weak var searchContainerView: UIView!
+    @IBOutlet weak var pickerPoint: UIView!
+    @IBOutlet weak var bottomPickerPointConstraint: NSLayoutConstraint!
     
     var searchAbailable = false
     var placeFromGoogle: PlaceG?
@@ -57,7 +59,7 @@ class MapPickerViewController: UIViewController {
             delegate?.goToAddFood(googleLocation: self.placeFromGoogle)
         } else {
             fabCount = 2
-            switchFabImage(false);
+            switchFabImage(false)
         }
     }
     
@@ -67,8 +69,11 @@ class MapPickerViewController: UIViewController {
     
     func animate(up: Bool = true) {
         UIView.animate(withDuration: 0.2){
-            self.bottomPickerConstraint.constant = up ?  self.view.frame.height / 2 + 20 : self.view.frame.height / 2
-            self.pickerShadowLeading.constant = up ?  10 : 0
+            let move: CGFloat = 20
+            self.bottomPickerConstraint.constant = up ?  self.view.frame.height / 2 + move : self.view.frame.height / 2
+            self.pickerShadowLeading.constant = up ?  move/2 : 0
+            self.bottomPickerPointConstraint.constant = up ? -move : 0
+            self.pickerPoint.transform = CGAffineTransform(scaleX: up ? 1 : 0.6, y: up ? 1 : 0.6)
             self.view.layoutIfNeeded()
         }
     }

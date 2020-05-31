@@ -11,13 +11,13 @@
         <!--Map Picker View Controller-->
         <scene sceneID="lvr-eg-cmw">
             <objects>
-                <viewController storyboardIdentifier="MapPicker" id="O6c-7G-erp" customClass="MapPickerViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EgB-16-0Qm" customClass="PassthroughView" customModule="ComeAquiOS" customModuleProvider="target">
+                <viewController storyboardIdentifier="MapPicker" id="O6c-7G-erp" customClass="MapPickerViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EgB-16-0Qm" customClass="PassthroughView" customModule="ComeAquí" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05m-fT-uPp" userLabel="picker">
-                                <rect key="frame" x="190" y="375.5" width="34" height="49"/>
+                                <rect key="frame" x="190" y="381" width="34" height="49"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picker_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="no3-5M-IZY">
                                         <rect key="frame" x="15" y="9" width="26" height="40"/>
@@ -45,7 +45,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="highlightedColor" name="Primary"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -56,6 +56,19 @@
                                             <constraint firstItem="8eZ-eM-wYZ" firstAttribute="top" secondItem="kgx-nO-nGP" secondAttribute="top" constant="7" id="vTw-fj-IuJ"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cax-yf-iIs">
+                                        <rect key="frame" x="15" y="46" width="4" height="3"/>
+                                        <color key="backgroundColor" name="PrimaryTrans"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="4" id="9Eh-FO-bvM"/>
+                                            <constraint firstAttribute="height" constant="3" id="aRX-a1-SvG"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="kgx-nO-nGP" secondAttribute="trailing" id="8Uz-An-UP9"/>
@@ -64,13 +77,15 @@
                                     <constraint firstItem="kgx-nO-nGP" firstAttribute="top" secondItem="05m-fT-uPp" secondAttribute="top" id="DkB-AI-bcQ"/>
                                     <constraint firstItem="m1G-sd-t6m" firstAttribute="top" secondItem="kgx-nO-nGP" secondAttribute="bottom" constant="-5" id="Jxp-Zx-oRT"/>
                                     <constraint firstItem="no3-5M-IZY" firstAttribute="leading" secondItem="m1G-sd-t6m" secondAttribute="leading" id="SpW-nH-uBz"/>
+                                    <constraint firstAttribute="bottom" secondItem="cax-yf-iIs" secondAttribute="bottom" id="bmd-8B-myQ"/>
+                                    <constraint firstItem="cax-yf-iIs" firstAttribute="centerX" secondItem="05m-fT-uPp" secondAttribute="centerX" id="d8r-C5-mKc"/>
                                     <constraint firstItem="kgx-nO-nGP" firstAttribute="leading" secondItem="05m-fT-uPp" secondAttribute="leading" id="gai-kb-PqB"/>
                                     <constraint firstAttribute="bottom" secondItem="m1G-sd-t6m" secondAttribute="bottom" id="q2n-mj-Gyg"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXi-5R-9GK">
                                 <rect key="frame" x="324" y="710" width="70" height="70"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="LbR-6A-AjR"/>
                                     <constraint firstAttribute="height" constant="70" id="ZoD-tY-ef3"/>
@@ -99,7 +114,7 @@
                             <constraint firstItem="05m-fT-uPp" firstAttribute="leading" secondItem="EgB-16-0Qm" secondAttribute="leadingMargin" priority="999" constant="50" id="8vD-z3-rwn"/>
                             <constraint firstItem="eXi-5R-9GK" firstAttribute="trailing" secondItem="EgB-16-0Qm" secondAttribute="trailingMargin" id="AEq-Sr-Tcf"/>
                             <constraint firstAttribute="bottomMargin" secondItem="eXi-5R-9GK" secondAttribute="bottom" constant="20" id="M5l-sc-SN3"/>
-                            <constraint firstItem="1Ln-h7-ehh" firstAttribute="bottom" secondItem="05m-fT-uPp" secondAttribute="bottom" constant="375.5" id="Tra-ml-BpX"/>
+                            <constraint firstAttribute="bottom" secondItem="05m-fT-uPp" secondAttribute="bottom" constant="370" id="Tra-ml-BpX"/>
                             <constraint firstItem="hjo-w5-uo7" firstAttribute="leading" secondItem="EgB-16-0Qm" secondAttribute="leading" constant="20" id="VUo-3a-qD7"/>
                             <constraint firstItem="hjo-w5-uo7" firstAttribute="top" secondItem="EgB-16-0Qm" secondAttribute="top" constant="20" id="gh4-cB-fak"/>
                             <constraint firstAttribute="trailing" secondItem="hjo-w5-uo7" secondAttribute="trailing" constant="20" id="hl7-AH-XQT"/>
@@ -111,11 +126,13 @@
                     <size key="freeformSize" width="414" height="800"/>
                     <connections>
                         <outlet property="bottomPickerConstraint" destination="Tra-ml-BpX" id="Zdk-70-GEV"/>
+                        <outlet property="bottomPickerPointConstraint" destination="bmd-8B-myQ" id="fyP-8Y-EX0"/>
                         <outlet property="handle" destination="m1G-sd-t6m" id="b9Z-Pq-lsF"/>
                         <outlet property="label" destination="8eZ-eM-wYZ" id="6Kh-7a-L1o"/>
                         <outlet property="pan" destination="kgx-nO-nGP" id="QDF-Gj-c8p"/>
                         <outlet property="picker" destination="05m-fT-uPp" id="y6i-NB-vpj"/>
                         <outlet property="pickerButton" destination="eXi-5R-9GK" id="yFs-tX-5xj"/>
+                        <outlet property="pickerPoint" destination="cax-yf-iIs" id="nor-uL-PHo"/>
                         <outlet property="pickerShadow" destination="no3-5M-IZY" id="9GH-ET-7v4"/>
                         <outlet property="pickerShadowLeading" destination="SpW-nH-uBz" id="lp4-Ug-53Z"/>
                         <outlet property="searchContainerView" destination="hjo-w5-uo7" id="Ucm-8y-TS0"/>
@@ -139,6 +156,9 @@
         <image name="plus.magnifyingglass" catalog="system" width="128" height="115"/>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryTrans">
+            <color red="0.32199999690055847" green="0.32199999690055847" blue="0.32199999690055847" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryDark">
             <color red="0.59999999999999998" green="0.17254901960784313" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

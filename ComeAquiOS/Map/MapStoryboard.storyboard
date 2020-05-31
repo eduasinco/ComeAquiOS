@@ -16,14 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tU4-wr-g5Y">
-                                <rect key="frame" x="0.0" y="44" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wOO-sf-WI3" userLabel="Map View">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOO-sf-WI3" userLabel="Map View">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wjR-Dd-0ho">
@@ -35,7 +29,7 @@
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7i6-cD-AXe">
                                 <rect key="frame" x="324" y="108" width="70" height="70"/>
-                                <color key="backgroundColor" red="0.97132772840000003" green="0.97132772840000003" blue="0.97132772840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="j2D-rV-E0c"/>
                                     <constraint firstAttribute="height" constant="70" id="mok-rE-NW6"/>
@@ -51,7 +45,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khb-xY-c4J">
                                 <rect key="frame" x="20" y="723" width="70" height="70"/>
-                                <color key="backgroundColor" red="0.97132772840000003" green="0.97132772840000003" blue="0.97132772840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="wuD-30-9UP"/>
                                     <constraint firstAttribute="width" constant="70" id="xN2-Ie-s3b"/>
@@ -106,13 +100,17 @@
                             <constraint firstItem="7i6-cD-AXe" firstAttribute="top" secondItem="HqB-kn-AOB" secondAttribute="top" constant="20" id="HRA-bW-bzp"/>
                             <constraint firstItem="WVe-cr-Uml" firstAttribute="leading" secondItem="HqB-kn-AOB" secondAttribute="leading" id="I3S-4J-5BV"/>
                             <constraint firstItem="WVe-cr-Uml" firstAttribute="top" secondItem="HqB-kn-AOB" secondAttribute="top" id="K2b-Xb-J8W"/>
+                            <constraint firstItem="wOO-sf-WI3" firstAttribute="leading" secondItem="HqB-kn-AOB" secondAttribute="leading" id="KK3-KZ-aB6"/>
                             <constraint firstItem="wjR-Dd-0ho" firstAttribute="top" secondItem="HqB-kn-AOB" secondAttribute="top" constant="8" id="Myh-KO-euo"/>
                             <constraint firstItem="HqB-kn-AOB" firstAttribute="trailing" secondItem="fJZ-NB-sJw" secondAttribute="trailing" constant="8" id="SIZ-vj-UCF"/>
+                            <constraint firstItem="wOO-sf-WI3" firstAttribute="bottom" secondItem="HqB-kn-AOB" secondAttribute="bottom" id="TAB-rO-ty6"/>
                             <constraint firstItem="fJZ-NB-sJw" firstAttribute="leading" secondItem="HqB-kn-AOB" secondAttribute="leading" constant="8" id="ZfS-ax-bfz"/>
                             <constraint firstItem="HqB-kn-AOB" firstAttribute="bottom" secondItem="Khb-xY-c4J" secondAttribute="bottom" constant="20" id="aUJ-Yz-G1u"/>
                             <constraint firstItem="WVe-cr-Uml" firstAttribute="bottom" secondItem="HqB-kn-AOB" secondAttribute="bottom" id="b15-XZ-vHn"/>
+                            <constraint firstItem="wOO-sf-WI3" firstAttribute="trailing" secondItem="HqB-kn-AOB" secondAttribute="trailing" id="b3W-Ux-hf8"/>
                             <constraint firstItem="HqB-kn-AOB" firstAttribute="bottom" secondItem="fJZ-NB-sJw" secondAttribute="bottom" constant="8" id="d2U-7y-GHn"/>
                             <constraint firstItem="wjR-Dd-0ho" firstAttribute="leading" secondItem="HqB-kn-AOB" secondAttribute="leading" constant="8" id="hUz-KO-yiz"/>
+                            <constraint firstItem="wOO-sf-WI3" firstAttribute="top" secondItem="HqB-kn-AOB" secondAttribute="top" id="hcB-2S-UcR"/>
                             <constraint firstItem="HqB-kn-AOB" firstAttribute="trailing" secondItem="7i6-cD-AXe" secondAttribute="trailing" constant="20" id="qlD-YI-2hk"/>
                             <constraint firstItem="Khb-xY-c4J" firstAttribute="leading" secondItem="HqB-kn-AOB" secondAttribute="leading" constant="20" id="rVz-ut-EUc"/>
                         </constraints>
@@ -248,11 +246,11 @@
         <scene sceneID="6qt-h0-OUW">
             <objects>
                 <viewController id="7eR-9t-Sre" customClass="FoodCardViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="HiG-3r-67A">
+                    <view key="view" contentMode="scaleToFill" id="HiG-3r-67A">
                         <rect key="frame" x="0.0" y="0.0" width="398" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="chY-vw-aW5">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="chY-vw-aW5">
                                 <rect key="frame" x="16" y="116" width="366" height="68"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcx-D3-1x9" userLabel="User Description">
@@ -330,7 +328,7 @@
                                             <constraint firstItem="Fz5-Uc-57E" firstAttribute="leading" secondItem="qcx-D3-1x9" secondAttribute="leading" id="zMh-UC-mRo"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H9v-2D-Tl6" userLabel="Post Description">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9v-2D-Tl6" userLabel="Post Description">
                                         <rect key="frame" x="0.0" y="40" width="366" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-PH-DEG">

@@ -11,7 +11,7 @@
         <!--Splash View Controller-->
         <scene sceneID="MZM-sB-r4Y">
             <objects>
-                <viewController id="mz9-LP-qsw" customClass="SplashViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mz9-LP-qsw" customClass="SplashViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b5z-S0-GNr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,13 +44,12 @@
         <!--Main-->
         <scene sceneID="cCB-EE-UXe">
             <objects>
-                <tabBarController storyboardIdentifier="Main" title="Main" id="HYk-I9-3OM" customClass="ViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Main" title="Main" id="HYk-I9-3OM" customClass="ViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Es9-Hb-zxk"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="buO-f1-sYM">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" name="Primary"/>
                         <color key="selectedImageTintColor" name="SecondaryDark"/>
                     </tabBar>
