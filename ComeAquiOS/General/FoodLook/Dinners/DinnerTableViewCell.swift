@@ -37,7 +37,7 @@ class DinnerTableViewCell: UITableViewCell {
         nameLabel.text = order.owner?.full_name
         userNamelabel.text = order.owner?.username
         if order.additional_guests ?? 0 > 0{
-            additionalGuestsLabel.text = "\(String(describing: order.additional_guests))"
+            additionalGuestsLabel.text = " \(order.additional_guests!)+ "
 
         } else {
             additionalGuestsLabel.text = ""

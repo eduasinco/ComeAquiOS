@@ -152,25 +152,25 @@ class FoodLookViewController: KUIViewController {
         } else {
             switch self.respondObject?.user_status_in_this_post {
             case "CONFIRMED":
-                setStatus(text: "Confirmed", color: UIColor.green)
+                setStatus(text: "Confirmed", color: UIColor(named: "Success")!)
                 commentsView.visibility = .visible
             case "PENDING":
-                setStatus(text: "Pending", color: UIColor.orange)
+                setStatus(text: "Pending", color: UIColor(named: "Primary")!)
             case "CANCELED":
-                setStatus(text: "Canceled", color: UIColor.red)
+                setStatus(text: "Canceled", color: UIColor(named: "Canceled")!)
             case "REJECTED":
-                setStatus(text: "Rejected", color: UIColor.red)
+                setStatus(text: "Rejected", color: UIColor(named: "Canceled")!)
             case "FINISHED":
-                setStatus(text: "Finished", color: UIColor.orange)
+                setStatus(text: "Finished", color: UIColor(named: "Primary")!)
                 commentsView.visibility = .visible
             default:
                 switch foodPost.status {
                 case "OPEN":
                     attendMealButton.addTarget(self, action: #selector(attendMeal(sender:)), for: .touchUpInside)
                 case "IN_COURSE":
-                    setStatus(text: "Meal in course", color: UIColor.orange)
+                    setStatus(text: "Meal in course", color: UIColor(named: "Primary")!)
                 case "FINISHED":
-                    setStatus(text: "Meal finished", color: UIColor.orange)
+                    setStatus(text: "Meal finished", color: UIColor(named: "Primary")!)
                 default:
                     break
                 }
@@ -216,7 +216,7 @@ class FoodLookViewController: KUIViewController {
             dv.addSubview(label)
             label.translatesAutoresizingMaskIntoConstraints = false
             label.textColor = UIColor.white
-            label.backgroundColor = UIColor.orange
+            label.backgroundColor = UIColor(named: "Secondary")
             label.topAnchor.constraint(equalTo: dv.topAnchor).isActive = true
             label.trailingAnchor.constraint(equalTo: dv.trailingAnchor).isActive = true
             if order.additional_guests ?? 0 > 0 {

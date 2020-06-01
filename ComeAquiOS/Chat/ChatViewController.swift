@@ -79,10 +79,12 @@ extension ChatViewController {
     }
     func userChats(){
         alreadyFetchingData = true
+        presentTransparentLoader()
         self.tableView.showActivityIndicator()
         query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         Server.get("/my_chats/" + query + "/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             self.alreadyFetchingData = false
+            self.closeTransparentLoader()
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
