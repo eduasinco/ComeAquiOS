@@ -106,11 +106,20 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkZ-nr-baS">
+                                                <rect key="frame" x="66" y="40" width="340" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="ibT-8u-VGQ" secondAttribute="bottom" constant="8" id="2QS-lc-56i"/>
                                             <constraint firstAttribute="trailing" secondItem="IPl-54-e83" secondAttribute="trailing" id="FN4-sS-wkF"/>
+                                            <constraint firstAttribute="bottom" secondItem="JkZ-nr-baS" secondAttribute="bottom" constant="8" id="KGX-p0-INv"/>
+                                            <constraint firstAttribute="trailing" secondItem="JkZ-nr-baS" secondAttribute="trailing" constant="8" id="SPX-HF-ouK"/>
+                                            <constraint firstItem="JkZ-nr-baS" firstAttribute="leading" secondItem="ibT-8u-VGQ" secondAttribute="trailing" constant="8" id="Vtp-W7-OyY"/>
                                             <constraint firstItem="IPl-54-e83" firstAttribute="top" secondItem="k2h-QT-w5D" secondAttribute="top" constant="8" id="dmK-uz-5Cz"/>
                                             <constraint firstItem="IPl-54-e83" firstAttribute="leading" secondItem="ibT-8u-VGQ" secondAttribute="trailing" constant="8" id="gA0-FR-yMB"/>
                                             <constraint firstItem="ibT-8u-VGQ" firstAttribute="top" secondItem="k2h-QT-w5D" secondAttribute="top" constant="8" id="kN1-9j-E7U"/>
@@ -243,6 +252,7 @@
                         <outlet property="textView" destination="uUw-S5-oOy" id="XWl-pr-arq"/>
                         <outlet property="userImage" destination="ibT-8u-VGQ" id="Ku8-2T-E8f"/>
                         <outlet property="userName" destination="IPl-54-e83" id="dC3-Rw-n3b"/>
+                        <outlet property="userUsername" destination="JkZ-nr-baS" id="9jh-I0-gmy"/>
                         <segue destination="9gb-y9-FzE" kind="show" identifier="ProfileSegue" id="YW6-iA-ZEz"/>
                     </connections>
                 </viewController>

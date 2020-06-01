@@ -14,6 +14,7 @@ class ConversationViewController: KUIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var userImage: URLImageView!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userUsername: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
@@ -52,7 +53,8 @@ class ConversationViewController: KUIViewController {
         self.chattingWith = (USER.id == chat.users![0].id) ? chat.users![1] : chat.users![0]
         userImage.loadImageUsingUrlString(urlString: self.chattingWith.profile_photo)
         userName.text = self.chattingWith.full_name
-        
+        userUsername.text = self.chattingWith.username
+
         userImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageSelector)))
 
     }
