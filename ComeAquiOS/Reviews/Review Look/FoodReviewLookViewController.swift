@@ -232,6 +232,11 @@ extension FoodReviewLookViewController {
                 self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
                 DispatchQueue.main.async {
                     self.reviews = self.foodPost!.reviews!
+                    if self.reviews.count == 0 {
+                        self.noCommentsView.visibility = .visible
+                    } else {
+                        self.noCommentsView.visibility = .invisible
+                    }
                     self.tableView.reloadData()
                     self.setViewDetails()
                 }

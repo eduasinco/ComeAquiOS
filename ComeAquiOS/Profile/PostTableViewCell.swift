@@ -1,14 +1,14 @@
 //
-//  Tab1TableViewCell.swift
+//  PostTableViewCell.swift
 //  ComeAquiOS
 //
-//  Created by eduardo rodríguez on 08/05/2020.
+//  Created by eduardo rodríguez on 01/06/2020.
 //  Copyright © 2020 Eduardo Rodríguez Pérez. All rights reserved.
 //
 
 import UIKit
 
-class Tab1TableViewCell: UITableViewCell {
+class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var foodInfoView: UIStackView!
@@ -32,7 +32,7 @@ class Tab1TableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
     }
     
     func setFoodPostType(type: String){
@@ -69,7 +69,7 @@ class Tab1TableViewCell: UITableViewCell {
         
         self.mainBackground.layer.cornerRadius = 8
         self.mainBackground.layer.masksToBounds = true
-
+        
         self.shadowLayer.layer.cornerRadius = 8
         self.shadowLayer.layer.masksToBounds = false
         
@@ -77,7 +77,7 @@ class Tab1TableViewCell: UITableViewCell {
         self.shadowLayer.layer.shadowColor = UIColor.black.cgColor
         self.shadowLayer.layer.shadowOpacity = 0.23
         self.shadowLayer.layer.shadowRadius = 4
-
+        
         if object.images!.count > 0{
             guard let imageString = object.images![0].food_photo else {return}
             self.putImage(url: imageString)

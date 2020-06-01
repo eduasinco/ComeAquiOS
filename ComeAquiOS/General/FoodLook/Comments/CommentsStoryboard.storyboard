@@ -10,12 +10,12 @@
         <!--Comments View Controller-->
         <scene sceneID="TMo-Gf-odq">
             <objects>
-                <viewController storyboardIdentifier="CommentView" id="B0Z-6c-5YJ" customClass="CommentsViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommentView" id="B0Z-6c-5YJ" customClass="CommentsViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zS5-wl-yap">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rWr-oK-aM0" customClass="MyOwnTableView" customModule="ComeAquiOS" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rWr-oK-aM0" customClass="MyOwnTableView" customModule="ComeAquí" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="764"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -58,7 +58,7 @@
         <!--Segue View Controller-->
         <scene sceneID="96t-QZ-NV9">
             <objects>
-                <viewController id="xQj-u7-MHw" customClass="SegueViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xQj-u7-MHw" customClass="SegueViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Df-QK-G7H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

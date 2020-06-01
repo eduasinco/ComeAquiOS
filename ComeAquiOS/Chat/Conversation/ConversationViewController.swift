@@ -246,12 +246,13 @@ extension ConversationViewController {
     
     func groupBadge(badge: [MessageObject]) -> [[MessageObject]] {
         var badgeGrouped = [[MessageObject]]()
-        let groupedMessages = Dictionary(grouping: badge) { (element) -> String in
-            return element.created_at![0..<11]
-        }
-        groupedMessages.keys.forEach { (key) in
-            let values = groupedMessages[key]
-            badgeGrouped.append(values ?? [])
+        for i in 0..<badge.count {
+            if i == 0 || Date.todayYesterdayWeekDay(isoDateString: badge[i].created_at!) != Date.todayYesterdayWeekDay(isoDateString: badge[i - 1].created_at!) {
+                let newSection = [badge[i]]
+                badgeGrouped.append(newSection)
+            } else {
+                badgeGrouped[badgeGrouped.count - 1].append(badge[i])
+            }
         }
         return badgeGrouped
     }
