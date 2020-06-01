@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fmZ-pB-Wtb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fmZ-pB-Wtb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -10,11 +10,11 @@
         <!--Types View Controller-->
         <scene sceneID="I8L-H7-3oQ">
             <objects>
-                <viewController storyboardIdentifier="TypesView" id="fmZ-pB-Wtb" customClass="TypesViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TypesView" id="fmZ-pB-Wtb" customClass="TypesViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GwV-Gi-vTP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2th-zH-nDS"/>
                     </view>
                     <size key="freeformSize" width="414" height="50"/>

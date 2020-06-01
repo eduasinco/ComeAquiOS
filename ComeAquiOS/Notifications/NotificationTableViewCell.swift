@@ -41,7 +41,7 @@ class NotificationTableViewCell: UITableViewCell {
             let image = UIImage(systemName: "tray.fill")
             image?.withTintColor(UIColor.white)
             notificationTypeImage.setImage(image, for: .normal)
-            notificationTypeImage.backgroundColor = UIColor(named: "Primary")
+            notificationTypeImage.backgroundColor = UIColor(named: "Grey")
             break
         case "CONFIRMED":
             let image = UIImage(systemName: "tray.fill")

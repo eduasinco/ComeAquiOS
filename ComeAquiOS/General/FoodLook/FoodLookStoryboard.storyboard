@@ -184,7 +184,6 @@
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="709-9L-eOb" secondAttribute="bottom" id="47V-38-BsZ"/>
                                                                     <constraint firstAttribute="height" constant="50" id="A7I-9e-7Sm"/>

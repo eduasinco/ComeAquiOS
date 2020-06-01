@@ -332,13 +332,13 @@
                                         <rect key="frame" x="0.0" y="40" width="366" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-PH-DEG">
-                                                <rect key="frame" x="0.0" y="23" width="366" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <rect key="frame" x="0.0" y="23" width="366" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" name="Primary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" tag="4" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IcY-jG-dB0">
-                                                <rect key="frame" x="0.0" y="49" width="366" height="20"/>
+                                                <rect key="frame" x="0.0" y="50.5" width="366" height="20"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GHg-IQ-Vk6">
                                                         <rect key="frame" x="0.0" y="0.5" width="15" height="19"/>
