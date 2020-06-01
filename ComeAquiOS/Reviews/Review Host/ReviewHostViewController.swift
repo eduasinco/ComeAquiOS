@@ -14,6 +14,7 @@ private class ResponseObject: Decodable {
 }
 class ReviewHostViewController: KUIViewController {
 
+    @IBOutlet weak var profileImage: URLImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var posterName: UILabel!
     @IBOutlet weak var posterRating: UILabel!
@@ -47,6 +48,7 @@ class ReviewHostViewController: KUIViewController {
     }
     func setView() {
         guard let order = self.order else {return}
+        profileImage.loadImageUsingUrlString(urlString: order.poster?.profile_photo)
         posterName.text = order.poster?.full_name
         posterRating.text = "\(order.poster!.rating!)"
         totalAmount.text = "\(order.order_price!.format())"
