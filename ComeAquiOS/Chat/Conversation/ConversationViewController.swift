@@ -167,8 +167,7 @@ extension ConversationViewController: WebSocketDelegate{
                             }
                         }
                     } else {
-                        self.messagesFromServer = [message]
-                        self.attemptToAssembleGroupedMessages()
+                        self.chatMessages = [[message]]
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
@@ -246,12 +245,11 @@ extension ConversationViewController {
     }
     
     func groupBadge(badge: [MessageObject]) -> [[MessageObject]] {
-        var badgeGrouped: [[MessageObject]] = []
+        var badgeGrouped = [[MessageObject]]()
         let groupedMessages = Dictionary(grouping: badge) { (element) -> String in
-            return Date.todayYesterdayWeekDay(isoDateString: element.created_at!)
+            return element.created_at![0..<11]
         }
-        let sortedKeys = groupedMessages.keys.sorted()
-        sortedKeys.forEach { (key) in
+        groupedMessages.keys.forEach { (key) in
             let values = groupedMessages[key]
             badgeGrouped.append(values ?? [])
         }
@@ -268,7 +266,8 @@ extension ConversationViewController {
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
-                let chatBadgeGrouped = self.groupBadge(badge: try JSONDecoder().decode([MessageObject].self, from: data))
+                let messageBadge = try JSONDecoder().decode([MessageObject].self, from: data)
+                let chatBadgeGrouped = self.groupBadge(badge: messageBadge)
                 let last = self.chatMessages.last?.last
                 let first = chatBadgeGrouped.first?.first
                 
@@ -330,17 +329,6 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
         
         if offsetY > contentHeight - scrollView.frame.height {
             fetchMoreData()
-        }
-    }
-    
-    fileprivate func attemptToAssembleGroupedMessages() {
-        let groupedMessages = Dictionary(grouping: messagesFromServer) { (element) -> String in
-            return Date.todayYesterdayWeekDay(isoDateString: element.created_at!)
-        }
-        let sortedKeys = groupedMessages.keys.sorted()
-        sortedKeys.forEach { (key) in
-            let values = groupedMessages[key]
-            chatMessages.append(values ?? [])
         }
     }
     
