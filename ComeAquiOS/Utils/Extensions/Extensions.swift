@@ -42,7 +42,7 @@ extension UIView {
     
     @discardableResult
     public func textFieldBorderStyle() -> UIView{
-        self.border(witdth: 1, color: UIColor.white.cgColor).roundCorners(radius: 4)
+        self.border(witdth: 1, color: UIColor(named: "Primary")!.cgColor).roundCorners(radius: 4)
         self.clipsToBounds = true
         return self
     }

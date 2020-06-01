@@ -256,7 +256,6 @@ extension ConversationViewController {
         return badgeGrouped
     }
     
-    
     func getChatMessages(){
         alreadyFetchingData = true
         self.tableView.showActivityIndicator()

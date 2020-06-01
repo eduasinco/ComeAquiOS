@@ -39,8 +39,11 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         super.viewDidLoad()
         self.bottomConstraintForKeyboard = holderBottomConstraint
         priceText.addTarget(self, action: #selector(myTextFieldBegin), for: .editingChanged)
-        descriptionText.textFieldBorderStyle()
+        plateNameText.textFieldBorderStyle()
         locationContainer.textFieldBorderStyle()
+        dinnersText.textFieldBorderStyle()
+        priceText.textFieldBorderStyle()
+        descriptionText.textFieldBorderStyle()
         descriptionText.delegate = self
         
         if self.foodPostId != nil {
@@ -74,6 +77,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
             datePickerVC?.setDateTime(startDateString: startTime, endDateString: endTime)
         }
         if let price = self.foodPost?.price {
+            self.price = price
             priceText.text = "$ " + price.format()
         }
         setTypeVC()
@@ -139,6 +143,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         if segue.identifier == "DatePickerSegue" {
             datePickerVC = segue.destination as? DateTimePickerViewController
             datePickerVC?.delegate = self
+            datePickerVC?.view.textFieldBorderStyle()
         } else if segue.identifier == "PlaceAutocompleteSegue" {
             placeAutocompleteVC = segue.destination as? PlaceAutocompleteViewController
             placeAutocompleteVC?.delegate = self

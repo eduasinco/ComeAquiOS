@@ -3,6 +3,16 @@
     {
       "filename" : "meatxxhdpi.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "meat_dark.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

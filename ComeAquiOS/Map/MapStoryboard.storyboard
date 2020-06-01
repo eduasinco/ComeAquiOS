@@ -333,8 +333,8 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-PH-DEG">
                                                 <rect key="frame" x="0.0" y="23" width="366" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" name="Primary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" tag="4" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IcY-jG-dB0">

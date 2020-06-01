@@ -3,6 +3,16 @@
     {
       "filename" : "veganxxhdpi.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "vegan_dark.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

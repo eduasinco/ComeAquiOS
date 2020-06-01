@@ -50,23 +50,51 @@ class MapViewController: LoadViewController, CardActionProtocol {
     var ws: WebSocket?
 
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // self.navigationController?.setNavigationBarHidden(true, animated: false)
+    override func loadView() {
+        super.loadView()
         GMSServices.provideAPIKey("AIzaSyDDZzJN-1TJ9i8DzEvL-dJypS8Xsa2UYy0")
         let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 15.0)
-        googleMap = GMSMapView.map(withFrame: self.viewForMap.bounds, camera: camera)
+        googleMap = GMSMapView.map(withFrame: viewForMap.bounds, camera: camera)
         googleMap.isMyLocationEnabled = true
         googleMap.delegate = self
+        do {
+            // Set the map style by passing a valid JSON string.
+            if traitCollection.userInterfaceStyle == .dark {
+                googleMap.mapStyle = try GMSMapStyle(jsonString: darkMapStyle)
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
         self.viewForMap.addSubview(googleMap)
-        checkLocationServices()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         getFoodPosts()
+        checkLocationServices()
         
         moveCardToBottom(view: cardView)
         addPanGesture(view: cardView)
         view.bringSubviewToFront(cardView)
         
         webSocketConnetion()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        guard UIApplication.shared.applicationState == .inactive else {
+            return
+        }
+        do {
+            // Set the map style by passing a valid JSON string.
+            if traitCollection.userInterfaceStyle == .dark {
+                googleMap.mapStyle = try GMSMapStyle(jsonString: darkMapStyle)
+            } else {
+                googleMap.mapStyle = nil
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
     }
 
     override func viewDidLayoutSubviews() {

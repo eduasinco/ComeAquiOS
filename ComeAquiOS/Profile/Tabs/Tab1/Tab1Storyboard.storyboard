@@ -22,6 +22,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="896" id="fFi-Ib-64x"/>
                                 </constraints>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Tab1Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tab1Cell" id="zqJ-wX-0Bk" customClass="Tab1TableViewCell" customModule="ComeAquí" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="220.5"/>
@@ -156,6 +157,11 @@
                                                         <constraint firstItem="h6y-Gq-5LP" firstAttribute="leading" secondItem="peF-Vo-I5q" secondAttribute="leading" id="Zdo-hS-rOJ"/>
                                                         <constraint firstAttribute="trailing" secondItem="h6y-Gq-5LP" secondAttribute="trailing" id="rKU-MM-ed8"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="strikeColor">
+                                                            <color key="value" name="Primary"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>

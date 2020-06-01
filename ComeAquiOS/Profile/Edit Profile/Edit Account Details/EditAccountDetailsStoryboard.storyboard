@@ -165,9 +165,9 @@
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opr-SR-yDR">
                                                                         <rect key="frame" x="346" y="0.0" width="36" height="50"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" title=" Add ">
-                                                                            <color key="titleColor" name="Primary"/>
+                                                                            <color key="titleColor" name="SecondaryDark"/>
                                                                         </state>
                                                                         <connections>
                                                                             <segue destination="3HD-bu-7c1" kind="show" id="Fap-Df-eI4"/>
