@@ -30,6 +30,9 @@ class WriteReplyTableViewCell: KUIViewController, UITextFieldDelegate {
         textView.isScrollEnabled = false
         originalHeight = self.view.frame.height
         self.bottomConstraintForKeyboard = bcfkb
+        
+        reviewText.text = review?.review
+        usernameAndDate.text = review!.owner!.username! + " " + review!.created_at_to_show!
     }
     
     @IBAction func submitPress(_ sender: Any) {
@@ -50,7 +53,7 @@ extension WriteReplyTableViewCell{
                     let reply = try JSONDecoder().decode(ReviewReplyObject.self, from: data)
                     DispatchQueue.main.async {
                         self.delegate?.replyAdded(reply: reply)
-                        self.navigationController?.popViewController(animated: true)
+                        self.dismiss(animated: true, completion: nil)
                     }
                 } catch {}
         })

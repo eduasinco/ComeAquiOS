@@ -9,6 +9,7 @@
 import UIKit
 
 protocol ReviewCellProtocol {
+    func userImagePressed(userId: Int)
     func reviewOptionsPressed(review: ReviewObject, cell: UITableViewCell)
     func replyOptionsPressed(reply: ReviewReplyObject, cell: UITableViewCell)
 }
@@ -55,6 +56,8 @@ class ReviewTableViewCell: UITableViewCell {
     
     func setCell(review: ReviewObject){
         reviewerImage.loadImageUsingUrlString(urlString: review.owner!.profile_photo)
+        reviewerImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tap(_:))))
+        reviewerImage.isUserInteractionEnabled = true
         reviewerName.text = review.owner?.full_name
         reviewerUsername.text = review.owner?.username
         reviewMessage.text = review.review
@@ -64,6 +67,7 @@ class ReviewTableViewCell: UITableViewCell {
         if review.replies!.count > 0 {
             let reply = review.replies![0]
             if !reply.reply!.isEmpty {
+                replyerImage.loadImageUsingUrlString(urlString: reply.owner?.profile_photo)
                 wholeReplyView.visibility = .visible
                 // replyerImage.loadImageUsingUrlString(urlString: reply.owner!.profile_photo)
                 replyerName.text = reply.owner?.full_name
@@ -71,6 +75,10 @@ class ReviewTableViewCell: UITableViewCell {
                 replyMessage.text = reply.reply
             }
         }
+    }
+    @objc func tap(_ gestureRecognizer: UITapGestureRecognizer) {
+        guard let id = review?.owner?.id else {return}
+        delegate?.userImagePressed(userId: id)
     }
     func setStars(_ rating: Float){
         let starArray = [star0, star1, star2, star3, star4]

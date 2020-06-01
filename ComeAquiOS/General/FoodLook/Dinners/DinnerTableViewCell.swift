@@ -38,9 +38,13 @@ class DinnerTableViewCell: UITableViewCell {
         userNamelabel.text = order.owner?.username
         if order.additional_guests ?? 0 > 0{
             additionalGuestsLabel.text = " \(order.additional_guests!)+ "
-
         } else {
             additionalGuestsLabel.text = ""
+        }
+        if order.owner?.id == USER.id {
+            chatButton.visibility = .gone
+        } else {
+            chatButton.visibility = .visible
         }
     }
 

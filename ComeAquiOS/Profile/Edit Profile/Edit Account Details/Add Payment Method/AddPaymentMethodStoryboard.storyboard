@@ -20,13 +20,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWL-F0-yja">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="858"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tbj-u9-CvX">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                                <rect key="frame" x="20" y="20" width="374" height="818"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Methods" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClY-CA-idh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="QJl-pb-fCD"/>
                                                         </constraints>
@@ -35,23 +35,23 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uSE-cp-yWs" customClass="MyOwnTableView" customModule="ComeAquí" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="50" width="414" height="718"/>
+                                                        <rect key="frame" x="0.0" y="50" width="374" height="718"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Owm-sB-DmC"/>
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PaymentCell" id="4fI-O1-PeJ" customClass="PaymentMethodTableViewCell" customModule="ComeAquí" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="28" width="414" height="70.5"/>
+                                                                <rect key="frame" x="0.0" y="28" width="374" height="70.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4fI-O1-PeJ" id="Dku-ei-UFd">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="70.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dy5-eH-rIQ">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70.5"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditcard" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-LP-Ws3">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditcard" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-LP-Ws3">
                                                                                     <rect key="frame" x="0.0" y="2" width="50" height="66.5"/>
                                                                                     <color key="tintColor" name="Secondary"/>
                                                                                     <constraints>
@@ -59,24 +59,24 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9EJ-5e-Nuf">
-                                                                                    <rect key="frame" x="50" y="0.0" width="314" height="70.5"/>
+                                                                                    <rect key="frame" x="50" y="0.0" width="274" height="70.5"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yho-9e-IfE">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="314" height="35.5"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="274" height="35.5"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                             <color key="textColor" name="Primary"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mg-Vd-CMq">
-                                                                                            <rect key="frame" x="0.0" y="35.5" width="314" height="35"/>
+                                                                                            <rect key="frame" x="0.0" y="35.5" width="274" height="35"/>
                                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                             <color key="textColor" name="Primary"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                     </subviews>
                                                                                 </stackView>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IFz-Xr-c0T">
-                                                                                    <rect key="frame" x="364" y="0.5" width="50" height="69.5"/>
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IFz-Xr-c0T">
+                                                                                    <rect key="frame" x="324" y="0.5" width="50" height="69.5"/>
                                                                                     <color key="tintColor" name="Confirm"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="50" id="NlG-XN-Nu5"/>
@@ -105,7 +105,7 @@
                                                         </prototypes>
                                                     </tableView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbR-wZ-gtf">
-                                                        <rect key="frame" x="0.0" y="768" width="414" height="50"/>
+                                                        <rect key="frame" x="0.0" y="768" width="374" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="P6C-gX-ZEy"/>
                                                         </constraints>
@@ -121,10 +121,10 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstItem="tbj-u9-CvX" firstAttribute="top" secondItem="yWL-F0-yja" secondAttribute="top" id="6ZN-ds-jN7"/>
-                                            <constraint firstAttribute="trailing" secondItem="tbj-u9-CvX" secondAttribute="trailing" id="Uqn-OA-Ikk"/>
-                                            <constraint firstAttribute="bottom" secondItem="tbj-u9-CvX" secondAttribute="bottom" priority="999" id="fy2-Z9-Bcc"/>
-                                            <constraint firstItem="tbj-u9-CvX" firstAttribute="leading" secondItem="yWL-F0-yja" secondAttribute="leading" id="rDX-iD-8Qm"/>
+                                            <constraint firstItem="tbj-u9-CvX" firstAttribute="top" secondItem="yWL-F0-yja" secondAttribute="top" constant="20" id="6ZN-ds-jN7"/>
+                                            <constraint firstAttribute="trailing" secondItem="tbj-u9-CvX" secondAttribute="trailing" constant="20" id="Uqn-OA-Ikk"/>
+                                            <constraint firstAttribute="bottom" secondItem="tbj-u9-CvX" secondAttribute="bottom" priority="999" constant="20" id="fy2-Z9-Bcc"/>
+                                            <constraint firstItem="tbj-u9-CvX" firstAttribute="leading" secondItem="yWL-F0-yja" secondAttribute="leading" constant="20" id="rDX-iD-8Qm"/>
                                         </constraints>
                                     </view>
                                 </subviews>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FoodReviewLookViewController: UIViewController {
+class FoodReviewLookViewController: LoadViewController {
 
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var image1: URLImageView!
@@ -39,9 +39,6 @@ class FoodReviewLookViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
-        
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: headerView.frame.height))
-        tableView.sectionHeaderHeight = headerView.frame.height
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -75,6 +72,21 @@ class FoodReviewLookViewController: UIViewController {
             imageArray[i]!.visibility = .gone
             i += 1
         }
+        self.view.layoutIfNeeded()
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: headerView.frame.height))
+        tableView.sectionHeaderHeight = headerView.frame.height
+        headerView.dropShadow(radius: 2, opacity: 2)
+        setOnImageClicked()
+    }
+    func setOnImageClicked(){
+        for (i, imageView) in [image1, image2, image3].enumerated(){
+            imageView?.tag = i
+            imageView?.isUserInteractionEnabled = true
+            imageView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
+        }
+    }
+    @objc private func imageTapped(_ recognizer: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "ImagePagerSegue", sender: recognizer.view?.tag)
     }
     
     @IBAction func optionsButtonPressed(_ sender: Any) {
@@ -90,14 +102,12 @@ class FoodReviewLookViewController: UIViewController {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == tableView {
-            print(scrollView.contentOffset.y, headerView.frame.height)
             if scrollView.contentOffset.y < headerView.frame.height - shortHeaderView.frame.height {
                 headerTopConstraint.constant = -scrollView.contentOffset.y
-                headerView.dropShadow()
+                headerView.dropShadow(radius: 2, opacity: 2)
             } else {
                 headerTopConstraint.constant = -(headerView.frame.height - shortHeaderView.frame.height)
                 headerView.dropShadow(radius: 5, opacity: 5)
-
             }
         }
     }
@@ -114,10 +124,21 @@ class FoodReviewLookViewController: UIViewController {
         } else if segue.identifier == "EditPostSegue" {
             let editPostVC = segue.destination as? EditPostViewController
             editPostVC?.foodPostId = self.foodPostId
+        }  else if segue.identifier == "ImagePagerSegue" {
+            let vc = segue.destination as? ImagePagerViewController
+            vc?.data = foodPost?.images ?? []
+            vc?.indexPath = IndexPath(row: sender as? Int ?? 1, section: 0)
+        } else if segue.identifier == "ProfileSegue" {
+            let profileVC = segue.destination as? ProfileViewController
+            profileVC?.userId = sender as? Int
         }
     }
 }
 extension FoodReviewLookViewController: ReviewCellProtocol, OptionsPopUpProtocol, WriteReplyProtocol {
+    func userImagePressed(userId: Int) {
+        performSegue(withIdentifier: "ProfileSegue", sender: userId)
+    }
+    
     func replyAdded(reply: ReviewReplyObject) {
         for child in self.reviews {
             if child.id == reply.review!.id {
@@ -225,8 +246,10 @@ extension FoodReviewLookViewController: UITableViewDataSource, UITableViewDelega
 
 extension FoodReviewLookViewController {
     func getFoodReviews(){
+        presentLoader()
         guard let foodPostId = self.foodPostId else {return}
         Server.get( "/food_reviews/\(foodPostId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+            self.closeLoader()
             guard let data = data else {return}
             do {
                 self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
