@@ -24,6 +24,7 @@ public class User: Decodable{
     var rating: Float?
     var rating_n: Int?
     var timeZone : String?
+    var error_message: String?
 }
 
 public class FoodPostImageObject: Decodable{
