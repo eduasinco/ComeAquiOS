@@ -38,14 +38,15 @@ class ForgotPasswordViewController: LoadViewController {
 
 extension ForgotPasswordViewController {
     func sendNewPasswordS(){
-        Server.get("/send_new_password/\(emailAddress.text!)/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                
-            }
-            guard let data = data else {
-                return
-            }
+        let endpointUrl = URL(string: SERVER + "/send_new_password/\(emailAddress.text!)/")!
+        var request = URLRequest(url: endpointUrl)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "GET"
+        presentTransparentLoader()
+        let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
+            self.closeTransparentLoader()
+            guard let data = data else {return}
             do {
                 USER = try JSONDecoder().decode(User.self, from: data)
                 DispatchQueue.main.async {
@@ -61,5 +62,6 @@ extension ForgotPasswordViewController {
                 }catch _ {}
             }
         })
+        task.resume()
     }
 }

@@ -17,9 +17,9 @@ class EditAccountDetailsViewController: KUIViewController {
     @IBOutlet weak var firstName: ValidatedTextField!
     @IBOutlet weak var lastName: ValidatedTextField!
     @IBOutlet weak var phoneNumber: ValidatedTextField!
-    @IBOutlet weak var emailAddress: UIStackView!
+    @IBOutlet weak var emailAddress: UIView!
     @IBOutlet weak var emailText: UITextField!
-    @IBOutlet weak var password: UIStackView!
+    @IBOutlet weak var password: UIView!
     @IBOutlet weak var creditCard: UILabel!
     
     
@@ -41,14 +41,14 @@ class EditAccountDetailsViewController: KUIViewController {
         lastName.placeholder = user.last_name
         phoneNumber.placeholder = user.phone_number
         emailText.placeholder = user.email
-
-        guard let paymentMethod = self.paymentMethod else {return}
-        creditCard.text = paymentMethod.last4
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.changeEmail(_:)))
         emailAddress.addGestureRecognizer(gesture)
         let pgesture = UITapGestureRecognizer(target: self, action: #selector(self.changePassword(_:)))
         password.addGestureRecognizer(pgesture)
+
+        guard let paymentMethod = self.paymentMethod else {return}
+        creditCard.text = paymentMethod.last4
     }
     @objc func changeEmail(_ gestureRecognizer: UITapGestureRecognizer) {
         performSegue(withIdentifier: "EditEmailAddressSegue", sender: nil)

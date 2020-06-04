@@ -103,7 +103,7 @@
                                                                 <color key="textColor" name="Primary"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3HF-gr-Hbi">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSG-vr-jm5">
                                                                 <rect key="frame" x="0.0" y="350" width="382" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5NT-Du-Emk">
@@ -115,7 +115,14 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                 </subviews>
-                                                            </stackView>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="5NT-Du-Emk" firstAttribute="leading" secondItem="NSG-vr-jm5" secondAttribute="leading" id="Hx9-9T-Dla"/>
+                                                                    <constraint firstItem="5NT-Du-Emk" firstAttribute="top" secondItem="NSG-vr-jm5" secondAttribute="top" id="LGi-lr-30M"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="5NT-Du-Emk" secondAttribute="bottom" id="auH-vV-Vpy"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="5NT-Du-Emk" secondAttribute="trailing" id="nvD-sq-pk7"/>
+                                                                </constraints>
+                                                            </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygf-t5-svL">
                                                                 <rect key="frame" x="0.0" y="400" width="382" height="50"/>
                                                                 <constraints>
@@ -125,7 +132,7 @@
                                                                 <color key="textColor" name="Primary"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AEg-lp-RI5">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="145-Yi-6Te">
                                                                 <rect key="frame" x="0.0" y="450" width="382" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Some password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkg-Wf-ZTo">
@@ -137,7 +144,14 @@
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                     </textField>
                                                                 </subviews>
-                                                            </stackView>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="Qkg-Wf-ZTo" firstAttribute="top" secondItem="145-Yi-6Te" secondAttribute="top" id="Ae5-A2-Lof"/>
+                                                                    <constraint firstItem="Qkg-Wf-ZTo" firstAttribute="leading" secondItem="145-Yi-6Te" secondAttribute="leading" id="K8y-QB-KeI"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Qkg-Wf-ZTo" secondAttribute="bottom" id="Xux-CG-yGl"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Qkg-Wf-ZTo" secondAttribute="trailing" id="m0R-sW-3E9"/>
+                                                                </constraints>
+                                                            </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HjA-qQ-8rm">
                                                                 <rect key="frame" x="0.0" y="500" width="382" height="50"/>
                                                                 <constraints>
@@ -234,14 +248,14 @@
                     <connections>
                         <outlet property="bcfkb" destination="zuc-ES-108" id="h33-DP-VYo"/>
                         <outlet property="creditCard" destination="pSV-uT-hSh" id="9qB-fi-obA"/>
-                        <outlet property="emailAddress" destination="3HF-gr-Hbi" id="4V3-5b-mur"/>
+                        <outlet property="emailAddress" destination="NSG-vr-jm5" id="kAD-w9-Lt6"/>
                         <outlet property="emailText" destination="5NT-Du-Emk" id="Nfc-dv-GbA"/>
                         <outlet property="firstName" destination="u89-em-aDU" id="VNt-4o-wr4"/>
                         <outlet property="lastName" destination="1pd-k9-ftq" id="0zV-lU-nwr"/>
-                        <outlet property="password" destination="AEg-lp-RI5" id="FV7-B3-1Fi"/>
+                        <outlet property="password" destination="145-Yi-6Te" id="506-JG-Ntq"/>
                         <outlet property="phoneNumber" destination="NzR-nM-Li7" id="6YG-3h-GZi"/>
-                        <segue destination="uSf-9V-csF" kind="presentation" identifier="EditEmailAddressSegue" id="fDf-aN-RCz"/>
-                        <segue destination="LhI-tI-5ZO" kind="presentation" identifier="ChangePasswordSegue" id="bUL-0r-yr6"/>
+                        <segue destination="uSf-9V-csF" kind="show" identifier="EditEmailAddressSegue" id="fDf-aN-RCz"/>
+                        <segue destination="LhI-tI-5ZO" kind="show" identifier="ChangePasswordSegue" id="bUL-0r-yr6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ent-ws-Gb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -251,15 +265,19 @@
         <!--ChangePasswordView-->
         <scene sceneID="hEQ-kb-50S">
             <objects>
-                <viewControllerPlaceholder storyboardName="ChangePasswordStoryboard" referencedIdentifier="ChangePasswordView" id="LhI-tI-5ZO" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ChangePasswordStoryboard" referencedIdentifier="ChangePasswordView" id="LhI-tI-5ZO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="pKH-Uh-IEh"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOD-dS-0az" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="571" y="-59"/>
+            <point key="canvasLocation" x="572" y="-52"/>
         </scene>
         <!--EditEmailAddressView-->
         <scene sceneID="WRj-u8-ipd">
             <objects>
-                <viewControllerPlaceholder storyboardName="EditEmailAddressStoryboard" referencedIdentifier="EditEmailAddressView" id="uSf-9V-csF" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="EditEmailAddressStoryboard" referencedIdentifier="EditEmailAddressView" id="uSf-9V-csF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0kj-IF-9Xu"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBY-VR-gya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="573" y="13"/>

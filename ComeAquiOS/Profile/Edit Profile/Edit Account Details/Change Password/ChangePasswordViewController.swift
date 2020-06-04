@@ -32,6 +32,10 @@ class ChangePasswordViewController: LoadViewController {
             "It needs to be at least 8 characters long"
         }
     }
+    @IBAction func goToLogin(_ sender: Any) {
+        USER = nil
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension ChangePasswordViewController {

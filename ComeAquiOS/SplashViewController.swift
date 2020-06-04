@@ -7,8 +7,10 @@
 //
 
 import UIKit
-class SplashViewController: UIViewController {
+import Firebase
 
+class SplashViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -17,7 +19,7 @@ class SplashViewController: UIViewController {
         if USER == nil {
             getMyUser()
         } else {
-            getMyUnreviewedOrdersAsDinner()
+            self.registerFCMDevice()
         }
     }
     
@@ -45,7 +47,6 @@ extension SplashViewController {
                     return
                 }
                 self.registerFCMDevice()
-                self.getMyUnreviewedOrdersAsDinner()
             } catch _ {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "LoginOrRegisterSegue", sender: nil)
@@ -54,12 +55,21 @@ extension SplashViewController {
         })
     }
     func registerFCMDevice(){
-        Server.post("/fcm/v1/devices/",
-                    json:
-            ["dev_id":  UIDevice.current.identifierForVendor!.uuidString,
-             "reg_id":  UserDefaults.standard.string(forKey: "fcm_token"),
-             "name":  USER.id],
-                    finish: {(data: Data?, response: URLResponse?) -> Void in})
+        InstanceID.instanceID().instanceID { (result, error) in
+            if let error = error {
+                print("Error fetching remote instance ID: \(error)")
+            } else if let result = result {
+                print("Remote instance ID token: \(result.token)")
+                Server.post("/fcm/v1/devices/",
+                            json:
+                    ["dev_id":  UIDevice.current.identifierForVendor!.uuidString,
+                     "reg_id":  result.token,
+                     "name":  "\(USER.id!)"],
+                            finish: {(data: Data?, response: URLResponse?) -> Void in
+                                self.getMyUnreviewedOrdersAsDinner()
+                })
+            }
+        }
     }
     func getMyUnreviewedOrdersAsDinner(){
         Server.get("/my_unreviewed_order_post/", finish: {

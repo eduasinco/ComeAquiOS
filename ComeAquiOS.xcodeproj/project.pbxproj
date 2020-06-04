@@ -31,6 +31,7 @@
 		8776FF0D24538220005A4D4C /* TextClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8776FF0C24538220005A4D4C /* TextClasses.swift */; };
 		8793FC58248590E9001209CA /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8793FC56248590E9001209CA /* PostTableViewCell.swift */; };
 		8793FC59248590E9001209CA /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8793FC57248590E9001209CA /* PostTableViewCell.xib */; };
+		8793FC5D24885225001209CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8793FC5C24885225001209CA /* GoogleService-Info.plist */; };
 		879CBFF42458DBCC00383F68 /* OptionsPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879CBFF32458DBCC00383F68 /* OptionsPopUpViewController.swift */; };
 		879CBFF62458DBD900383F68 /* OptionsPopUpStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CBFF52458DBD900383F68 /* OptionsPopUpStoryboard.storyboard */; };
 		879CBFFA2458EFB800383F68 /* DinnersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879CBFF92458EFB800383F68 /* DinnersStoryboard.storyboard */; };
@@ -70,7 +71,6 @@
 		87AAF8FA246A59C0000CDC1D /* ImagePagerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8F9246A59C0000CDC1D /* ImagePagerCollectionViewCell.swift */; };
 		87AAF8FF246A9ED3000CDC1D /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF8FE246A9ED3000CDC1D /* ViewControllers.swift */; };
 		87AAF901246A9EFE000CDC1D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAF900246A9EFE000CDC1D /* Images.swift */; };
-		87B1698224728C70007685FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87B1698124728C70007685FE /* GoogleService-Info.plist */; };
 		87B169842473DCBA007685FE /* Capabilities .swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B169832473DCBA007685FE /* Capabilities .swift */; };
 		87B1698724746F9D007685FE /* OrderNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B1698624746F9D007685FE /* OrderNotificationViewController.swift */; };
 		87B1698924746FAE007685FE /* OrderNotificationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B1698824746FAE007685FE /* OrderNotificationStoryboard.storyboard */; };
@@ -188,6 +188,7 @@
 		8776FF0C24538220005A4D4C /* TextClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextClasses.swift; sourceTree = "<group>"; };
 		8793FC56248590E9001209CA /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		8793FC57248590E9001209CA /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		8793FC5C24885225001209CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		879CBFF32458DBCC00383F68 /* OptionsPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPopUpViewController.swift; sourceTree = "<group>"; };
 		879CBFF52458DBD900383F68 /* OptionsPopUpStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OptionsPopUpStoryboard.storyboard; sourceTree = "<group>"; };
 		879CBFF92458EFB800383F68 /* DinnersStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DinnersStoryboard.storyboard; sourceTree = "<group>"; };
@@ -228,7 +229,6 @@
 		87AAF8FE246A9ED3000CDC1D /* ViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllers.swift; sourceTree = "<group>"; };
 		87AAF900246A9EFE000CDC1D /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		87B1698024728611007685FE /* ComeAquiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ComeAquiOS.entitlements; sourceTree = "<group>"; };
-		87B1698124728C70007685FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87B169832473DCBA007685FE /* Capabilities .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capabilities .swift"; sourceTree = "<group>"; };
 		87B1698624746F9D007685FE /* OrderNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNotificationViewController.swift; sourceTree = "<group>"; };
 		87B1698824746FAE007685FE /* OrderNotificationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderNotificationStoryboard.storyboard; sourceTree = "<group>"; };
@@ -789,8 +789,8 @@
 				87FC9E7F2447FF6200810ECF /* Main.storyboard */,
 				87FC9E822447FF6300810ECF /* Assets.xcassets */,
 				87FC9E842447FF6300810ECF /* LaunchScreen.storyboard */,
+				8793FC5C24885225001209CA /* GoogleService-Info.plist */,
 				87FC9E872447FF6300810ECF /* Info.plist */,
-				87B1698124728C70007685FE /* GoogleService-Info.plist */,
 				87B1698024728611007685FE /* ComeAquiOS.entitlements */,
 			);
 			path = ComeAquiOS;
@@ -1075,6 +1075,7 @@
 				87FC9E832447FF6300810ECF /* Assets.xcassets in Resources */,
 				87AAF8DE2469D19B000CDC1D /* AddPaymentMethodStoryboard.storyboard in Resources */,
 				873B7E4F24590ECA00F5FF7E /* AttendPopUpStoryboard.storyboard in Resources */,
+				8793FC5D24885225001209CA /* GoogleService-Info.plist in Resources */,
 				87FC9EDB2448060900810ECF /* WriteCommentStoryboard.storyboard in Resources */,
 				87FC9EF3244FB0B800810ECF /* AddFoodStoryboard.storyboard in Resources */,
 				87AAF8B8246629A9000CDC1D /* Tab3Storyboard.storyboard in Resources */,
@@ -1104,7 +1105,6 @@
 				87D8A5AF245CA61F0056AC9B /* ImageScrollStoryboard.storyboard in Resources */,
 				87AAF8DB24694B65000CDC1D /* ForgotPasswordStoryboard.storyboard in Resources */,
 				87AAF8C42468F918000CDC1D /* AddBioStoryboard.storyboard in Resources */,
-				87B1698224728C70007685FE /* GoogleService-Info.plist in Resources */,
 				87AAF8D324694556000CDC1D /* ChangePasswordStoryboard.storyboard in Resources */,
 				87D8A5AA245B805F0056AC9B /* WriteReplyStoryboard.storyboard in Resources */,
 				87BC1E6E246E47880039434E /* ReviewGuestStoryboard.storyboard in Resources */,
@@ -1413,6 +1413,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ComeAquiOS/ComeAquiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = RQT83D9L27;
 				INFOPLIST_FILE = ComeAquiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -1420,10 +1421,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.EduardoRdoriguezPerez.ComeAquiOS;
 				PRODUCT_NAME = "ComeAquí";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1434,6 +1436,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ComeAquiOS/ComeAquiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = RQT83D9L27;
 				INFOPLIST_FILE = ComeAquiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -1441,10 +1444,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.EduardoRdoriguezPerez.ComeAquiOS;
 				PRODUCT_NAME = "ComeAquí";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

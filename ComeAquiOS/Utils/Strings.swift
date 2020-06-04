@@ -13,10 +13,12 @@ let real_local_server = "http://10.153.31.109:65100"
 let production_server = "http://54.193.13.44"
 let production_async_server = "http://54.193.13.44:8001"
 
-let SERVER = production_server
-let ASYNC_SERVER = production_async_server
+let SERVER = local_server
+let ASYNC_SERVER = local_server
 
 let GOOGLE_KEY = "AIzaSyDqkl1DgwHu03SmMoqVey3sgR62GnJ-VY4"
+
+
 
 
 let darkMapStyle = "[" +

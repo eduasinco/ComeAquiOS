@@ -45,7 +45,7 @@ class OptionsPopUpViewController: CardBehaviourViewController {
         })
     }
     
-    func createButton(_ title: String, _ color: UIColor = UIColor.black) -> UIButton{
+    func createButton(_ title: String, _ color: UIColor = UIColor(named: "Primary")!) -> UIButton{
         let button = UIButton()
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         button.setTitleColor(color, for: .normal)
