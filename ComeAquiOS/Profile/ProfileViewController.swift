@@ -76,11 +76,12 @@ class ProfileViewController: LoadViewController {
             changeBackgroundImageButton.visibility = .visible
             options = ["Log out"]
         } else {
-            options = ["Message user", "Report"]
+            options = ["Message user", "Report", user.is_user_blocked! ? "Unblock" : "Block"]
             editProfileButtonContainer.visibility = .gone
             changeProfileImageButton.visibility = .gone
             changeBackgroundImageButton.visibility = .gone
         }
+        guard !user.are_you_blocked_by_the_user! else {return}
         backgoundImage.loadImageUsingUrlString(urlString: user.background_photo, isFullUrl: true)
         profileImage.loadImageUsingUrlString(urlString: user.profile_photo, isFullUrl: true)
         userName.text = user.full_name
@@ -118,6 +119,10 @@ class ProfileViewController: LoadViewController {
         performSegue(withIdentifier: "EditProfileSegue", sender: nil)
     }
     @IBAction func openConversationWithUser(_ sender: Any) {
+        guard !self.user!.are_you_blocked_by_the_user! else {
+            self.externalScrollView.showToast(message: "Request denied")
+            return
+        }
         getConversation()
     }
     @IBAction func options(_ sender: Any) {
@@ -143,7 +148,7 @@ class ProfileViewController: LoadViewController {
         } else if segue.identifier == "Tab3Segue" {
             tab3VC = segue.destination as? Tab3ViewController
         } else if segue.identifier == "LoginOrRegisterSegue" {
-            let loginVC = segue.destination as? LoginOrRegisterViewController
+            _ = segue.destination as? LoginOrRegisterViewController
         } else if segue.identifier == "ConversationSegue" {
             let vc = segue.destination as? ConversationViewController
             vc?.chatId = sender as? Int
@@ -170,6 +175,17 @@ extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol
             self.performSegue(withIdentifier: "LoginOrRegisterSegue", sender: nil)
             break
         case "Message user":
+            guard !self.user!.are_you_blocked_by_the_user! else {
+                self.externalScrollView.showToast(message: "Request denied")
+                return
+            }
+            getConversation()
+            break
+        case "Block":
+            blockUser(self.user!.id!, block: true)
+            break
+        case "Unblock":
+            blockUser(self.user!.id!, block: false)
             break
         case "Report":
             break
@@ -199,12 +215,7 @@ extension ProfileViewController {
     func getUser(_ userId: Int){
         Server.get("/profile_detail/\(userId)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                
-            }
-            guard let data = data else {
-                return
-            }
+            guard let data = data else {return}
             do {
                 self.user = try JSONDecoder().decode(User.self, from: data)
                 DispatchQueue.main.async {
@@ -215,16 +226,37 @@ extension ProfileViewController {
             }
         })
     }
+    func blockUser(_ userId: Int, block: Bool){
+        presentTransparentLoader()
+        Server.get("/block_user/\(userId)/" + (block ? "block": "unblock") + "/", finish: {
+            (data: Data?, response: URLResponse?) -> Void in
+            self.closeTransparentLoader()
+            guard let data = data else {return}
+            do {
+                self.user = try JSONDecoder().decode(User.self, from: data)
+                if self.user!.is_user_blocked! {
+                    DispatchQueue.main.async {
+                        self.view.showToast(message: "User blocked")
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.view.showToast(message: "User unblocked")
+                    }
+                }
+            } catch _ {
+                DispatchQueue.main.async {
+                    self.view.showToast(message: "Some error ocurred")
+                }
+            }
+        })
+    }
     func getConversation(){
+        presentTransparentLoader()
         guard let user = self.user else { return }
         Server.get("/get_or_create_chat/\(user.id!)/", finish: {
             (data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                
-            }
-            guard let data = data else {
-                return
-            }
+            self.closeTransparentLoader()
+            guard let data = data else {return}
             do {
                 let chat = try JSONDecoder().decode(User.self, from: data)
                 DispatchQueue.main.async {

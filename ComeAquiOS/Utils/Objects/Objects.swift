@@ -25,6 +25,8 @@ public class User: Decodable{
     var rating_n: Int?
     var timeZone : String?
     var error_message: String?
+    var is_user_blocked: Bool?
+    var are_you_blocked_by_the_user: Bool?
 }
 
 public class FoodPostImageObject: Decodable{

@@ -78,7 +78,7 @@ class ConversationViewController: KUIViewController {
     }
     
     @IBAction func unblockUser(_ sender: Any) {
-        unBlockUser(userId: chattingWith.id!)
+        blockUser(chattingWith.id!, block: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,9 +101,9 @@ extension ConversationViewController: OptionsPopUpProtocol {
     func optionPressed(_ title: String) {
         switch title {
         case "Unblock user":
-            unBlockUser(userId: chattingWith.id!)
+            blockUser(chattingWith.id!, block: false)
         case "Block user":
-            blockUser(userId: chattingWith.id!)
+            blockUser(chattingWith.id!, block: true)
         case "Go to profile":
             performSegue(withIdentifier: "ProfileSegue", sender: nil)
         case "Report":
@@ -289,37 +289,30 @@ extension ConversationViewController {
             } catch {}
         })
     }
-    func blockUser(userId: Int){
-        self.tableView.showActivityIndicator()
-        guard !self.alreadyFetchingData else { return }
-        self.alreadyFetchingData = true
-        Server.get("/block_user/\(userId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
-            self.alreadyFetchingData = false
-            self.tableView.hideActivityIndicator()
+    func blockUser(_ userId: Int, block: Bool){
+        presentTransparentLoader()
+        Server.get("/block_user/\(userId)/" + (block ? "block": "unblock") + "/", finish: {
+            (data: Data?, response: URLResponse?) -> Void in
+            self.closeTransparentLoader()
             guard let data = data else {return}
             do {
-                _ = try JSONDecoder().decode(User.self, from: data)
-                self.isUserBlocked = true
-                DispatchQueue.main.async {
-                    self.blockView.visibility = .visible
+                let user = try JSONDecoder().decode(User.self, from: data)
+                if user.is_user_blocked! {
+                    DispatchQueue.main.async {
+                        self.blockView.visibility = .visible
+                        self.view.showToast(message: "User blocked")
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.blockView.visibility = .gone
+                        self.view.showToast(message: "User unblocked")
+                    }
                 }
-            } catch {}
-        })
-    }
-    func unBlockUser(userId: Int){
-        self.tableView.showActivityIndicator()
-        guard !self.alreadyFetchingData else { return }
-        self.alreadyFetchingData = true
-        Server.delete("/block_user/\(userId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
-            self.alreadyFetchingData = false
-            self.tableView.hideActivityIndicator()
-            guard let data = data else {return}
-            do {
-                self.isUserBlocked = false
+            } catch _ {
                 DispatchQueue.main.async {
-                    self.blockView.visibility = .gone
+                    self.view.showToast(message: "Some error ocurred")
                 }
-            } catch {}
+            }
         })
     }
 }
