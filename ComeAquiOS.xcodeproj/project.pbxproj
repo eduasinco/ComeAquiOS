@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1B14F1A31705743CEB43F983 /* libPods-ComeAquiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 768E53CF6B78A130CD0485CE /* libPods-ComeAquiOS.a */; };
 		8712315F24525370004C0049 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8712315E24525370004C0049 /* Server.swift */; };
+		8720C36F248AF06D0090B1F0 /* EULAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8720C36E248AF06D0090B1F0 /* EULAViewController.swift */; };
+		8720C371248AF0760090B1F0 /* EULAStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8720C370248AF0760090B1F0 /* EULAStoryboard.storyboard */; };
 		873B7E4C24590EA300F5FF7E /* AttendPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B7E4B24590EA300F5FF7E /* AttendPopUpViewController.swift */; };
 		873B7E4F24590ECA00F5FF7E /* AttendPopUpStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B7E4E24590ECA00F5FF7E /* AttendPopUpStoryboard.storyboard */; };
 		87764232246BACB800BBF7D0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87764231246BACB800BBF7D0 /* SearchViewController.swift */; };
@@ -166,6 +168,8 @@
 		4C7EACD69E5F0043056F81B3 /* Pods-ComeAquiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComeAquiOS.release.xcconfig"; path = "Target Support Files/Pods-ComeAquiOS/Pods-ComeAquiOS.release.xcconfig"; sourceTree = "<group>"; };
 		768E53CF6B78A130CD0485CE /* libPods-ComeAquiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ComeAquiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8712315E24525370004C0049 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		8720C36E248AF06D0090B1F0 /* EULAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EULAViewController.swift; sourceTree = "<group>"; };
+		8720C370248AF0760090B1F0 /* EULAStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EULAStoryboard.storyboard; sourceTree = "<group>"; };
 		873B7E4B24590EA300F5FF7E /* AttendPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendPopUpViewController.swift; sourceTree = "<group>"; };
 		873B7E4E24590ECA00F5FF7E /* AttendPopUpStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AttendPopUpStoryboard.storyboard; sourceTree = "<group>"; };
 		87764231246BACB800BBF7D0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -335,6 +339,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8720C36D248AF0580090B1F0 /* EULA View */ = {
+			isa = PBXGroup;
+			children = (
+				8720C36E248AF06D0090B1F0 /* EULAViewController.swift */,
+				8720C370248AF0760090B1F0 /* EULAStoryboard.storyboard */,
+			);
+			path = "EULA View";
+			sourceTree = "<group>";
+		};
 		873B7E4A24590E6C00F5FF7E /* Attend Pop Up */ = {
 			isa = PBXGroup;
 			children = (
@@ -926,6 +939,7 @@
 		87FC9EE9244E9FA600810ECF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				8720C36D248AF0580090B1F0 /* EULA View */,
 				87C2D3AA2478C8EC00445D82 /* Loader View */,
 				87AAF8F2246A574E000CDC1D /* Image Pager */,
 				87D8A5AD245CA60A0056AC9B /* Image Scroll View */,
@@ -1119,6 +1133,7 @@
 				87AAF8C92468FF2F000CDC1D /* EditAccountDetailsStoryboard.storyboard in Resources */,
 				87FC9EA5244801AE00810ECF /* ProfileStoryboard.storyboard in Resources */,
 				879CBFF62458DBD900383F68 /* OptionsPopUpStoryboard.storyboard in Resources */,
+				8720C371248AF0760090B1F0 /* EULAStoryboard.storyboard in Resources */,
 				87D8A536245920E20056AC9B /* OrderLookStoryboard.storyboard in Resources */,
 				879CBFFA2458EFB800383F68 /* DinnersStoryboard.storyboard in Resources */,
 				879CBFFE2458F05500383F68 /* EditPostStoryboard.storyboard in Resources */,
@@ -1195,6 +1210,7 @@
 				87FC9E99244800FE00810ECF /* LoginOrRegisterViewController.swift in Sources */,
 				87B74E0A24752CD60048F6EF /* PresentationViewController.swift in Sources */,
 				87AAF8F1246A4024000CDC1D /* Tab3CollectionViewCell.swift in Sources */,
+				8720C36F248AF06D0090B1F0 /* EULAViewController.swift in Sources */,
 				87764269246BE7CD00BBF7D0 /* PeopleTableViewCell.swift in Sources */,
 				87D8A58F245A26BA0056AC9B /* GuestingTableViewCell.swift in Sources */,
 				87D8A593245A275B0056AC9B /* GuestingViewController.swift in Sources */,

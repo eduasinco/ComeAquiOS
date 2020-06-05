@@ -14,12 +14,15 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if USER == nil {
-            getMyUser()
+    override func viewDidAppear(_ animated: Bool) {
+        if let eULAAgree = UserDefaults.standard.string(forKey: "EULA"), eULAAgree == "AGREE" {
+            if USER == nil {
+                getMyUser()
+            } else {
+                self.registerFCMDevice()
+            }
         } else {
-            self.registerFCMDevice()
+            performSegue(withIdentifier: "EULASegue", sender: nil)
         }
     }
     
