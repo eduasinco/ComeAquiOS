@@ -68,7 +68,7 @@ extension HostingViewController {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         
-        if offsetY > contentHeight - scrollView.frame.height {
+        if contentHeight > scrollView.frame.height, offsetY > contentHeight - scrollView.frame.height {
             if !alreadyFetchingData {
                 getMyHostings()
             }

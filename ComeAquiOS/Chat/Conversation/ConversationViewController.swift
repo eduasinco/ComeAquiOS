@@ -46,6 +46,17 @@ class ConversationViewController: KUIViewController {
         webSocketConnetion()
         tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
         blockView.visibility = .gone
+        sendButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector (sendMessage)))
+    }
+    @objc func sendMessage() {
+        let message = "{\"message\": \"" + textView.text + "\"," +
+            "\"command\": \"new_message\"," +
+            "\"from\": \(USER.id!)," +
+            "\"to\": \(self.chattingWith.id!)," +
+        "\"chatId\": \(self.chat!.id!)}"
+        ws!.write(string: message)
+        textView.text = ""
+        textViewDidChange(textView)
     }
     
     func setView() {
@@ -66,16 +77,6 @@ class ConversationViewController: KUIViewController {
         headerView.dropShadow(radius: 1, opacity: 0.3, height: 1)
     }
     
-    @IBAction func send(_ sender: Any) {
-        let message = "{\"message\": \"" + textView.text + "\"," +
-            "\"command\": \"new_message\"," +
-            "\"from\": \(USER.id!)," +
-            "\"to\": \(self.chattingWith.id!)," +
-        "\"chatId\": \(self.chat!.id!)}"
-        ws!.write(string: message)
-        textView.text = ""
-        textViewDidChange(textView)
-    }
     @IBAction func unblockUser(_ sender: Any) {
         unBlockUser(userId: chattingWith.id!)
     }
@@ -329,7 +330,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         
-        if offsetY > contentHeight - scrollView.frame.height {
+        if contentHeight > scrollView.frame.height, offsetY > contentHeight - scrollView.frame.height {
             fetchMoreData()
         }
     }

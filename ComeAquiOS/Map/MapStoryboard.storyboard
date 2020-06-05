@@ -126,7 +126,6 @@
                         <outlet property="mapPickerContainerView" destination="WVe-cr-Uml" id="zRX-Vq-z5S"/>
                         <outlet property="spinner" destination="wjR-Dd-0ho" id="dkW-d7-JHS"/>
                         <outlet property="viewForMap" destination="wOO-sf-WI3" id="pMF-aB-4c9"/>
-                        <segue destination="odk-hG-I1t" kind="show" identifier="FoodLookSegue" id="txV-CF-1au"/>
                         <segue destination="cwF-uY-eaJ" kind="show" identifier="AddFoodSegue" id="U68-rn-rbF"/>
                     </connections>
                 </viewController>
@@ -147,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ka-j2-6sH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2709" y="211"/>
+            <point key="canvasLocation" x="2712" y="187"/>
         </scene>
         <!--Rate Star View Controller-->
         <scene sceneID="o9g-l0-RrZ">
@@ -220,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zd7-4b-MCH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2746" y="87"/>
+            <point key="canvasLocation" x="2745" y="149"/>
         </scene>
         <!--AddFood-->
         <scene sceneID="5Hm-uL-lFA">
@@ -240,7 +239,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEi-XO-LKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1846" y="-52"/>
+            <point key="canvasLocation" x="2601" y="80"/>
         </scene>
         <!--Food Card View Controller-->
         <scene sceneID="6qt-h0-OUW">
@@ -479,6 +478,7 @@
                         <outlet property="userImage" destination="Fz5-Uc-57E" id="R5Y-cl-MPX"/>
                         <outlet property="userName" destination="Cu6-iC-Wf6" id="EeU-dU-5Vf"/>
                         <outlet property="userUsername" destination="KlV-wT-pFP" id="K9T-a3-Cmk"/>
+                        <segue destination="odk-hG-I1t" kind="show" identifier="FoodLookSegue" id="xRU-if-roD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axg-2C-wEk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

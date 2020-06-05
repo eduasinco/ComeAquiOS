@@ -259,9 +259,6 @@ class MapViewController: LoadViewController, CardActionProtocol {
         }
     }
     
-    func goToFoodLook(){
-        performSegue(withIdentifier: "FoodLookSegue", sender: self.currentPost.id)
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FoodCardSegue" {
             foodCardVC = segue.destination as? FoodCardViewController

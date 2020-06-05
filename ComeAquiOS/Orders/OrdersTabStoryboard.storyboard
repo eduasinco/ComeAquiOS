@@ -11,7 +11,7 @@
         <!--Activity-->
         <scene sceneID="3Pp-ac-2ul">
             <objects>
-                <viewController storyboardIdentifier="OrdersView" id="1Aa-pC-1GO" customClass="OrdersTabViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrdersView" id="1Aa-pC-1GO" customClass="OrdersTabViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="naj-X1-lZf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

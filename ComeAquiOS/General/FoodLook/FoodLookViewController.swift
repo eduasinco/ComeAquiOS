@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 
 class FoodLookViewController: KUIViewController {
+    @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var parentScrollView: UIScrollView!
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var image1: URLImageView!
@@ -43,6 +44,8 @@ class FoodLookViewController: KUIViewController {
     @IBOutlet weak var creditCardInfoView: UIView!
     @IBOutlet weak var creditCardImage: UIImageView!
     @IBOutlet weak var creditCardNumber: UILabel!
+    @IBOutlet weak var commentTextViewStack: UIStackView!
+    @IBOutlet weak var commentTextField: UITextView!
     @IBOutlet weak var commentsView: UIView!
     @IBOutlet weak var bcfkb: NSLayoutConstraint!
     
@@ -65,10 +68,12 @@ class FoodLookViewController: KUIViewController {
         self.bottomConstraintForKeyboard = bcfkb
         sendButton.visibility = .gone
         attendMealButton.visibility = .gone
-        
+        commentTextField.isUserInteractionEnabled = false
         dinnersStackView.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction(sender:)))
         dinnersStackView.addGestureRecognizer(gesture)
+        let gesture2 = UITapGestureRecognizer(target: self, action:  #selector(self.tapComment(sender:)))
+        commentTextViewStack.addGestureRecognizer(gesture2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,6 +82,10 @@ class FoodLookViewController: KUIViewController {
 
     @objc func checkAction(sender : UITapGestureRecognizer) {
         performSegue(withIdentifier: "DinnerSegue", sender: nil)
+    }
+    
+    @objc func tapComment(sender : UITapGestureRecognizer) {
+        self.holderView.showToast(message: "You can't comment until meal is confirmed")
     }
     
     @IBAction func sendPress(_ sender: Any) {
@@ -154,6 +163,7 @@ class FoodLookViewController: KUIViewController {
             case "CONFIRMED":
                 setStatus(text: "Confirmed", color: UIColor(named: "Success")!)
                 commentsView.visibility = .visible
+                commentTextField.isUserInteractionEnabled = true
             case "PENDING":
                 setStatus(text: "Pending", color: UIColor(named: "Primary")!)
             case "CANCELED":
@@ -163,6 +173,7 @@ class FoodLookViewController: KUIViewController {
             case "FINISHED":
                 setStatus(text: "Finished", color: UIColor(named: "Primary")!)
                 commentsView.visibility = .visible
+                commentTextField.isUserInteractionEnabled = true
             default:
                 switch foodPost.status {
                 case "OPEN":

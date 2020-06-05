@@ -25,12 +25,6 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrn-Nk-pwQ" userLabel="inner scroll view">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1378"/>
                                                 <subviews>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-Xd-oXZ">
-                                                        <rect key="frame" x="20" y="1134.5" width="374" height="243.5"/>
-                                                        <connections>
-                                                            <segue destination="dm9-vc-qri" kind="embed" identifier="CommentsSegue" id="LGX-fT-DIC"/>
-                                                        </connections>
-                                                    </containerView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ISD-LY-4vC">
                                                         <rect key="frame" x="20" y="300" width="374" height="784.5"/>
                                                         <subviews>
@@ -212,7 +206,7 @@
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="OW1-9P-6xu">
                                                                 <rect key="frame" x="0.0" y="0.0" width="304" height="50"/>
-                                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" name="GreyLight"/>
                                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -248,6 +242,12 @@
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="SFM-aC-lVp"/>
                                                         </constraints>
                                                     </stackView>
+                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-Xd-oXZ">
+                                                        <rect key="frame" x="20" y="1134.5" width="374" height="193.5"/>
+                                                        <connections>
+                                                            <segue destination="dm9-vc-qri" kind="embed" identifier="CommentsSegue" id="LGX-fT-DIC"/>
+                                                        </connections>
+                                                    </containerView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyC-m9-Ycp">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="286"/>
                                                         <subviews>
@@ -355,7 +355,7 @@
                                                     <constraint firstItem="nyC-m9-Ycp" firstAttribute="top" secondItem="xrn-Nk-pwQ" secondAttribute="top" id="3df-BO-koc"/>
                                                     <constraint firstItem="ISD-LY-4vC" firstAttribute="top" secondItem="xrn-Nk-pwQ" secondAttribute="top" constant="300" id="8l5-Sl-uNe"/>
                                                     <constraint firstItem="72W-CP-CAz" firstAttribute="top" secondItem="ISD-LY-4vC" secondAttribute="bottom" id="A04-mg-0NP"/>
-                                                    <constraint firstAttribute="bottom" secondItem="BAb-Xd-oXZ" secondAttribute="bottom" id="BJb-hV-5Fg"/>
+                                                    <constraint firstAttribute="bottom" secondItem="BAb-Xd-oXZ" secondAttribute="bottom" constant="50" id="BJb-hV-5Fg"/>
                                                     <constraint firstItem="nyC-m9-Ycp" firstAttribute="leading" secondItem="xrn-Nk-pwQ" secondAttribute="leading" id="OZN-3O-SmP"/>
                                                     <constraint firstAttribute="trailing" secondItem="ISD-LY-4vC" secondAttribute="trailing" constant="20" id="UST-8y-zIG"/>
                                                     <constraint firstItem="BAb-Xd-oXZ" firstAttribute="leading" secondItem="xrn-Nk-pwQ" secondAttribute="leading" constant="20" id="UWV-cM-VRD"/>
@@ -412,6 +412,8 @@
                         <outlet property="addressLabel" destination="1aH-cL-Kan" id="LGT-tL-gYb"/>
                         <outlet property="attendMealButton" destination="TVM-vX-Mhb" id="xQl-qE-dje"/>
                         <outlet property="bcfkb" destination="6Z0-Ei-VI8" id="NCd-yO-ala"/>
+                        <outlet property="commentTextField" destination="OW1-9P-6xu" id="f8a-2a-UAX"/>
+                        <outlet property="commentTextViewStack" destination="72W-CP-CAz" id="9AO-Wg-NMk"/>
                         <outlet property="commentsView" destination="BAb-Xd-oXZ" id="9Yt-qD-diR"/>
                         <outlet property="creditCardImage" destination="c9A-DZ-TjQ" id="iG5-dO-zxT"/>
                         <outlet property="creditCardInfoView" destination="icY-9w-53w" id="bo3-QH-UBt"/>
@@ -424,6 +426,7 @@
                         <outlet property="dinnersText" destination="Iap-JV-upe" id="SMr-R6-BRX"/>
                         <outlet property="headerTopConstraint" destination="3df-BO-koc" id="0AM-KL-aKa"/>
                         <outlet property="headerView" destination="nyC-m9-Ycp" id="cWa-hh-GYI"/>
+                        <outlet property="holderView" destination="WSX-tI-LuR" id="b1O-qM-v0b"/>
                         <outlet property="image1" destination="FdV-ee-f9U" id="bkk-nP-5uK"/>
                         <outlet property="image1Width" destination="aYh-KJ-2qa" id="m50-99-stv"/>
                         <outlet property="image2" destination="d02-ny-PcY" id="vmx-mu-BnJ"/>
@@ -544,6 +547,9 @@
     <resources>
         <image name="creditcard" catalog="system" width="128" height="91"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <namedColor name="GreyLight">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
