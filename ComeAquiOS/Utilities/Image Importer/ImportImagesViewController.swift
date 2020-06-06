@@ -25,6 +25,8 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var spinner3: UIActivityIndicatorView!
     
     var buttonPressed: URLImageButtonView?
+    var deleteButtonPressed: URLImageButtonView?
+
     var buttons: [URLImageButtonView]!
     var spinners: [UIActivityIndicatorView]!
     var widths: [NSLayoutConstraint]!
@@ -33,6 +35,8 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
     var foodPostId: Int!
     var delegate: ImportImagesProtocol?
     var selectedImage: FoodPostImageObject?
+    
+    var uploading = false
     
     func setImages(images: [FoodPostImageObject]){
         for (i, image) in images.enumerated() {
@@ -56,12 +60,17 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     @objc func tappedButton(_ sender: UIButton?, index: Int) {
-        buttonPressed = sender as? URLImageButtonView
-        if let image = images[Int(buttonPressed!.tag)] {
+        if let image = images[Int(sender!.tag)] {
             selectedImage = image
+            deleteButtonPressed = sender as? URLImageButtonView
             performSegue(withIdentifier: "ImageLookerSegue", sender: image.food_photo)
         } else {
-            performSegue(withIdentifier: "GalleryCameraSegue", sender: nil)
+            if uploading {
+                self.view.showToast(message: "Image uploading, wait a second...")
+            } else {
+                buttonPressed = sender as? URLImageButtonView
+                performSegue(withIdentifier: "GalleryCameraSegue", sender: nil)
+            }
         }
     }
     
@@ -80,7 +89,7 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
 
 extension ImportImagesViewController: GaleryCameraPopUpProtocol, ImageLookerProtocol{
     func deleteImage(_ urlImage: String?) {
-        images[Int(buttonPressed!.tag)] = nil
+        images[Int(deleteButtonPressed!.tag)] = nil
         Server.delete("/image/\(self.selectedImage!.id!)/", finish: {(data: Data?, response: URLResponse?) -> Void in
             guard let _ = data else {return}
             DispatchQueue.main.async {
@@ -91,22 +100,20 @@ extension ImportImagesViewController: GaleryCameraPopUpProtocol, ImageLookerProt
     
     func image(_ image: UIImage) {
         self.spinners[buttonPressed!.tag].visibility = .visible
-        Server.uploadPictures(method: .post, urlString: SERVER + "/food_images/\(self.foodPostId!)/", withName: "image", pictures: image, finish: whenFinished)
-    }
-}
-
-extension ImportImagesViewController {
-    func whenFinished(data: Data?) {
-        guard let data = data else {return}
-        do {
-            self.spinners[self.buttonPressed!.tag].visibility = .gone
-            let foodPostImage = try JSONDecoder().decode(FoodPostImageObject.self, from: data)
-            images[Int(buttonPressed!.tag)] = foodPostImage
-            DispatchQueue.main.async {
-                self.buttonPressed?.loadImageUsingUrlString(urlString: foodPostImage.food_photo)
+        uploading = true
+        Server.uploadPictures(method: .post, urlString: SERVER + "/food_images/\(self.foodPostId!)/", withName: "image", pictures: image) { data in
+            self.uploading = false
+            guard let data = data else {return}
+            do {
+                self.spinners[self.buttonPressed!.tag].visibility = .gone
+                let foodPostImage = try JSONDecoder().decode(FoodPostImageObject.self, from: data)
+                self.images[Int(self.buttonPressed!.tag)] = foodPostImage
+                DispatchQueue.main.async {
+                    self.buttonPressed?.loadImageUsingUrlString(urlString: foodPostImage.food_photo)
+                }
+            } catch let error {
+                self.view.showToast(message: "Some error ocurred: ")
             }
-        } catch let error {
-            self.view.showToast(message: "Some error ocurred: ")
         }
     }
 }

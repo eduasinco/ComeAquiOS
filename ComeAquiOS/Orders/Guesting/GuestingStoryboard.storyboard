@@ -27,8 +27,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DMF-tc-iPY" customClass="CellImageView" customModule="ComeAquí" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="8" width="70" height="70"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DMF-tc-iPY" customClass="CellImageView" customModule="ComeAquí" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="8.5" width="70" height="69"/>
+                                                    <color key="tintColor" name="PrimaryDim"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="CG9-Ce-Tyw"/>
                                                         <constraint firstAttribute="height" constant="70" id="Fir-wN-VEn"/>
@@ -167,8 +168,12 @@
     </scenes>
     <resources>
         <image name="no_orders" width="235" height="219"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryDim">
+            <color red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

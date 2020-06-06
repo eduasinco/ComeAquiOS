@@ -11,8 +11,8 @@
         <!--Order Notification View Controller-->
         <scene sceneID="jNa-dA-EMJ">
             <objects>
-                <viewController id="SdM-IV-49D" customClass="OrderNotificationViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="K6c-zA-ZtV" customClass="PassthroughView" customModule="ComeAquiOS" customModuleProvider="target">
+                <viewController id="SdM-IV-49D" customClass="OrderNotificationViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K6c-zA-ZtV" customClass="PassthroughView" customModule="ComeAquí" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -64,8 +64,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PrQ-mR-HcJ">
                                         <rect key="frame" x="0.0" y="65" width="392" height="86"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="qp4-Ab-Uz0" customClass="URLImageView" customModule="ComeAquiOS" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="8" width="70" height="70"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qp4-Ab-Uz0" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="8.5" width="70" height="69"/>
+                                                <color key="tintColor" name="PrimaryDim"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="AJV-LR-XAw"/>
                                                     <constraint firstAttribute="width" constant="70" id="gqS-r8-6k7"/>
@@ -196,11 +197,15 @@
     <resources>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <namedColor name="Grey">
             <color red="0.47450980392156861" green="0.47450980392156861" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryDim">
+            <color red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SecondaryDark">
             <color red="0.59999999999999998" green="0.17254901960784313" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

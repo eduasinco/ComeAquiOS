@@ -117,14 +117,13 @@ class CellImageView: UIImageView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.defaultImage = self.image
     }
     
     public func loadImageUsingUrlString(urlString: String?) {
-        guard let urlString = urlString else {
-            self.image = defaultImage
+        guard let urlString = urlString, !urlString.contains("no-image"), !urlString.isEmpty else {
             return
         }
+
         let serverUrlString = SERVER + urlString
         imageUrlString = serverUrlString
         let url = NSURL(string: serverUrlString)
@@ -134,14 +133,12 @@ class CellImageView: UIImageView {
             self.image = imageFromCache
             return
         }
-        
         URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, respones, error) in
             if error != nil {
                 print(error ?? "Errooooor")
                 return
             }
             guard let data = data else {return}
-            guard !serverUrlString.contains("no-image") else {return}
             DispatchQueue.main.async{
                 let imageToCache = UIImage(data: data)
                 if self.imageUrlString == serverUrlString {
