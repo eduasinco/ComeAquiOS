@@ -31,10 +31,10 @@
                                 <rect key="frame" x="0.0" y="25" width="364" height="25"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="q25-Gs-3iN">
-                                        <rect key="frame" x="264" y="0.0" width="100" height="25"/>
+                                        <rect key="frame" x="234" y="0.0" width="130" height="25"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQh-a3-C8Q">
-                                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="26" height="25"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="PrimaryLight"/>
                                                 <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system">
@@ -45,7 +45,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJk-dn-MJR">
-                                                <rect key="frame" x="25" y="0.0" width="25" height="25"/>
+                                                <rect key="frame" x="26" y="0.0" width="26" height="25"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="PrimaryLight"/>
                                                 <state key="normal" image="arrow.down.to.line.alt" catalog="system">
@@ -56,7 +56,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oyf-vn-fAq">
-                                                <rect key="frame" x="50" y="0.0" width="25" height="25"/>
+                                                <rect key="frame" x="52" y="0.0" width="26" height="25"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="PrimaryLight"/>
                                                 <state key="normal" image="arrow.up.to.line" catalog="system">
@@ -67,7 +67,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1B-R2-4tT">
-                                                <rect key="frame" x="75" y="0.0" width="25" height="25"/>
+                                                <rect key="frame" x="78" y="0.0" width="26" height="25"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="PrimaryLight"/>
                                                 <state key="normal" image="trash.fill" catalog="system">
@@ -77,10 +77,18 @@
                                                     <action selector="deletePress:" destination="uCw-fv-RSc" eventType="touchUpInside" id="Tah-vK-b9U"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGy-gr-1Cg">
+                                                <rect key="frame" x="104" y="0.0" width="26" height="25"/>
+                                                <color key="tintColor" name="PrimaryLight"/>
+                                                <state key="normal" image="ellipsis" catalog="system"/>
+                                                <connections>
+                                                    <action selector="options:" destination="uCw-fv-RSc" eventType="touchUpInside" id="v81-WX-hdg"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="CAr-Uh-qIg"/>
-                                            <constraint firstAttribute="width" constant="100" id="JOa-CW-plY"/>
+                                            <constraint firstAttribute="width" constant="130" id="JOa-CW-plY"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -121,7 +129,7 @@
                         </connections>
                     </button>
                 </subviews>
-                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                <color key="backgroundColor" name="GreyLight"/>
                 <constraints>
                     <constraint firstItem="4KM-yd-JwG" firstAttribute="leading" secondItem="gBJ-bf-Wuy" secondAttribute="leading" id="4Yx-uY-Qf9"/>
                     <constraint firstItem="Oqb-bs-YY4" firstAttribute="leading" secondItem="gBJ-bf-Wuy" secondAttribute="leading" id="51i-Q6-3QP"/>
@@ -146,6 +154,7 @@
                 <outlet property="leadingMoreComments" destination="V4R-ox-H2A" id="OSG-ad-Z4C"/>
                 <outlet property="leadingStackView" destination="51i-Q6-3QP" id="gBe-m1-hL9"/>
                 <outlet property="moreCommentsButton" destination="CcH-hs-EgW" id="CBm-OH-k2p"/>
+                <outlet property="optionsButton" destination="iGy-gr-1Cg" id="epr-DD-jQD"/>
                 <outlet property="stackView" destination="Oqb-bs-YY4" id="fFO-eB-RPc"/>
             </connections>
             <point key="canvasLocation" x="45" y="118"/>
@@ -155,7 +164,11 @@
         <image name="arrow.down.to.line.alt" catalog="system" width="111" height="128"/>
         <image name="arrow.up.to.line" catalog="system" width="128" height="128"/>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>
+        <namedColor name="GreyLight">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

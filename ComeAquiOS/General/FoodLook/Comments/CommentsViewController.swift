@@ -85,6 +85,7 @@ class CommentsViewController: UIViewController {
     var _currentlyDisplayed: [Comment] = []
     var makeExpandedCellsVisible: Bool = true
     var currentCell: UITableViewCell?
+    var currentComment: Comment?
     var comments: [Comment] = []
     
     var foodPostId: Int? {
@@ -212,6 +213,21 @@ extension CommentsViewController: AddCommentDelegate {
             let destVC = segue.destination as! SegueViewController
             destVC.commentId = (sender as! Comment).id!
             destVC.max_depth = (sender as! Comment).depth + 1
+        } else if segue.identifier == "OptionsSegue"{
+            let vc = segue.destination as! OptionsPopUpViewController
+            vc.options = ["Report"]
+            vc.delegate = self
+        }
+    }
+}
+
+extension CommentsViewController: OptionsPopUpProtocol {
+    func optionPressed(_ title: String) {
+        switch title {
+        case "Report":
+            break
+        default:
+            break
         }
     }
 }
@@ -285,6 +301,11 @@ extension CommentsViewController: AddOrDeleteDelegate {
         let ip = self.tableView.indexPath(for: cell)
         guard let indexPath = ip else { return }
         deleteComment(comment: comment, indexPath: indexPath)
+    }
+    
+    func options(comment: Comment, cell: UITableViewCell) {
+        currentComment = comment
+        performSegue(withIdentifier: "OptionsSegue", sender: nil)
     }
     
     func delteComemnt(comment: Comment){

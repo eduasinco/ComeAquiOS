@@ -13,6 +13,7 @@ protocol AddOrDeleteDelegate {
     func collapse(comment: Comment, cell: UITableViewCell)
     func add(comment: Comment, cell: UITableViewCell)
     func delete(comment: Comment, cell: UITableViewCell)
+    func options(comment: Comment, cell: UITableViewCell)
     func moreComments(comment: Comment, cell: UITableViewCell)
     func continueConversation(comment: Comment, cell: CommentsTableViewCell)
 }
@@ -24,6 +25,7 @@ class CommentsTableViewCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var stackView: UIView!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var optionsButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var leadingStackView: NSLayoutConstraint!
     
@@ -58,6 +60,9 @@ class CommentsTableViewCell: UITableViewCell {
     @IBAction func loadMoreComments(_ sender: Any) {
         self.delegate?.moreComments(comment: self.comment!, cell: self)
     }
+    @IBAction func options(_ sender: Any) {
+        self.delegate?.options(comment: self.comment!, cell: self)
+    }
     
     func setCell(comment: Comment, max_depth: Int = 0){
         self.comment = comment
@@ -70,6 +75,8 @@ class CommentsTableViewCell: UITableViewCell {
         if comment.ownerId == USER.id {
             deleteButton.visibility = .visible
             addButton.visibility = .gone
+            optionsButton.visibility = .gone
+
         } else {
             deleteButton.visibility = .gone
             addButton.visibility = .visible

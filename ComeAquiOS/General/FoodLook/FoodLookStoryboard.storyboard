@@ -300,8 +300,9 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0c-oP-Z5d" userLabel="User Description">
                                                                 <rect key="frame" x="0.0" y="200" width="414" height="86"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rXp-6P-AZc" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
-                                                                        <rect key="frame" x="8" y="8" width="70" height="70"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rXp-6P-AZc" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
+                                                                        <rect key="frame" x="8" y="8.5" width="70" height="69"/>
+                                                                        <color key="tintColor" name="PrimaryDim"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="70" id="2Ai-NL-Cn2"/>
                                                                             <constraint firstAttribute="width" constant="70" id="WQX-qI-urd"/>
@@ -547,11 +548,15 @@
     <resources>
         <image name="creditcard" catalog="system" width="128" height="91"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <namedColor name="GreyLight">
             <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryDim">
+            <color red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryLight">
             <color red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

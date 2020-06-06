@@ -47,7 +47,20 @@ class ConversationViewController: KUIViewController {
         tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
         blockView.visibility = .gone
         sendButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector (sendMessage)))
+        
+        NotificationCenter.default.addObserver(
+        self,
+        selector:#selector(yourMethod),
+        name: UIApplication.didBecomeActiveNotification,
+        object: nil)
     }
+    @objc func yourMethod() {
+       page = 1
+       chatMessages = []
+       getChatMessages()
+    }
+    
+    
     @objc func sendMessage() {
         let message = "{\"message\": \"" + textView.text + "\"," +
             "\"command\": \"new_message\"," +
@@ -204,10 +217,6 @@ extension ConversationViewController: WebSocketDelegate{
             })
             break
         }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        ws?.disconnect()
     }
 }
 

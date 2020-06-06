@@ -39,6 +39,7 @@
                         <outlet property="tableView" destination="rWr-oK-aM0" id="OzW-Dm-5fK"/>
                         <segue destination="Atz-sr-9Y5" kind="show" identifier="goToWriteComment" id="e9G-f6-W2a"/>
                         <segue destination="xQj-u7-MHw" kind="showDetail" identifier="SelfSegue" id="jap-s7-a1n"/>
+                        <segue destination="6pr-8W-6hk" kind="presentation" identifier="OptionsSegue" id="Ybm-1O-WQG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLH-Cu-bva" sceneMemberID="firstResponder"/>
@@ -112,6 +113,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tny-JR-g1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1784" y="130"/>
+        </scene>
+        <!--OptionsPopUpStoryboard-->
+        <scene sceneID="lVK-8J-LZ4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OptionsPopUpStoryboard" id="6pr-8W-6hk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0bW-Ak-cN3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1216" y="342"/>
         </scene>
     </scenes>
 </document>
