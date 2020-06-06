@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
           application.registerUserNotificationSettings(settings)
         }
+
         application.registerForRemoteNotifications()
         
         Messaging.messaging().delegate = self
@@ -92,54 +93,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 @available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
-    
-    // Receive displayed notifications for iOS 10 devices.
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
-        
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        
-        // Print message ID.
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
-        
-        // Print full message.
-        print(userInfo)
-        
-        // Change this to your preferred presentation option
-        completionHandler([.alert, .sound])
+
+  // Receive displayed notifications for iOS 10 devices.
+  func userNotificationCenter(_ center: UNUserNotificationCenter,
+                              willPresent notification: UNNotification,
+    withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    let userInfo = notification.request.content.userInfo
+
+    // With swizzling disabled you must let Messaging know about the message, for Analytics
+    // Messaging.messaging().appDidReceiveMessage(userInfo)
+
+    // Print message ID.
+    if let messageID = userInfo[gcmMessageIDKey] {
+      print("Message ID: \(messageID)")
     }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
-        // Print message ID.
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
-        
-        // Print full message.
-        print(userInfo)
+
+    // Print full message.
+    print(userInfo)
+
+    // Change this to your preferred presentation option
+    completionHandler([[.alert, .sound]])
+  }
+
+  func userNotificationCenter(_ center: UNUserNotificationCenter,
+                              didReceive response: UNNotificationResponse,
+                              withCompletionHandler completionHandler: @escaping () -> Void) {
+    let userInfo = response.notification.request.content.userInfo
+    // Print message ID.
+    if let messageID = userInfo[gcmMessageIDKey] {
+      print("Message ID: \(messageID)")
     }
+
+    // Print full message.
+    print(userInfo)
+
+    completionHandler()
+  }
 }
 
 extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
-        
-        let dataDict:[String: String] = ["token": fcmToken]
-        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
-        
-        let defaults = UserDefaults.standard
-        defaults.set(dataDict["token"], forKey: "fcm_token")
-        
-        // TODO: If necessary send token to application server.
-        // Note: This callback is fired at each app startup and whenever a new token is generated.
+      print("Firebase registration token: \(fcmToken)")
+
+      let dataDict:[String: String] = ["token": fcmToken]
+      NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
     }
 }
 
