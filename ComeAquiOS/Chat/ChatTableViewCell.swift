@@ -36,7 +36,11 @@ class ChatTableViewCell: UITableViewCell {
             unreadMessagesCount.text = ""
         }
 
-        userImage.loadImageUsingUrlString(urlString: chattingWith.profile_photo)
+        if let urlString = chattingWith.profile_photo, !urlString.contains("no-image"), !urlString.isEmpty {
+            userImage.loadImageUsingUrlString(urlString: urlString)
+        } else {
+            userImage.image = UIImage(systemName: "person.circle")
+        }
 
         if chat.last_message != nil {
             date.text = chat.last_message?.created_at_to_show

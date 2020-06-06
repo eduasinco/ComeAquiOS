@@ -33,7 +33,7 @@ class DinnerTableViewCell: UITableViewCell {
     
     func setCell(order: OrderObject){
         self.order = order
-        profileImageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo)
+        profileImageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo, secondImage: UIImage(systemName: "person.circle"))
         nameLabel.text = order.owner?.full_name
         userNamelabel.text = order.owner?.username
         if order.additional_guests ?? 0 > 0{
@@ -46,6 +46,7 @@ class DinnerTableViewCell: UITableViewCell {
         } else {
             chatButton.visibility = .visible
         }
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

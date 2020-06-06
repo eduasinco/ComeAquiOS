@@ -119,8 +119,9 @@ class CellImageView: UIImageView {
         super.layoutSubviews()
     }
     
-    public func loadImageUsingUrlString(urlString: String?) {
+    public func loadImageUsingUrlString(urlString: String?, secondImage: UIImage? = nil) {
         guard let urlString = urlString, !urlString.contains("no-image"), !urlString.isEmpty else {
+            self.image = secondImage
             return
         }
 

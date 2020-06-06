@@ -29,12 +29,7 @@ class NotificationTableViewCell: UITableViewCell {
         notificationText.text = notification.title
         body.text = notification.body
         date.text = notification.createdAt
-        
-        if let profile_photo = notification.from_user?.profile_photo{
-            dinnerImage.loadImageUsingUrlString(urlString: profile_photo)
-        } else {
-            dinnerImage.image = UIImage(named: "poster")
-        }
+        dinnerImage.loadImageUsingUrlString(urlString: notification.from_user?.profile_photo, secondImage: UIImage(systemName: "person.circle"))
 
         switch notification.type {
         case "PENDING":
