@@ -11,7 +11,7 @@
         <!--Galery Camera Pop Up View Controller-->
         <scene sceneID="Y2g-sA-MYt">
             <objects>
-                <viewController storyboardIdentifier="GalleryCameraPopUp" id="KKK-xa-hRa" customClass="GaleryCameraPopUpViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GalleryCameraPopUp" id="KKK-xa-hRa" customClass="GaleryCameraPopUpViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ALZ-NT-D1m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,7 +66,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
