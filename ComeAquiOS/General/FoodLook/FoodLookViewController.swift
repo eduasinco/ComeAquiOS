@@ -158,6 +158,9 @@ class FoodLookViewController: KUIViewController {
         commentsView.visibility = .goneY
         if USER.id == foodPost.owner!.id {
             commentsView.visibility = .visible
+            setStatus(text: "Confirmed", color: UIColor(named: "Success")!)
+            commentsView.visibility = .visible
+            commentTextField.isUserInteractionEnabled = true
         } else {
             switch self.respondObject?.user_status_in_this_post {
             case "CONFIRMED":

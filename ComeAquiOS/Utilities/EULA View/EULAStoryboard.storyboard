@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bd3-a9-LVt">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="5136"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="5152.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CwW-uO-bbN">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="24"/>
@@ -31,7 +31,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oWc-bI-GGr">
-                                                <rect key="frame" x="0.0" y="24" width="414" height="5062"/>
+                                                <rect key="frame" x="0.0" y="24" width="414" height="5078.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <mutableString key="text">
 Last updated June 05, 2020
@@ -97,7 +97,7 @@ The Application is not tailored to comply with industry-specific regulations (He
 
 You acknowledge that Licensor will be able to access and adjust Your downloaded licensed Application content and Your personal information, and that Licensor's use of such material and information is subject to Your legal agreements with Licensor and Licensor's privacy policy: https://netasesor.com/.
 
-
+There is no tolerance for objectionable content or abusive users.
 6. LIABILITY
 
 6.1  Licensor's responsibility in the case of violation of obligations and tort shall be limited to intent and gross negligence. Only in case of a breach of essential contractual duties (cardinal obligations), Licensor shall also be liable in case of slight negligence. In any case, liability shall be limited to the foreseeable, contractually typical damages. The limitation mentioned above does not apply to injuries to life, limb, or health.
