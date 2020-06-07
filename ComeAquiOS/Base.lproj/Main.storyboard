@@ -35,7 +35,6 @@
                         <segue destination="HYk-I9-3OM" kind="presentation" identifier="MainSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="Shr-BW-kaY"/>
                         <segue destination="QK1-1n-6SA" kind="presentation" identifier="LoginOrRegisterSegue" modalPresentationStyle="fullScreen" id="hKn-Wg-PDX"/>
                         <segue destination="dxg-5z-ner" kind="presentation" identifier="ReviewHostSegue" modalPresentationStyle="fullScreen" id="rQf-Bt-g7G"/>
-                        <segue destination="RrQ-jX-o1s" kind="presentation" identifier="EULASegue" modalPresentationStyle="fullScreen" id="mnh-3R-TUG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IgE-5R-dcA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -67,14 +66,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGM-3K-bvz" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
-        </scene>
-        <!--EULAStoryboard-->
-        <scene sceneID="v61-I1-0JL">
-            <objects>
-                <viewControllerPlaceholder storyboardName="EULAStoryboard" id="RrQ-jX-o1s" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MrJ-bB-4M6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1007" y="420"/>
         </scene>
         <!--ReviewHostStoryboard-->
         <scene sceneID="TMk-tp-fdv">
@@ -140,7 +131,7 @@
                 <viewControllerPlaceholder storyboardName="LoginOrRegisterStoryboard" id="QK1-1n-6SA" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WrC-Ge-o04" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1447" y="420"/>
+            <point key="canvasLocation" x="-1321" y="420"/>
         </scene>
     </scenes>
     <resources>

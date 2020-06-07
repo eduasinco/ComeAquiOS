@@ -195,6 +195,7 @@
                         <outlet property="holderBottomConstraint" destination="u2E-px-BCT" id="5Ub-0d-fL7"/>
                         <outlet property="passwordText" destination="3On-O0-rk0" id="VMy-hH-SKs"/>
                         <outlet property="scrollView" destination="1Ey-wK-tvg" id="ajb-HT-R9s"/>
+                        <segue destination="elY-0F-LdO" kind="show" identifier="EULASegue" id="qwm-nL-9BI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgv-zY-hMw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -495,6 +496,16 @@
             </objects>
             <point key="canvasLocation" x="721.73913043478262" y="95.089285714285708"/>
         </scene>
+        <!--EULAStoryboard-->
+        <scene sceneID="OpU-YQ-YaY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EULAStoryboard" id="elY-0F-LdO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="XaC-0Y-n4a"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FAX-63-QeA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3283" y="493"/>
+        </scene>
         <!--ForgotPasswordView-->
         <scene sceneID="Wcq-dI-9qm">
             <objects>
@@ -503,7 +514,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qCZ-v3-zsX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3303" y="477"/>
+            <point key="canvasLocation" x="3303" y="460"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

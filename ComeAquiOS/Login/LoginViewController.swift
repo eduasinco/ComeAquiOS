@@ -45,7 +45,11 @@ class LoginViewController: KUIViewController, UIScrollViewDelegate {
                 USER = try JSONDecoder().decode(User.self, from: data)
                 guard let _ = USER.id else { return }
                 DispatchQueue.main.async {
-                     self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                    if let eULAAgree = UserDefaults.standard.string(forKey: "EULA"), eULAAgree == "AGREE" {
+                        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                    } else {
+                        self.performSegue(withIdentifier: "EULASegue", sender: nil)
+                    }
                 }
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")

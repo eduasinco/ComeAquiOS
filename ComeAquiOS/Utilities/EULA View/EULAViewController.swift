@@ -19,7 +19,7 @@ class EULAViewController: UIViewController {
 
     @IBAction func agreeEULA(_ sender: Any) {
         UserDefaults.standard.set("AGREE", forKey: "EULA")
-        dismiss(animated: true, completion: nil)
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
