@@ -16,6 +16,8 @@ class Tab2ViewController: UIViewController {
     var data: [FoodPostObject] = []
     var userId : Int? {
         didSet{
+            page = 1
+            data = []
             self.getUserFoodPost()
         }
     }

@@ -15,6 +15,8 @@ class Tab3ViewController: UIViewController {
     var data: [FoodPostImageObject] = []
     var userId : Int? {
         didSet{
+            page = 1
+            data = []
             self.getUserImages()
         }
     }
