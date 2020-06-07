@@ -117,14 +117,14 @@ public class OrderObject: Decodable{
     var post: FoodPostObject?
     var poster: User?
     var order_status: String?
-    var seen: Bool?
-    var slightly_seen: Bool?
     var reviewed_post: Bool?
     var reviewed_guest: Bool?
     var additional_guests: Int?
     var order_price: Int?
-    
     var created_at: String?
+    
+    var seen: Bool?
+    var slightly_seen: Bool?
     
     lazy var created_at_to_show: String? = {
         guard let created_at = self.created_at else { return nil}
