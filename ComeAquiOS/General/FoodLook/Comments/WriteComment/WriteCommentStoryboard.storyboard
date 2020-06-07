@@ -50,9 +50,6 @@
                                                         <state key="normal" title="Submit">
                                                             <color key="titleColor" red="0.93577490480000003" green="0.93577490480000003" blue="0.93577490480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
-                                                        <connections>
-                                                            <action selector="submitPress:" destination="A4h-fY-X8n" eventType="touchUpInside" id="5Oc-fK-9IC"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -101,6 +98,7 @@
                     <connections>
                         <outlet property="bcfkb" destination="Fop-Td-8DR" id="dSQ-wc-opc"/>
                         <outlet property="commentLabel" destination="iAy-JO-8y0" id="Y1x-1C-da6"/>
+                        <outlet property="submitButton" destination="Fp7-VV-e98" id="WPe-3f-O6a"/>
                         <outlet property="textView" destination="Pg2-g6-BSu" id="wfH-Ig-3TA"/>
                     </connections>
                 </viewController>

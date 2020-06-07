@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1d5-DO-9RU" userLabel="holder">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1166"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="gGx-vb-6WG">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1166"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZe-N5-1BA" userLabel="inside ">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="866"/>
@@ -215,7 +215,7 @@
                             <constraint firstItem="1d5-DO-9RU" firstAttribute="leading" secondItem="PWV-cT-xaR" secondAttribute="leading" id="LgC-dF-yCt"/>
                             <constraint firstItem="1d5-DO-9RU" firstAttribute="top" secondItem="PWV-cT-xaR" secondAttribute="top" id="ak1-w4-8QM"/>
                             <constraint firstAttribute="trailing" secondItem="1d5-DO-9RU" secondAttribute="trailing" id="m9h-9e-SO6"/>
-                            <constraint firstAttribute="bottom" secondItem="1d5-DO-9RU" secondAttribute="bottom" id="xpW-c5-Bca"/>
+                            <constraint firstItem="vzs-gF-S3v" firstAttribute="bottom" secondItem="1d5-DO-9RU" secondAttribute="bottom" id="xpW-c5-Bca"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vzs-gF-S3v"/>
                     </view>

@@ -17,6 +17,7 @@ class WriteReplyTableViewCell: KUIViewController, UITextFieldDelegate {
     @IBOutlet weak var reviewText: UILabel!
     @IBOutlet weak var usernameAndDate: UILabel!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var bcfkb: NSLayoutConstraint!
     
     var review: ReviewObject?
@@ -33,9 +34,10 @@ class WriteReplyTableViewCell: KUIViewController, UITextFieldDelegate {
         
         reviewText.text = review?.review
         usernameAndDate.text = review!.owner!.username! + " " + review!.created_at_to_show!
+        submitButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector (submitPress)))
     }
     
-    @IBAction func submitPress(_ sender: Any) {
+    @objc func submitPress() {
         postReply()
     }
 }

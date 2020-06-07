@@ -18,7 +18,6 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var descriptionText: ValidatedTextView!
     @IBOutlet weak var wordCountText: UILabel!
     @IBOutlet weak var holderBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var optionsButton: UIButton!
     
     var placeAutocompleteVC: PlaceAutocompleteViewController?
     var datePickerVC: DateTimePickerViewController?

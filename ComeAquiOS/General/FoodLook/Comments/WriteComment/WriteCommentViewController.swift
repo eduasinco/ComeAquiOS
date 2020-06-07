@@ -16,6 +16,7 @@ class WriteCommentViewController: KUIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var bcfkb: NSLayoutConstraint!
     
     var comment: Comment?
@@ -32,9 +33,10 @@ class WriteCommentViewController: KUIViewController, UITextFieldDelegate {
         self.bottomConstraintForKeyboard = bcfkb
         
         commentLabel.text = comment?.comment
+        submitButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector (submitPress)))
     }
     
-    @IBAction func submitPress(_ sender: Any) {
+    @objc func submitPress() {
         postComment()
     }
 }
@@ -63,7 +65,7 @@ extension WriteCommentViewController{
                         self.navigationController?.popViewController(animated: true)
                     }
                 } catch _ {
-                    self.view.showToast(message: "Some error ocurred")
+                    self.view.showToast(message: "Some error has ocurred")
                 }
             })
             task.resume()

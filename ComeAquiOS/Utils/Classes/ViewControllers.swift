@@ -17,7 +17,11 @@ class KUIViewController: LoadViewController {
     @objc func keyboardWillShow(sender: NSNotification) {
         let i = sender.userInfo!
         let k = (i[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
-        bottomConstraintForKeyboard?.constant = k - bottomLayoutGuide.length
+        if #available(iOS 11.0, *) {
+            bottomConstraintForKeyboard?.constant = k - view.safeAreaInsets.bottom
+        } else {
+            bottomConstraintForKeyboard?.constant = k - bottomLayoutGuide.length
+        }
         let s: TimeInterval = (i[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         UIView.animate(withDuration: s) { self.view.layoutIfNeeded() }
     }

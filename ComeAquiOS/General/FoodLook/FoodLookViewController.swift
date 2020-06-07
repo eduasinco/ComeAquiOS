@@ -155,7 +155,7 @@ class FoodLookViewController: KUIViewController {
         addPaymentMethodButton.visibility = .gone
         attendMealButton.visibility = .gone
         creditCardInfoView.visibility = .gone
-        commentsView.visibility = .goneY
+        commentsView.visibility = .gone
         if USER.id == foodPost.owner!.id {
             commentsView.visibility = .visible
             setStatus(text: "Confirmed", color: UIColor(named: "Success")!)

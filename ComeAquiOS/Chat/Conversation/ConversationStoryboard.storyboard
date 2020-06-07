@@ -243,7 +243,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="blockView" destination="r24-6p-4Pk" id="tNt-Py-YSA"/>
-                        <outlet property="bottomViewConstraint" destination="FFB-eN-cgG" id="zFS-JN-0cg"/>
+                        <outlet property="bottomViewConstraint" destination="bww-im-dNr" id="CNg-bn-RCJ"/>
                         <outlet property="headerView" destination="k2h-QT-w5D" id="Jeu-dV-a9p"/>
                         <outlet property="sendButton" destination="43r-Ak-V7a" id="zuN-aA-Q8S"/>
                         <outlet property="tableView" destination="uwF-cj-QHc" id="fwE-Ry-RkU"/>
