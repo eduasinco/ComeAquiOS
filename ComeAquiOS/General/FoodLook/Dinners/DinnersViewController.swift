@@ -88,8 +88,7 @@ extension DinnersViewController {
     }
     
     func getConversation(withUser: User){
-        Server.get("/get_or_create_chat/\(withUser.id!)/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/get_or_create_chat/\(withUser.id!)/"){ data, response, error in
             DispatchQueue.main.async {
                 
             }
@@ -104,6 +103,6 @@ extension DinnersViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
 }

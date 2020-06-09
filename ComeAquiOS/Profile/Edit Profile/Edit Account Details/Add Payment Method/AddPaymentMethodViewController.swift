@@ -38,8 +38,7 @@ class AddPaymentMethodViewController: LoadViewController {
 extension AddPaymentMethodViewController{
     func getPaymentMethods(){
         self.tableView.showActivityIndicator()
-        Server.get("/my_payment_methods/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/my_payment_methods/"){ data, response, error in
             self.tableView.hideActivityIndicator()
             guard let data = data else {
                 return
@@ -55,7 +54,7 @@ extension AddPaymentMethodViewController{
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
     func selectAsDefaultPayment(_ paymentMethodId: String){
         

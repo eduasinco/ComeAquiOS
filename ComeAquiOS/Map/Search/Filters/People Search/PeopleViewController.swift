@@ -70,7 +70,7 @@ extension PeopleViewController {
         alreadyFetchingData = true
         self.tableView.showActivityIndicator()
         query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        Server.get("/user_search/" + query + "&page=\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get("/user_search/" + query + "&page=\(page)/"){ data, response, error in
             self.alreadyFetchingData = false
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
@@ -81,7 +81,7 @@ extension PeopleViewController {
                     self.page += 1
                 }
             } catch {}
-        })
+        }
     }
 }
 

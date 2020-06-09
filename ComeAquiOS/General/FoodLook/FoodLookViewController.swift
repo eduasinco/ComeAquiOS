@@ -406,7 +406,7 @@ extension FoodLookViewController {
     func getFoodPost(){
         presentLoader()
         guard let foodPostId = self.foodPostId else { return }
-        Server.get("/food_with_user_status/\(foodPostId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get("/food_with_user_status/\(foodPostId)/"){ data, response, error in
             self.closeLoader()
             guard let data = data else {return}
             do {
@@ -416,7 +416,7 @@ extension FoodLookViewController {
                     self.getChosenCard()
                 }
             } catch {}
-        })
+        }
     }
     private struct ResponseObject: Decodable{
         var error_message: String?
@@ -424,8 +424,7 @@ extension FoodLookViewController {
     }
     func getChosenCard(){
         presentLoader()
-        Server.get("/my_chosen_card/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/my_chosen_card/"){ data, response, error in
             self.closeLoader()
             guard let data = data else { return }
             do {
@@ -441,17 +440,17 @@ extension FoodLookViewController {
             DispatchQueue.main.async {
                 self.setViewDetails()
             }
-        })
+        }
     }
     
     func deletePost(){
         guard let foodPostId = self.foodPostId else { return }
-        Server.delete("/foods/\(foodPostId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.delete("/foods/\(foodPostId)/"){ data, response, error in
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
             }
-        })
+        }
     }
     
     func postComment(){

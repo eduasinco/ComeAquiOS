@@ -99,11 +99,7 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
 
 extension EditPostViewController {
     func getFoodPost(){
-        Server.get("/foods/\(foodPostId!)/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                
-            }
+        Server.get("/foods/\(foodPostId!)/"){ data, response, error in
             guard let data = data else {
                 return
             }
@@ -115,7 +111,7 @@ extension EditPostViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
     func pathFoodPost(visible: Bool){
         Server.patch("/edit_food/\(self.foodPost!.id!)/",

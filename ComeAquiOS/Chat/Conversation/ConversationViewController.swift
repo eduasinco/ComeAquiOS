@@ -11,6 +11,7 @@ import Starscream
 
 class ConversationViewController: KUIViewController {
     
+    @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var userImage: URLImageView!
     @IBOutlet weak var userName: UILabel!
@@ -228,7 +229,7 @@ extension ConversationViewController {
     func getChatDetail(){
         self.tableView.showActivityIndicator()
         guard let chatId = self.chatId else {return}
-        Server.get("/chat_detail/\(chatId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get("/chat_detail/\(chatId)/"){ data, response, error in
             self.alreadyFetchingData = false
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
@@ -245,7 +246,7 @@ extension ConversationViewController {
             } catch {
                 
             }
-        })
+        }
     }
     func setMessageAsSeen(messageId: Int){
         Server.put("/mark_message_as_seen/\(messageId)/", json: ["":""], finish: {(data: Data?, response: URLResponse?) -> Void in })
@@ -273,9 +274,12 @@ extension ConversationViewController {
         alreadyFetchingData = true
         self.tableView.showActivityIndicator()
         guard let chatId = self.chatId else {return}
-        Server.get("/chat_messages/\(chatId)/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get("/chat_messages/\(chatId)/\(page)/"){ data, response, error in
             self.alreadyFetchingData = false
             self.tableView.hideActivityIndicator()
+            if let _ = error {
+                self.onReload = self.getChatMessages
+            }
             guard let data = data else {return}
             do {
                 let messageBadge = try JSONDecoder().decode([MessageObject].self, from: data)
@@ -296,13 +300,15 @@ extension ConversationViewController {
                     self.page += 1
                 }
             } catch {}
-        })
+        }
     }
     func blockUser(_ userId: Int, block: Bool){
         presentTransparentLoader()
-        Server.get("/block_user/\(userId)/" + (block ? "block": "unblock") + "/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/block_user/\(userId)/" + (block ? "block": "unblock") + "/"){ data, response, error in
             self.closeTransparentLoader()
+            if let _ = error {
+                self.holderView.showToast(message: "No internet connection")
+            }
             guard let data = data else {return}
             do {
                 let user = try JSONDecoder().decode(User.self, from: data)
@@ -322,7 +328,7 @@ extension ConversationViewController {
                     self.view.showToast(message: "Some error ocurred")
                 }
             }
-        })
+        }
     }
 }
 

@@ -94,8 +94,7 @@ class EditAccountDetailsViewController: KUIViewController {
 extension EditAccountDetailsViewController {
     func getUser(){
         presentLoader()
-        Server.get("/profile_detail/\(USER.id!)/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/profile_detail/\(USER.id!)/"){ data, response, error in
             self.closeLoader()
             guard let data = data else {
                 return
@@ -108,12 +107,11 @@ extension EditAccountDetailsViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
     func getChosenCard(){
         presentLoader()
-        Server.get("/my_chosen_card/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/my_chosen_card/"){ data, response, error in
             self.closeLoader()
             guard let data = data else {
                 return
@@ -131,7 +129,7 @@ extension EditAccountDetailsViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
     
     func patchAccount(){

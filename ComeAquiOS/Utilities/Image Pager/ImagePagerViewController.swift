@@ -64,7 +64,7 @@ extension ImagePagerViewController {
     func getUserImages(){
         guard let userId = self.userId else {return}
         alreadyFetchingData = true
-        Server.get("/user_images/\(userId)/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get("/user_images/\(userId)/\(page)/"){ data, response, error in
             self.alreadyFetchingData = false
             guard let data = data else {return}
             do {
@@ -75,6 +75,6 @@ extension ImagePagerViewController {
                     self.page += 1
                 }
             } catch {}
-        })
+        }
     }
 }

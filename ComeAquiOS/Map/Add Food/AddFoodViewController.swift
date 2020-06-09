@@ -180,8 +180,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
 extension AddFoodViewController {
     func getFoodPost(){
         
-        Server.get("/foods/\(foodPostId!)/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/foods/\(foodPostId!)/"){ data, response, error in
             DispatchQueue.main.async {
                 
             }
@@ -196,16 +195,16 @@ extension AddFoodViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
     func trueDeletePost(){
         guard let foodPost = self.foodPost else { return }
-        Server.delete("/true_food_delete/\(foodPost.id!)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.delete("/true_food_delete/\(foodPost.id!)/"){ data, response, error in
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
             }
-        })
+        }
     }
     func pathFoodPost(visible: Bool){
         Server.patch("/foods/\(self.foodPost!.id!)/",

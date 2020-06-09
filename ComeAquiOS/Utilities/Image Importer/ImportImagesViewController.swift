@@ -90,12 +90,12 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
 extension ImportImagesViewController: GaleryCameraPopUpProtocol, ImageLookerProtocol{
     func deleteImage(_ urlImage: String?) {
         images[Int(deleteButtonPressed!.tag)] = nil
-        Server.delete("/image/\(self.selectedImage!.id!)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.delete("/image/\(self.selectedImage!.id!)/"){ data, response, error in
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.buttonPressed?.setImage(UIImage(systemName: "camera"), for: .normal)
             }
-        })
+        }
     }
     
     func image(_ image: UIImage) {

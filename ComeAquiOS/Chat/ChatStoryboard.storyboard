@@ -195,6 +195,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bottomConstraint" destination="Yle-6Y-sw2" id="1cC-hz-D1S"/>
+                        <outlet property="holderView" destination="Edg-ZQ-GWV" id="vaI-KI-Anu"/>
                         <outlet property="noMessagesView" destination="0ye-iO-bU7" id="lfl-IO-jkm"/>
                         <outlet property="scrollView" destination="dNa-SL-e0h" id="tsI-iR-MEQ"/>
                         <outlet property="serachBar" destination="hS1-py-BaH" id="5Sc-hJ-c5F"/>

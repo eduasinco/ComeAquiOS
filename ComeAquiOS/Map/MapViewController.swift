@@ -70,9 +70,15 @@ class MapViewController: LoadViewController, CardActionProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadEverything()
+    }
+    
+    func loadEverything(){
         getFoodPosts()
         checkLocationServices()
-        
         moveCardToBottom(view: cardView)
         addPanGesture(view: cardView)
         view.bringSubviewToFront(cardView)
@@ -306,15 +312,16 @@ extension MapViewController: MapPickerProtocol {
 
 extension MapViewController {
     func getFoodPosts(){
-        Server.get("/foods/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/foods/"){ data, response, error in
             DispatchQueue.main.async {
                 self.spinner.stopAnimating()
                 self.spinner.isHidden = true
             }
-            guard let data = data else {
+            if let error = error {
+                self.onReload = self.loadEverything
                 return
             }
+            guard let data = data else {return}
             do {
                 self.foodPosts = try JSONDecoder().decode([FoodPostObject].self, from: data)
                 DispatchQueue.main.async {
@@ -324,19 +331,16 @@ extension MapViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
     
     func getFavouritesPosts(){
-        Server.get("/my_favourites/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/my_favourites/"){ data, response, error in
             DispatchQueue.main.async {
                 self.spinner.stopAnimating()
                 self.spinner.isHidden = true
             }
-            guard let data = data else {
-                return
-            }
+            guard let data = data else {return}
             do {
                 self.favouritePosts = try JSONDecoder().decode([FavouritePost].self, from: data)
                 DispatchQueue.main.async {
@@ -345,7 +349,7 @@ extension MapViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
 }
 

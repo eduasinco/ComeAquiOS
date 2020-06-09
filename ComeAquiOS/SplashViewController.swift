@@ -9,12 +9,16 @@
 import UIKit
 import Firebase
 
-class SplashViewController: UIViewController {
+class SplashViewController: LoadViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     override func viewDidAppear(_ animated: Bool) {
+        loadEverything()
+    }
+    
+    func loadEverything(){
         if USER == nil {
             getMyUser()
         } else {
@@ -32,11 +36,11 @@ class SplashViewController: UIViewController {
 
 extension SplashViewController {
     func getMyUser(){
-        Server.get("/login/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
-            guard let data = data else {
-                return
+        Server.get("/login/"){ data, response, error in
+            if let _ = error {
+                self.onReload = self.loadEverything
             }
+            guard let data = data else {return}
             do {
                 USER = try JSONDecoder().decode(User.self, from: data)
                 guard let _ = USER.id else {
@@ -51,11 +55,12 @@ extension SplashViewController {
                     self.performSegue(withIdentifier: "LoginOrRegisterSegue", sender: nil)
                 }
             }
-        })
+        }
     }
     func registerFCMDevice(){
         InstanceID.instanceID().instanceID { (result, error) in
             if let error = error {
+                self.onReload = self.loadEverything
                 print("Error fetching remote instance ID: \(error)")
             } else if let result = result {
                 print("Remote instance ID token: \(result.token)")
@@ -71,11 +76,11 @@ extension SplashViewController {
         }
     }
     func getMyUnreviewedOrdersAsDinner(){
-        Server.get("/my_unreviewed_order_post/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
-            guard let data = data else {
-                return
+        Server.get("/my_unreviewed_order_post/"){ data, response, error in
+            if let _ = error {
+                self.onReload = self.loadEverything
             }
+            guard let data = data else {return}
             do {
                 let orders = try JSONDecoder().decode([OrderObject].self, from: data)
                 if orders.count > 0 {
@@ -89,14 +94,14 @@ extension SplashViewController {
                 }
             } catch _ {
             }
-        })
+        }
     }
     func getMyUnreviewedOrders(){
-        Server.get("/my_unreviewed_order_post/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
-            guard let data = data else {
-                return
+        Server.get("/my_unreviewed_order_post/"){ data, response, error in
+            if let _ = error {
+                self.onReload = self.loadEverything
             }
+            guard let data = data else {return}
             do {
                 let orders = try JSONDecoder().decode([OrderObject].self, from: data)
                 if orders.count > 0 {
@@ -106,6 +111,6 @@ extension SplashViewController {
                 }
             } catch _ {
             }
-        })
+        }
     }
 }

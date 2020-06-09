@@ -165,7 +165,7 @@ extension OrderLookViewController {
     func getOrder(){
         presentLoader()
         guard let orderId = self.orderId else { return }
-        Server.get( "/order_detail/\(orderId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get( "/order_detail/\(orderId)/"){ data, response, error in
             self.closeLoader()
             guard let data = data else {return}
             if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {}
@@ -175,7 +175,7 @@ extension OrderLookViewController {
                     self.setView()
                 }
             } catch {}
-        })
+        }
     }
     
     func setOrderStatus(_ status: String){

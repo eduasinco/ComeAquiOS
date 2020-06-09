@@ -53,8 +53,7 @@ class EditEmailAddressViewController: LoadViewController {
 
 extension EditEmailAddressViewController {
     func sendEmailOnServer(){
-        Server.get("/send_code_to_email/\(emailText.text!)/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/send_code_to_email/\(emailText.text!)/"){ data, response, error in
             DispatchQueue.main.async {
                 
             }
@@ -77,7 +76,7 @@ extension EditEmailAddressViewController {
                 }
             } catch _ {}
             
-        })
+        }
     }
     func sendCode(){
         

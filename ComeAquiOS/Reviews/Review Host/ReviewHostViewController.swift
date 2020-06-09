@@ -137,14 +137,8 @@ extension ReviewHostViewController: StarReasonDelegate {
 extension ReviewHostViewController {
     func getChosenCard(){
         
-        Server.get("/my_chosen_card/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
-            DispatchQueue.main.async {
-                
-            }
-            guard let data = data else {
-                return
-            }
+        Server.get("/my_chosen_card/"){ data, response, error in
+            guard let data = data else {return}
             do {
                 let responseO = try JSONDecoder().decode(ResponseObject.self, from: data)
                 if responseO.error_message == nil {
@@ -158,7 +152,7 @@ extension ReviewHostViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
     
     func postReview(){

@@ -34,22 +34,23 @@ class Server {
     static var urlToTask: [String: URLSessionDataTask] = [:]
     static var urlToUploadTask: [String: UploadRequest] = [:]
     
-    static func get(_ urlString: String, finish: @escaping (Data?, URLResponse?) -> Void) {
+    static func get(_ urlString: String, finish: @escaping (Data?, URLResponse?, Error?) -> Void) {
         retrieve(urlString, method: "GET", finish: finish)
     }
-    static func delete(_ urlString: String, finish: @escaping (Data?, URLResponse?) -> Void) {
+    static func delete(_ urlString: String, finish: @escaping (Data?, URLResponse?, Error?) -> Void) {
         retrieve(urlString, method: "DELETE", finish: finish)
     }
-    static func retrieve(_ urlString: String, method: String, finish: @escaping (Data?, URLResponse?) -> Void) {
+    static func retrieve(_ urlString: String, method: String, finish: @escaping (Data?, URLResponse?, Error?) -> Void) {
         if let task = urlToTask[urlString] { task.cancel() }
         var request = getRequestWithAuth(urlString)
         request.httpMethod = method
         let configuration = URLSessionConfiguration.default
+        configuration.waitsForConnectivity = true
         configuration.timeoutIntervalForRequest = 5
         configuration.timeoutIntervalForResource = 5
         let session = URLSession(configuration: configuration)
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            finish(data, response)
+            finish(data, response, error)
         })
 
         task.resume()
@@ -93,6 +94,7 @@ class Server {
             request.httpBody = data
             
             let configuration = URLSessionConfiguration.default
+            configuration.waitsForConnectivity = true
             configuration.timeoutIntervalForRequest = 5
             configuration.timeoutIntervalForResource = 5
             let session = URLSession(configuration: configuration)

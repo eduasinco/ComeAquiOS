@@ -226,7 +226,7 @@ extension SearchViewController {
         alreadyFetchingData = true
         createQuery()
         self.tableView.showActivityIndicator()
-        Server.get("/food_query/" + query + "&page=\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get("/food_query/" + query + "&page=\(page)/"){ data, response, error in
             self.alreadyFetchingData = false
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
@@ -242,7 +242,7 @@ extension SearchViewController {
                     }
                 }
             } catch {}
-        })
+        }
     }
 }
 

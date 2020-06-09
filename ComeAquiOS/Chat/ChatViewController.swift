@@ -11,6 +11,7 @@ import Starscream
 
 class ChatViewController: KUIViewController, UISearchBarDelegate {
     
+    @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var serachBar: UISearchBar!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: MyOwnTableView!
@@ -82,8 +83,11 @@ extension ChatViewController {
         presentTransparentLoader()
         self.tableView.showActivityIndicator()
         query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        Server.get("/my_chats/" + query + "/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get("/my_chats/" + query + "/\(page)/"){ data, response, error in
             self.alreadyFetchingData = false
+            if let _ = error {
+                self.onReload = self.userChats
+            }
             self.closeTransparentLoader()
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
@@ -103,7 +107,7 @@ extension ChatViewController {
                     }
                 }
             } catch {}
-        })
+        }
     }
 }
 

@@ -77,9 +77,13 @@ extension HostingViewController {
     func getMyHostings(){
         alreadyFetchingData = true
         tableView.showActivityIndicator()
-        Server.get( "/my_hosting/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get( "/my_hosting/\(page)/"){ data, response, error in
             self.alreadyFetchingData = false
             self.tableView.hideActivityIndicator()
+            if let _ = error {
+                self.onReload = self.getMyHostings
+                return
+            }
             guard let data = data else {return}
             do {
                 self.foodPosts.append(contentsOf: try JSONDecoder().decode([FoodPostObject].self, from: data))
@@ -93,7 +97,7 @@ extension HostingViewController {
                     }
                 }
             } catch {}
-        })
+        }
     }
 }
 

@@ -77,7 +77,7 @@ class ImageScrollViewController: UIViewController, UIScrollViewDelegate {
 extension ImageScrollViewController {
     func getFoodPostImages(){
         guard let foodPostId = self.foodPostId else { return }
-        Server.get( "/food_images/\(foodPostId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get( "/food_images/\(foodPostId)/"){ data, response, error in
             guard let data = data else {return}
             if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {}
             do {
@@ -86,6 +86,6 @@ extension ImageScrollViewController {
                     self.setView()
                 }
             } catch {}
-        })
+        }
     }
 }

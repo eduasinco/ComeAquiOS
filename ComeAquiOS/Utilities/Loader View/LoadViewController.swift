@@ -9,19 +9,31 @@
 import UIKit
 
 class LoadViewController: UIViewController {
-    var loaderVC: UIViewController!
-    var transparentLoaderVC: UIViewController!
+    var loaderVC: LoadingViewController?
+    var transparentLoaderVC: TransparentLoaderViewController?
+    var reloadVC: ReloadViewController?
+
+    var onReload: (() -> Void)? {
+        willSet {
+            DispatchQueue.main.async {
+                self.reloadVC?.view.showToast(message: "No internet connection")
+                self.reloadVC?.view.isHidden = false
+            }
+            reloadVC?.onReload = newValue
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loaderVC = addLoader(storyBoardString: "LoadingStoryboard", storyBoardIdentifier: "LoadingView")
-        transparentLoaderVC = addLoader(storyBoardString: "TansparentLoaderStoryboard", storyBoardIdentifier: "LoadingView")
+        loaderVC = addLoader(storyBoardString: "LoadingStoryboard", storyBoardIdentifier: "LoadingView") as? LoadingViewController
+        transparentLoaderVC = addLoader(storyBoardString: "TansparentLoaderStoryboard", storyBoardIdentifier: "LoadingView") as? TransparentLoaderViewController
+        
+        reloadVC = addLoader(storyBoardString: "ReloadStoryboard", storyBoardIdentifier: "ReloadView") as? ReloadViewController
     }
     
     func addLoader(storyBoardString: String, storyBoardIdentifier: String) -> UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: storyBoardString, bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: storyBoardIdentifier)
-        vc.modalPresentationStyle = .overCurrentContext
         addChild(vc)
         view.addSubview(vc.view)
         view.bringSubviewToFront(vc.view)
@@ -35,24 +47,23 @@ class LoadViewController: UIViewController {
         childView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         childView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         childView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-
     }
     
     func presentLoader(){
-        loaderVC.view.isHidden = false
+        loaderVC?.view.isHidden = false
     }
     func closeLoader() {
         DispatchQueue.main.async {
-            self.loaderVC.view.isHidden = true
+            self.loaderVC?.view.isHidden = true
         }
     }
     
     func presentTransparentLoader(){
-        transparentLoaderVC.view.isHidden = false
+        transparentLoaderVC?.view.isHidden = false
     }
     func closeTransparentLoader() {
         DispatchQueue.main.async {
-            self.transparentLoaderVC.view.isHidden = true
+            self.transparentLoaderVC?.view.isHidden = true
         }
     }
 }

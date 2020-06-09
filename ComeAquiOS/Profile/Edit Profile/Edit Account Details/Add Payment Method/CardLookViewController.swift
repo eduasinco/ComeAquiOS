@@ -69,8 +69,7 @@ extension CardLookViewController {
     
     func deleteCard(){
         guard let paymentMethod = self.paymentMethod else {return}
-        Server.delete("/card_detail/" + paymentMethod.id! + "/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.delete("/card_detail/" + paymentMethod.id! + "/"){ data, response, error in
             DispatchQueue.main.async {
                 
             }
@@ -89,7 +88,7 @@ extension CardLookViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
 }
 

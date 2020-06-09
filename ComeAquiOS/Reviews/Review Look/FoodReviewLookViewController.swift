@@ -248,7 +248,7 @@ extension FoodReviewLookViewController {
     func getFoodReviews(){
         presentLoader()
         guard let foodPostId = self.foodPostId else {return}
-        Server.get( "/food_reviews/\(foodPostId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get( "/food_reviews/\(foodPostId)/"){ data, response, error in
             self.closeLoader()
             guard let data = data else {return}
             do {
@@ -264,31 +264,31 @@ extension FoodReviewLookViewController {
                     self.setViewDetails()
                 }
             } catch {}
-        })
+        }
     }
     func deletePost(){
         guard let foodPostId = self.foodPostId else { return }
-        Server.delete("/foods/\(foodPostId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.delete("/foods/\(foodPostId)/") { data, response, error in
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
             }
-        })
+        }
     }
     func deleteReview(_ reviewId: Int){
-        Server.delete( "/delete_review/\(reviewId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.delete( "/delete_review/\(reviewId)/"){ data, response, error in
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.deleteReviewFromTable(review: self.review!)
             }
-        })
+        }
     }
     func deleteReply(_ replyId: Int){
-        Server.delete( "/delete_reply/\(replyId)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.delete( "/delete_reply/\(replyId)/"){ data, response, error in
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.getFoodReviews()
             }
-        })
+        }
     }
 }

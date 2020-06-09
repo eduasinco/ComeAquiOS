@@ -73,8 +73,7 @@ class OrderNotificationViewController: CardBehaviourViewController {
 
 extension OrderNotificationViewController {
     func getConfirmOrders() {
-        Server.get("/my_next_confirmed_order/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/my_next_confirmed_order/"){ data, response, error in
             guard let data = data else {
                 return
             }
@@ -89,11 +88,10 @@ extension OrderNotificationViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
     func getConfirmPosts() {
-        Server.get("/my_next_confirmed_post/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/my_next_confirmed_post/"){ data, response, error in
             guard let data = data else {
                 return
             }
@@ -108,6 +106,6 @@ extension OrderNotificationViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
 }

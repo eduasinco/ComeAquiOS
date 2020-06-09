@@ -10,7 +10,7 @@
         <!--Loading View Controller-->
         <scene sceneID="xCT-PJ-lnQ">
             <objects>
-                <viewController storyboardIdentifier="LoadingView" id="SHb-t8-79z" customClass="LoadingViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadingView" id="SHb-t8-79z" customClass="LoadingViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bA6-YW-FVB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

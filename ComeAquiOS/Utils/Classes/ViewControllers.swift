@@ -63,7 +63,7 @@ extension UIView {
             let toastContainer = UIView(frame: CGRect())
             toastContainer.backgroundColor = UIColor.black.withAlphaComponent(0.6)
             toastContainer.alpha = 0.0
-            toastContainer.layer.cornerRadius = 20;
+            toastContainer.layer.cornerRadius = 10;
             toastContainer.clipsToBounds  =  true
 
             let toastLabel = UILabel(frame: CGRect())
@@ -81,8 +81,8 @@ extension UIView {
             toastContainer.translatesAutoresizingMaskIntoConstraints = false
 
             let centerX = NSLayoutConstraint(item: toastLabel, attribute: .centerX, relatedBy: .equal, toItem: toastContainer, attribute: .centerXWithinMargins, multiplier: 1, constant: 0)
-            let lableBottom = NSLayoutConstraint(item: toastLabel, attribute: .bottom, relatedBy: .equal, toItem: toastContainer, attribute: .bottom, multiplier: 1, constant: -15)
-            let lableTop = NSLayoutConstraint(item: toastLabel, attribute: .top, relatedBy: .equal, toItem: toastContainer, attribute: .top, multiplier: 1, constant: 15)
+            let lableBottom = NSLayoutConstraint(item: toastLabel, attribute: .bottom, relatedBy: .equal, toItem: toastContainer, attribute: .bottom, multiplier: 1, constant: -5)
+            let lableTop = NSLayoutConstraint(item: toastLabel, attribute: .top, relatedBy: .equal, toItem: toastContainer, attribute: .top, multiplier: 1, constant: 5)
             toastContainer.addConstraints([centerX, lableBottom, lableTop])
 
             let containerCenterX = NSLayoutConstraint(item: toastContainer, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0)
@@ -199,12 +199,10 @@ class CardBehaviourViewController: KUIViewController {
     
     func moveViewWithPan(view: UIView, sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
-        print(translation.y)
         constraint.constant = initialConstraintConstant - max(0, translation.y)
     }
     func moveViewWithPanTop(view: UIView, sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
-        print(min(0, translation.y))
         constraint.constant = initialConstraintConstant + min(0, translation.y)
     }
     func returnViewToOrigin(view: UIView) {

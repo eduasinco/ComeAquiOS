@@ -52,8 +52,7 @@ extension AddBioViewController: UITextViewDelegate {
 
 extension AddBioViewController{
     func getUser(){
-        Server.get("/profile_detail/\(USER.id!)/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/profile_detail/\(USER.id!)/"){ data, response, error in
             DispatchQueue.main.async {
                 
             }
@@ -68,7 +67,7 @@ extension AddBioViewController{
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
     func addBio(){
         

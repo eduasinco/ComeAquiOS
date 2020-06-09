@@ -31,8 +31,7 @@ class LoginViewController: KUIViewController, UIScrollViewDelegate {
         defaults.set(emailText.text!, forKey: "username")
         defaults.set(passwordText.text!, forKey: "password")
     
-        Server.get("/login/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/login/"){ data, response, error in
             if response != nil {
                 DispatchQueue.main.async {
                     self.emailText.validationText = "Wrong username or password"
@@ -54,6 +53,6 @@ class LoginViewController: KUIViewController, UIScrollViewDelegate {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
 }

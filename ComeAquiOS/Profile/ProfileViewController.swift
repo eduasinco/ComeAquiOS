@@ -62,6 +62,9 @@ class ProfileViewController: LoadViewController {
         headerFrame = headerView.frame
     }
     override func viewWillAppear(_ animated: Bool) {
+        loadEverything()
+    }
+    func loadEverything(){
         if let profileId = self.userId {
             getUser(profileId)
         } else {
@@ -213,8 +216,10 @@ extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol
 
 extension ProfileViewController {
     func getUser(_ userId: Int){
-        Server.get("/profile_detail/\(userId)/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/profile_detail/\(userId)/"){ data, response, error in
+            if let _ = error {
+                self.onReload = self.loadEverything
+            }
             guard let data = data else {return}
             do {
                 self.user = try JSONDecoder().decode(User.self, from: data)
@@ -224,13 +229,15 @@ extension ProfileViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
     func blockUser(_ userId: Int, block: Bool){
         presentTransparentLoader()
-        Server.get("/block_user/\(userId)/" + (block ? "block": "unblock") + "/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/block_user/\(userId)/" + (block ? "block": "unblock") + "/"){ data, response, error in
             self.closeTransparentLoader()
+            if let _ = error {
+                self.onReload = self.loadEverything
+            }
             guard let data = data else {return}
             do {
                 self.user = try JSONDecoder().decode(User.self, from: data)
@@ -248,14 +255,16 @@ extension ProfileViewController {
                     self.view.showToast(message: "Some error ocurred")
                 }
             }
-        })
+        }
     }
     func getConversation(){
         presentTransparentLoader()
         guard let user = self.user else { return }
-        Server.get("/get_or_create_chat/\(user.id!)/", finish: {
-            (data: Data?, response: URLResponse?) -> Void in
+        Server.get("/get_or_create_chat/\(user.id!)/"){ data, response, error in
             self.closeTransparentLoader()
+            if let _ = error {
+                self.onReload = self.loadEverything
+            }
             guard let data = data else {return}
             do {
                 let chat = try JSONDecoder().decode(User.self, from: data)
@@ -265,21 +274,23 @@ extension ProfileViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
-        })
+        }
     }
     func deleteUserImages(profile: Bool){
-        Server.delete("/delete_user_images/\(profile ? 1 : 0)/",
-            finish: {(data: Data?, response: URLResponse?) -> Void in
-                guard let data = data else {return}
-                do {
-                    self.user = try JSONDecoder().decode(User.self, from: data)
-                    DispatchQueue.main.async {
-                        self.setView()
-                    }
-                } catch _ {
-                    self.view.showToast(message: "Some error ocurred")
+        Server.delete("/delete_user_images/\(profile ? 1 : 0)/"){ data, response, error in
+            if let _ = error {
+                self.onReload = self.loadEverything
+            }
+            guard let data = data else {return}
+            do {
+                self.user = try JSONDecoder().decode(User.self, from: data)
+                DispatchQueue.main.async {
+                    self.setView()
                 }
-        })
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
+            }
+        }
     }
 }
 

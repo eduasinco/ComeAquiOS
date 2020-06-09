@@ -9,7 +9,7 @@
 import UIKit
 import Starscream
 
-class GuestingViewController: UIViewController {
+class GuestingViewController: LoadViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noGuestingView: UIView!
@@ -66,9 +66,13 @@ extension GuestingViewController {
     func getMyGuesting(){
         alreadyFetchingData = true
         tableView.showActivityIndicator()
-        Server.get( "/my_guesting/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get( "/my_guesting/\(page)/"){ data, response, error in
             self.alreadyFetchingData = false
             self.tableView.hideActivityIndicator()
+            if let _ = error {
+                self.onReload = self.getMyGuesting
+                return
+            }
             guard let data = data else {return}
             do {
                 self.orders.append(contentsOf: try JSONDecoder().decode([OrderObject].self, from: data))
@@ -82,7 +86,7 @@ extension GuestingViewController {
                     }
                 }
             } catch {}
-        })
+        }
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y

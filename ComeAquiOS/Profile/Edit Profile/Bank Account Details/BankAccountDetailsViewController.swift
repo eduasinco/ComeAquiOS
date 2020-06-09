@@ -237,7 +237,7 @@ extension BankAccountDetailsViewController: GaleryCameraPopUpProtocol {
 extension BankAccountDetailsViewController {
     func getBankAccountInfo(){
         
-        Server.get("/stripe_account/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get("/stripe_account/"){ data, response, error in
             DispatchQueue.main.async {
                 
             }
@@ -252,7 +252,7 @@ extension BankAccountDetailsViewController {
                     
                 }
             } catch {}
-        })
+        }
     }
     
     func save(){

@@ -49,7 +49,7 @@ extension Tab1ViewController {
         guard let userId = self.userId else {return}
         alreadyFetchingData = true
         self.tableView.showActivityIndicator()
-        Server.get("/user_food_posts/\(userId)/\(page)/", finish: {(data: Data?, response: URLResponse?) -> Void in
+        Server.get("/user_food_posts/\(userId)/\(page)/"){ data, response, error in
             self.alreadyFetchingData = false
             self.tableView.hideActivityIndicator()
             guard let data = data else {return}
@@ -65,7 +65,7 @@ extension Tab1ViewController {
                     }
                 }
             } catch {}
-        })
+        }
     }
 }
 
