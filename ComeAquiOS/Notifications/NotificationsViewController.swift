@@ -104,7 +104,6 @@ extension NotificationsViewController {
             self.alreadyFetchingData = false
             if let _ = error {
                 self.onReload = self.getMyNotifications
-                return
             }
             guard let data = data else {return}
             do {

@@ -245,6 +245,7 @@
                         <outlet property="blockView" destination="r24-6p-4Pk" id="tNt-Py-YSA"/>
                         <outlet property="bottomViewConstraint" destination="bww-im-dNr" id="CNg-bn-RCJ"/>
                         <outlet property="headerView" destination="k2h-QT-w5D" id="Jeu-dV-a9p"/>
+                        <outlet property="holderView" destination="jKV-hh-CIj" id="HNR-Eo-8EM"/>
                         <outlet property="sendButton" destination="43r-Ak-V7a" id="zuN-aA-Q8S"/>
                         <outlet property="tableView" destination="uwF-cj-QHc" id="fwE-Ry-RkU"/>
                         <outlet property="textView" destination="uUw-S5-oOy" id="XWl-pr-arq"/>

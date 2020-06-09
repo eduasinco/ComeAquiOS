@@ -42,23 +42,33 @@ class ConversationViewController: KUIViewController {
         textView.delegate = self
         textView.isScrollEnabled = true
         sendButton.visibility = .goneX
-        getChatDetail()
-        getChatMessages()
-        webSocketConnetion()
         tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi))
         blockView.visibility = .gone
         sendButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector (sendMessage)))
         
         NotificationCenter.default.addObserver(
         self,
-        selector:#selector(yourMethod),
+        selector:#selector(returnToApp),
         name: UIApplication.didBecomeActiveNotification,
         object: nil)
     }
-    @objc func yourMethod() {
-       page = 1
-       chatMessages = []
-       getChatMessages()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadEverything()
+    }
+    
+    func loadEverything() {
+        page = 1
+        chatMessages = []
+        getChatMessages()
+        getChatDetail()
+        fetchMoreData()
+        webSocketConnetion()
+    }
+    @objc func returnToApp() {
+//       page = 1
+//       chatMessages = []
+//       fetchMoreData()
     }
     
     
@@ -227,11 +237,14 @@ extension ConversationViewController {
         var blocked: Bool?
     }
     func getChatDetail(){
-        self.tableView.showActivityIndicator()
+        presentTransparentLoader()
         guard let chatId = self.chatId else {return}
         Server.get("/chat_detail/\(chatId)/"){ data, response, error in
+            self.closeTransparentLoader()
+            if let _ = error {
+                self.holderView.showToast(message: "No internet connection")
+            }
             self.alreadyFetchingData = false
-            self.tableView.hideActivityIndicator()
             guard let data = data else {return}
             do {
                 let responseO = try JSONDecoder().decode(ResponseChatObject.self, from: data)
@@ -272,13 +285,11 @@ extension ConversationViewController {
     
     func getChatMessages(){
         alreadyFetchingData = true
-        self.tableView.showActivityIndicator()
         guard let chatId = self.chatId else {return}
         Server.get("/chat_messages/\(chatId)/\(page)/"){ data, response, error in
             self.alreadyFetchingData = false
-            self.tableView.hideActivityIndicator()
             if let _ = error {
-                self.onReload = self.getChatMessages
+                self.holderView.showToast(message: "No internet connection")
             }
             guard let data = data else {return}
             do {
@@ -396,15 +407,17 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageTableViewCell
-        let chatMessage = chatMessages[indexPath.section][indexPath.row]
-        var messageBefore: MessageObject? = nil
-        
-        if indexPath.row < chatMessages[indexPath.section].count - 1 {
-            messageBefore = chatMessages[indexPath.section][indexPath.row + 1]
+        if chatMessages.count > 0 {
+            let chatMessage = chatMessages[indexPath.section][indexPath.row]
+            var messageBefore: MessageObject? = nil
+            
+            if indexPath.row < chatMessages[indexPath.section].count - 1 {
+                messageBefore = chatMessages[indexPath.section][indexPath.row + 1]
+            }
+            
+            cell.setCell(message: chatMessage, messageBefore: messageBefore)
+            cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
         }
-        
-        cell.setCell(message: chatMessage, messageBefore: messageBefore)
-        cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
         return cell
     }
 }
