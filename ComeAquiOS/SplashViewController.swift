@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class SplashViewController: LoadViewController {
-    
+    var somethign  = ""
     override func viewDidLoad() {
         super.viewDidLoad()
     }
