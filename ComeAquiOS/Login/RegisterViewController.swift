@@ -10,11 +10,13 @@ import UIKit
 
 class RegisterViewController: KUIViewController {
 
+    @IBOutlet weak var viewHolder: UIView!
     @IBOutlet weak var username: ValidatedTextField!
     @IBOutlet weak var firstName: ValidatedTextField!
     @IBOutlet weak var lastName: ValidatedTextField!
     @IBOutlet weak var email: ValidatedTextField!
     @IBOutlet weak var password: ValidatedTextField!
+    @IBOutlet weak var registerButton: LoadingButton!
     @IBOutlet weak var bottomHolderConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -72,6 +74,7 @@ extension RegisterViewController {
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        registerButton.showLoading()
         do {
             let data = try JSONSerialization.data(withJSONObject:
                 ["username":  username.text,
@@ -83,7 +86,12 @@ extension RegisterViewController {
             request.httpBody = data
             let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
                 DispatchQueue.main.async {
-                    
+                    self.registerButton.hideLoading()
+                }
+                if let _ = error {
+                    DispatchQueue.main.async {
+                        self.viewHolder.showToast(message: "No internet connection")
+                    }
                 }
                 guard let data = data else {return}
                 do {

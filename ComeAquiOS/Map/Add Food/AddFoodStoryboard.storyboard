@@ -39,7 +39,7 @@
                                                                         </constraints>
                                                                         <color key="textColor" name="Primary"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>

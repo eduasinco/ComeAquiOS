@@ -89,10 +89,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRs-jn-I7m" userLabel="holder">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="1Ey-wK-tvg">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jm-y0-IVi">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="292"/>
@@ -116,7 +116,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                             </textField>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1t-qx-7KY">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1t-qx-7KY" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="160" width="382" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="MFW-ce-wsF"/>
@@ -190,6 +190,7 @@
                     <connections>
                         <outlet property="emailText" destination="AU1-3K-njG" id="BDg-cD-2UZ"/>
                         <outlet property="holderBottomConstraint" destination="u2E-px-BCT" id="5Ub-0d-fL7"/>
+                        <outlet property="loginButton" destination="t1t-qx-7KY" id="grY-zS-BJd"/>
                         <outlet property="passwordText" destination="3On-O0-rk0" id="VMy-hH-SKs"/>
                         <outlet property="scrollView" destination="1Ey-wK-tvg" id="ajb-HT-R9s"/>
                         <segue destination="elY-0F-LdO" kind="show" identifier="EULASegue" id="qwm-nL-9BI"/>
@@ -281,7 +282,7 @@
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Icb-ZL-7ce">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Icb-ZL-7ce" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="290" width="374" height="50"/>
                                                                 <color key="backgroundColor" name="Secondary"/>
                                                                 <constraints>
@@ -347,7 +348,9 @@
                         <outlet property="firstName" destination="bR8-QF-cKQ" id="cy9-ah-TMQ"/>
                         <outlet property="lastName" destination="Pab-HK-2ZL" id="0be-kM-X0D"/>
                         <outlet property="password" destination="H0K-nQ-CMM" id="utm-vq-qSM"/>
+                        <outlet property="registerButton" destination="Icb-ZL-7ce" id="CaP-wb-GPb"/>
                         <outlet property="username" destination="Qrd-4P-wTr" id="mQW-0a-w76"/>
+                        <outlet property="viewHolder" destination="Jbf-gu-0Rn" id="DQC-PB-uKM"/>
                         <segue destination="zcA-hZ-rMo" kind="presentation" identifier="PresentationSegue" modalPresentationStyle="fullScreen" id="Zii-65-UUy"/>
                     </connections>
                 </viewController>
@@ -419,7 +422,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN0-9J-oo2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN0-9J-oo2" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
                                 <rect key="frame" x="20" y="150.5" width="374" height="50"/>
                                 <color key="backgroundColor" name="Confirm"/>
                                 <constraints>
@@ -432,7 +435,7 @@
                                     <action selector="sendCode:" destination="zcA-hZ-rMo" eventType="touchUpInside" id="D7i-XS-8n8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZc-oi-VaQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZc-oi-VaQ" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
                                 <rect key="frame" x="20" y="208.5" width="374" height="30"/>
                                 <state key="normal" title="Code did not arrive? Send again"/>
                                 <connections>
@@ -515,7 +518,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="t34-oP-WVh"/>
+        <segue reference="bed-fp-gGf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Login" width="153" height="140"/>

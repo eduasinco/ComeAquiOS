@@ -14,6 +14,7 @@ class LoginViewController: KUIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var emailText: ValidatedTextField!
     @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var loginButton: LoadingButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var holderBottomConstraint: NSLayoutConstraint!
     
@@ -30,16 +31,23 @@ class LoginViewController: KUIViewController, UIScrollViewDelegate {
         let defaults = UserDefaults.standard
         defaults.set(emailText.text!, forKey: "username")
         defaults.set(passwordText.text!, forKey: "password")
-    
+        loginButton.showLoading()
         Server.get("/login/"){ data, response, error in
-            if response != nil {
+            DispatchQueue.main.async {
+                self.loginButton.hideLoading()
+            }
+            if let response = response as? HTTPURLResponse , !(200...299 ~= response.statusCode) {
                 DispatchQueue.main.async {
                     self.emailText.validationText = "Wrong username or password"
                 }
             }
-            guard let data = data else {
-                return
+
+            if let _ = error {
+                DispatchQueue.main.async {
+                    self.emailText.validationText = "No intetnet connection"
+                }
             }
+            guard let data = data else {return}
             do {
                 USER = try JSONDecoder().decode(User.self, from: data)
                 guard let _ = USER.id else { return }

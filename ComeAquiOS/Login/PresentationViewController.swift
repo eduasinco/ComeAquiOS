@@ -13,8 +13,8 @@ class PresentationViewController: LoadViewController {
     @IBOutlet weak var goToLoginView: UIStackView!
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var codeView: ValidatedTextField!
-    @IBOutlet weak var sendCodeButton: UIButton!
-    @IBOutlet weak var codeDidNotArriveButton: UIButton!
+    @IBOutlet weak var sendCodeButton: LoadingButton!
+    @IBOutlet weak var codeDidNotArriveButton: LoadingButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +22,11 @@ class PresentationViewController: LoadViewController {
         codeView.delegate = self
     }
     @IBAction func sendVerificationCodeAgain(_ sender: Any) {
+        codeDidNotArriveButton.showLoading()
         sendVerificationCodeAgain()
     }
     @IBAction func sendCode(_ sender: Any) {
+        sendCodeButton.showLoading()
         sendVerificationCode()
     }
 }
@@ -32,27 +34,41 @@ class PresentationViewController: LoadViewController {
 extension PresentationViewController {
     
     func sendVerificationCodeAgain(){
+        self.codeView.validationText = ""
         let endpointUrl = URL(string: SERVER + "/send_verification_email_again/\(USER.email!)/")!
         var request = URLRequest(url: endpointUrl)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpMethod = "GET"
-        presentTransparentLoader()
         let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            self.closeTransparentLoader()
+            DispatchQueue.main.async {
+                self.codeDidNotArriveButton.hideLoading()
+            }
+            if let _ = error {
+                DispatchQueue.main.async {
+                    self.codeView.validationText = "No internet connection"
+                }
+            }
         })
         task.resume()
     }
     
     func sendVerificationCode(){
+        self.codeView.validationText = ""
         let endpointUrl = URL(string: SERVER + "/send_verification_code/\(USER.email!)/" + (codeView.text!.isEmpty ?  "0": codeView.text!) + "/")!
         var request = URLRequest(url: endpointUrl)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpMethod = "GET"
-        presentTransparentLoader()
         let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            self.closeTransparentLoader()
+            DispatchQueue.main.async {
+                self.sendCodeButton.hideLoading()
+            }
+            if let _ = error {
+                DispatchQueue.main.async {
+                    self.codeView.validationText = "No internet connection"
+                }
+            }
             guard let data = data else {return}
             if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {
                 do {
