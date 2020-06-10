@@ -140,6 +140,7 @@
                     <size key="freeformSize" width="414" height="900"/>
                     <connections>
                         <outlet property="descriptionText" destination="j6u-Z0-IS0" id="M0A-FV-gnF"/>
+                        <outlet property="editButton" destination="VnJ-Eo-GIn" id="lRM-jm-mjk"/>
                         <outlet property="holderBottomConstraint" destination="52B-Dp-JDa" id="9XS-6w-tC1"/>
                         <outlet property="holderView" destination="c4S-cK-svA" id="h6U-Im-430"/>
                         <outlet property="plateNameText" destination="l8n-dy-SRf" id="bAf-kc-Tr8"/>

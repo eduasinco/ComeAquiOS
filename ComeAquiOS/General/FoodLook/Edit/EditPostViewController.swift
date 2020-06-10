@@ -11,6 +11,7 @@ import UIKit
 class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var holderView: UIView!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var plateNameText: ValidatedTextField!
     @IBOutlet weak var descriptionText: ValidatedTextView!
@@ -116,6 +117,7 @@ extension EditPostViewController {
         }
     }
     func pathFoodPost(visible: Bool){
+        presentTransparentLoader()
         Server.patch("/edit_food/\(self.foodPost!.id!)/",
             json:
             [
@@ -123,6 +125,7 @@ extension EditPostViewController {
                 "food_type":  types,
                 "description":  descriptionText.text,
             ]) { data, response, error in
+                self.closeTransparentLoader()
                 if let _ = error {
                     self.holderView.showToast(message: "No internet connection")
                 }

@@ -10,6 +10,7 @@ import UIKit
 
 class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewDelegate {
     
+    @IBOutlet weak var viewHolder: UIView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var plateNameText: ValidatedTextField!
     @IBOutlet weak var locationContainer: UIView!
@@ -18,6 +19,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var descriptionText: ValidatedTextView!
     @IBOutlet weak var wordCountText: UILabel!
     @IBOutlet weak var holderBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var submitButton: LoadingButton!
     
     var placeAutocompleteVC: PlaceAutocompleteViewController?
     var datePickerVC: DateTimePickerViewController?
@@ -33,7 +35,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     
     var foodPost: FoodPostObject?
     var foodPostId: Int?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bottomConstraintForKeyboard = holderBottomConstraint
@@ -116,8 +118,8 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         }
         return valid
     }
-      
-
+    
+    
     @IBAction func submit(_ sender: Any) {
         if validateData() {
             pathFoodPost(visible: true)
@@ -125,7 +127,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     }
     @IBAction func optionsPressed(_ sender: Any) {
         performSegue(withIdentifier: "OptionsSegue", sender: nil)
-
+        
     }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
@@ -137,7 +139,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     @objc func myTextFieldBegin(_ textField: UITextField) {
         price = Int(priceText.enteredNumbers) ?? 0
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DatePickerSegue" {
             datePickerVC = segue.destination as? DateTimePickerViewController
@@ -207,6 +209,7 @@ extension AddFoodViewController {
         }
     }
     func pathFoodPost(visible: Bool){
+        submitButton.showLoading()
         Server.patch("/foods/\(self.foodPost!.id!)/",
             json:
             ["plate_name":  plateNameText.text,
@@ -222,8 +225,13 @@ extension AddFoodViewController {
              "food_type":  types,
              "description":  descriptionText.text,
              "visible": visible ? "true" : "false"]) { data, response, error in
+                DispatchQueue.main.async {
+                    self.submitButton.hideLoading()
+                }
                 if let _ = error {
-                    self.view.showToast(message: "No internet connection")
+                    DispatchQueue.main.async {
+                        self.viewHolder.showToast(message: "No internet connection")
+                    }
                 }
                 guard let data = data else {return}
                 do {
@@ -238,7 +246,7 @@ extension AddFoodViewController {
         }
     }
     func postFood(){
-        
+        submitButton.showLoading()
         Server.post("/foods/",
                     json:
             ["plate_name":  nil,
@@ -261,21 +269,24 @@ extension AddFoodViewController {
              "food_type":  nil,
              "description":  nil,
              "visible": "false"]) { data, response, error in
-             if let _ = error {
-                 self.view.showToast(message: "No internet connection")
-             }
-                        guard let data = data else {
-                            return
-                        }
-                        do {
-                            self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
-                            DispatchQueue.main.async {
-                                self.importImageVC?.foodPostId = self.foodPost!.id!
-                                self.setFoodPost()
-                            }
-                        } catch _ {
-                            self.view.showToast(message: "Some error ocurred")
-                        }
+                DispatchQueue.main.async {
+                    self.submitButton.hideLoading()
+                }
+                if let _ = error {
+                    self.view.showToast(message: "No internet connection")
+                }
+                guard let data = data else {
+                    return
+                }
+                do {
+                    self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
+                    DispatchQueue.main.async {
+                        self.importImageVC?.foodPostId = self.foodPost!.id!
+                        self.setFoodPost()
+                    }
+                } catch _ {
+                    self.view.showToast(message: "Some error ocurred")
+                }
         }
     }
 }

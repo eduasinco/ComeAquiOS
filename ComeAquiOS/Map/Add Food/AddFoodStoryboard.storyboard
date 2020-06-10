@@ -163,7 +163,7 @@
                                                                     <segue destination="Vvo-WB-0B8" kind="embed" identifier="ImageImporterSegue" id="XoQ-Vb-qOO"/>
                                                                 </connections>
                                                             </containerView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJk-sv-1bB">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJk-sv-1bB" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="750" width="382" height="50"/>
                                                                 <color key="backgroundColor" name="PrimaryLight"/>
                                                                 <constraints>
@@ -236,6 +236,8 @@
                         <outlet property="plateNameText" destination="wDB-Sn-PEZ" id="vHT-Vm-nqn"/>
                         <outlet property="priceText" destination="qkx-0W-HNS" id="cXJ-uf-sfb"/>
                         <outlet property="stackView" destination="CGm-GC-d7g" id="dnf-vg-Ker"/>
+                        <outlet property="submitButton" destination="fJk-sv-1bB" id="Zsu-5I-Q5Z"/>
+                        <outlet property="viewHolder" destination="1d5-DO-9RU" id="rzS-P8-hNZ"/>
                         <outlet property="wordCountText" destination="weI-PJ-394" id="3qQ-Dc-qUH"/>
                         <segue destination="cB3-5a-7D1" kind="presentation" identifier="OptionsSegue" id="lJl-Gr-RUs"/>
                     </connections>

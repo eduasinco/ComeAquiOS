@@ -70,21 +70,14 @@ class MapViewController: LoadViewController, CardActionProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        loadEverything()
-    }
-    
-    func loadEverything(){
         getFoodPosts()
         checkLocationServices()
         moveCardToBottom(view: cardView)
         addPanGesture(view: cardView)
         view.bringSubviewToFront(cardView)
-        
         webSocketConnetion()
     }
+    
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
@@ -317,10 +310,6 @@ extension MapViewController {
                 self.spinner.stopAnimating()
                 self.spinner.isHidden = true
             }
-            if let error = error {
-                self.onReload = self.loadEverything
-                return
-            }
             guard let data = data else {return}
             do {
                 self.foodPosts = try JSONDecoder().decode([FoodPostObject].self, from: data)
@@ -405,48 +394,45 @@ extension MapViewController: WebSocketDelegate{
         ws?.delegate = self
         ws?.connect()
     }
+    func onTextReceived(_ string: String) {
+        print("Received text: \(string)")
+        let data = string.data(using: .utf8)!
+        do {
+            let so = try JSONDecoder().decode(SocketObject.self, from: data)
+            guard let mro = so.message else {return}
+            if let delete = mro.delete, delete {
+                if let marker = idToMarker[mro.post!.id!] {
+                    marker.map = nil
+                }
+            } else {
+                if foodPostsDict[mro.post!.id!] == nil {
+                    foodPostsDict[mro.post!.id!] = mro.post!
+                    let marker = FoodPostMarker()
+                    marker.id = mro.post!.id!
+                    marker.position = CLLocationCoordinate2D(latitude: mro.post!.lat!, longitude: mro.post!.lng!)
+                    marker.title = mro.post!.plate_name!
+                    marker.map = self.googleMap
+                    marker.icon = self.imageWithImage(image: mro.post!.favourite == nil || !mro.post!.favourite! ? UIImage(named: "marker")! : UIImage(named: "marker_favourite")!, width: 30)
+                    idToMarker[marker.id] = marker
+                }
+            }
+            DispatchQueue.main.async {
+            }
+        } catch let error as NSError {
+            print(error)
+        }
+    }
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected(let headers):
-            // isConnected = true
-            print("CONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED")
-            print("websocket is connected: \(headers)")
+            self.viewForMap.showToast(message: "Connected")
+            break
         case .disconnected(let reason, let code):
-            // isConnected = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.ws?.connect()
-                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
-            })
-            print("DISCONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED \(reason) with code: \(code)")
+            self.viewForMap.showToast(message: "Connection lost")
         case .text(let string):
-            print("Received text: \(string)")
-            let data = string.data(using: .utf8)!
-            do {
-                let so = try JSONDecoder().decode(SocketObject.self, from: data)
-                guard let mro = so.message else {return}
-                if let delete = mro.delete, delete {
-                    if let marker = idToMarker[mro.post!.id!] {
-                        marker.map = nil
-                    }
-                } else {
-                    if foodPostsDict[mro.post!.id!] == nil {
-                        foodPostsDict[mro.post!.id!] = mro.post!
-                        let marker = FoodPostMarker()
-                        marker.id = mro.post!.id!
-                        marker.position = CLLocationCoordinate2D(latitude: mro.post!.lat!, longitude: mro.post!.lng!)
-                        marker.title = mro.post!.plate_name!
-                        marker.map = self.googleMap
-                        marker.icon = self.imageWithImage(image: mro.post!.favourite == nil || !mro.post!.favourite! ? UIImage(named: "marker")! : UIImage(named: "marker_favourite")!, width: 30)
-                        idToMarker[marker.id] = marker
-                    }
-                }
-                DispatchQueue.main.async {
-                }
-            } catch let error as NSError {
-                print(error)
-            }
+            self.onTextReceived(string)
         case .binary(let data):
-            print("Received data: \(data.count)")
+            break
         case .ping(_):
             break
         case .pong(_):
@@ -457,13 +443,10 @@ extension MapViewController: WebSocketDelegate{
             break
         case .cancelled:
             // isConnected = false
+            self.viewForMap.showToast(message: "Connection lost")
             break
         case .error(let error):
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.ws?.connect()
-                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
-            })
-            break
+            self.viewForMap.showToast(message: "Connection lost")
         }
     }
 }
