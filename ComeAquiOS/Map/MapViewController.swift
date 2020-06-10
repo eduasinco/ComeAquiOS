@@ -425,28 +425,38 @@ extension MapViewController: WebSocketDelegate{
     func didReceive(event: WebSocketEvent, client: WebSocket) {
         switch event {
         case .connected(let headers):
-            self.viewForMap.showToast(message: "Connected")
-            break
+            // isConnected = true
+            print("CONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED")
+            print("websocket is connected: \(headers)")
         case .disconnected(let reason, let code):
-            self.viewForMap.showToast(message: "Connection lost")
+            // isConnected = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.ws?.connect()
+                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
+            })
+            print("DISCONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED \(reason) with code: \(code)")
         case .text(let string):
             self.onTextReceived(string)
+            
         case .binary(let data):
-            break
+            print("Received data: \(data.count)")
         case .ping(_):
             break
         case .pong(_):
             break
-        case .viabilityChanged(_):
+        case .viabilityChanged(_): 
             break
         case .reconnectSuggested(_):
             break
         case .cancelled:
             // isConnected = false
-            self.viewForMap.showToast(message: "Connection lost")
             break
         case .error(let error):
-            self.viewForMap.showToast(message: "Connection lost")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.ws?.connect()
+                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
+            })
+            break
         }
     }
 }

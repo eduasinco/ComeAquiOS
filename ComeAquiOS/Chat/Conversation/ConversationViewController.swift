@@ -163,7 +163,7 @@ extension ConversationViewController: WebSocketDelegate{
         case .disconnected(let reason, let code):
             // isConnected = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.ws?.connect()
+                self.loadEverything()
                 print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
             })
             print("DISCONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED \(reason) with code: \(code)")
@@ -223,7 +223,7 @@ extension ConversationViewController: WebSocketDelegate{
             break
         case .error(let error):
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.ws?.connect()
+                self.loadEverything()
                 print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
             })
             break
