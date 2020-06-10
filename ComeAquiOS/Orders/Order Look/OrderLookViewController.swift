@@ -74,7 +74,7 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
         }
     }
     @objc func tapMap(_ gestureRecognizer: UITapGestureRecognizer) {
-        openMap()
+        openMap(lat: order!.post!.lat!, lng: order!.post!.lng!)
     }
     func goToGoogleMaps() {
          UIApplication.shared.canOpenURL(URL(string: "http://maps.apple.com/?ll=\(order!.post!.lat!),\(order!.post!.lng!)")!)
@@ -84,10 +84,10 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
 
         }
     }
-    func openMap() {
-        let appleURL = "http://maps.apple.com/?daddr=\(order!.post!.lat!),\(order!.post!.lng!)"
-        let googleURL = "comgooglemaps://?daddr=\(order!.post!.lat!),\(order!.post!.lng!)&directionsmode=driving"
-        let wazeURL = "waze://?ll=\(order!.post!.lat!),\(order!.post!.lng!)&navigate=false"
+    func openMap(lat: Double, lng: Double) {
+        let appleURL = "http://maps.apple.com/?daddr=\(lat),\(lng)"
+        let googleURL = "comgooglemaps://?daddr=\(lat),\(lng)&directionsmode=driving"
+        let wazeURL = "waze://?ll=\(lat),\(lng)&navigate=false"
 
         let googleItem = ("Google Map", URL(string:googleURL)!)
         let wazeItem = ("Waze", URL(string:wazeURL)!)

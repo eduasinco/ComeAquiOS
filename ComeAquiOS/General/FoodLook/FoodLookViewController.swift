@@ -70,10 +70,12 @@ class FoodLookViewController: KUIViewController {
         attendMealButton.visibility = .gone
         commentTextField.isUserInteractionEnabled = false
         dinnersStackView.isUserInteractionEnabled = true
-        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction(sender:)))
-        dinnersStackView.addGestureRecognizer(gesture)
-        let gesture2 = UITapGestureRecognizer(target: self, action:  #selector(self.tapComment(sender:)))
-        commentTextViewStack.addGestureRecognizer(gesture2)
+        dinnersStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action:  #selector(self.checkAction(sender:))))
+        commentTextViewStack.addGestureRecognizer(UITapGestureRecognizer(target: self, action:  #selector(self.tapComment(sender:))))
+        viewToShowMap.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapMap(_:))))
+    }
+    @objc func tapMap(_ gestureRecognizer: UITapGestureRecognizer) {
+        openMap(lat: foodPost!.lat!, lng: foodPost!.lng!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -144,9 +146,9 @@ class FoodLookViewController: KUIViewController {
         googleMap.isMyLocationEnabled = true
         googleMap.isMyLocationEnabled = true
         googleMap.delegate = self
+        googleMap.isUserInteractionEnabled = false
         viewToShowMap.addSubview(googleMap)
         viewToShowMap.clipsToBounds = true
-        viewToShowMap.isUserInteractionEnabled = false
         setDinners()
         
         if USER.id == foodPost.owner!.id {
@@ -286,6 +288,35 @@ class FoodLookViewController: KUIViewController {
         for label in dinnerLabels {
             label.isRounded = true
         }
+    }
+    
+    func openMap(lat: Double, lng: Double) {
+        let appleURL = "http://maps.apple.com/?daddr=\(lat),\(lng)"
+        let googleURL = "comgooglemaps://?daddr=\(lat),\(lng)&directionsmode=driving"
+        let wazeURL = "waze://?ll=\(lat),\(lng)&navigate=false"
+
+        let googleItem = ("Google Map", URL(string:googleURL)!)
+        let wazeItem = ("Waze", URL(string:wazeURL)!)
+        var installedNavigationApps = [("Apple Maps", URL(string:appleURL)!)]
+
+        if UIApplication.shared.canOpenURL(googleItem.1) {
+            installedNavigationApps.append(googleItem)
+        }
+
+        if UIApplication.shared.canOpenURL(wazeItem.1) {
+            installedNavigationApps.append(wazeItem)
+        }
+
+        let alert = UIAlertController(title: "Selection", message: "Select Navigation App", preferredStyle: .actionSheet)
+        for app in installedNavigationApps {
+            let button = UIAlertAction(title: app.0, style: .default, handler: { _ in
+                UIApplication.shared.open(app.1, options: [:], completionHandler: nil)
+            })
+            alert.addAction(button)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        present(alert, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -16,6 +16,8 @@ let ACTUAL_LENGTH = 3
 class Comment {
     var id: Int!
     var ownerId: Int?
+    var profile_photo: String?
+    var username: String?
     var comment: String!
     var comments: [Comment] = []
     var depth: Int!
@@ -31,6 +33,8 @@ class Comment {
     init (json: [String: Any], parent: Comment?){
         self.id = json["id"] as? Int
         self.ownerId = (json["owner"] as? [String: Any])?["id"] as? Int
+        self.profile_photo = (json["owner"] as? [String: Any])?["profile_photo"] as? String
+        self.username = (json["owner"] as? [String: Any])?["username"] as? String
         self.comment = json["message"] as? String
         self.depth = json["depth"] as? Int
         self.votes_n = json["votes_n"] as? Int

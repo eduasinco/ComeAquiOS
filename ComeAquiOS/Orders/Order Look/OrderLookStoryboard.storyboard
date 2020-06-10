@@ -202,6 +202,11 @@
                                                         <state key="normal" title="Go to meal">
                                                             <color key="titleColor" red="0.97132772840000003" green="0.97132772840000003" blue="0.97132772840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="goToMealPressed:" destination="8xT-tr-qDr" eventType="touchUpInside" id="jyV-wl-t4k"/>
                                                         </connections>
@@ -233,7 +238,7 @@
                                     <constraint firstItem="RVq-1J-l4F" firstAttribute="height" secondItem="Sx5-V6-8cu" secondAttribute="height" priority="250" id="zkB-Kn-Nbf"/>
                                 </constraints>
                             </scrollView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ubN-4w-Ece">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ubN-4w-Ece">
                                 <rect key="frame" x="0.0" y="916" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-4U-jWr">

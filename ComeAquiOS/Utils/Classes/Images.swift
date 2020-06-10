@@ -119,13 +119,13 @@ class CellImageView: UIImageView {
         super.layoutSubviews()
     }
     
-    public func loadImageUsingUrlString(urlString: String?, secondImage: UIImage? = nil) {
+    public func loadImageUsingUrlString(urlString: String?, isFullUrl: Bool = false, secondImage: UIImage? = nil) {
         guard let urlString = urlString, !urlString.contains("no-image"), !urlString.isEmpty else {
             self.image = secondImage
             return
         }
 
-        let serverUrlString = SERVER + urlString
+        let serverUrlString = (isFullUrl ? "" : SERVER) + urlString
         imageUrlString = serverUrlString
         let url = NSURL(string: serverUrlString)
         
@@ -134,6 +134,7 @@ class CellImageView: UIImageView {
             self.image = imageFromCache
             return
         }
+        
         URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, respones, error) in
             if error != nil {
                 print(error ?? "Errooooor")

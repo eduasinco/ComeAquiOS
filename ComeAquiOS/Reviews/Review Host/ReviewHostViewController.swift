@@ -45,10 +45,11 @@ class ReviewHostViewController: KUIViewController {
         amountField.addTarget(self, action: #selector(myTextFieldBegin), for: .editingChanged)
         reviewText.delegate = self
         submitButton.isEnabled = false
+        submitButton.alpha = 0.5
     }
     func setView() {
         guard let order = self.order else {return}
-        profileImage.loadImageUsingUrlString(urlString: order.poster?.profile_photo)
+        profileImage.loadImageUsingUrlString(urlString: order.poster?.profile_photo, isFullUrl: true)
         posterName.text = order.poster?.full_name
         posterRating.text = "\(order.poster!.rating!)"
         totalAmount.text = "\(order.order_price!.format())"
@@ -87,10 +88,13 @@ class ReviewHostViewController: KUIViewController {
     var customTip = false
     @IBAction func customTip(_ sender: Any) {
         customTip = !customTip
-        tipButtonStack.visibility = customTip ? .gone : .visible
-        amountField.isEnabled = customTip ? true : false
-        if customTip {
-            amountField.becomeFirstResponder()
+        UIView.animate(withDuration: 0.5) {
+            self.tipButtonStack.visibility = self.customTip ? .gone : .visible
+            self.amountField.isEnabled = self.customTip ? true : false
+            if self.customTip {
+                self.amountField.becomeFirstResponder()
+            }
+            self.view.layoutIfNeeded()
         }
     }
     @IBAction func changePayment(_ sender: Any) {
@@ -125,13 +129,12 @@ extension ReviewHostViewController: StarReasonDelegate {
     func rating(_ rate: Int) {
         self.rating = rate
         submitButton.isEnabled = true
+        submitButton.alpha = 1
     }
     
     func reasons(reasons: [Bool]?) {
         self.reasons = reasons
     }
-    
-    
 }
 
 extension ReviewHostViewController {
