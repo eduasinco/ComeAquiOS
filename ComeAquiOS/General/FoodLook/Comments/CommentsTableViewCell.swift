@@ -22,6 +22,8 @@ class CommentsTableViewCell: UITableViewCell {
     
     var tableHeightAnchor: NSLayoutConstraint!
     var comment: Comment?
+    @IBOutlet weak var senderImage: CellImageView!
+    @IBOutlet weak var senderUsername: UILabel!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var stackView: UIView!
     @IBOutlet weak var deleteButton: UIButton!
@@ -66,10 +68,12 @@ class CommentsTableViewCell: UITableViewCell {
     
     func setCell(comment: Comment, max_depth: Int = 0){
         self.comment = comment
-        
         leadingStackView.constant = CGFloat((comment.depth - max_depth) * 32)
         leadingMoreComments.constant = CGFloat((comment.depth - max_depth) * 32)
         leadingContinueConversation.constant = CGFloat((comment.depth - max_depth) * 32)
+        
+//        senderImage.loadImageUsingUrlString(urlString: comment.ownerId?)
+//        senderUsername.text = comment.ownerId?
         self.label.text = comment.comment
         
         if comment.ownerId == USER.id {

@@ -27,14 +27,7 @@ class Comment {
     
     var isMaxDepth = false
     var isMaxLength = 0
-    
-    static var count = 0
-    
-    static func incrId() -> Int{
-        self.count += 1
-        return self.count
-    }
-    
+        
     init (json: [String: Any], parent: Comment?){
         self.id = json["id"] as? Int
         self.ownerId = (json["owner"] as? [String: Any])?["id"] as? Int
@@ -70,13 +63,13 @@ class Comment {
     }
     
     init(parent: Comment) {
-        self.id = Comment.incrId()
         self.comment = ""
         self.parent = parent
         self.depth = parent.depth + 1
         self.isMaxDepth = true
     }
 }
+
 
 class CommentsViewController: UIViewController {
     
@@ -93,7 +86,11 @@ class CommentsViewController: UIViewController {
             getComments()
         }
     }
-    var commentId: Int?
+    var commentId: Int? {
+        didSet {
+            getComments()
+        }
+    }
     var max_depth = 0
 
     override func viewDidLoad() {
