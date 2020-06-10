@@ -9,7 +9,7 @@
 import UIKit
 
 class BankAccountDetailsViewController: KUIViewController {
-
+    
     @IBOutlet weak var accountMessage: UILabel!
     @IBOutlet weak var firstName: ValidatedTextField!
     @IBOutlet weak var lastName: ValidatedTextField!
@@ -61,7 +61,7 @@ class BankAccountDetailsViewController: KUIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         dateOfBirth.text = dateFormatter.string(from: birthDate!)
-
+        
     }
     
     func setView(){
@@ -111,48 +111,48 @@ class BankAccountDetailsViewController: KUIViewController {
         guard let currentlyDue = self.stripeAccountInfo!.requirements!.currently_due else {return}
         for due in currentlyDue {
             switch due {
-                case "individual.address.line1":
-                    addressLine1.placeholderColor(UIColor.red)
-                    break;
-                case "individual.address.line2":
-                    addressLine2.placeholderColor(UIColor.red)
-                    break;
-                case "individual.address.country":
-                    country.placeholderColor(UIColor.red)
-                    break;
-                case "individual.address.city":
-                    city.placeholderColor(UIColor.red)
-                    break;
-                case "individual.address.postal_code":
-                    zip.placeholderColor(UIColor.red)
-                    break;
-                case "individual.address.state":
-                    state.placeholderColor(UIColor.red)
-                    break;
-                case "individual.dob.day":
-                    dateOfBirth.placeholderColor(UIColor.red)
-                    break;
-                case "individual.dob.month":
-                    dateOfBirth.placeholderColor(UIColor.red)
-                    break;
-                case "individual.dob.year":
-                    dateOfBirth.placeholderColor(UIColor.red)
-                    break;
-                case "individual.first_name":
-                    firstName.placeholderColor(UIColor.red)
-                    break;
-                case "individual.last_name":
-                    lastName.placeholderColor(UIColor.red)
-                    break;
-                case "individual.phone":
-                    phoneNumber.placeholderColor(UIColor.red)
-                    break;
-                case "ndividual.ssn_last_4":
-                    ssn.placeholderColor(UIColor.red)
-                    break;
-                case "individual.id_number":
-                    ssn.placeholderColor(UIColor.red)
-                    break;
+            case "individual.address.line1":
+                addressLine1.placeholderColor(UIColor.red)
+                break;
+            case "individual.address.line2":
+                addressLine2.placeholderColor(UIColor.red)
+                break;
+            case "individual.address.country":
+                country.placeholderColor(UIColor.red)
+                break;
+            case "individual.address.city":
+                city.placeholderColor(UIColor.red)
+                break;
+            case "individual.address.postal_code":
+                zip.placeholderColor(UIColor.red)
+                break;
+            case "individual.address.state":
+                state.placeholderColor(UIColor.red)
+                break;
+            case "individual.dob.day":
+                dateOfBirth.placeholderColor(UIColor.red)
+                break;
+            case "individual.dob.month":
+                dateOfBirth.placeholderColor(UIColor.red)
+                break;
+            case "individual.dob.year":
+                dateOfBirth.placeholderColor(UIColor.red)
+                break;
+            case "individual.first_name":
+                firstName.placeholderColor(UIColor.red)
+                break;
+            case "individual.last_name":
+                lastName.placeholderColor(UIColor.red)
+                break;
+            case "individual.phone":
+                phoneNumber.placeholderColor(UIColor.red)
+                break;
+            case "ndividual.ssn_last_4":
+                ssn.placeholderColor(UIColor.red)
+                break;
+            case "individual.id_number":
+                ssn.placeholderColor(UIColor.red)
+                break;
             default:
                 break
             }
@@ -258,91 +258,90 @@ extension BankAccountDetailsViewController {
     func save(){
         
         Server.nilPatch("/stripe_account/",
-                     json:["first_name": firstName.text,
-                           "last_name": lastName.text,
-                           "day": day,
-                           "month": month,
-                           "year": year,
-                           "ssn_last_4": ssn.text,
-                           "id_number": ssn.text,
-                           "phone": phoneNumber.text,
-                           "line1": addressLine1.text,
-                           "line2": addressLine2.text,
-                           "city": city.text,
-                           "state": state.text,
-                           "postal_code": zip.text,
-                           "country": country.text,
-                           "routing_number": routingNumber.text,
-                           "account_number": accountNumber.text],
-                     finish: {(data: Data?, response: URLResponse?) -> Void in
-                        DispatchQueue.main.async {
-                            
-                        }
-                        guard let data = data else {
-                            return
-                        }
-                        do {
-                            self.stripeAccountInfo = try JSONDecoder().decode(StripeAccountInfoObject.self, from: data)
-                            if self.stripeAccountInfo?.error_message == nil {
-                                DispatchQueue.main.async {
-                                    self.navigationController?.popViewController(animated: true)
+                        json:["first_name": firstName.text,
+                              "last_name": lastName.text,
+                              "day": day,
+                              "month": month,
+                              "year": year,
+                              "ssn_last_4": ssn.text,
+                              "id_number": ssn.text,
+                              "phone": phoneNumber.text,
+                              "line1": addressLine1.text,
+                              "line2": addressLine2.text,
+                              "city": city.text,
+                              "state": state.text,
+                              "postal_code": zip.text,
+                              "country": country.text,
+                              "routing_number": routingNumber.text,
+                              "account_number": accountNumber.text]) { data, response, error in
+                                if let _ = error {
+                                    self.view.showToast(message: "No internet connection")
                                 }
-                            } else {
-                                guard let e_message = self.stripeAccountInfo?.error_message else {return}
-                                self.view.showToast(message: "Some error ocurred")
-                                DispatchQueue.main.async {
-                                    if (e_message.contains("individual[first_name]")) {
-                                        self.firstName.validationText = "First name is not valid"
-                                    }
-                                    if (e_message.contains("individual[last_name]")) {
-                                        self.lastName.validationText = "Last name is not valid"
-                                    }
-                                    if (
-                                        e_message.contains("individual[dob][year]") ||
-                                            e_message.contains("individual[dob][day]") ||
-                                            e_message.contains("individual[dob][month]")
-                                        ) {
-                                        self.dateOfBirth.validationText = "Date of birth is not valid"
-                                    }
-                                    if (e_message.contains("individual[ssn_last_4]")) {
-                                        self.ssn.validationText = "SSN number is not valid"
-                                    }
-                                    if (e_message.contains("individual[id_number]")) {
-                                        self.ssn.validationText = "SSN number is not valid"
-                                    }
-                                    if (e_message.contains("individual[phone]")) {
-                                        self.phoneNumber.validationText = "The phone number is not valid"
-                                    }
-                                    if (e_message.contains("individual[address][line1]")) {
-                                        self.addressLine1.validationText = "Invalid address"
-                                    }
-                                    if (e_message.contains("individual[address][line2]")) {
-                                        self.addressLine2.validationText = "Invalid address"
-                                    }
-                                    if (e_message.contains("individual[address][city]")) {
-                                        self.city.validationText = "Invalid city"
-                                    }
-                                    if (e_message.contains("individual[address][state]")) {
-                                        self.state
-                                            .validationText = "Invalid state"
-                                    }
-                                    if (e_message.contains("individual[address][postal_code]")) {
-                                        self.zip.validationText = "Invalid US postal code"
-                                    }
-                                    if (e_message.contains("individual[address][country]")) {
-                                        self.country.validationText =  "The Country is not valid"
-                                    }
-                                    if (e_message.contains("external_account[routing_number]")) {
-                                        self.routingNumber.validationText = "The routing number is not valid"
-                                    }
-                                    if (e_message.contains("external_account[account_number]")) {
-                                        self.accountNumber.validationText =  "The account number is not valid"
-                                    }
+                                guard let data = data else {
+                                    return
                                 }
-                            }
-                        } catch _ {
-                            self.view.showToast(message: "Some error ocurred")
-                        }
-        })
+                                do {
+                                    self.stripeAccountInfo = try JSONDecoder().decode(StripeAccountInfoObject.self, from: data)
+                                    if self.stripeAccountInfo?.error_message == nil {
+                                        DispatchQueue.main.async {
+                                            self.navigationController?.popViewController(animated: true)
+                                        }
+                                    } else {
+                                        guard let e_message = self.stripeAccountInfo?.error_message else {return}
+                                        self.view.showToast(message: "Some error ocurred")
+                                        DispatchQueue.main.async {
+                                            if (e_message.contains("individual[first_name]")) {
+                                                self.firstName.validationText = "First name is not valid"
+                                            }
+                                            if (e_message.contains("individual[last_name]")) {
+                                                self.lastName.validationText = "Last name is not valid"
+                                            }
+                                            if (
+                                                e_message.contains("individual[dob][year]") ||
+                                                    e_message.contains("individual[dob][day]") ||
+                                                    e_message.contains("individual[dob][month]")
+                                                ) {
+                                                self.dateOfBirth.validationText = "Date of birth is not valid"
+                                            }
+                                            if (e_message.contains("individual[ssn_last_4]")) {
+                                                self.ssn.validationText = "SSN number is not valid"
+                                            }
+                                            if (e_message.contains("individual[id_number]")) {
+                                                self.ssn.validationText = "SSN number is not valid"
+                                            }
+                                            if (e_message.contains("individual[phone]")) {
+                                                self.phoneNumber.validationText = "The phone number is not valid"
+                                            }
+                                            if (e_message.contains("individual[address][line1]")) {
+                                                self.addressLine1.validationText = "Invalid address"
+                                            }
+                                            if (e_message.contains("individual[address][line2]")) {
+                                                self.addressLine2.validationText = "Invalid address"
+                                            }
+                                            if (e_message.contains("individual[address][city]")) {
+                                                self.city.validationText = "Invalid city"
+                                            }
+                                            if (e_message.contains("individual[address][state]")) {
+                                                self.state
+                                                    .validationText = "Invalid state"
+                                            }
+                                            if (e_message.contains("individual[address][postal_code]")) {
+                                                self.zip.validationText = "Invalid US postal code"
+                                            }
+                                            if (e_message.contains("individual[address][country]")) {
+                                                self.country.validationText =  "The Country is not valid"
+                                            }
+                                            if (e_message.contains("external_account[routing_number]")) {
+                                                self.routingNumber.validationText = "The routing number is not valid"
+                                            }
+                                            if (e_message.contains("external_account[account_number]")) {
+                                                self.accountNumber.validationText =  "The account number is not valid"
+                                            }
+                                        }
+                                    }
+                                } catch _ {
+                                    self.view.showToast(message: "Some error ocurred")
+                                }
+        }
     }
 }

@@ -285,6 +285,11 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="reloadOpacity">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="address" destination="lDJ-kr-dQN" id="Gfb-u5-ro9"/>
                         <outlet property="confrimCancelView" destination="ubN-4w-Ece" id="Sw4-2B-iZa"/>

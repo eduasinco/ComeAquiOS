@@ -71,7 +71,6 @@ extension GuestingViewController {
             self.tableView.hideActivityIndicator()
             if let _ = error {
                 self.onReload = self.getMyGuesting
-                return
             }
             guard let data = data else {return}
             do {

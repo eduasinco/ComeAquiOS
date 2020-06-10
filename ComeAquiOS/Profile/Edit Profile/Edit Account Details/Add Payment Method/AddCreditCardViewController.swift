@@ -61,11 +61,10 @@ extension AddCreditCardViewController {
                     "exp_month":  month.text,
                     "exp_year":  year.text,
                     "cvc":  cvc.text
-                ],
-                        finish: {(data: Data?, response: URLResponse?) -> Void in
-                            DispatchQueue.main.async {
-                                
-                            }
+                ]) { data, response, error in
+                if let _ = error {
+                    self.view.showToast(message: "No internet connection")
+                }
                             guard let data = data else {
                                 return
                             }
@@ -94,7 +93,7 @@ extension AddCreditCardViewController {
                             } catch _ {
                                 self.view.showToast(message: "Some error ocurred")
                             }
-            })
+            }
         }
 }
 

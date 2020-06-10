@@ -250,6 +250,9 @@ extension FoodReviewLookViewController {
         guard let foodPostId = self.foodPostId else {return}
         Server.get( "/food_reviews/\(foodPostId)/"){ data, response, error in
             self.closeLoader()
+            if let _ = error {
+                self.onReload = self.getFoodReviews
+            }
             guard let data = data else {return}
             do {
                 self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)

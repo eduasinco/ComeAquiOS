@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DinnersViewController: UIViewController {
+class DinnersViewController: LoadViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -72,9 +72,10 @@ extension DinnersViewController {
         request.httpMethod = "GET"
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            guard let data = data else {
-                return
+            if let _ = error {
+                self.onReload = self.getOrders
             }
+            guard let data = data else {return}
             do {
                 let foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
                 self.orders.append(contentsOf: foodPost.confirmed_orders!)
@@ -89,8 +90,8 @@ extension DinnersViewController {
     
     func getConversation(withUser: User){
         Server.get("/get_or_create_chat/\(withUser.id!)/"){ data, response, error in
-            DispatchQueue.main.async {
-                
+            if let _ = error {
+                self.tableView.showToast(message: "No internet connection")
             }
             guard let data = data else {
                 return

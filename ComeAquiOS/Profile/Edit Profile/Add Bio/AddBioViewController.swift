@@ -73,17 +73,16 @@ extension AddBioViewController{
         
         Server.patch("/edit_profile/",
                     json:
-            ["bio": textView.text],
-                    finish: {(data: Data?, response: URLResponse?) -> Void in
-                        DispatchQueue.main.async {
-                            
-                        }
+            ["bio": textView.text]) { data, response, error in
+            if let _ = error {
+                self.view.showToast(message: "No internet connection")
+            }
                         guard data != nil else {
                             return
                         }
                         DispatchQueue.main.async {
                             self.navigationController?.popViewController(animated: true)
                         }
-        })
+        }
     }
 }

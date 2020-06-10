@@ -46,12 +46,6 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isRounded" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="strikeColor">
-                                                <color key="value" red="0.57971129441624369" green="0.57971129441624369" blue="0.57971129441624369" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="strike">
-                                                <integer key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="IhJ-L0-dr9" kind="show" id="t34-oP-WVh"/>
@@ -67,7 +61,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="GreyLighter"/>
                         <constraints>
                             <constraint firstItem="Ej6-Iu-eoT" firstAttribute="bottom" secondItem="aGn-tH-4eQ" secondAttribute="bottom" id="3pe-k2-eXN"/>
                             <constraint firstItem="aGn-tH-4eQ" firstAttribute="trailing" secondItem="Ej6-Iu-eoT" secondAttribute="trailing" constant="20" id="3ru-0B-LgW"/>
@@ -78,6 +72,9 @@
                         <viewLayoutGuide key="safeArea" id="aGn-tH-4eQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="m83-bR-FLn"/>
+                    <connections>
+                        <outlet property="loginButton" destination="G5Q-wl-g1r" id="hED-oh-HaE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqJ-2o-mpI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,10 +89,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRs-jn-I7m" userLabel="holder">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="1Ey-wK-tvg">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jm-y0-IVi">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="292"/>
@@ -518,12 +515,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bed-fp-gGf"/>
+        <segue reference="t34-oP-WVh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Login" width="153" height="140"/>
         <namedColor name="Confirm">
             <color red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="GreyLighter">
+            <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

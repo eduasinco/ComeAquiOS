@@ -262,7 +262,10 @@ extension ConversationViewController {
         }
     }
     func setMessageAsSeen(messageId: Int){
-        Server.put("/mark_message_as_seen/\(messageId)/", json: ["":""], finish: {(data: Data?, response: URLResponse?) -> Void in })
+        Server.put("/mark_message_as_seen/\(messageId)/", json: ["":""]) { data, response, error in
+        if let _ = error {
+            self.view.showToast(message: "No internet connection")
+        } }
     }
     func fetchMoreData(){
         if !alreadyFetchingData {
@@ -379,7 +382,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
         }
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if let firstMessageInSection = chatMessages[section].first {
+        if chatMessages.count > 0, let firstMessageInSection = chatMessages[section].first {
             let label = DateHeaderLabel()
             label.text = Date.todayYesterdayWeekDay(isoDateString: firstMessageInSection.created_at!)
             label.dropShadow(radius: 1, opacity: 0.3, height: 1)
@@ -391,7 +394,6 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
 
             containerView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
             return containerView
-
         }
         return nil
     }

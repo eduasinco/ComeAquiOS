@@ -13,7 +13,7 @@ private class ResponseObject: Decodable {
     var data: [PaymentMethodObject]?
 }
 class ReviewHostViewController: KUIViewController {
-
+    
     @IBOutlet weak var profileImage: URLImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var posterName: UILabel!
@@ -136,8 +136,10 @@ extension ReviewHostViewController: StarReasonDelegate {
 
 extension ReviewHostViewController {
     func getChosenCard(){
-        
         Server.get("/my_chosen_card/"){ data, response, error in
+            if let _ = error {
+                self.onReload = self.getChosenCard
+            }
             guard let data = data else {return}
             do {
                 let responseO = try JSONDecoder().decode(ResponseObject.self, from: data)
@@ -163,24 +165,26 @@ extension ReviewHostViewController {
              "review":  reviewText.text,
              "rating":  rating,
              "star_reason": "",
-             "tip":  price,],
-                    finish: {(data: Data?, response: URLResponse?) -> Void in
-                        DispatchQueue.main.async {
-                            
-                        }
-                        guard let data = data else {
-                            return
-                        }
-                        do {
-                            let review = try JSONDecoder().decode(ReviewObject.self, from: data)
-                            guard review.id != nil else {return}
-                            DispatchQueue.main.async {
-                                self.dismiss(animated: true, completion: nil)
-                            }
-                        } catch _ {
-                            self.view.showToast(message: "Some error ocurred")
-                        }
-        })
+             "tip":  price,]) { data, response, error in
+                if let _ = error {
+                    self.view.showToast(message: "No internet connection")
+                }
+                DispatchQueue.main.async {
+                    
+                }
+                guard let data = data else {
+                    return
+                }
+                do {
+                    let review = try JSONDecoder().decode(ReviewObject.self, from: data)
+                    guard review.id != nil else {return}
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                } catch _ {
+                    self.view.showToast(message: "Some error ocurred")
+                }
+        }
     }
 }
 

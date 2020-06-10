@@ -56,13 +56,13 @@ class Server {
         task.resume()
         urlToTask[urlString] = task
     }
-    static func post(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
+    static func post(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?, Error?) -> Void){
         update(urlString, json: json, method: "POST", finish: finish)
     }
-    static func put(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
+    static func put(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?, Error?) -> Void){
         update(urlString, json: json, method: "PUT", finish: finish)
     }
-    static func patch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
+    static func patch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?, Error?) -> Void){
         var trueJson: [String: Any] = [:]
         for k in json.keys {
             if let element = json[k] as? String, element.isEmpty {
@@ -73,7 +73,7 @@ class Server {
         }
         update(urlString, json: trueJson, method: "PATCH", finish: finish)
     }
-    static func nilPatch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?) -> Void){
+    static func nilPatch(_ urlString: String, json: [String:Any?], finish: @escaping (Data?, URLResponse?, Error?) -> Void){
         var trueJson: [String: Any] = [:]
         for k in json.keys {
             if let element = json[k] as? String, element.isEmpty {
@@ -85,7 +85,7 @@ class Server {
         update(urlString, json: trueJson, method: "PATCH", finish: finish)
     }
     
-    static func update(_ urlString: String, json: [String:Any?], method: String, finish: @escaping (Data?, URLResponse?) -> Void){
+    static func update(_ urlString: String, json: [String:Any?], method: String, finish: @escaping (Data?, URLResponse?, Error?) -> Void){
         if let task = urlToTask[urlString] { task.cancel() }
         var request = getRequestWithAuth(urlString)
         do {
@@ -99,7 +99,7 @@ class Server {
             configuration.timeoutIntervalForResource = 5
             let session = URLSession(configuration: configuration)
             let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-                finish(data, response)
+                finish(data, response, error)
             })
             task.resume()
             urlToTask[urlString] = task

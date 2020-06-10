@@ -68,10 +68,12 @@ extension SplashViewController {
                             json:
                     ["dev_id":  UIDevice.current.identifierForVendor!.uuidString,
                      "reg_id":  result.token,
-                     "name":  "\(USER.id!)"],
-                            finish: {(data: Data?, response: URLResponse?) -> Void in
+                     "name":  "\(USER.id!)"]) { data, response, error in
+                     if let _ = error {
+                         self.view.showToast(message: "No internet connection")
+                     }
                                 self.getMyUnreviewedOrdersAsDinner()
-                })
+                }
             }
         }
     }

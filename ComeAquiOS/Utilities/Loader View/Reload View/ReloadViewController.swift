@@ -13,9 +13,11 @@ class ReloadViewController: UIViewController {
     @IBOutlet weak var reloadButton: UIButton!
     var onReload: (() -> Void)?
     
+    var viewOpacity: CGFloat = 0.5
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     @IBAction func reloadButtonPressed(_ sender: Any) {
         view.isHidden = true

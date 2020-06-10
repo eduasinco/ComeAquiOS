@@ -76,9 +76,9 @@ extension UIView {
         }
     }
     
-    @IBInspectable var strikeColor: UIColor  {
+    @IBInspectable var strikeColor: UIColor? {
         set {
-            self.layer.borderColor = newValue.cgColor
+            self.layer.borderColor = newValue?.cgColor
         }
         get{
             return UIColor.clear
@@ -87,7 +87,6 @@ extension UIView {
     @IBInspectable var strike: Int {
         set {
             self.layer.borderWidth = CGFloat(newValue)
-            self.layer.borderColor = UIColor.black.cgColor
         }
         get {
             return 0

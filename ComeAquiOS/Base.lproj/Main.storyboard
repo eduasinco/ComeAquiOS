@@ -16,18 +16,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XZD-wS-ceu">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login" translatesAutoresizingMaskIntoConstraints="NO" id="XZD-wS-ceu">
+                                <rect key="frame" x="130.5" y="398" width="153" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="8Vc-gf-IK0"/>
-                                    <constraint firstAttribute="height" constant="128" id="YdP-JX-Qr1"/>
+                                    <constraint firstAttribute="height" constant="100" id="YdP-JX-Qr1"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="pjT-W8-MNO">
+                                <rect key="frame" x="197" y="506" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="GreyLighter"/>
                         <constraints>
+                            <constraint firstItem="pjT-W8-MNO" firstAttribute="centerX" secondItem="b5z-S0-GNr" secondAttribute="centerX" id="HHq-Y4-XcU"/>
                             <constraint firstItem="XZD-wS-ceu" firstAttribute="centerX" secondItem="b5z-S0-GNr" secondAttribute="centerX" id="XJQ-mU-7iv"/>
                             <constraint firstItem="XZD-wS-ceu" firstAttribute="centerY" secondItem="b5z-S0-GNr" secondAttribute="centerY" id="aHw-zc-L9b"/>
+                            <constraint firstItem="pjT-W8-MNO" firstAttribute="top" secondItem="XZD-wS-ceu" secondAttribute="bottom" constant="8" id="dlS-yZ-k5N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UsH-KE-iyv"/>
                     </view>
@@ -135,6 +139,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Login" width="153" height="140"/>
         <image name="bell" catalog="system" width="128" height="124"/>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
@@ -144,6 +149,9 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="tray.2" catalog="system" width="128" height="114"/>
         <image name="tray.2.fill" catalog="system" width="128" height="114"/>
+        <namedColor name="GreyLighter">
+            <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

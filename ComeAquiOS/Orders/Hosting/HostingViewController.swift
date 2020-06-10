@@ -82,7 +82,6 @@ extension HostingViewController {
             self.tableView.hideActivityIndicator()
             if let _ = error {
                 self.onReload = self.getMyHostings
-                return
             }
             guard let data = data else {return}
             do {

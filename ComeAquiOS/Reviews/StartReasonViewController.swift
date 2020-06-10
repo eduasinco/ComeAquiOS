@@ -63,13 +63,13 @@ class StartReasonViewController: UIViewController {
         stackView.visibility = .visible
         var j = 0
         while j <= i {
-            let star = UIImage(systemName: "star.fill")
+            let star = UIImage(named: "favourite_star_fill")
             star?.withTintColor(UIColor(named: "Primary")!)
-            starArray[j].setImage(UIImage(systemName: "star.fill"), for: .normal)
+            starArray[j].setImage(UIImage(named: "favourite_star_fill"), for: .normal)
             j += 1
         }
         while j < starArray.count {
-            let star = UIImage(systemName: "star")
+            let star = UIImage(named: "favourite_star")
             star?.withTintColor(UIColor(named: "Favourite")!)
             starArray[j].setImage(star, for: .normal)
             j += 1

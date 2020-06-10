@@ -229,6 +229,9 @@ extension SearchViewController {
         Server.get("/food_query/" + query + "&page=\(page)/"){ data, response, error in
             self.alreadyFetchingData = false
             self.tableView.hideActivityIndicator()
+            if let _ = error {
+                self.onReload = self.getFoodPost
+            }
             guard let data = data else {return}
             do {
                 self.data.append(contentsOf: try JSONDecoder().decode([FoodPostObject].self, from: data))

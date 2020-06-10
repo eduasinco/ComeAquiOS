@@ -48,8 +48,10 @@ extension WriteReplyTableViewCell{
             [
                 "reply": textView.text,
                 "review_id": review?.id,
-            ],
-            finish: {(data: Data?, response: URLResponse?) in
+            ]) { data, response, error in
+            if let _ = error {
+                self.view.showToast(message: "No internet connection")
+            }
                 guard let data = data else {return}
                 do {
                     let reply = try JSONDecoder().decode(ReviewReplyObject.self, from: data)
@@ -58,7 +60,7 @@ extension WriteReplyTableViewCell{
                         self.dismiss(animated: true, completion: nil)
                     }
                 } catch {}
-        })
+        }
     }
 }
 

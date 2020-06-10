@@ -53,10 +53,9 @@ extension CardLookViewController {
         guard let paymentMethod = self.paymentMethod else {return}
         
         Server.patch("/select_as_payment_method/" + paymentMethod.id! + "/",
-            json: ["": ""],
-                     finish: {(data: Data?, response: URLResponse?) -> Void in
-                        DispatchQueue.main.async {
-                            
+                     json: ["": ""]) { data, response, error in
+                        if let _ = error {
+                            self.view.showToast(message: "No internet connection")
                         }
                         guard data != nil else {
                             return
@@ -64,7 +63,7 @@ extension CardLookViewController {
                         DispatchQueue.main.async {
                             self.navigationController?.popViewController(animated: true)
                         }
-        })
+        }
     }
     
     func deleteCard(){

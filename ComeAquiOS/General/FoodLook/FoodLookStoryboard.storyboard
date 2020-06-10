@@ -408,6 +408,11 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="414" height="1500"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="reloadOpacity">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="addPaymentMethodButton" destination="Oc7-1J-tnE" id="NRn-ub-rcu"/>
                         <outlet property="addressLabel" destination="1aH-cL-Kan" id="LGT-tL-gYb"/>

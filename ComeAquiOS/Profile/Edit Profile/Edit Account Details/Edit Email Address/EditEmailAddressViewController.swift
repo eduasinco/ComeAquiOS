@@ -85,11 +85,10 @@ extension EditEmailAddressViewController {
             [
                 "code": verificationCodeText.text,
                 "new_email": emailAddress!,
-            ],
-                     finish: {(data: Data?, response: URLResponse?) -> Void in
-                        DispatchQueue.main.async {
-                            
-                        }
+            ]) { data, response, error in
+            if let _ = error {
+                self.view.showToast(message: "No internet connection")
+            }
                         guard let data = data else {return}
                         do {
                             USER = try JSONDecoder().decode(User.self, from: data)
@@ -106,6 +105,6 @@ extension EditEmailAddressViewController {
                                 }
                             }catch _ {}
                         }
-        })
+        }
     }
 }

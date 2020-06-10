@@ -144,8 +144,10 @@ extension FoodCardViewController {
         settingFavourite = true
         Server.post("/favourites/",
                     json:
-            ["food_post_id":  self.foodPost.id],
-                    finish: {(data: Data?, response: URLResponse?) -> Void in
+            ["food_post_id":  self.foodPost.id]) { data, response, error in
+            if let _ = error {
+                self.view.showToast(message: "No internet connection")
+            }
                         self.settingFavourite = false
                         guard let data = data else {
                             return
@@ -161,6 +163,6 @@ extension FoodCardViewController {
                             self.delegate?.changeMarker(foodPost: self.foodPost, image: self.imageWithImage(image: UIImage(named: self.foodPost.favourite! ? "marker_favourite" : "marker_seen")!, width: 40))
                             self.favouriteImageView.image = UIImage(named: self.foodPost.favourite! ? "favourite_star_fill" : "favourite_star")
                         }
-        })
+        }
     }
 }

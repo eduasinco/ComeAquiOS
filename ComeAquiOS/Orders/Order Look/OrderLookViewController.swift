@@ -167,6 +167,10 @@ extension OrderLookViewController {
         guard let orderId = self.orderId else { return }
         Server.get( "/order_detail/\(orderId)/"){ data, response, error in
             self.closeLoader()
+            if let _ = error {
+                self.onReload = self.getOrder
+                return
+            }
             guard let data = data else {return}
             if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {}
             do {
@@ -184,8 +188,10 @@ extension OrderLookViewController {
             [
                 "order_id": self.order!.id!,
                 "order_status": status,
-            ],
-            finish: {(data: Data?, response: URLResponse?) in
+            ]) { data, response, error in
+            if let _ = error {
+                self.view.showToast(message: "No internet connection")
+            }
                 guard let data = data else {return}
                 do {
                     self.order = try JSONDecoder().decode(OrderObject.self, from: data)
@@ -193,6 +199,6 @@ extension OrderLookViewController {
                         self.setView()
                     }
                 } catch {}
-        })
+        }
     }
 }

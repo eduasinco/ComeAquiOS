@@ -208,7 +208,7 @@ extension AddFoodViewController {
     }
     func pathFoodPost(visible: Bool){
         Server.patch("/foods/\(self.foodPost!.id!)/",
-                    json:
+            json:
             ["plate_name":  plateNameText.text,
              "formatted_address":  self.location?.result?.formatted_address,
              "place_id":  location?.result?.place_id,
@@ -221,21 +221,21 @@ extension AddFoodViewController {
              "price":  price,
              "food_type":  types,
              "description":  descriptionText.text,
-             "visible": visible ? "true" : "false"],
-                    finish: {(data: Data?, response: URLResponse?) -> Void in
-                        guard let data = data else {
-                            return
-                        }
-                        do {
-                            self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
-                            self.foodPostId = self.foodPost?.id
-                            DispatchQueue.main.async {
-                                self.navigationController?.popViewController(animated: true)
-                            }
-                        } catch _ {
-                            self.view.showToast(message: "Some error ocurred")
-                        }
-        })
+             "visible": visible ? "true" : "false"]) { data, response, error in
+                if let _ = error {
+                    self.view.showToast(message: "No internet connection")
+                }
+                guard let data = data else {return}
+                do {
+                    self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
+                    self.foodPostId = self.foodPost?.id
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                } catch _ {
+                    self.view.showToast(message: "Some error ocurred")
+                }
+        }
     }
     func postFood(){
         
@@ -260,11 +260,10 @@ extension AddFoodViewController {
              "price":  nil,
              "food_type":  nil,
              "description":  nil,
-             "visible": "false"],
-                    finish: {(data: Data?, response: URLResponse?) -> Void in
-                        DispatchQueue.main.async {
-                            
-                        }
+             "visible": "false"]) { data, response, error in
+             if let _ = error {
+                 self.view.showToast(message: "No internet connection")
+             }
                         guard let data = data else {
                             return
                         }
@@ -277,7 +276,7 @@ extension AddFoodViewController {
                         } catch _ {
                             self.view.showToast(message: "Some error ocurred")
                         }
-        })
+        }
     }
 }
 

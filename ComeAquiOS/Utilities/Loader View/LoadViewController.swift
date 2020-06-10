@@ -12,7 +12,7 @@ class LoadViewController: UIViewController {
     var loaderVC: LoadingViewController?
     var transparentLoaderVC: TransparentLoaderViewController?
     var reloadVC: ReloadViewController?
-
+    var reloadViewOpacity: CGFloat = 0.5
     var onReload: (() -> Void)? {
         willSet {
             DispatchQueue.main.async {
@@ -29,6 +29,7 @@ class LoadViewController: UIViewController {
         transparentLoaderVC = addLoader(storyBoardString: "TansparentLoaderStoryboard", storyBoardIdentifier: "LoadingView") as? TransparentLoaderViewController
         
         reloadVC = addLoader(storyBoardString: "ReloadStoryboard", storyBoardIdentifier: "ReloadView") as? ReloadViewController
+        reloadVC?.view?.backgroundColor = UIColor(white: 1, alpha: self.reloadViewOpacity)
     }
     
     func addLoader(storyBoardString: String, storyBoardIdentifier: String) -> UIViewController {
@@ -64,6 +65,17 @@ class LoadViewController: UIViewController {
     func closeTransparentLoader() {
         DispatchQueue.main.async {
             self.transparentLoaderVC?.view.isHidden = true
+        }
+    }
+}
+
+extension LoadViewController {
+    @IBInspectable var reloadOpacity: CGFloat {
+        set {
+            self.reloadViewOpacity = newValue
+        }
+        get{
+            return 0.5
         }
     }
 }

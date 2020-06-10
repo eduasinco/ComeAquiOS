@@ -46,11 +46,10 @@ extension ChangePasswordViewController {
             [
                 "old_password": oldPasswordText.text,
                 "new_password": newPasswordText.text,
-            ],
-                     finish: {(data: Data?, response: URLResponse?) -> Void in
-                        DispatchQueue.main.async {
-                            
-                        }
+            ]) { data, response, error in
+            if let _ = error {
+                self.view.showToast(message: "No internet connection")
+            }
                         guard let data = data else {
                             return
                         }
@@ -67,6 +66,6 @@ extension ChangePasswordViewController {
                                 self.oldPasswordText.validationText = oldPasswordA[0] as? String
                             }
                         } catch _ {}
-        })
+        }
     }
 }

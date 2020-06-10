@@ -375,6 +375,11 @@
                         <viewLayoutGuide key="safeArea" id="1Hq-7L-FhO"/>
                     </view>
                     <size key="freeformSize" width="414" height="2000"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="reloadOpacity">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="amountField" destination="tWN-dW-eRa" id="0a5-IO-kk4"/>
                         <outlet property="bottomViewConstraint" destination="aha-W9-owJ" id="WU2-9q-hbX"/>

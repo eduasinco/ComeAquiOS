@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4S-cK-svA" userLabel="holder">
-                                <rect key="frame" x="0.0" y="88" width="414" height="812"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="778"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="TEp-kV-Jvq">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="812"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="778"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0x-aQ-9xU" userLabel="inside ">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="432"/>
@@ -122,7 +122,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="c4S-cK-svA" secondAttribute="bottom" id="52B-Dp-JDa"/>
+                            <constraint firstItem="m73-VV-JLe" firstAttribute="bottom" secondItem="c4S-cK-svA" secondAttribute="bottom" id="52B-Dp-JDa"/>
                             <constraint firstItem="c4S-cK-svA" firstAttribute="top" secondItem="m73-VV-JLe" secondAttribute="top" id="Pbr-zu-IcI"/>
                             <constraint firstAttribute="trailing" secondItem="c4S-cK-svA" secondAttribute="trailing" id="fDa-qh-8iq"/>
                             <constraint firstItem="c4S-cK-svA" firstAttribute="leading" secondItem="XCG-t5-f12" secondAttribute="leading" id="qfz-AY-T7c"/>
@@ -141,6 +141,7 @@
                     <connections>
                         <outlet property="descriptionText" destination="j6u-Z0-IS0" id="M0A-FV-gnF"/>
                         <outlet property="holderBottomConstraint" destination="52B-Dp-JDa" id="9XS-6w-tC1"/>
+                        <outlet property="holderView" destination="c4S-cK-svA" id="h6U-Im-430"/>
                         <outlet property="plateNameText" destination="l8n-dy-SRf" id="bAf-kc-Tr8"/>
                         <outlet property="stackView" destination="NzD-EO-xXj" id="xEw-RJ-Sf6"/>
                         <outlet property="wordCountText" destination="P4b-JG-zdp" id="awV-yZ-V2e"/>

@@ -137,14 +137,16 @@ extension EditAccountDetailsViewController {
         Server.patch("/edit_profile/",
                      json: ["first_name": firstName.text,
                             "last_name": lastName.text,
-                            "phone_number": phoneNumber.text],
-                     finish: {(data: Data?, response: URLResponse?) -> Void in
+                            "phone_number": phoneNumber.text]) { data, response, error in
+                            if let _ = error {
+                                self.view.showToast(message: "No internet connection")
+                            }
                         self.closeTransparentLoader()
                         guard data != nil else {return}
                         DispatchQueue.main.async {
                             self.navigationController?.popViewController(animated: true)
                         }
-        })
+        }
     }
 }
 

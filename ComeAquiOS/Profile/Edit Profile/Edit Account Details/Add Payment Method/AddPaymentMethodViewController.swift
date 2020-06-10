@@ -59,16 +59,15 @@ extension AddPaymentMethodViewController{
     func selectAsDefaultPayment(_ paymentMethodId: String){
         
         Server.patch("/select_as_payment_method/" + paymentMethodId + "/",
-            json: ["": ""],
-                     finish: {(data: Data?, response: URLResponse?) -> Void in
-                        DispatchQueue.main.async {
-                            
-                        }
+            json: ["": ""]) { data, response, error in
+            if let _ = error {
+                self.view.showToast(message: "No internet connection")
+            }
                         guard data != nil else {return}
                         DispatchQueue.main.async {
                             self.navigationController?.popViewController(animated: true)
                         }
-        })
+        }
     }
 }
 

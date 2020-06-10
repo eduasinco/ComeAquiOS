@@ -17,28 +17,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ss-Ni-Wwo">
-                                <rect key="frame" x="157" y="436" width="100" height="24"/>
+                                <rect key="frame" x="157" y="433" width="100" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="UCA-eF-fOR"/>
+                                    <constraint firstAttribute="height" constant="30" id="bpm-Uq-1Kp"/>
                                 </constraints>
                                 <color key="tintColor" name="Secondary"/>
                                 <state key="normal" title="Try again" image="arrow.clockwise.circle" catalog="system">
                                     <color key="titleColor" name="Secondary"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="strikeColor">
+                                        <color key="value" name="Secondary"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="strike">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="reloadButtonPressed:" destination="ttE-UR-wpM" eventType="touchUpInside" id="Q3Q-Yb-4K3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No internet connection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bW-lJ-X0P">
-                                <rect key="frame" x="0.0" y="44" width="414" height="19.5"/>
-                                <color key="backgroundColor" name="Canceledd"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="25"/>
+                                <color key="backgroundColor" red="1" green="0.51564136274575412" blue="0.46531199296053583" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="qoK-3x-sx0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2bW-lJ-X0P" firstAttribute="top" secondItem="rIt-s9-fYn" secondAttribute="top" id="EOo-v9-AXU"/>
                             <constraint firstItem="rIt-s9-fYn" firstAttribute="trailing" secondItem="2bW-lJ-X0P" secondAttribute="trailing" id="FYz-pO-TP3"/>
@@ -59,9 +75,6 @@
     </scenes>
     <resources>
         <image name="arrow.clockwise.circle" catalog="system" width="128" height="121"/>
-        <namedColor name="Canceledd">
-            <color red="0.74509803921568629" green="0.050980392156862744" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <namedColor name="Secondary">
             <color red="0.7803921568627451" green="0.2196078431372549" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

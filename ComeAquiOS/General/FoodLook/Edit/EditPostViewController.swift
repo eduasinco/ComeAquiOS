@@ -10,6 +10,7 @@ import UIKit
 
 class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextViewDelegate {
     
+    @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var plateNameText: ValidatedTextField!
     @IBOutlet weak var descriptionText: ValidatedTextView!
@@ -100,9 +101,10 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
 extension EditPostViewController {
     func getFoodPost(){
         Server.get("/foods/\(foodPostId!)/"){ data, response, error in
-            guard let data = data else {
-                return
+            if let _ = error {
+                self.onReload = self.getFoodPost
             }
+            guard let data = data else {return}
             do {
                 self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
                 DispatchQueue.main.async {
@@ -120,14 +122,11 @@ extension EditPostViewController {
                 "plate_name":  plateNameText.text,
                 "food_type":  types,
                 "description":  descriptionText.text,
-            ],
-            finish: {(data: Data?, response: URLResponse?) -> Void in
-                DispatchQueue.main.async {
-                    
+            ]) { data, response, error in
+                if let _ = error {
+                    self.holderView.showToast(message: "No internet connection")
                 }
-                guard let data = data else {
-                    return
-                }
+                guard let data = data else {return}
                 do {
                     self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
                     DispatchQueue.main.async {
@@ -136,7 +135,7 @@ extension EditPostViewController {
                 } catch _ {
                     self.view.showToast(message: "Some error ocurred")
                 }
-        })
+        }
     }
 }
 

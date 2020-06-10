@@ -407,6 +407,9 @@ extension FoodLookViewController {
         presentLoader()
         guard let foodPostId = self.foodPostId else { return }
         Server.get("/food_with_user_status/\(foodPostId)/"){ data, response, error in
+            if let _ = error {
+                self.onReload = self.getFoodPost
+            }
             self.closeLoader()
             guard let data = data else {return}
             do {
@@ -460,8 +463,10 @@ extension FoodLookViewController {
                 "post_id": foodPost?.id ?? nil,
                 "comment_id": nil,
                 "message": textView.text!
-            ],
-            finish: {(data: Data?, response: URLResponse?) in
+            ]) { data, response, error in
+            if let _ = error {
+                self.view.showToast(message: "No internet connection")
+            }
                 guard let data = data else {return}
                 do {
                     guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
@@ -478,7 +483,7 @@ extension FoodLookViewController {
                 } catch _ {
                     self.view.showToast(message: "Some error ocurred")
                 }
-        })
+        }
     }
     private struct ResponseOrderObject: Decodable{
         var order: OrderObject?
@@ -490,8 +495,10 @@ extension FoodLookViewController {
             [
                 "food_post_id": self.foodPost!.id!,
                 "additional_guests": additionalGuests,
-            ],
-            finish: {(data: Data?, response: URLResponse?) in
+            ]) { data, response, error in
+            if let _ = error {
+                self.view.showToast(message: "No internet connection")
+            }
                 guard let data = data else {return}
                 
                 do {
@@ -505,6 +512,6 @@ extension FoodLookViewController {
                         }
                     }
                 } catch {}
-        })
+        }
     }
 }

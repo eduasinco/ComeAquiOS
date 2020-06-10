@@ -10,6 +10,7 @@ import UIKit
 
 class LoginOrRegisterViewController: UIViewController {
 
+    @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
