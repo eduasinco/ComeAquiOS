@@ -172,6 +172,11 @@
                                                                 <state key="normal" title="Submit">
                                                                     <color key="titleColor" red="0.97132772840000003" green="0.97132772840000003" blue="0.97132772840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                                        <integer key="value" value="8"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="submit:" destination="8l8-sJ-MKH" eventType="touchUpInside" id="DwJ-yf-Gyx"/>
                                                                 </connections>

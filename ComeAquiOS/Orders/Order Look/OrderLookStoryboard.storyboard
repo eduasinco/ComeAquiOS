@@ -41,13 +41,13 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk5-yu-gPd">
-                                                                <rect key="frame" x="78" y="8" width="47" height="20.5"/>
+                                                                <rect key="frame" x="78" y="8" width="288" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                <color key="textColor" name="Primary"/>
+                                                                <color key="textColor" name="SecondaryDark"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybu-b7-7Rc">
-                                                                <rect key="frame" x="78" y="41.5" width="78" height="20.5"/>
+                                                                <rect key="frame" x="78" y="41.5" width="288" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                 <color key="textColor" name="Primary"/>
                                                                 <nil key="highlightedColor"/>
@@ -55,10 +55,12 @@
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="Yk5-yu-gPd" secondAttribute="trailing" constant="8" id="74C-7S-Lb5"/>
                                                             <constraint firstItem="ybu-b7-7Rc" firstAttribute="leading" secondItem="XEB-Si-qhm" secondAttribute="trailing" constant="8" id="9lc-Y9-8m7"/>
                                                             <constraint firstItem="XEB-Si-qhm" firstAttribute="leading" secondItem="oED-Lw-Z7O" secondAttribute="leading" id="A2Y-1T-W6b"/>
                                                             <constraint firstAttribute="height" constant="70" id="AY1-ad-WuB"/>
                                                             <constraint firstAttribute="bottom" secondItem="XEB-Si-qhm" secondAttribute="bottom" id="IDD-jh-fBv"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ybu-b7-7Rc" secondAttribute="trailing" constant="8" id="J8w-3L-8Yq"/>
                                                             <constraint firstAttribute="bottom" secondItem="ybu-b7-7Rc" secondAttribute="bottom" constant="8" id="LGx-WU-IYL"/>
                                                             <constraint firstItem="Yk5-yu-gPd" firstAttribute="top" secondItem="oED-Lw-Z7O" secondAttribute="top" constant="8" id="Xui-ed-7pM"/>
                                                             <constraint firstItem="Yk5-yu-gPd" firstAttribute="leading" secondItem="XEB-Si-qhm" secondAttribute="trailing" constant="8" id="fBj-6k-CBI"/>
