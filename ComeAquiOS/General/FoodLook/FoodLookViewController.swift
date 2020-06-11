@@ -172,9 +172,9 @@ class FoodLookViewController: KUIViewController {
             case "PENDING":
                 setStatus(text: "Pending", color: UIColor(named: "Primary")!)
             case "CANCELED":
-                setStatus(text: "Canceled", color: UIColor(named: "Canceled")!)
+                setStatus(text: "Canceled", color: UIColor(named: "Canceledd")!)
             case "REJECTED":
-                setStatus(text: "Rejected", color: UIColor(named: "Canceled")!)
+                setStatus(text: "Rejected", color: UIColor(named: "Canceledd")!)
             case "FINISHED":
                 setStatus(text: "Finished", color: UIColor(named: "Primary")!)
                 commentsView.visibility = .visible

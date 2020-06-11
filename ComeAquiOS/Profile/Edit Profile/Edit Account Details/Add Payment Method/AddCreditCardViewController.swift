@@ -13,11 +13,12 @@ private class ResponseObject: Decodable {
 }
 
 class AddCreditCardViewController: LoadViewController {
-
+    
     @IBOutlet weak var cardNumber: ValidatedTextField!
     @IBOutlet weak var month: ValidatedTextField!
     @IBOutlet weak var year: ValidatedTextField!
     @IBOutlet weak var cvc: ValidatedTextField!
+    @IBOutlet weak var saveCardButton: LoadingButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,48 +54,49 @@ class AddCreditCardViewController: LoadViewController {
 
 extension AddCreditCardViewController {
     func saveCard(){
-            
-            Server.post("/card/",
-                        json:
-                [
-                    "card_number":  cardNumber.text,
-                    "exp_month":  month.text,
-                    "exp_year":  year.text,
-                    "cvc":  cvc.text
-                ]) { data, response, error in
-                if let _ = error {
-                    self.view.showToast(message: "No internet connection")
+        saveCardButton.showLoading()
+        Server.post("/card/",
+                    json:
+            [
+                "card_number":  cardNumber.text,
+                "exp_month":  month.text,
+                "exp_year":  year.text,
+                "cvc":  cvc.text
+        ]) { data, response, error in
+            DispatchQueue.main.async {
+                self.saveCardButton.hideLoading()
+            }
+            if let _ = error {
+                self.view.showToast(message: "No internet connection")
+            }
+            guard let data = data else {return}
+            do {
+                let responseO = try JSONDecoder().decode(ResponseObject.self, from: data)
+                if responseO.error_message == nil {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        switch responseO.error_message {
+                        case "number":
+                            self.cardNumber.validationText = "Invalid card number"
+                        case "exp_month":
+                            self.month.validationText = "Invalid month"
+                        case "exp_year":
+                            self.year.validationText = "Invalid year"
+                        case "cvc":
+                            self.cvc.validationText = "Invalid CVC"
+                        default:
+                            break
+                        }
+                    }
                 }
-                            guard let data = data else {
-                                return
-                            }
-                            do {
-                                let responseO = try JSONDecoder().decode(ResponseObject.self, from: data)
-                                if responseO.error_message == nil {
-                                    DispatchQueue.main.async {
-                                        self.navigationController?.popViewController(animated: true)
-                                    }
-                                } else {
-                                    DispatchQueue.main.async {
-                                        switch responseO.error_message {
-                                        case "number":
-                                            self.cardNumber.validationText = "Invalid card number"
-                                        case "exp_month":
-                                            self.month.validationText = "Invalid month"
-                                        case "exp_year":
-                                            self.year.validationText = "Invalid year"
-                                        case "cvc":
-                                            self.cvc.validationText = "Invalid CVC"
-                                        default:
-                                            break
-                                        }
-                                    }
-                                }
-                            } catch _ {
-                                self.view.showToast(message: "Some error ocurred")
-                            }
+            } catch _ {
+                self.view.showToast(message: "Some error ocurred")
             }
         }
+    }
 }
 
 extension AddCreditCardViewController: UITextFieldDelegate {

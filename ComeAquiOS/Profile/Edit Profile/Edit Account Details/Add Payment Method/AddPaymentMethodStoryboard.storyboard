@@ -236,7 +236,7 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YD-7h-mob">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YD-7h-mob" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="132" width="374" height="50"/>
                                         <color key="backgroundColor" name="Confirm"/>
                                         <constraints>
@@ -245,6 +245,11 @@
                                         <state key="normal" title="Save Card">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="saveCard:" destination="tce-Ef-eJb" eventType="touchUpInside" id="QHD-mK-cLc"/>
                                         </connections>
@@ -265,6 +270,7 @@
                         <outlet property="cardNumber" destination="IDf-2q-xgU" id="lWg-7T-Txx"/>
                         <outlet property="cvc" destination="lzM-OH-EJe" id="TPb-Xi-yiM"/>
                         <outlet property="month" destination="gQN-Sn-oE3" id="W0a-KF-Gyo"/>
+                        <outlet property="saveCardButton" destination="7YD-7h-mob" id="Z80-lb-AJB"/>
                         <outlet property="year" destination="m5D-gK-mdx" id="hJa-Kk-TKa"/>
                     </connections>
                 </viewController>
