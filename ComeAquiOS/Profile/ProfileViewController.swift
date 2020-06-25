@@ -27,6 +27,8 @@ class ProfileViewController: LoadViewController {
     var headerFrame: CGRect!
     
     @IBOutlet weak var backgoundImage: ImageToOpen!
+    @IBOutlet weak var backgroundImageHeight: NSLayoutConstraint!
+    var backgroundImageOriginalHeight: CGFloat!
     @IBOutlet weak var changeBackgroundImageButton: UIButton!
     @IBOutlet weak var profileImage: ImageToOpen!
     @IBOutlet weak var changeProfileImageButton: UIButton!
@@ -54,16 +56,11 @@ class ProfileViewController: LoadViewController {
         scrollView1.delegate = self
         scrollView2.delegate = self
         scrollView3.delegate = self
-        scrollView1Width.constant = self.view.frame.width
-        container1TopConstraint.constant = headerView.frame.height
-        container2TopConstraint.constant = headerView.frame.height
-        container3TopConstraint.constant = headerView.frame.height
-        segmentView.isExclusiveTouch = true
-        headerFrame = headerView.frame
     }
     override func viewWillAppear(_ animated: Bool) {
         loadEverything()
     }
+    
     func loadEverything(){
         if let profileId = self.userId {
             getUser(profileId)
@@ -100,6 +97,15 @@ class ProfileViewController: LoadViewController {
         tab1VC?.userId = user.id
         tab2VC?.userId = user.id
         tab3VC?.userId = user.id
+        
+        view.layoutIfNeeded()
+        scrollView1Width.constant = self.view.frame.width
+        container1TopConstraint.constant = headerView.frame.height
+        container2TopConstraint.constant = headerView.frame.height
+        container3TopConstraint.constant = headerView.frame.height
+        segmentView.isExclusiveTouch = true
+        headerFrame = headerView.frame
+        backgroundImageOriginalHeight = backgroundImageHeight.constant
     }
     
     var changingIndex = false
@@ -326,8 +332,9 @@ extension ProfileViewController: UIScrollViewDelegate, UIGestureRecognizerDelega
                 
                 if scrollView.contentOffset.y < 0 {
                     headerTopConstraint.constant = 0
-                    headerHeighConstraint.constant = headerFrame.height - scrollView.contentOffset.y
+                    backgroundImageHeight.constant = backgroundImageOriginalHeight - scrollView.contentOffset.y
                 } else {
+                    backgroundImageHeight.constant = backgroundImageOriginalHeight
                     headerTopConstraint.constant = -scrollView.contentOffset.y
                 }
             }
@@ -336,7 +343,8 @@ extension ProfileViewController: UIScrollViewDelegate, UIGestureRecognizerDelega
         
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
-        if offsetY > contentHeight - scrollView.frame.height {
+        print(offsetY, contentHeight, scrollView.frame.height)
+        if offsetY > contentHeight - scrollView.frame.height + 100 {
             if scrollView == scrollView1 {
                 tab1VC!.fetchMoreData()
             } else if scrollView == scrollView2 {

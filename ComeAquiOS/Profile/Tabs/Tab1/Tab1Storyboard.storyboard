@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="896" id="fFi-Ib-64x"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="400" id="fFi-Ib-64x"/>
                                 </constraints>
                                 <color key="sectionIndexBackgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
@@ -53,12 +53,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="q0R-6F-XIt" secondAttribute="bottom" id="BvP-Do-iwU"/>
+                            <constraint firstAttribute="bottom" secondItem="q0R-6F-XIt" secondAttribute="bottom" id="IuM-eK-y5f"/>
                             <constraint firstItem="q0R-6F-XIt" firstAttribute="trailing" secondItem="Y8P-fl-vIM" secondAttribute="trailing" id="Q5R-xm-f9d"/>
                             <constraint firstItem="VeP-Wd-akr" firstAttribute="centerY" secondItem="4Dm-LX-fUK" secondAttribute="centerY" id="p5C-wJ-pJP"/>
-                            <constraint firstItem="q0R-6F-XIt" firstAttribute="top" secondItem="4Dm-LX-fUK" secondAttribute="top" id="rtH-dl-gde"/>
                             <constraint firstItem="q0R-6F-XIt" firstAttribute="leading" secondItem="Y8P-fl-vIM" secondAttribute="leading" id="sFa-3F-DuL"/>
                             <constraint firstItem="VeP-Wd-akr" firstAttribute="centerX" secondItem="4Dm-LX-fUK" secondAttribute="centerX" id="xif-p2-KZ2"/>
+                            <constraint firstItem="q0R-6F-XIt" firstAttribute="top" secondItem="4Dm-LX-fUK" secondAttribute="top" id="zw9-4U-fXs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Y8P-fl-vIM"/>
                     </view>
@@ -66,6 +66,7 @@
                     <connections>
                         <outlet property="noPostsView" destination="VeP-Wd-akr" id="qiz-46-vrk"/>
                         <outlet property="tableView" destination="q0R-6F-XIt" id="Ji8-yd-tdQ"/>
+                        <outlet property="tableViewHeight" destination="fFi-Ib-64x" id="0km-ab-TMz"/>
                         <segue destination="QgP-y2-Sfe" kind="show" identifier="FoodLookSegue" id="Q4Y-vW-V1j"/>
                     </connections>
                 </viewController>

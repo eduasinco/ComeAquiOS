@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="14W-c3-8Wf" customClass="MyOwnTableView" customModule="ComeAquí" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="896" id="QjF-9I-zMT"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="800" id="QjF-9I-zMT"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Tab2Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tab2Cell" id="ZJt-jN-KyN" customClass="Tab2TableViewCell" customModule="ComeAquí" customModuleProvider="target">
@@ -271,16 +271,17 @@
                         <constraints>
                             <constraint firstItem="by8-Nz-yWf" firstAttribute="centerY" secondItem="UDG-vX-HZE" secondAttribute="centerY" id="9QA-le-9yL"/>
                             <constraint firstItem="14W-c3-8Wf" firstAttribute="leading" secondItem="gJZ-Hz-uJT" secondAttribute="leading" id="ZxP-sV-GEh"/>
-                            <constraint firstAttribute="bottom" secondItem="14W-c3-8Wf" secondAttribute="bottom" id="eKb-bJ-9XP"/>
                             <constraint firstItem="14W-c3-8Wf" firstAttribute="trailing" secondItem="gJZ-Hz-uJT" secondAttribute="trailing" id="hV0-fI-vBJ"/>
-                            <constraint firstItem="14W-c3-8Wf" firstAttribute="top" secondItem="UDG-vX-HZE" secondAttribute="top" id="oQ4-bs-GtO"/>
                             <constraint firstItem="by8-Nz-yWf" firstAttribute="centerX" secondItem="UDG-vX-HZE" secondAttribute="centerX" id="pJG-UQ-Xf0"/>
+                            <constraint firstItem="14W-c3-8Wf" firstAttribute="bottom" secondItem="gJZ-Hz-uJT" secondAttribute="bottom" id="xq0-cB-w76"/>
+                            <constraint firstItem="14W-c3-8Wf" firstAttribute="top" secondItem="gJZ-Hz-uJT" secondAttribute="top" id="z2M-Dk-A0o"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gJZ-Hz-uJT"/>
                     </view>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="noPostsView" destination="by8-Nz-yWf" id="3kX-zd-g18"/>
+                        <outlet property="tableHeight" destination="QjF-9I-zMT" id="cfh-A8-RhG"/>
                         <outlet property="tableView" destination="14W-c3-8Wf" id="p7N-tl-GdO"/>
                         <segue destination="LsR-Fd-vr3" kind="show" identifier="FoodCommentsSegue" id="SVW-h3-DNU"/>
                     </connections>

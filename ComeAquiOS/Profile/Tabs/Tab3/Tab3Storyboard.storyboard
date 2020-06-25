@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="896" id="9ps-dg-2TY"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="800" id="9ps-dg-2TY"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qZ9-t9-AbX">
                                     <size key="itemSize" width="128" height="128"/>
@@ -100,6 +100,7 @@
                     <connections>
                         <outlet property="collectionView" destination="3Oj-Xk-1r2" id="EdX-31-XK8"/>
                         <outlet property="noMediaView" destination="Lb2-cq-8kV" id="mcv-od-l6L"/>
+                        <outlet property="tableHeight" destination="9ps-dg-2TY" id="skG-x0-gKt"/>
                         <segue destination="CiN-nn-icR" kind="show" identifier="ImageLookSegue" id="Hrb-Ni-HFj"/>
                     </connections>
                 </viewController>

@@ -9,6 +9,8 @@
 import UIKit
 
 class Tab3ViewController: UIViewController {
+    
+    @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var noMediaView: UIView!
     
@@ -38,6 +40,9 @@ class Tab3ViewController: UIViewController {
         layout.minimumLineSpacing = 2
         
         collectionView.collectionViewLayout = layout
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        tableHeight.constant = view.frame.height
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

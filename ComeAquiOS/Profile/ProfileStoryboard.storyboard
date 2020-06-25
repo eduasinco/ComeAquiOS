@@ -157,7 +157,7 @@
                                             <action selector="indexChanged:" destination="9c3-aH-ZYm" eventType="valueChanged" id="47X-bp-JTF"/>
                                         </connections>
                                     </segmentedControl>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BackgroundProfile" translatesAutoresizingMaskIntoConstraints="NO" id="WIb-Bl-XcD" customClass="ImageToOpen" customModule="ComeAquí" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundProfile" translatesAutoresizingMaskIntoConstraints="NO" id="WIb-Bl-XcD" customClass="ImageToOpen" customModule="ComeAquí" customModuleProvider="target">
                                         <rect key="frame" x="1" y="0.0" width="414" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="175" id="wpw-pQ-8yQ"/>
@@ -313,17 +313,17 @@
                                 <constraints>
                                     <constraint firstItem="WIb-Bl-XcD" firstAttribute="top" secondItem="WfS-YZ-x2y" secondAttribute="top" id="1Ww-gh-ba1"/>
                                     <constraint firstItem="iAB-c3-c4W" firstAttribute="leading" secondItem="WfS-YZ-x2y" secondAttribute="leading" constant="8" id="2VI-hJ-T8o"/>
-                                    <constraint firstAttribute="trailing" secondItem="WIb-Bl-XcD" secondAttribute="trailing" id="5Sj-Fe-fwB"/>
+                                    <constraint firstAttribute="trailing" secondItem="WIb-Bl-XcD" secondAttribute="trailing" constant="-1" id="5Sj-Fe-fwB"/>
                                     <constraint firstItem="slN-iq-Yan" firstAttribute="leading" secondItem="WfS-YZ-x2y" secondAttribute="leading" id="BEt-MF-U1q"/>
                                     <constraint firstItem="Idx-fN-F4e" firstAttribute="centerX" secondItem="WfS-YZ-x2y" secondAttribute="centerX" id="C9Y-QP-jRt"/>
                                     <constraint firstItem="KD8-3B-UMT" firstAttribute="top" secondItem="iAB-c3-c4W" secondAttribute="bottom" constant="8" id="DE4-au-WVb"/>
-                                    <constraint firstItem="o6C-xj-tNn" firstAttribute="trailing" secondItem="WIb-Bl-XcD" secondAttribute="trailing" constant="-8" id="LQa-fU-3yE"/>
+                                    <constraint firstItem="o6C-xj-tNn" firstAttribute="trailing" secondItem="WIb-Bl-XcD" secondAttribute="trailing" constant="-9" id="LQa-fU-3yE"/>
                                     <constraint firstItem="o6C-xj-tNn" firstAttribute="bottom" secondItem="WIb-Bl-XcD" secondAttribute="bottom" constant="-8" id="LmF-AC-Ls0"/>
                                     <constraint firstAttribute="trailing" secondItem="KD8-3B-UMT" secondAttribute="trailing" constant="8" id="Nc2-EQ-eRS"/>
                                     <constraint firstItem="slN-iq-Yan" firstAttribute="top" secondItem="KD8-3B-UMT" secondAttribute="bottom" constant="8" id="S9F-uH-IKB"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="aEn-yt-toK"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="aEn-yt-toK"/>
                                     <constraint firstItem="7hx-ZS-5dx" firstAttribute="trailing" secondItem="Idx-fN-F4e" secondAttribute="trailing" constant="-8" id="bHn-IH-dbs"/>
-                                    <constraint firstItem="WIb-Bl-XcD" firstAttribute="leading" secondItem="WfS-YZ-x2y" secondAttribute="leading" id="cqq-2y-Sns"/>
+                                    <constraint firstItem="WIb-Bl-XcD" firstAttribute="leading" secondItem="WfS-YZ-x2y" secondAttribute="leading" constant="1" id="cqq-2y-Sns"/>
                                     <constraint firstItem="7hx-ZS-5dx" firstAttribute="bottom" secondItem="Idx-fN-F4e" secondAttribute="bottom" constant="-8" id="hPN-fv-WKD"/>
                                     <constraint firstAttribute="bottom" secondItem="slN-iq-Yan" secondAttribute="bottom" id="isV-9f-hvM"/>
                                     <constraint firstAttribute="trailing" secondItem="iAB-c3-c4W" secondAttribute="trailing" constant="8" id="kTR-ZP-WhQ"/>
@@ -357,6 +357,7 @@
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="backgoundImage" destination="WIb-Bl-XcD" id="Sia-an-RQn"/>
+                        <outlet property="backgroundImageHeight" destination="wpw-pQ-8yQ" id="mCT-HL-h77"/>
                         <outlet property="bioTextView" destination="pId-wh-kKH" id="FdO-JS-LEb"/>
                         <outlet property="changeBackgroundImageButton" destination="o6C-xj-tNn" id="D25-yx-oaz"/>
                         <outlet property="changeProfileImageButton" destination="7hx-ZS-5dx" id="0Cv-D2-9ud"/>

@@ -11,6 +11,7 @@ import GoogleMaps
 import MapKit
 
 class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
+    @IBOutlet weak var viewHolder: UIView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var posterImage: URLImageView!
     @IBOutlet weak var posterName: UILabel!
@@ -24,7 +25,10 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     @IBOutlet weak var viewForMap: UIView!
     @IBOutlet weak var subtotal: UILabel!
     @IBOutlet weak var total: UILabel!
-    @IBOutlet weak var confrimCancelView: UIStackView!
+    @IBOutlet weak var dinnerImage: URLImageView!
+    @IBOutlet weak var dinnerName: UILabel!
+    @IBOutlet weak var dinnerUsername: UILabel!
+    @IBOutlet weak var confirmCancelView: UIView!
     
     var imageScrollVC: ImageScrollViewController?
     
@@ -68,39 +72,42 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     }
     func setConfirmCancelButton(){
         if order?.poster?.id == USER.id && order?.order_status == "PENDING" {
-            confrimCancelView.visibility = .visible
+            confirmCancelView.visibility = .visible
+            dinnerImage.loadImageUsingUrlString(urlString: order?.owner?.profile_photo)
+            dinnerName.text = order?.owner?.full_name
+            dinnerUsername.text = order?.owner?.username
         } else {
-            confrimCancelView.visibility = .gone
+            confirmCancelView.visibility = .gone
         }
     }
     @objc func tapMap(_ gestureRecognizer: UITapGestureRecognizer) {
         openMap(lat: order!.post!.lat!, lng: order!.post!.lng!)
     }
     func goToGoogleMaps() {
-         UIApplication.shared.canOpenURL(URL(string: "http://maps.apple.com/?ll=\(order!.post!.lat!),\(order!.post!.lng!)")!)
+        UIApplication.shared.canOpenURL(URL(string: "http://maps.apple.com/?ll=\(order!.post!.lat!),\(order!.post!.lng!)")!)
         if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
             UIApplication.shared.open(URL(string:"comgooglemaps://?center=\(order!.post!.lat!),\(order!.post!.lng!)&zoom=14&views=traffic")!, options: [:], completionHandler: nil)
         } else {
-
+            
         }
     }
     func openMap(lat: Double, lng: Double) {
         let appleURL = "http://maps.apple.com/?daddr=\(lat),\(lng)"
         let googleURL = "comgooglemaps://?daddr=\(lat),\(lng)&directionsmode=driving"
         let wazeURL = "waze://?ll=\(lat),\(lng)&navigate=false"
-
+        
         let googleItem = ("Google Map", URL(string:googleURL)!)
         let wazeItem = ("Waze", URL(string:wazeURL)!)
         var installedNavigationApps = [("Apple Maps", URL(string:appleURL)!)]
-
+        
         if UIApplication.shared.canOpenURL(googleItem.1) {
             installedNavigationApps.append(googleItem)
         }
-
+        
         if UIApplication.shared.canOpenURL(wazeItem.1) {
             installedNavigationApps.append(wazeItem)
         }
-
+        
         let alert = UIAlertController(title: "Selection", message: "Select Navigation App", preferredStyle: .actionSheet)
         for app in installedNavigationApps {
             let button = UIAlertAction(title: app.0, style: .default, handler: { _ in
@@ -155,7 +162,7 @@ extension OrderLookViewController: OptionsPopUpProtocol{
             setOrderStatus("CANCELED")
         case "Report":
             break
-            // reportPost()
+        // reportPost()
         default:
             break
         }
@@ -184,21 +191,28 @@ extension OrderLookViewController {
     
     func setOrderStatus(_ status: String){
         Server.post("/set_order_status/",
-            json:
+                    json:
             [
                 "order_id": self.order!.id!,
                 "order_status": status,
-            ]) { data, response, error in
+        ]) { data, response, error in
             if let _ = error {
                 self.view.showToast(message: "No internet connection")
             }
-                guard let data = data else {return}
-                do {
-                    self.order = try JSONDecoder().decode(OrderObject.self, from: data)
+            guard let data = data else {return}
+            do {
+                let order = try JSONDecoder().decode(OrderObject.self, from: data)
+                if let error = order.error_message {
+                    DispatchQueue.main.async {
+                        self.viewHolder.showToast(message: error)
+                    }
+                } else {
+                    self.order = order
                     DispatchQueue.main.async {
                         self.setView()
                     }
-                } catch {}
+                }
+            } catch {}
         }
     }
 }

@@ -11,7 +11,7 @@
         <!--Add Bio View Controller-->
         <scene sceneID="ias-mT-s3Y">
             <objects>
-                <viewController storyboardIdentifier="AddBioView" id="af7-KR-spi" customClass="AddBioViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddBioView" id="af7-KR-spi" customClass="AddBioViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Top-tF-iCG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

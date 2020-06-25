@@ -360,6 +360,7 @@ extension UIImage {
     }
 }
 
+
 extension CLLocation {
     func movedBy(latitudinalMeters: CLLocationDistance, longitudinalMeters: CLLocationDistance) -> CLLocation {
         let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: abs(latitudinalMeters), longitudinalMeters: abs(longitudinalMeters))
@@ -391,8 +392,6 @@ extension UIColor {
         )
     }
 }
-
-
 class LoadingButton: UIButton {
     var originalButtonText: String?
     var activityIndicator: UIActivityIndicatorView!

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 final class CardView: UIView {
     private var shadowLayer: CAShapeLayer!
 
@@ -60,7 +61,7 @@ class MyOwnCollectionView: UICollectionView {
             self.invalidateIntrinsicContentSize()
         }
     }
-
+    
     override func reloadData() {
         super.reloadData()
         self.invalidateIntrinsicContentSize()

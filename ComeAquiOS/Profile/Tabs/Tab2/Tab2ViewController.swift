@@ -10,6 +10,7 @@ import UIKit
 
 class Tab2ViewController: UIViewController {
     
+    @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var tableView: MyOwnTableView!
     @IBOutlet weak var noPostsView: UIView!
     
@@ -31,7 +32,9 @@ class Tab2ViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
     }
-    
+    override func viewDidLayoutSubviews() {
+        tableHeight.constant = view.frame.height
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FoodCommentsSegue" {
             let foodLookVC = segue.destination as? FoodReviewLookViewController

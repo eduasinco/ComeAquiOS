@@ -12,6 +12,7 @@ class Tab1ViewController: UIViewController {
 
     @IBOutlet weak var tableView: MyOwnTableView!
     @IBOutlet weak var noPostsView: UIView!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     var data: [FoodPostObject] = []
     var userId : Int? {
@@ -31,12 +32,18 @@ class Tab1ViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
     }
+    override func viewWillAppear(_ animated: Bool) {
+        tableViewHeight.constant = view.frame.height
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FoodLookSegue" {
             let foodLookVC = segue.destination as? FoodLookViewController
             foodLookVC?.foodPostId = (sender as? FoodPostObject)!.id
         }
+    }
+    
+    func setHeight(height: CGFloat){
     }
 }
 extension Tab1ViewController {
