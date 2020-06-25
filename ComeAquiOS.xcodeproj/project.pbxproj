@@ -32,6 +32,8 @@
 		87764266246BE43900BBF7D0 /* DietaryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87764265246BE43900BBF7D0 /* DietaryStoryboard.storyboard */; };
 		87764269246BE7CD00BBF7D0 /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87764268246BE7CD00BBF7D0 /* PeopleTableViewCell.swift */; };
 		8776FF0D24538220005A4D4C /* TextClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8776FF0C24538220005A4D4C /* TextClasses.swift */; };
+		8778409C24A55D8A00ECA361 /* AreYouSureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778409B24A55D8A00ECA361 /* AreYouSureViewController.swift */; };
+		8778409E24A55D9700ECA361 /* AreYouSureStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8778409D24A55D9700ECA361 /* AreYouSureStoryboard.storyboard */; };
 		8782B8512490077300BCD52D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782B8502490077300BCD52D /* Reachability.swift */; };
 		8782B8532490207200BCD52D /* ReloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782B8522490207200BCD52D /* ReloadViewController.swift */; };
 		8782B856249020B800BCD52D /* ReloadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8782B855249020B800BCD52D /* ReloadStoryboard.storyboard */; };
@@ -194,6 +196,8 @@
 		87764265246BE43900BBF7D0 /* DietaryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DietaryStoryboard.storyboard; sourceTree = "<group>"; };
 		87764268246BE7CD00BBF7D0 /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
 		8776FF0C24538220005A4D4C /* TextClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextClasses.swift; sourceTree = "<group>"; };
+		8778409B24A55D8A00ECA361 /* AreYouSureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreYouSureViewController.swift; sourceTree = "<group>"; };
+		8778409D24A55D9700ECA361 /* AreYouSureStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AreYouSureStoryboard.storyboard; sourceTree = "<group>"; };
 		8782B8502490077300BCD52D /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8782B8522490207200BCD52D /* ReloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadViewController.swift; sourceTree = "<group>"; };
 		8782B855249020B800BCD52D /* ReloadStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReloadStoryboard.storyboard; sourceTree = "<group>"; };
@@ -409,6 +413,15 @@
 				87764257246BE3F300BBF7D0 /* PeopleStoryboard.storyboard */,
 			);
 			path = "People Search";
+			sourceTree = "<group>";
+		};
+		8778409A24A55D6C00ECA361 /* Are you sure? pop up */ = {
+			isa = PBXGroup;
+			children = (
+				8778409B24A55D8A00ECA361 /* AreYouSureViewController.swift */,
+				8778409D24A55D9700ECA361 /* AreYouSureStoryboard.storyboard */,
+			);
+			path = "Are you sure? pop up";
 			sourceTree = "<group>";
 		};
 		8782B84F2490074B00BCD52D /* Reachability */ = {
@@ -1010,6 +1023,7 @@
 		87FC9EFF2451223B00810ECF /* Pop Ups */ = {
 			isa = PBXGroup;
 			children = (
+				8778409A24A55D6C00ECA361 /* Are you sure? pop up */,
 				879CBFF22458DBB000383F68 /* Options Pop Up */,
 				879CBFF12458DB9400383F68 /* GalleryCamera */,
 			);
@@ -1153,6 +1167,7 @@
 				87FC9EB92448034B00810ECF /* MapStoryboard.storyboard in Resources */,
 				87C2D3B22478D0E500445D82 /* TansparentLoaderStoryboard.storyboard in Resources */,
 				87AAF8B42466298B000CDC1D /* Tab1Storyboard.storyboard in Resources */,
+				8778409E24A55D9700ECA361 /* AreYouSureStoryboard.storyboard in Resources */,
 				87764264246BE43000BBF7D0 /* DistanceStoryboard.storyboard in Resources */,
 				87B1698924746FAE007685FE /* OrderNotificationStoryboard.storyboard in Resources */,
 				8793FC59248590E9001209CA /* PostTableViewCell.xib in Resources */,
@@ -1265,6 +1280,7 @@
 				87FC9EC6244804F500810ECF /* Extensions.swift in Sources */,
 				87AAF8AA24662939000CDC1D /* Tab2ViewController.swift in Sources */,
 				8776424D246BD29F00BBF7D0 /* SortViewController.swift in Sources */,
+				8778409C24A55D8A00ECA361 /* AreYouSureViewController.swift in Sources */,
 				87C2D3B02478D0D200445D82 /* TransparentLoaderViewController.swift in Sources */,
 				87FC9EE4244E179F00810ECF /* FoodCardViewController.swift in Sources */,
 				87AAF8E02469D1AB000CDC1D /* AddPaymentMethodViewController.swift in Sources */,

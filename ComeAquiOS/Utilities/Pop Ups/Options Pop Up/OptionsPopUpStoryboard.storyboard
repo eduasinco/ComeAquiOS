@@ -86,11 +86,22 @@
                     <connections>
                         <outlet property="cardView" destination="9n7-5a-sXl" id="hEr-Y1-LYb"/>
                         <outlet property="stackView" destination="3ab-kY-tov" id="sjZ-Dg-ub5"/>
+                        <segue destination="Yyg-ca-uvf" kind="presentation" identifier="AreYouSureSegue" modalPresentationStyle="overCurrentContext" id="FVC-FX-OTE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPe-2m-SC6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="67.633928571428569"/>
+        </scene>
+        <!--AreYouSureStoryboard-->
+        <scene sceneID="1SO-wr-bex">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AreYouSureStoryboard" id="Yyg-ca-uvf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="T4o-JI-1WO"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bp6-91-qwy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="685" y="68"/>
         </scene>
     </scenes>
     <resources>

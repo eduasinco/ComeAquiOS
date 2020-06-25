@@ -11,16 +11,16 @@
         <!--Price View Controller-->
         <scene sceneID="cpa-Fy-Ben">
             <objects>
-                <viewController storyboardIdentifier="PriceFilterView" id="k0D-Nt-q8G" customClass="PriceViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PriceFilterView" id="k0D-Nt-q8G" customClass="PriceViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1wW-VE-47X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x15-SU-HB5">
-                                <rect key="frame" x="0.0" y="730" width="414" height="166"/>
+                                <rect key="frame" x="0.0" y="722" width="414" height="174"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TtT-tF-LaJ">
-                                        <rect key="frame" x="16" y="16" width="382" height="100"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TtT-tF-LaJ">
+                                        <rect key="frame" x="16" y="16" width="382" height="108"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Lx9-q7-5VG">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
@@ -64,7 +64,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0X-cK-wQe">
-                                                <rect key="frame" x="0.0" y="50" width="382" height="50"/>
+                                                <rect key="frame" x="0.0" y="58" width="382" height="50"/>
                                                 <color key="backgroundColor" name="PrimaryLight"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="70b-6J-iEG"/>
@@ -72,6 +72,11 @@
                                                 <state key="normal" title="Apply">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="apply:" destination="k0D-Nt-q8G" eventType="touchUpInside" id="UGh-5z-nZy"/>
                                                 </connections>

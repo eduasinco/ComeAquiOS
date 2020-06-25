@@ -11,16 +11,16 @@
         <!--Sort View Controller-->
         <scene sceneID="LYx-QO-ibs">
             <objects>
-                <viewController storyboardIdentifier="SortFilterView" id="shY-6o-NWU" customClass="SortViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SortFilterView" id="shY-6o-NWU" customClass="SortViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WaC-2B-dOk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ali-K2-LaQ">
-                                <rect key="frame" x="0.0" y="630" width="414" height="266"/>
+                                <rect key="frame" x="0.0" y="606" width="414" height="290"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1uO-G9-ncE">
-                                        <rect key="frame" x="16" y="16" width="382" height="200"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1uO-G9-ncE">
+                                        <rect key="frame" x="16" y="16" width="382" height="224"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7S-qK-rea">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
@@ -28,41 +28,56 @@
                                                     <constraint firstAttribute="height" constant="50" id="ZPf-yl-KeM"/>
                                                 </constraints>
                                                 <color key="tintColor" name="Secondary"/>
-                                                <state key="normal" title="For you (Default)" image="person" catalog="system">
+                                                <state key="normal" title=" For you (Default)" image="person" catalog="system">
                                                     <color key="titleColor" name="Primary"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="foryou:" destination="shY-6o-NWU" eventType="touchUpInside" id="5Yz-iz-GO7"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5h-Xd-aJd">
-                                                <rect key="frame" x="0.0" y="50" width="382" height="50"/>
+                                                <rect key="frame" x="0.0" y="58" width="382" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Dpb-vm-Waz"/>
                                                 </constraints>
                                                 <color key="tintColor" name="Secondary"/>
-                                                <state key="normal" title="Popular" image="person.3" catalog="system">
+                                                <state key="normal" title=" Popular" image="person.3" catalog="system">
                                                     <color key="titleColor" name="Primary"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="popular:" destination="shY-6o-NWU" eventType="touchUpInside" id="VC6-Vj-8Nk"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csq-Ly-hCF">
-                                                <rect key="frame" x="0.0" y="100" width="382" height="50"/>
+                                                <rect key="frame" x="0.0" y="116" width="382" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="ONS-JI-dmS"/>
                                                 </constraints>
                                                 <color key="tintColor" name="Secondary"/>
-                                                <state key="normal" title="Rating" image="star" catalog="system">
+                                                <state key="normal" title=" Rating" image="star" catalog="system">
                                                     <color key="titleColor" name="Primary"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="rating:" destination="shY-6o-NWU" eventType="touchUpInside" id="SvW-TC-xDe"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-Hm-cZq">
-                                                <rect key="frame" x="0.0" y="150" width="382" height="50"/>
+                                                <rect key="frame" x="0.0" y="174" width="382" height="50"/>
                                                 <color key="backgroundColor" name="PrimaryLight"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="pO7-FV-uYS"/>
@@ -70,6 +85,11 @@
                                                 <state key="normal" title="Apply">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="apply:" destination="shY-6o-NWU" eventType="touchUpInside" id="1T5-Vp-wMG"/>
                                                 </connections>

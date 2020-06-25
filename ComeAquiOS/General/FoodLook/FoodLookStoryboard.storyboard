@@ -507,7 +507,7 @@
                         <outlet property="userName" destination="hmD-30-GPF" id="kwN-T8-JN5"/>
                         <outlet property="userUserName" destination="ZUA-e9-ik0" id="NiL-V4-tvL"/>
                         <outlet property="viewToShowMap" destination="8gd-0i-bpg" id="1J9-8y-T7f"/>
-                        <segue destination="eNL-T0-Rcu" kind="presentation" identifier="OptionsSegue" modalTransitionStyle="coverVertical" id="Sku-vv-SmJ"/>
+                        <segue destination="eNL-T0-Rcu" kind="presentation" identifier="OptionsSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="Sku-vv-SmJ"/>
                         <segue destination="7Eb-jl-LGK" kind="show" identifier="DinnerSegue" id="Smo-yS-MEg"/>
                         <segue destination="8x2-HK-x4o" kind="show" identifier="EditPostSegue" id="ITk-f3-o2K"/>
                         <segue destination="egv-LV-y1g" kind="presentation" identifier="AttendSegue" id="ShQ-ei-lcg"/>

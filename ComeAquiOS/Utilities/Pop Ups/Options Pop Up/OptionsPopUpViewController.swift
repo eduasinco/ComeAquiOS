@@ -17,6 +17,8 @@ class OptionsPopUpViewController: CardBehaviourViewController {
     var options: [String]?
     var images: [UIImage?]?
     
+    var actionText: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addBottomCardBehaviour(view: cardView, backGround: self.view, onHide: {() -> Void in
@@ -24,7 +26,7 @@ class OptionsPopUpViewController: CardBehaviourViewController {
         })
         guard let options = self.options else {return}
         for (i, option) in options.enumerated() {
-            let button = createButton(option, (option.contains("Delete") || option.contains("Report")) ? UIColor(named: "Canceledd")!: UIColor(named: "Primary")!)
+            let button = createButton(option, (option.contains("Cancel") || option.contains("Delete") || option.contains("Report")) ? UIColor(named: "Canceledd")!: UIColor(named: "Primary")!)
             stackView.addArrangedSubview(button)
             button.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
             if let images = images, let image = images[i] {
@@ -34,10 +36,15 @@ class OptionsPopUpViewController: CardBehaviourViewController {
     }
     
     @objc func buttonPressed(sender: UIButton) {
-        moveCardOut(view: cardView, onFinish: {() -> Void in
-            self.dismiss(animated: true, completion: nil)
-            self.delegate?.optionPressed(sender.titleLabel!.text!)
-        })
+        self.actionText = sender.titleLabel!.text!
+        if (self.actionText.contains("Delete") || self.actionText.contains("Cancel") || self.actionText.contains("Report")){
+            self.performSegue(withIdentifier: "AreYouSureSegue", sender: nil)
+        } else {
+            moveCardOut(view: cardView, onFinish: {() -> Void in
+                self.dismiss(animated: true, completion: nil)
+                self.delegate?.optionPressed(self.actionText)
+            })
+        }
     }
     @IBAction func cancelPressed(_ sender: Any) {
         moveCardOut(view: cardView, onFinish: {() -> Void in
@@ -51,5 +58,24 @@ class OptionsPopUpViewController: CardBehaviourViewController {
         button.setTitleColor(color, for: .normal)
         button.setTitle(title, for: .normal)
         return button
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AreYouSureSegue" {
+            let vc = segue.destination as? AreYouSureViewController
+            let action = self.actionText.lowercased().trimmingCharacters(in: .whitespaces)
+            vc?.delegate = self
+            vc?.titleString = "Are you sure you want to " + action + "?"
+            vc?.messageString = "This action may result in irreversible changes, make sure you want to " + action + " before continuing"
+            vc?.actionButtonTitle = self.actionText
+        }
+    }
+}
+
+extension OptionsPopUpViewController: AreYouSureDelegate {
+    func goAhead() {
+        moveCardOut(view: cardView, onFinish: {() -> Void in
+            self.dismiss(animated: true, completion: nil)
+            self.delegate?.optionPressed(self.actionText)
+        })
     }
 }

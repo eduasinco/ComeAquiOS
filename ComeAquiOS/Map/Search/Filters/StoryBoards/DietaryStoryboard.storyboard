@@ -11,7 +11,7 @@
         <!--Dietary View Controller-->
         <scene sceneID="SuC-bg-3mc">
             <objects>
-                <viewController storyboardIdentifier="DietaryFilterView" id="uk6-BM-z29" customClass="DietaryViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DietaryFilterView" id="uk6-BM-z29" customClass="DietaryViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4eC-nZ-C6P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,6 +40,11 @@
                                                 <state key="normal" title="Apply">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="apply:" destination="uk6-BM-z29" eventType="touchUpInside" id="Gwb-TX-6B3"/>
                                                 </connections>

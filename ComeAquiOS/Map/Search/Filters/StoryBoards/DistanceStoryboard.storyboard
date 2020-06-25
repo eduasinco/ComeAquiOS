@@ -11,16 +11,16 @@
         <!--Distance View Controller-->
         <scene sceneID="WJZ-UP-BiW">
             <objects>
-                <viewController storyboardIdentifier="DistanceFilterView" id="oqq-Ex-phT" customClass="DistanceViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DistanceFilterView" id="oqq-Ex-phT" customClass="DistanceViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hcJ-a2-7up">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcj-di-PWS">
-                                <rect key="frame" x="0.0" y="680" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="664" width="414" height="232"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DNK-dz-gba">
-                                        <rect key="frame" x="16" y="16" width="382" height="150"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DNK-dz-gba">
+                                        <rect key="frame" x="16" y="16" width="382" height="166"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6B-c6-VUE">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
@@ -32,7 +32,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="yEC-Mz-DZd">
-                                                <rect key="frame" x="-2" y="50" width="386" height="51"/>
+                                                <rect key="frame" x="-2" y="58" width="386" height="51"/>
                                                 <color key="tintColor" name="Secondary"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="ebD-f9-ZU7"/>
@@ -42,7 +42,7 @@
                                                 </connections>
                                             </slider>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hII-5B-Plp">
-                                                <rect key="frame" x="0.0" y="100" width="382" height="50"/>
+                                                <rect key="frame" x="0.0" y="116" width="382" height="50"/>
                                                 <color key="backgroundColor" name="PrimaryLight"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="KON-Ok-T8e"/>
@@ -50,6 +50,11 @@
                                                 <state key="normal" title="Apply">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="apply:" destination="oqq-Ex-phT" eventType="touchUpInside" id="j3y-To-799"/>
                                                 </connections>
