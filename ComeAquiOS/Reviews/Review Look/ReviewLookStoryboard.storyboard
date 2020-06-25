@@ -377,6 +377,7 @@
                         <outlet property="image2" destination="DSx-0C-y3u" id="U25-Ye-LGI"/>
                         <outlet property="image3" destination="Vha-sZ-v07" id="tO8-lc-jMd"/>
                         <outlet property="imageScrollView" destination="OlI-2S-OfQ" id="qvI-1o-Fi6"/>
+                        <outlet property="imageScrollViewHeight" destination="tJO-t7-Gvw" id="GGm-GP-r9D"/>
                         <outlet property="noCommentsView" destination="YEB-th-dVW" id="Rfr-hs-oZG"/>
                         <outlet property="posterImage" destination="IZc-O6-GUK" id="vGN-V8-P2I"/>
                         <outlet property="shortHeaderView" destination="XTY-g9-X4X" id="l77-mG-coW"/>

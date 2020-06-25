@@ -410,7 +410,6 @@ extension FoodLookViewController: GMSMapViewDelegate {
 extension FoodLookViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == parentScrollView{
-            print(scrollView.contentOffset.y)
             if scrollView.contentOffset.y > headerOriginalHeight - shortHeaderView.frame.height {
                 headerTopConstraint.constant = -headerView.frame.height + shortHeaderView.frame.height + scrollView.contentOffset.y
                 headerView.dropShadow(radius: 5, opacity: 5)

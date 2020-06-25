@@ -11,6 +11,7 @@ import UIKit
 class FoodReviewLookViewController: LoadViewController {
 
     @IBOutlet weak var imageScrollView: UIScrollView!
+    @IBOutlet weak var imageScrollViewHeight: NSLayoutConstraint!
     @IBOutlet weak var image1: URLImageView!
     @IBOutlet weak var image1Width: NSLayoutConstraint!
     @IBOutlet weak var image2: URLImageView!
@@ -32,6 +33,9 @@ class FoodReviewLookViewController: LoadViewController {
     var reply: ReviewReplyObject?
     var review: ReviewObject?
     var currentCell: UITableViewCell?
+    
+    var headerOriginalHeight: CGFloat!
+    var imageScrollViewOriginalHeight: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +79,8 @@ class FoodReviewLookViewController: LoadViewController {
         self.view.layoutIfNeeded()
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: headerView.frame.height))
         tableView.sectionHeaderHeight = headerView.frame.height
+        headerOriginalHeight = headerView.frame.height
+        imageScrollViewOriginalHeight = imageScrollViewHeight.constant
         headerView.dropShadow(radius: 2, opacity: 2)
         setOnImageClicked()
     }
@@ -102,12 +108,17 @@ class FoodReviewLookViewController: LoadViewController {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == tableView {
-            if scrollView.contentOffset.y < headerView.frame.height - shortHeaderView.frame.height {
-                headerTopConstraint.constant = -scrollView.contentOffset.y
-                headerView.dropShadow(radius: 2, opacity: 2)
+            if scrollView.contentOffset.y < 0 {
+                imageScrollViewHeight.constant = imageScrollViewOriginalHeight - scrollView.contentOffset.y
             } else {
-                headerTopConstraint.constant = -(headerView.frame.height - shortHeaderView.frame.height)
-                headerView.dropShadow(radius: 5, opacity: 5)
+                if scrollView.contentOffset.y < headerOriginalHeight - shortHeaderView.frame.height {
+                    headerTopConstraint.constant = -scrollView.contentOffset.y
+                    headerView.dropShadow(radius: 5, opacity: 2)
+                } else {
+                    headerTopConstraint.constant = -(headerOriginalHeight - shortHeaderView.frame.height)
+                    headerView.dropShadow(radius: 5, opacity: 5)
+                }
+                imageScrollViewHeight.constant = imageScrollViewOriginalHeight
             }
         }
     }
