@@ -11,7 +11,7 @@
         <!--Options Pop Up View Controller-->
         <scene sceneID="2Rs-4N-aXR">
             <objects>
-                <viewController storyboardIdentifier="OptionsView" id="jha-po-mbU" customClass="OptionsPopUpViewController" customModule="ComeAquiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OptionsView" id="jha-po-mbU" customClass="OptionsPopUpViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Ru-5P-Tky">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,6 +25,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="5j6-a2-cqT"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" name="Canceled"/>
                                             <color key="titleShadowColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

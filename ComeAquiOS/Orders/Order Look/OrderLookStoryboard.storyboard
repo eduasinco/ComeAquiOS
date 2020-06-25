@@ -31,7 +31,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oED-Lw-Z7O">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XEB-Si-qhm" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
+                                                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XEB-Si-qhm" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.5" width="70" height="69"/>
                                                                         <color key="tintColor" name="PrimaryLighter"/>
                                                                         <constraints>
@@ -373,6 +373,7 @@
                         <outlet property="viewHolder" destination="8Po-Zx-3Rm" id="ZZE-qB-78W"/>
                         <segue destination="42S-8o-ul1" kind="show" identifier="FoodLookSegue" id="uhU-A2-2Xt"/>
                         <segue destination="elt-ZB-ooW" kind="presentation" identifier="OptionsSegue" id="Izr-xM-Orb"/>
+                        <segue destination="KHS-PF-ASn" kind="show" identifier="ProfileSegue" id="kzL-CB-afg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSk-SU-Tas" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -406,6 +407,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R42-EH-LWq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="751" y="-299"/>
+        </scene>
+        <!--ProfileView-->
+        <scene sceneID="gwh-Eg-VeG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProfileStoryboard" referencedIdentifier="ProfileView" id="KHS-PF-ASn" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ien-uN-yR9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ah3-0v-nie" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="756" y="-181"/>
         </scene>
     </scenes>
     <resources>

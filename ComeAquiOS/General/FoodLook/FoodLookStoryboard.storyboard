@@ -356,7 +356,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0c-oP-Z5d" userLabel="User Description">
                                                                 <rect key="frame" x="0.0" y="200" width="414" height="86"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rXp-6P-AZc" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
+                                                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rXp-6P-AZc" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
                                                                         <rect key="frame" x="8" y="8.5" width="70" height="69"/>
                                                                         <color key="tintColor" name="PrimaryDim"/>
                                                                         <constraints>
@@ -494,6 +494,7 @@
                         <outlet property="image2" destination="d02-ny-PcY" id="vmx-mu-BnJ"/>
                         <outlet property="image3" destination="HP2-Xf-FC7" id="N72-Sf-oDb"/>
                         <outlet property="imageScrollView" destination="9nG-Le-DhN" id="QyE-9l-o4e"/>
+                        <outlet property="imageScrollViewHeight" destination="8S9-08-Ea4" id="VeU-4S-anS"/>
                         <outlet property="mealDescription" destination="Umi-9l-yGd" id="Lpq-xx-LkD"/>
                         <outlet property="parentScrollView" destination="eVx-Ke-ZLR" id="XlL-3L-fQD"/>
                         <outlet property="plateName" destination="CUE-Hp-CwP" id="ls8-nz-AKa"/>
@@ -513,11 +514,22 @@
                         <segue destination="zY6-rG-9O3" kind="show" identifier="OrderLookSegue" id="UN8-Y2-SUO"/>
                         <segue destination="soe-ni-swC" kind="show" identifier="AddPaymentSegue" id="Wai-sL-Rab"/>
                         <segue destination="eju-yR-whh" kind="show" identifier="ImagePagerSegue" id="9Gi-g0-Y85"/>
+                        <segue destination="fiu-vY-uTt" kind="show" identifier="ProfileSegue" id="DdG-iX-ZPE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EkY-Tq-p1q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-20.289855072463769" y="-48.214285714285715"/>
+        </scene>
+        <!--ProfileView-->
+        <scene sceneID="3mj-1B-ITj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProfileStoryboard" referencedIdentifier="ProfileView" id="fiu-vY-uTt" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lNe-rI-2wb"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PTI-wm-gxe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="640" y="-141"/>
         </scene>
         <!--TypesStoryboard-->
         <scene sceneID="SST-G7-SoP">
@@ -535,7 +547,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVb-37-0pC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="654" y="-117"/>
+            <point key="canvasLocation" x="649" y="-90"/>
         </scene>
         <!--DinnersView-->
         <scene sceneID="P1y-hc-dSr">
@@ -603,7 +615,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtb-0U-U6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="693" y="-184"/>
+            <point key="canvasLocation" x="693" y="-200"/>
         </scene>
     </scenes>
     <resources>

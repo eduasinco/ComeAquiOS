@@ -24,7 +24,7 @@ class OptionsPopUpViewController: CardBehaviourViewController {
         })
         guard let options = self.options else {return}
         for (i, option) in options.enumerated() {
-            let button = createButton(option)
+            let button = createButton(option, (option.contains("Delete") || option.contains("Report")) ? UIColor(named: "Canceledd")!: UIColor(named: "Primary")!)
             stackView.addArrangedSubview(button)
             button.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
             if let images = images, let image = images[i] {

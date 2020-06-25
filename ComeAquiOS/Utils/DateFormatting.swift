@@ -59,7 +59,7 @@ extension Date {
         let date = convertToDate(isoDateString: isoDateString)
         let startOfDay = startOfToday()
         
-        if date > startOfDay{
+        if date > startOfDay {
             return "TODAY"
         } else if date > Calendar.current.date(byAdding: .day, value: -1, to: startOfDay)!{
             return "YESTERDAY"

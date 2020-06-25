@@ -13,6 +13,7 @@ class FoodLookViewController: KUIViewController {
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var parentScrollView: UIScrollView!
     @IBOutlet weak var imageScrollView: UIScrollView!
+    @IBOutlet weak var imageScrollViewHeight: NSLayoutConstraint!
     @IBOutlet weak var image1: URLImageView!
     @IBOutlet weak var image2: URLImageView!
     @IBOutlet weak var image3: URLImageView!
@@ -58,6 +59,9 @@ class FoodLookViewController: KUIViewController {
     var commentsVC: CommentsViewController?
     private var respondObject: ResponseFoodPostObject?
     
+    var headerOriginalHeight: CGFloat!
+    var imageScrollViewOriginalHeight: CGFloat!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -90,6 +94,10 @@ class FoodLookViewController: KUIViewController {
         self.holderView.showToast(message: "You can't comment until meal is confirmed")
     }
     
+    @objc func goToProfile(){
+        performSegue(withIdentifier: "ProfileSegue", sender: nil)
+    }
+    
     @IBAction func sendPress(_ sender: Any) {
         postComment()
     }
@@ -106,6 +114,7 @@ class FoodLookViewController: KUIViewController {
         userName.text = foodPost.owner?.full_name!
         userUserName.text = foodPost.owner?.username!
         userImage.loadImageUsingUrlString(urlString: foodPost.owner!.profile_photo)
+        userImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goToProfile)))
         typesVC?.setTypes(typeString: foodPost.food_type ?? "0000000")
         
         let imageArray = [image1, image2, image3]
@@ -132,6 +141,8 @@ class FoodLookViewController: KUIViewController {
         
         headerView.layoutIfNeeded()
         detailStackViewTopConstraint.constant = headerView.frame.height
+        headerOriginalHeight = headerView.frame.height
+        imageScrollViewOriginalHeight = imageScrollViewHeight.constant
         
         plateName.text = foodPost.plate_name
         date.text = foodPost.time_to_show!
@@ -359,6 +370,9 @@ class FoodLookViewController: KUIViewController {
             let vc = segue.destination as? ImagePagerViewController
             vc?.data = foodPost?.images ?? []
             vc?.indexPath = IndexPath(row: sender as? Int ?? 1, section: 0)
+        } else if segue.identifier == "ProfileSegue" {
+            let vc = segue.destination as? ProfileViewController
+            vc?.userId = foodPost?.owner?.id
         }
     }
     override func didReceiveMemoryWarning() {
@@ -396,12 +410,20 @@ extension FoodLookViewController: GMSMapViewDelegate {
 extension FoodLookViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == parentScrollView{
-            if scrollView.contentOffset.y > headerView.frame.height - shortHeaderView.frame.height {
+            print(scrollView.contentOffset.y)
+            if scrollView.contentOffset.y > headerOriginalHeight - shortHeaderView.frame.height {
                 headerTopConstraint.constant = -headerView.frame.height + shortHeaderView.frame.height + scrollView.contentOffset.y
                 headerView.dropShadow(radius: 5, opacity: 5)
             } else {
                 headerTopConstraint.constant = 0
                 headerView.dropShadow()
+            }
+            
+            if scrollView.contentOffset.y < 0 {
+                imageScrollViewHeight.constant = imageScrollViewOriginalHeight - scrollView.contentOffset.y
+                headerTopConstraint.constant = scrollView.contentOffset.y
+            } else {
+                imageScrollViewHeight.constant = imageScrollViewOriginalHeight
             }
         }
     }

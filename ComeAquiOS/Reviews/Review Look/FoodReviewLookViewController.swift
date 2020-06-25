@@ -187,9 +187,6 @@ extension FoodReviewLookViewController: ReviewCellProtocol, OptionsPopUpProtocol
             } else {
                 options.append("Reply")
             }
-            if (USER.id != review.owner!.id) {
-                options.append("Report")
-            }
         }
         
         if (USER.id == review.owner!.id){

@@ -43,6 +43,8 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     func setView(){
         guard let order = self.order else { return }
         posterImage.loadImageUsingUrlString(urlString: order.poster!.profile_photo)
+        posterImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goToProfile)))
+
         posterName.text = order.poster?.full_name
         posterUsername.text = order.poster?.username
         plateName.text = order.post?.plate_name
@@ -82,6 +84,9 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     }
     @objc func tapMap(_ gestureRecognizer: UITapGestureRecognizer) {
         openMap(lat: order!.post!.lat!, lng: order!.post!.lng!)
+    }
+    @objc func goToProfile(){
+        performSegue(withIdentifier: "ProfileSegue", sender: nil)
     }
     func goToGoogleMaps() {
         UIApplication.shared.canOpenURL(URL(string: "http://maps.apple.com/?ll=\(order!.post!.lat!),\(order!.post!.lng!)")!)
@@ -150,6 +155,9 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
             foodLookContainer?.foodPostId = self.order?.post!.id
         } else if segue.identifier == "ImageScrollSegue" {
             imageScrollVC = segue.destination as? ImageScrollViewController
+        }  else if segue.identifier == "ProfileSegue" {
+            let vc = segue.destination as? ProfileViewController
+            vc?.userId = order?.poster?.id
         }
     }
 }

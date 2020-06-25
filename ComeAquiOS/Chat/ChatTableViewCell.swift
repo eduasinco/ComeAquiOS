@@ -22,7 +22,8 @@ class ChatTableViewCell: UITableViewCell {
     }
     
     func setCell(chat: ChatObject){
-        let chattingWith = (USER.id == chat.users![0].id) ? chat.users![1] : chat.users![0]
+        guard let users = chat.users, users.count > 1 else {return}
+        let chattingWith = (USER.id == users[0].id) ? users[1] : users[0]
 
         userUsername.text = chattingWith.full_name
         if let lastMessage = chat.last_message{

@@ -276,4 +276,9 @@ public class MessageObject: Decodable {
         guard let created_at = self.created_at else { return nil}
         return Date.hYesterdayWeekDay(isoDateString: created_at)
     }()
+    
+    lazy var created_at_week_day: String? = {
+        guard let created_at = self.created_at else { return nil}
+        return Date.todayYesterdayWeekDay(isoDateString: created_at)
+    }()
 }

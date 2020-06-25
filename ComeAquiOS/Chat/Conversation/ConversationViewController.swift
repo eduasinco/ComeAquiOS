@@ -178,7 +178,7 @@ extension ConversationViewController: WebSocketDelegate{
                     if self.chatMessages.count > 0 {
                         
                         let first = self.chatMessages.first?.first
-                        if let first = first, Date.todayYesterdayWeekDay(isoDateString: message.created_at!) == Date.todayYesterdayWeekDay(isoDateString: first.created_at!) {
+                        if let first = first, message.created_at_week_day == first.created_at_week_day {
                             self.chatMessages[0].insert(message, at: 0)
                             DispatchQueue.main.async {
                                 self.tableView.beginUpdates()
@@ -276,7 +276,7 @@ extension ConversationViewController {
     func groupBadge(badge: [MessageObject]) -> [[MessageObject]] {
         var badgeGrouped = [[MessageObject]]()
         for i in 0..<badge.count {
-            if i == 0 || Date.todayYesterdayWeekDay(isoDateString: badge[i].created_at!) != Date.todayYesterdayWeekDay(isoDateString: badge[i - 1].created_at!) {
+            if i == 0 || badge[i].created_at_week_day != badge[i - 1].created_at_week_day {
                 let newSection = [badge[i]]
                 badgeGrouped.append(newSection)
             } else {
@@ -290,7 +290,6 @@ extension ConversationViewController {
         alreadyFetchingData = true
         guard let chatId = self.chatId else {return}
         Server.get("/chat_messages/\(chatId)/\(page)/"){ data, response, error in
-            self.alreadyFetchingData = false
             if let _ = error {
                 self.holderView.showToast(message: "No internet connection")
             }
@@ -301,7 +300,7 @@ extension ConversationViewController {
                 let last = self.chatMessages.last?.last
                 let first = chatBadgeGrouped.first?.first
                 
-                if let last = last, let first = first, Date.todayYesterdayWeekDay(isoDateString: last.created_at!) == Date.todayYesterdayWeekDay(isoDateString: first.created_at!) {
+                if let last = last, let first = first, last.created_at_week_day == first.created_at_week_day {
                     self.chatMessages[self.chatMessages.count - 1].append(contentsOf: chatBadgeGrouped.first!)
                     self.chatMessages.append(contentsOf: chatBadgeGrouped[1...])
                 } else {
@@ -312,6 +311,7 @@ extension ConversationViewController {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.page += 1
+                    self.alreadyFetchingData = false
                 }
             } catch {}
         }
@@ -384,7 +384,7 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if chatMessages.count > 0, let firstMessageInSection = chatMessages[section].first {
             let label = DateHeaderLabel()
-            label.text = Date.todayYesterdayWeekDay(isoDateString: firstMessageInSection.created_at!)
+            label.text = firstMessageInSection.created_at_week_day
             label.dropShadow(radius: 1, opacity: 0.3, height: 1)
             let containerView = UIView()
 

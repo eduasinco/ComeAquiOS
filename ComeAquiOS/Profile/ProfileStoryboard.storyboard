@@ -158,7 +158,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundProfile" translatesAutoresizingMaskIntoConstraints="NO" id="WIb-Bl-XcD" customClass="ImageToOpen" customModule="ComeAquí" customModuleProvider="target">
-                                        <rect key="frame" x="1" y="0.0" width="414" height="175"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="415" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="175" id="wpw-pQ-8yQ"/>
                                         </constraints>
@@ -323,7 +323,7 @@
                                     <constraint firstItem="slN-iq-Yan" firstAttribute="top" secondItem="KD8-3B-UMT" secondAttribute="bottom" constant="8" id="S9F-uH-IKB"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" id="aEn-yt-toK"/>
                                     <constraint firstItem="7hx-ZS-5dx" firstAttribute="trailing" secondItem="Idx-fN-F4e" secondAttribute="trailing" constant="-8" id="bHn-IH-dbs"/>
-                                    <constraint firstItem="WIb-Bl-XcD" firstAttribute="leading" secondItem="WfS-YZ-x2y" secondAttribute="leading" constant="1" id="cqq-2y-Sns"/>
+                                    <constraint firstItem="WIb-Bl-XcD" firstAttribute="leading" secondItem="WfS-YZ-x2y" secondAttribute="leading" id="cqq-2y-Sns"/>
                                     <constraint firstItem="7hx-ZS-5dx" firstAttribute="bottom" secondItem="Idx-fN-F4e" secondAttribute="bottom" constant="-8" id="hPN-fv-WKD"/>
                                     <constraint firstAttribute="bottom" secondItem="slN-iq-Yan" secondAttribute="bottom" id="isV-9f-hvM"/>
                                     <constraint firstAttribute="trailing" secondItem="iAB-c3-c4W" secondAttribute="trailing" constant="8" id="kTR-ZP-WhQ"/>
