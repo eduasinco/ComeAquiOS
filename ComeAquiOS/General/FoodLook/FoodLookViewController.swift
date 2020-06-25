@@ -151,7 +151,7 @@ class FoodLookViewController: KUIViewController {
         mealDescription.text = foodPost.description
         addressLabel.text = foodPost.formatted_address
         
-        GMSServices.provideAPIKey("AIzaSyDDZzJN-1TJ9i8DzEvL-dJypS8Xsa2UYy0")
+        GMSServices.provideAPIKey(GOOGLE_MAPS_KEY)
         let camera = GMSCameraPosition.camera(withLatitude: foodPost.lat!, longitude: foodPost.lng!, zoom: 15.0)
         googleMap = GMSMapView.map(withFrame: view.bounds, camera: camera)
         googleMap.isMyLocationEnabled = true

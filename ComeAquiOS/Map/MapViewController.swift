@@ -52,7 +52,7 @@ class MapViewController: LoadViewController, CardActionProtocol {
     
     override func loadView() {
         super.loadView()
-        GMSServices.provideAPIKey("AIzaSyDDZzJN-1TJ9i8DzEvL-dJypS8Xsa2UYy0")
+        GMSServices.provideAPIKey(GOOGLE_MAPS_KEY)
         let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 15.0)
         googleMap = GMSMapView.map(withFrame: viewForMap.bounds, camera: camera)
         googleMap.isMyLocationEnabled = true

@@ -61,7 +61,7 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
         imageScrollVC?.foodPostId = self.order?.post!.id
     }
     func setMapView() {
-        GMSServices.provideAPIKey("AIzaSyDDZzJN-1TJ9i8DzEvL-dJypS8Xsa2UYy0")
+        GMSServices.provideAPIKey(GOOGLE_MAPS_KEY)
         let camera = GMSCameraPosition.camera(withLatitude: order!.post!.lat!, longitude: order!.post!.lng!, zoom: 15.0)
         let googleMap = GMSMapView.map(withFrame: view.bounds, camera: camera)
         googleMap.isMyLocationEnabled = true
