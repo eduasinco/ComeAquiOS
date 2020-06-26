@@ -209,7 +209,7 @@ extension BankAccountDetailsViewController: GaleryCameraPopUpProtocol {
                     self.stripeAccountInfo = try JSONDecoder().decode(StripeAccountInfoObject.self, from: data)
                     if self.stripeAccountInfo?.error_message == nil {
                         DispatchQueue.main.async {
-                            self.backIdButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+                            self.frontIdButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
                             self.frontIdButton.tintColor = UIColor(named: "Success")
                         }
                     } else {

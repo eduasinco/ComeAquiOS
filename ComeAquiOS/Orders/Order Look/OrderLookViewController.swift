@@ -29,6 +29,8 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     @IBOutlet weak var dinnerName: UILabel!
     @IBOutlet weak var dinnerUsername: UILabel!
     @IBOutlet weak var confirmCancelView: UIView!
+    @IBOutlet weak var mealMessage: UILabel!
+    @IBOutlet weak var confirmCancelStack: UIStackView!
     @IBOutlet weak var cancelButton: LoadingButton!
     @IBOutlet weak var confirmButton: LoadingButton!
     
@@ -36,10 +38,13 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     
     var orderId: Int?
     var order: OrderObject?
+    var isSendingData = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getOrder()
+        confirmCancelStack.visibility = .gone
+        mealMessage.visibility = .gone
     }
     
     func setView(){
@@ -50,7 +55,6 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
         posterName.text = order.poster?.full_name
         posterUsername.text = order.poster?.username
         plateName.text = order.post?.plate_name
-        status.text = order.order_status
         descriptionText.text = order.post?.description
         time.text = order.post?.time_to_show
         let priceF = Float(order.post!.price!) / 100
@@ -61,6 +65,7 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
         subtotal.text = priceString
         total.text = priceString
         imageScrollVC?.foodPostId = self.order?.post!.id
+        setConfirmCancelButton()
     }
     func setMapView() {
         GMSServices.provideAPIKey(GOOGLE_MAPS_KEY)
@@ -71,17 +76,63 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
         googleMap.isUserInteractionEnabled = false
         viewForMap.addSubview(googleMap)
         viewForMap.clipsToBounds = true
-        setConfirmCancelButton()
         viewForMap.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapMap(_:))))
     }
     func setConfirmCancelButton(){
-        if order?.poster?.id == USER.id && order?.order_status == "PENDING" {
-            confirmCancelView.visibility = .visible
-            dinnerImage.loadImageUsingUrlString(urlString: order?.owner?.profile_photo)
-            dinnerName.text = order?.owner?.full_name
-            dinnerUsername.text = order?.owner?.username
-        } else {
-            confirmCancelView.visibility = .gone
+        dinnerImage.loadImageUsingUrlString(urlString: order?.owner?.profile_photo)
+        dinnerName.text = order?.owner?.full_name
+        dinnerUsername.text = order?.owner?.username
+        confirmCancelStack.visibility = .gone
+        mealMessage.visibility = .gone
+        guard let post_status = order?.post?.status else {return}
+        switch post_status {
+        case "OPEN":
+            switch order?.order_status {
+            case "CONFIRMED":
+                status.text = order?.order_status
+                status.textColor = UIColor(named: "Confirm")
+                mealMessage.text = "Meal confirmed"
+                mealMessage.textColor = UIColor(named: "Confirm")
+                mealMessage.visibility = .visible
+            case "PENDING":
+                if order?.poster?.id == USER.id {
+                    confirmCancelStack.visibility = .visible
+                } else {
+                    status.text = order?.order_status
+                    status.textColor = UIColor(named: "Primary")
+                    mealMessage.text = "Pending confirmation"
+                    mealMessage.textColor = UIColor(named: "Primary")
+                    mealMessage.visibility = .visible
+                }
+            case "CANCELED":
+                status.text = order?.order_status
+                status.textColor = UIColor(named: "Canceledd")
+                mealMessage.text = "Meal canceled"
+                mealMessage.textColor = UIColor(named: "Canceledd")
+                mealMessage.visibility = .visible
+            case "REJECTED":
+                status.text = order?.order_status
+                status.textColor = UIColor(named: "Canceledd")
+                mealMessage.text = "Meal rejected"
+                mealMessage.textColor = UIColor(named: "Canceledd")
+                mealMessage.visibility = .visible
+            case "FINISHED":
+                status.text = order?.order_status
+                status.textColor = UIColor(named: "Primary")
+                mealMessage.text = "Meal finished"
+                mealMessage.textColor = UIColor(named: "Primary")
+                mealMessage.visibility = .visible
+            default:
+                break
+            }
+        case "IN_COURSE":
+            mealMessage.text = "Meal in course"
+            mealMessage.visibility = .visible
+        case "FINISHED":
+            mealMessage.text = "Meal finished"
+            mealMessage.visibility = .visible
+        default:
+            break
         }
     }
     @objc func tapMap(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -135,11 +186,9 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     }
     
     @IBAction func confirmPressed(_ sender: Any) {
-        confirmButton.showLoading()
         setOrderStatus("CONFIRMED")
     }
     @IBAction func cancelPressed(_ sender: Any) {
-        cancelButton.showLoading()
         setOrderStatus("CANCELED")
     }
     
@@ -202,21 +251,17 @@ extension OrderLookViewController {
     }
     
     func setOrderStatus(_ status: String){
+        presentTransparentLoader()
         Server.post("/set_order_status/",
                     json:
             [
                 "order_id": self.order!.id!,
                 "order_status": status,
         ]) { data, response, error in
-            DispatchQueue.main.async {
-                if status == "CONFIRMED"{
-                    self.confirmButton.hideLoading()
-                } else if status == "CANCELED"{
-                    self.cancelButton.hideLoading()
-                }
-            }
+            self.isSendingData = false
             if let _ = error {
                 self.view.showToast(message: "No internet connection")
+                self.closeTransparentLoader()
             }
             guard let data = data else {return}
             do {
@@ -224,14 +269,18 @@ extension OrderLookViewController {
                 if let error = order.error_message {
                     DispatchQueue.main.async {
                         self.viewHolder.showToast(message: error)
+                        self.closeTransparentLoader()
                     }
                 } else {
                     self.order = order
                     DispatchQueue.main.async {
                         self.setView()
+                        self.closeTransparentLoader()
                     }
                 }
-            } catch {}
+            } catch {
+                self.closeTransparentLoader()
+            }
         }
     }
 }

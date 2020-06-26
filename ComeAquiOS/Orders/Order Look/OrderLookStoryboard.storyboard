@@ -87,7 +87,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="abj-UH-wMB">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="abj-UH-wMB">
                                                                 <rect key="frame" x="0.0" y="130.5" width="374" height="34"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <color key="textColor" name="Primary"/>
@@ -145,7 +145,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-Co-WLT">
-                                                        <rect key="frame" x="0.0" y="284.5" width="414" height="107.5"/>
+                                                        <rect key="frame" x="0.0" y="284.5" width="414" height="57.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" priority="200" constant="200" id="mSJ-Sk-ieG"/>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" id="tzI-sX-tQm"/>
@@ -155,7 +155,7 @@
                                                         </connections>
                                                     </containerView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VUe-k0-JDS">
-                                                        <rect key="frame" x="20" y="412" width="374" height="346"/>
+                                                        <rect key="frame" x="20" y="362" width="374" height="346"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q67-rg-apg">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="200"/>
@@ -226,7 +226,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="64C-zO-Xc5" secondAttribute="trailing" constant="20" id="4Xv-ls-kj0"/>
                                                     <constraint firstItem="64C-zO-Xc5" firstAttribute="top" secondItem="RVq-1J-l4F" secondAttribute="top" constant="20" id="CzB-Kz-pRL"/>
                                                     <constraint firstItem="VUe-k0-JDS" firstAttribute="leading" secondItem="RVq-1J-l4F" secondAttribute="leading" constant="20" id="Int-GV-bPr"/>
-                                                    <constraint firstAttribute="bottom" secondItem="VUe-k0-JDS" secondAttribute="bottom" constant="120" id="cd8-hw-PUi"/>
+                                                    <constraint firstAttribute="bottom" secondItem="VUe-k0-JDS" secondAttribute="bottom" constant="170" id="cd8-hw-PUi"/>
                                                     <constraint firstItem="VUe-k0-JDS" firstAttribute="top" secondItem="8Kf-Co-WLT" secondAttribute="bottom" constant="20" id="deE-Ah-3Gj"/>
                                                     <constraint firstItem="64C-zO-Xc5" firstAttribute="leading" secondItem="RVq-1J-l4F" secondAttribute="leading" constant="20" id="kR2-mt-JKT"/>
                                                     <constraint firstItem="8Kf-Co-WLT" firstAttribute="leading" secondItem="RVq-1J-l4F" secondAttribute="leading" id="m6d-JO-kvP"/>
@@ -243,38 +243,52 @@
                                             <constraint firstItem="RVq-1J-l4F" firstAttribute="height" secondItem="Sx5-V6-8cu" secondAttribute="height" priority="250" id="zkB-Kn-Nbf"/>
                                         </constraints>
                                     </scrollView>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8iY-QY-gr8">
-                                        <rect key="frame" x="0.0" y="772" width="414" height="106"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8iY-QY-gr8">
+                                        <rect key="frame" x="0.0" y="722" width="414" height="156"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ubN-4w-Ece">
-                                                <rect key="frame" x="0.0" y="56" width="414" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ubN-4w-Ece">
+                                                <rect key="frame" x="0.0" y="56" width="414" height="100"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-4U-jWr" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
-                                                        <color key="backgroundColor" name="Canceled"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        <state key="normal" title="Cancel">
-                                                            <color key="titleColor" red="0.97132772840000003" green="0.97132772840000003" blue="0.97132772840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="cancelPressed:" destination="8xT-tr-qDr" eventType="touchUpInside" id="CFi-2m-jqW"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iqa-pB-DGq" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
-                                                        <rect key="frame" x="207" y="0.0" width="207" height="50"/>
-                                                        <color key="backgroundColor" name="Confirm"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        <state key="normal" title="Confirm">
-                                                            <color key="titleColor" red="0.97132772840000003" green="0.97132772840000003" blue="0.97132772840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="confirmPressed:" destination="8xT-tr-qDr" eventType="touchUpInside" id="pRD-wZ-XsQ"/>
-                                                        </connections>
-                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal already finished" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbf-9U-owd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="EyK-wf-TAI"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="Primary"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MG8-MU-2yP">
+                                                        <rect key="frame" x="0.0" y="50" width="414" height="50"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-4U-jWr" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
+                                                                <color key="backgroundColor" name="Canceled"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                                <state key="normal" title="Cancel">
+                                                                    <color key="titleColor" red="0.97132772840000003" green="0.97132772840000003" blue="0.97132772840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="cancelPressed:" destination="8xT-tr-qDr" eventType="touchUpInside" id="CFi-2m-jqW"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iqa-pB-DGq" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
+                                                                <rect key="frame" x="207" y="0.0" width="207" height="50"/>
+                                                                <color key="backgroundColor" name="Confirm"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                                <state key="normal" title="Confirm">
+                                                                    <color key="titleColor" red="0.97132772840000003" green="0.97132772840000003" blue="0.97132772840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="confirmPressed:" destination="8xT-tr-qDr" eventType="touchUpInside" id="pRD-wZ-XsQ"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="Oyy-GA-Sw0"/>
+                                                        </constraints>
+                                                    </stackView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="hKU-wK-CQv"/>
-                                                </constraints>
                                             </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2R0-FB-7EG" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="8.5" width="40" height="39"/>
@@ -356,11 +370,13 @@
                         <outlet property="address" destination="lDJ-kr-dQN" id="Gfb-u5-ro9"/>
                         <outlet property="cancelButton" destination="Xd1-4U-jWr" id="KP5-ND-3FJ"/>
                         <outlet property="confirmButton" destination="Iqa-pB-DGq" id="8rR-WE-RFp"/>
+                        <outlet property="confirmCancelStack" destination="MG8-MU-2yP" id="cDv-vu-bza"/>
                         <outlet property="confirmCancelView" destination="8iY-QY-gr8" id="zFU-a0-ZR7"/>
                         <outlet property="descriptionText" destination="abj-UH-wMB" id="5Aj-Hb-O9d"/>
                         <outlet property="dinnerImage" destination="2R0-FB-7EG" id="Rav-Yt-uDY"/>
                         <outlet property="dinnerName" destination="7tR-wl-1ix" id="MG0-0E-z79"/>
                         <outlet property="dinnerUsername" destination="y77-Sp-tN3" id="kcX-s4-9B8"/>
+                        <outlet property="mealMessage" destination="Rbf-9U-owd" id="ncS-Gq-OPV"/>
                         <outlet property="plateName" destination="gz7-vu-1rn" id="6tu-2K-l8i"/>
                         <outlet property="posterImage" destination="XEB-Si-qhm" id="YtR-Be-dMb"/>
                         <outlet property="posterName" destination="Yk5-yu-gPd" id="DHe-vD-R5C"/>

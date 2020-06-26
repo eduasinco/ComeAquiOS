@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5cS-BF-2wy">
-                                <rect key="frame" x="0.0" y="661.5" width="414" height="200.5"/>
+                                <rect key="frame" x="0.0" y="645.5" width="414" height="250.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vz-ju-Xpw">
                                         <rect key="frame" x="0.0" y="150.5" width="414" height="50"/>
@@ -93,12 +93,11 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="4B8-7V-X4r" firstAttribute="leading" secondItem="5cS-BF-2wy" secondAttribute="leading" constant="20" id="Dp8-If-Rs9"/>
-                                    <constraint firstAttribute="bottom" secondItem="6vz-ju-Xpw" secondAttribute="bottom" id="GDS-hM-VSk"/>
+                                    <constraint firstAttribute="bottom" secondItem="6vz-ju-Xpw" secondAttribute="bottom" constant="50" id="GDS-hM-VSk"/>
                                     <constraint firstItem="4B8-7V-X4r" firstAttribute="top" secondItem="5cS-BF-2wy" secondAttribute="top" constant="20" id="Nri-4t-xbq"/>
                                     <constraint firstItem="6vz-ju-Xpw" firstAttribute="leading" secondItem="5cS-BF-2wy" secondAttribute="leading" id="QxW-Qo-M1s"/>
                                     <constraint firstAttribute="trailing" secondItem="6vz-ju-Xpw" secondAttribute="trailing" id="nKb-63-8CQ"/>
                                     <constraint firstItem="6vz-ju-Xpw" firstAttribute="top" secondItem="4B8-7V-X4r" secondAttribute="bottom" id="pTs-et-xmD"/>
-                                    <constraint firstAttribute="width" constant="300" id="xXM-3w-IQX"/>
                                     <constraint firstAttribute="trailing" secondItem="4B8-7V-X4r" secondAttribute="trailing" constant="20" id="ynf-d4-HRO"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -110,7 +109,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="5cS-BF-2wy" firstAttribute="leading" secondItem="J83-CO-9A8" secondAttribute="leading" id="DYO-uK-DN7"/>
-                            <constraint firstItem="J83-CO-9A8" firstAttribute="bottom" secondItem="5cS-BF-2wy" secondAttribute="bottom" id="GTu-YN-2qE"/>
+                            <constraint firstAttribute="bottom" secondItem="5cS-BF-2wy" secondAttribute="bottom" id="GTu-YN-2qE"/>
                             <constraint firstItem="J83-CO-9A8" firstAttribute="trailing" secondItem="5cS-BF-2wy" secondAttribute="trailing" id="TWk-ar-rhp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J83-CO-9A8"/>
