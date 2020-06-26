@@ -1481,7 +1481,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.EduardoRdoriguezPerez.ComeAquiOS;
 				PRODUCT_NAME = "ComeAquí";
 				SWIFT_VERSION = 5.0;
@@ -1504,7 +1504,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.EduardoRdoriguezPerez.ComeAquiOS;
 				PRODUCT_NAME = "ComeAquí";
 				SWIFT_VERSION = 5.0;

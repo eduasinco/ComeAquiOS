@@ -49,7 +49,7 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     
     func setView(){
         guard let order = self.order else { return }
-        posterImage.loadImageUsingUrlString(urlString: order.poster!.profile_photo)
+        posterImage.loadImageUsingUrlString(urlString: order.poster?.profile_photo)
         posterImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goToProfile)))
 
         posterName.text = order.poster?.full_name
