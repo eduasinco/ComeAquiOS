@@ -40,9 +40,14 @@
                                                                                     <constraint firstAttribute="height" constant="50" id="CA6-Pd-fN2"/>
                                                                                 </constraints>
                                                                                 <color key="tintColor" name="Secondary"/>
-                                                                                <state key="normal" title="For you (Default)" image="person" catalog="system">
+                                                                                <state key="normal" title=" For you (Default)" image="person" catalog="system">
                                                                                     <color key="titleColor" name="Primary"/>
                                                                                 </state>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                                                        <integer key="value" value="8"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <action selector="foryou:" destination="8ww-X9-XP5" eventType="touchUpInside" id="PSL-yP-Gdy"/>
                                                                                 </connections>
@@ -53,9 +58,14 @@
                                                                                     <constraint firstAttribute="height" constant="50" id="68k-ym-oLx"/>
                                                                                 </constraints>
                                                                                 <color key="tintColor" name="Secondary"/>
-                                                                                <state key="normal" title="Popular" image="person.3" catalog="system">
+                                                                                <state key="normal" title=" Popular" image="person.3" catalog="system">
                                                                                     <color key="titleColor" name="Primary"/>
                                                                                 </state>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                                                        <integer key="value" value="8"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <action selector="popular:" destination="8ww-X9-XP5" eventType="touchUpInside" id="apE-1L-NmX"/>
                                                                                 </connections>
@@ -66,9 +76,14 @@
                                                                                     <constraint firstAttribute="height" constant="50" id="Xjz-Fh-wy7"/>
                                                                                 </constraints>
                                                                                 <color key="tintColor" name="Secondary"/>
-                                                                                <state key="normal" title="Rating" image="star" catalog="system">
+                                                                                <state key="normal" title=" Rating" image="star" catalog="system">
                                                                                     <color key="titleColor" name="Primary"/>
                                                                                 </state>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="roudCorners">
+                                                                                        <integer key="value" value="8"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <action selector="rating:" destination="8ww-X9-XP5" eventType="touchUpInside" id="d8p-Me-Abt"/>
                                                                                 </connections>

@@ -249,7 +249,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ubN-4w-Ece">
                                                 <rect key="frame" x="0.0" y="56" width="414" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-4U-jWr">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd1-4U-jWr" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
                                                         <color key="backgroundColor" name="Canceled"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -260,7 +260,7 @@
                                                             <action selector="cancelPressed:" destination="8xT-tr-qDr" eventType="touchUpInside" id="CFi-2m-jqW"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iqa-pB-DGq">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iqa-pB-DGq" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
                                                         <rect key="frame" x="207" y="0.0" width="207" height="50"/>
                                                         <color key="backgroundColor" name="Confirm"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -354,6 +354,8 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="address" destination="lDJ-kr-dQN" id="Gfb-u5-ro9"/>
+                        <outlet property="cancelButton" destination="Xd1-4U-jWr" id="KP5-ND-3FJ"/>
+                        <outlet property="confirmButton" destination="Iqa-pB-DGq" id="8rR-WE-RFp"/>
                         <outlet property="confirmCancelView" destination="8iY-QY-gr8" id="zFU-a0-ZR7"/>
                         <outlet property="descriptionText" destination="abj-UH-wMB" id="5Aj-Hb-O9d"/>
                         <outlet property="dinnerImage" destination="2R0-FB-7EG" id="Rav-Yt-uDY"/>

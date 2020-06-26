@@ -47,6 +47,7 @@ class FoodLookViewController: KUIViewController {
     @IBOutlet weak var creditCardNumber: UILabel!
     @IBOutlet weak var commentTextViewStack: UIStackView!
     @IBOutlet weak var commentTextField: UITextView!
+    @IBOutlet weak var sendCommentButton: UIButton!
     @IBOutlet weak var commentsView: UIView!
     @IBOutlet weak var bcfkb: NSLayoutConstraint!
     
@@ -77,6 +78,14 @@ class FoodLookViewController: KUIViewController {
         dinnersStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action:  #selector(self.checkAction(sender:))))
         commentTextViewStack.addGestureRecognizer(UITapGestureRecognizer(target: self, action:  #selector(self.tapComment(sender:))))
         viewToShowMap.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapMap(_:))))
+        sendCommentButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector (sendComment)))
+    }
+        
+    @objc func sendComment(){
+        self.view.endEditing(true)
+        postComment()
+        self.textView.text = ""
+        self.sendButton.visibility = .gone
     }
     @objc func tapMap(_ gestureRecognizer: UITapGestureRecognizer) {
         openMap(lat: foodPost!.lat!, lng: foodPost!.lng!)
@@ -98,9 +107,6 @@ class FoodLookViewController: KUIViewController {
         performSegue(withIdentifier: "ProfileSegue", sender: nil)
     }
     
-    @IBAction func sendPress(_ sender: Any) {
-        postComment()
-    }
     @IBAction func addPaymentMethod(_ sender: Any) {
         performSegue(withIdentifier: "AddPaymentSegue", sender: nil)
     }
@@ -524,13 +530,9 @@ extension FoodLookViewController {
                     guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
                     DispatchQueue.main.async {
                         let newComment = Comment(json: json, parent: nil)
-                        
-                        self.textView.text = ""
-                        self.sendButton.visibility = .gone
                         DispatchQueue.main.async {
                             self.commentsVC?.commentAddedToPost(newComment: newComment)
                         }
-                        self.view.endEditing(true)
                     }
                 } catch _ {
                     self.view.showToast(message: "Some error ocurred")

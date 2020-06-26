@@ -68,9 +68,11 @@ class AllViewController: KUIViewController {
             if b == pressed {
                 b!.backgroundColor = UIColor.gray
                 b!.tintColor = UIColor.white
+                b!.setTitleColor(UIColor.white, for: .normal)
             } else {
                 b!.backgroundColor = UIColor.white
-                b!.tintColor = UIColor.gray
+                b!.tintColor = UIColor(named: "Secondary")
+                b!.setTitleColor(UIColor.gray, for: .normal)
             }
         }
     }
@@ -92,10 +94,10 @@ class AllViewController: KUIViewController {
         for b in [low, medium, high]{
             if b == pressed {
                 b!.backgroundColor = UIColor.gray
-                b!.tintColor = UIColor.white
+                b!.setTitleColor(UIColor.white, for: .normal)
             } else {
-                b!.backgroundColor = UIColor.white
-                b!.tintColor = UIColor.gray
+                b!.backgroundColor =  UIColor.white
+                b!.setTitleColor(UIColor.gray, for: .normal)
             }
         }
     }

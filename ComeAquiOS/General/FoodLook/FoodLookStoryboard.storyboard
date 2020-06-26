@@ -286,9 +286,6 @@
                                                                         <integer key="value" value="8"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="sendPress:" destination="lTy-tE-mA4" eventType="touchUpInside" id="S1x-Hg-aW8"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -500,6 +497,7 @@
                         <outlet property="plateName" destination="CUE-Hp-CwP" id="ls8-nz-AKa"/>
                         <outlet property="price" destination="7Jq-7T-7Nz" id="56G-oE-yQs"/>
                         <outlet property="sendButton" destination="NPk-aX-8Mn" id="28g-xq-Fi3"/>
+                        <outlet property="sendCommentButton" destination="NPk-aX-8Mn" id="Ine-WE-4F9"/>
                         <outlet property="shortHeaderView" destination="o0c-oP-Z5d" id="HKQ-0A-TyV"/>
                         <outlet property="textView" destination="OW1-9P-6xu" id="6OM-fo-9W8"/>
                         <outlet property="time" destination="shu-rw-Bfk" id="7Tg-1H-GZv"/>

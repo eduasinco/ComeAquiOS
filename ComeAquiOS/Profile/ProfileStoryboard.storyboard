@@ -238,7 +238,7 @@
                                             </containerView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="-" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pId-wh-kKH">
                                                 <rect key="frame" x="0.0" y="50.5" width="398" height="33"/>
-                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" name="Primary"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>

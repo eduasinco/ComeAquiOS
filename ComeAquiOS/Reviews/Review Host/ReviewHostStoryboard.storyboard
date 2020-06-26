@@ -387,7 +387,7 @@
                                             <constraint firstItem="Sff-iJ-0Fe" firstAttribute="top" secondItem="Dz0-Y2-az6" secondAttribute="top" id="dyp-hg-B6C"/>
                                         </constraints>
                                     </scrollView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kd-HC-tv7">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kd-HC-tv7" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1372" width="414" height="50"/>
                                         <color key="backgroundColor" name="PrimaryLight"/>
                                         <constraints>

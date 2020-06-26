@@ -29,6 +29,8 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     @IBOutlet weak var dinnerName: UILabel!
     @IBOutlet weak var dinnerUsername: UILabel!
     @IBOutlet weak var confirmCancelView: UIView!
+    @IBOutlet weak var cancelButton: LoadingButton!
+    @IBOutlet weak var confirmButton: LoadingButton!
     
     var imageScrollVC: ImageScrollViewController?
     
@@ -133,9 +135,11 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     }
     
     @IBAction func confirmPressed(_ sender: Any) {
+        confirmButton.showLoading()
         setOrderStatus("CONFIRMED")
     }
     @IBAction func cancelPressed(_ sender: Any) {
+        cancelButton.showLoading()
         setOrderStatus("CANCELED")
     }
     
@@ -204,6 +208,13 @@ extension OrderLookViewController {
                 "order_id": self.order!.id!,
                 "order_status": status,
         ]) { data, response, error in
+            DispatchQueue.main.async {
+                if status == "CONFIRMED"{
+                    self.confirmButton.hideLoading()
+                } else if status == "CANCELED"{
+                    self.cancelButton.hideLoading()
+                }
+            }
             if let _ = error {
                 self.view.showToast(message: "No internet connection")
             }

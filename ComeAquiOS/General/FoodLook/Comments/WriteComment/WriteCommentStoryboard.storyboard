@@ -41,7 +41,7 @@
                                                         <color key="textColor" name="Primary"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fp7-VV-e98">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fp7-VV-e98" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="744" width="398" height="50"/>
                                                         <color key="backgroundColor" name="PrimaryLight"/>
                                                         <constraints>

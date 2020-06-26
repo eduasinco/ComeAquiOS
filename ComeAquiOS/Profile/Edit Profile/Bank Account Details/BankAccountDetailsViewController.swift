@@ -16,8 +16,8 @@ class BankAccountDetailsViewController: KUIViewController {
     @IBOutlet weak var dateOfBirth: ValidatedTextField!
     @IBOutlet weak var ssn: ValidatedTextField!
     @IBOutlet weak var idValidationText: UILabel!
-    @IBOutlet weak var frontIdButton: UIButton!
-    @IBOutlet weak var backIdButton: UIButton!
+    @IBOutlet weak var frontIdButton: LoadingButton!
+    @IBOutlet weak var backIdButton: LoadingButton!
     @IBOutlet weak var phoneNumber: ValidatedTextField!
     @IBOutlet weak var addressLine1: ValidatedTextField!
     @IBOutlet weak var addressLine2: ValidatedTextField!
@@ -71,14 +71,17 @@ class BankAccountDetailsViewController: KUIViewController {
         if let year = stripeAccountInfo.individual?.dob?.year, let month = self.stripeAccountInfo?.individual?.dob?.month, let day = self.stripeAccountInfo?.individual?.dob?.day {
             dateOfBirth.placeholder = "\(day)/\(month)/\(year)"
         }
-        if let id_number = stripeAccountInfo.individual?.id_number {
-            ssn.placeholder = "\(id_number)"
+        if let ssn_provided = stripeAccountInfo.individual?.ssn_last_4_provided, ssn_provided {
+            ssn.placeholder = "Provided"
+            ssn.placeholderColor(UIColor(named: "Success")!)
         }
         if stripeAccountInfo.individual?.verification?.document?.front != nil {
             frontIdButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+            frontIdButton.tintColor = UIColor(named: "Success")
         }
         if stripeAccountInfo.individual?.verification?.document?.back != nil {
             backIdButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+            backIdButton.tintColor = UIColor(named: "Success")
         }
         phoneNumber.placeholder = stripeAccountInfo.individual?.phone
         addressLine1.placeholder = stripeAccountInfo.individual?.address?.line1
@@ -196,10 +199,10 @@ class BankAccountDetailsViewController: KUIViewController {
 extension BankAccountDetailsViewController: GaleryCameraPopUpProtocol {
     func image(_ image: UIImage) {
         if isFrontId {
-            
+            frontIdButton.showLoading()
             Server.uploadPictures(method: .patch, urlString: SERVER + "/upload_stripe_document/", withName: "front", pictures: image, finish: {(data: Data?) -> Void in
                 DispatchQueue.main.async {
-                    
+                    self.frontIdButton.hideLoading()
                 }
                 guard let data = data else {return}
                 do {
@@ -207,6 +210,7 @@ extension BankAccountDetailsViewController: GaleryCameraPopUpProtocol {
                     if self.stripeAccountInfo?.error_message == nil {
                         DispatchQueue.main.async {
                             self.backIdButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+                            self.frontIdButton.tintColor = UIColor(named: "Success")
                         }
                     } else {
                         
@@ -214,10 +218,10 @@ extension BankAccountDetailsViewController: GaleryCameraPopUpProtocol {
                 } catch {}
             })
         } else {
-            
+            backIdButton.showLoading()
             Server.uploadPictures(method: .patch, urlString: SERVER + "/upload_stripe_document/", withName: "back", pictures: image, finish: {(data: Data?) -> Void in
                 DispatchQueue.main.async {
-                    
+                    self.backIdButton.hideLoading()
                 }
                 guard let data = data else {return}
                 do {
@@ -225,6 +229,7 @@ extension BankAccountDetailsViewController: GaleryCameraPopUpProtocol {
                     if self.stripeAccountInfo?.error_message == nil {
                         DispatchQueue.main.async {
                             self.backIdButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+                            self.backIdButton.tintColor = UIColor(named: "Success")
                         }
                     } else {
                         
@@ -236,11 +241,9 @@ extension BankAccountDetailsViewController: GaleryCameraPopUpProtocol {
 }
 extension BankAccountDetailsViewController {
     func getBankAccountInfo(){
-        
+        presentTransparentLoader()
         Server.get("/stripe_account/"){ data, response, error in
-            DispatchQueue.main.async {
-                
-            }
+            self.closeTransparentLoader()
             guard let data = data else {return}
             do {
                 self.stripeAccountInfo = try JSONDecoder().decode(StripeAccountInfoObject.self, from: data)
@@ -256,7 +259,7 @@ extension BankAccountDetailsViewController {
     }
     
     func save(){
-        
+        presentTransparentLoader()
         Server.nilPatch("/stripe_account/",
                         json:["first_name": firstName.text,
                               "last_name": lastName.text,
@@ -274,6 +277,7 @@ extension BankAccountDetailsViewController {
                               "country": country.text,
                               "routing_number": routingNumber.text,
                               "account_number": accountNumber.text]) { data, response, error in
+                                self.closeTransparentLoader()
                                 if let _ = error {
                                     self.view.showToast(message: "No internet connection")
                                 }
@@ -288,8 +292,8 @@ extension BankAccountDetailsViewController {
                                         }
                                     } else {
                                         guard let e_message = self.stripeAccountInfo?.error_message else {return}
-                                        self.view.showToast(message: "Some error ocurred")
                                         DispatchQueue.main.async {
+                                            self.view.showToast(message: "Some error ocurred")
                                             if (e_message.contains("individual[first_name]")) {
                                                 self.firstName.validationText = "First name is not valid"
                                             }

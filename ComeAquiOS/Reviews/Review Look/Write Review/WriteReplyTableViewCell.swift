@@ -17,7 +17,7 @@ class WriteReplyTableViewCell: KUIViewController, UITextFieldDelegate {
     @IBOutlet weak var reviewText: UILabel!
     @IBOutlet weak var usernameAndDate: UILabel!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var submitButton: LoadingButton!
     @IBOutlet weak var bcfkb: NSLayoutConstraint!
     
     var review: ReviewObject?
@@ -43,23 +43,27 @@ class WriteReplyTableViewCell: KUIViewController, UITextFieldDelegate {
 }
 extension WriteReplyTableViewCell{
     func postReply(){
+        submitButton.showLoading()
         Server.post("/create_review_reply/",
-            json:
+                    json:
             [
                 "reply": textView.text,
                 "review_id": review?.id,
-            ]) { data, response, error in
+        ]) { data, response, error in
+            DispatchQueue.main.async {
+                self.submitButton.hideLoading()
+            }
             if let _ = error {
                 self.view.showToast(message: "No internet connection")
             }
-                guard let data = data else {return}
-                do {
-                    let reply = try JSONDecoder().decode(ReviewReplyObject.self, from: data)
-                    DispatchQueue.main.async {
-                        self.delegate?.replyAdded(reply: reply)
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                } catch {}
+            guard let data = data else {return}
+            do {
+                let reply = try JSONDecoder().decode(ReviewReplyObject.self, from: data)
+                DispatchQueue.main.async {
+                    self.delegate?.replyAdded(reply: reply)
+                    self.dismiss(animated: true, completion: nil)
+                }
+            } catch {}
         }
     }
 }

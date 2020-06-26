@@ -73,14 +73,16 @@ class ConversationViewController: KUIViewController {
     
     
     @objc func sendMessage() {
-        let message = "{\"message\": \"" + textView.text + "\"," +
-            "\"command\": \"new_message\"," +
-            "\"from\": \(USER.id!)," +
-            "\"to\": \(self.chattingWith.id!)," +
-        "\"chatId\": \(self.chat!.id!)}"
-        ws!.write(string: message)
-        textView.text = ""
-        textViewDidChange(textView)
+        if !textView.text.isEmpty{
+           let message = "{\"message\": \"" + textView.text + "\"," +
+                "\"command\": \"new_message\"," +
+                "\"from\": \(USER.id!)," +
+                "\"to\": \(self.chattingWith.id!)," +
+            "\"chatId\": \(self.chat!.id!)}"
+            ws!.write(string: message)
+            textView.text = ""
+            textViewDidChange(textView)
+        }
     }
     
     func setView() {

@@ -50,7 +50,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svi-Rd-d3e">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svi-Rd-d3e" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="779" width="382" height="50"/>
                                                                 <color key="backgroundColor" name="PrimaryLight"/>
                                                                 <constraints>

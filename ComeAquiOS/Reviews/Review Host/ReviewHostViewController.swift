@@ -29,7 +29,7 @@ class ReviewHostViewController: KUIViewController {
     @IBOutlet weak var starReasonView: UIStackView!
     @IBOutlet weak var reviewText: UITextView!
     @IBOutlet weak var wordCountText: UILabel!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var submitButton: LoadingButton!
     @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
     
     var order: OrderObject?
@@ -139,7 +139,11 @@ extension ReviewHostViewController: StarReasonDelegate {
 
 extension ReviewHostViewController {
     func getChosenCard(){
+        presentTransparentLoader()
         Server.get("/my_chosen_card/"){ data, response, error in
+            DispatchQueue.main.async {
+                self.closeTransparentLoader()
+            }
             if let _ = error {
                 self.onReload = self.getChosenCard
             }
@@ -161,7 +165,7 @@ extension ReviewHostViewController {
     }
     
     func postReview(){
-        
+        submitButton.showLoading()
         Server.post("/create_review/",
                     json:
             ["order_id":  order?.id,
@@ -173,7 +177,7 @@ extension ReviewHostViewController {
                     self.view.showToast(message: "No internet connection")
                 }
                 DispatchQueue.main.async {
-                    
+                    self.submitButton.hideLoading()
                 }
                 guard let data = data else {
                     return

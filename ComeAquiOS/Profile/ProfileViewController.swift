@@ -92,6 +92,7 @@ class ProfileViewController: LoadViewController {
         if user.bio != nil && user.bio!.isEmpty {
             bioTextView.visibility = .gone
         } else {
+            bioTextView.visibility = .visible
             bioTextView.text = user.bio
         }
         tab1VC?.userId = user.id
@@ -343,7 +344,6 @@ extension ProfileViewController: UIScrollViewDelegate, UIGestureRecognizerDelega
         
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
-        print(offsetY, contentHeight, scrollView.frame.height)
         if offsetY > contentHeight - scrollView.frame.height + 100 {
             if scrollView == scrollView1 {
                 tab1VC!.fetchMoreData()

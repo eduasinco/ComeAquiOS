@@ -16,7 +16,7 @@ class WriteCommentViewController: KUIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var submitButton: LoadingButton!
     @IBOutlet weak var bcfkb: NSLayoutConstraint!
     
     var comment: Comment?
@@ -42,6 +42,7 @@ class WriteCommentViewController: KUIViewController, UITextFieldDelegate {
 }
 extension WriteCommentViewController{
     func postComment(){
+        submitButton.showLoading()
         var request = getRequestWithAuth("/food_post_comment/\(self.comment!.id!)/")
         var json = [String:Any]()
         json["post_id"] = foodPost?.id ?? nil
@@ -53,6 +54,9 @@ extension WriteCommentViewController{
             request.httpBody = data
             let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
                 // your stuff here
+                DispatchQueue.main.async {
+                    self.submitButton.showLoading()
+                }
                 guard let data = data else {
                     return
                 }
