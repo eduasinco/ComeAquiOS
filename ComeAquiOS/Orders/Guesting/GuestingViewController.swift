@@ -106,7 +106,7 @@ extension GuestingViewController: WebSocketDelegate{
         var order_changed: OrderObject?
     }
     func webSocketConnetion(){
-        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/ws/orders/\(USER.id!)/")!)
+        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/orders/\(USER.id!)/")!)
         request.timeoutInterval = 5
         ws = WebSocket(request: request)
         ws?.delegate = self

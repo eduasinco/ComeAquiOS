@@ -150,7 +150,7 @@ extension ConversationViewController: WebSocketDelegate{
     }
     func webSocketConnetion(){
         guard let chatId = self.chatId else {return}
-        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/ws/chat/\(chatId)/")!)
+        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/chat/\(chatId)/")!)
         request.timeoutInterval = 5
         ws = WebSocket(request: request)
         ws?.delegate = self
