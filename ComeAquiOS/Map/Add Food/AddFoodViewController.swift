@@ -19,6 +19,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var descriptionText: ValidatedTextView!
     @IBOutlet weak var wordCountText: UILabel!
     @IBOutlet weak var holderBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bankAccountInfo: UIButton!
     @IBOutlet weak var submitButton: LoadingButton!
     
     var placeAutocompleteVC: PlaceAutocompleteViewController?
@@ -46,6 +47,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         priceText.textFieldBorderStyle()
         descriptionText.textFieldBorderStyle()
         descriptionText.delegate = self
+        bankAccountInfo.visibility = .gone
         
         if self.foodPostId != nil {
             self.importImageVC?.foodPostId = self.foodPostId
@@ -53,6 +55,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         } else {
             postFood()
         }
+        getBankAccountInfo()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -181,7 +184,6 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
 
 extension AddFoodViewController {
     func getFoodPost(){
-        
         Server.get("/foods/\(foodPostId!)/"){ data, response, error in
             DispatchQueue.main.async {
                 
@@ -197,6 +199,31 @@ extension AddFoodViewController {
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")
             }
+        }
+    }
+    func getBankAccountInfo(){
+        presentTransparentLoader()
+        Server.get("/stripe_account/"){ data, response, error in
+            self.closeTransparentLoader()
+            guard let data = data else {return}
+            do {
+                let saio = try JSONDecoder().decode(StripeAccountInfoObject.self, from: data)
+                DispatchQueue.main.async {
+                    if let error_message = saio.error_message {
+                        self.viewHolder.showToast(message: error_message)
+                        self.submitButton.isEnabled = false
+                    } else {
+                        self.submitButton.isEnabled = true
+                        if let currently_due = saio.requirements?.currently_due, currently_due.count == 0, saio.payouts_enabled! {
+                            self.bankAccountInfo.visibility = .gone
+                            self.submitButton.isEnabled = true
+                        } else {
+                            self.bankAccountInfo.visibility = .visible
+                            self.submitButton.isEnabled = false
+                        }
+                    }
+                }
+            } catch {}
         }
     }
     func trueDeletePost(){

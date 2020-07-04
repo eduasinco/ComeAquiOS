@@ -24,10 +24,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1166"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZe-N5-1BA" userLabel="inside ">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="866"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="924"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CGm-GC-d7g">
-                                                        <rect key="frame" x="16" y="16" width="382" height="800"/>
+                                                        <rect key="frame" x="16" y="16" width="382" height="858"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OTs-na-F7l">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
@@ -163,8 +163,20 @@
                                                                     <segue destination="Vvo-WB-0B8" kind="embed" identifier="ImageImporterSegue" id="XoQ-Vb-qOO"/>
                                                                 </connections>
                                                             </containerView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJk-sv-1bB" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WK8-fA-vxD">
                                                                 <rect key="frame" x="0.0" y="750" width="382" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="tSj-9Q-c0Y"/>
+                                                                </constraints>
+                                                                <state key="normal" title="You still have some peniding bank account info">
+                                                                    <color key="titleColor" name="Canceledd"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <segue destination="v5r-It-rwB" kind="show" identifier="BankAccountSegue" id="L2R-xx-SQg"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJk-sv-1bB" customClass="LoadingButton" customModule="ComeAquí" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="808" width="382" height="50"/>
                                                                 <color key="backgroundColor" name="PrimaryLight"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="OrS-SK-qLo"/>
@@ -234,6 +246,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="414" height="1200"/>
                     <connections>
+                        <outlet property="bankAccountInfo" destination="WK8-fA-vxD" id="DXh-b8-4Cc"/>
                         <outlet property="descriptionText" destination="lxC-tA-iTQ" id="fdb-It-kvN"/>
                         <outlet property="dinnersText" destination="yrj-kn-sc7" id="UvF-lS-9Ho"/>
                         <outlet property="holderBottomConstraint" destination="xpW-c5-Bca" id="ViE-fo-k3i"/>
@@ -275,6 +288,16 @@
             </objects>
             <point key="canvasLocation" x="2688" y="-268"/>
         </scene>
+        <!--BankAccountDetailsStoryboard-->
+        <scene sceneID="alt-VS-Unm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BankAccountDetailsStoryboard" id="v5r-It-rwB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Zoc-Kh-DYL"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gfu-t6-A8T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2760" y="-204"/>
+        </scene>
         <!--OptionsView-->
         <scene sceneID="dMN-oY-hBg">
             <objects>
@@ -288,6 +311,9 @@
     </scenes>
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <namedColor name="Canceledd">
+            <color red="0.74509803921568629" green="0.050980392156862744" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
