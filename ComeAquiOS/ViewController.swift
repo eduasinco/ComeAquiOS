@@ -49,11 +49,12 @@ extension ViewController: WebSocketDelegate {
             print("websocket is connected: \(headers)")
         case .disconnected(let reason, let code):
             // isConnected = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.ws?.connect()
-                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
-            })
-            print("DISCONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED \(reason) with code: \(code)")
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+//                self.ws?.connect()
+//                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
+//            })
+//            print("DISCONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED \(reason) with code: \(code)")
+            break
         case .text(let string):
             print("Received text: \(string)")
             let data = string.data(using: .utf8)!
@@ -121,10 +122,10 @@ extension ViewController: WebSocketDelegate {
             // isConnected = false
             break
         case .error(let error):
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.ws?.connect()
-                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
-            })
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+//                self.ws?.connect()
+//                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
+//            })
             break
         }
     }

@@ -245,11 +245,11 @@
         <scene sceneID="6qt-h0-OUW">
             <objects>
                 <viewController id="7eR-9t-Sre" customClass="FoodCardViewController" customModule="ComeAquí" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="HiG-3r-67A">
+                    <view key="view" contentMode="scaleToFill" id="HiG-3r-67A">
                         <rect key="frame" x="0.0" y="0.0" width="398" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="chY-vw-aW5">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="chY-vw-aW5">
                                 <rect key="frame" x="16" y="116" width="366" height="68"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcx-D3-1x9" userLabel="User Description">
@@ -328,7 +328,7 @@
                                             <constraint firstItem="Fz5-Uc-57E" firstAttribute="leading" secondItem="qcx-D3-1x9" secondAttribute="leading" id="zMh-UC-mRo"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H9v-2D-Tl6" userLabel="Post Description">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9v-2D-Tl6" userLabel="Post Description">
                                         <rect key="frame" x="0.0" y="40" width="366" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-PH-DEG">
@@ -406,7 +406,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ha4-VO-EtK">
                                         <rect key="frame" x="0.0" y="0.0" width="788" height="100"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="JHM-ld-4TR">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="JHM-ld-4TR">
                                                 <rect key="frame" x="0.0" y="0.0" width="788" height="100"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vnK-eZ-bgh" customClass="URLImageView" customModule="ComeAquí" customModuleProvider="target">
@@ -430,7 +430,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" name="GreyLight2"/>
                                         <constraints>
                                             <constraint firstItem="JHM-ld-4TR" firstAttribute="leading" secondItem="ha4-VO-EtK" secondAttribute="leading" id="nij-Yd-dk4"/>
                                             <constraint firstAttribute="trailing" secondItem="JHM-ld-4TR" secondAttribute="trailing" id="omq-il-OvP"/>
@@ -439,6 +439,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" name="GreyLighter"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ha4-VO-EtK" secondAttribute="trailing" id="3OT-Ca-T1q"/>
                                     <constraint firstItem="ha4-VO-EtK" firstAttribute="height" secondItem="l4k-4r-Hb6" secondAttribute="height" id="984-hk-H4H"/>
@@ -465,7 +466,7 @@
                     <connections>
                         <outlet property="favouriteImageView" destination="rYz-32-QAw" id="uIw-6f-ObB"/>
                         <outlet property="image1" destination="vnK-eZ-bgh" id="Ya8-4A-bWz"/>
-                        <outlet property="image1Width" destination="8zJ-ao-QvP" id="EpL-0o-8MZ"/>
+                        <outlet property="image1Width" destination="8zJ-ao-QvP" id="w7c-QI-vJe"/>
                         <outlet property="image2" destination="ASL-MN-lTS" id="KGm-Nu-Dnq"/>
                         <outlet property="image3" destination="Mhp-cd-x2F" id="kBo-ka-8Om"/>
                         <outlet property="imageScrollView" destination="l4k-4r-Hb6" id="902-u0-EVg"/>
@@ -541,6 +542,12 @@
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="rate_empty_star" width="175" height="175"/>
+        <namedColor name="GreyLight2">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="GreyLighter">
+            <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="Primary">
             <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

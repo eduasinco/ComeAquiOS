@@ -161,14 +161,13 @@ extension ConversationViewController: WebSocketDelegate{
         case .connected(let headers):
             // isConnected = true
             print("CONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED")
-            print("websocket is connected: \(headers)")
         case .disconnected(let reason, let code):
             // isConnected = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.loadEverything()
-                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
-            })
-            print("DISCONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED \(reason) with code: \(code)")
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+//                self.loadEverything()
+//                print("RETRY CONNECTION")
+//            })
+            break
         case .text(let string):
             print("Received text: \(string)")
             let data = string.data(using: .utf8)!
@@ -178,7 +177,6 @@ extension ConversationViewController: WebSocketDelegate{
                 if mro.error_message == nil {
                     guard let message = mro.message else {return}
                     if self.chatMessages.count > 0 {
-                        
                         let first = self.chatMessages.first?.first
                         if let first = first, message.created_at_week_day == first.created_at_week_day {
                             self.chatMessages[0].insert(message, at: 0)
@@ -224,10 +222,10 @@ extension ConversationViewController: WebSocketDelegate{
             // isConnected = false
             break
         case .error(let error):
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.loadEverything()
-                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
-            })
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+//                self.loadEverything()
+//                print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEB")
+//            })
             break
         }
     }

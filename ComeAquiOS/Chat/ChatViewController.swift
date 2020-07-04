@@ -159,10 +159,11 @@ extension ChatViewController: WebSocketDelegate{
             print("CONEETEEEEEEEEEEEEEEEEEEEEEEEEEEEED")
         case .disconnected(let reason, let code):
             // isConnected = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.ws?.connect()
-                print("========================================")
-            })
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+//                self.ws?.connect()
+//                print("========================================")
+//            })
+            break
         case .text(let string):
             print("Received text: \(string)")
             let data = string.data(using: .utf8)!
@@ -199,10 +200,10 @@ extension ChatViewController: WebSocketDelegate{
             // isConnected = false
             break
         case .error(let error):
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                self.ws?.connect()
-                print("========================================")
-            })
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+//                self.ws?.connect()
+//                print("========================================")
+//            })
             break
         }
     }

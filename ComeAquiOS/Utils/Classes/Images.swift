@@ -195,6 +195,7 @@ extension UIView {
 }
 class ImageToOpen: URLImageView {
     var presentFunction: (() -> Void)?
+    var deleteAvailable =  false
     override func layoutSubviews() {
         super.layoutSubviews()
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tap(_:))))
@@ -209,6 +210,7 @@ class ImageToOpen: URLImageView {
             let storyBoard: UIStoryboard = UIStoryboard(name: "ImageLookerStoryboard", bundle: nil)
             let imageVC = storyBoard.instantiateViewController(withIdentifier: "ImageLooker") as! ImageLookerViewController
             imageVC.image = urlString
+            imageVC.deleteButtonVisible = self.deleteAvailable
             imageVC.isFullUrl = isFullUrl
             if self.parentViewController is ImageLookerProtocol {
                 imageVC.delegate = self.parentViewController as? ImageLookerProtocol

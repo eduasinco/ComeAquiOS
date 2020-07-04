@@ -75,6 +75,8 @@ class ProfileViewController: LoadViewController {
             changeProfileImageButton.visibility = .visible
             changeBackgroundImageButton.visibility = .visible
             options = ["Log out"]
+            backgoundImage.deleteAvailable = true
+            profileImage.deleteAvailable = true
         } else {
             options = ["Message user", "Report", user.is_user_blocked! ? "Unblock" : "Block"]
             editProfileButtonContainer.visibility = .gone
