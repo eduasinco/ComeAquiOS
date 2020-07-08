@@ -36,7 +36,7 @@ class MessageTableViewCell: UITableViewCell {
         if message.sender!.id == USER.id {
             leftMessageConstraint?.isActive = false
             rightMessageConstraint?.isActive = true
-            messageContainer.backgroundColor = UIColor(named: "PrimaryLighter")
+            messageContainer.backgroundColor = UIColor.white
             if messageBefore != nil && messageBefore?.sender!.id == message.sender!.id {
                 messageContainer.layer.cornerRadius = 8
                 messageContainer.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]

@@ -16,12 +16,14 @@ class ConversationViewController: KUIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var userImage: URLImageView!
     @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var userUsername: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var blockView: UIView!
+    
+    @IBOutlet weak var imageWidth: NSLayoutConstraint!
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
     
     var messagesFromServer: [MessageObject] = []
     var chatId: Int?
@@ -53,10 +55,22 @@ class ConversationViewController: KUIViewController {
         name: UIApplication.didBecomeActiveNotification,
         object: nil)
         backgroundImage.alpha = 0.1
+        addNavBarImage()
+    }
+    
+    func addNavBarImage() {
+        let navController = navigationController!
+        let bannerWidth = navController.navigationBar.frame.size.width
+        let bannerHeight = navController.navigationBar.frame.size.height
+        imageWidth.constant = min(bannerWidth, bannerHeight) - 8
+        imageHeight.constant = min(bannerWidth, bannerHeight) - 8
+        navigationItem.titleView = headerView
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadEverything()
+        view.layoutIfNeeded()
+        userImage.circle()
     }
     
     func loadEverything() {
@@ -92,17 +106,12 @@ class ConversationViewController: KUIViewController {
         self.chattingWith = (USER.id == chat.users![0].id) ? chat.users![1] : chat.users![0]
         userImage.loadImageUsingUrlString(urlString: self.chattingWith.profile_photo_)
         userName.text = self.chattingWith.full_name
-        userUsername.text = self.chattingWith.username
 
         userImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageSelector)))
 
     }
     @objc private func handleImageSelector() {
         performSegue(withIdentifier: "ProfileSegue", sender: nil)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        headerView.dropShadow(radius: 1, opacity: 0.3, height: 1)
     }
     
     @IBAction func unblockUser(_ sender: Any) {
