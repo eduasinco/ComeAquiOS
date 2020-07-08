@@ -74,9 +74,9 @@ class URLImageView: ReloadingImage {
         super.layoutSubviews()
         self.defaultImage = self.image
     }
-    public func loadImageUsingUrlString(urlString: String?, isFullUrl: Bool = false) {
+    public func loadImageUsingUrlString(urlString: String?) {
         reloadAction = {
-            self.loadImageUsingUrlString(urlString: urlString, isFullUrl: isFullUrl)
+            self.loadImageUsingUrlString(urlString: urlString)
         }
         spinner.isHidden = false
         spinner.startAnimating()
@@ -87,7 +87,7 @@ class URLImageView: ReloadingImage {
             return
         }
         self.urlString = urlString
-        let url = NSURL(string: (isFullUrl ? "" : SERVER) + urlString)
+        let url = NSURL(string: urlString)
         URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, respones, error) in
             DispatchQueue.main.async{
                 self.spinner.isHidden = true
@@ -119,13 +119,13 @@ class CellImageView: UIImageView {
         super.layoutSubviews()
     }
     
-    public func loadImageUsingUrlString(urlString: String?, isFullUrl: Bool = false, secondImage: UIImage? = nil) {
+    public func loadImageUsingUrlString(urlString: String?, secondImage: UIImage? = nil) {
         guard let urlString = urlString, !urlString.contains("no-image"), !urlString.isEmpty else {
             self.image = secondImage
             return
         }
 
-        let serverUrlString = (isFullUrl ? "" : SERVER) + urlString
+        let serverUrlString = urlString
         imageUrlString = serverUrlString
         let url = NSURL(string: serverUrlString)
         
@@ -167,7 +167,7 @@ class URLImageButtonView: UIButton {
             return
         }
         self.urlString = urlString
-        let url = NSURL(string: SERVER + urlString)
+        let url = NSURL(string: urlString)
         URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, respones, error) in
             if error != nil {
                 print(error ?? "Errooooor")
@@ -204,14 +204,13 @@ class ImageToOpen: URLImageView {
     @objc func tap(_ gestureRecognizer: UITapGestureRecognizer) {
         presentFunction?()
     }
-    override func loadImageUsingUrlString(urlString: String?, isFullUrl: Bool = false) {
-        super.loadImageUsingUrlString(urlString: urlString, isFullUrl: isFullUrl)
+    override func loadImageUsingUrlString(urlString: String?) {
+        super.loadImageUsingUrlString(urlString: urlString)
         self.presentFunction = {
             let storyBoard: UIStoryboard = UIStoryboard(name: "ImageLookerStoryboard", bundle: nil)
             let imageVC = storyBoard.instantiateViewController(withIdentifier: "ImageLooker") as! ImageLookerViewController
             imageVC.image = urlString
             imageVC.deleteButtonVisible = self.deleteAvailable
-            imageVC.isFullUrl = isFullUrl
             if self.parentViewController is ImageLookerProtocol {
                 imageVC.delegate = self.parentViewController as? ImageLookerProtocol
             }

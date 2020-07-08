@@ -65,7 +65,7 @@ class FoodCardViewController: UIViewController {
             image1Width.constant = imageWidth2.constant
             for (i, image) in foodPost.images!.enumerated(){
                 imageArray[i]!.visibility = .visible
-                imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo)
+                imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo_)
             }
         }
         var i = foodPost.images!.count
@@ -73,7 +73,7 @@ class FoodCardViewController: UIViewController {
             imageArray[i]!.visibility = .goneX
             i += 1
         }
-        if let profile_photo = foodPost.owner?.profile_photo, !profile_photo.contains("no-image") {
+        if let profile_photo = foodPost.owner?.profile_photo_, !profile_photo.contains("no-image") {
             userImage.loadImageUsingUrlString(urlString: profile_photo)
         } else {
             userImage.image = UIImage(systemName: "person.circle")

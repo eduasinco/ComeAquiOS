@@ -58,18 +58,10 @@
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                             </textView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/202" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4b-JG-zdp">
-                                                                                <rect key="frame" x="346" y="184" width="36" height="16"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                                                                                <color key="textColor" name="Primary"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="trailing" secondItem="P4b-JG-zdp" secondAttribute="trailing" id="8mT-8R-ieU"/>
                                                                             <constraint firstItem="j6u-Z0-IS0" firstAttribute="leading" secondItem="HV1-Wl-ZVp" secondAttribute="leading" id="Jpk-aD-guT"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="P4b-JG-zdp" secondAttribute="bottom" id="OmX-B9-hZa"/>
                                                                             <constraint firstAttribute="trailing" secondItem="j6u-Z0-IS0" secondAttribute="trailing" id="eXG-2e-yfd"/>
                                                                             <constraint firstItem="j6u-Z0-IS0" firstAttribute="top" secondItem="HV1-Wl-ZVp" secondAttribute="top" id="jMa-tP-LRr"/>
                                                                             <constraint firstAttribute="bottom" secondItem="j6u-Z0-IS0" secondAttribute="bottom" id="vmy-9e-2pC"/>
@@ -145,7 +137,6 @@
                         <outlet property="holderView" destination="c4S-cK-svA" id="h6U-Im-430"/>
                         <outlet property="plateNameText" destination="l8n-dy-SRf" id="bAf-kc-Tr8"/>
                         <outlet property="stackView" destination="NzD-EO-xXj" id="xEw-RJ-Sf6"/>
-                        <outlet property="wordCountText" destination="P4b-JG-zdp" id="awV-yZ-V2e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFf-jh-tga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -164,9 +155,6 @@
     <resources>
         <namedColor name="GreyLight">
             <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="Primary">
-            <color red="0.32156862745098042" green="0.32156862745098042" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

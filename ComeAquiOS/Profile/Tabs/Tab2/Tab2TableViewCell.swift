@@ -69,7 +69,7 @@ class Tab2TableViewCell: UITableViewCell {
         self.shadowLayer.layer.shadowRadius = 4
         
         if object.images!.count > 0{
-            guard let imageString = object.images![0].food_photo else {return}
+            guard let imageString = object.images![0].food_photo_ else {return}
             foodImageView.loadImageUsingUrlString(urlString: imageString)
             foodImageView.visibility = .visible
         } else {
@@ -78,7 +78,7 @@ class Tab2TableViewCell: UITableViewCell {
         
         if object.reviews!.count > 0 && object.reviews![0].id != nil {
             reviewerView.visibility = .visible
-            reviewerImage.loadImageUsingUrlString(urlString: object.reviews![0].owner!.profile_photo, secondImage: UIImage(systemName: "person.circle"))
+            reviewerImage.loadImageUsingUrlString(urlString: object.reviews![0].owner!.profile_photo_, secondImage: UIImage(systemName: "person.circle"))
 
             reviewerName.text = object.reviews![0].owner!.username
             reviewerMessage.text = object.reviews![0].review

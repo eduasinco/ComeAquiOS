@@ -135,20 +135,12 @@
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                             </textView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/202" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weI-PJ-394">
-                                                                                <rect key="frame" x="346" y="184" width="36" height="16"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                                                                                <nil key="textColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
                                                                             <constraint firstItem="lxC-tA-iTQ" firstAttribute="top" secondItem="gyw-VC-LIj" secondAttribute="top" id="J87-v5-bKD"/>
                                                                             <constraint firstAttribute="trailing" secondItem="lxC-tA-iTQ" secondAttribute="trailing" id="UgI-mM-N20"/>
                                                                             <constraint firstAttribute="bottom" secondItem="lxC-tA-iTQ" secondAttribute="bottom" id="WXE-jx-nQY"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="weI-PJ-394" secondAttribute="trailing" id="Wkm-qz-dsK"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="weI-PJ-394" secondAttribute="bottom" id="qDd-Pn-fWt"/>
                                                                             <constraint firstItem="lxC-tA-iTQ" firstAttribute="leading" secondItem="gyw-VC-LIj" secondAttribute="leading" id="xFT-Wh-Gnp"/>
                                                                         </constraints>
                                                                     </view>
@@ -256,7 +248,6 @@
                         <outlet property="stackView" destination="CGm-GC-d7g" id="dnf-vg-Ker"/>
                         <outlet property="submitButton" destination="fJk-sv-1bB" id="Zsu-5I-Q5Z"/>
                         <outlet property="viewHolder" destination="1d5-DO-9RU" id="rzS-P8-hNZ"/>
-                        <outlet property="wordCountText" destination="weI-PJ-394" id="3qQ-Dc-qUH"/>
                         <segue destination="cB3-5a-7D1" kind="presentation" identifier="OptionsSegue" id="lJl-Gr-RUs"/>
                     </connections>
                 </viewController>

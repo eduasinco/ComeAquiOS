@@ -49,7 +49,7 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     
     func setView(){
         guard let order = self.order else { return }
-        posterImage.loadImageUsingUrlString(urlString: order.poster?.profile_photo)
+        posterImage.loadImageUsingUrlString(urlString: order.poster?.profile_photo_)
         posterImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goToProfile)))
 
         posterName.text = order.poster?.full_name
@@ -79,7 +79,7 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
         viewForMap.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapMap(_:))))
     }
     func setConfirmCancelButton(){
-        dinnerImage.loadImageUsingUrlString(urlString: order?.owner?.profile_photo)
+        dinnerImage.loadImageUsingUrlString(urlString: order?.owner?.profile_photo_)
         dinnerName.text = order?.owner?.full_name
         dinnerUsername.text = order?.owner?.username
         confirmCancelStack.visibility = .gone

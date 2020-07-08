@@ -147,7 +147,7 @@ extension ChatViewController: WebSocketDelegate{
     }
     func webSocketConnetion(){
         var request = URLRequest(url: URL(string: ASYNC_SERVER + "/unread_messages/\(USER.id!)/")!)
-        request.timeoutInterval = 5
+        request.timeoutInterval = TIME_OUT
         ws = WebSocket(request: request)
         ws?.delegate = self
         ws?.connect()

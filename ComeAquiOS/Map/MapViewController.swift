@@ -389,7 +389,7 @@ extension MapViewController: WebSocketDelegate{
     }
     func webSocketConnetion(){
         var request = URLRequest(url: URL(string: ASYNC_SERVER + "/posts/")!)
-        request.timeoutInterval = 5
+        request.timeoutInterval = TIME_OUT
         ws = WebSocket(request: request)
         ws?.delegate = self
         ws?.connect()

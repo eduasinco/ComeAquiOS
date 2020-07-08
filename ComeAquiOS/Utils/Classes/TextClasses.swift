@@ -647,6 +647,16 @@ class ValidatedTextView: UITextView, UITextViewDelegate {
         return tv
     }()
     
+    var textCountView: UILabel = {
+        let tv = UILabel()
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.textColor = UIColor.black
+        tv.isUserInteractionEnabled = false
+        tv.font = tv.font.withSize(13.0)
+        return tv
+    }()
+    var max_characters = 202
+    
     @IBInspectable var validationText : String? {
         set {
             validationTextView.text = newValue
@@ -666,6 +676,9 @@ class ValidatedTextView: UITextView, UITextViewDelegate {
     private func commonInit() {
         self.setValidationTextStyle()
         self.validationTextView.visibility = .gone
+        self.addSubview(textCountView)
+        self.bringSubviewToFront(textCountView)
+        textCountView.text = "0/\(max_characters)"
     }
     
     func setValidationTextStyle(){
@@ -699,5 +712,13 @@ class ValidatedTextView: UITextView, UITextViewDelegate {
             return
         }
         sv.insertArrangedSubview(self.validationTextView, at: 0)
+        textCountView.trailingAnchor.constraint(equalTo: sv.trailingAnchor).isActive = true
+        textCountView.bottomAnchor.constraint(equalTo: sv.bottomAnchor).isActive = true
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfChars = newText.count
+        textCountView.text = "\(numberOfChars)/\(max_characters)"
+        return numberOfChars < max_characters
     }
 }

@@ -12,6 +12,7 @@ import Starscream
 class ConversationViewController: KUIViewController {
     
     @IBOutlet weak var holderView: UIView!
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var userImage: URLImageView!
     @IBOutlet weak var userName: UILabel!
@@ -51,6 +52,7 @@ class ConversationViewController: KUIViewController {
         selector:#selector(returnToApp),
         name: UIApplication.didBecomeActiveNotification,
         object: nil)
+        backgroundImage.alpha = 0.1
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,7 +90,7 @@ class ConversationViewController: KUIViewController {
     func setView() {
         guard let chat = self.chat else {return}
         self.chattingWith = (USER.id == chat.users![0].id) ? chat.users![1] : chat.users![0]
-        userImage.loadImageUsingUrlString(urlString: self.chattingWith.profile_photo)
+        userImage.loadImageUsingUrlString(urlString: self.chattingWith.profile_photo_)
         userName.text = self.chattingWith.full_name
         userUsername.text = self.chattingWith.username
 
@@ -151,7 +153,7 @@ extension ConversationViewController: WebSocketDelegate{
     func webSocketConnetion(){
         guard let chatId = self.chatId else {return}
         var request = URLRequest(url: URL(string: ASYNC_SERVER + "/chat/\(chatId)/")!)
-        request.timeoutInterval = 5
+        request.timeoutInterval = TIME_OUT
         ws = WebSocket(request: request)
         ws?.delegate = self
         ws?.connect()
@@ -412,13 +414,11 @@ extension ConversationViewController: UITableViewDelegate, UITableViewDataSource
         if chatMessages.count > 0 {
             let chatMessage = chatMessages[indexPath.section][indexPath.row]
             var messageBefore: MessageObject? = nil
-            
             if indexPath.row < chatMessages[indexPath.section].count - 1 {
                 messageBefore = chatMessages[indexPath.section][indexPath.row + 1]
             }
-            
-            cell.setCell(message: chatMessage, messageBefore: messageBefore)
             cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
+            cell.setCell(message: chatMessage, messageBefore: messageBefore)
         }
         return cell
     }

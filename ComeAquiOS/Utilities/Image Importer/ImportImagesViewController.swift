@@ -40,7 +40,7 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
     
     func setImages(images: [FoodPostImageObject]){
         for (i, image) in images.enumerated() {
-            buttons[i].loadImageUsingUrlString(urlString: image.food_photo)
+            buttons[i].loadImageUsingUrlString(urlString: image.food_photo_)
             self.images[i] = image
         }
     }
@@ -63,7 +63,7 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
         if let image = images[Int(sender!.tag)] {
             selectedImage = image
             deleteButtonPressed = sender as? URLImageButtonView
-            performSegue(withIdentifier: "ImageLookerSegue", sender: image.food_photo)
+            performSegue(withIdentifier: "ImageLookerSegue", sender: image.food_photo_)
         } else {
             if uploading {
                 self.view.showToast(message: "Image uploading, wait a second...")
@@ -93,11 +93,10 @@ extension ImportImagesViewController: GaleryCameraPopUpProtocol, ImageLookerProt
         Server.delete("/image/\(self.selectedImage!.id!)/"){ data, response, error in
             guard let _ = data else {return}
             DispatchQueue.main.async {
-                self.buttonPressed?.setImage(UIImage(systemName: "camera"), for: .normal)
+                self.deleteButtonPressed?.setImage(UIImage(systemName: "camera"), for: .normal)
             }
         }
     }
-    
     func image(_ image: UIImage) {
         self.spinners[buttonPressed!.tag].visibility = .visible
         uploading = true
@@ -109,7 +108,7 @@ extension ImportImagesViewController: GaleryCameraPopUpProtocol, ImageLookerProt
                 let foodPostImage = try JSONDecoder().decode(FoodPostImageObject.self, from: data)
                 self.images[Int(self.buttonPressed!.tag)] = foodPostImage
                 DispatchQueue.main.async {
-                    self.buttonPressed?.loadImageUsingUrlString(urlString: foodPostImage.food_photo)
+                    self.buttonPressed?.loadImageUsingUrlString(urlString: foodPostImage.food_photo_)
                 }
             } catch let error {
                 self.view.showToast(message: "Some error ocurred: ")

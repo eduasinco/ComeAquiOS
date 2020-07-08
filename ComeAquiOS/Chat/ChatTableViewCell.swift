@@ -37,7 +37,7 @@ class ChatTableViewCell: UITableViewCell {
             unreadMessagesCount.text = ""
         }
 
-        if let urlString = chattingWith.profile_photo, !urlString.contains("no-image"), !urlString.isEmpty {
+        if let urlString = chattingWith.profile_photo_, !urlString.contains("no-image"), !urlString.isEmpty {
             userImage.loadImageUsingUrlString(urlString: urlString)
         } else {
             userImage.image = UIImage(systemName: "person.circle")

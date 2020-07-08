@@ -25,7 +25,7 @@ class PeopleTableViewCell: UITableViewCell {
     }
     
     func setCell(user: User){
-        userImage.loadImageUsingUrlString(urlString: user.profile_photo, secondImage: UIImage(systemName: "person.circle"))
+        userImage.loadImageUsingUrlString(urlString: user.profile_photo_, secondImage: UIImage(systemName: "person.circle"))
         userName.text = user.full_name
         userUsername.text = user.username
     }

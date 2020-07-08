@@ -84,8 +84,8 @@ class ProfileViewController: LoadViewController {
             changeBackgroundImageButton.visibility = .gone
         }
         guard !user.are_you_blocked_by_the_user! else {return}
-        backgoundImage.loadImageUsingUrlString(urlString: user.background_photo, isFullUrl: true)
-        profileImage.loadImageUsingUrlString(urlString: user.profile_photo, isFullUrl: true)
+        backgoundImage.loadImageUsingUrlString(urlString: user.background_photo_)
+        profileImage.loadImageUsingUrlString(urlString: user.profile_photo_)
         userName.text = user.full_name
         self.title = user.username
         self.toolbarItems?[3].title = nil

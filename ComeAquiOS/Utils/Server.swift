@@ -42,8 +42,8 @@ class Server {
         request.httpMethod = method
         let configuration = URLSessionConfiguration.default
         configuration.waitsForConnectivity = true
-        configuration.timeoutIntervalForRequest = 5
-        configuration.timeoutIntervalForResource = 5
+        configuration.timeoutIntervalForRequest = TIME_OUT
+        configuration.timeoutIntervalForResource = TIME_OUT
         let session = URLSession(configuration: configuration)
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
             finish(data, response, error)
@@ -89,8 +89,8 @@ class Server {
             
             let configuration = URLSessionConfiguration.default
             configuration.waitsForConnectivity = true
-            configuration.timeoutIntervalForRequest = 5
-            configuration.timeoutIntervalForResource = 5
+            configuration.timeoutIntervalForRequest = TIME_OUT
+            configuration.timeoutIntervalForResource = TIME_OUT
             let session = URLSession(configuration: configuration)
             let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
                 finish(data, response, error)

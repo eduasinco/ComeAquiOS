@@ -55,7 +55,7 @@ class ReviewTableViewCell: UITableViewCell {
     }
     
     func setCell(review: ReviewObject){
-        reviewerImage.loadImageUsingUrlString(urlString: review.owner!.profile_photo, secondImage: UIImage(systemName: "person.circle"))
+        reviewerImage.loadImageUsingUrlString(urlString: review.owner!.profile_photo_, secondImage: UIImage(systemName: "person.circle"))
         reviewerImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tap(_:))))
         reviewerImage.isUserInteractionEnabled = true
         reviewerName.text = review.owner?.full_name
@@ -67,9 +67,9 @@ class ReviewTableViewCell: UITableViewCell {
         if review.replies!.count > 0 {
             let reply = review.replies![0]
             if !reply.reply!.isEmpty {
-                replyerImage.loadImageUsingUrlString(urlString: reply.owner?.profile_photo, secondImage: UIImage(systemName: "person.circle"))
+                replyerImage.loadImageUsingUrlString(urlString: reply.owner?.profile_photo_, secondImage: UIImage(systemName: "person.circle"))
                 wholeReplyView.visibility = .visible
-                // replyerImage.loadImageUsingUrlString(urlString: reply.owner!.profile_photo)
+                // replyerImage.loadImageUsingUrlString(urlString: reply.owner!.profile_photo_)
                 replyerName.text = reply.owner?.full_name
                 replyerUsername.text = reply.owner?.username
                 replyMessage.text = reply.reply

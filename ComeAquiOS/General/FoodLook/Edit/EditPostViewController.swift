@@ -8,14 +8,13 @@
 
 import UIKit
 
-class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextViewDelegate {
+class EditPostViewController: KUIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var plateNameText: ValidatedTextField!
     @IBOutlet weak var descriptionText: ValidatedTextView!
-    @IBOutlet weak var wordCountText: UILabel!
     @IBOutlet weak var holderBottomConstraint: NSLayoutConstraint!
     
     var typesVC: TypesViewController?
@@ -31,7 +30,6 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
         super.viewDidLoad()
         self.bottomConstraintForKeyboard = holderBottomConstraint
         descriptionText.textFieldBorderStyle()
-        descriptionText.delegate = self
         
         guard let foodPostId = self.foodPostId else { return }
         self.importImageVC?.foodPostId = foodPostId
@@ -67,13 +65,6 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate, UITextView
         if validateData() {
             pathFoodPost(visible: true)
         }
-    }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
-        let numberOfChars = newText.count
-        wordCountText.text = "\(numberOfChars)/202"
-        return numberOfChars < 202    // 10 Limit Value
     }
     func setTypeVC() {
         let storyboard = UIStoryboard(name: "TypesStoryboard", bundle: nil)

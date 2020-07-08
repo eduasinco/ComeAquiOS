@@ -79,6 +79,7 @@ extension NotificationsViewController: UITableViewDataSource, UITableViewDelegat
             performSegue(withIdentifier: "OrderLookSegue", sender: notification)
             break
         case "REJECTED":
+            performSegue(withIdentifier: "OrderLookSegue", sender: notification)
             break
         case "CANCELED":
             performSegue(withIdentifier: "OrderLookSegue", sender: notification)
@@ -142,7 +143,7 @@ extension NotificationsViewController: WebSocketDelegate{
     }
     func webSocketConnetion(){
         var request = URLRequest(url: URL(string: ASYNC_SERVER + "/notifications/\(USER.id!)/")!)
-        request.timeoutInterval = 5
+        request.timeoutInterval = TIME_OUT
         ws = WebSocket(request: request)
         ws?.delegate = self
         ws?.connect()

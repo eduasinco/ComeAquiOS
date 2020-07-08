@@ -44,7 +44,7 @@ class ImagePagerViewController: UIViewController {
 extension ImagePagerViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImagePagerCell", for: indexPath) as! ImagePagerCollectionViewCell
-        cell.image.loadImageUsingUrlString(urlString: data[indexPath.row].food_photo)
+        cell.image.loadImageUsingUrlString(urlString: data[indexPath.row].food_photo_)
         return cell
     }
     

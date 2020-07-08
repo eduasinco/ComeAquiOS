@@ -58,7 +58,6 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstItem="JCc-nA-qZh" firstAttribute="leading" secondItem="AVr-rm-QgR" secondAttribute="leading" constant="8" id="Cen-TT-2bk"/>
                                                         <constraint firstItem="JCc-nA-qZh" firstAttribute="top" secondItem="AVr-rm-QgR" secondAttribute="top" constant="8" id="E9K-OD-POp"/>

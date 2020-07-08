@@ -49,7 +49,7 @@ class ReviewHostViewController: KUIViewController {
     }
     func setView() {
         guard let order = self.order else {return}
-        profileImage.loadImageUsingUrlString(urlString: order.poster?.profile_photo, isFullUrl: true)
+        profileImage.loadImageUsingUrlString(urlString: order.poster?.profile_photo_)
         posterName.text = order.poster?.full_name
         posterRating.text = "\(order.poster!.rating!)"
         totalAmount.text = "\(order.order_price!.format())"

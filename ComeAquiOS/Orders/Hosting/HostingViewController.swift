@@ -76,10 +76,10 @@ extension HostingViewController {
     }
     func getMyHostings(){
         alreadyFetchingData = true
-        tableView.showActivityIndicator()
+        presentTransparentLoader()
         Server.get( "/my_hosting/\(page)/"){ data, response, error in
             self.alreadyFetchingData = false
-            self.tableView.hideActivityIndicator()
+            self.closeTransparentLoader()
             if let _ = error {
                 self.onReload = self.getMyHostings
             }

@@ -46,7 +46,7 @@
                                                                                     <constraint firstAttribute="height" constant="50" id="rJ0-Us-iN4"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                             </textField>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3kU-ZY-4hB" customClass="ValidatedTextField" customModule="ComeAquí" customModuleProvider="target">
                                                                                 <rect key="frame" x="195" y="0.0" width="187" height="50"/>
@@ -54,7 +54,7 @@
                                                                                     <constraint firstAttribute="height" constant="50" id="hmn-pj-Pku"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                             </textField>
                                                                         </subviews>
                                                                     </stackView>
@@ -347,6 +347,7 @@
                         <outlet property="dateOfBirth" destination="dO5-UT-5Ig" id="qip-Xz-27Y"/>
                         <outlet property="firstName" destination="1Ef-o0-N6D" id="1HH-pl-fBf"/>
                         <outlet property="frontIdButton" destination="BZM-7D-rWs" id="0ji-cl-eab"/>
+                        <outlet property="holderView" destination="2mq-gz-PRm" id="WbM-Pp-TdI"/>
                         <outlet property="idValidationText" destination="MAI-ZT-6wc" id="d1X-3L-ozm"/>
                         <outlet property="lastName" destination="3kU-ZY-4hB" id="yQ5-QK-zUP"/>
                         <outlet property="phoneNumber" destination="66G-1o-edV" id="PYA-PP-Tbq"/>

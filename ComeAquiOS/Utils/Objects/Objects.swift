@@ -27,11 +27,35 @@ public class User: Decodable{
     var error_message: String?
     var is_user_blocked: Bool?
     var are_you_blocked_by_the_user: Bool?
+    
+    lazy var profile_photo_: String? = {
+        guard let profile_photo = self.profile_photo else { return nil }
+//        if !profile_photo.contains("http") {
+//            return SERVER + profile_photo
+//        }
+        return profile_photo
+    }()
+    
+    lazy var background_photo_: String? = {
+        guard let background_photo = self.background_photo else { return nil }
+//        if !background_photo.contains(SERVER) {
+//            return SERVER + background_photo
+//        }
+        return background_photo
+    }()
 }
 
 public class FoodPostImageObject: Decodable{
     var id: Int?
     var food_photo: String?
+    
+    lazy var food_photo_: String? = {
+        guard let food_photo = self.food_photo else { return nil }
+//        if !food_photo.contains(SERVER) {
+//            return SERVER + food_photo
+//        }
+        return food_photo
+    }()
 }
 
 public class FoodPostObject: Decodable{

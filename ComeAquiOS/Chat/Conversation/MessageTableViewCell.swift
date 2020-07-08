@@ -36,9 +36,7 @@ class MessageTableViewCell: UITableViewCell {
         if message.sender!.id == USER.id {
             leftMessageConstraint?.isActive = false
             rightMessageConstraint?.isActive = true
-            messageContainer.backgroundColor = UIColor.lightGray
             messageContainer.backgroundColor = UIColor(named: "PrimaryLighter")
-            
             if messageBefore != nil && messageBefore?.sender!.id == message.sender!.id {
                 messageContainer.layer.cornerRadius = 8
                 messageContainer.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
@@ -59,6 +57,7 @@ class MessageTableViewCell: UITableViewCell {
                 messageContainer.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner, .layerMaxXMinYCorner]
             }
         }
+        self.layer.backgroundColor = UIColor.clear.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

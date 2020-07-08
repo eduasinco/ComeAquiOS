@@ -10,6 +10,7 @@ import UIKit
 
 class BankAccountDetailsViewController: KUIViewController {
     
+    @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var accountMessage: UILabel!
     @IBOutlet weak var firstName: ValidatedTextField!
     @IBOutlet weak var lastName: ValidatedTextField!
@@ -207,13 +208,15 @@ extension BankAccountDetailsViewController: GaleryCameraPopUpProtocol {
                 guard let data = data else {return}
                 do {
                     self.stripeAccountInfo = try JSONDecoder().decode(StripeAccountInfoObject.self, from: data)
-                    if self.stripeAccountInfo?.error_message == nil {
+                    if let error_message = self.stripeAccountInfo?.error_message {
+                        DispatchQueue.main.async {
+                            self.holderView.showToast(message: "An error occurred while uploading the image: " + error_message)
+                        }
+                    } else {
                         DispatchQueue.main.async {
                             self.frontIdButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
                             self.frontIdButton.tintColor = UIColor(named: "Success")
                         }
-                    } else {
-                        
                     }
                 } catch {}
             })
@@ -226,13 +229,15 @@ extension BankAccountDetailsViewController: GaleryCameraPopUpProtocol {
                 guard let data = data else {return}
                 do {
                     self.stripeAccountInfo = try JSONDecoder().decode(StripeAccountInfoObject.self, from: data)
-                    if self.stripeAccountInfo?.error_message == nil {
+                    if let error_message = self.stripeAccountInfo?.error_message {
+                        DispatchQueue.main.async {
+                            self.holderView.showToast(message: "An error occurred while uploading the image: " + error_message)
+                        }
+                    } else {
                         DispatchQueue.main.async {
                             self.backIdButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
                             self.backIdButton.tintColor = UIColor(named: "Success")
                         }
-                    } else {
-                        
                     }
                 } catch {}
             })

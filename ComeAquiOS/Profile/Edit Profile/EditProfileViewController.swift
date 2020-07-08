@@ -35,8 +35,8 @@ class EditProfileViewController: LoadViewController {
     
     func setView(){
         guard let user = self.user else {return}
-        backgroundImage.loadImageUsingUrlString(urlString: user.background_photo, isFullUrl: true)
-        profileImage.loadImageUsingUrlString(urlString: user.profile_photo, isFullUrl: true)
+        backgroundImage.loadImageUsingUrlString(urlString: user.background_photo_)
+        profileImage.loadImageUsingUrlString(urlString: user.profile_photo_)
         name.text = user.first_name
         surname.text = user.last_name
         bioText.text = user.bio
@@ -113,15 +113,19 @@ extension EditProfileViewController {
         }
     }
     func getChosenCard(){
-        presentLoader()
+        presentTransparentLoader()
         Server.get("/my_chosen_card/"){ data, response, error in
-            self.closeLoader()
+            self.closeTransparentLoader()
             guard let data = data else {
                 return
             }
             do {
                 let responseO = try JSONDecoder().decode(ResponseObject.self, from: data)
-                if responseO.error_message == nil {
+                if let error_message = responseO.error_message {
+                    DispatchQueue.main.async {
+                        self.view.showToast(message: error_message)
+                    }
+                } else {
                     if let data = responseO.data, data.count > 0 {
                         self.paymentMethod = data[0]
                     }
@@ -130,7 +134,9 @@ extension EditProfileViewController {
                     }
                 }
             } catch _ {
-                self.view.showToast(message: "Some error ocurred")
+                DispatchQueue.main.async {
+                    self.view.showToast(message: "Some error ocurred")
+                }
             }
         }
     }

@@ -37,7 +37,7 @@ class OrderNotificationViewController: CardBehaviourViewController {
     func setOrder(){
         guard let order = self.order else {return}
         self.guestingView.visibility = .visible
-        guestingImage.loadImageUsingUrlString(urlString: order.poster?.profile_photo)
+        guestingImage.loadImageUsingUrlString(urlString: order.poster?.profile_photo_)
         mealWithUser.text = order.poster?.full_name
         userUsername.text = order.poster?.username
         plateName.text = order.post?.plate_name

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewDelegate {
+class AddFoodViewController: KUIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var viewHolder: UIView!
     @IBOutlet weak var stackView: UIStackView!
@@ -17,7 +17,6 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var dinnersText: ValidatedTextField!
     @IBOutlet weak var priceText: CurrencyTextField!
     @IBOutlet weak var descriptionText: ValidatedTextView!
-    @IBOutlet weak var wordCountText: UILabel!
     @IBOutlet weak var holderBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var bankAccountInfo: UIButton!
     @IBOutlet weak var submitButton: LoadingButton!
@@ -46,8 +45,8 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         dinnersText.textFieldBorderStyle()
         priceText.textFieldBorderStyle()
         descriptionText.textFieldBorderStyle()
-        descriptionText.delegate = self
         bankAccountInfo.visibility = .gone
+        bankAccountInfo.underline()
         
         if self.foodPostId != nil {
             self.importImageVC?.foodPostId = self.foodPostId
@@ -132,12 +131,6 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
         performSegue(withIdentifier: "OptionsSegue", sender: nil)
         
     }
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
-        let numberOfChars = newText.count
-        wordCountText.text = "\(numberOfChars)/202"
-        return numberOfChars < 202    // 10 Limit Value
-    }
     
     @objc func myTextFieldBegin(_ textField: UITextField) {
         price = Int(priceText.enteredNumbers) ?? 0
@@ -185,9 +178,6 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate, UITextViewD
 extension AddFoodViewController {
     func getFoodPost(){
         Server.get("/foods/\(foodPostId!)/"){ data, response, error in
-            DispatchQueue.main.async {
-                
-            }
             guard let data = data else {
                 return
             }
@@ -212,26 +202,31 @@ extension AddFoodViewController {
                     if let error_message = saio.error_message {
                         self.viewHolder.showToast(message: error_message)
                         self.submitButton.isEnabled = false
+                        self.submitButton.alpha = 0.3
                     } else {
                         self.submitButton.isEnabled = true
                         if let currently_due = saio.requirements?.currently_due, currently_due.count == 0, saio.payouts_enabled! {
                             self.bankAccountInfo.visibility = .gone
                             self.submitButton.isEnabled = true
+                            self.submitButton.alpha = 1
                         } else {
                             self.bankAccountInfo.visibility = .visible
                             self.submitButton.isEnabled = false
+                            self.submitButton.alpha = 0.3
                         }
                     }
                 }
             } catch {}
         }
     }
-    func trueDeletePost(){
+    func trueDeletePost(goOut: Bool = false){
         guard let foodPost = self.foodPost else { return }
         Server.delete("/true_food_delete/\(foodPost.id!)/"){ data, response, error in
             guard let _ = data else {return}
-            DispatchQueue.main.async {
-                self.navigationController?.popViewController(animated: true)
+            if goOut {
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         }
     }
@@ -325,7 +320,7 @@ extension AddFoodViewController: TypesProtocol, AutocompleteProtocol, DatePicker
             pathFoodPost(visible: false)
             break
         case "Delete":
-            trueDeletePost()
+            trueDeletePost(goOut: true)
             break
         default:
             break
@@ -355,5 +350,4 @@ extension AddFoodViewController: TypesProtocol, AutocompleteProtocol, DatePicker
         self.types = types
     }
 }
-
 

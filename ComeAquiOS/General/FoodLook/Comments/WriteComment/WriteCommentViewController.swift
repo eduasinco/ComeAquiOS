@@ -12,6 +12,8 @@ protocol AddCommentDelegate {
     func commentAdded(newComment: Comment)
 }
 
+typealias Closure = () -> String
+
 class WriteCommentViewController: KUIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var commentLabel: UILabel!

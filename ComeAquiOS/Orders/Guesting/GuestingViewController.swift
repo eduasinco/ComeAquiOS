@@ -107,7 +107,7 @@ extension GuestingViewController: WebSocketDelegate{
     }
     func webSocketConnetion(){
         var request = URLRequest(url: URL(string: ASYNC_SERVER + "/orders/\(USER.id!)/")!)
-        request.timeoutInterval = 5
+        request.timeoutInterval = TIME_OUT
         ws = WebSocket(request: request)
         ws?.delegate = self
         ws?.connect()

@@ -79,7 +79,7 @@ class PostTableViewCell: UITableViewCell {
         self.shadowLayer.layer.shadowRadius = 4
         
         if object.images!.count > 0{
-            guard let imageString = object.images![0].food_photo else {return}
+            guard let imageString = object.images![0].food_photo_ else {return}
             self.putImage(url: imageString)
         } else {
             self.hideImage()

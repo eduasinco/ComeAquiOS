@@ -119,7 +119,7 @@ class FoodLookViewController: KUIViewController {
         
         userName.text = foodPost.owner?.full_name!
         userUserName.text = foodPost.owner?.username!
-        userImage.loadImageUsingUrlString(urlString: foodPost.owner!.profile_photo)
+        userImage.loadImageUsingUrlString(urlString: foodPost.owner!.profile_photo_)
         userImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goToProfile)))
         typesVC?.setTypes(typeString: foodPost.food_type ?? "0000000")
         
@@ -129,13 +129,13 @@ class FoodLookViewController: KUIViewController {
         if foodPost.images!.count == 0 {
             imageScrollView.visibility = .gone
         } else if foodPost.images!.count == 1 {
-            self.image1.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo)
+            self.image1.loadImageUsingUrlString(urlString: foodPost.images![0].food_photo_)
             image1Width.constant = imageScrollView.frame.width
             image1.isHidden = false
         } else {
             for (i, image) in foodPost.images!.enumerated(){
                 imageArray[i]!.visibility = .visible
-                imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo)
+                imageArray[i]!.loadImageUsingUrlString(urlString: image.food_photo_)
             }
         }
         var i = foodPost.images!.count
@@ -259,7 +259,7 @@ class FoodLookViewController: KUIViewController {
             }
             dinnerLabels.append(label)
         }
-        imageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo)
+        imageView.loadImageUsingUrlString(urlString: order.owner!.profile_photo_)
         imageView.contentMode = .scaleAspectFill
         dinnerImages.append(imageView)
         return dv

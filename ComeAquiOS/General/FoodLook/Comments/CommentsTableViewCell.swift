@@ -72,7 +72,7 @@ class CommentsTableViewCell: UITableViewCell {
         leadingMoreComments.constant = CGFloat((comment.depth - max_depth) * 32)
         leadingContinueConversation.constant = CGFloat((comment.depth - max_depth) * 32)
         
-        senderImage.loadImageUsingUrlString(urlString: comment.profile_photo, isFullUrl: true)
+        senderImage.loadImageUsingUrlString(urlString: comment.profile_photo)
         senderUsername.text = comment.username
         self.label.text = comment.comment
         

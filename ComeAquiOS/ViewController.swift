@@ -9,6 +9,8 @@
 import UIKit
 import Starscream
 
+var TIME_OUT: TimeInterval = 30
+
 class ViewController: UITabBarController {
     
     var ws: WebSocket?
@@ -36,7 +38,7 @@ extension ViewController: WebSocketDelegate {
     }
     func webSocketConnetion(){
         var request = URLRequest(url: URL(string: ASYNC_SERVER + "/popups/\(USER.id!)/")!)
-        request.timeoutInterval = 5
+        request.timeoutInterval = TIME_OUT
         ws = WebSocket(request: request)
         ws?.delegate = self
         ws?.connect()
