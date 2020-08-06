@@ -8,7 +8,7 @@
 import UIKit
 
 public class User: Decodable{
-    var id: Int!
+    var _id: String!
     var username: String?
     var email: String?
     var first_name: String?
@@ -46,7 +46,7 @@ public class User: Decodable{
 }
 
 public class FoodPostImageObject: Decodable{
-    var id: Int?
+    var _id: String?
     var food_photo: String?
     
     lazy var food_photo_: String? = {
@@ -59,7 +59,7 @@ public class FoodPostImageObject: Decodable{
 }
 
 public class FoodPostObject: Decodable{
-    var id: Int?
+    var _id: String?
     var owner: User?
     var plate_name: String?
     var formatted_address: String?
@@ -101,7 +101,7 @@ public class FoodPostObject: Decodable{
     }()
 }
 public class ReviewObject: Decodable {
-    var id: Int?
+    var _id: String?
     var owner: User?
     var review: String?
     var star_reason: String?
@@ -115,7 +115,7 @@ public class ReviewObject: Decodable {
     }()
 }
 public class ReviewReplyObject: Decodable {
-    var id: Int?
+    var _id: String?
     var owner: User?
     var review: ReviewObject?
     var reply: String?
@@ -130,13 +130,13 @@ public class ReviewReplyObject: Decodable {
 
 
 public class FavouritePost: Decodable{
-    var id: Int?
+    var _id: String?
     var owner: User?
     var post: FoodPostObject?
 }
 
 public class OrderObject: Decodable{
-    var id: Int?
+    var _id: String?
     var owner: User?
     var post: FoodPostObject?
     var poster: User?
@@ -159,7 +159,7 @@ public class OrderObject: Decodable{
 }
 
 public class NotificationObject: Decodable {
-    var id: Int?
+    var _id: String?
     var owner: User?
     var from_user: User?
     var type: String?
@@ -167,11 +167,11 @@ public class NotificationObject: Decodable {
     var body: String?
     var extra: String?
     var createdAt: String?
-    var type_id: Int?
+    var type_id: String?
 }
 
 public class PaymentMethodObject: Decodable {
-    var id: String?
+    var _id: String?
     var last4: String?
     var exp_month: Int?
     var exp_year: Int?
@@ -241,7 +241,7 @@ public class Document: Decodable{
 }
 
 public class ChatObject: Decodable {
-    var id: Int?
+    var _id: String?
     var users: [User]?
     var last_message : MessageObject?
     var created_at : String?
@@ -252,9 +252,9 @@ public class ChatObject: Decodable {
         return Date.hYesterdayWeekDay(isoDateString: created_at)
     }()
     
-    lazy var user_chat_status_dict: [Int: Int]? = {
+    lazy var user_chat_status_dict: [String: Int]? = {
         guard let user_chat_status = self.user_chat_status else { return nil }
-        var dict: [Int: Int] = [:]
+        var dict: [String: Int] = [:]
         for status in user_chat_status {
             dict[status.user_id!] = status.unseen_messages_count!
         }
@@ -263,7 +263,7 @@ public class ChatObject: Decodable {
 }
 
 public class PlaneChatObject: Decodable {
-    var id: Int?
+    var _id: String?
     var users: [User]?
     var created_at : String?
     var user_chat_status: [UserChatStatus]?
@@ -275,13 +275,13 @@ public class PlaneChatObject: Decodable {
 }
 
 public class UserChatStatus: Decodable {
-    var user_id: Int?
+    var user_id: String?
     var seen: Bool?
     var unseen_messages_count: Int?
 }
 
 public class MessageObject: Decodable {
-    var id: Int?
+    var _id: String?
     var sender: User?
     var message: String?
     var created_at: String?

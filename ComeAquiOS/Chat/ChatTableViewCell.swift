@@ -23,7 +23,7 @@ class ChatTableViewCell: UITableViewCell {
     
     func setCell(chat: ChatObject){
         guard let users = chat.users, users.count > 1 else {return}
-        let chattingWith = (USER.id == users[0].id) ? users[1] : users[0]
+        let chattingWith = (USER._id == users[0]._id) ? users[1] : users[0]
 
         userUsername.text = chattingWith.full_name
         if let lastMessage = chat.last_message{
@@ -31,7 +31,7 @@ class ChatTableViewCell: UITableViewCell {
         } else {
             lastMessageText.text = nil
         }
-        if let userCount = chat.user_chat_status_dict![USER.id], userCount > 0 {
+        if let userCount = chat.user_chat_status_dict![USER._id], userCount > 0 {
             unreadMessagesCount.text = "\(userCount) "
         } else {
             unreadMessagesCount.text = ""

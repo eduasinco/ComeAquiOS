@@ -45,10 +45,10 @@ class WriteCommentViewController: KUIViewController, UITextFieldDelegate {
 extension WriteCommentViewController{
     func postComment(){
         submitButton.showLoading()
-        var request = getRequestWithAuth("/food_post_comment/\(self.comment!.id!)/")
+        var request = getRequestWithAuth("/food_post_comment/\(self.comment!._id!)/")
         var json = [String:Any]()
-        json["post_id"] = foodPost?.id ?? nil
-        json["comment_id"] = self.comment?.id ?? nil
+        json["post_id"] = foodPost?._id ?? nil
+        json["comment_id"] = self.comment?._id ?? nil
         json["message"] = textView.text!
         do {
             let data = try JSONSerialization.data(withJSONObject: json, options: [])

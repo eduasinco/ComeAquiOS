@@ -99,7 +99,7 @@ class FoodCardViewController: UIViewController {
         view.addGestureRecognizer(singleTap)
     }
     @objc func goToFoodLook(){
-        performSegue(withIdentifier: "FoodLookSegue", sender: self.foodPost.id)
+        performSegue(withIdentifier: "FoodLookSegue", sender: self.foodPost._id)
     }
     
     func setFavouriteClickListener(){
@@ -125,7 +125,7 @@ class FoodCardViewController: UIViewController {
             rateContainer = segue.destination as? RateStarViewController
         } else if segue.identifier == "FoodLookSegue" {
             let foodLookContainer = segue.destination as? FoodLookViewController
-            foodLookContainer?.foodPostId = sender as? Int
+            foodLookContainer?.foodPostId = sender as? String
         }
     }
 }
@@ -148,7 +148,7 @@ extension FoodCardViewController {
         settingFavourite = true
         Server.post("/favourites/",
                     json:
-            ["food_post_id":  self.foodPost.id]) { data, response, error in
+            ["food_post_id":  self.foodPost._id]) { data, response, error in
             if let _ = error {
                 self.view.showToast(message: "No internet connection")
             }

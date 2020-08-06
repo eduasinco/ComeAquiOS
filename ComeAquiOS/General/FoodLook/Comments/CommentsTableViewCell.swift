@@ -76,7 +76,7 @@ class CommentsTableViewCell: UITableViewCell {
         senderUsername.text = comment.username
         self.label.text = comment.comment
         
-        if comment.ownerId == USER.id {
+        if comment.ownerId == USER._id {
             deleteButton.visibility = .visible
             addButton.visibility = .gone
             optionsButton.visibility = .gone

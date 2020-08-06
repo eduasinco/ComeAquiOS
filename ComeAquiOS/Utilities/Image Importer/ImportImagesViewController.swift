@@ -32,7 +32,7 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
     var widths: [NSLayoutConstraint]!
     var images: [FoodPostImageObject?] = [nil, nil, nil]
     
-    var foodPostId: Int!
+    var foodPostId: String!
     var delegate: ImportImagesProtocol?
     var selectedImage: FoodPostImageObject?
     
@@ -90,7 +90,7 @@ class ImportImagesViewController: UIViewController, UIImagePickerControllerDeleg
 extension ImportImagesViewController: GaleryCameraPopUpProtocol, ImageLookerProtocol{
     func deleteImage(_ urlImage: String?) {
         images[Int(deleteButtonPressed!.tag)] = nil
-        Server.delete("/image/\(self.selectedImage!.id!)/"){ data, response, error in
+        Server.delete("/image/\(self.selectedImage!._id!)/"){ data, response, error in
             guard let _ = data else {return}
             DispatchQueue.main.async {
                 self.deleteButtonPressed?.setImage(UIImage(systemName: "camera"), for: .normal)

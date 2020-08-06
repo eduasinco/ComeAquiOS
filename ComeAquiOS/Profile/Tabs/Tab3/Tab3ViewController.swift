@@ -15,7 +15,7 @@ class Tab3ViewController: UIViewController {
     @IBOutlet weak var noMediaView: UIView!
     
     var data: [FoodPostImageObject] = []
-    var userId : Int? {
+    var userId : String? {
         didSet{
             page = 1
             data = []

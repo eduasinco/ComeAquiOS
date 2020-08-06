@@ -55,7 +55,7 @@ class PeopleViewController: UIViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ProfileSegue" {
             let profileVC = segue.destination as? ProfileViewController
-            profileVC?.userId = (sender as? User)!.id
+            profileVC?.userId = (sender as? User)!._id
         }
     }
 }

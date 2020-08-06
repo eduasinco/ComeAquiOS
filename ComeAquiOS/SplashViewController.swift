@@ -42,7 +42,7 @@ extension SplashViewController {
             guard let data = data else {return}
             do {
                 USER = try JSONDecoder().decode(User.self, from: data)
-                guard let _ = USER.id else {
+                guard let _ = USER._id else {
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "LoginOrRegisterSegue", sender: nil)
                     }
@@ -67,7 +67,7 @@ extension SplashViewController {
                             json:
                     ["dev_id":  UIDevice.current.identifierForVendor!.uuidString,
                      "reg_id":  result.token,
-                     "name":  "\(USER.id!)"]) { data, response, error in
+                     "name":  "\(USER._id!)"]) { data, response, error in
                         if let _ = error {
                             self.view.showToast(message: "No internet connection")
                         }

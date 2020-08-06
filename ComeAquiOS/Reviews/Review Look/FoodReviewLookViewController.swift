@@ -26,7 +26,7 @@ class FoodReviewLookViewController: LoadViewController {
     @IBOutlet weak var shortHeaderView: UIView!
     @IBOutlet weak var noCommentsView: UIView!
     
-    var foodPostId: Int?
+    var foodPostId: String?
     var foodPost: FoodPostObject?
     var reviews: [ReviewObject] = []
     
@@ -98,7 +98,7 @@ class FoodReviewLookViewController: LoadViewController {
     @IBAction func optionsButtonPressed(_ sender: Any) {
         guard let foodPost = self.foodPost else {return}
         var options: [String] = []
-        if (foodPost.owner!.id! == USER.id){
+        if (foodPost.owner!._id! == USER._id){
             options.append(" Delete ")
         } else {
             options.append(" Report ");
@@ -141,18 +141,18 @@ class FoodReviewLookViewController: LoadViewController {
             vc?.indexPath = IndexPath(row: sender as? Int ?? 1, section: 0)
         } else if segue.identifier == "ProfileSegue" {
             let profileVC = segue.destination as? ProfileViewController
-            profileVC?.userId = sender as? Int
+            profileVC?.userId = sender as? String
         }
     }
 }
 extension FoodReviewLookViewController: ReviewCellProtocol, OptionsPopUpProtocol, WriteReplyProtocol {
-    func userImagePressed(userId: Int) {
+    func userImagePressed(userId: String) {
         performSegue(withIdentifier: "ProfileSegue", sender: userId)
     }
     
     func replyAdded(reply: ReviewReplyObject) {
         for child in self.reviews {
-            if child.id == reply.review!.id {
+            if child._id == reply.review!._id {
                 child.replies![0] = reply
                 break
             }
@@ -169,10 +169,10 @@ extension FoodReviewLookViewController: ReviewCellProtocol, OptionsPopUpProtocol
             break
         case "Delete":
             if let review = self.review {
-                deleteReview(review.id!)
+                deleteReview(review._id!)
             }
             if let reply = self.reply {
-                deleteReply(reply.id!)
+                deleteReply(reply._id!)
             }
         case "Report":
             break
@@ -190,7 +190,7 @@ extension FoodReviewLookViewController: ReviewCellProtocol, OptionsPopUpProtocol
     
     func reviewOptionsPressed(review: ReviewObject, cell: UITableViewCell) {
         var options: [String] = []
-        if (self.foodPost!.owner!.id == USER.id){
+        if (self.foodPost!.owner!._id == USER._id){
             if let replies = review.replies {
                 if replies.count == 0 || replies[0].reply!.isEmpty{
                     options.append("Reply")
@@ -200,7 +200,7 @@ extension FoodReviewLookViewController: ReviewCellProtocol, OptionsPopUpProtocol
             }
         }
         
-        if (USER.id == review.owner!.id){
+        if (USER._id == review.owner!._id){
             options.append("Delete")
         } else {
             options.append("Report")
@@ -213,7 +213,7 @@ extension FoodReviewLookViewController: ReviewCellProtocol, OptionsPopUpProtocol
     
     func replyOptionsPressed(reply: ReviewReplyObject, cell: UITableViewCell) {
         var options: [String] = []
-        if (USER.id == reply.owner!.id){
+        if (USER._id == reply.owner!._id){
             options.append("Delete")
         } else {
             options.append("Report")
@@ -241,7 +241,7 @@ extension FoodReviewLookViewController: UITableViewDataSource, UITableViewDelega
     func deleteReviewFromTable(review: ReviewObject) {
         // Do whatever you want from your button here.
         for (i, child) in self.reviews.enumerated(){
-            if child.id == review.id {
+            if child._id == review._id {
                 self.reviews.remove(at: i)
                 break
             }
@@ -286,7 +286,7 @@ extension FoodReviewLookViewController {
             }
         }
     }
-    func deleteReview(_ reviewId: Int){
+    func deleteReview(_ reviewId: String){
         Server.delete( "/delete_review/\(reviewId)/"){ data, response, error in
             guard let _ = data else {return}
             DispatchQueue.main.async {
@@ -294,7 +294,7 @@ extension FoodReviewLookViewController {
             }
         }
     }
-    func deleteReply(_ replyId: Int){
+    func deleteReply(_ replyId: String){
         Server.delete( "/delete_reply/\(replyId)/"){ data, response, error in
             guard let _ = data else {return}
             DispatchQueue.main.async {

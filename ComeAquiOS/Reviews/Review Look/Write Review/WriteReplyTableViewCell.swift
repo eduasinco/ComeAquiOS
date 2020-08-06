@@ -48,7 +48,7 @@ extension WriteReplyTableViewCell{
                     json:
             [
                 "reply": textView.text,
-                "review_id": review?.id,
+                "review_id": review?._id,
         ]) { data, response, error in
             DispatchQueue.main.async {
                 self.submitButton.hideLoading()

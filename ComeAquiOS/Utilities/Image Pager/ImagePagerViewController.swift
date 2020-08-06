@@ -12,7 +12,7 @@ class ImagePagerViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var data: [FoodPostImageObject] = []
-    var userId: Int?
+    var userId: String?
     var indexPath: IndexPath?
     
     var page: Int = 1

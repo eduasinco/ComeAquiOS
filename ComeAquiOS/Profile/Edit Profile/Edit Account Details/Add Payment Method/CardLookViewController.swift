@@ -52,7 +52,7 @@ extension CardLookViewController {
     func selectAsPaymentMethod(){
         guard let paymentMethod = self.paymentMethod else {return}
         
-        Server.patch("/select_as_payment_method/" + paymentMethod.id! + "/",
+        Server.patch("/select_as_payment_method/" + paymentMethod._id! + "/",
                      json: ["": ""]) { data, response, error in
                         if let _ = error {
                             self.view.showToast(message: "No internet connection")
@@ -68,7 +68,7 @@ extension CardLookViewController {
     
     func deleteCard(){
         guard let paymentMethod = self.paymentMethod else {return}
-        Server.delete("/card_detail/" + paymentMethod.id! + "/"){ data, response, error in
+        Server.delete("/card_detail/" + paymentMethod._id! + "/"){ data, response, error in
             DispatchQueue.main.async {
                 
             }

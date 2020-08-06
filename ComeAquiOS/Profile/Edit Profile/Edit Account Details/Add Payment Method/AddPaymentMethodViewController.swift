@@ -92,7 +92,7 @@ extension AddPaymentMethodViewController: UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let paymentM = data[indexPath.row]
         if isChangeMode {
-            self.selectAsDefaultPayment(paymentM.id!)
+            self.selectAsDefaultPayment(paymentM._id!)
         } else {
             performSegue(withIdentifier: "CardLookSegue", sender: paymentM)
         }

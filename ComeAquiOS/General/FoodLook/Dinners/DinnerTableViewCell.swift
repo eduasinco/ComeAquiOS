@@ -41,7 +41,7 @@ class DinnerTableViewCell: UITableViewCell {
         } else {
             additionalGuestsLabel.text = ""
         }
-        if order.owner?.id == USER.id {
+        if order.owner?._id == USER._id {
             chatButton.visibility = .gone
         } else {
             chatButton.visibility = .visible

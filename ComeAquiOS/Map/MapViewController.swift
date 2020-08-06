@@ -15,7 +15,7 @@ import Starscream
 
 
 private class FoodPostMarker : GMSMarker {
-    var id : Int!
+    var _id : String!
 }
 
 class MapViewController: LoadViewController, CardActionProtocol {
@@ -31,8 +31,8 @@ class MapViewController: LoadViewController, CardActionProtocol {
     
     var foodPosts: [FoodPostObject]?
     var favouritePosts: [FavouritePost]?
-    var foodPostsDict: [Int: FoodPostObject] = [:]
-    private var idToMarker: [Int: FoodPostMarker] = [:]
+    var foodPostsDict: [String: FoodPostObject] = [:]
+    private var idToMarker: [String: FoodPostMarker] = [:]
     private var markers: [FoodPostMarker] = []
     
     var myLocation: CLLocation?
@@ -42,7 +42,7 @@ class MapViewController: LoadViewController, CardActionProtocol {
     
     var currentPost: FoodPostObject!
     var lastPost: FoodPostObject?
-    var seenPost = Set<Int>()
+    var seenPost = Set<String>()
     
     var cameraLat: Double?
     var cameraLng: Double?
@@ -104,15 +104,15 @@ class MapViewController: LoadViewController, CardActionProtocol {
     func setMarkers(){
         guard let foodPosts = foodPosts else {return}
         for fp in foodPosts{
-            self.foodPostsDict[fp.id!] = fp
+            self.foodPostsDict[fp._id!] = fp
             
             let marker = FoodPostMarker()
-            marker.id = fp.id
+            marker._id = fp._id
             marker.position = CLLocationCoordinate2D(latitude: fp.lat!, longitude: fp.lng!)
             marker.title = fp.plate_name!
             marker.map = self.googleMap
             marker.icon = self.imageWithImage(image: UIImage(named: "marker")!, width: 30)
-            idToMarker[marker.id] = marker
+            idToMarker[marker._id] = marker
             
             markers.append(marker)
         }
@@ -121,14 +121,14 @@ class MapViewController: LoadViewController, CardActionProtocol {
     func setFavouriteMarkers(){
         guard let favorutieFoodPosts = favouritePosts else {return}
         for ffp in favorutieFoodPosts{
-            let foodPost = foodPostsDict[ffp.post!.id!]
+            let foodPost = foodPostsDict[ffp.post!._id!]
             foodPost!.favourite = true
             self.changeMarker(foodPost: foodPost!, image: self.imageWithImage(image: UIImage(named: "marker_favourite")!, width: 30))
         }
     }
     
     func changeMarker(foodPost: FoodPostObject, image: UIImage){
-        let marker = self.idToMarker[foodPost.id!]
+        let marker = self.idToMarker[foodPost._id!]
         marker!.icon = image
     }
     
@@ -145,7 +145,7 @@ class MapViewController: LoadViewController, CardActionProtocol {
         centerViewOnUserLocation()
     }
     
-    func showCard(foodPostId: Int){
+    func showCard(foodPostId: String){
         self.lastPost = currentPost
         let fp = self.foodPostsDict[foodPostId]
         guard let currentPost = fp else { return }
@@ -160,13 +160,13 @@ class MapViewController: LoadViewController, CardActionProtocol {
         }
         
         if let favourite = self.currentPost.favourite  {
-            changeMarker(foodPost: self.currentPost, image: self.imageWithImage(image: UIImage(named: favourite ? "marker_favourite" :(seenPost.contains(currentPost.id!) ? "marker_seen" : "marker"))!, width: 40))
+            changeMarker(foodPost: self.currentPost, image: self.imageWithImage(image: UIImage(named: favourite ? "marker_favourite" :(seenPost.contains(currentPost._id!) ? "marker_seen" : "marker"))!, width: 40))
         } else {
             changeMarker(foodPost: self.currentPost,image: self.imageWithImage(image: UIImage(named: "marker_seen")!, width: 30))
-            changeMarker(foodPost: self.currentPost, image: self.imageWithImage(image: UIImage(named: seenPost.contains(currentPost.id!) ? "marker_seen" : "marker")!, width: 40))
+            changeMarker(foodPost: self.currentPost, image: self.imageWithImage(image: UIImage(named: seenPost.contains(currentPost._id!) ? "marker_seen" : "marker")!, width: 40))
         }
         returnViewToOrigin(view: cardView)
-        seenPost.insert(currentPost.id!)
+        seenPost.insert(currentPost._id!)
     }
     
     func addPanGesture(view: UIView) {
@@ -265,7 +265,7 @@ class MapViewController: LoadViewController, CardActionProtocol {
             foodCardVC?.foodPost = sender as? FoodPostObject
         } else if segue.identifier == "FoodLookSegue" {
             let foodLookContainer = segue.destination as? FoodLookViewController
-            foodLookContainer?.foodPostId = sender as? Int
+            foodLookContainer?.foodPostId = sender as? String
         } else if segue.identifier == "MapPickerSegue" {
             mapPickerContainer = segue.destination as? MapPickerViewController
             mapPickerContainer.delegate = self
@@ -356,7 +356,7 @@ extension MapViewController: CLLocationManagerDelegate {
 extension MapViewController: GMSMapViewDelegate {
     @objc(mapView:didTapMarker:) func mapView(_: GMSMapView, didTap marker: GMSMarker) -> Bool {
         let marker = marker as! FoodPostMarker
-        showCard(foodPostId: marker.id)
+        showCard(foodPostId: marker._id)
         return true
     }
     
@@ -401,19 +401,19 @@ extension MapViewController: WebSocketDelegate{
             let so = try JSONDecoder().decode(SocketObject.self, from: data)
             guard let mro = so.message else {return}
             if let delete = mro.delete, delete {
-                if let marker = idToMarker[mro.post!.id!] {
+                if let marker = idToMarker[mro.post!._id!] {
                     marker.map = nil
                 }
             } else {
-                if foodPostsDict[mro.post!.id!] == nil {
-                    foodPostsDict[mro.post!.id!] = mro.post!
+                if foodPostsDict[mro.post!._id!] == nil {
+                    foodPostsDict[mro.post!._id!] = mro.post!
                     let marker = FoodPostMarker()
-                    marker.id = mro.post!.id!
+                    marker._id = mro.post!._id!
                     marker.position = CLLocationCoordinate2D(latitude: mro.post!.lat!, longitude: mro.post!.lng!)
                     marker.title = mro.post!.plate_name!
                     marker.map = self.googleMap
                     marker.icon = self.imageWithImage(image: mro.post!.favourite == nil || !mro.post!.favourite! ? UIImage(named: "marker")! : UIImage(named: "marker_favourite")!, width: 30)
-                    idToMarker[marker.id] = marker
+                    idToMarker[marker._id] = marker
                 }
             }
             DispatchQueue.main.async {

@@ -45,7 +45,7 @@ class ProfileViewController: LoadViewController {
     var tab3VC: Tab3ViewController?
 
     
-    var userId: Int?
+    var userId: String?
     var user: User?
     var isBackgroundImageChanging = true
     var options: [String] = []
@@ -65,12 +65,12 @@ class ProfileViewController: LoadViewController {
         if let profileId = self.userId {
             getUser(profileId)
         } else {
-            getUser(USER.id)
+            getUser(USER._id)
         }
     }
     func setView(){
         guard let user = self.user else {return}
-        if user.id == USER.id{
+        if user._id == USER._id{
             messageButtonContainer.visibility = .gone
             changeProfileImageButton.visibility = .visible
             changeBackgroundImageButton.visibility = .visible
@@ -97,9 +97,9 @@ class ProfileViewController: LoadViewController {
             bioTextView.visibility = .visible
             bioTextView.text = user.bio
         }
-        tab1VC?.userId = user.id
-        tab2VC?.userId = user.id
-        tab3VC?.userId = user.id
+        tab1VC?.userId = user._id
+        tab2VC?.userId = user._id
+        tab3VC?.userId = user._id
         
         view.layoutIfNeeded()
         scrollView1Width.constant = self.view.frame.width
@@ -163,7 +163,7 @@ class ProfileViewController: LoadViewController {
             _ = segue.destination as? LoginOrRegisterViewController
         } else if segue.identifier == "ConversationSegue" {
             let vc = segue.destination as? ConversationViewController
-            vc?.chatId = sender as? Int
+            vc?.chatId = sender as? String
         }
     }
 }
@@ -194,10 +194,10 @@ extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol
             getConversation()
             break
         case "Block":
-            blockUser(self.user!.id!, block: true)
+            blockUser(self.user!._id!, block: true)
             break
         case "Unblock":
-            blockUser(self.user!.id!, block: false)
+            blockUser(self.user!._id!, block: false)
             break
         case "Report":
             break
@@ -209,13 +209,13 @@ extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol
         if isBackgroundImageChanging {
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "background_photo", pictures: image, finish: {(data: Data?) -> Void in
                 DispatchQueue.main.async {
-                    self.getUser(USER.id)
+                    self.getUser(USER._id)
                 }
             })
         } else {
             Server.uploadPictures(method: .patch, urlString: SERVER + "/edit_profile/", withName: "profile_photo", pictures: image, finish: {(data: Data?) -> Void in
                 DispatchQueue.main.async {
-                    self.getUser(USER.id)
+                    self.getUser(USER._id)
                 }
             })
         }
@@ -224,7 +224,7 @@ extension ProfileViewController: GaleryCameraPopUpProtocol, OptionsPopUpProtocol
 }
 
 extension ProfileViewController {
-    func getUser(_ userId: Int){
+    func getUser(_ userId: String){
         Server.get("/profile_detail/\(userId)/"){ data, response, error in
             if let _ = error {
                 self.onReload = self.loadEverything
@@ -240,7 +240,7 @@ extension ProfileViewController {
             }
         }
     }
-    func blockUser(_ userId: Int, block: Bool){
+    func blockUser(_ userId: String, block: Bool){
         presentTransparentLoader()
         Server.get("/block_user/\(userId)/" + (block ? "block": "unblock") + "/"){ data, response, error in
             self.closeTransparentLoader()
@@ -269,7 +269,7 @@ extension ProfileViewController {
     func getConversation(){
         presentTransparentLoader()
         guard let user = self.user else { return }
-        Server.get("/get_or_create_chat/\(user.id!)/"){ data, response, error in
+        Server.get("/get_or_create_chat/\(user._id!)/"){ data, response, error in
             self.closeTransparentLoader()
             if let _ = error {
                 self.onReload = self.loadEverything
@@ -278,7 +278,7 @@ extension ProfileViewController {
             do {
                 let chat = try JSONDecoder().decode(User.self, from: data)
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "ConversationSegue", sender: chat.id)
+                    self.performSegue(withIdentifier: "ConversationSegue", sender: chat._id)
                 }
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")

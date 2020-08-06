@@ -10,7 +10,7 @@ import UIKit
 
 class SegueViewController: UIViewController, UIScrollViewDelegate {
 
-    var commentId: Int?
+    var commentId: String?
     var max_depth = 0
     @IBOutlet weak var scrollView: UIScrollView!
     

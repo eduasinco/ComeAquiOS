@@ -76,7 +76,7 @@ class Tab2TableViewCell: UITableViewCell {
             foodImageView.visibility = .gone
         }
         
-        if object.reviews!.count > 0 && object.reviews![0].id != nil {
+        if object.reviews!.count > 0 && object.reviews![0]._id != nil {
             reviewerView.visibility = .visible
             reviewerImage.loadImageUsingUrlString(urlString: object.reviews![0].owner!.profile_photo_, secondImage: UIImage(systemName: "person.circle"))
 

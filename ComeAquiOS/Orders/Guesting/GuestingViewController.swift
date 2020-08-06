@@ -15,7 +15,7 @@ class GuestingViewController: LoadViewController {
     @IBOutlet weak var noGuestingView: UIView!
     
     var orders: [OrderObject] = []
-    var ordersToIndexPath: [Int: IndexPath] = [:]
+    var ordersToIndexPath: [String: IndexPath] = [:]
     
     var page = 1
     var alreadyFetchingData = false
@@ -36,7 +36,7 @@ class GuestingViewController: LoadViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OrderLookSegue" {
             let orderLookVC = segue.destination as? OrderLookViewController
-            orderLookVC?.orderId = (sender as! OrderObject).id
+            orderLookVC?.orderId = (sender as! OrderObject)._id
         }
     }
 }
@@ -51,7 +51,7 @@ extension GuestingViewController: UITableViewDataSource, UITableViewDelegate {
         if orders.count > 0 {
             let order = orders[indexPath.row]
             cell.setCell(order: order)
-            ordersToIndexPath[order.id!] = indexPath
+            ordersToIndexPath[order._id!] = indexPath
             return cell
         }
         return cell
@@ -106,7 +106,7 @@ extension GuestingViewController: WebSocketDelegate{
         var order_changed: OrderObject?
     }
     func webSocketConnetion(){
-        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/orders/\(USER.id!)/")!)
+        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/orders/\(USER._id!)/")!)
         request.timeoutInterval = TIME_OUT
         ws = WebSocket(request: request)
         ws?.delegate = self
@@ -132,7 +132,7 @@ extension GuestingViewController: WebSocketDelegate{
             do {
                 let so = try JSONDecoder().decode(SocketObject.self, from: data)
                 guard let mro = so.message else {return}
-                if let ip = ordersToIndexPath[mro.order_changed!.id!] {
+                if let ip = ordersToIndexPath[mro.order_changed!._id!] {
                     orders[ip.row] = mro.order_changed!
                     DispatchQueue.main.async {
                         self.tableView.beginUpdates()

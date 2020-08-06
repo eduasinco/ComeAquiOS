@@ -16,7 +16,7 @@ class ImageScrollViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var image3: URLImageView!
     
     var images: [FoodPostImageObject]?
-    var foodPostId: Int? {
+    var foodPostId: String? {
         didSet {
             getFoodPostImages()
         }

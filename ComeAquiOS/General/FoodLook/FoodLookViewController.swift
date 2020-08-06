@@ -54,7 +54,7 @@ class FoodLookViewController: KUIViewController {
     var typesVC: TypesViewController?
     
     var googleMap: GMSMapView!
-    var foodPostId: Int!
+    var foodPostId: String!
     var foodPost: FoodPostObject?
     var paymentMethod: PaymentMethodObject?
     var commentsVC: CommentsViewController?
@@ -168,14 +168,14 @@ class FoodLookViewController: KUIViewController {
         viewToShowMap.clipsToBounds = true
         setDinners()
         
-        if USER.id == foodPost.owner!.id {
+        if USER._id == foodPost.owner!._id {
             attendMealButton.visibility = .gone
         }
         addPaymentMethodButton.visibility = .gone
         attendMealButton.visibility = .gone
         creditCardInfoView.visibility = .gone
         commentsView.visibility = .gone
-        if USER.id == foodPost.owner!.id {
+        if USER._id == foodPost.owner!._id {
             commentsView.visibility = .visible
             setStatus(text: "Confirmed", color: UIColor(named: "Success")!)
             commentsView.visibility = .visible
@@ -344,7 +344,7 @@ class FoodLookViewController: KUIViewController {
             let optionsVC = segue.destination as? OptionsPopUpViewController
             guard let foodPost = self.foodPost else {return}
             var options: [String] = []
-            if (foodPost.owner!.id! == USER.id){
+            if (foodPost.owner!._id! == USER._id){
                 options.append("Edit");
                 if (foodPost.confirmed_orders?.count == 0 || (foodPost.confirmed_orders!.count > 0 && foodPost.confirmed_orders?[0].order_status == "FINISHED")){
                     options.append("Delete");
@@ -364,7 +364,7 @@ class FoodLookViewController: KUIViewController {
             attendVC?.delegate = self
         } else if segue.identifier == "OrderLookSegue" {
             let orderVC = segue.destination as? OrderLookViewController
-            orderVC?.orderId = (sender as! OrderObject).id
+            orderVC?.orderId = (sender as! OrderObject)._id
         } else if segue.identifier == "AddPaymentSegue" {
             _ = segue.destination as? AddPaymentMethodViewController
         } else if segue.identifier == "CommentsSegue" {
@@ -378,7 +378,7 @@ class FoodLookViewController: KUIViewController {
             vc?.indexPath = IndexPath(row: sender as? Int ?? 1, section: 0)
         } else if segue.identifier == "ProfileSegue" {
             let vc = segue.destination as? ProfileViewController
-            vc?.userId = foodPost?.owner?.id
+            vc?.userId = foodPost?.owner?._id
         }
     }
     override func didReceiveMemoryWarning() {
@@ -515,10 +515,10 @@ extension FoodLookViewController {
     }
     
     func postComment(){
-        Server.post("/food_post_comment/\(self.foodPost!.id!)/",
+        Server.post("/food_post_comment/\(self.foodPost!._id!)/",
             json:
             [
-                "post_id": foodPost?.id ?? nil,
+                "post_id": foodPost?._id ?? nil,
                 "comment_id": nil,
                 "message": textView.text!
             ]) { data, response, error in
@@ -547,7 +547,7 @@ extension FoodLookViewController {
         Server.post("/create_order_and_notification/",
             json:
             [
-                "food_post_id": self.foodPost!.id!,
+                "food_post_id": self.foodPost!._id!,
                 "additional_guests": additionalGuests,
             ]) { data, response, error in
             if let _ = error {

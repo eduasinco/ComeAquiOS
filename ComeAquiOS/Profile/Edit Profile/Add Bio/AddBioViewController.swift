@@ -52,7 +52,7 @@ extension AddBioViewController: UITextViewDelegate {
 
 extension AddBioViewController{
     func getUser(){
-        Server.get("/profile_detail/\(USER.id!)/"){ data, response, error in
+        Server.get("/profile_detail/\(USER._id!)/"){ data, response, error in
             DispatchQueue.main.async {
                 
             }

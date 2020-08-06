@@ -94,7 +94,7 @@ class EditAccountDetailsViewController: KUIViewController {
 extension EditAccountDetailsViewController {
     func getUser(){
         presentLoader()
-        Server.get("/profile_detail/\(USER.id!)/"){ data, response, error in
+        Server.get("/profile_detail/\(USER._id!)/"){ data, response, error in
             self.closeLoader()
             guard let data = data else {
                 return

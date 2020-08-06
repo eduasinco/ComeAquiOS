@@ -63,10 +63,10 @@ class OrderNotificationViewController: CardBehaviourViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FoodLookSegue" {
             let vc = segue.destination as? FoodLookViewController
-            vc?.foodPostId = self.foodPost?.id
+            vc?.foodPostId = self.foodPost?._id
         } else if segue.identifier == "OrderLookSegue" {
             let vc = segue.destination as? OrderLookViewController
-            vc?.orderId = self.order?.id
+            vc?.orderId = self.order?._id
         }
     }
 }

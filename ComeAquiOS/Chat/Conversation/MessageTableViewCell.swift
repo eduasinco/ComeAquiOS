@@ -33,11 +33,11 @@ class MessageTableViewCell: UITableViewCell {
         messageContainer.layer.shadowOffset = CGSize(width: 0, height: 1)
         messageContainer.layer.shadowRadius = 0.5
         
-        if message.sender!.id == USER.id {
+        if message.sender!._id == USER._id {
             leftMessageConstraint?.isActive = false
             rightMessageConstraint?.isActive = true
             messageContainer.backgroundColor = UIColor.white
-            if messageBefore != nil && messageBefore?.sender!.id == message.sender!.id {
+            if messageBefore != nil && messageBefore?.sender!._id == message.sender!._id {
                 messageContainer.layer.cornerRadius = 8
                 messageContainer.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
             } else {
@@ -49,7 +49,7 @@ class MessageTableViewCell: UITableViewCell {
             rightMessageConstraint?.isActive = false
             messageContainer.backgroundColor = UIColor(named: "SecondaryLighter")
             
-            if messageBefore != nil && messageBefore?.sender!.id == message.sender!.id {
+            if messageBefore != nil && messageBefore?.sender!._id == message.sender!._id {
                 messageContainer.layer.cornerRadius = 8
                 messageContainer.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
             } else {

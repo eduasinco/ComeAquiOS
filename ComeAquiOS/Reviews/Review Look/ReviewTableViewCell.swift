@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ReviewCellProtocol {
-    func userImagePressed(userId: Int)
+    func userImagePressed(userId: String)
     func reviewOptionsPressed(review: ReviewObject, cell: UITableViewCell)
     func replyOptionsPressed(reply: ReviewReplyObject, cell: UITableViewCell)
 }
@@ -77,7 +77,7 @@ class ReviewTableViewCell: UITableViewCell {
         }
     }
     @objc func tap(_ gestureRecognizer: UITapGestureRecognizer) {
-        guard let id = review?.owner?.id else {return}
+        guard let id = review?.owner?._id else {return}
         delegate?.userImagePressed(userId: id)
     }
     func setStars(_ rating: Float){

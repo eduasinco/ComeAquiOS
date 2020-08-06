@@ -19,7 +19,7 @@ class ChatViewController: KUIViewController, UISearchBarDelegate {
     @IBOutlet weak var noMessagesView: UIView!
     
     var data: [ChatObject] = []
-    var chatSet: Set<Int> = []
+    var chatSet: Set<String> = []
     
     var page: Int = 1
     var alreadyFetchingData = false
@@ -67,7 +67,7 @@ class ChatViewController: KUIViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ConversationSegue" {
             let vc = segue.destination as? ConversationViewController
-            vc?.chatId = (sender as? ChatObject)!.id
+            vc?.chatId = (sender as? ChatObject)!._id
         }
     }
 }
@@ -96,7 +96,7 @@ extension ChatViewController {
                 self.data.append(contentsOf: chatLoad)
                 DispatchQueue.main.async {
                     for chat in chatLoad {
-                        self.chatSet.insert(chat.id!)
+                        self.chatSet.insert(chat._id!)
                     }
                     self.tableView.reloadData()
                     self.page += 1
@@ -146,7 +146,7 @@ extension ChatViewController: WebSocketDelegate{
         var chat: ChatObject?
     }
     func webSocketConnetion(){
-        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/unread_messages/\(USER.id!)/")!)
+        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/unread_messages/\(USER._id!)/")!)
         request.timeoutInterval = TIME_OUT
         ws = WebSocket(request: request)
         ws?.delegate = self
@@ -170,11 +170,11 @@ extension ChatViewController: WebSocketDelegate{
             do {
                 let so = try JSONDecoder().decode(SocketObject.self, from: data)
                 guard let mro = so.message else {return}
-                if chatSet.contains(mro.chat!.id!) {
+                if chatSet.contains(mro.chat!._id!) {
                     moveChatToFirstPosition(mro.chat!)
                 } else {
                     self.data.insert(mro.chat!, at: 0)
-                    chatSet.insert(mro.chat!.id!)
+                    chatSet.insert(mro.chat!._id!)
                     DispatchQueue.main.async {
                         self.tableView.beginUpdates()
                         self.tableView.insertRows(at: [IndexPath(row:0, section: 0)], with: .automatic)
@@ -208,9 +208,9 @@ extension ChatViewController: WebSocketDelegate{
         }
     }
     
-    func findChatIndex(_ chatId: Int) -> Int? {
+    func findChatIndex(_ chatId: String) -> Int? {
         var  i = 0
-        while i < data.count && data[i].id != chatId {
+        while i < data.count && data[i]._id != chatId {
             i += 1
         }
         guard i < data.count else {return nil}
@@ -218,7 +218,7 @@ extension ChatViewController: WebSocketDelegate{
     }
     
     func moveChatToFirstPosition(_ chat: ChatObject) {
-        guard let i = findChatIndex(chat.id!) else {return}
+        guard let i = findChatIndex(chat._id!) else {return}
         self.data.remove(at: i)
         self.data.insert(chat, at: 0)
         DispatchQueue.main.async {

@@ -15,7 +15,7 @@ class Tab2ViewController: UIViewController {
     @IBOutlet weak var noPostsView: UIView!
     
     var data: [FoodPostObject] = []
-    var userId : Int? {
+    var userId : String? {
         didSet{
             page = 1
             data = []
@@ -38,7 +38,7 @@ class Tab2ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FoodCommentsSegue" {
             let foodLookVC = segue.destination as? FoodReviewLookViewController
-            foodLookVC?.foodPostId = (sender as? FoodPostObject)!.id
+            foodLookVC?.foodPostId = (sender as? FoodPostObject)!._id
         }
     }
 }

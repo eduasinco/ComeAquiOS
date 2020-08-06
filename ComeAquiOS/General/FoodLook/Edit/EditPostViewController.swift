@@ -24,7 +24,7 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate {
     var descriptionString: String?
     
     var foodPost: FoodPostObject?
-    var foodPostId: Int?
+    var foodPostId: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +85,7 @@ class EditPostViewController: KUIViewController, UITextFieldDelegate {
         if segue.identifier == "ImageImporterSegue" {
             importImageVC = segue.destination as? ImportImagesViewController
             importImageVC?.delegate = self
-            importImageVC?.foodPostId = self.foodPost?.id
+            importImageVC?.foodPostId = self.foodPost?._id
         }
     }
 }
@@ -109,7 +109,7 @@ extension EditPostViewController {
     }
     func pathFoodPost(visible: Bool){
         presentTransparentLoader()
-        Server.patch("/edit_food/\(self.foodPost!.id!)/",
+        Server.patch("/edit_food/\(self.foodPost!._id!)/",
             json:
             [
                 "plate_name":  plateNameText.text,

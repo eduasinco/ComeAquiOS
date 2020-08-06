@@ -158,7 +158,7 @@ class SearchViewController: KUIViewController {
             _ = segue.destination as? PeopleViewController
         } else if segue.identifier == "FoodLookSegue" {
             let vc = segue.destination as? FoodLookViewController
-            vc?.foodPostId = (sender as! FoodPostObject).id
+            vc?.foodPostId = (sender as! FoodPostObject)._id
         }
     }
 }

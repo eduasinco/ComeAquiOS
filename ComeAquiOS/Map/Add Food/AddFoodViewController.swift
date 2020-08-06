@@ -34,7 +34,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate {
     var descriptionString: String?
     
     var foodPost: FoodPostObject?
-    var foodPostId: Int?
+    var foodPostId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,7 +148,7 @@ class AddFoodViewController: KUIViewController, UITextFieldDelegate {
         } else if segue.identifier == "ImageImporterSegue" {
             importImageVC = segue.destination as? ImportImagesViewController
             importImageVC?.delegate = self
-            importImageVC?.foodPostId = self.foodPost?.id
+            importImageVC?.foodPostId = self.foodPost?._id
         } else if segue.identifier == "OptionsSegue" {
             let optionsVC = segue.destination as? OptionsPopUpViewController
             var options: [String] = []
@@ -221,7 +221,7 @@ extension AddFoodViewController {
     }
     func trueDeletePost(goOut: Bool = false){
         guard let foodPost = self.foodPost else { return }
-        Server.delete("/true_food_delete/\(foodPost.id!)/"){ data, response, error in
+        Server.delete("/true_food_delete/\(foodPost._id!)/"){ data, response, error in
             guard let _ = data else {return}
             if goOut {
                 DispatchQueue.main.async {
@@ -232,7 +232,7 @@ extension AddFoodViewController {
     }
     func pathFoodPost(visible: Bool){
         submitButton.showLoading()
-        Server.patch("/foods/\(self.foodPost!.id!)/",
+        Server.patch("/foods/\(self.foodPost!._id!)/",
             json:
             ["plate_name":  plateNameText.text,
              "formatted_address":  self.location?.result?.formatted_address,
@@ -258,7 +258,7 @@ extension AddFoodViewController {
                 guard let data = data else {return}
                 do {
                     self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
-                    self.foodPostId = self.foodPost?.id
+                    self.foodPostId = self.foodPost?._id
                     DispatchQueue.main.async {
                         self.navigationController?.popViewController(animated: true)
                     }
@@ -303,7 +303,7 @@ extension AddFoodViewController {
                 do {
                     self.foodPost = try JSONDecoder().decode(FoodPostObject.self, from: data)
                     DispatchQueue.main.async {
-                        self.importImageVC?.foodPostId = self.foodPost!.id!
+                        self.importImageVC?.foodPostId = self.foodPost!._id!
                         self.setFoodPost()
                     }
                 } catch _ {

@@ -13,7 +13,7 @@ class DinnersViewController: LoadViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var orders: [OrderObject] = []
-    var foodPostId: Int?
+    var foodPostId: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +35,10 @@ class DinnersViewController: LoadViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ProfileSegue" {
             let vc = segue.destination as? ProfileViewController
-            vc?.userId = (sender as? User)?.id
+            vc?.userId = (sender as? User)?._id
         } else if segue.identifier == "ConversationSegue" {
             let vc = segue.destination as? ConversationViewController
-            vc?.chatId = sender as? Int
+            vc?.chatId = sender as? String
         }
     }
 }
@@ -89,7 +89,7 @@ extension DinnersViewController {
     }
     
     func getConversation(withUser: User){
-        Server.get("/get_or_create_chat/\(withUser.id!)/"){ data, response, error in
+        Server.get("/get_or_create_chat/\(withUser._id!)/"){ data, response, error in
             if let _ = error {
                 self.tableView.showToast(message: "No internet connection")
             }
@@ -99,7 +99,7 @@ extension DinnersViewController {
             do {
                 let chat = try JSONDecoder().decode(User.self, from: data)
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "ConversationSegue", sender: chat.id)
+                    self.performSegue(withIdentifier: "ConversationSegue", sender: chat._id)
                 }
             } catch _ {
                 self.view.showToast(message: "Some error ocurred")

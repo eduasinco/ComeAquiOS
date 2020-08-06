@@ -14,8 +14,8 @@ let ACTUAL_DEPTH = 3
 let ACTUAL_LENGTH = 3
 
 class Comment {
-    var id: Int!
-    var ownerId: Int?
+    var _id: String!
+    var ownerId: String?
     var profile_photo: String?
     var username: String?
     var comment: String!
@@ -31,8 +31,8 @@ class Comment {
     var isMaxLength = 0
         
     init (json: [String: Any], parent: Comment?){
-        self.id = json["id"] as? Int
-        self.ownerId = (json["owner"] as? [String: Any])?["id"] as? Int
+        self._id = json["id"] as? String
+        self.ownerId = (json["owner"] as? [String: Any])?["id"] as? String
         self.profile_photo = (json["owner"] as? [String: Any])?["profile_photo"] as? String
         self.username = (json["owner"] as? [String: Any])?["username"] as? String
         self.comment = json["message"] as? String
@@ -61,7 +61,7 @@ class Comment {
     init(parent: Comment, maxLength: Int) {
         self.comment = ""
         self.parent = parent
-        self.id = parent.id
+        self._id = parent._id
         self.depth = parent.depth + 1
         self.isMaxLength = maxLength
     }
@@ -85,12 +85,12 @@ class CommentsViewController: UIViewController {
     var currentComment: Comment?
     var comments: [Comment] = []
     
-    var foodPostId: Int? {
+    var foodPostId: String? {
         didSet {
             getComments()
         }
     }
-    var commentId: Int? {
+    var commentId: String? {
         didSet {
             getComments()
         }
@@ -212,7 +212,7 @@ extension CommentsViewController: AddCommentDelegate {
             destVC.delegate = self
         } else if segue.identifier == "SelfSegue"{
             let destVC = segue.destination as! SegueViewController
-            destVC.commentId = (sender as! Comment).id!
+            destVC.commentId = (sender as! Comment)._id!
             destVC.max_depth = (sender as! Comment).depth + 1
         } else if segue.identifier == "OptionsSegue"{
             let vc = segue.destination as! OptionsPopUpViewController
@@ -312,14 +312,14 @@ extension CommentsViewController: AddOrDeleteDelegate {
     func delteComemnt(comment: Comment){
         if let parent = comment.parent {
             for (i, child) in parent.comments.enumerated(){
-                if child.id == comment.id {
+                if child._id == comment._id {
                     parent.comments.remove(at: i)
                     break
                 }
             }
         } else {
             for (i, child) in self.comments.enumerated(){
-                if child.id == comment.id {
+                if child._id == comment._id {
                     self.comments.remove(at: i)
                     break
                 }
@@ -360,7 +360,7 @@ extension CommentsViewController {
     
     func deleteComment(comment: Comment, indexPath: IndexPath){
         var request: URLRequest
-        request = getRequestWithAuth("/food_post_comment/\(comment.id!)/")
+        request = getRequestWithAuth("/food_post_comment/\(comment._id!)/")
         request.httpMethod = "DELETE"
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
@@ -387,7 +387,7 @@ extension CommentsViewController {
     
     func getMoreComments(comment: Comment, nLasts: Int, indexPath: IndexPath){
         var request: URLRequest
-        request = getRequestWithAuth("/comment_comments/\(comment.id!)/\(nLasts)/")
+        request = getRequestWithAuth("/comment_comments/\(comment._id!)/\(nLasts)/")
         request.httpMethod = "GET"
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
@@ -464,7 +464,7 @@ extension CommentsViewController: UITableViewDataSource, UITableViewDelegate {
 //    }
 //
 //    init(_ comment: String, _ parent: Comment?) {
-//        self.id = Comment.incrId()
+//        self._id = Comment.incrId()
 //        self.comment = comment
 //        self.parent = parent
 //
@@ -484,7 +484,7 @@ extension CommentsViewController: UITableViewDataSource, UITableViewDelegate {
 //    }
 //
 //    init(parent: Comment!, maxLength: Int) {
-//        self.id = Comment.incrId()
+//        self._id = Comment.incrId()
 //        self.comment = ""
 //        self.parent = parent
 //        self.depth = parent.depth + 1
@@ -493,7 +493,7 @@ extension CommentsViewController: UITableViewDataSource, UITableViewDelegate {
 //    }
 //
 //    init(comment: Comment) {
-//        self.id = Comment.incrId()
+//        self._id = Comment.incrId()
 //        self.comment = ""
 //        self.parent = comment
 //        self.depth = comment.depth + 1

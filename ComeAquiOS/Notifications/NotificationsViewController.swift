@@ -13,7 +13,7 @@ class NotificationsViewController: LoadViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var notifications: [NotificationObject] = []
-    var notificationToIndexPath: [Int: IndexPath] = [:]
+    var notificationToIndexPath: [String: IndexPath] = [:]
     @IBOutlet weak var noNotificationsView: UIView!
     
     var page = 1
@@ -63,7 +63,7 @@ extension NotificationsViewController: UITableViewDataSource, UITableViewDelegat
         if notifications.count > 0 {
             let notification = notifications[indexPath.row]
             cell.setCell(notification: notification)
-            notificationToIndexPath[notification.id!] = indexPath
+            notificationToIndexPath[notification._id!] = indexPath
         }
         return cell
     }
@@ -142,7 +142,7 @@ extension NotificationsViewController: WebSocketDelegate{
         var notification_added: NotificationObject?
     }
     func webSocketConnetion(){
-        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/notifications/\(USER.id!)/")!)
+        var request = URLRequest(url: URL(string: ASYNC_SERVER + "/notifications/\(USER._id!)/")!)
         request.timeoutInterval = TIME_OUT
         ws = WebSocket(request: request)
         ws?.delegate = self

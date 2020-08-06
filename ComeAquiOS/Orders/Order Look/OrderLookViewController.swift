@@ -36,7 +36,7 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
     
     var imageScrollVC: ImageScrollViewController?
     
-    var orderId: Int?
+    var orderId: String?
     var order: OrderObject?
     var isSendingData = false
     
@@ -64,7 +64,7 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
         setMapView()
         subtotal.text = priceString
         total.text = priceString
-        imageScrollVC?.foodPostId = self.order?.post!.id
+        imageScrollVC?.foodPostId = self.order?.post!._id
         setConfirmCancelButton()
     }
     func setMapView() {
@@ -95,7 +95,7 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
                 mealMessage.textColor = UIColor(named: "Confirm")
                 mealMessage.visibility = .visible
             case "PENDING":
-                if order?.poster?.id == USER.id {
+                if order?.poster?._id == USER._id {
                     confirmCancelStack.visibility = .visible
                 } else {
                     status.text = order?.order_status
@@ -205,12 +205,12 @@ class OrderLookViewController: LoadViewController, GMSMapViewDelegate {
             optionsVC?.delegate = self
         } else if segue.identifier == "FoodLookSegue" {
             let foodLookContainer = segue.destination as? FoodLookViewController
-            foodLookContainer?.foodPostId = self.order?.post!.id
+            foodLookContainer?.foodPostId = self.order?.post!._id
         } else if segue.identifier == "ImageScrollSegue" {
             imageScrollVC = segue.destination as? ImageScrollViewController
         }  else if segue.identifier == "ProfileSegue" {
             let vc = segue.destination as? ProfileViewController
-            vc?.userId = order?.poster?.id
+            vc?.userId = order?.poster?._id
         }
     }
 }
@@ -255,7 +255,7 @@ extension OrderLookViewController {
         Server.post("/set_order_status/",
                     json:
             [
-                "order_id": self.order!.id!,
+                "order_id": self.order!._id!,
                 "order_status": status,
         ]) { data, response, error in
             self.isSendingData = false

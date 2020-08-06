@@ -168,7 +168,7 @@ extension ReviewHostViewController {
         submitButton.showLoading()
         Server.post("/create_review/",
                     json:
-            ["order_id":  order?.id,
+            ["order_id":  order?._id,
              "review":  reviewText.text,
              "rating":  rating,
              "star_reason": "",
@@ -184,7 +184,7 @@ extension ReviewHostViewController {
                 }
                 do {
                     let review = try JSONDecoder().decode(ReviewObject.self, from: data)
-                    guard review.id != nil else {return}
+                    guard review._id != nil else {return}
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                     }

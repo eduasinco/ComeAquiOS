@@ -32,10 +32,10 @@ class HostingViewController: LoadViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FoodLookSegue" {
             let foodLookVC = segue.destination as? FoodLookViewController
-            foodLookVC?.foodPostId = (sender as! FoodPostObject).id
+            foodLookVC?.foodPostId = (sender as! FoodPostObject)._id
         } else if segue.identifier == "AddFoodSegue" {
             let addFoodVC = segue.destination as? AddFoodViewController
-            addFoodVC?.foodPostId = (sender as! FoodPostObject).id
+            addFoodVC?.foodPostId = (sender as! FoodPostObject)._id
         }
     }
 }

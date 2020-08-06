@@ -15,7 +15,7 @@ class Tab1ViewController: UIViewController {
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     var data: [FoodPostObject] = []
-    var userId : Int? {
+    var userId : String? {
         didSet{
             page = 1
             data = []
@@ -39,7 +39,7 @@ class Tab1ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FoodLookSegue" {
             let foodLookVC = segue.destination as? FoodLookViewController
-            foodLookVC?.foodPostId = (sender as? FoodPostObject)!.id
+            foodLookVC?.foodPostId = (sender as? FoodPostObject)!._id
         }
     }
     

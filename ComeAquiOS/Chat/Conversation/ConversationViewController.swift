@@ -26,7 +26,7 @@ class ConversationViewController: KUIViewController {
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     
     var messagesFromServer: [MessageObject] = []
-    var chatId: Int?
+    var chatId: String?
     var chat: PlaneChatObject?
     var isUserBlocked: Bool = false
     var chattingWith: User!
@@ -92,9 +92,9 @@ class ConversationViewController: KUIViewController {
         if !textView.text.isEmpty{
            let message = "{\"message\": \"" + textView.text + "\"," +
                 "\"command\": \"new_message\"," +
-                "\"from\": \(USER.id!)," +
-                "\"to\": \(self.chattingWith.id!)," +
-            "\"chatId\": \(self.chat!.id!)}"
+                "\"from\": \(USER._id!)," +
+                "\"to\": \(self.chattingWith._id!)," +
+            "\"chatId\": \(self.chat!._id!)}"
             ws!.write(string: message)
             textView.text = ""
             textViewDidChange(textView)
@@ -103,7 +103,7 @@ class ConversationViewController: KUIViewController {
     
     func setView() {
         guard let chat = self.chat else {return}
-        self.chattingWith = (USER.id == chat.users![0].id) ? chat.users![1] : chat.users![0]
+        self.chattingWith = (USER._id == chat.users![0]._id) ? chat.users![1] : chat.users![0]
         userImage.loadImageUsingUrlString(urlString: self.chattingWith.profile_photo_)
         userName.text = self.chattingWith.full_name
 
@@ -115,7 +115,7 @@ class ConversationViewController: KUIViewController {
     }
     
     @IBAction func unblockUser(_ sender: Any) {
-        blockUser(chattingWith.id!, block: false)
+        blockUser(chattingWith._id!, block: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -129,7 +129,7 @@ class ConversationViewController: KUIViewController {
             vc?.delegate = self
         } else if segue.identifier == "ProfileSegue" {
             let profileVC = segue.destination as? ProfileViewController
-            profileVC?.userId = chattingWith?.id
+            profileVC?.userId = chattingWith?._id
         }
     }
 }
@@ -138,9 +138,9 @@ extension ConversationViewController: OptionsPopUpProtocol {
     func optionPressed(_ title: String) {
         switch title {
         case "Unblock user":
-            blockUser(chattingWith.id!, block: false)
+            blockUser(chattingWith._id!, block: false)
         case "Block user":
-            blockUser(chattingWith.id!, block: true)
+            blockUser(chattingWith._id!, block: true)
         case "Go to profile":
             performSegue(withIdentifier: "ProfileSegue", sender: nil)
         case "Report":
@@ -210,8 +210,8 @@ extension ConversationViewController: WebSocketDelegate{
                             self.tableView.reloadData()
                         }
                     }
-                    if message.sender!.id! != USER.id {
-                        setMessageAsSeen(messageId: message.id!)
+                    if message.sender!._id! != USER._id {
+                        setMessageAsSeen(messageId: message._id!)
                     }
                 } else {
                     
@@ -272,7 +272,7 @@ extension ConversationViewController {
             }
         }
     }
-    func setMessageAsSeen(messageId: Int){
+    func setMessageAsSeen(messageId: String){
         Server.put("/mark_message_as_seen/\(messageId)/", json: ["":""]) { data, response, error in
         if let _ = error {
             self.view.showToast(message: "No internet connection")
@@ -327,7 +327,7 @@ extension ConversationViewController {
             } catch {}
         }
     }
-    func blockUser(_ userId: Int, block: Bool){
+    func blockUser(_ userId: String, block: Bool){
         presentTransparentLoader()
         Server.get("/block_user/\(userId)/" + (block ? "block": "unblock") + "/"){ data, response, error in
             self.closeTransparentLoader()
