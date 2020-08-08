@@ -84,7 +84,9 @@ extension GuestingViewController {
                         self.noGuestingView.visibility = .invisible
                     }
                 }
-            } catch {}
+            } catch let e {
+                print(e)
+            }
         }
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

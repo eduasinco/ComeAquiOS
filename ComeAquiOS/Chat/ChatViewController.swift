@@ -23,7 +23,8 @@ class ChatViewController: KUIViewController, UISearchBarDelegate {
     
     var page: Int = 1
     var alreadyFetchingData = false
-    var query = "query="
+    var fullQuery = "?query=&page=1"
+    var query = ""
     var ws: WebSocket?
     
     override func viewDidLoad() {
@@ -46,7 +47,7 @@ class ChatViewController: KUIViewController, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timer?.invalidate()  // Cancel any previous timer
         
-        self.query = "query=" + searchText
+        self.fullQuery = "?query=" + self.query + "&page=\(self.page)"
         if searchText.count > 0 {
             timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false){_ in
                 self.page = 1
@@ -82,8 +83,9 @@ extension ChatViewController {
         alreadyFetchingData = true
         presentTransparentLoader()
         self.tableView.showActivityIndicator()
-        query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        Server.get("/my_chats/" + query + "/\(page)/"){ data, response, error in
+        self.fullQuery = "?query=" + self.query + "&page=\(self.page)/"
+        self.fullQuery = fullQuery.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        Server.get("/my_chats/" + fullQuery){ data, response, error in
             self.alreadyFetchingData = false
             if let _ = error {
                 self.onReload = self.userChats
